@@ -30,5 +30,5 @@ class Vocab(object):
         cnt['<unk>'] = n_unk
 
         with open(path, 'w') as f:
-            for w in v:
-                f.write('{}\t{}\n'.format(w, cnt[w]))
+           for w in v:
+               f.write('{}\t{}\n'.format(w, cnt[w]))

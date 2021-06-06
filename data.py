@@ -3,6 +3,10 @@ import torch
 import json
 from vocab import Vocab
 
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
+datamap= dict()
+surfacemap = dict()
+
 def readdata():
     snts = dict()
     data = []
@@ -22,22 +26,28 @@ def readdata():
                 sent_state = False
                 continue
             if sent_state:
-                splt_line = line.split()
+                splt_line = line.lower().split()
                 if len(splt_line) > 2: # multiple data 
                     for i in range(1,len(splt_line)):
-                        tags = splt_line[i].split('+') 
+                        if splt_line[i] not in datamap and splt_line[0] not in surfacemap:
+                            surfacemap[splt_line[0]] = 'here'
+                            datamap[splt_line[i]] = splt_line[0]
+                            tags = splt_line[i].replace('^','+').split('+') 
+                            tags = [char for char in tags[0]] + tags[1:]
+                            snt.append([splt_line[0], tags])
+                else:
+                    if splt_line[1] not in datamap  and splt_line[0] not in surfacemap:
+                        surfacemap[splt_line[0]] = 'here'
+                        datamap[splt_line[1]] = splt_line[0]
+                        tags = splt_line[1].replace('^','+').split('+')
                         tags = [char for char in tags[0]] + tags[1:]
                         snt.append([splt_line[0], tags])
-                else:
-                    tags = splt_line[1].split('+')
-                    tags = [char for char in tags[0]] + tags[1:]
-                    snt.append([splt_line[0], tags])
 
-    vocab_file = 'vocab.txt'    
+    vocab_file = 'vocab2.txt'    
     Vocab.build(data, vocab_file, 10000)
     vocab = Vocab(vocab_file)
-    # with open('vocab.json', 'w') as file:
-    #      file.write(json.dumps(vocab.word2idx)) 
+    with open('vocab.json', 'w') as file:
+        file.write(json.dumps(vocab.word2idx)) 
     return data, vocab
     
 def get_batch(x, vocab):
@@ -48,26 +58,31 @@ def get_batch(x, vocab):
         input  = snt[1]
         target = snt[0]
         target = [char for char in target]        
-        snt = [char for char in snt[0]] + snt[1]
         s_idx =  [vocab.word2idx[w] if w in vocab.word2idx else vocab.unk for w in input]  
         t_idx =  [vocab.word2idx[w] if w in vocab.word2idx else vocab.unk for w in target]
         padding = [vocab.pad] * (max_len - len(input)) 
         go_x.append([vocab.go] + s_idx + [vocab.eos] + padding)
         padding = [vocab.pad] * (max_tgt_len - len(target)) 
         x_eos.append([vocab.go] + t_idx + [vocab.eos] + padding)
-    return torch.LongTensor(go_x).t().contiguous(), \
-        torch.LongTensor(x_eos).t().contiguous()  # time * batch
+
+    #sents_ts = torch.tensor(x_eos, dtype=torch.long,
+    #                             requires_grad=False, device=device)
+
+    #return sents_ts
+    
+    return torch.LongTensor(go_x).t().contiguous().to(device), \
+        torch.LongTensor(x_eos).t().contiguous().to(device)  # time * batch
 
 def get_batches(data, vocab, batchsize=64):
-        order = range(len(data))
-        z = sorted(zip(order, data), key=lambda i: len(i[1]))
-        order, data = zip(*z)
-        batches = []
-        i = 0
-        while i < len(data):
-            j = i
-            while j < min(len(data), i+batchsize) and len(data[j]) == len(data[i]):
-                j += 1
-            batches.append(get_batch(data[i: j], vocab))
-            i = j
-        return batches, order        
+    order = range(len(data))
+    z = sorted(zip(order, data), key=lambda i: len(i[1][0]))
+    order, data = zip(*z)
+    batches = []
+    i = 0
+    while i < len(data):
+        j = i
+        while j < min(len(data), i+batchsize) and len(data[j][0]) == len(data[i][0]):
+            j += 1
+        batches.append(get_batch(data[i: j], vocab))
+        i = j
+    return batches, order    
