@@ -2,22 +2,7 @@ import math
 import torch
 import torch.nn as nn
 
-
-def log_sum_exp(value, dim=None, keepdim=False):
-    """Numerically stable implementation of the operation
-    value.exp().sum(dim, keepdim).log()
-    """
-    if dim is not None:
-        m, _ = torch.max(value, dim=dim, keepdim=True)
-        value0 = value - m
-        if keepdim is False:
-            m = m.squeeze(dim)
-        return m + torch.log(torch.sum(torch.exp(value0), dim=dim, keepdim=keepdim))
-    else:
-        m = torch.max(value)
-        sum_exp = torch.sum(torch.exp(value - m))
-        return m + torch.log(sum_exp)
-
+from ..utils import log_sum_exp
 
 class GaussianEncoderBase(nn.Module):
     """docstring for EncoderBase"""
@@ -48,7 +33,7 @@ class GaussianEncoderBase(nn.Module):
         mu, logvar = self.forward(input)
 
         # (batch, nsamples, nz)
-        z = self.reparameterize(mu, logvar, nsamples)
+        z = mu #self.reparameterize(mu, logvar, nsamples)
 
         return z, (mu, logvar)
 
@@ -62,9 +47,14 @@ class GaussianEncoderBase(nn.Module):
         """
         # (batch_size, nz)
         mu, logvar = self.forward(input)
-        # (batch, nsamples, nz)
-        z = self.reparameterize(mu, logvar, nsamples)
+        if self.mode =='s2s':
+            z = mu.unsqueeze(1)
+        else:
+            # (batch, nsamples, nz)
+            z = self.reparameterize(mu, logvar, nsamples)
+
         KL = 0.5 * (mu.pow(2) + logvar.exp() - logvar - 1).sum(dim=1)
+
         return z, KL
 
     def reparameterize(self, mu, logvar, nsamples=1):

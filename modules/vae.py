@@ -1,22 +1,10 @@
 import math
 import torch
 import torch.nn as nn
-from lm_lstm import LSTM_LM
 
-def log_sum_exp(value, dim=None, keepdim=False):
-    """Numerically stable implementation of the operation
-    value.exp().sum(dim, keepdim).log()
-    """
-    if dim is not None:
-        m, _ = torch.max(value, dim=dim, keepdim=True)
-        value0 = value - m
-        if keepdim is False:
-            m = m.squeeze(dim)
-        return m + torch.log(torch.sum(torch.exp(value0), dim=dim, keepdim=keepdim))
-    else:
-        m = torch.max(value)
-        sum_exp = torch.sum(torch.exp(value - m))
-        return m + torch.log(sum_exp)
+from .utils import log_sum_exp
+from .lm import LSTM_LM
+
 
 class VAE(nn.Module):
     """VAE with normal prior"""
@@ -26,6 +14,7 @@ class VAE(nn.Module):
         self.decoder = decoder
 
         self.args = args
+
         self.nz = args.nz
 
         loc = torch.zeros(self.nz, device=args.device)
@@ -39,7 +28,7 @@ class VAE(nn.Module):
             Tensor1: the tensor latent z with shape [batch, nsamples, nz]
             Tensor2: the tenor of KL for each x with shape [batch]
         """
-v        return self.encoder.encode(x, nsamples)
+        return self.encoder.encode(x, nsamples)
 
     def encode_stats(self, x):
         """
@@ -83,9 +72,10 @@ v        return self.encoder.encode(x, nsamples)
             List1: a list of decoded word sequence
         """
         z = self.sample_from_inference(x).squeeze(1)
+
         return self.decode(z, decoding_strategy, K)
 
-
+    '''
     def loss(self, x, kl_weight, nsamples=1):
         """
         Args:
@@ -98,10 +88,35 @@ v        return self.encoder.encode(x, nsamples)
             Tensor2: reconstruction loss shape [batch]
             Tensor3: KL loss shape [batch]
         """
+
         z, KL = self.encode(x, nsamples)
+
         # (batch)
         reconstruct_err = self.decoder.reconstruct_error(x, z).mean(dim=1)
+
         return reconstruct_err + kl_weight * KL, reconstruct_err, KL
+    '''
+
+    def s2s_loss(self, x, y, nsamples=1):
+        """
+        Args:
+            x: if the data is constant-length, x is the data tensor with
+                shape (batch, *). Otherwise x is a tuple that contains
+                the data tensor and length list
+
+        Returns: Tensor1, Tensor2, Tensor3
+            Tensor1: total loss [batch]
+            Tensor2: reconstruction loss shape [batch]
+            Tensor3: KL loss shape [batch]
+        """
+        # z: (batchsize, 1, nz)
+        z, KL = self.encode(x, nsamples)
+
+        # (batch)
+        reconstruct_err, acc = self.decoder.s2s_reconstruct_error(y, z)
+        reconstruct_err =  reconstruct_err.mean(dim=1)
+        return reconstruct_err, acc 
+
 
     def nll_iw(self, x, nsamples, ns=100):
         """compute the importance weighting estimate of the log-likelihood
@@ -209,7 +224,6 @@ v        return self.encoder.encode(x, nsamples)
         """
         return self.prior.sample((nsamples,))
 
-
     def sample_from_inference(self, x, nsamples=1):
         """perform sampling from inference net
         Returns: Tensor
@@ -219,7 +233,6 @@ v        return self.encoder.encode(x, nsamples)
         z, _ = self.encoder.sample(x, nsamples)
 
         return z
-
 
     def sample_from_posterior(self, x, nsamples):
         """perform MH sampling from model posterior
@@ -287,8 +300,6 @@ v        return self.encoder.encode(x, nsamples)
         mean, logvar = self.encoder.forward(x)
 
         return mean
-
-
 
     def eval_inference_dist(self, x, z, param=None):
         """
