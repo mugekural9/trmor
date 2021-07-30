@@ -73,7 +73,7 @@ def get_batch(x, vocab, tgt_vocab):
 
 def get_batches(data, vocab, tgt_vocab, batchsize=64):
     order = range(len(data))
-    # sort according to src
+    # 0:sort according to surfaceform, 1: featureform 
     z = sorted(zip(order, data), key=lambda i: len(i[1][1]))
     # z = zip(order, data)
     order, data = zip(*z)
@@ -81,8 +81,9 @@ def get_batches(data, vocab, tgt_vocab, batchsize=64):
     i = 0
     while i < len(data):
         j = i
-        #form batch with equal length of tgt
-        while j < min(len(data), i+batchsize) and len(data[j][1]) == len(data[i][1]): # 1ler 0 olmali tgt uzunlugu rahatlatmak icin
+        # form batch with equal length of tgt
+        # data (surfaceform, featureform)
+        while j < min(len(data), i+batchsize) and len(data[j][1]) == len(data[i][1]): # 0 esitligi: surfaceform esitligi, 1 esitligi: surfaceform+featureform esitligi
             j += 1
         batches.append(get_batch(data[i: j], vocab, tgt_vocab))
         i = j
