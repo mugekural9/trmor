@@ -3,7 +3,7 @@ import torch
 import numpy as np
 from collections import defaultdict, Counter
 
-
+## Used in surface forms
 class VocabEntry(object):
     """docstring for Vocab"""
     def __init__(self, word2id=None):
@@ -276,6 +276,7 @@ class MonoTextData(object):
 
         return batch_data, sents_len
 
+## Used in feature forms
 class Vocab(object):
     def __init__(self, path):
         self.word2id = {}

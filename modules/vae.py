@@ -3,7 +3,6 @@ import torch
 import torch.nn as nn
 
 from .utils import log_sum_exp
-from .lm import LSTM_LM
 
 
 class VAE(nn.Module):
@@ -73,6 +72,7 @@ class VAE(nn.Module):
         """
         z = self.sample_from_inference(x).squeeze(1)
 
+        #return z, self.decode(z, decoding_strategy, K)
         return self.decode(z, decoding_strategy, K)
 
     '''
@@ -112,8 +112,9 @@ class VAE(nn.Module):
         # z: (batchsize, 1, nz)
         z, KL = self.encode(x, nsamples)
 
-        # (batch)
+        # (batch_size, n_sample)
         reconstruct_err, acc = self.decoder.s2s_reconstruct_error(y, z)
+        # (batch_size)
         reconstruct_err =  reconstruct_err.mean(dim=1)
         return reconstruct_err, acc 
 

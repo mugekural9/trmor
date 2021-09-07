@@ -1,7 +1,6 @@
 import sys
 import argparse
 import random
-import time
 import torch
 import torch.nn as nn
 import numpy as np
@@ -24,7 +23,8 @@ class xavier_normal_initializer(object):
         nn.init.xavier_normal_(tensor)
 
 def log_data_info(data, dset):
-    f = open("trmor_data/"+dset+".txt", "w")
+    # print out data to file
+    # f = open("trmor_data/"+dset+".txt", "w")
     total_inp_len = 0
     total_out_len = 0
     for d in data:
@@ -32,29 +32,33 @@ def log_data_info(data, dset):
         outdata = d[0]
         total_inp_len += len(inpdata)
         total_out_len += len(outdata)
-        f.write(' '.join(inpdata)+'\t'+outdata+'\n')
-    f.close()
+        # f.write(' '.join(inpdata)+'\t'+outdata+'\n')
+    # f.close()
     avg_inp_len = total_inp_len / len(data)
     avg_out_len = total_out_len / len(data)
     print('%s -- size:%.1d, avg_inp_len: %.2f,  avg_out_len: %.2f' % (dset, len(data), avg_inp_len, avg_out_len))
     
-def make_data(batchsize):
+def make_data(trnsize, batchsize):
     # Read data and get batches...
-    data, src_vocab = readdata() # data len:69981
-    tgt_data = MonoTextData('trmor_data/trmor.train.txt', label=False)
-    tgt_vocab = tgt_data.vocab
-    with open('trmor_data/tgt_vocab.json', 'w') as file:
-        file.write(json.dumps(tgt_vocab.word2id)) 
-    trndata = data[:64000]       # 60000
+    data, feature_vocab = readdata(trnsize) # data len:69981
+    surf_data = MonoTextData('trmor_data/surface.train.txt', label=False) # 60000 surf2surf data from pretraining
+    surface_vocab = surf_data.vocab
+    with open('trmor_data/surface_vocab.json', 'w') as file:
+        file.write(json.dumps(surface_vocab.word2id)) 
+    trndata = data[:trnsize]    # trnsize
     vlddata = data[64000:]      # 5981
     tstdata = data[:1]          # 1
+
     log_data_info(trndata, 'trn')
+    trn_batches, _ = get_batches(trndata, surface_vocab, feature_vocab, batchsize) 
+   
     log_data_info(vlddata, 'val')
+    vld_batches, _ = get_batches(vlddata, surface_vocab, feature_vocab, batchsize) 
+   
     log_data_info(tstdata, 'tst')
-    trn_batches, _ = get_batches(trndata, src_vocab, tgt_vocab, batchsize) 
-    vld_batches, _ = get_batches(vlddata, src_vocab, tgt_vocab, batchsize) 
-    tst_batches, _ = get_batches(tstdata, src_vocab, tgt_vocab, batchsize) 
-    return (trn_batches, vld_batches, tst_batches), src_vocab, tgt_vocab
+    tst_batches, _ = get_batches(tstdata, surface_vocab, feature_vocab, batchsize) 
+
+    return (trn_batches, vld_batches, tst_batches), surface_vocab, feature_vocab
 
 def test(model, batches, mode):
     report_loss = 0
@@ -63,22 +67,22 @@ def test(model, batches, mode):
     random.shuffle(indices)
     report_num_words = report_num_sents = 0
     for i, idx in enumerate(indices):
-        #x, y = batches[idx]
-        y, x = batches[idx]
-
+        surf, feat= batches[idx]
         # (batchsize, tx)
-        x = x.t().to(device)
+        surf = surf.t().to(device)
         # (batchsize, ty)
-        y = y.t().to(device)
+        feat = feat.t().to(device)
         
         # not predict start symbol
-        batch_size, sent_len = y.size()
-        report_num_words += (sent_len - 1) * batch_size
+        batch_size, sent_len = feat.size()
         report_num_sents += batch_size
         
-        loss, acc = model.s2s_loss(x, y)
-        #loss, acc = model.s2s_loss(y, y)
-        
+        #loss, _acc = model.s2s_loss(surf, feat)
+        loss, _acc = model.s2s_loss(feat, surf)
+
+        acc, num_words = _acc
+        report_num_words += num_words
+
         batch_loss = loss.mean(dim=-1)
         report_loss += loss.sum().item()
         report_acc  += acc
@@ -93,16 +97,16 @@ def test(model, batches, mode):
 
 def train(data, model, args):
     trn, val, tst = data
-    opt = optim.Adam(model.parameters(), lr=0.001) 
+    opt = optim.Adam(model.encoder.parameters(), lr=0.001) 
+    #opt = optim.SGD(model.encoder.parameters(), lr=1.0, momentum=0)
     opt_dict = {"not_improved": 0, "lr": 0.001, "best_loss": 1e4}
     decay_cnt = 0
     best_loss = 1e4
     best_ppl = 0
     decay_epoch = 5
     lr_decay = 0.5
-    max_decay = 100
+    max_decay = 5
     clip_grad = 5.0
-    print('is_decay... %s' % is_decay)
 
     for epc in range(args.epochs):
         epoch_loss = 0; epoch_align_loss = 0
@@ -113,18 +117,21 @@ def train(data, model, args):
         for i, idx in enumerate(indices):
             opt.zero_grad()
             # x: surface form, y; feature form
-            y, x = trn[idx] 
+            surf, feat = trn[idx] 
             # (batchsize, tx)
-            x = x.t().to(device)
+            surf = surf.t().to(device)
             # (batchsize, ty)
-            y = y.t().to(device)
+            feat = feat.t().to(device)
             # not predict start symbol
-            batch_size, sent_len = y.size()
-            report_num_words += (sent_len - 1) * batch_size
+            batch_size, sent_len = feat.size()
             report_num_sents += batch_size
-            loss, acc = model.s2s_loss(x, y)
-            #loss, acc = model.s2s_loss(y, y)
+           
+            #loss, _acc = model.s2s_loss(surf, feat)
+            loss, _acc = model.s2s_loss(feat, surf)
+            acc, num_words = _acc
+            report_num_words += num_words
             
+            # loss avg over batch
             batch_loss = loss.mean(dim=-1)
             batch_loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), clip_grad)
@@ -147,16 +154,16 @@ def train(data, model, args):
             print('update best loss')
             best_loss = loss
             best_ppl = ppl
-            torch.save(model.state_dict(), args.save_path)
+            torch.save(model.state_dict(), save_path)
 
         if loss > opt_dict["best_loss"]:
             opt_dict["not_improved"] += 1
             if opt_dict["not_improved"] >= decay_epoch and epc >=15:
                 opt_dict["best_loss"] = loss
                 opt_dict["not_improved"] = 0
-                if is_decay:
+                if args.is_decay:
                     opt_dict["lr"] = opt_dict["lr"] * lr_decay
-                    model.load_state_dict(torch.load(args.save_path))
+                    model.load_state_dict(torch.load(save_path))
                     print('new lr: %f' % opt_dict["lr"])
                     decay_cnt += 1
                     opt = optim.Adam(model.parameters(), lr=opt_dict["lr"])
@@ -172,65 +179,85 @@ def train(data, model, args):
 # CONFIG
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
+args.device = 'cuda'
 args.ni = 512
 args.enc_nh = 1024
 args.dec_nh = 1024
 args.nz = 32
-args.batchsize = 128
-args.epochs = 150
-modelname = '64k_trmor_surf2feat_from_ae_frozen_encoder'
-is_decay = True
-if is_decay: modelname += '_decay'
-args.save_path = 'models/'+modelname+'.pt'
-args.log_path = 'logs/'+modelname+'.log'
-args.device = 'cuda'
-
+args.batchsize = 32
+args.epochs = 100
+args.trnsize = 4000
+args.bidirectional = True
+args.is_decay = True
+args.freeze_encoder = False
+args.freeze_decoder = True
+args.reset_encoder = True
+args.reset_decoder = False
+args.task = 'feat2surf'
 args.enc_dropout_in = 0.0
 args.dec_dropout_in = 0.5
 args.dec_dropout_out = 0.5
-sys.stdout = Logger(args.log_path)
+args.from_pretrained = True
+## Switch base model
+if args.from_pretrained:
+    # ae
+    # basemodel = 'models/trmor_agg0_kls0.10_warm10_0_3.pt9'; # model_id = '3_9'
+    # vae
+    args.basemodel = 'models/trmor_agg1_kls0.10_warm10_0_36.pt'; args.model_id = '0_36'
+else:
+    args.model_id = 'scratch'
+print(args)
+
+modelname = str(int(args.trnsize/1000))+'k_trmor_'+args.task+'_from_'+args.model_id
+if args.freeze_encoder: modelname += '_frozen_encoder'
+if args.freeze_decoder: modelname += '_frozen_decoder'
+if args.bidirectional: modelname += '_bilstm'
+if args.is_decay: modelname += '_decay'
+save_path = 'models/'+modelname+'.pt'
+log_path = 'logs/'+modelname+'.log'
+sys.stdout = Logger(log_path)
 
 # DATA
-# src_vocab: feature form -vocabsize 190, tgt_vocab: surface form -vocabsize 76
-data, src_vocab, tgt_vocab = make_data(args.batchsize)
+# feature form -vocabsize up to 190, surface form -vocabsize 76
+data, surface_vocab, feature_vocab  = make_data(args.trnsize, args.batchsize)
 
 # MODEL
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-
-encoder = LSTMEncoder(args, len(tgt_vocab), model_init, emb_init) # len(src_vocab.word2idx)
-decoder = LSTMDecoder(args, tgt_vocab, model_init, emb_init) # tgt vocab
+encoder = LSTMEncoder(args, len(surface_vocab), model_init, emb_init) 
+decoder = LSTMDecoder(args, surface_vocab, model_init, emb_init) 
 model = VAE(encoder, decoder, args)
 model.encoder.mode = 's2s'
-# print('Model weights from scratch...')
-# model.load_state_dict(torch.load('models/4k_trmor_surf2feat_from_ae_v2_frozen_encoder.pt'))
 
-# ae
-model.load_state_dict(torch.load('models/trmor_ae_v2.pt'))
-print('Model weights loaded from ae...')
-
-# vae
-# model.load_state_dict(torch.load('models/trmor_agg1_kls0.10_warm10_0_36.pt'))
-# print('Model weights loaded from vae...')
+if args.from_pretrained:
+    model.load_state_dict(torch.load(args.basemodel))
+    print('Model weights loaded from ... ', args.basemodel)
+else:
+    print('Model weights from scratch...')
 
 # reset all encoder params
-# args.enc_nh = 256
-# model.encoder = LSTMEncoder(args, len(src_vocab.word2idx), model_init, emb_init)
-# model.encoder.mode = 's2s'
-# print('Encoder parameters have been reset...')
+if args.reset_encoder:
+    # args.enc_nh = 256
+    model.encoder = LSTMEncoder(args, len(feature_vocab.word2id), model_init, emb_init, bidirectional=args.bidirectional)
+    model.encoder.mode = 's2s'
+    print('Encoder parameters have been reset...')
 
 # reset all decoder params
-model.decoder = LSTMDecoder(args, src_vocab, model_init, emb_init)
-print('Decoder parameters have been reset...')
-
-# freeze decoder
-# for param in model.decoder.parameters():
-#     param.requires_grad = False
+if args.reset_decoder:
+    model.decoder = LSTMDecoder(args, feature_vocab, model_init, emb_init)
+    print('Decoder parameters have been reset...')
 
 # freeze encoder
-for param in model.encoder.parameters():
-    param.requires_grad = False
-print('Encoder parameters have been frozen...')
+if args.freeze_encoder:
+    for param in model.encoder.parameters():
+        param.requires_grad = False
+    print('Encoder parameters have been frozen...')
+
+# freeze decoder
+if args.freeze_decoder:
+    for param in model.decoder.parameters():
+        param.requires_grad = False
+    print('Decoder parameters have been frozen...')
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)

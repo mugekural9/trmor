@@ -9,7 +9,7 @@ from ..utils import log_sum_exp
 
 class LSTMEncoder(GaussianEncoderBase):
     """Gaussian LSTM Encoder with constant-length batching"""
-    def __init__(self, args, vocab_size, model_init, emb_init):
+    def __init__(self, args, vocab_size, model_init, emb_init, bidirectional=False):
         super(LSTMEncoder, self).__init__()
         self.ni = args.ni
         self.nh = args.enc_nh
@@ -22,7 +22,7 @@ class LSTMEncoder(GaussianEncoderBase):
                             num_layers=1,
                             batch_first=True,
                             dropout=0,
-                            bidirectional=False)
+                            bidirectional=bidirectional)
 
         self.dropout_in = nn.Dropout(args.enc_dropout_in)
 

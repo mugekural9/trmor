@@ -20,7 +20,7 @@ class LSTMDecoder(DecoderBase):
         self.device = args.device
 
         # no padding when setting padding_idx to -1
-        self.embed = nn.Embedding(len(vocab.word2id), args.ni, padding_idx=-1)
+        self.embed = nn.Embedding(len(vocab.word2id), args.ni, padding_idx=0)
 
         self.dropout_in = nn.Dropout(args.dec_dropout_in)
         self.dropout_out = nn.Dropout(args.dec_dropout_out)
@@ -39,7 +39,7 @@ class LSTMDecoder(DecoderBase):
 
         vocab_mask = torch.ones(len(vocab.word2id))
         # vocab_mask[vocab['<pad>']] = 0
-        self.loss = nn.CrossEntropyLoss(weight=vocab_mask, reduce=False)
+        self.loss = nn.CrossEntropyLoss(weight=vocab_mask, reduce=False, ignore_index=0)
 
         self.reset_parameters(model_init, emb_init)
 
@@ -57,66 +57,7 @@ class LSTMDecoder(DecoderBase):
         for param in self.parameters():
             model_init(param)
         emb_init(self.embed.weight)
-    '''
-    def reconstruct_error(self, x, z):
-        """Cross Entropy in the language case
-        Args:
-            x: (batch_size, seq_len)
-            z: (batch_size, n_sample, nz)
-        Returns:
-            loss: (batch_size, n_sample). Loss
-            across different sentence and z
-        """
-
-        #remove end symbol
-        src = x[:, :-1]
-
-        # remove start symbol
-        tgt = x[:, 1:]
-
-        batch_size, seq_len = src.size()
-        n_sample = z.size(1)
-
-        # (batch_size, seq_len, vocab_size)
-        #output_logits = self.decode(src, z)
-
-        # (1, batch_size) 
-        decoder_input = torch.ones((batch_size, 1), device=self.device).long()
-        losses = []
-
-
-        z_ = z.expand(batch_size, 1, self.nz)
-        # (batch_size, latent_dim)
-        z = z.view(batch_size, self.nz)
-        # (1, batch_size, dec_nh)
-        c = self.trans_linear(z).unsqueeze(0)
-        h = torch.tanh(c)
-
-        for di in range(seq_len):
-            # (batch_size, 1, ni)
-            word_embed = self.embed(decoder_input)
-            word_embed = self.dropout_in(word_embed)
-
-            # (batch_size, 1, ni + nz)
-            word_embed = torch.cat((word_embed, z_), -1)
-
-            # output: (batch_size, 1, dec_nh)
-            output, (h, c) = self.lstm(word_embed, (h, c))
-            output = self.dropout_out(output)
-
-            # (batch_size, 1, vocab_size)
-            output_logits = self.pred_linear(output)
-
-            # (batch_size)
-            loss = self.loss(output_logits.view(-1, output_logits.size(2)), tgt[:,di].contiguous().view(-1))
-            losses.append(loss)
-
-        # (batch_size, 1)
-        losses_tensor = torch.stack(losses)
-        return losses_tensor.sum(dim=0).unsqueeze(1)
     
-
-    '''
     def decode(self, input, z):
         """
         Args:
@@ -126,7 +67,6 @@ class LSTMDecoder(DecoderBase):
 
         # not predicting start symbol
         # sents_len -= 1
-
         batch_size, n_sample, _ = z.size()
         seq_len = input.size(1)
 
@@ -193,6 +133,7 @@ class LSTMDecoder(DecoderBase):
             tgt = tgt.unsqueeze(1).expand(batch_size, n_sample, seq_len) \
                      .contiguous().view(-1)
 
+      
         # (batch_size * n_sample * seq_len)
         loss = self.loss(output_logits.view(-1, output_logits.size(2)),
                          tgt)
@@ -234,8 +175,7 @@ class LSTMDecoder(DecoderBase):
         loss = self.loss(output_logits.view(-1, output_logits.size(2)),
                          _tgt)
 
-
-        # (batch_size, n_sample)
+        # (batch_size, n_sample): sum the loss over sequence
         return loss.view(batch_size, n_sample, -1).sum(-1), self.accuracy(output_logits, tgt)
 
     def log_probability(self, x, z):
@@ -256,8 +196,9 @@ class LSTMDecoder(DecoderBase):
         sft = nn.Softmax(dim=2)
         # (batchsize, T)
         pred_tokens = torch.argmax(sft(logits),2)
-        acc = ((pred_tokens == tgt) * (tgt != self.vocab.word2id['<pad>'])).sum() #/ (tgt != self.vocab['<pad>']).sum()
-        return acc.item()
+        tgt_tokens = (tgt != self.vocab.word2id['<pad>'])
+        correct_tokens = ((pred_tokens == tgt) * tgt_tokens)
+        return correct_tokens.sum().item() , tgt_tokens.sum().item()
 
     def beam_search_decode(self, z, K=5):
         """beam search decoding, code is based on
@@ -283,7 +224,7 @@ class LSTMDecoder(DecoderBase):
         # decoding goes sentence by sentence
         for idx in range(batch_size):
             # Start with the start of the sentence token
-            decoder_input = torch.tensor([[self.vocab["<s>"]]], dtype=torch.long, device=self.device)
+            decoder_input = torch.tensor([[self.vocab.word2id["<s>"]]], dtype=torch.long, device=self.device)
             decoder_hidden = (h_init[:,idx,:].unsqueeze(1), c_init[:,idx,:].unsqueeze(1))
 
             node = BeamSearchNode(decoder_hidden, None, decoder_input, 0., 1)
@@ -325,8 +266,8 @@ class LSTMDecoder(DecoderBase):
                 # (K)
                 log_prob, indexes = torch.topk(decoder_output, K-len(completed_hypotheses))
 
-                live_ids = indexes // len(self.vocab)
-                word_ids = indexes % len(self.vocab)
+                live_ids = indexes // len(self.vocab.word2id)
+                word_ids = indexes % len(self.vocab.word2id)
 
                 live_hypotheses_new = []
                 for live_id, word_id, log_prob_ in zip(live_ids, word_ids, log_prob):
@@ -334,7 +275,7 @@ class LSTMDecoder(DecoderBase):
                         decoder_hidden[1][:, live_id, :].unsqueeze(1)),
                         live_hypotheses[live_id], word_id.view(1, 1), log_prob_, t)
 
-                    if word_id.item() == self.vocab["</s>"]:
+                    if word_id.item() == self.vocab.word2id["</s>"]:
                         completed_hypotheses.append(node)
                     else:
                         live_hypotheses_new.append(node)
@@ -350,11 +291,11 @@ class LSTMDecoder(DecoderBase):
             utterances = []
             for n in sorted(completed_hypotheses, key=lambda node: node.logp, reverse=True):
                 utterance = []
-                utterance.append(self.vocab.id2word(n.wordid.item()))
+                utterance.append(self.vocab.id2word[n.wordid.item()])
                 # back trace
                 while n.prevNode != None:
                     n = n.prevNode
-                    utterance.append(self.vocab.id2word(n.wordid.item()))
+                    utterance.append(self.vocab.id2word[n.wordid.item()])
 
                 utterance = utterance[::-1]
 
@@ -378,6 +319,7 @@ class LSTMDecoder(DecoderBase):
 
         batch_size = z.size(0)
         decoded_batch = [[] for _ in range(batch_size)]
+        decoded_batch_ids = [[] for _ in range(batch_size)]
 
         # (batch_size, 1, nz)
         c_init = self.trans_linear(z).unsqueeze(0)
@@ -404,17 +346,17 @@ class LSTMDecoder(DecoderBase):
             # (batch_size)
             max_index = torch.argmax(output_logits, dim=1)
             # max_index = torch.multinomial(probs, num_samples=1)
-
             decoder_input = max_index.unsqueeze(1)
             length_c += 1
 
             for i in range(batch_size):
                 if mask[i].item():
                     decoded_batch[i].append(self.vocab.id2word[max_index[i].item()])
+                decoded_batch_ids[i].append(max_index[i].item())
 
             mask = torch.mul((max_index != end_symbol), mask)
 
-        return decoded_batch
+        return decoded_batch, decoded_batch_ids
 
     def sample_decode(self, z):
         """sampling decoding from z
