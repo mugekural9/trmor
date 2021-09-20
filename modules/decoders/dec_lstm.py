@@ -196,9 +196,9 @@ class LSTMDecoder(DecoderBase):
         sft = nn.Softmax(dim=2)
         # (batchsize, T)
         pred_tokens = torch.argmax(sft(logits),2)
-        tgt_tokens = (tgt != self.vocab.word2id['<pad>'])
-        correct_tokens = ((pred_tokens == tgt) * tgt_tokens)
-        return correct_tokens.sum().item() , tgt_tokens.sum().item()
+        nonpad_tokens = (tgt != self.vocab.word2id['<pad>'])
+        correct_tokens = ((pred_tokens == tgt) * nonpad_tokens)
+        return correct_tokens.sum().item() , nonpad_tokens.sum().item()
 
     def beam_search_decode(self, z, K=5):
         """beam search decoding, code is based on
@@ -351,7 +351,7 @@ class LSTMDecoder(DecoderBase):
 
             for i in range(batch_size):
                 if mask[i].item():
-                    decoded_batch[i].append(self.vocab.id2word[max_index[i].item()])
+                    decoded_batch[i].append(self.vocab.id2word(max_index[i].item()))
                 decoded_batch_ids[i].append(max_index[i].item())
 
             mask = torch.mul((max_index != end_symbol), mask)

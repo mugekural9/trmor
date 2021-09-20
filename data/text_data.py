@@ -100,7 +100,8 @@ class MonoTextData(object):
 
                 if label:
                     labels.append(lb)
-                data.append([vocab[word] for word in split_line])
+                #data.append([vocab[word] for word in split_line])
+                data.append([vocab[char] for char in split_line[0]])
 
         if isinstance(vocab, VocabEntry):
             return data, vocab, dropped, labels
@@ -275,36 +276,3 @@ class MonoTextData(object):
         batch_data, sents_len = self._to_tensor(batch_data, batch_first, device)
 
         return batch_data, sents_len
-
-## Used in feature forms
-class Vocab(object):
-    def __init__(self, path):
-        self.word2id = {}
-        self.id2word = []
-
-        with open(path) as f:
-            for line in f:
-                w = line.split()[0]
-                self.word2id[w] = len(self.word2id)
-                self.id2word.append(w)
-        self.size = len(self.word2id)
-
-        self.pad = self.word2id['<pad>']
-        self.go = self.word2id['<s>']
-        self.eos = self.word2id['</s>']
-        self.unk = self.word2id['<unk>']
-
-    @staticmethod
-    def build(sents, path, size):
-        v = ['<pad>', '<s>', '</s>', '<unk>']
-        words = [w for s in sents for w in [char for char in s[0]] + s[1]]
-        cnt = Counter(words)
-        n_unk = len(words)
-        for w, c in cnt.most_common(size):
-            v.append(w)
-            n_unk -= c
-        cnt['<unk>'] = n_unk
-
-        with open(path, 'w') as f:
-           for w in v:
-               f.write('{}\t{}\n'.format(w, cnt[w]))
