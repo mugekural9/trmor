@@ -37,6 +37,7 @@ class LSTMDecoder(DecoderBase):
         # prediction layer
         self.pred_linear = nn.Linear(args.dec_nh, len(vocab.word2id), bias=False)
 
+
         vocab_mask = torch.ones(len(vocab.word2id))
         # vocab_mask[vocab['<pad>']] = 0
         self.loss = nn.CrossEntropyLoss(weight=vocab_mask, reduce=False, ignore_index=0)

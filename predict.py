@@ -36,14 +36,20 @@ def predict_tst_data(task, modelname):
     args.tstdata = 'trmor_data/trmor2018.tst'
     ## TODO: Fix the reconstruction of source vocab!
     surface_vocab = MonoTextData(args.trndata, label=False).vocab
-    trndata, feature_vocab, _ = read_trndata_makevocab(args.trndata, args.trnsize, surface_vocab) # data len:50000
-    vlddata = read_valdata(args.valdata, feature_vocab, surface_vocab)     # 5000
-    tstdata = read_valdata(args.tstdata, feature_vocab, surface_vocab)     # 2769
-    tst_batches, _ = get_batches(tstdata, surface_vocab, feature_vocab) 
+    trndata, feature_vocab, pos_vocab, _ = read_trndata_makevocab(args.trndata, args.trnsize, surface_vocab) # data len:50000
+    vlddata = read_valdata(args.valdata, surface_vocab, feature_vocab, pos_vocab)     # 5000
+    tstdata = read_valdata(args.tstdata, surface_vocab, feature_vocab, pos_vocab)     # 2769
+    tst_batches, _ = get_batches(tstdata, surface_vocab, feature_vocab, pos_vocab) 
     model_init = uniform_initializer(0.01)
     emb_init = uniform_initializer(0.1)
-    encoder = LSTMEncoder(args, len(feature_vocab), model_init, emb_init) 
-    decoder = LSTMDecoder(args, surface_vocab, model_init, emb_init) 
+
+    if args.task == 'surf2pos':
+        encoder = LSTMEncoder(args, len(surface_vocab), model_init, emb_init) 
+        decoder = LSTMDecoder(args, pos_vocab, model_init, emb_init) 
+    elif args.task == 'feat2surf':
+        encoder = LSTMEncoder(args, len(feature_vocab), model_init, emb_init) 
+        decoder = LSTMDecoder(args, surface_vocab, model_init, emb_init) 
+    
     model = VAE(encoder, decoder, args)
     model.encoder.mode = 's2s'
     model.load_state_dict(torch.load('models/'+args.task+'/'+modelname))
@@ -76,8 +82,8 @@ def predict_tst_data(task, modelname):
 
     if args.task == 'feat2surf':
         with open('pred_tst_surf_'+modelname+'.txt', "w") as fout:
-            for (surf, feat) in tst_batches:
-                # surf: (Tsurf,B), feat: (Tfeat,B)
+            for (surf, feat, pos) in tst_batches:
+                # surf: (Tsurf,B), feat: (Tfeat,B), pos: (Tpos,B)
                 decoded_batch = model.reconstruct(feat.t())
                 for sent in decoded_batch[0]:
                     fout.write("".join(sent[:-1]) + "\n")
@@ -86,6 +92,14 @@ def predict_tst_data(task, modelname):
         with open('pred_tst_feat_'+modelname+'.txt', "w") as fout:
             for (surf, feat) in tst_batches:
                 # surf: (Tsurf,B), feat: (Tfeat,B)
+                decoded_batch = model.reconstruct(surf.t())
+                for sent in decoded_batch[0]:
+                    fout.write("".join(sent[:-1]) + "\n")
+
+    elif args.task == 'surf2pos':
+        with open('pred_tst_pos_'+modelname+'.txt', "w") as fout:
+            for (surf, feat, pos) in tst_batches:
+                # surf: (Tsurf,B), feat: (Tfeat,B), pos: (Tpos,B)
                 decoded_batch = model.reconstruct(surf.t())
                 for sent in decoded_batch[0]:
                     fout.write("".join(sent[:-1]) + "\n")
@@ -109,11 +123,17 @@ def predict(task, modelname, str):
     args.trndata = 'trmor_data/trmor2018.trn'
     ## TODO: Fix the reconstruction of source vocab!
     surface_vocab = MonoTextData(args.trndata, label=False).vocab
-    _, feature_vocab, _ = read_trndata_makevocab(args.trndata, args.trnsize, surface_vocab) # data len:50000
+    _, feature_vocab, pos_vocab, _ = read_trndata_makevocab(args.trndata, args.trnsize, surface_vocab) # data len:50000
     model_init = uniform_initializer(0.01)
     emb_init = uniform_initializer(0.1)
-    encoder = LSTMEncoder(args, len(feature_vocab), model_init, emb_init) 
-    decoder = LSTMDecoder(args, surface_vocab, model_init, emb_init) 
+
+    if args.task == 'surf2pos':
+        encoder = LSTMEncoder(args, len(surface_vocab), model_init, emb_init) 
+        decoder = LSTMDecoder(args, pos_vocab, model_init, emb_init) 
+    elif args.task == 'feat2surf':
+        encoder = LSTMEncoder(args, len(feature_vocab), model_init, emb_init) 
+        decoder = LSTMDecoder(args, surface_vocab, model_init, emb_init) 
+
     model = VAE(encoder, decoder, args)
     model.encoder.mode = 's2s'
     model.load_state_dict(torch.load('models/'+args.task+'/'+modelname))
@@ -132,15 +152,25 @@ def predict(task, modelname, str):
 
     elif args.task == 'surf2feat':
         surf = []
-        surf.append([surface_vocab[char] for char in str])
+        surf.append([surface_vocab['<s>']] + [surface_vocab[char] for char in str] + [surface_vocab['</s>']])
+        surf = torch.tensor(surf).to(args.device)    
+        # surf: (B, Tsurf,B)
+        decoded_batch = model.reconstruct(surf)
+        for sent in decoded_batch[0]:
+            print("".join(sent[:-1]))
+
+    elif args.task == 'surf2pos':
+        surf = []
+        surf.append([surface_vocab['<s>']] + [surface_vocab[char] for char in str] + [surface_vocab['</s>']])
+        surf = torch.tensor(surf).to(args.device)    
         # surf: (B, Tsurf,B)
         decoded_batch = model.reconstruct(surf)
         for sent in decoded_batch[0]:
             print("".join(sent[:-1]))
 
 
-task = 'feat2surf'
-model = '4k_from_vae_9_9__frozendecoder_decay.pt'
+task = 'surf2pos'
+model = '8k_from_ae_9_9__decay.pt'
 
-#predict_tst_data(task, model)
-predict(task,model,'saat+Noun+A3pl+Pnon')
+# predict_tst_data(task, model)
+predict(task,model,'gelsene')

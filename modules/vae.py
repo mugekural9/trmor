@@ -21,7 +21,7 @@ class VAE(nn.Module):
 
         self.prior = torch.distributions.normal.Normal(loc, scale)
 
-    def encode(self, x, nsamples=1):
+    def encode(self, x,  nsamples=1):
         """
         Returns: Tensor1, Tensor2
             Tensor1: the tensor latent z with shape [batch, nsamples, nz]
@@ -110,7 +110,7 @@ class VAE(nn.Module):
             Tensor3: KL loss shape [batch]
         """
         # z: (batchsize, 1, nz)
-        z, KL = self.encode(x, nsamples)
+        z, KL, _ = self.encode(x, nsamples)
 
         # (batch_size, n_sample)
         reconstruct_err, acc = self.decoder.s2s_reconstruct_error(y, z)
@@ -118,6 +118,37 @@ class VAE(nn.Module):
         reconstruct_err =  reconstruct_err.mean(dim=1)
         return reconstruct_err, acc 
 
+
+    def linear_probe_loss(self, x, y, nsamples=1):
+        # z: (batchsize, 1, nz), last_states: (1, batchsize, enc_nh)
+        z, _, last_states = self.encode(x, nsamples)
+        # (1, batchsize, vocab_size)
+        output_logits = self.probe_linear(last_states) #.permute(1,0,2)) 
+        # (1, batchsize, vocab_size)
+        # output_logits = self.pred_linear(reduced_features)
+        # (batch_size, 1, vocab_size)
+        output_logits = output_logits.permute(1,0,2)
+        loss = self.closs(output_logits.squeeze(1), y.squeeze(1))
+        acc = self.pos_accuracy(output_logits, y, x)
+        return loss, acc
+
+    def pos_accuracy(self, output_logits, targets, x):
+        B, T = targets.size()
+        sft = nn.Softmax(dim=2)
+        # (batchsize, T)
+        pred_tokens = torch.argmax(sft(output_logits),2)
+        correct_tokens = (pred_tokens == targets)
+        wrong_tokens = (pred_tokens != targets)
+        
+        wrong_predictions = []
+        for i in range(len(x)):
+            surf_str = self.vocab[0].decode_sentence(x[i])
+            pos_str  = self.vocab[2].decode_sentence(targets[i])[0]
+            pred_str = self.vocab[2].id2word(pred_tokens[i].item())
+            if pred_str != pos_str:
+                wrong_predictions.append('surf: %s target: %s pred: %s' % (''.join(surf_str[1:-1]), pos_str, pred_str))
+        acc = correct_tokens.sum().item(), B, wrong_tokens.sum().item(), wrong_predictions
+        return  acc
 
     def nll_iw(self, x, nsamples, ns=100):
         """compute the importance weighting estimate of the log-likelihood

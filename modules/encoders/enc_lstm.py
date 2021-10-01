@@ -66,8 +66,12 @@ class LSTMEncoder(GaussianEncoderBase):
         _, (last_state, last_cell) = self.lstm(word_embed)
         if self.lstm.bidirectional:
             last_state = torch.cat([last_state[-2], last_state[-1]], 1).unsqueeze(0)
-        mean, logvar = self.linear(last_state).chunk(2, -1)
-        return mean.squeeze(0), logvar.squeeze(0)
+
+        if self.linear is None:
+            return None, None, last_state
+        else:
+            mean, logvar = self.linear(last_state).chunk(2, -1)
+            return mean.squeeze(0), logvar.squeeze(0), last_state
 
     # def eval_inference_mode(self, x):
     #     """compute the mode points in the inference distribution

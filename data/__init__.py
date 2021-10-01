@@ -1,2 +1,2 @@
-from .text_data import *
+from .vocab import *
 from .batchify import *

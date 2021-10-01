@@ -37,7 +37,7 @@ class GaussianEncoderBase(nn.Module):
 
         return z, (mu, logvar)
 
-    def encode(self, input, nsamples):
+    def encode(self, input,  nsamples):
         """perform the encoding and compute the KL term
 
         Returns: Tensor1, Tensor2
@@ -46,16 +46,19 @@ class GaussianEncoderBase(nn.Module):
 
         """
         # (batch_size, nz)
-        mu, logvar = self.forward(input)
-        if self.mode =='s2s':
-            z = mu.unsqueeze(1)
+        mu, logvar, last_states = self.forward(input)
+        if not self.is_reparam:
+            if mu is None:
+                z = None
+            else:
+                z = mu.unsqueeze(1)
         else:
             # (batch, nsamples, nz)
             z = self.reparameterize(mu, logvar, nsamples)
 
-        KL = 0.5 * (mu.pow(2) + logvar.exp() - logvar - 1).sum(dim=1)
+        KL = None #0.5 * (mu.pow(2) + logvar.exp() - logvar - 1).sum(dim=1)
 
-        return z, KL
+        return z, KL, last_states
 
     def reparameterize(self, mu, logvar, nsamples=1):
         """sample from posterior Gaussian family
@@ -76,7 +79,6 @@ class GaussianEncoderBase(nn.Module):
         std_expd = std.unsqueeze(1).expand(batch_size, nsamples, nz)
 
         eps = torch.zeros_like(std_expd).normal_()
-
         return mu_expd + torch.mul(eps, std_expd)
 
     def eval_inference_dist(self, x, z, param=None):
