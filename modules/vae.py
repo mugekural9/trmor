@@ -1,7 +1,7 @@
 import math
 import torch
 import torch.nn as nn
-
+import numpy as np
 from .utils import log_sum_exp
 
 
@@ -119,9 +119,15 @@ class VAE(nn.Module):
         return reconstruct_err, acc 
 
 
-    def linear_probe_loss(self, x, y, nsamples=1):
+    def linear_probe_loss(self, x, y, general_last_states, nsamples=1):
         # z: (batchsize, 1, nz), last_states: (1, batchsize, enc_nh)
         z, _, last_states = self.encode(x, nsamples)
+        # (dim, numinstances)
+        #batchsize = last_states.size(1)
+        #xmatrix = last_states.squeeze(0).t().cpu().detach()
+        #xsum =  np.matrix(torch.matmul(torch.tensor(np.linalg.pinv(xmatrix)), xmatrix)).sum()
+        general_last_states.append(last_states.squeeze(0))
+        
         # (1, batchsize, vocab_size)
         output_logits = self.probe_linear(last_states) #.permute(1,0,2)) 
         # (1, batchsize, vocab_size)
@@ -130,7 +136,7 @@ class VAE(nn.Module):
         output_logits = output_logits.permute(1,0,2)
         loss = self.closs(output_logits.squeeze(1), y.squeeze(1))
         acc = self.pos_accuracy(output_logits, y, x)
-        return loss, acc
+        return loss, acc, general_last_states
 
     def pos_accuracy(self, output_logits, targets, x):
         B, T = targets.size()

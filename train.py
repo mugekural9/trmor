@@ -84,19 +84,24 @@ def build_model(args, vocab, rawdata):
     args.model.to(args.device)  
     return args.model
 
-def test(batches, mode, args):
+def test(batches, mode, args, Wsol):
     epoch_loss = 0; epoch_acc = 0; epoch_error = 0; epoch_num_tokens = 0
     dsize = len(batches)
     indices = list(range(dsize))
+    pos_values = []
+    general_last_states = []
     for i, idx in enumerate(indices):
         # (batchsize, t)
         surf, feat, pos, root = batches[idx]
+        #(ninst, class)
+        pos_values.append(pos)
+
         if args.task == 'feat2surf':
             loss, _acc = args.model.s2s_loss(feat, surf)
         elif args.task == 'surf2feat':
             loss, _acc = args.model.s2s_loss(surf, feat)
         elif args.task == 'surf2pos':
-            loss, _acc = args.model.linear_probe_loss(surf, pos)
+            loss, _acc, general_last_states = args.model.linear_probe_loss(surf, pos, general_last_states)
         batch_loss = loss.sum()
 
         correct_tokens, num_tokens, wrong_tokens, wrong_predictions = _acc
@@ -104,6 +109,22 @@ def test(batches, mode, args):
         epoch_loss += batch_loss.item()
         epoch_acc  += correct_tokens
         epoch_error += wrong_tokens
+
+    # check that when XW = Y, if X has left inverse X^T. X = I should be true, W = X^TY
+    # and if there is, training loss should converge to zero.
+    # (nist, dim)
+    X = torch.cat(general_last_states).to(device)
+    # (nist, class)
+    y = nn.functional.one_hot(torch.cat(pos_values)).squeeze(1)
+    # (dim, nist)
+    y_hat = torch.matmul(X,Wsol)
+    sft = nn.Softmax(dim=1)
+    # (nist)
+    pred_tokens = torch.argmax(sft(y_hat),1)
+    targets = torch.cat(pos_values).squeeze(1)
+    correct_tokens = (pred_tokens == targets).sum().item()
+    lstsq_acc = correct_tokens/ X.size(0)
+    print('val_acc:', lstsq_acc)
 
     nll = epoch_loss / dsize
     ppl = np.exp(epoch_loss / epoch_num_tokens)
@@ -114,34 +135,36 @@ def test(batches, mode, args):
     return nll, ppl, acc
 
 def train(data, args):
-    trn, val, tst = data
+    trnbatches, valbatches, tstbatches = data
     opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.parameters()), lr=args.lr)
-    #opt = optim.SGD(filter(lambda p: p.requires_grad, args.model.parameters()), lr=0.1)#, momentum=0.9)
     scheduler = ReduceLROnPlateau(opt, 'min', verbose=1, factor=0.5)
     for name, prm in args.model.named_parameters():
         args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
 
-    trnsize = len(trn)
+    trnsize = len(trnbatches)
     indices = list(range(trnsize))
     random.seed(0)
-
+    pos_values = []
     best_loss = 1e4; best_ppl = 0
     trn_loss_values = []; trn_acc_values = []
     val_loss_values = []; val_acc_values = []
     for epc in range(args.epochs):
         epoch_loss = 0; epoch_acc = 0; epoch_error = 0; epoch_num_tokens = 0
-        epoch_wrong_predictions = []
+        epoch_wrong_predictions = [];
+        general_last_states = []
         random.shuffle(indices) # this breaks continuity if there is
         for i, idx in enumerate(indices):
             args.model.zero_grad() 
             # (batchsize, t)
-            surf, feat, pos, root = trn[idx] 
+            surf, feat, pos, root = trnbatches[idx] 
+            #(ninst, class)
+            pos_values.append(pos)
             if args.task == 'feat2surf':
                 loss, _acc = args.model.s2s_loss(feat, surf)
             elif args.task == 'surf2feat':
                 loss, _acc = args.model.s2s_loss(surf, feat)
             elif args.task == 'surf2pos':
-                loss, _acc = args.model.linear_probe_loss(surf, pos)
+                loss, _acc, general_last_states = args.model.linear_probe_loss(surf, pos, general_last_states)
 
             batch_loss = loss.sum() #mean(dim=-1)
             batch_loss.backward()
@@ -168,17 +191,35 @@ def train(data, args):
         args.logger.write('epoch correct: %.1d epoch wrong: %.1d epoch_num_tokens: %.1d \n' % (epoch_acc, epoch_error, epoch_num_tokens))
 
         '''
-        f = open(str(epc)+"_epc.txt", "w")
+        f = open(str(0)+"_epc.txt", "w")
         for i in epoch_wrong_predictions:
             f.write(i+'\n')
         f.close()
         '''
         
+        '''
+        # check SVD bounds
+        # (nist, dim)
+        X = torch.cat(general_last_states).to(device)
+        # (nist, class)
+        y = nn.functional.one_hot(torch.cat(pos_values)).squeeze(1)
+        # (dim, class)
+        Wsol = torch.tensor(np.linalg.lstsq(X.cpu(),y.cpu())[0]).to(device).float()
+        # (dim, nist)
+        y_hat = torch.matmul(X,Wsol)
+        sft = nn.Softmax(dim=1)
+        # (nist)
+        pred_tokens = torch.argmax(sft(y_hat),1)
+        targets = torch.cat(pos_values).squeeze(1)
+        correct_tokens = (pred_tokens == targets).sum().item()
+        lstsq_acc = correct_tokens/ X.size(0)
+        print(lstsq_acc)
+        '''
         
         # VAL
         args.model.eval()
         with torch.no_grad():
-            nll, ppl, acc = test(val, "VAL", args)
+            nll, ppl, acc = test(valbatches, "VAL", args, Wsol)
             loss = nll
         val_loss_values.append(nll)
         val_acc_values.append(acc)
@@ -188,9 +229,15 @@ def train(data, args):
             best_loss = loss
             best_ppl = ppl
             torch.save(args.model.state_dict(), args.save_path)
+        
         #torch.save(args.model.state_dict(), args.save_path)
         args.model.train()
     
+
+   
+   
+
+
     plot_curves(args.task, args.bmodel, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
     plot_curves(args.task, args.bmodel, args.fig, args.axs[1], trn_acc_values,  val_acc_values,  args.plt_style, 'acc')
     
@@ -200,14 +247,14 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 args.bidirectional = False;
-args.batchsize = 128; args.epochs = 1000
 args.is_clip_grad = False; args.clip_grad = 5.0
-args.opt= 'Adam'; args.lr = 0.005
+args.batchsize = 128; args.epochs = 1
+args.opt= 'Adam'; args.lr = 0.01
 args.task = 'surf2pos'
+args.seq_to_no_pad = 'surface'
 args.trndata = 'trmor_data/trmor2018.filtered' # 'trmor_data/trmor2018.trn'
 args.valdata = 'trmor_data/trmor2018.val'
 args.tstdata = 'trmor_data/trmor2018.tst'
-args.seq_to_no_pad = 'surface'
 args.fig, args.axs = plt.subplots(2, sharex=True)
 args.trnsize = 57769 
 
@@ -218,9 +265,11 @@ surface_vocab, feature_vocab, pos_vocab = vocab
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), 0 #len(tstdata)
 
 # MODEL
-bmodels = ['ae']#, 'vae']#, 'scratch']
+bmodels = ['vae']#, 'vae']#, 'scratch']
 plt_styles = ['-']#, '--']#, '-.']
 vs_str = ''
+
+# TRAIN
 for i,(bmodel, pstyle) in enumerate(zip(bmodels, plt_styles)): 
     # Logging
     args.bmodel = bmodel 
@@ -239,10 +288,8 @@ for i,(bmodel, pstyle) in enumerate(zip(bmodels, plt_styles)):
     args.logger.write('\nnumber of params: %d \n' % count_parameters(args.model))
     args.logger.write(args)
     args.logger.write('\n')
-
     train(batches, args)
     vs_str+= bmodel
     if i+1 < len(bmodels):
       vs_str+= '_vs_'
-
 plt.savefig(args.fig_path)
