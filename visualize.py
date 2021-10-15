@@ -9,6 +9,7 @@ from numpy import save
 from sklearn.datasets import fetch_openml
 from utils import uniform_initializer
 from sklearn.manifold import TSNE
+from mpl_toolkits import mplot3d
 from numpy import dot
 from numpy.linalg import norm
 matplotlib.use('Agg')
@@ -26,18 +27,18 @@ args.dec_dropout_in = 0.0
 args.dec_dropout_out = 0.0
 args.trnsize = 57769
 args.batchsize = 1
-args.trndata = 'trmor_data/trmor2018.filtered' #trn'
-args.valdata = 'trmor_data/trmor2018.val'
+args.trndata = 'trmor_data/polarity_trn.txt' # 'trmor_data/trmor2018.trn'
+args.valdata = 'trmor_data/polarity_val.txt'
 args.tstdata = 'trmor_data/trmor2018.tst'
 args.seq_to_no_pad = 'surface'
 #t-sne config
-numpoints = 500
+numpoints = 52000
 args.num_annotate = 0; args.annotate_label = ''
 
 # DATA
-_ , data, vocab = build_data(args)
+_ , data, vocab, args.freqdict, args.freqstagsdict = build_data(args)
 trn, val, tst = data
-surface_vocab, feature_vocab, pos_vocab = vocab #fix this rebuilding vocab issue!
+surface_vocab, feature_vocab, pos_vocab, polar_vocab = vocab #fix this rebuilding vocab issue!
 # MODEL
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
@@ -48,8 +49,7 @@ model.encoder.is_reparam = False
 # surf2pos probing
 model.decoder = None
 model.encoder.linear = None
-model.probe_linear = nn.Linear(args.enc_nh, len(pos_vocab), bias=False)
-
+model.probe_linear = nn.Linear(args.enc_nh, len(polar_vocab), bias=False)
 # Load model
 '''
 args.bmodel = 'ae'
@@ -61,8 +61,8 @@ elif args.bmodel =='ae':
     figname = 'z_space_ae_tsne.png'
 '''
 # surf2pos probing
-args.basemodel = "models/surf2pos/500instances_from_vae_1000epochs.pt"
-figname = '500instances_pos_projections_space_surf2pos-probe-vae_tsne_2.png'
+args.basemodel = "models/surf2polar/5926_polarity_instances_from_random_100epochs.pt"
+figname = '5926instances_polar_projections_space_surf2polar-probe-random_tsne.png'
 model.load_state_dict(torch.load(args.basemodel))
 print('Model weights loaded from ... ', args.basemodel)
 model.to(args.device)
@@ -81,23 +81,13 @@ def cos_similarity(a, b):
     return result
      
 
-x = []; hx = []; posdata = []; root_strs = []; surf_strs = []; feat_strs = []
+x = []; hx = []; posdata = []; polardata = []
+root_strs = []; surf_strs = []; feat_strs = []
+predposdata = []; predpolardata = []
 indices = list(range(len(trn)))
 for i, idx in enumerate(indices):
-   
-    surf, feat, pos, root = trn[idx]
-    # (batchsize, ts)
-    surf = surf.t().to(args.device)
-    # (batchsize, tf)
-    feat = feat.t().to(args.device)
-    # (batchsize, tp)
-    pos  = pos.t().to(args.device)
-    # (batchsize, tr)
-    root = root.t().to(args.device)
-
-    if pos.item() != 9:
-        continue
-
+    # (batchsize, t)
+    surf, feat, pos, root, polar = trn[idx]
     # z: (batchsize, 1, nz), last_states: (1, 1, enc_nh)
     z, KL, last_states = model.encode(surf, 1)
     
@@ -108,23 +98,21 @@ for i, idx in enumerate(indices):
     sft = nn.Softmax(dim=2)
     # (1, batchsize, vocab_size)
     output_logits = model.probe_linear(last_states)
-    pred_pos = torch.argmax(sft(output_logits),2)
-    pos_weight_vector = model.probe_linear.weight[pos.item()].cpu().detach()
-
-    csvalues = []
-    for i in range(len(model.probe_linear.weight)):
-        csvalue = cos_similarity(last_state_vector, model.probe_linear.weight[i].cpu().detach())
-        csvalues.append(csvalue)
-        #print(csvalue)
-
-    selectedcsvalue = cos_similarity(last_state_vector, pos_weight_vector)
-    print('selected:', selectedcsvalue, 'max:', max(csvalues))
-    vp = vector_projection(last_state_vector, pos_weight_vector)
-    x.append(torch.tensor(vp).unsqueeze(0))
+    pred_polar = torch.argmax(sft(output_logits), 2)
     
-    #if root_str in root_strs:
-        #print('a bug!')
-    posdata.append(pos.item())
+    # visualize vector projections on predicted weight vectors
+    # pos_weight_vector = model.probe_linear.weight[pred_pos.item()].cpu().detach()
+    # vp = vector_projection(last_state_vector, pos_weight_vector)
+    # x.append(torch.tensor(vp).unsqueeze(0))
+   
+    # visualize vector projections on 3 weight vectors
+    x.append(output_logits.squeeze(0)[:,:3].cpu().detach())
+
+    #posdata.append(pos.item())
+    polardata.append(polar.item())
+
+    #predposdata.append(pred_pos.item())
+    predpolardata.append(pred_polar.item())
     root_str = ''.join(surface_vocab.decode_sentence(root.t())[1:-1])
     surf_str = ''.join(surface_vocab.decode_sentence(surf.t())[1:-1]) 
     feat_str = ''.join(feature_vocab.decode_sentence(feat.t())[1:-1]) 
@@ -133,38 +121,19 @@ for i, idx in enumerate(indices):
     feat_strs.append(feat_str)
     hx.append((surf_str, last_state_vector))
 
-
-#{""Verb": 1, 
-# "Noun": 2,
-#  "Adj": 3, 
-# "Num": 4, "Adverb": 5, "Det": 6, "Conj": 7, "Postp": 8, "Pron": 9, "Interj": 10, "Ques": 11, "Dup": 12}
-for i in range(len(model.probe_linear.weight)):
-    print('weight vector norm:', norm(model.probe_linear.weight[i].cpu().detach()))
-
-print('x: %d, hx: %d' % (len(x),len(hx)))
-
-'''
-# cos similarity between same group of pos tags
-x.append(pos_weight_vector.unsqueeze(0))
-for i in range(len(hx)):
-    print('\n----')
-    for j in range(len(hx)):
-        if i != j:
-            svalue = cos_similarity(hx[i][1], hx[j][1])
-            print('hxi %s hxj %s svalue: %.3f' % (hx[i][0], hx[j][0], svalue))
-'''
-
 # clip first numpoints 
 X = np.array(torch.cat((x))) 
 print('number of points: ', X.shape)
 
 # (ninstances, hiddendim)
-#save('500instances_random_pred_projection_data.npy', X)
-#save('feat_strs.npy', feat_strs)
-#save('500instances_surf_strs.npy', surf_strs)
-#save('500instances_posdata.npy', posdata)
+save('5926instances_random_polar_projections_data.npy', X)
+save('5926instances_random_feat_strs.npy', feat_strs)
+save('5926instances_random_surf_strs.npy', surf_strs)
+save('5926instances_random_polardata.npy', polardata)
+save('5926instances_random_predpolardata.npy', predpolardata)
 
-
+'''
+## visualizations
 X = X[:numpoints]
 print('clipped to: ', X.shape)
 posdata = posdata[:numpoints]
@@ -172,14 +141,19 @@ posdata = posdata[:numpoints]
 root_strs = root_strs[:numpoints]
 surf_strs = surf_strs[:numpoints]
 
-
 tsne_results = TSNE(n_components=2, verbose=1).fit_transform(X)
 #{""Verb": 1, "Noun": 2, "Adj": 3, "Num": 4, "Adverb": 5, "Det": 6, "Conj": 7, "Postp": 8, "Pron": 9, "Interj": 10, "Ques": 11, "Dup": 12}
 colors = ['red','green','blue','purple', 'gray', 'pink', 'black', 'yellow', 'magenta', 'brown', 'cyan', 'lightblue']
-fig,ax = plt.subplots()
-sc = plt.scatter(tsne_results[:,0], tsne_results[:,1], c=posdata, cmap=matplotlib.colors.ListedColormap(colors))
+#fig,ax = plt.subplots()
+#sc = plt.scatter(tsne_results[:,0], tsne_results[:,1], c=posdata, cmap=matplotlib.colors.ListedColormap(colors))
 
-'''
+
+fig = plt.figure()
+ax = plt.axes(projection ="3d")
+colors = ['red','green','blue','purple', 'gray', 'pink', 'black', 'yellow', 'magenta', 'brown', 'cyan', 'lightblue']
+ax.scatter(X[:,0], X[:,1], X[:,2], c=posdata, cmap=matplotlib.colors.ListedColormap(colors))
+plt.show()
+
 annot = ax.annotate("", xy=(0,0), xytext=(20,20),textcoords="offset points",
                     bbox=dict(boxstyle="round", fc="w"),
                     arrowprops=dict(arrowstyle="->"))
@@ -212,7 +186,7 @@ def hover(event):
 fig.canvas.mpl_connect("motion_notify_event", hover)
 
 plt.show()
-'''
+
 
 # save the visualization
 i = 0
@@ -239,7 +213,8 @@ elif args.annotate_label == 'feat':
             i +=1
 
 
-#if model.encoder.is_reparam:
-#    plt.savefig(str(len(X))+'points_reparam_'+figname)
-#else:
-#    plt.savefig(str(len(X))+'points_'+figname)
+if model.encoder.is_reparam:
+    plt.savefig(str(len(X))+'points_reparam_'+figname)
+else:
+    plt.savefig(str(len(X))+'points_'+figname)
+'''

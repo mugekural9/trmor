@@ -13,7 +13,11 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 datamap= dict(); surfacemap = dict()
 
 def read_trndata_makevocab(file, trnsize, surface_vocab):
-    surf_data = []; feat_data = []; pos_data = []; root_data = [];  data = []
+    surf_data = []; feat_data = []; pos_data = []; root_data = [];  data = []; polar_data = []
+    unique_rooted_data =[]; 
+    unique_rooted_data_dict =  defaultdict(lambda: []); 
+    freqstagsdict = defaultdict(lambda: defaultdict(lambda: 0)); 
+    freqsdict = defaultdict(lambda: 0)
     surf_data_str = []; feat_data_str = []; root_data_str = []
    
     with open(file, 'r') as reader:
@@ -23,9 +27,10 @@ def read_trndata_makevocab(file, trnsize, surface_vocab):
         feature_vocab['</s>'] = 2
         feature_vocab['<unk>'] = 3
         pos_vocab = defaultdict(lambda: len(pos_vocab))
+        polar_vocab = defaultdict(lambda: len(polar_vocab))
         pos_vocab['<unk>'] = 0
         count = 0
-        for line in reader:  
+        for line in reader: 
             count += 1
             if count > trnsize:
                 break
@@ -35,8 +40,9 @@ def read_trndata_makevocab(file, trnsize, surface_vocab):
             pos_tag  = split_line[1].replace('^','+').split('+')[1]
             tags     = split_line[1].replace('^','+').split('+')[1:]
 
-            if pos_tag != 'Verb' and pos_tag != 'Noun' and pos_tag != 'Adj':
-                continue
+            #if pos_tag != 'Verb' and pos_tag != 'Noun' and pos_tag != 'Adj':
+            #    continue
+            
             
             surf_data_str.append(split_line[0]) # add verbal versions
             feat_data_str.append(split_line[1]) # add verbal versions
@@ -54,6 +60,13 @@ def read_trndata_makevocab(file, trnsize, surface_vocab):
             # fill pos vocab
             pos_data.append(pos_vocab[pos_tag])
 
+            # fill polar vocab and data
+            if 'Neg' in tags:
+                polar_data.append(polar_vocab['Neg'])
+            elif 'Pos' in tags:
+                polar_data.append(polar_vocab['Pos'])
+
+
     with open('trmor_data/surf_vocab.json', 'w') as file:
         file.write(json.dumps(surface_vocab.word2id)) 
     
@@ -63,61 +76,95 @@ def read_trndata_makevocab(file, trnsize, surface_vocab):
     with open('trmor_data/pos_vocab.json', 'w') as file:
         file.write(json.dumps(pos_vocab))
 
+    with open('trmor_data/polar_vocab.json', 'w') as file:
+        file.write(json.dumps(polar_vocab))
 
+    assert len(surf_data) == len(feat_data) == len(pos_data) == len(root_data) == len(root_data_str) == len(surf_data_str) == len(polar_data)
+    
     added_roots = []
     added_surfs = []
-    for (surf, feat, pos, root, root_str) in zip(surf_data, feat_data, pos_data, root_data, root_data_str):
-        if unique_surfs and surf in added_surfs:
+    for (surf, feat, pos, root, root_str, surf_str, polar) in zip(surf_data, feat_data, pos_data, root_data, root_data_str, surf_data_str, polar_data):
+        if (unique_surfs and surf_str in added_surfs):
             continue
         else:
-            added_surfs.append(surf)
-            data.append([surf, feat, [pos], root])
-
-    return data, VocabEntry(feature_vocab), VocabEntry(pos_vocab), (surf_data_str, feat_data_str)
+            added_surfs.append(surf_str)
+            data.append([surf, feat, [pos], root, [polar]])
+        '''
+        if len(data) > 3829:
+            unique_rooted_data_dict[root_str].append(surf_str)
+            freqsdict[root_str] += 1
+            freqstagsdict[root_str][[*pos_vocab][pos]] += 1
+            if (unique_roots and root in added_roots or root==surf):
+                continue
+            else:
+                added_roots.append(root)
+                unique_rooted_data.append([surf, feat, [pos], root])
+        '''
+    return  data, unique_rooted_data, unique_rooted_data_dict, freqsdict, freqstagsdict, VocabEntry(feature_vocab), VocabEntry(pos_vocab), VocabEntry(polar_vocab), (surf_data_str, feat_data_str)
     
-def read_valdata(file, surface_vocab, feature_vocab, pos_vocab):
-    surf_data = []; feat_data = []; pos_data = []
-    root_data = []; root_data_str = []; data = []
+def read_valdata(file, surface_vocab, feature_vocab, pos_vocab, polar_vocab):
+    surf_data = []; feat_data = []; pos_data = []; root_data = [];  data = []; polar_data = []
+    surf_data_str = []; feat_data_str = []; root_data_str = []
     with open(file, 'r') as reader:
         for line in reader:   
             split_line = line.split()
+
+            root_str = split_line[1].replace('^','+').split('+')[0]
+            pos_tag  = split_line[1].replace('^','+').split('+')[1]
+            tags     = split_line[1].replace('^','+').split('+')[1:]
+
+            #if pos_tag != 'Verb' and pos_tag != 'Noun' and pos_tag != 'Adj':
+            #    continue
+
+            surf_data_str.append(split_line[0]) # add verbal versions
+            root_data_str.append(root_str)      # add verbal versions
             surf_data.append([surface_vocab[char] for char in split_line[0]])
-            root_data_str.append(split_line[1].replace('^','+').split('+')[0])
-            root = [char for char in split_line[1].replace('^','+').split('+')[0]]
-            root_and_tags =  root + split_line[1].replace('^','+').split('+')[1:]
+            root = [char for char in root_str]
+            root_and_tags =  root + tags
             root_data.append([surface_vocab[char] for char in root])
             feat_data.append([feature_vocab[tag] for tag in root_and_tags])
-            pos_tag = split_line[1].replace('^','+').split('+')[1]
             pos_data.append(pos_vocab[pos_tag])
 
+            if 'Neg' in tags:
+                polar_data.append(polar_vocab['Neg'])
+            elif 'Pos' in tags:
+                polar_data.append(polar_vocab['Pos'])
+
+    assert len(surf_data) == len(feat_data) == len(pos_data) == len(root_data) == len(root_data_str) == len(surf_data_str) == len(polar_data)
     added_roots = []
-    for (surf, feat, pos, root, root_str) in zip(surf_data, feat_data, pos_data, root_data, root_data_str):
-        if unique_roots and root_str in added_roots:
+    added_surfs = []
+    for (surf, feat, pos, root, root_str, surf_str, polar) in zip(surf_data, feat_data, pos_data, root_data, root_data_str, surf_data_str, polar_data):
+        if (unique_surfs and surf_str in added_surfs):
             continue
         else:
-            added_roots.append(root_str)
-            data.append([surf, feat, [pos], root])
+            added_surfs.append(surf_str)
+            data.append([surf, feat, [pos], root, [polar]])
+        #if unique_roots and root_str in added_roots:
+        #    continue
+        #else:
+        #    added_roots.append(root_str)
+        #    data.append([surf, feat, [pos], root, [polar]])
     return data
     
-def get_batch(x, surface_vocab, feature_vocab, pos_vocab):
+def get_batch(x, surface_vocab, feature_vocab):
     global number_of_feat_tokens, number_of_feat_unks, number_of_surf_tokens, number_of_surf_unks
 
-    surf, feat, pos, root = [], [], [], []
+    surf, feat, pos, root, polar = [], [], [], [], []
 
     max_surf_len = max([len(s[0]) for s in x])
     max_feat_len = max([len(s[1]) for s in x])
     max_root_len = max([len(s[3]) for s in x])
 
-    for surf_idx, feat_idx, pos_idx, root_idx in x:
+    for surf_idx, feat_idx, pos_idx, root_idx, polar_idx in x:
         surf_padding = [surface_vocab['<pad>']] * (max_surf_len - len(surf_idx)) 
         surf.append([surface_vocab['<s>']] + surf_idx + [surface_vocab['</s>']] + surf_padding)
 
         feat_padding = [feature_vocab['<pad>']] * (max_feat_len - len(feat_idx)) 
         feat.append([feature_vocab['<s>']] + feat_idx + [feature_vocab['</s>']] + feat_padding)
         
-        #pos.append([pos_vocab['<s>']] + pos_idx + [pos_vocab['</s>']])
         pos.append(pos_idx)
-        
+        polar.append(polar_idx)
+
         root_padding = [surface_vocab['<pad>']] * (max_root_len - len(root_idx)) 
         root.append([surface_vocab['<s>']] + root_idx + [surface_vocab['</s>']] + root_padding)
 
@@ -130,7 +177,8 @@ def get_batch(x, surface_vocab, feature_vocab, pos_vocab):
     return  torch.tensor(surf, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(feat, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(pos,  dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(root, dtype=torch.long, requires_grad=False, device=device)
+            torch.tensor(root, dtype=torch.long, requires_grad=False, device=device), \
+            torch.tensor(polar, dtype=torch.long, requires_grad=False, device=device)
 
 def get_batches(data, surface_vocab, feature_vocab, pos_vocab, batchsize=64, seq_to_no_pad=''):
 
@@ -172,11 +220,10 @@ def get_batches(data, surface_vocab, feature_vocab, pos_vocab, batchsize=64, seq
             elif seq_to_no_pad == 'root':
                 while jr < min(len(data), i+batchsize) and len(data[jr][3]) == len(data[i][3]): 
                     jr += 1
-            batches.append(get_batch(data[i: jr], surface_vocab, feature_vocab, pos_vocab))
+            batches.append(get_batch(data[i: jr], surface_vocab, feature_vocab))
             i = jr
         else:
-            batch = get_batch(data[i: i+batchsize], surface_vocab, feature_vocab, pos_vocab)
-            batches.append(batch)
+            batches.append(get_batch(data[i: i+batchsize], surface_vocab, feature_vocab))
             i += batchsize
 
     print('# of feat tokens: ', number_of_feat_tokens, ', # of feat unks: ', number_of_feat_unks)
@@ -186,46 +233,56 @@ def get_batches(data, surface_vocab, feature_vocab, pos_vocab, batchsize=64, seq
 
 def build_data(args):
     # Read data and get batches...
-    surface_vocab = MonoTextData(args.trndata, label=False).vocab
-    _trndata, feature_vocab, pos_vocab, _ = read_trndata_makevocab(args.trndata, args.trnsize, surface_vocab) # data len:56729 unique surfaces
-    #trndata = _trndata[2000:10000]  
-    #vlddata = _trndata[:2000] 
+    surface_vocab = MonoTextData('trmor_data/trmor2018.filtered', label=False).vocab
+    _trndata, _unique_rooted_data, _unique_rooted_data_dict, freqsdict, freqstagsdict, feature_vocab, pos_vocab, polar_vocab, _ = read_trndata_makevocab(args.trndata, args.trnsize, surface_vocab) # data len:56729 unique surfaces
+    trndata = _trndata#[3829:] # 52000 instances
+    #vlddata = _trndata[:2]#_unique_rooted_data#_trndata[:3829] # 3829  instances
     
-    trndata = _trndata[3829:] # 52000 instances
-    vlddata = _trndata[:3829] # 3829  instances
-    
+    sample = dict(sorted(_unique_rooted_data_dict.items(), key=lambda item: item[1], reverse=True))
+    #with open('unique_roots_and_freqs.json', 'w') as file:
+    #    file.write(json.dumps(sample, ensure_ascii=False)) 
+
     tstdata = None
-    #vlddata = read_valdata(args.valdata, surface_vocab, feature_vocab, pos_vocab)     # 5000
+    vlddata = read_valdata(args.valdata, surface_vocab, feature_vocab, pos_vocab, polar_vocab)     # 5000
     #tstdata = read_valdata(args.tstdata, surface_vocab, feature_vocab, pos_vocab)     # 2769
 
     trn_batches, _ = get_batches(trndata, surface_vocab, feature_vocab, pos_vocab, args.batchsize, args.seq_to_no_pad) 
-    vld_batches, _ = get_batches(vlddata, surface_vocab, feature_vocab, pos_vocab, args.batchsize, args.seq_to_no_pad) 
+    vld_batches, _ = get_batches(vlddata, surface_vocab, feature_vocab, pos_vocab, args.batchsize, args.seq_to_no_pad)#'root') 
     #tst_batches, _ = get_batches(tstdata, surface_vocab, feature_vocab, pos_vocab, args.batchsize, args.seq_to_no_pad)) 
     tst_batches = None
 
-    return (trndata, vlddata, tstdata), (trn_batches, vld_batches, tst_batches), (surface_vocab, feature_vocab, pos_vocab)
+    return (trndata, vlddata, tstdata), (trn_batches, vld_batches, tst_batches), (surface_vocab, feature_vocab, pos_vocab, polar_vocab), freqsdict, freqstagsdict
 
-
-def log_data(data, dset, surface_vocab, feature_vocab, pos_vocab, logger):
+def log_data(data, dset, surface_vocab, feature_vocab, pos_vocab, polar_vocab, logger, modelname, dsettype='trn'):
     # logger.write out data to file
-    f = open(dset+".txt", "w")
+    f = open('logs/'+modelname+'/'+dset+".txt", "w")
     total_surf_len = 0
     total_feat_len = 0
     total_root_len = 0
     pos_tags = defaultdict(lambda: 0)
-    for (surf, feat, pos, root) in data:
+    polar_tags = defaultdict(lambda: 0)
+    for (surf, feat, pos, root, polar) in data:
         total_surf_len += len(surf)
         total_feat_len += len(feat)
         total_root_len += len(root)
         pos_tags[pos[0]] += 1
-        f.write(''.join(surface_vocab.decode_sentence_2(surf))+'\t'+''.join(pos_vocab.decode_sentence_2(pos))+'\n')
+        polar_tags[polar[0]] += 1
+        if dsettype == 'trn':
+            f.write(''.join(surface_vocab.decode_sentence_2(surf))+'\t'+''.join(polar_vocab.decode_sentence_2(polar))+'\n')
+        else:
+            f.write(''.join(surface_vocab.decode_sentence_2(surf))+'\t'+''.join(polar_vocab.decode_sentence_2(polar))+'\n')
     f.close()
     avg_surf_len = total_surf_len / len(data)
     avg_feat_len = total_feat_len / len(data)
     avg_root_len = total_root_len / len(data)
     #print('%s -- size:%.1d, avg_surf_len: %.2f,  avg_feat_len: %.2f, avg_root_len: %.2f \n' % (dset, len(data), avg_surf_len, avg_feat_len, avg_root_len))
     logger.write('%s -- size:%.1d, avg_surf_len: %.2f,  avg_feat_len: %.2f, avg_root_len: %.2f \n' % (dset, len(data), avg_surf_len, avg_feat_len, avg_root_len))
+    
     for tag,count in sorted(pos_tags.items(), key=lambda item: item[1], reverse=True):
         logger.write('Pos tag %s: %.4f \n' % (pos_vocab.id2word(tag), count/len(data)))
+        #print('Pos tag %s: %.4f \n' % (pos_vocab.id2word(tag), count/sum(pos_tags.values())))
+
+    for tag,count in sorted(polar_tags.items(), key=lambda item: item[1], reverse=True):
+        logger.write('Polarity tag %s: %.4f \n' % (polar_vocab.id2word(tag), count/len(data)))
         #print('Pos tag %s: %.4f \n' % (pos_vocab.id2word(tag), count/sum(pos_tags.values())))
 

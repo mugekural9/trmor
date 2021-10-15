@@ -4,6 +4,7 @@ import torch.nn as nn
 import numpy as np
 from .utils import log_sum_exp
 
+general_last_states = []
 
 class VAE(nn.Module):
     """VAE with normal prior"""
@@ -74,8 +75,7 @@ class VAE(nn.Module):
 
         #return z, self.decode(z, decoding_strategy, K)
         return self.decode(z, decoding_strategy, K)
-
-    '''
+    
     def loss(self, x, kl_weight, nsamples=1):
         """
         Args:
@@ -95,8 +95,7 @@ class VAE(nn.Module):
         reconstruct_err = self.decoder.reconstruct_error(x, z).mean(dim=1)
 
         return reconstruct_err + kl_weight * KL, reconstruct_err, KL
-    '''
-
+    
     def s2s_loss(self, x, y, nsamples=1):
         """
         Args:
@@ -118,42 +117,38 @@ class VAE(nn.Module):
         reconstruct_err =  reconstruct_err.mean(dim=1)
         return reconstruct_err, acc 
 
-
-    def linear_probe_loss(self, x, y, general_last_states, nsamples=1):
+    def linear_probe_loss(self, x, y, freqs, freqstagsdict, nsamples=1):
         # z: (batchsize, 1, nz), last_states: (1, batchsize, enc_nh)
         z, _, last_states = self.encode(x, nsamples)
-        # (dim, numinstances)
-        #batchsize = last_states.size(1)
-        #xmatrix = last_states.squeeze(0).t().cpu().detach()
-        #xsum =  np.matrix(torch.matmul(torch.tensor(np.linalg.pinv(xmatrix)), xmatrix)).sum()
-        general_last_states.append(last_states.squeeze(0))
-        
+        # general_last_states.append(last_states.squeeze(0))
         # (1, batchsize, vocab_size)
-        output_logits = self.probe_linear(last_states) #.permute(1,0,2)) 
-        # (1, batchsize, vocab_size)
-        # output_logits = self.pred_linear(reduced_features)
+        output_logits = self.probe_linear(last_states) 
         # (batch_size, 1, vocab_size)
         output_logits = output_logits.permute(1,0,2)
         loss = self.closs(output_logits.squeeze(1), y.squeeze(1))
-        acc = self.pos_accuracy(output_logits, y, x)
+        acc = self.pos_accuracy(output_logits, y, x, freqs, freqstagsdict)
         return loss, acc, general_last_states
 
-    def pos_accuracy(self, output_logits, targets, x):
+    def pos_accuracy(self, output_logits, targets, x, freqs, freqstagsdict):
         B, T = targets.size()
         sft = nn.Softmax(dim=2)
         # (batchsize, T)
         pred_tokens = torch.argmax(sft(output_logits),2)
         correct_tokens = (pred_tokens == targets)
         wrong_tokens = (pred_tokens != targets)
-        
         wrong_predictions = []
+        correct_predictions = []
         for i in range(len(x)):
-            surf_str = self.vocab[0].decode_sentence(x[i])
-            pos_str  = self.vocab[2].decode_sentence(targets[i])[0]
-            pred_str = self.vocab[2].id2word(pred_tokens[i].item())
-            if pred_str != pos_str:
-                wrong_predictions.append('surf: %s target: %s pred: %s' % (''.join(surf_str[1:-1]), pos_str, pred_str))
-        acc = correct_tokens.sum().item(), B, wrong_tokens.sum().item(), wrong_predictions
+            surf_str =  ''.join(self.vocab[0].decode_sentence(x[i])[1:-1])
+            target  = self.vocab[3].decode_sentence(targets[i])[0]
+            pred = self.vocab[3].id2word(pred_tokens[i].item())
+            if target != pred:
+                #wrong_predictions.append('%s target: %s pred: %s numocc_in_trn: %d freqstags: %s' % (surf_str, target, pred, freqs[surf_str], freqstagsdict[surf_str].items()))
+                wrong_predictions.append('%s target: %s pred: %s' % (surf_str, target, pred))
+            else:
+                #correct_predictions.append('%s target: %s pred: %s numocc_in_trn: %d freqstags: %s' % (surf_str, target, pred, freqs[surf_str], freqstagsdict[surf_str].items()))
+                correct_predictions.append('%s target: %s pred: %s' % (surf_str, target, pred))
+        acc = correct_tokens.sum().item(), B, wrong_tokens.sum().item(), wrong_predictions, correct_predictions
         return  acc
 
     def nll_iw(self, x, nsamples, ns=100):
