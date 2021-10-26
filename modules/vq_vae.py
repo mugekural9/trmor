@@ -2,10 +2,11 @@
 import torch
 from torch import nn
 from torch.nn import functional as F
-from .types_ import *
 from modules import LSTMEncoder, LSTMDecoder, OneStepDecoder
 from utils import *
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
+from typing import TypeVar
+Tensor = TypeVar('torch.tensor')
 
 class VectorQuantizer(nn.Module):
     """
