@@ -26,7 +26,7 @@ class LSTMDecoder(DecoderBase):
         self.dropout_out = nn.Dropout(args.dec_dropout_out)
 
         # for initializing hidden state and cell
-        self.trans_linear = nn.Linear(args.nz, args.dec_nh, bias=False)
+        # self.trans_linear = nn.Linear(args.nz, args.dec_nh, bias=False)
 
         # concatenate z with input
         self.lstm = nn.LSTM(input_size=args.ni + args.nz,
@@ -58,42 +58,37 @@ class LSTMDecoder(DecoderBase):
         for param in self.parameters():
             model_init(param)
         emb_init(self.embed.weight)
-    
+
+
     def decode(self, input, z):
         """
         Args:
             input: (batch_size, seq_len)
-            z: (batch_size, n_sample, nz)
+            z: (batch_size, 1, nz)
         """
 
         # not predicting start symbol
         # sents_len -= 1
-        batch_size, n_sample, _ = z.size()
+        batch_size, _, _ = z.size()
         seq_len = input.size(1)
 
         # (batch_size, seq_len, ni)
         word_embed = self.embed(input)
         word_embed = self.dropout_in(word_embed)
 
-        if n_sample == 1:
-            z_ = z.expand(batch_size, seq_len, self.nz)
-
-        else:
-            word_embed = word_embed.unsqueeze(1).expand(batch_size, n_sample, seq_len, self.ni) \
-                                   .contiguous()
-
-            # (batch_size * n_sample, seq_len, ni)
-            word_embed = word_embed.view(batch_size * n_sample, seq_len, self.ni)
-
-            z_ = z.unsqueeze(2).expand(batch_size, n_sample, seq_len, self.nz).contiguous()
-            z_ = z_.view(batch_size * n_sample, seq_len, self.nz)
-
+        z_ = z.expand(batch_size, seq_len, self.nz)
         # (batch_size * n_sample, seq_len, ni + nz)
         word_embed = torch.cat((word_embed, z_), -1)
 
-        z = z.view(batch_size * n_sample, self.nz)
-        c_init = self.trans_linear(z).unsqueeze(0)
+        # (batch_size, nz)
+        z = z.view(batch_size, self.nz)
+
+       
+        # (1, batch_size, dec_nh)
+        c_init = z.unsqueeze(0)
+        #c_init = self.trans_linear(z).unsqueeze(0)
         h_init = torch.tanh(c_init)
+
         # h_init = self.trans_linear(z).unsqueeze(0)
         # c_init = h_init.new_zeros(h_init.size())
         output, _ = self.lstm(word_embed, (h_init, c_init))
@@ -140,7 +135,7 @@ class LSTMDecoder(DecoderBase):
                          tgt)
 
 
-        # (batch_size, n_sample)
+        # (batch_size, 1)
         return loss.view(batch_size, n_sample, -1).sum(-1)
 
     def s2s_reconstruct_error(self, x, z):
@@ -176,7 +171,7 @@ class LSTMDecoder(DecoderBase):
         loss = self.loss(output_logits.view(-1, output_logits.size(2)),
                          _tgt)
 
-        # (batch_size, n_sample): sum the loss over sequence
+        # (batch_size, 1): sum the loss over sequence
         return loss.view(batch_size, n_sample, -1).sum(-1), self.accuracy(output_logits, tgt)
 
     def log_probability(self, x, z):
