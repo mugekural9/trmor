@@ -25,7 +25,8 @@ class VectorQuantizer(nn.Module):
         self.embedding.weight.data.uniform_(-1 / self.K, 1 / self.K)
 
     def forward(self, latents: Tensor) -> Tensor:
-        latents = latents.contiguous()  # [B x T x D]
+        # latents: (B x T x D)
+        latents = latents.contiguous()  
         latents_shape = latents.shape
         flat_latents = latents.view(-1, self.D)  # [BT x D]
 
@@ -38,7 +39,7 @@ class VectorQuantizer(nn.Module):
         # (BT x 1)
         # Get the encoding that has the min distance
         encoding_inds = torch.argmin(dist, dim=1).unsqueeze(1)  
-
+        # print(encoding_inds.t())
         # Convert to one-hot encodings
         device = latents.device
         encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=device)
@@ -59,7 +60,7 @@ class VectorQuantizer(nn.Module):
         # Add the residue back to the latents
         quantized_latents = latents + (quantized_latents - latents).detach()
 
-        return quantized_latents.permute(0, 2, 1).contiguous(), vq_loss  # [B x D x 1]
+        return quantized_latents.contiguous(), vq_loss  # [B x D x 1]
 
 class EncoderDecoder(nn.Module):
     """
@@ -75,9 +76,10 @@ class EncoderDecoder(nn.Module):
         self.generator = generator
         
     def forward(self, src, trg, src_mask, trg_mask, src_lengths, trg_lengths):
-        """Take in and process masked src and target sequences."""
+        # encoder_hidden: (B, T, hdim), encoder_final: (1,B,hdim)
         encoder_hidden, encoder_final = self.encode(src, src_mask, src_lengths)
-        return self.decode(encoder_hidden, encoder_final, src_mask, trg, trg_mask)
+        return  encoder_hidden, encoder_final
+        #return self.decode(encoder_hidden, encoder_final, src_mask, trg, trg_mask)
     
     def encode(self, src, src_mask, src_lengths):
         return self.encoder(self.src_embed(src), src_mask, src_lengths)
@@ -266,12 +268,12 @@ class SimpleLossCompute:
                               y.contiguous().view(-1))
         loss = loss / norm
 
-        if self.opt is not None:
-            loss.backward()          
-            self.opt.step()
-            self.opt.zero_grad()
+        #if self.opt is not None:
+        #    loss.backward()          
+        #    self.opt.step()
+        #    self.opt.zero_grad()
 
-        return loss.data.item() * norm, acc
+        return loss, acc #* norm, acc #loss.data.item() * norm, acc
 
     def accuracy(self, logits, tgt):
         # logits: (batchsize, T, vocabsize), tgt: (batchsize, T) 
@@ -286,48 +288,25 @@ class SimpleLossCompute:
 class VQVAE(nn.Module):
 
     def __init__(self,
-                 args,
                  surface_vocab,
                  embedding_dim: int,
                  num_embeddings: int,
                  beta: float = 0.25,
                  **kwargs) -> None:
         super(VQVAE, self).__init__()
-        
-        '''
-        self.embedding_dim = embedding_dim
-        self.num_embeddings = num_embeddings
-        self.beta = beta
-
-        model_init = uniform_initializer(0.01)
-        emb_init = uniform_initializer(0.1)
-     
-        self.encoder = LSTMEncoder(args, 
-                                    len(surface_vocab), 
-                                    model_init, 
-                                    emb_init) 
-        self.vq_layer = VectorQuantizer(num_embeddings,
-                                        embedding_dim,
-                                        self.beta)
-
-        self.decoder = LSTMDecoder(args, 
-                                    surface_vocab, 
-                                    model_init, 
-                                    emb_init) 
-        '''
-        hidden_size = 256
-        num_layers = 1
-        dropout = 0.2
-        emb_size = 512
+        hidden_size = int(embedding_dim / 2)
         attention = BahdanauAttention(hidden_size)
         self.model = EncoderDecoder(
-            Encoder(emb_size, hidden_size, num_layers=num_layers, dropout=dropout),
-            Decoder(emb_size, hidden_size, attention, num_layers=num_layers, dropout=dropout),
-            nn.Embedding(39, emb_size),
-            nn.Embedding(39, emb_size),
-            Generator(hidden_size, 39))
+            Encoder(embedding_dim, hidden_size, num_layers=1, dropout=0.2),
+            Decoder(embedding_dim, hidden_size, attention, num_layers=1, dropout=0.2),
+            nn.Embedding(len(surface_vocab), embedding_dim),
+            nn.Embedding(len(surface_vocab), embedding_dim),
+            Generator(hidden_size, len(surface_vocab)))
         self.loss_compute = SimpleLossCompute(self.model.generator, nn.NLLLoss(reduction="sum", ignore_index=0), torch.optim.Adam(self.model.parameters(), lr=0.0003))
-
+        self.beta = beta
+        self.vq_layer = VectorQuantizer(num_embeddings,
+                                        hidden_size*2,
+                                        self.beta)
 
 
     def encode(self, input: Tensor) -> List[Tensor]:
@@ -350,24 +329,21 @@ class VQVAE(nn.Module):
         trg_lengths = torch.tensor([T] * B)
 
         # src: (B,T), tgt: (B,T), lengths: (B), src_mask: (B,1,t), tgt_mask: (B,t)
-        out, _, pre_output = self.model(src, trg, src_mask, trg_mask, src_lengths, trg_lengths)
-        loss, acc = self.loss_compute(pre_output, trg_y,  src.size(0))
-        # (batch_size, t, z)
-        # encoding, last_state_vector = self.encode(input)
-        # (batch_size, z, t)
-        # quantized_inputs, vq_loss = self.vq_layer(encoding)
-        # (batch_size, t, z)
-        # quantized_inputs = quantized_inputs.permute(0,2,1)
-
-        #recons_loss, recon_acc = self.decode(input, quantized_inputs)
-        #recons_loss, recon_acc = self.attndecode(input, last_state_vector, encoding)
-        #recons_loss = recons_loss.squeeze(1).mean()
-        #loss = recons_loss #+ vq_loss
-        return loss, ntokens, acc
-        '''
+        # encoder_hidden: (B, T, hdim), encoder_final: (1,B,hdim)
+        encoder_hidden, encoder_final = self.model(src, trg, src_mask, trg_mask, src_lengths, trg_lengths)
+        all_to_quantized = torch.cat([encoder_hidden, encoder_final.permute(1,0,2)], dim=1)
+        
+        # quantized_inputs: (B, T, hdim)
+        quantized_inputs, vq_loss = self.vq_layer(all_to_quantized)
+        quantized_final = quantized_inputs[:,T].unsqueeze(0)
+        
+        out, _, pre_output =  self.model.decode(quantized_inputs[:,:T],quantized_final, src_mask, trg, trg_mask)
+        recons_loss, acc = self.loss_compute(pre_output, trg_y,  src.size(0))
+        loss = recons_loss + vq_loss
         return {'loss': loss,
-                'Reconstruction_Loss': loss,
-                'VQ_Loss':0,
-                'Reconstruction_Acc': (0,0)}
-        '''
+                'Reconstruction_Loss': recons_loss,
+                'VQ_Loss':vq_loss,
+                'Reconstruction_Acc': acc,
+                'ntokens': ntokens}
+              
   
