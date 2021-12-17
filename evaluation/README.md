@@ -1,6 +1,6 @@
 ### Evaluation methods for unsupervised models, *consist of*:  
 
-- Probing 
+- Linear Probing 
 - Generalization tests 
 - Unsupervised tasks
 - Visualizations 
