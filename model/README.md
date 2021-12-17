@@ -3,6 +3,7 @@
 - Autoencoders
 - Variational Autoencoders
 - VQ-VAE
+- CharLM
 
 References: [models]
 
