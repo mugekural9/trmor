@@ -1,0 +1,1262 @@
+[
+    ["ver",
+    {
+        "Aor": 3,
+        "Prog1": 1,
+        "Past": 3,
+        "Fut": 1,
+        "Narr": 2
+    }],
+    ["yap",
+    {
+        "Aor": 1,
+        "Prog1": 3,
+        "Past": 1,
+        "Fut": 4,
+        "Narr": 3
+    }],
+    ["koru",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["kork",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["git",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 2,
+        "Fut": 3
+    }],
+    ["de",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Fut": 2,
+        "Narr": 1
+    }],
+    ["iç",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 1,
+        "Fut": 1
+    }],
+    ["bak",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["iste",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["başla",
+    {
+        "Aor": 1,
+        "Past": 2,
+        "Fut": 3,
+        "Narr": 1
+    }],
+    ["gir",
+    {
+        "Aor": 2,
+        "Prog1": 1,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["çık",
+    {
+        "Aor": 1,
+        "Prog1": 2,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["ara",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["et",
+    {
+        "Prog1": 1,
+        "Past": 1,
+        "Fut": 1,
+        "Narr": 2
+    }],
+    ["al",
+    {
+        "Prog1": 1,
+        "Past": 1,
+        "Fut": 2,
+        "Narr": 1
+    }],
+    ["çek",
+    {
+        "Aor": 1,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["yaşa",
+    {
+        "Aor": 2,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["söyle",
+    {
+        "Aor": 1,
+        "Prog1": 3,
+        "Past": 2
+    }],
+    ["tut",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Narr": 1
+    }],
+    ["dur",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 2
+    }],
+    ["tanı",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 2
+    }],
+    ["gör",
+    {
+        "Aor": 1,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["öde",
+    {
+        "Aor": 2,
+        "Prog1": 1,
+        "Narr": 2
+    }],
+    ["aç",
+    {
+        "Aor": 1,
+        "Prog1": 2,
+        "Narr": 1
+    }],
+    ["şaşır",
+    {
+        "Aor": 1,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["dön",
+    {
+        "Aor": 1,
+        "Past": 2,
+        "Fut": 1
+    }],
+    ["görüş",
+    {
+        "Aor": 1,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["kaybol",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 1
+    }],
+    ["yut",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Narr": 1
+    }],
+    ["ekle",
+    {
+        "Aor": 2,
+        "Past": 1,
+        "Fut": 1
+    }],
+    ["değiş",
+    {
+        "Aor": 1,
+        "Prog1": 1,
+        "Past": 1
+    }],
+    ["bahset",
+    {
+        "Prog1": 2,
+        "Past": 1,
+        "Fut": 1
+    }],
+    ["öğret",
+    {
+        "Prog1": 1,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["güven",
+    {
+        "Prog1": 1,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["sevin",
+    {
+        "Prog1": 2,
+        "Past": 1,
+        "Fut": 1
+    }],
+    ["sat",
+    {
+        "Prog1": 2,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["gel",
+    {
+        "Prog1": 3,
+        "Past": 3,
+        "Narr": 2
+    }],
+    ["getir",
+    {
+        "Prog1": 2,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["ol",
+    {
+        "Prog1": 3,
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["bas",
+    {
+        "Prog1": 1,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["at",
+    {
+        "Past": 1,
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["düşün",
+    {
+        "Past": 1,
+        "Fut": 1,
+        "Narr": 2
+    }],
+    ["geç",
+    {
+        "Aor": 1,
+        "Narr": 1
+    }],
+    ["duy",
+    {
+        "Aor": 3,
+        "Prog1": 2
+    }],
+    ["yeğle",
+    {
+        "Aor": 1,
+        "Past": 1
+    }],
+    ["koy",
+    {
+        "Aor": 1,
+        "Fut": 1
+    }],
+    ["anla",
+    {
+        "Aor": 1,
+        "Fut": 1
+    }],
+    ["görün",
+    {
+        "Aor": 1,
+        "Prog1": 1
+    }],
+    ["göm",
+    {
+        "Aor": 1,
+        "Past": 1
+    }],
+    ["belir",
+    {
+        "Aor": 1,
+        "Past": 1
+    }],
+    ["ağla",
+    {
+        "Aor": 1,
+        "Narr": 1
+    }],
+    ["yat",
+    {
+        "Aor": 1,
+        "Prog1": 2
+    }],
+    ["bekle",
+    {
+        "Aor": 2,
+        "Prog1": 3
+    }],
+    ["otur",
+    {
+        "Aor": 1,
+        "Prog1": 1
+    }],
+    ["incele",
+    {
+        "Aor": 1,
+        "Fut": 1
+    }],
+    ["kal",
+    {
+        "Aor": 2,
+        "Fut": 2
+    }],
+    ["kaçın",
+    {
+        "Aor": 1,
+        "Prog1": 1
+    }],
+    ["sun",
+    {
+        "Aor": 1,
+        "Fut": 1
+    }],
+    ["var",
+    {
+        "Aor": 1,
+        "Prog1": 1
+    }],
+    ["sağla",
+    {
+        "Aor": 1,
+        "Fut": 1
+    }],
+    ["açıkla",
+    {
+        "Aor": 1,
+        "Narr": 1
+    }],
+    ["kullan",
+    {
+        "Aor": 1,
+        "Fut": 1
+    }],
+    ["oluş",
+    {
+        "Aor": 1,
+        "Fut": 1
+    }],
+    ["seç",
+    {
+        "Aor": 1,
+        "Narr": 1
+    }],
+    ["dönüş",
+    {
+        "Aor": 1,
+        "Prog1": 1
+    }],
+    ["belirle",
+    {
+        "Aor": 1,
+        "Fut": 1
+    }],
+    ["çal",
+    {
+        "Prog1": 2,
+        "Narr": 1
+    }],
+    ["san",
+    {
+        "Prog1": 1,
+        "Past": 1
+    }],
+    ["uğraş",
+    {
+        "Prog1": 1,
+        "Fut": 1
+    }],
+    ["ye",
+    {
+        "Prog1": 1,
+        "Narr": 1
+    }],
+    ["kazan",
+    {
+        "Prog1": 1,
+        "Fut": 1
+    }],
+    ["karış",
+    {
+        "Prog1": 1,
+        "Past": 1
+    }],
+    ["kalk",
+    {
+        "Prog1": 1,
+        "Past": 1
+    }],
+    ["it",
+    {
+        "Prog1": 1,
+        "Past": 1
+    }],
+    ["gül",
+    {
+        "Prog1": 1,
+        "Past": 1
+    }],
+    ["yönel",
+    {
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["bırak",
+    {
+        "Past": 2,
+        "Fut": 2
+    }],
+    ["kaç",
+    {
+        "Past": 2,
+        "Fut": 1
+    }],
+    ["tanış",
+    {
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["bit",
+    {
+        "Past": 1,
+        "Fut": 1
+    }],
+    ["seyret",
+    {
+        "Past": 2,
+        "Fut": 1
+    }],
+    ["sür",
+    {
+        "Past": 2,
+        "Narr": 1
+    }],
+    ["toparla",
+    {
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["unut",
+    {
+        "Past": 1,
+        "Narr": 1
+    }],
+    ["başar",
+    {
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["kop",
+    {
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["çalış",
+    {
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["tartış",
+    {
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["yaz",
+    {
+        "Fut": 1,
+        "Narr": 1
+    }],
+    ["inan",
+    {
+        "Aor": 1
+    }],
+    ["kıl",
+    {
+        "Aor": 1
+    }],
+    ["giy",
+    {
+        "Aor": 1
+    }],
+    ["tak",
+    {
+        "Aor": 1
+    }],
+    ["buyur",
+    {
+        "Aor": 1
+    }],
+    ["sızla",
+    {
+        "Aor": 1
+    }],
+    ["öp",
+    {
+        "Aor": 1
+    }],
+    ["yolla",
+    {
+        "Aor": 2
+    }],
+    ["yen",
+    {
+        "Aor": 1
+    }],
+    ["fısılda",
+    {
+        "Aor": 1
+    }],
+    ["incel",
+    {
+        "Aor": 1
+    }],
+    ["ofla",
+    {
+        "Aor": 1
+    }],
+    ["okşa",
+    {
+        "Aor": 1
+    }],
+    ["kuru",
+    {
+        "Aor": 1
+    }],
+    ["öl",
+    {
+        "Aor": 1
+    }],
+    ["evlen",
+    {
+        "Aor": 1
+    }],
+    ["ilerle",
+    {
+        "Aor": 1
+    }],
+    ["önemse",
+    {
+        "Aor": 1
+    }],
+    ["türe",
+    {
+        "Aor": 1
+    }],
+    ["kemir",
+    {
+        "Aor": 1
+    }],
+    ["cezbet",
+    {
+        "Aor": 1
+    }],
+    ["listele",
+    {
+        "Aor": 1
+    }],
+    ["ayarla",
+    {
+        "Aor": 1
+    }],
+    ["reddet",
+    {
+        "Aor": 1
+    }],
+    ["devral",
+    {
+        "Aor": 2
+    }],
+    ["görüntüle",
+    {
+        "Aor": 2
+    }],
+    ["gerek",
+    {
+        "Aor": 1
+    }],
+    ["sil",
+    {
+        "Aor": 2
+    }],
+    ["içer",
+    {
+        "Aor": 2
+    }],
+    ["destekle",
+    {
+        "Aor": 1
+    }],
+    ["denetle",
+    {
+        "Aor": 1
+    }],
+    ["engelle",
+    {
+        "Aor": 1
+    }],
+    ["ata",
+    {
+        "Prog1": 1
+    }],
+    ["kon",
+    {
+        "Prog1": 2
+    }],
+    ["işle",
+    {
+        "Prog1": 1
+    }],
+    ["bula",
+    {
+        "Prog1": 1
+    }],
+    ["hazırla",
+    {
+        "Prog1": 1
+    }],
+    ["yak",
+    {
+        "Prog1": 1
+    }],
+    ["sev",
+    {
+        "Prog1": 2
+    }],
+    ["yakış",
+    {
+        "Prog1": 1
+    }],
+    ["yet",
+    {
+        "Prog1": 1
+    }],
+    ["bayıl",
+    {
+        "Prog1": 1
+    }],
+    ["irkil",
+    {
+        "Prog1": 1
+    }],
+    ["yıka",
+    {
+        "Prog1": 1
+    }],
+    ["uçuş",
+    {
+        "Prog1": 1
+    }],
+    ["uy",
+    {
+        "Prog1": 2
+    }],
+    ["sık",
+    {
+        "Prog1": 1
+    }],
+    ["üz",
+    {
+        "Prog1": 1
+    }],
+    ["parla",
+    {
+        "Prog1": 1
+    }],
+    ["şakalaş",
+    {
+        "Prog1": 1
+    }],
+    ["susa",
+    {
+        "Prog1": 1
+    }],
+    ["bil",
+    {
+        "Prog1": 1
+    }],
+    ["hapset",
+    {
+        "Prog1": 1
+    }],
+    ["sok",
+    {
+        "Prog1": 1
+    }],
+    ["savsakla",
+    {
+        "Prog1": 1
+    }],
+    ["havalan",
+    {
+        "Prog1": 1
+    }],
+    ["hışırda",
+    {
+        "Prog1": 1
+    }],
+    ["yan",
+    {
+        "Prog1": 1
+    }],
+    ["vur",
+    {
+        "Prog1": 1
+    }],
+    ["karşılaştır",
+    {
+        "Prog1": 1
+    }],
+    ["sakla",
+    {
+        "Prog1": 1
+    }],
+    ["boya",
+    {
+        "Past": 1
+    }],
+    ["boz",
+    {
+        "Past": 1
+    }],
+    ["çekiş",
+    {
+        "Past": 1
+    }],
+    ["yaklaş",
+    {
+        "Past": 2
+    }],
+    ["doğrul",
+    {
+        "Past": 1
+    }],
+    ["şükret",
+    {
+        "Past": 1
+    }],
+    ["hoşlan",
+    {
+        "Past": 1
+    }],
+    ["bağır",
+    {
+        "Past": 1
+    }],
+    ["sez",
+    {
+        "Past": 1
+    }],
+    ["haykır",
+    {
+        "Past": 1
+    }],
+    ["gülümse",
+    {
+        "Past": 1
+    }],
+    ["değil",
+    {
+        "Past": 1
+    }],
+    ["serp",
+    {
+        "Past": 1
+    }],
+    ["vazgeç",
+    {
+        "Past": 1
+    }],
+    ["tık",
+    {
+        "Past": 1
+    }],
+    ["dök",
+    {
+        "Past": 1
+    }],
+    ["kov",
+    {
+        "Past": 1
+    }],
+    ["dik",
+    {
+        "Past": 1
+    }],
+    ["eğ",
+    {
+        "Past": 1
+    }],
+    ["yıpran",
+    {
+        "Past": 1
+    }],
+    ["soğu",
+    {
+        "Past": 1
+    }],
+    ["giriş",
+    {
+        "Past": 1
+    }],
+    ["konuş",
+    {
+        "Past": 1
+    }],
+    ["çapala",
+    {
+        "Past": 1
+    }],
+    ["zannet",
+    {
+        "Past": 1
+    }],
+    ["topla",
+    {
+        "Past": 1
+    }],
+    ["böl",
+    {
+        "Past": 1
+    }],
+    ["çömel",
+    {
+        "Past": 1
+    }],
+    ["benze",
+    {
+        "Past": 1
+    }],
+    ["sarkıt",
+    {
+        "Past": 1
+    }],
+    ["sırıt",
+    {
+        "Past": 1
+    }],
+    ["anlaş",
+    {
+        "Past": 1
+    }],
+    ["baltala",
+    {
+        "Past": 1
+    }],
+    ["yürü",
+    {
+        "Past": 1
+    }],
+    ["yükle",
+    {
+        "Past": 1
+    }],
+    ["tekmele",
+    {
+        "Past": 1
+    }],
+    ["gez",
+    {
+        "Past": 1
+    }],
+    ["böğür",
+    {
+        "Past": 1
+    }],
+    ["işit",
+    {
+        "Past": 1
+    }],
+    ["kaşı",
+    {
+        "Past": 1
+    }],
+    ["çiz",
+    {
+        "Fut": 1
+    }],
+    ["kurtul",
+    {
+        "Fut": 1
+    }],
+    ["uyar",
+    {
+        "Fut": 1
+    }],
+    ["hisset",
+    {
+        "Fut": 3
+    }],
+    ["pazarla",
+    {
+        "Fut": 1
+    }],
+    ["anlat",
+    {
+        "Fut": 1
+    }],
+    ["karşılaş",
+    {
+        "Fut": 1
+    }],
+    ["düzel",
+    {
+        "Fut": 1
+    }],
+    ["esirge",
+    {
+        "Fut": 1
+    }],
+    ["gezin",
+    {
+        "Fut": 1
+    }],
+    ["alkışla",
+    {
+        "Fut": 1
+    }],
+    ["ağrı",
+    {
+        "Fut": 1
+    }],
+    ["dene",
+    {
+        "Fut": 1
+    }],
+    ["çevir",
+    {
+        "Fut": 1
+    }],
+    ["çeliş",
+    {
+        "Fut": 1
+    }],
+    ["yeral",
+    {
+        "Fut": 1
+    }],
+    ["kes",
+    {
+        "Fut": 1
+    }],
+    ["beğen",
+    {
+        "Fut": 1
+    }],
+    ["çağır",
+    {
+        "Fut": 1
+    }],
+    ["kur",
+    {
+        "Fut": 1
+    }],
+    ["suçla",
+    {
+        "Fut": 1
+    }],
+    ["kapış",
+    {
+        "Fut": 1
+    }],
+    ["ek",
+    {
+        "Fut": 1
+    }],
+    ["kirala",
+    {
+        "Fut": 1
+    }],
+    ["art",
+    {
+        "Fut": 1
+    }],
+    ["tüken",
+    {
+        "Fut": 1
+    }],
+    ["tamamla",
+    {
+        "Fut": 1
+    }],
+    ["üstlen",
+    {
+        "Fut": 1
+    }],
+    ["kısal",
+    {
+        "Fut": 1
+    }],
+    ["tanımla",
+    {
+        "Fut": 1
+    }],
+    ["yavaşla",
+    {
+        "Fut": 1
+    }],
+    ["kutla",
+    {
+        "Fut": 1
+    }],
+    ["yarat",
+    {
+        "Fut": 2
+    }],
+    ["in",
+    {
+        "Fut": 1
+    }],
+    ["dayan",
+    {
+        "Fut": 1
+    }],
+    ["ayıkla",
+    {
+        "Fut": 1
+    }],
+    ["aktar",
+    {
+        "Fut": 1
+    }],
+    ["gecik",
+    {
+        "Fut": 1
+    }],
+    ["yarış",
+    {
+        "Fut": 1
+    }],
+    ["doy",
+    {
+        "Fut": 1
+    }],
+    ["hatırla",
+    {
+        "Fut": 1
+    }],
+    ["paylaş",
+    {
+        "Fut": 1
+    }],
+    ["göster",
+    {
+        "Fut": 1
+    }],
+    ["affet",
+    {
+        "Narr": 1
+    }],
+    ["dal",
+    {
+        "Narr": 1
+    }],
+    ["sıva",
+    {
+        "Narr": 1
+    }],
+    ["piş",
+    {
+        "Narr": 1
+    }],
+    ["mu",
+    {
+        "Narr": 1
+    }],
+    ["çuvalla",
+    {
+        "Narr": 1
+    }],
+    ["kaynaş",
+    {
+        "Narr": 1
+    }],
+    ["büyü",
+    {
+        "Narr": 1
+    }],
+    ["araştır",
+    {
+        "Narr": 1
+    }],
+    ["yansı",
+    {
+        "Narr": 1
+    }],
+    ["alış",
+    {
+        "Narr": 1
+    }],
+    ["tetikle",
+    {
+        "Narr": 1
+    }],
+    ["doğ",
+    {
+        "Narr": 1
+    }],
+    ["yargıla",
+    {
+        "Narr": 1
+    }],
+    ["gözlemle",
+    {
+        "Narr": 1
+    }],
+    ["alıkoy",
+    {
+        "Narr": 1
+    }],
+    ["sergile",
+    {
+        "Narr": 1
+    }],
+    ["gizle",
+    {
+        "Narr": 1
+    }],
+    ["davran",
+    {
+        "Narr": 1
+    }],
+    ["oku",
+    {
+        "Narr": 1
+    }],
+    ["addet",
+    {
+        "Narr": 1
+    }],
+    ["patla",
+    {
+        "Narr": 1
+    }],
+    ["kay",
+    {
+        "Narr": 1
+    }],
+    ["dağıl",
+    {
+        "Narr": 1
+    }],
+    ["izle",
+    {
+        "Narr": 1
+    }],
+    ["tat",
+    {
+        "Narr": 1
+    }],
+    ["bez",
+    {
+        "Narr": 1
+    }],
+    ["gerile",
+    {
+        "Narr": 1
+    }],
+    ["keşfet",
+    {
+        "Narr": 2
+    }],
+    ["belgele",
+    {
+        "Narr": 1
+    }],
+    ["ispatla",
+    {
+        "Narr": 1
+    }],
+    ["hedefle",
+    {
+        "Narr": 1
+    }],
+    ["kovala",
+    {
+        "Narr": 1
+    }],
+    ["kavuş",
+    {
+        "Narr": 1
+    }],
+    ["kesiş",
+    {
+        "Narr": 1
+    }],
+    ["yüksel",
+    {
+        "Narr": 1
+    }],
+    ["ayır",
+    {
+        "Narr": 1
+    }],
+    ["geliş",
+    {
+        "Narr": 1
+    }],
+    ["harca",
+    {
+        "Narr": 1
+    }],
+    ["uç",
+    {
+        "Narr": 1
+    }],
+    ["ilet",
+    {
+        "Narr": 1
+    }],
+    ["boğ",
+    {
+        "Narr": 1
+    }],
+    ["kaybet",
+    {
+        "Narr": 1
+    }],
+    ["azal",
+    {
+        "Narr": 1
+    }],
+    ["yanaş",
+    {
+        "Narr": 1
+    }]
+]

@@ -1,0 +1,1 @@
+target: yönetim kurulu başkanları</s> pred: yönetim kurulu haşkanları</s>

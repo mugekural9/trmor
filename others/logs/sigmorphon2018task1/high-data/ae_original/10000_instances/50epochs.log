@@ -1,0 +1,320 @@
+trn -- size:10000,  avg_surf_len: 12.61, avg_feat_len: 12.07  
+val -- size:1000,  avg_surf_len: 12.86, avg_feat_len: 12.35  
+tst -- size:1000,  avg_surf_len: 12.71, avg_feat_len: 12.18  
+
+number of params: 6413312 
+Namespace(axs=array([<matplotlib.axes._subplots.AxesSubplot object at 0x7efcf5382b90>,
+       <matplotlib.axes._subplots.AxesSubplot object at 0x7efce53401d0>],
+      dtype=object), basemodel='models/ae/trmor_agg0_kls0.00_warm10_0_911.pt', batchsize=128, bidirectional=False, bmodel='ae_original', clip_grad=5.0, dec_dropout_in=0.0, dec_dropout_out=0.0, dec_nh=1024, device='cuda', enc_dropout_in=0.0, enc_nh=1024, epochs=50, fig=<Figure size 640x480 with 2 Axes>, fig_path='logs/sigmorphon2018task1/ae_original/10000_instances/50epochs.png', freeze_decoder=True, freeze_encoder=False, is_clip_grad=False, log_path='logs/sigmorphon2018task1/ae_original/10000_instances/50epochs.log', logger=<utils.Logger object at 0x7efce4317a50>, lr=0.001, maxtrnsize=10000, maxtstsize=8517, maxvalsize=8329, model=VAE(
+  (encoder): LSTMEncoder(
+    (embed): Embedding(94, 512)
+    (lstm): LSTM(512, 1024, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=1024, out_features=64, bias=False)
+  )
+  (decoder): LSTMDecoder(
+    (embed): Embedding(60, 512, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (trans_linear): Linear(in_features=32, out_features=1024, bias=False)
+    (lstm): LSTM(544, 1024, batch_first=True)
+    (pred_linear): Linear(in_features=1024, out_features=60, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), modelname='logs/sigmorphon2018task1/ae_original/10000_instances', ni=512, nz=32, opt='Adam', plt_style='-', reset_decoder=False, reset_encoder=True, save_path='logs/sigmorphon2018task1/ae_original/10000_instances/50epochs.pt', seq_to_no_pad='surface', surface_vocab_file='trmor_data/sigmorphon/2018task-1/turkish-train-high', task='sigmorphon2018task1', trndata='trmor_data/sigmorphon/2018task-1/turkish-train-high', trnsize=10000, tstdata='trmor_data/sigmorphon/2018task-1/turkish-test', tstsize=0, valdata='trmor_data/sigmorphon/2018task-1/turkish-dev', valsize=1000)
+
+encoder.embed.weight, torch.Size([94, 512]): True
+encoder.lstm.weight_ih_l0, torch.Size([4096, 512]): True
+encoder.lstm.weight_hh_l0, torch.Size([4096, 1024]): True
+encoder.lstm.bias_ih_l0, torch.Size([4096]): True
+encoder.lstm.bias_hh_l0, torch.Size([4096]): True
+encoder.linear.weight, torch.Size([64, 1024]): True
+decoder.embed.weight, torch.Size([60, 512]): False
+decoder.trans_linear.weight, torch.Size([1024, 32]): False
+decoder.lstm.weight_ih_l0, torch.Size([4096, 544]): False
+decoder.lstm.weight_hh_l0, torch.Size([4096, 1024]): False
+decoder.lstm.bias_ih_l0, torch.Size([4096]): False
+decoder.lstm.bias_hh_l0, torch.Size([4096]): False
+decoder.pred_linear.weight, torch.Size([60, 1024]): False
+epoch: 0 avg_loss: 48.3427, ppl: 34.9249, acc: 0.4221 
+epoch correct: 57431 epoch wrong: 78623 epoch_num_tokens: 136054 
+val --- avg_loss: 47.0877, ppl: 29.8930, acc: 0.4475  
+epoch correct: 6202 epoch wrong: 7657 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 1 avg_loss: 43.4732, ppl: 24.4173, acc: 0.4612 
+epoch correct: 62744 epoch wrong: 73310 epoch_num_tokens: 136054 
+val --- avg_loss: 44.8518, ppl: 25.4393, acc: 0.4607  
+epoch correct: 6385 epoch wrong: 7474 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 2 avg_loss: 41.6523, ppl: 21.3585, acc: 0.4754 
+epoch correct: 64683 epoch wrong: 71371 epoch_num_tokens: 136054 
+val --- avg_loss: 43.8518, ppl: 23.6684, acc: 0.4694  
+epoch correct: 6506 epoch wrong: 7353 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 3 avg_loss: 40.0217, ppl: 18.9462, acc: 0.4879 
+epoch correct: 66375 epoch wrong: 69679 epoch_num_tokens: 136054 
+val --- avg_loss: 42.5475, ppl: 21.5424, acc: 0.4843  
+epoch correct: 6712 epoch wrong: 7147 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 4 avg_loss: 36.5330, ppl: 14.6609, acc: 0.5238 
+epoch correct: 71264 epoch wrong: 64790 epoch_num_tokens: 136054 
+val --- avg_loss: 36.7095, ppl: 14.1368, acc: 0.5402  
+epoch correct: 7486 epoch wrong: 6373 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 5 avg_loss: 30.9184, ppl: 9.7038, acc: 0.5796 
+epoch correct: 78852 epoch wrong: 57202 epoch_num_tokens: 136054 
+val --- avg_loss: 30.6260, ppl: 9.1142, acc: 0.6009  
+epoch correct: 8328 epoch wrong: 5531 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 6 avg_loss: 25.2200, ppl: 6.3832, acc: 0.6425 
+epoch correct: 87409 epoch wrong: 48645 epoch_num_tokens: 136054 
+val --- avg_loss: 26.7471, ppl: 6.8891, acc: 0.6365  
+epoch correct: 8821 epoch wrong: 5038 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 7 avg_loss: 21.5280, ppl: 4.8662, acc: 0.6862 
+epoch correct: 93363 epoch wrong: 42691 epoch_num_tokens: 136054 
+val --- avg_loss: 23.0605, ppl: 5.2801, acc: 0.6883  
+epoch correct: 9539 epoch wrong: 4320 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 8 avg_loss: 18.0474, ppl: 3.7678, acc: 0.7300 
+epoch correct: 99315 epoch wrong: 36739 epoch_num_tokens: 136054 
+val --- avg_loss: 20.1236, ppl: 4.2717, acc: 0.7205  
+epoch correct: 9986 epoch wrong: 3873 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 9 avg_loss: 14.4495, ppl: 2.8923, acc: 0.7738 
+epoch correct: 105283 epoch wrong: 30771 epoch_num_tokens: 136054 
+val --- avg_loss: 15.3925, ppl: 3.0363, acc: 0.7708  
+epoch correct: 10683 epoch wrong: 3176 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 10 avg_loss: 9.7996, ppl: 2.0550, acc: 0.8351 
+epoch correct: 113616 epoch wrong: 22438 epoch_num_tokens: 136054 
+val --- avg_loss: 10.5689, ppl: 2.1439, acc: 0.8343  
+epoch correct: 11563 epoch wrong: 2296 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 11 avg_loss: 5.8695, ppl: 1.5394, acc: 0.8954 
+epoch correct: 121826 epoch wrong: 14228 epoch_num_tokens: 136054 
+val --- avg_loss: 7.6394, ppl: 1.7354, acc: 0.8791  
+epoch correct: 12184 epoch wrong: 1675 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 12 avg_loss: 3.5282, ppl: 1.2961, acc: 0.9333 
+epoch correct: 126974 epoch wrong: 9080 epoch_num_tokens: 136054 
+val --- avg_loss: 5.3696, ppl: 1.4732, acc: 0.9136  
+epoch correct: 12662 epoch wrong: 1197 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 13 avg_loss: 1.9540, ppl: 1.1544, acc: 0.9615 
+epoch correct: 130821 epoch wrong: 5233 epoch_num_tokens: 136054 
+val --- avg_loss: 4.0810, ppl: 1.3424, acc: 0.9325  
+epoch correct: 12924 epoch wrong: 935 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 14 avg_loss: 1.2742, ppl: 1.0982, acc: 0.9745 
+epoch correct: 132585 epoch wrong: 3469 epoch_num_tokens: 136054 
+val --- avg_loss: 3.4970, ppl: 1.2870, acc: 0.9417  
+epoch correct: 13051 epoch wrong: 808 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 15 avg_loss: 0.9166, ppl: 1.0697, acc: 0.9802 
+epoch correct: 133362 epoch wrong: 2692 epoch_num_tokens: 136054 
+val --- avg_loss: 3.0854, ppl: 1.2494, acc: 0.9494  
+epoch correct: 13158 epoch wrong: 701 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 16 avg_loss: 0.6099, ppl: 1.0458, acc: 0.9861 
+epoch correct: 134164 epoch wrong: 1890 epoch_num_tokens: 136054 
+val --- avg_loss: 2.9750, ppl: 1.2394, acc: 0.9495  
+epoch correct: 13159 epoch wrong: 700 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 17 avg_loss: 0.5199, ppl: 1.0390, acc: 0.9886 
+epoch correct: 134498 epoch wrong: 1556 epoch_num_tokens: 136054 
+val --- avg_loss: 3.0419, ppl: 1.2454, acc: 0.9479  
+epoch correct: 13137 epoch wrong: 722 epoch_num_tokens: 13859 
+
+epoch: 18 avg_loss: 0.4978, ppl: 1.0373, acc: 0.9888 
+epoch correct: 134532 epoch wrong: 1522 epoch_num_tokens: 136054 
+val --- avg_loss: 2.7651, ppl: 1.2208, acc: 0.9544  
+epoch correct: 13227 epoch wrong: 632 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 19 avg_loss: 0.3450, ppl: 1.0257, acc: 0.9926 
+epoch correct: 135042 epoch wrong: 1012 epoch_num_tokens: 136054 
+val --- avg_loss: 2.5858, ppl: 1.2051, acc: 0.9564  
+epoch correct: 13255 epoch wrong: 604 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 20 avg_loss: 0.2870, ppl: 1.0213, acc: 0.9941 
+epoch correct: 135255 epoch wrong: 799 epoch_num_tokens: 136054 
+val --- avg_loss: 2.5711, ppl: 1.2038, acc: 0.9571  
+epoch correct: 13264 epoch wrong: 595 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 21 avg_loss: 0.2393, ppl: 1.0177, acc: 0.9952 
+epoch correct: 135402 epoch wrong: 652 epoch_num_tokens: 136054 
+val --- avg_loss: 2.5617, ppl: 1.2030, acc: 0.9579  
+epoch correct: 13276 epoch wrong: 583 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 22 avg_loss: 0.2158, ppl: 1.0160, acc: 0.9959 
+epoch correct: 135501 epoch wrong: 553 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4079, ppl: 1.1897, acc: 0.9606  
+epoch correct: 13313 epoch wrong: 546 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 23 avg_loss: 0.1898, ppl: 1.0140, acc: 0.9969 
+epoch correct: 135627 epoch wrong: 427 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4642, ppl: 1.1946, acc: 0.9584  
+epoch correct: 13283 epoch wrong: 576 epoch_num_tokens: 13859 
+
+epoch: 24 avg_loss: 0.2112, ppl: 1.0156, acc: 0.9960 
+epoch correct: 135510 epoch wrong: 544 epoch_num_tokens: 136054 
+val --- avg_loss: 2.5298, ppl: 1.2003, acc: 0.9566  
+epoch correct: 13258 epoch wrong: 601 epoch_num_tokens: 13859 
+
+epoch: 25 avg_loss: 0.2491, ppl: 1.0185, acc: 0.9951 
+epoch correct: 135388 epoch wrong: 666 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4309, ppl: 1.1917, acc: 0.9602  
+epoch correct: 13308 epoch wrong: 551 epoch_num_tokens: 13859 
+
+epoch: 26 avg_loss: 0.1887, ppl: 1.0140, acc: 0.9965 
+epoch correct: 135578 epoch wrong: 476 epoch_num_tokens: 136054 
+val --- avg_loss: 2.3720, ppl: 1.1867, acc: 0.9611  
+epoch correct: 13320 epoch wrong: 539 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 27 avg_loss: 0.1474, ppl: 1.0109, acc: 0.9975 
+epoch correct: 135719 epoch wrong: 335 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4143, ppl: 1.1903, acc: 0.9611  
+epoch correct: 13320 epoch wrong: 539 epoch_num_tokens: 13859 
+
+epoch: 28 avg_loss: 0.1437, ppl: 1.0106, acc: 0.9976 
+epoch correct: 135729 epoch wrong: 325 epoch_num_tokens: 136054 
+val --- avg_loss: 2.3573, ppl: 1.1854, acc: 0.9610  
+epoch correct: 13318 epoch wrong: 541 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 29 avg_loss: 0.1402, ppl: 1.0104, acc: 0.9977 
+epoch correct: 135741 epoch wrong: 313 epoch_num_tokens: 136054 
+val --- avg_loss: 2.3510, ppl: 1.1849, acc: 0.9620  
+epoch correct: 13332 epoch wrong: 527 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 30 avg_loss: 0.1151, ppl: 1.0085, acc: 0.9982 
+epoch correct: 135811 epoch wrong: 243 epoch_num_tokens: 136054 
+val --- avg_loss: 2.2366, ppl: 1.1751, acc: 0.9641  
+epoch correct: 13362 epoch wrong: 497 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 31 avg_loss: 0.0999, ppl: 1.0074, acc: 0.9987 
+epoch correct: 135873 epoch wrong: 181 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4135, ppl: 1.1902, acc: 0.9594  
+epoch correct: 13297 epoch wrong: 562 epoch_num_tokens: 13859 
+
+epoch: 32 avg_loss: 0.1296, ppl: 1.0096, acc: 0.9980 
+epoch correct: 135777 epoch wrong: 277 epoch_num_tokens: 136054 
+val --- avg_loss: 2.2643, ppl: 1.1775, acc: 0.9631  
+epoch correct: 13347 epoch wrong: 512 epoch_num_tokens: 13859 
+
+epoch: 33 avg_loss: 0.1103, ppl: 1.0081, acc: 0.9984 
+epoch correct: 135835 epoch wrong: 219 epoch_num_tokens: 136054 
+val --- avg_loss: 2.2910, ppl: 1.1798, acc: 0.9625  
+epoch correct: 13339 epoch wrong: 520 epoch_num_tokens: 13859 
+
+epoch: 34 avg_loss: 0.1135, ppl: 1.0084, acc: 0.9985 
+epoch correct: 135845 epoch wrong: 209 epoch_num_tokens: 136054 
+val --- avg_loss: 2.2313, ppl: 1.1747, acc: 0.9623  
+epoch correct: 13336 epoch wrong: 523 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 35 avg_loss: 0.1455, ppl: 1.0108, acc: 0.9976 
+epoch correct: 135731 epoch wrong: 323 epoch_num_tokens: 136054 
+val --- avg_loss: 2.3245, ppl: 1.1826, acc: 0.9613  
+epoch correct: 13323 epoch wrong: 536 epoch_num_tokens: 13859 
+
+epoch: 36 avg_loss: 0.1714, ppl: 1.0127, acc: 0.9968 
+epoch correct: 135622 epoch wrong: 432 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4088, ppl: 1.1898, acc: 0.9614  
+epoch correct: 13324 epoch wrong: 535 epoch_num_tokens: 13859 
+
+epoch: 37 avg_loss: 0.1679, ppl: 1.0124, acc: 0.9971 
+epoch correct: 135659 epoch wrong: 395 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4107, ppl: 1.1900, acc: 0.9597  
+epoch correct: 13301 epoch wrong: 558 epoch_num_tokens: 13859 
+
+epoch: 38 avg_loss: 0.2079, ppl: 1.0154, acc: 0.9961 
+epoch correct: 135525 epoch wrong: 529 epoch_num_tokens: 136054 
+val --- avg_loss: 2.5281, ppl: 1.2001, acc: 0.9585  
+epoch correct: 13284 epoch wrong: 575 epoch_num_tokens: 13859 
+
+epoch: 39 avg_loss: 0.1920, ppl: 1.0142, acc: 0.9961 
+epoch correct: 135523 epoch wrong: 531 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4897, ppl: 1.1968, acc: 0.9585  
+epoch correct: 13284 epoch wrong: 575 epoch_num_tokens: 13859 
+
+epoch: 40 avg_loss: 0.2032, ppl: 1.0150, acc: 0.9958 
+epoch correct: 135484 epoch wrong: 570 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4098, ppl: 1.1899, acc: 0.9594  
+epoch correct: 13297 epoch wrong: 562 epoch_num_tokens: 13859 
+
+epoch: 41 avg_loss: 0.1966, ppl: 1.0146, acc: 0.9959 
+epoch correct: 135502 epoch wrong: 552 epoch_num_tokens: 136054 
+val --- avg_loss: 2.4303, ppl: 1.1917, acc: 0.9599  
+epoch correct: 13303 epoch wrong: 556 epoch_num_tokens: 13859 
+
+epoch: 42 avg_loss: 0.1638, ppl: 1.0121, acc: 0.9971 
+epoch correct: 135654 epoch wrong: 400 epoch_num_tokens: 136054 
+val --- avg_loss: 2.2701, ppl: 1.1780, acc: 0.9633  
+epoch correct: 13350 epoch wrong: 509 epoch_num_tokens: 13859 
+
+epoch: 43 avg_loss: 0.0809, ppl: 1.0060, acc: 0.9990 
+epoch correct: 135912 epoch wrong: 142 epoch_num_tokens: 136054 
+val --- avg_loss: 2.0947, ppl: 1.1632, acc: 0.9680  
+epoch correct: 13415 epoch wrong: 444 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 44 avg_loss: 0.0478, ppl: 1.0035, acc: 0.9997 
+epoch correct: 136012 epoch wrong: 42 epoch_num_tokens: 136054 
+val --- avg_loss: 2.0596, ppl: 1.1602, acc: 0.9686  
+epoch correct: 13424 epoch wrong: 435 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 45 avg_loss: 0.0376, ppl: 1.0028, acc: 0.9999 
+epoch correct: 136036 epoch wrong: 18 epoch_num_tokens: 136054 
+val --- avg_loss: 2.0294, ppl: 1.1577, acc: 0.9690  
+epoch correct: 13430 epoch wrong: 429 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 46 avg_loss: 0.0329, ppl: 1.0024, acc: 0.9999 
+epoch correct: 136046 epoch wrong: 8 epoch_num_tokens: 136054 
+val --- avg_loss: 2.0204, ppl: 1.1569, acc: 0.9695  
+epoch correct: 13436 epoch wrong: 423 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 47 avg_loss: 0.0299, ppl: 1.0022, acc: 1.0000 
+epoch correct: 136053 epoch wrong: 1 epoch_num_tokens: 136054 
+val --- avg_loss: 2.0053, ppl: 1.1557, acc: 0.9689  
+epoch correct: 13428 epoch wrong: 431 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 48 avg_loss: 0.0277, ppl: 1.0020, acc: 1.0000 
+epoch correct: 136052 epoch wrong: 2 epoch_num_tokens: 136054 
+val --- avg_loss: 1.9963, ppl: 1.1549, acc: 0.9693  
+epoch correct: 13433 epoch wrong: 426 epoch_num_tokens: 13859 
+update best loss 
+
+epoch: 49 avg_loss: 0.0265, ppl: 1.0019, acc: 1.0000 
+epoch correct: 136052 epoch wrong: 2 epoch_num_tokens: 136054 
+val --- avg_loss: 2.0007, ppl: 1.1553, acc: 0.9693  
+epoch correct: 13433 epoch wrong: 426 epoch_num_tokens: 13859 

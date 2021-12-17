@@ -1,0 +1,72 @@
+target: tanımadı</s> pred: tanımadı</s>
+target: bellerim</s> pred: bellerim</s>
+target: otuz bircimiz</s> pred: otuz bircimiz</s>
+target: kefallarımızı</s> pred: kefallarımızı</s>
+target: meşelerimizde</s> pred: meşelerimizde</s>
+target: kediciklerine</s> pred: kediciklerine</s>
+target: otocularından</s> pred: otocularından</s>
+target: valizlerinden</s> pred: valizlerinden</s>
+target: el sıkışıyor muyduk?</s> pred: el sıkışıyor muyduk?</s>
+target: çizgili sineklerinin</s> pred: çizgili sineklerinin</s>
+target: olay güdümlü programlamanda</s> pred: olay güdümlü programlamanda</s>
+target: hemzemin geçidinizden</s> pred: hemzemin geçidinizden</s>
+target: kırmızı şaraplarımıza</s> pred: kırmızı şaraplarımıza</s>
+target: yendirmiyor muydunuz?</s> pred: yendirmiyor muydunuz?</s>
+target: olmazsa olmazlarına</s> pred: olmazsa olmazlarına</s>
+target: süründürmeyecek misin?</s> pred: süründürmeyecek misin?</s>
+target: ateşe vermeyecek misiniz?</s> pred: ateşe vermeyecek misiniz?</s>
+target: boğmuyordum</s> pred: boğmuyordum</s>
+target: koşucularım</s> pred: koşucularım</s>
+target: patatesimde</s> pred: patatesimde</s>
+target: öper miyiz?</s> pred: öper miyiz?</s>
+target: öğrencinden</s> pred: öğrencinden</s>
+target: kravatından</s> pred: kravatından</s>
+target: sorularında</s> pred: sorularında</s>
+target: sönmüyor muyduk?</s> pred: sönmüyor muyduk?</s>
+target: örümcek ağlarını</s> pred: örümcek ağlarını</s>
+target: yapıncaklarımızı</s> pred: yapıncaklarımızı</s>
+target: kötüleştirmiyor</s> pred: kötüleştirmiyor</s>
+target: duş alır mıyım?</s> pred: duş alır mıyım?</s>
+target: canlandırtmıyor</s> pred: canlandırtmıyor</s>
+target: ateşe verecek mi?</s> pred: ateşe verecek mi?</s>
+target: sorumsuzluğunuzda</s> pred: sorumsuzluğunuzda</s>
+target: yardımcılıklarını</s> pred: yardımcılıklarını</s>
+target: sevdin</s> pred: sevdin</s>
+target: eşyayız</s> pred: eşyayız</s>
+target: yontuyor muydunuz?</s> pred: yontuyor muydunuz?</s>
+target: dirilmiyor muyduk?</s> pred: dirilmiyor muyduk?</s>
+target: coşkusuz değil mi?</s> pred: coşkusuz değil mi?</s>
+target: kartından</s> pred: kartından</s>
+target: geçmişine</s> pred: geçmişine</s>
+target: samurunda</s> pred: samurunda</s>
+target: sonralara</s> pred: sonralara</s>
+target: ettirir miyim?</s> pred: ettirir miyim?</s>
+target: peçetelerinden</s> pred: peçetelerinden</s>
+target: geçinirler mi?</s> pred: geçinirler mi?</s>
+target: sunuyor muydu?</s> pred: sunuyor muydu?</s>
+target: takmadılar mı?</s> pred: takmadılar mı?</s>
+target: mobilyalarının</s> pred: mobilyalarının</s>
+target: otoculuklarını</s> pred: otoculuklarını</s>
+target: sığıyor musun?</s> pred: sığıyor musun?</s>
+target: enflasyonların</s> pred: enflasyonların</s>
+target: çalışır mıyız?</s> pred: çalışır mıyız?</s>
+target: heyetlerinin</s> pred: heyetlerinin</s>
+target: tohumlarımda</s> pred: tohumlarımda</s>
+target: küpelerinden</s> pred: küpelerinden</s>
+target: penislerinin</s> pred: penislerinin</s>
+target: örümceklerin</s> pred: örümceklerin</s>
+target: verniklerimi</s> pred: verniklerimi</s>
+target: tekilaydınız</s> pred: tekilaydınız</s>
+target: sokaklarının</s> pred: sokaklarının</s>
+target: dalağınızdan</s> pred: dalağınızdan</s>
+target: altınımızı</s> pred: altınımızı</s>
+target: avokadonda</s> pred: avokadonda</s>
+target: islerinizi</s> pred: islerinizi</s>
+target: arınır mı?</s> pred: arınır mı?</s>
+target: ışınımızın</s> pred: ışınımızın</s>
+target: zibillerin</s> pred: zibillerin</s>
+target: tavernadan</s> pred: tavernadan</s>
+target: değirmenin</s> pred: değirmenin</s>
+target: katıyorsun</s> pred: katıyorsun</s>
+target: köpüklerim</s> pred: köpüklerim</s>
+target: pehlivanda</s> pred: pehlivanda</s>

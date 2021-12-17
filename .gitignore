@@ -3,3 +3,5 @@ models/**
 logs/**
 plot_scripts/**
 zbin/**
+**/*.pt
+**/*.npy

@@ -1,0 +1,233 @@
+target: tümöre</s> pred: tümcre</s>
+target: masası</s> pred: masanı</s>
+target: hamolu</s> pred: hamllu</s>
+target: dersin</s> pred: dereen</s>
+target: bassın</s> pred: basıın</s>
+target: koptun</s> pred: kopdun</s>
+target: eriğimi</s> pred: erimimi</s>
+target: kamusta</s> pred: kamusua</s>
+target: çişiniz</s> pred: çiziniz</s>
+target: araçsın</s> pred: ararıın</s>
+target: sakinim</s> pred: saninim</s>
+target: maskeye</s> pred: masaeye</s>
+target: çiğdemi</s> pred: çiğiemi</s>
+target: rüyayım</s> pred: rüyamım</s>
+target: mevsime</s> pred: mesmime</s>
+target: yapboza</s> pred: yapbozu</s>
+target: istisna</s> pred: istismay
+target: yörenin</s> pred: yöreğin</s>
+target: cebimiz</s> pred: cepimiz</s>
+target: düzeldim</s> pred: düzelmim</s>
+target: bükmeyiz</s> pred: bükmeymm</s>
+target: kirpiler</s> pred: kirliler</s>
+target: dulmuşum</s> pred: duluuş</s>m</s>
+target: sebebine</s> pred: sebepine</s>
+target: kolikama</s> pred: kolikaya</s>
+target: beşgenin</s> pred: beşkenin</s>
+target: şelalesi</s> pred: şelelesi</s>
+target: yaptırır</s> pred: yaptırtr</s>
+target: boyacınız</s> pred: boyacısız</s>
+target: konusunda</s> pred: konununda</s>
+target: alıcınıza</s> pred: alığınıza</s>
+target: emdik mi?</s> pred: etdik mi?</s>
+target: ayılırsın</s> pred: ayılarsın</s>
+target: mümessile</s> pred: mümessili</s>
+target: tarafları</s> pred: tarabları</s>
+target: ilginçtin</s> pred: ilginçiiyd
+target: odunlarda</s> pred: odallarda</s>
+target: oğlancıyı</s> pred: oğlaycı</s>ı</s>
+target: varışları</s> pred: aarışları</s>
+target: yaratıkta</s> pred: yaratıyta</s>
+target: bükmediler</s> pred: boğeediler</s>
+target: ana binada</s> pred: ananbinasa</s>
+target: şarapçının</s> pred: şarkpıının</s>
+target: baltalarız</s> pred: baltllarız</s>
+target: soluyorlar</s> pred: solucorlar</s>
+target: çeteydiler</s> pred: çeterdiler</s>
+target: katılaştım</s> pred: katılaşmım</s>
+target: çişlerinde</s> pred: çitlerinde</s>
+target: sandviçini</s> pred: sandiiçini</s>
+target: üyelerinin</s> pred: öyelerinin</s>
+target: oynatıcını</s> pred: oynatıcısı</s>
+target: astronotun</s> pred: astronottn</s>
+target: kesersiniz</s> pred: kesersıniz</s>
+target: okyanustan</s> pred: onuajonuand
+target: iskenderiz</s> pred: iskenderiy</s>
+target: gelinciğim</s> pred: gelinciyim</s>
+target: yıktım mı?</s> pred: yıkaı  mı?</s>
+target: embriyosunu</s> pred: embriyonunu</s>
+target: lunaparktın</s> pred: lunaparkaın</s>
+target: işçiymişler</s> pred: işiilmişler</s>
+target: kırdırdılar</s> pred: kırdırlılar</s>
+target: düzeleceğim</s> pred: düzelebeğim</s>
+target: kalıplarını</s> pred: kalıblarını</s>
+target: çökerticisi</s> pred: çökertiyisi</s>
+target: polenmişler</s> pred: polenmeşler</s>
+target: işleiyorduk</s> pred: işleyyorduk</s>
+target: mezralarını</s> pred: mezaalarını</s>
+target: evrimlerdim</s> pred: evrillerdim</s>
+target: yumurtalığa</s> pred: yumurtalıka</s>
+target: harçlığında</s> pred: harclığında</s>
+target: soğudun mu?</s> pred: soğunun mu?</s>
+target: önbilgileri</s> pred: önüilgileri</s>
+target: papaymışlar</s> pred: papazlışlar</s>
+target: tasarımında</s> pred: tasarımdzda</s>
+target: kıllarımıza</s> pred: killarımıza</s>
+target: makarnamdan</s> pred: makarnamıan</s>
+target: varoşlarını</s> pred: varallarını</s>
+target: medresesine</s> pred: medresenine</s>
+target: istemcisini</s> pred: istemcinini</s>
+target: yörüngesine</s> pred: yörüngenine</s>
+target: çizgiymişim</s> pred: çizgilmişim</s>
+target: ahtapotları</s> pred: ahtapltları</s>
+target: silmetaştan</s> pred: silmatidddn</s>
+target: varışlardan</s> pred: aargşlardan</s>
+target: davranmayız</s> pred: davranmayaz</s>
+target: zigguratını</s> pred: zigüüranını</s>
+target: milyarderdi</s> pred: milyarder</s>i</s>
+target: gecikiyorduk</s> pred: geciktyorduk</s>
+target: sesleneceğiz</s> pred: seseeşiceğiz</s>
+target: biliyorlardı</s> pred: bileyorlardı</s>
+target: boşalıyorlar</s> pred: boşayıyorlar</s>
+target: metrdoteldim</s> pred: metrdoteliim</s>
+target: yüzüncüyümüz</s> pred: yüzüncümümüz</s>
+target: titremediler</s> pred: titmemldiler</s>
+target: kalıplarımın</s> pred: kalıblarımın</s>
+target: bisküvimizin</s> pred: bisküvemizin</s>
+target: güçlüklerime</s> pred: gürüüklerime</s>
+target: önerilerinde</s> pred: önerllerinde</s>
+target: bayılırsınız</s> pred: bayılarsınız</s>
+target: sattırtırdım</s> pred: satıırttmtım</s>
+target: pisleteceğiz</s> pred: piseeticeğiz</s>
+target: çekmecesinde</s> pred: çekmeceninde</s>
+target: kıyafetmişim</s> pred: kıyaletiişim</s>
+target: lunaparkınız</s> pred: lunaparkanız</s>
+target: dişleklikten</s> pred: dişleklikded</s>
+target: sismolojinin</s> pred: sislelejinin</s>
+target: yetişmediniz</s> pred: yetişmeyiniz</s>
+target: bakıcıymışım</s> pred: bakıyıymışım</s>
+target: yakşıymışlar</s> pred: yakşılmışlar</s>
+target: işlevlerinin</s> pred: işlekeerinin</s>
+target: saklanıyordu</s> pred: saksanıyordu</s>
+target: müelliflerdi</s> pred: müellifderdi</s>
+target: yazı turanın</s> pred: yazıtkatapın</s>
+target: ibneliklerim</s> pred: ibneleklerim</s>
+target: bereketlerim</s> pred: berekttlerim</s>
+target: devingenliğe</s> pred: devingenlike</s>
+target: pandeistmişiz</s> pred: pandiistmişiz</s>
+target: oyuncaklardım</s> pred: oyuncaklardın</s>
+target: ahtapotlardan</s> pred: ahtaplttardan</s>
+target: yuvarlaacağım</s> pred: yuvarlaşmağım</s>
+target: süsmeyeceksin</s> pred: süseeyeceksin</s>
+target: deneyimimizde</s> pred: deneyimimizee</s>
+target: korku filmini</s> pred: körkulbiliini</s>
+target: üvey çocuklar</s> pred: üvey oocuklar</s>
+target: hükûmetlermiş</s> pred: hükûmellermiş</s>
+target: parıltıymışım</s> pred: parıltılmışım</s>
+target: şalgamlarının</s> pred: şalgallarının</s>
+target: dürbünlerinin</s> pred: dürbüllerinin</s>
+target: aşık oldu mu?</s> pred: aşık oluu mu?</s>
+target: istemcilerdir</s> pred: istemcilerdi</s></s>
+target: gizlerler mi?</s> pred: gizler er mi?</s>
+target: diri değildik</s> pred: dirilmeğildik</s>
+target: üvey oğlunuzu</s> pred: üvey oğua uzu</s>
+target: marangozunuzu</s> pred: marangozunu</s>u</s>
+target: kardan adamın</s> pred: kaynanmkdamın</s>
+target: iftitahlarının</s> pred: fstisaslarının</s>
+target: fırtınalarının</s> pred: fırtınllarının</s>
+target: kullanmalarını</s> pred: kullanıalarını</s>
+target: şehir efsanesi</s> pred: şehireestinisi</s>
+target: akçaağaçlardan</s> pred: akçaakaçlardan</s>
+target: enfeksiyonunuz</s> pred: enjeksiyonınuz</s>
+target: aldırtmaıyordu</s> pred: aldırtmı yordu</s>
+target: intikamlarının</s> pred: intikallarının</s>
+target: mutlak sıfırda</s> pred: mutlaf sıfırda</s>
+target: saç fırçasında</s> pred: savaçurdasında</s>
+target: tutuşturmazlar</s> pred: tutuşturtazlar</s>
+target: ayrılma halini</s> pred: ayrılmalhalini</s>
+target: kötüleşiyordum</s> pred: kötüleştyordum</s>
+target: sakladılar mı?</s> pred: saklatılar mı?</s>
+target: skrotumlarınız</s> pred: sorotumlarınız</s>
+target: kırtasiyelerdir</s> pred: kırtasiyelerdi</s></s>
+target: saklıyor muyuz?</s> pred: saklayor muyuz?</s>
+target: mukavemetlerden</s> pred: mukametellerden</s>
+target: Mogadişulularız</s> pred: Modalas lalarız</s>
+target: huzurlu muymuş?</s> pred: huzurlu muyduş?</s>
+target: üvey evlatlarda</s> pred: üvey evladlarda</s>
+target: seks yaptım mı?</s> pred: seks aapmım mı?</s>
+target: yaptırtılar mı?</s> pred: yaptırtıldr mı?</s>
+target: ücretliliklerin</s> pred: ücretsiliklerin</s>
+target: çiftetellilerin</s> pred: çiftetellelerin</s>
+target: metrdotellermiş</s> pred: metraotellermiş</s>
+target: nükleotitlerden</s> pred: nükletfillerden</s>
+target: havuzlarınızdan</s> pred: havuçlarınızdan</s>
+target: bildirmeyeceğim</s> pred: biliirmeyeceğim</s>
+target: dirilmeiyordunuz</s> pred: diriliiyyordunuz</s>
+target: interfazlarınıza</s> pred: interfazlarınızı</s>
+target: koltuk altlarına</s> pred: klltuk btaaarı</s>a</s>
+target: yardımcılıktılar</s> pred: yardımcılıklılar</s>
+target: karıncalarınızın</s> pred: karıncakarınızın</s>
+target: uygulamalarından</s> pred: uzuunamalarından</s>
+target: diyecek misiniz?</s> pred: deşecek misiniz?</s>
+target: geciktirtmiyordu</s> pred: geciktirmmiyordu</s>
+target: dolayacaklar mı?</s> pred: dolacacaklar mı?</s>
+target: ilklendirirsiniz</s> pred: ilklerdirersiniz</s>
+target: okunaksızlıkları</s> pred: okundttuzlıkları</s>
+target: attıracak mısın?</s> pred: attırtcak mısın?</s>
+target: uzay mekiklerine</s> pred: uzay gikineerine</s>
+target: başarılı değilim</s> pred: başarıyı değilim</s>
+target: damatlıklarınızda</s> pred: damatlıllarınızda</s>
+target: geciktirtiniz mi?</s> pred: geciktintiniz mi?</s>
+target: canlandırılır mı?</s> pred: canlandırırır mı?</s>
+target: tasarruflarımızın</s> pred: tasarsuflarımızın</s>
+target: karanlık maddeden</s> pred: karanlık maddenen</s>
+target: nükleer kışınızda</s> pred: nükseer kışınızda</s>
+target: otuz bir çekerler</s> pred: otuz birlçikirler</s>
+target: zigguratlarınızın</s> pred: zıgüüranlarınızın</s>
+target: giymeyecek misin?</s> pred: gizmeyecek misin?</s>
+target: müstahdemmişsiniz</s> pred: müstahmemlişsiniz</s>
+target: yemek borularında</s> pred: yemersbazclarında</s>
+target: kontakt lensinize</s> pred: kontak  lensinize</s>
+target: tamlayan durumunu</s> pred: tamoayo ıoorumunu</s>
+target: tutuştururlar mı?</s> pred: tutuşturtrlar mı?</s>
+target: büktürtecekler mi?</s> pred: büktürtücekler mi?</s>
+target: dize gelmezler mi?</s> pred: dizelmelmezler mi?</s>
+target: sorumluluklarından</s> pred: sorumsuluklarından</s>
+target: ilerletiyor muyum?</s> pred: ilerletiror muyum?</s>
+target: işkencecilerimizde</s> pred: işkencecelerimizde</s>
+target: isteyecek misiniz?</s> pred: isterecek misiniz?</s>
+target: titremiyor muydum?</s> pred: tirremiyor muydum?</s>
+target: altını çizmedik mi?</s> pred: altın  çekmedik mi?</s>
+target: karıştıracak mıyız?</s> pred: karıştırıcak mıyız?</s>
+target: dedilkodu yapacağız</s> pred: dedikkodu yapıcağız</s>
+target: ittirtilmeyecek mi?</s> pred: ittirtmlmeyecek mi?</s>
+target: düzenlenebilirliğin</s> pred: düzenlenebilirlikin</s>
+target: tekil kalıplarımızı</s> pred: tekil kalıblarımızı</s>
+target: diri değil miymişim?</s> pred: dirilmeğil miymişim?</s>
+target: şamarlıyor muydunuz?</s> pred: şamarlayor muydunuz?</s>
+target: bıçaklıyor muydunuz?</s> pred: bıçıyıayor muydunuz?</s>
+target: bulunma durumlarında</s> pred: bulunculhulumlarında</s>
+target: uyanmayacak mısınız?</s> pred: uyammayacak mısınız?</s>
+target: İngilizceleştirdiler</s> pred: İngilizleleştirdiler</s>
+target: canlanmaacak mısınız?</s> pred: canlanmaycak mısınız?</s>
+target: ikizkenar dik üçgende</s> pred: ikin andr ke</s> kkgende</s>
+target: mortoyu çekmez miyim?</s> pred: mortoyu çekiiz miyim?</s>
+target: kaynaştırtılacaksınız</s> pred: kaynaştırtalacaksınız</s>
+target: dağınık değil miydik?</s> pred: dağıtık değil miydik?</s>
+target: şişman istemcilermişim</s> pred: şişman istemcilermişsm</s>
+target: diferansiyel denklemde</s> pred: diferansifel denklemdi</s>
+target: seçiciler kurullarının</s> pred: seçicilirikuruluarın</s>n</s>
+target: büktürülüyorlar mıydı?</s> pred: büktürüyüyorlar mıydı?</s>
+target: satın almıyor muydunuz?</s> pred: satın almayor muydunuz?</s>
+target: çoktan seçmeli sorunuzu</s> pred: çoktan keçmeli surunuzu</s>
+target: kış uykusuna yatıyor mu?</s> pred: büş uykusuz  yatıyor mu?</s>
+target: evrensel değişkenlermişiz</s> pred: evrensil değişmenlermişsz</s>
+target: rahmetli olmuyor musunuz?</s> pred: rahmetli olmayor musunuz?</s>
+target: bilgisayar uygulamalarında</s> pred: bilgisayar kluunaralarında</s>
+target: kalıbı değiştirecekler mi?</s> pred: balıbı değiştirecekler mi?</s>
+target: Hakk'ın rahmetine kavuşurum</s> pred: Hakk'ın rahmetine kavuşumlm</s>
+target: radyoaktif bozunumlarımızdan</s> pred: radyoaktif bozunumuarımızdan</s>
+target: belirtili ad tamlamalarından</s> pred: belirtisi an tamlamalarından</s>
+target: kış uykusuna yatıyor muydunuz?</s> pred: büş uykusuz  yatdyor muydunuz?</s>
+target: bir avuç toprak olmayacak mısınız?</s> pred: bir avuç toprak olaayacak mısınız?</s>
+target: granüllü endoplazmik retikulumumda</s> pred: granülsü endoplazmik retikulumdmda</s>

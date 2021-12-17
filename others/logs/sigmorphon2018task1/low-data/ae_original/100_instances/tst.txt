@@ -1,0 +1,1000 @@
+peynirli pastalarınızı	peynirli pastaNACCPLPSS2P
+bisküvilerinizde	bisküviNLOCPLPSS2P
+önlerine	önNDATPLPSS3P
+sosluğunun	soslukNGENSGPSS3S
+sürtüklerinde	sürtükNLOCSGPSS3P
+muzlarımıza	muzNDATPLPSS1P
+seçmenlerinde	seçmenNLOCPLPSS3S
+düldüllerimi	düldülNACCPLPSS1S
+güdüme	güdümNDATSG
+işkenceciliklerinden	işkencecilikNABLPLPSS3P
+zibidilerinden	zibidiNABLPLPSS3S
+ritimlerinizde	ritimNLOCPLPSS2P
+kömlerimden	kömNABLPLPSS1S
+kasidelermiş	kasideNLGSPEC1<unk>PLLGSPEC2
+davranışlarınıza	davranışNDATPLPSS2P
+intikamım	intikamNNOMSGPSS1S
+düşünceliyiz	düşünceliADJLGSPEC1PRS1PLPOSDECL
+saydırıyor	saydırmakVIND3SGPRSPROGPOSDECL
+konularınızın	konuNGENPLPSS2P
+oyunculardık	oyuncuNLGSPEC11PPLPST
+şikâyet eder mi?	şik<unk>yet etmekVIND3SGPRSPOSINTR
+ağlar mısınız?	ağlamakVIND2PLPRSPOSINTR
+gizlemedi mi?	gizlemekVIND3SGPSTNEGINTR
+hastanemi	hastaneNACCSGPSS1S
+leşlersiniz	leşNLGSPEC12PPLPRS
+kaynaştırtılmadın	kaynaştırtılmakVIND2SGPSTNEGDECL
+kütükleri	kütükNACCPL
+girmediniz	girmekVIND2PLPSTNEGDECL
+kazmıyorsun	kazmakVIND2SGPRSPROGNEGDECL
+küleklerimiz	külekNNOMPLPSS1P
+pancarlarım	pancarNNOMPLPSS1S
+kırdırtmayız	kırdırtmakVIND1PLPRSNEGDECL
+gelinmeyeceğim	gelinmekVIND1SGFUTNEGDECL
+çarşafları	çarşafNNOMPLPSS3P
+ölümleri	ölümNACCPL
+Lefkoşalısına	LefkoşalıNDATSGPSS3S
+piskoposunun	piskoposNGENSGPSS2S
+çift sayımızdan	çift sayıNABLSGPSS1P
+radyoaktif bozunumlar	radyoaktif bozunumNNOMPL
+ayarlatmayacak	ayarlatmakVIND3SGFUTNEGDECL
+sünecek	sünmekVIND3SGFUTPOSDECL
+canlandırtılmadık	canlandırtılmakVIND1PLPSTNEGDECL
+nedenlerim	nedenNNOMPLPSS1S
+ezmeyecek mi?	ezmekVIND3SGFUTNEGINTR
+koşucularında	koşucuNLOCSGPSS3P
+ön eklerden	ön ekNABLPL
+abajurcumdan	abajurcuNABLSGPSS1S
+şaşırttırmadık mı?	şaşırttırmakVIND1PLPSTNEGINTR
+gürzlerine	gürzNDATSGPSS3P
+modellerimizden	modelNABLPLPSS1P
+sülüslerine	sülüsNDATPLPSS3P
+taşıyorsunuz	taşımakVIND2PLPRSPROGPOSDECL
+yolculuklarına	yolculukNDATPLPSS3P
+içiyorlar mı?	içmekVIND3PLPRSPROGPOSINTR
+kızmıyorum	kızmakVIND1SGPRSPROGNEGDECL
+dondurmalarından	dondurmaNABLSGPSS3P
+eşiğe	eşikNDATSG
+evcikkıranlardı	evcikkıranNLGSPEC1<unk>PLPST
+toprak olmayacağız	toprak olmakVIND1PLFUTNEGDECL
+striptizleri	striptizNNOMSGPSS3P
+tutacağım	tutmakVIND1SGFUTPOSDECL
+öznelerinin	özneNGENPLPSS3P
+tutulmama	tutulmaNDATSGPSS1S
+cihanında	cihanNLOCSGPSS3S
+çizecek miyim?	çizmekVIND1SGFUTPOSINTR
+menine	meniNDATSGPSS2S
+geberiyor muyum?	gebermekVIND1SGPRSPROGPOSINTR
+cinselliği	cinsellikNACCSG
+dudaklarımızdan	dudakNABLPLPSS1P
+aşığımızı	aşıkNACCSGPSS1P
+ziyaretçilermişsiniz	ziyaretçiNLGSPEC12PPLLGSPEC2
+kırbaçlarından	kırbaçNABLSGPSS3P
+yoksullaştırmıyoruz	yoksullaştırmakVIND1PLPRSPROGNEGDECL
+kış uykusuna yatmazlar	kış uykusuna yatmakVIND3PLPRSNEGDECL
+oynatıcısını	oynatıcıNACCSGPSS3S
+şerbetçilerdiniz	şerbetçiNLGSPEC12PPLPST
+yıpratmıyor musun?	yıpratmakVIND2SGPRSPROGNEGINTR
+eksikliklerinden	eksiklikNABLSGPSS3P
+seyahatlerimden	seyahatNABLPLPSS1S
+yeriyorlar mı?	yermekVIND3PLPRSPROGPOSINTR
+masumiyetimiz	masumiyetNNOMSGPSS1P
+uçurtmalarmış	uçurtmaNLGSPEC1<unk>PLLGSPEC2
+giysilerinin	giysiNGENSGPSS3P
+dalgalandırıyor muydu?	dalgalandırmakVIND3SGPSTPROGPOSINTR
+dirilmezim	dirilmemekVIND1SGPRSPOSDECL
+çoktan seçmeli sorumuzdan	çoktan seçmeli soruNABLSGPSS1P
+platformları	platformNACCPL
+sonbaharlarımı	sonbaharNACCPLPSS1S
+ettirttin	ettirtmekVIND2SGPSTPOSDECL
+kalamarları	kalamarNNOMPLPSS3P
+prototiplemelerimiz	prototiplemeNNOMPLPSS1P
+pisletmiyordular	pisletmekVIND3PLPSTPROGNEGDECL
+derlemede	derlemeNLOCSG
+körlüklerin	körlükNGENPL
+medreseleri	medreseNNOMPLPSS3S
+şerbetçimden	şerbetçiNABLSGPSS1S
+temizlimeyecek miyiz?	temizlemekVIND1PLFUTNEGINTR
+ilklendirdiniz mi?	ilklendirmekVIND2PLPSTPOSINTR
+esrarengizmişler	esrarengizADJLGSPEC1LGSPEC23PLPOSDECL
+totemciliklerine	totemcilikNDATPLPSS2S
+dalgasının	dalgaNGENSGPSS3S
+sararmadınız	sararmakVIND2PLPSTNEGDECL
+süzgeciniz	süzgeçNNOMSGPSS2P
+tıraş olmuyordum	tıraş olmakVIND1SGPSTPROGNEGDECL
+sindirimlerinizi	sindirimNACCPLPSS2P
+startlarımda	startNLOCPLPSS1S
+sözcüğümüz	sözcükNNOMSGPSS1P
+kurutmadım	kurutmakVIND1SGPSTNEGDECL
+çarmıhıma	çarmıhNDATSGPSS1S
+gırtlağın	gırtlakNNOMSGPSS2S
+kolonyalardı	kolonyaNLGSPEC1<unk>PLPST
+açıyorlardı	açmakVIND3PLPSTPROGPOSDECL
+röportajlarınız	röportajNNOMPLPSS2P
+kızanımın	kızanNGENSGPSS1S
+musluğu	muslukNNOMSGPSS3S
+yeter misin?	yetmekVIND2SGPRSPOSINTR
+yapıştın	yapışmakVIND2SGPSTPOSDECL
+yanıtın	yanıtNNOMSGPSS2S
+altını çizmiyordunuz	altını çizmekVIND2PLPSTPROGNEGDECL
+hükûmetinizden	hük<unk>metNABLSGPSS2P
+ekşitmiyorlar mıydı?	ekşitmekVIND3PLPSTPROGNEGINTR
+bankınızın	bankNGENSGPSS2P
+gri kedimde	gri kediNLOCSGPSS1S
+yayıyor musun?	yaymakVIND2SGPRSPROGPOSINTR
+yankılarımızı	yankıNACCPLPSS1P
+dışkıda	dışkıNLOCSG
+şarkıcılarmışsın	şarkıcıNLGSPEC1<unk>PLLGSPEC2
+hastalıklarda	hastalıkNLOCPL
+klatratımız	klatratNNOMSGPSS1P
+kerpiçleriniz	kerpiçNNOMPLPSS2P
+kanıtlayacaksın	kanıtlamakVIND2SGFUTPOSDECL
+penislerimin	penisNGENPLPSS1S
+havralarınız	havraNNOMPLPSS2P
+vekil sunucusunuz	vekil sunucuNLGSPEC12PSGPRS
+giymiyor	giymekVIND3SGPRSPROGNEGDECL
+barışın	barışNNOMSGPSS2S
+maymununun	maymunNGENSGPSS2S
+süre sınırlamalarının	süre sınırlamasıNGENPL
+seccadelerden	seccadeNABLPL
+mazotundan	mazotNABLSGPSS2S
+sabanın	sabanNGENSG
+açılmıyordu	açılmakVIND3SGPSTPROGNEGDECL
+yolundum mu?	yolunmakVIND1SGPSTPOSINTR
+pelikanlardın	pelikanNLGSPEC1<unk>PLPST
+mimari desenlerine	mimari desenNDATPLPSS3S
+fragman	fragmanNNOMSG
+sorumluluğunuzun	sorumlulukNGENSGPSS2P
+söndük mü?	sönmekVIND1PLPSTPOSINTR
+bitmem	bitmeNNOMSGPSS1S
+çalıştınız	çalışmakVIND2PLPSTPOSDECL
+yapışmaları	yapışmaNNOMPLPSS3S
+içyüzlerimizi	içyüzNACCPLPSS1P
+kontak lenslerinde	kontak lensNLOCPLPSS3P
+homonimleriniz	homonimNNOMPLPSS2P
+sürtüklerdiniz	sürtükNLGSPEC12PPLPST
+çekirdeğime	çekirdekNDATSGPSS1S
+canlanılmıyor mu?	canlanılmakVIND3SGPRSPROGNEGINTR
+el sıkışmayız	el sıkışmakVIND1PLPRSNEGDECL
+ecellerine	ecelNDATPLPSS2S
+yüksek fırınlar	yüksek fırınNNOMPL
+hikayenün	hikayeNGENSG
+Nusayrîleri	Nusayr<unk>NACCPL
+kansızlıklarından	kansızlıkNABLPLPSS2S
+homurdanmama	homurdanmaNDATSGPSS1S
+âlemlerini	<unk>lemNACCPLPSS2S
+mucizelerdim	mucizeNLGSPEC1<unk>PLPST
+Zagreplilerinden	<unk>agrepliNABLPLPSS2S
+öğretmenmiş	öğretmenNLGSPEC1<unk>SGLGSPEC2
+giymezler mi?	giymekVIND3PLPRSNEGINTR
+manalarımızı	manaNACCPLPSS1P
+toteminden	totemNABLSGPSS3S
+dövüşçünüze	dövüşçüNDATSGPSS2P
+pembe dizilerinde	pembe diziNLOCPLPSS3P
+odacılarına	odacıNDATSGPSS3P
+lunaparkınızı	lunaparkNACCSGPSS2P
+seçilmeyeceğiz	seçilmekVIND1PLFUTNEGDECL
+kaplanların	kaplanNGENPL
+mucizelerde	mucizeNLOCPL
+hecemi	heceNACCSGPSS1S
+yoldurmaz mıyım?	yoldurmakVIND1SGPRSNEGINTR
+tutkumuza	tutkuNDATSGPSS1P
+külotlu çorabım	külotlu çorapNNOMSGPSS1S
+porsuklarını	porsukNACCPLPSS2S
+açar mıyım?	açmakVIND1SGPRSPOSINTR
+bitirir miyiz?	bitirmekVIND1PLPRSPOSINTR
+startlarınızı	startNACCPLPSS2P
+bilyelerine	bilyeNDATSGPSS3P
+sihirli miymişler?	sihirliADJLGSPEC1LGSPEC23PLPOSINTR
+cartayı çekmeyecek	cartayı çekmekVIND3SGFUTNEGDECL
+blogları	blogNNOMPLPSS3S
+geyşan	geyşaNNOMSGPSS2S
+kıydım	kıymakVIND1SGPSTPOSDECL
+yetkileriniz	yetkiNNOMPLPSS2P
+ikincil sürüm	ikincil sürümNNOMSG
+külahımızdan	külahNABLSGPSS1P
+izlencelerimin	izlenceNGENPLPSS1S
+iğdede	iğdeNLOCSG
+manandan	manaNABLSGPSS2S
+sağlayıcılarını	sağlayıcıNACCPLPSS2S
+örneğimiz	örnekNNOMSGPSS1P
+kehribarlarımıza	kehribarNDATPLPSS1P
+dışlarında	dışNLOCPLPSS3P
+asteroide	asteroitNDATSG
+işkencelerimizde	işkenceNLOCPLPSS1P
+öfkelendirir mi?	öfkelendirmekVIND3SGPRSPOSINTR
+okumayacak mıyız?	okumakVIND1PLFUTNEGINTR
+nüfuza	nüfuzNDATSG
+ışınlarını	ışınNACCPLPSS3S
+bekletmeyeceksin	bekletmekVIND2SGFUTNEGDECL
+sıradan mıydım?	sıradanADJLGSPEC1PST1SGPOSINTR
+model-view-presenterlerimde	model<unk>vie<unk><unk>presenterNLOCPLPSS1S
+makinalarından	makinaNABLSGPSS3P
+yerlerinde	yerNLOCSGPSS3P
+kelimeymişiz	kelimeNLGSPEC11PSGLGSPEC2
+çiftine	çiftNDATSGPSS2S
+mermilerdi	mermiNLGSPEC1<unk>PLPST
+pusmuyor muydu?	pusmakVIND3SGPSTPROGNEGINTR
+düklerini	dükNACCSGPSS3P
+kırıtmadım	kırıtmakVIND1SGPSTNEGDECL
+ongunculuklarınızda	ongunculukNLOCPLPSS2P
+enstrümanınız	enstrümanNNOMSGPSS2P
+hanımmışız	hanımNLGSPEC11PSGLGSPEC2
+adsızım	adsızADJLGSPEC1PRS1SGPOSDECL
+kartpostalımızın	kartpostalNGENSGPSS1P
+sultanınıza	sultanNDATSGPSS2P
+kapatıyorlar mı?	kapatmakVIND3PLPRSPROGPOSINTR
+evlenmeyecek miyiz?	evlenmekVIND1PLFUTNEGINTR
+sevgililerinizi	sevgiliNACCPLPSS2P
+koymuyoruz	koymakVIND1PLPRSPROGNEGDECL
+işlemene	işlemeNDATSGPSS2S
+sebeplerini	sebepNACCPLPSS3S
+evcil sineklerinden	evcil sinekNABLPLPSS2S
+yeleklerinin	yelekNGENSGPSS3P
+jelatinleri	jelatinNNOMPLPSS3S
+filde	filNLOCSG
+lezbiyenlermişiz	lezbiyenNLGSPEC11PPLLGSPEC2
+vadelerinde	vadeNLOCPLPSS3S
+romanların	romanNNOMPLPSS2S
+pozisyonlarda	pozisyonNLOCPL
+aşık olmuyoruz	aşık olmakVIND1PLPRSPROGNEGDECL
+parlatmayacağım	parlatmakVIND1SGFUTNEGDECL
+bükecekler mi?	bükmekVIND3PLFUTPOSINTR
+salahiyetlerinde	salahiyetNLOCSGPSS3P
+çığırtkanlığından	çığırtkanlıkNABLSGPSS2S
+birleşmediniz	birleşmekVIND2PLPSTNEGDECL
+seks yapar mı?	seks yapmakVIND3SGPRSPOSINTR
+işlevlerinde	işlevNLOCPLPSS3S
+gelinmez misiniz?	gelinmekVIND2PLPRSNEGINTR
+kravatınızda	kravatNLOCSGPSS2P
+beyitler	beyitNLGSPEC1<unk>PLPRS
+krakerden	krakerNABLSG
+kabalıklara	kabalıkNDATPL
+söz vereceğiz	söz vermekVIND1PLFUTPOSDECL
+huzurlarından	huzurNABLPLPSS3P
+bozayılarınızı	bozayıNACCPLPSS2P
+yağlayıcılarda	yağlayıcıNLOCPL
+doğuyorlar	doğmakVIND3PLPRSPROGPOSDECL
+fikolojileri	fikolojiNACCPL
+doktorunun	doktorNGENSGPSS2S
+durdu	durmakVIND3SGPSTPOSDECL
+balkanlarına	balkanNDATSGPSS3P
+yıktı mı?	yıkmakVIND3SGPSTPOSINTR
+söyleşilerime	söyleşiNDATPLPSS1S
+derilerimizin	deriNGENPLPSS1P
+bitkilerden	bitkiNABLPL
+bastonu	bastonNNOMSGPSS3S
+cezeriyemizde	cezeriyeNLOCSGPSS1P
+reaktörleri	reaktörNNOMPLPSS3S
+kusmasından	kusmaNABLSGPSS3S
+kuvvetsizliklerini	kuvvetsizlikNACCPLPSS2S
+hayırseverlerinde	hayırseverNLOCPLPSS2S
+ortamlarımızın	ortamNGENPLPSS1P
+arzumuza	arzuNDATSGPSS1P
+klişelere	klişeNDATPL
+şaşırttırmıyor musunuz?	şaşırttırmakVIND2PLPRSPROGNEGINTR
+teoreminizi	teoremNACCSGPSS2P
+nöronlarınıza	nöronNDATPLPSS2P
+totemciliklerini	totemcilikNACCPLPSS3P
+öldürtüyor muydum?	öldürtmekVIND1SGPSTPROGPOSINTR
+günahkârınızın	günahk<unk>rNGENSGPSS2P
+sunmuyordum	sunmakVIND1SGPSTPROGNEGDECL
+çökertilerime	çökertiNDATPLPSS1S
+vaziyetine	vaziyetNDATSGPSS3S
+Türk kahvesine	<unk>ürk kahvesiNDATSG
+gündöndüde	gündöndüNLOCSG
+kediciklersin	kedicikNLGSPEC1<unk>PLPRS
+diliyor muydunuz?	dilmekVIND2PLPSTPROGPOSINTR
+patenimin	patenNGENSGPSS1S
+çökmeyecek miyiz?	çökmekVIND1PLFUTNEGINTR
+trenin	trenNGENSG
+sinematografını	sinematografNACCSGPSS2S
+yardımcıların	yardımcıNGENPL
+eğitiminin	eğitimNGENSGPSS2S
+kalmıyor musunuz?	kalmakVIND2PLPRSPROGNEGINTR
+babaanne	babaanneNNOMSG
+dolap çevirmiyorlar	dolap çevirmekVIND3PLPRSPROGNEGDECL
+motorinlerini	motorinNACCPLPSS2S
+sakinimde	sakinNLOCSGPSS1S
+çalmıyorlar mı?	çalmakVIND3PLPRSPROGNEGINTR
+ekstremumunda	ekstremumNLOCSGPSS3S
+dolap çevirdiler	dolap çevirmekVIND3PLPSTPOSDECL
+süsünün	süsNGENSGPSS3S
+yapışmıyor muyduk?	yapışmakVIND1PLPSTPROGNEGINTR
+alametiz	alametNLGSPEC11PSGPRS
+Hakk'ın rahmetine kavuşmazlar mı?	<unk>akk<unk>ın rahmetine kavuşmakVIND3PLPRSNEGINTR
+gerçek sayıyı	gerçek sayıNACCSG
+sınırları	sınırNACCPL
+örtülerdin	örtüNLGSPEC1<unk>PLPST
+götlerinde	götNLOCPLPSS3P
+sıyırmayacaklar mı?	sıyırmakVIND3PLFUTNEGINTR
+model-view-presenterlerinden	model<unk>vie<unk><unk>presenterNABLPLPSS2S
+çizmeciydim	çizmeciNLGSPEC1<unk>SGPST
+üzülürüz	üzülmekVIND1PLPRSPOSDECL
+geciktirmiyorsunuz	geciktirmekVIND2PLPRSPROGNEGDECL
+kategorilerini	kategoriNACCPLPSS3P
+kapımızın	kapıNGENSGPSS1P
+doğuyordu	doğmakVIND3SGPSTPROGPOSDECL
+müsaadelerimi	müsaadeNACCPLPSS1S
+kuvvetleri	kuvvetNNOMPLPSS3S
+ayarlattırmazlar mı?	ayarlattırmakVIND3PLPRSNEGINTR
+sonsuzluklarında	sonsuzlukNLOCPLPSS3S
+işkenceciliklerin	işkencecilikNGENPL
+omletinizde	omletNLOCSGPSS2P
+sonuna	sonNDATSGPSS2S
+sıralama algoritması	sıralama algoritmasıNNOMSG
+votkalarmış	votkaNLGSPEC1<unk>PLLGSPEC2
+pişirmeyeceğiz	pişirmekVIND1PLFUTNEGDECL
+kurutmuyordun	kurutmakVIND2SGPSTPROGNEGDECL
+entomolojiden	entomolojiNABLSG
+hedonizmlerinde	hedonizmNLOCPLPSS3S
+doğuydum	doğuNLGSPEC1<unk>SGPST
+açlığa	açlıkNDATSG
+parçalarını	parçaNACCPLPSS2S
+yarışmamıza	yarışmaNDATSGPSS1P
+almayız	almakVIND1PLPRSNEGDECL
+karakolumuzda	karakolNLOCSGPSS1P
+maçımın	maçNGENSGPSS1S
+dinozorlarız	dinozorNLGSPEC11PPLPRS
+embriyona	embriyoNDATSGPSS2S
+viskiydiniz	viskiNLGSPEC12PSGPST
+dişlerim	dişNNOMPLPSS1S
+ön ekimize	ön ekNDATSGPSS1P
+tangadan	tangaNABLSG
+yardımları	yardımNNOMPLPSS3S
+kımızlarının	kımızNGENPLPSS2S
+striptizimiz	striptizNNOMSGPSS1P
+ecelin	ecelNGENSG
+acımadım	acımakVIND1SGPSTNEGDECL
+satırtmaz mıyım?	sattırmakVIND1SGPRSNEGINTR
+müzisyenimize	müzisyenNDATSGPSS1P
+yüksüklerinizi	yüksükNACCPLPSS2P
+canlandırtılır mıyız?	canlandırtılmakVIND1PLPRSPOSINTR
+sandviçlerimden	sandviçNABLPLPSS1S
+hastanelerim	hastaneNNOMPLPSS1S
+öğrencilerden	öğrenciNABLPL
+yapılmadılar	yapılmakVIND3PLPSTNEGDECL
+evlenmedim mi?	evlenmekVIND1SGPSTNEGINTR
+karınız	karıNNOMSGPSS2P
+yapışmalarına	yapışmaNDATPLPSS3S
+otostobumuzun	otostopNGENSGPSS1P
+sezer misiniz?	sezmekVIND2PLPRSPOSINTR
+ilköğretimimi	ilköğretimNACCSGPSS1S
+sürünecek misin?	sürünmekVIND2SGFUTPOSINTR
+sosisten	sosisNABLSG
+dernekten	dernekNABLSG
+barbar değilsiniz	barbarADJLGSPEC1PRS2PLNEGDECL
+kaderimizi	kaderNACCSGPSS1P
+pasif değil misiniz?	pasifADJLGSPEC1PRS2PLNEGINTR
+gri kedilersin	gri kediNLGSPEC1<unk>PLPRS
+heteroseksüellerinde	heteroseksüelNLOCPLPSS3S
+savaşçılarımızda	savaşçıNLOCPLPSS1P
+malumatında	malumatNLOCSGPSS2S
+sümürdüler mü?	sümürmekVIND3PLPSTPOSINTR
+kuralında	kuralNLOCSGPSS3S
+sürülüyoruz	sürülmekVIND1PLPRSPROGPOSDECL
+ziyaretlerin	ziyaretNGENPL
+imrenmezler	imrenmekVIND3PLPRSNEGDECL
+akrebiz	akrepNLGSPEC11PSGPRS
+dakikamızı	dakikaNACCSGPSS1P
+yan cümlede	yan cümleNLOCSG
+geçmiyor muydum?	geçmekVIND1SGPSTPROGNEGINTR
+sakalınız	sakalNNOMSGPSS2P
+boşanacak mısın?	boşanmakVIND2SGFUTPOSINTR
+hırsızımıza	hırsızNDATSGPSS1P
+verdirdiler mi?	verdirmekVIND3PLPSTPOSINTR
+gözlemelerin	gözlemeNNOMPLPSS2S
+haberleşmiyorsunuz	haberleşmekVIND2PLPRSPROGNEGDECL
+gizemli değilmişsin	gizemliADJLGSPEC1LGSPEC22SGNEGDECL
+heyecanlandırtmaz mı?	heyecanlandırtmakVIND3SGPRSNEGINTR
+kuruşa	kuruşNDATSG
+söz vermiyor muyuz?	söz vermekVIND1PLPRSPROGNEGINTR
+öğütüyordum	öğütmekVIND1SGPSTPROGPOSDECL
+yeniliyorlar mıydı?	yenilmekVIND3PLPSTPROGPOSINTR
+duymamaları	duymamaNACCPL
+hastalarımızın	hastaNGENPLPSS1P
+telaffuzların	telaffuzNGENPL
+artçı depremmişsin	artçı depremNLGSPEC1<unk>SGLGSPEC2
+hinterlantlarına	hinterlantNDATPLPSS2S
+kumalarının	kumaNGENPLPSS3P
+sağduyuya	sağduyuNDATSG
+altını çizecek miyim?	altını çizmekVIND1SGFUTPOSINTR
+tatbiklerimden	tatbikNABLPLPSS1S
+vazolarının	vazoNGENPLPSS3S
+bileşiğinize	bileşikNDATSGPSS2P
+kaynaştırtmadınız mı?	kaynaştırtmakVIND2PLPSTNEGINTR
+iftitahlarından	iftitahNABLPLPSS3P
+ölçtürmeyecek mi?	ölçtürmekVIND3SGFUTNEGINTR
+kirpilerimi	kirpiNACCPLPSS1S
+alındırtıyorlardı	alındırtmakVIND3PLPSTPROGPOSDECL
+neşene	neşeNDATSGPSS2S
+yanardağlarımızın	yanardağNGENPLPSS1P
+küme	kümeNNOMSG
+acımayacaklar	acımakVIND3PLFUTNEGDECL
+hülyaları	hülyaNNOMPLPSS3P
+monoloğun	monologNNOMSGPSS2S
+şakalar	şakaNNOMPL
+içermiyorlar	içermekVIND3PLPRSPROGNEGDECL
+kısalığımızda	kısalıkNLOCSGPSS1P
+uzunluklarından	uzunlukNABLSGPSS3P
+başkanlarını	başkanNACCPLPSS2S
+ördeklerine	ördekNDATPLPSS3P
+laçolarsınız	laçoNLGSPEC12PPLPRS
+tiyatrolardınız	tiyatroNLGSPEC12PPLPST
+kaltaklarınız	kaltakNNOMPLPSS2P
+balıkçılarımızın	balıkçıNGENPLPSS1P
+fırtınalarımızı	fırtınaNACCPLPSS1P
+çıkarmadım	çıkarmakVIND1SGPSTNEGDECL
+sinematografımıza	sinematografNDATSGPSS1P
+simitleri	simitNNOMSGPSS3P
+sürümler	sürümNNOMPL
+sevişecekler mi?	sevişmekVIND3PLFUTPOSINTR
+mantilerimin	mantiNGENPLPSS1S
+uyardım mı?	uyarmakVIND1SGPSTPOSINTR
+anahtarlıklarının	anahtarlıkNGENPLPSS2S
+coşkulu değiller mi?	coşkuluADJLGSPEC1PRS3PLNEGINTR
+asteroidimizde	asteroitNLOCSGPSS1P
+müstahdemlerimden	müstahdemNABLPLPSS1S
+Bengal kaplanlarının	<unk>engal kaplanıNGENPL
+Belgratlıların	<unk>elgratlıNGENPL
+filozoflarına	filozofNDATPLPSS3S
+geciktirmediler	geciktirmekVIND3PLPSTNEGDECL
+tümcelerime	tümceNDATPLPSS1S
+öldürtüldünüz mü?	öldürtülmekVIND2PLPSTPOSINTR
+çarptı	çarpmakVIND3SGPSTPOSDECL
+acıtmadılar	acıtmakVIND3PLPSTNEGDECL
+paylaştırmalarımızı	paylaştırmaNACCPLPSS1P
+tanışmadı	tanışmakVIND3SGPSTNEGDECL
+etlerini	etNACCSGPSS3P
+gruplarınıza	grupNDATPLPSS2P
+devinimlerine	devinimNDATSGPSS3P
+dövüşlerinde	dövüşNLOCPLPSS2S
+deşmez misiniz?	deşmekVIND2PLPRSNEGINTR
+dalmazsınız	dalmakVIND2PLPRSNEGDECL
+delilerimden	deliNABLPLPSS1S
+kaldıraçtı	kaldıraçNLGSPEC1<unk>SGPST
+hiperbollerinin	hiperbolNGENPLPSS3S
+aşiretlerinden	aşiretNABLPLPSS3P
+endoplazmik retikulumlarda	endoplazmik retikulumNLOCPL
+öğretmendim	öğretmenNLGSPEC1<unk>SGPST
+tükenmez miyim?	tükenmekVIND1SGPRSNEGINTR
+yüzeyler	yüzeyNNOMPL
+sezmeyeceğiz	sezmekVIND1PLFUTNEGDECL
+parçadan	parçaNABLSG
+gelirine	gelirNDATSGPSS2S
+mevkilerimde	mevkiNLOCPLPSS1S
+kaynamadık	kaynamakVIND1PLPSTNEGDECL
+çoklu kalıtımdan	çoklu kalıtımNABLSG
+nohutları	nohutNNOMSGPSS3P
+pornolarının	pornoNGENPLPSS3P
+canlanılıyor muydunuz?	canlanılmakVIND2PLPSTPROGPOSINTR
+altdillerinizde	altdilNLOCPLPSS2P
+havralarıma	havraNDATPLPSS1S
+deliklerde	delikNLOCPL
+bineklerimde	binekNLOCPLPSS1S
+kovuldun mu?	kovulmakVIND2SGPSTPOSINTR
+içmedik	içmekVIND1PLPSTNEGDECL
+dermiyor muydun?	dermekVIND2SGPSTPROGNEGINTR
+yatakları	yatakNNOMPLPSS3P
+baylarımızın	bayNGENPLPSS1P
+mezuniyete	mezuniyetNDATSG
+dolabınıza	dolapNDATSGPSS2P
+smileyimin	smileyNGENSGPSS1S
+olgunluklarınızdan	olgunlukNABLPLPSS2P
+mananı	manaNACCSGPSS2S
+şerbetçiliklerinizde	şerbetçilikNLOCPLPSS2P
+kolajları	kolajNNOMPLPSS3S
+babalılardır	babalıNLGSPEC1<unk>PLPRS
+müellifin	müellifNNOMSGPSS2S
+enginarımızın	enginarNGENSGPSS1P
+göçümüze	göçNDATSGPSS1P
+altdilimize	altdilNDATSGPSS1P
+kısrağında	kısrakNLOCSGPSS2S
+saldıracaksınız	saldırmakVIND2PLFUTPOSDECL
+kapı yapıyorsun	kapı yapmakVIND2SGPRSPROGPOSDECL
+parlatmazlar mı?	parlatmakVIND3PLPRSNEGINTR
+türüde	türüNLOCSG
+paparazilerini	paparaziNACCPLPSS2S
+geçmeyeceğiz	geçmekVIND1PLFUTNEGDECL
+verinizde	veriNLOCSGPSS2P
+ekseninde	eksenNLOCSGPSS3S
+öğütücülerimden	öğütücüNABLPLPSS1S
+Zagreplimde	<unk>agrepliNLOCSGPSS1S
+sivilcemden	sivilceNABLSGPSS1S
+paparazilersin	paparaziNLGSPEC1<unk>PLPRS
+örnekmişsiniz	örnekNLGSPEC12PSGLGSPEC2
+çıkmaz sokaklarınız	çıkmaz sokakNNOMPLPSS2P
+fokumuzda	fokNLOCSGPSS1P
+azmadım mı?	azmakVIND1SGPSTNEGINTR
+yangınlarının	yangınNGENSGPSS3P
+tarihçilermişsin	tarihçiNLGSPEC1<unk>PLLGSPEC2
+bisküvilerinize	bisküviNDATPLPSS2P
+deyimlerini	deyimNACCPLPSS3S
+kısalıklardan	kısalıkNABLPL
+kara tahtaların	kara tahtaNNOMPLPSS2S
+baltalarımızın	baltaNGENPLPSS1P
+kurbağada	kurbağaNLOCSG
+analitik geometrisine	analitik geometriNDATSGPSS3S
+kebaplar	kebapNNOMPL
+amcalarmışsın	amcaNLGSPEC1<unk>PLLGSPEC2
+ülkelerimde	ülkeNLOCPLPSS1S
+malamozlardınız	malamozNLGSPEC12PPLPST
+bildirmedin	bildirmekVIND2SGPSTNEGDECL
+makyaj yapmadınız mı?	makyaj yapmakVIND2PLPSTNEGINTR
+<unk> ışınının	<unk> ışınıNGENSG
+takmayacak mısın?	takmakVIND2SGFUTNEGINTR
+tavernaların	tavernaNGENPL
+meşalende	meşaleNLOCSGPSS2S
+ayırmazsın	ayırmakVIND2SGPRSNEGDECL
+yapraklarından	yaprakNABLSGPSS3P
+sorumluluğunun	sorumlulukNGENSGPSS3S
+yorumlarımızda	yorumNLOCPLPSS1P
+dalgıcımdan	dalgıçNABLSGPSS1S
+şeftalinizden	şeftaliNABLSGPSS2P
+ortağımız	ortakNNOMSGPSS1P
+sinir hücresinde	sinir hücresiNLOCSG
+çeliklerinden	çelikNABLSGPSS3P
+kızgın değil miymişiz?	kızgınADJLGSPEC1LGSPEC21PLNEGINTR
+cızlamı çekmiyordunuz	cızlamı çekmekVIND2PLPSTPROGNEGDECL
+türemiyor musunuz?	türemekVIND2PLPRSPROGNEGINTR
+elmasının	elmasNGENSGPSS3S
+kediciklermiş	kedicikNLGSPEC1<unk>PLLGSPEC2
+iftitahımın	iftitahNGENSGPSS1S
+nöronda	nöronNLOCSG
+şaşırtacak mıyız?	şaşırtmakVIND1PLFUTPOSINTR
+gizlenmiyorum	gizlenmekVIND1SGPRSPROGNEGDECL
+yapıyorlar mı?	yapmakVIND3PLPRSPROGPOSINTR
+aşıyor muyum?	aşmakVIND1SGPRSPROGPOSINTR
+korunmalarını	korunmaNACCPLPSS2S
+hür yazılımın	hür yazılımNNOMSGPSS2S
+listede	listeNLOCSG
+yağlamam	yağlamakVIND1SGPRSNEGDECL
+önemliliğinde	önemlilikNLOCSGPSS2S
+fındık kırmıyordun	fındık kırmakVIND2SGPSTPROGNEGDECL
+çalışmadık	çalışmakVIND1PLPSTNEGDECL
+seçeneklerin	seçenekNGENPL
+saksafonunuza	saksafonNDATSGPSS2P
+heyecanlandınız	heyecanlanmakVIND2PLPSTPOSDECL
+vilayetlerini	vilayetNACCPLPSS3P
+mayomu	mayoNACCSGPSS1S
+küpenizden	küpeNABLSGPSS2P
+asasında	asaNLOCSGPSS3S
+bakıyorlar mı?	bakmakVIND3PLPRSPROGPOSINTR
+geriyor muydunuz?	germekVIND2PLPSTPROGPOSINTR
+kuvvetliliklerinde	kuvvetlilikNLOCPLPSS3P
+aşlarımızı	aşNACCPLPSS1P
+nalından	nalNABLSGPSS3S
+tanışacak mıyız?	tanışmakVIND1PLFUTPOSINTR
+kötüleşmiyorlar mıydı?	kötüleşmekVIND3PLPSTPROGNEGINTR
+çağırdılar	çağırmakVIND3PLPSTPOSDECL
+yasandan	yasaNABLSGPSS2S
+albümden	albümNABLSG
+bedevilerimizde	bedeviNLOCPLPSS1P
+toprak oldum	toprak olmakVIND1SGPSTPOSDECL
+serpiyorum	serpmekVIND1SGPRSPROGPOSDECL
+mimlerimin	mimNGENPLPSS1S
+fırınlarımızda	fırınNLOCPLPSS1P
+platformlarımızın	platformNGENPLPSS1P
+Hakk'ın rahmetine kavuşurlar	<unk>akk<unk>ın rahmetine kavuşmakVIND3PLPRSPOSDECL
+şaşıyordu	şaşmakVIND3SGPSTPROGPOSDECL
+deneylerden	deneyNABLPL
+aşklarınızın	aşkNGENPLPSS2P
+sonsuzunuzun	sonsuzNGENSGPSS2P
+topluluklardık	toplulukNLGSPEC11PPLPST
+yengeçlerimizin	yengeçNGENPLPSS1P
+sürülerinizi	sürüNACCPLPSS2P
+farelermişsiniz	fareNLGSPEC12PPLLGSPEC2
+paylaştık	paylaşmakVIND1PLPSTPOSDECL
+götürdük	götürmekVIND1PLPSTPOSDECL
+aldırtmatınız mı?	aldırtmamakVIND2PLPSTPOSINTR
+maskeni	maskeNACCSGPSS2S
+gösterecek misin?	göstermekVIND2SGFUTPOSINTR
+kasığını	kasıkNACCSGPSS2S
+jaluzimize	jaluziNDATSGPSS1P
+sümüğünüzün	sümükNGENSGPSS2P
+müezzinlerinin	müezzinNGENPLPSS3P
+asacak mı?	asmakVIND3SGFUTPOSINTR
+boğazlarımızın	boğazNGENPLPSS1P
+zırtgellerinin	zırtgelNGENPLPSS3S
+kusmayacak mısın?	kusmakVIND2SGFUTNEGINTR
+jelatinlerine	jelatinNDATSGPSS3P
+müstahdemdim	müstahdemNLGSPEC1<unk>SGPST
+yaban çileklerinden	yaban çileğiNABLPL
+jartiyerlerimize	jartiyerNDATPLPSS1P
+acılardı	acıNLGSPEC1<unk>PLPST
+bütünleşmiyor	bütünleşmekVIND3SGPRSPROGNEGDECL
+çubukta	çubukNLOCSG
+burkuyordum	burkmakVIND1SGPSTPROGPOSDECL
+tatlarınız	tatNNOMPLPSS2P
+hocaydın	hocaNLGSPEC1<unk>SGPST
+üresinin	üreNGENSGPSS3S
+ayarlanıyor muydu?	ayarlanmakVIND3SGPSTPROGPOSINTR
+uğratır mısınız?	uğratmakVIND2PLPRSPOSINTR
+taşeronunda	taşeronNLOCSGPSS2S
+battaniyelerin	battaniyeNNOMPLPSS2S
+kavaklarında	kavakNLOCPLPSS3S
+otuz birciyim	otuz birciNLGSPEC1<unk>SGPRS
+aynasızından	aynasızNABLSGPSS3S
+doktorumuz	doktorNNOMSGPSS1P
+dikdörtgenleri	dikdörtgenNNOMPLPSS3P
+karadullardan	karadulNABLPL
+ilerilerinden	ileriNABLPLPSS3P
+taklitçisini	taklitçiNACCSGPSS3S
+başrahiplersiniz	başrahipNLGSPEC12PPLPRS
+ilklendirmiyorsun	ilklendirmekVIND2SGPRSPROGNEGDECL
+vurmuyor muyduk?	vurmakVIND1PLPSTPROGNEGINTR
+cevizlerime	cevizNDATPLPSS1S
+giymiyorlar	giymekVIND3PLPRSPROGNEGDECL
+şehirlerine	şehirNDATPLPSS2S
+altlarıma	altNDATPLPSS1S
+yanaklarını	yanakNACCPLPSS3P
+surelere	sureNDATPL
+çaldınız mı?	çalmakVIND2PLPSTPOSINTR
+kontak lenslere	kontak lensNDATPL
+katilimi	katilNACCSGPSS1S
+eridi	erimekVIND3SGPSTPOSDECL
+puroları	puroNNOMSGPSS3P
+migrenimde	migrenNLOCSGPSS1S
+salahiyetlerinizde	salahiyetNLOCPLPSS2P
+aldıracağım	aldırmakVIND1SGFUTPOSDECL
+ahizemizde	ahizeNLOCSGPSS1P
+kipası	kipaNNOMSGPSS3S
+teşhislerinize	teşhisNDATPLPSS2P
+günlükleri	günlükNNOMSGPSS3P
+kalpaklarının	kalpakNGENPLPSS2S
+ürününüzü	ürünNACCSGPSS2P
+yıpranmaz mı?	yıpranmakVIND3SGPRSNEGINTR
+müsaadesinde	müsaadeNLOCSGPSS3S
+mumya	mumyaNLGSPEC1<unk>SGPRS
+aşıklar	aşıkNLGSPEC1<unk>PLPRS
+toprak oldunuz mu?	toprak olmakVIND2PLPSTPOSINTR
+göçüyor muydunuz?	göçmekVIND2PLPSTPROGPOSINTR
+kimofobi	kimofobiNNOMSG
+milyonerinden	milyonerNABLSGPSS2S
+nefretlerine	nefretNDATPLPSS2S
+kaldıraçlarınızda	kaldıraçNLOCPLPSS2P
+örneklerinizin	örnekNGENPLPSS2P
+patladınız mı?	patlamakVIND2PLPSTPOSINTR
+devirdim	devirNLGSPEC1<unk>SGPST
+uyanmıyor muyuz?	uyanmakVIND1PLPRSPROGNEGINTR
+kruvasanlarında	kruvasanNLOCSGPSS3P
+kelepçelerimizin	kelepçeNGENPLPSS1P
+dikdörtgeni	dikdörtgenNNOMSGPSS3S
+seslenmeyeceğiz	seslenmekVIND1PLFUTNEGDECL
+filozofumuz	filozofNNOMSGPSS1P
+öğretini	öğretiNACCSGPSS2S
+pöhrenk	pöhrenkNLGSPEC1<unk>SGPRS
+sunucularına	sunucuNDATSGPSS3P
+ergenlikten	ergenlikNABLSG
+ayakkabısına	ayakkabıNDATSGPSS3S
+anasızlıkları	anasızlıkNNOMSGPSS3P
+enstrümanıma	enstrümanNDATSGPSS1S
+mamalarım	mamaNNOMPLPSS1S
+salmadınız	salmakVIND2PLPSTNEGDECL
+nişanlı	nişanlıNNOMSG
+teyzelerin	teyzeNGENPL
+kasetlerime	kasetNDATPLPSS1S
+seçecek misin?	seçmekVIND2SGFUTPOSINTR
+güzelleştirecek	güzelleştirmekVIND3SGFUTPOSDECL
+sitesinde	siteNLOCSGPSS3S
+ambulans	ambulansNNOMSG
+sürtüklerinde	sürtükNLOCPLPSS2S
+üşüyecekler	üşümekVIND3PLFUTPOSDECL
+matlaydınız	matlaNLGSPEC12PSGPST
+acıkmadılar mı?	acıkmakVIND3PLPSTNEGINTR
+alıcımı	alıçNACCSGPSS1S
+teşhirlerini	teşhirNACCPLPSS3S
+diferansiyel denklemi	diferansiyel denklemNNOMSGPSS3S
+kullanmalarımdan	kullanmaNABLPLPSS1S
+gücenmiyorduk	gücenmekVIND1PLPSTPROGNEGDECL
+laçoları	laçoNNOMPLPSS3S
+peronda	peronNLOCSG
+fişeğimi	fişekNACCSGPSS1S
+bozayılardın	bozayıNLGSPEC1<unk>PLPST
+kolonlarını	kolonNACCPLPSS3P
+şelaleleri	şelaleNACCPL
+olaylarını	olayNACCSGPSS3P
+yetkili sunucularmışım	yetkili sunucuNLGSPEC1<unk>PLLGSPEC2
+yumurtalarmış	yumurtaNLGSPEC1<unk>PLLGSPEC2
+delirecek miyim?	delirmekVIND1SGFUTPOSINTR
+canlandırtılmaz mıyız?	canlandırtılmakVIND1PLPRSNEGINTR
+kirletmedik mi?	kirletmekVIND1PLPSTNEGINTR
+bezmiyorum	bezmekVIND1SGPRSPROGNEGDECL
+öğrenmeyeceksin	öğrenmekVIND2SGFUTNEGDECL
+mantıklı değil miydik?	mantıklıADJLGSPEC1PST1PLNEGINTR
+işemiyordular	işemekVIND3PLPSTPROGNEGDECL
+direğimi	direkNACCSGPSS1S
+araçtan	araçNABLSG
+süngerlerini	süngerNACCPLPSS3S
+frizbilerinizden	frizbiNABLPLPSS2P
+bükmemeyi	bükmemeNACCSG
+sinagoglarının	sinagogNGENPLPSS2S
+takvimlerinde	takvimNLOCSGPSS3P
+sözlükçüm	sözlükçüNNOMSGPSS1S
+hiperbolleri	hiperbolNNOMSGPSS3P
+modaları	modaNNOMPLPSS3S
+verimsizleştirmez mi?	verimsizleştirmekVIND3SGPRSNEGINTR
+salataydı	salataNLGSPEC1<unk>SGPST
+hıçkırığımdan	hıçkırıkNABLSGPSS1S
+çizmiyor muyduk?	çizmekVIND1PLPSTPROGNEGINTR
+yerine	yerNDATSGPSS3S
+şehrimde	şehirNLOCSGPSS1S
+gayzerlerimizde	gayzerNLOCPLPSS1P
+mühimliğimizden	mühimlikNABLSGPSS1P
+giymiyorduk	giymekVIND1PLPSTPROGNEGDECL
+oluyorum	olmakVIND1SGPRSPROGPOSDECL
+geylerinizi	geyNACCPLPSS2P
+ecelerdiniz	eceNLGSPEC12PPLPST
+afiyetlerinden	afiyetNABLPLPSS2S
+koymuyor muydun?	koymakVIND2SGPSTPROGNEGINTR
+kerpiçlerinde	kerpiçNLOCSGPSS3P
+umurlarının	umurNGENPLPSS3P
+yaratında	yaratıNLOCSGPSS2S
+kaynacının	kaynaçNGENSGPSS3S
+cartayı çekmezler mi?	cartayı çekmekVIND3PLPRSNEGINTR
+nalları dikmediniz mi?	nalları dikmekVIND2PLPSTNEGINTR
+nosyonundan	nosyonNABLSGPSS2S
+dişleğim	dişlekNNOMSGPSS1S
+karıştırtmadın	karıştırtmakVIND2SGPSTNEGDECL
+uçaklarında	uçakNLOCSGPSS3P
+nefes almıyor muydunuz?	nefes almakVIND2PLPSTPROGNEGINTR
+büstlerinin	büstNGENPLPSS2S
+abajurcunun	abajurcuNGENSGPSS2S
+düzelmiyorlar mıydı?	düzeltmekVIND3PLPSTPROGNEGINTR
+ustalarının	ustaNGENPLPSS3P
+buharlaşmadık	buharlaşmakVIND1PLPSTNEGDECL
+şafaklarım	şafakNNOMPLPSS1S
+beneklerinin	benekNGENPLPSS3P
+dövmen	dövmeNNOMSGPSS2S
+okulu	okulNACCSG
+geyşamdan	geyşaNABLSGPSS1S
+ikizlerinden	ikizNABLPLPSS3P
+yoldaşlarım	yoldaşNLGSPEC1<unk>PLPRS
+sillenizde	silleNLOCSGPSS2P
+efenin	efeNGENSG
+sanmıyor muydu?	sanmakVIND3SGPSTPROGNEGINTR
+özel okulumuzu	özel okulNACCSGPSS1P
+övgümüz	övgüNNOMSGPSS1P
+benzerlerden	benzerNABLPL
+yapraklarımda	yaprakNLOCPLPSS1S
+büyülü değil miymişiz?	büyülüADJLGSPEC1LGSPEC21PLNEGINTR
+final sınıfınızın	final sınıfNGENSGPSS2P
+tayfası	tayfaNNOMSGPSS3S
+şamarlamıyordunuz	şamarlamakVIND2PLPSTPROGNEGDECL
+uygulamalarımızda	uygulamaNLOCPLPSS1P
+bulunma hallerinin	bulunma haliNGENPL
+küllerinden	külNABLPLPSS3S
+solumuyorlar mıydı?	solumakVIND3PLPSTPROGNEGINTR
+kuyularımızda	kuyuNLOCPLPSS1P
+sökmüyor musun?	sökmekVIND2SGPRSPROGNEGINTR
+altdillerine	altdilNDATPLPSS2S
+mandallarmış	mandalNLGSPEC1<unk>PLLGSPEC2
+ambulansları	ambulansNNOMPLPSS3S
+daldırmayacağız	daldırmakVIND1PLFUTNEGDECL
+baykuşları	baykuşNNOMSGPSS3P
+paskalyamızı	paskalyaNACCSGPSS1P
+cevap vermez miyim?	cevap vermekVIND1SGPRSNEGINTR
+leşler	leşNNOMPL
+dindarlıklarını	dindarlıkNACCPLPSS2S
+yüzmeleri	yüzmeNACCPL
+sözlüklermişiz	sözlükNLGSPEC11PPLLGSPEC2
+döndürüyorum	döndürmekVIND1SGPRSPROGPOSDECL
+kâselerinden	k<unk>seNABLPLPSS3P
+dizmez mi?	dizmekVIND3SGPRSNEGINTR
+sugeçirmez yapmıyorlar mıydı?	sugeçirmez yapmakVIND3PLPSTPROGNEGINTR
+solunumumdan	solunumNABLSGPSS1S
+balkanlarına	balkanNDATPLPSS3P
+sinirlendirmiyordun	sinirlendirmekVIND2SGPSTPROGNEGDECL
+otizmi	otizmNACCSG
+tipografyaya	tipografyaNDATSG
+dolmuyor muydunuz?	dolmakVIND2PLPSTPROGNEGINTR
+kıyar	kıymakVIND3SGPRSPOSDECL
+çadırınıza	çadırNDATSGPSS2P
+dürbünlerinde	dürbünNLOCPLPSS3P
+yalanlarının	yalanNGENSGPSS3P
+malamozlarını	malamozNACCSGPSS3P
+yermişim	yerNLGSPEC1<unk>SGLGSPEC2
+börülcelerinin	börülceNGENSGPSS3P
+takacak mıyız?	takmakVIND1PLFUTPOSINTR
+homonimlerini	homonimNACCPLPSS3P
+Lefkoşalılarının	LefkoşalıNGENPLPSS3P
+alametlerinin	alametNGENPLPSS3S
+kaldıraçlarına	kaldıraçNDATPLPSS2S
+orta parmağınız	orta parmakNNOMSGPSS2P
+şişiyorsunuz	şişmekVIND2PLPRSPROGPOSDECL
+dizmedik mi?	dizmekVIND1PLPSTNEGINTR
+kümbet	kümbetNNOMSG
+Mogadişuluların	<unk>ogadişuluNNOMPLPSS2S
+süslerdiniz	süsNLGSPEC12PPLPST
+koruyucumun	koruyucuNGENSGPSS1S
+belleğe	bellekNDATSG
+orangutanlarımızda	orangutanNLOCPLPSS1P
+altını çizmiyor muydunuz?	altını çizmekVIND2PLPSTPROGNEGINTR
+kaynarlar mı?	kaynamakVIND3PLPRSPOSINTR
+metresler	metresNNOMPL
+yıpranıyor	yıpranmakVIND3SGPRSPROGPOSDECL
+bezmeyeceğiz	bezmekVIND1PLFUTNEGDECL
+yaratıyor muyduk?	yaratmakVIND1PLPSTPROGPOSINTR
+ilerletiyor muyduk?	ilerletmekVIND1PLPSTPROGPOSINTR
+bakmalarından	bakmaNABLPLPSS3S
+garplarıma	garpNDATPLPSS1S
+sıyırmazsınız	sıyırmakVIND2PLPRSNEGDECL
+germeyecek miyim?	germekVIND1SGFUTNEGINTR
+alçak değil miymişler?	alçakADJLGSPEC1LGSPEC23PLNEGINTR
+delirmiyorlar mı?	delirmekVIND3PLPRSPROGNEGINTR
+çökeriyordunuz	çökermekVIND2PLPSTPROGPOSDECL
+fitillerinizin	fitilNGENPLPSS2P
+direğinde	direkNLOCSGPSS3S
+bağlamıyor musunuz?	bağlamakVIND2PLPRSPROGNEGINTR
+özlemlerinize	özlemNDATPLPSS2P
+yağlamaz mısınız?	yağlamakVIND2PLPRSNEGINTR
+dağılmıyor muyuz?	dağılmakVIND1PLPRSPROGNEGINTR
+biseksüeldim	biseksüelNLGSPEC1<unk>SGPST
+ilklendirmelerimiz	ilklendirmeNNOMPLPSS1P
+desen dilleri	desen diliNNOMPL
+külfetten	külfetNABLSG
+doğru muydum?	doğruADJLGSPEC1PST1SGPOSINTR
+çağırmıyorsun	çağırmakVIND2SGPRSPROGNEGDECL
+reaktörleri	reaktörNNOMPLPSS3P
+alındırdın	alındırmakVIND2SGPSTPOSDECL
+omurgaydım	omurgaNLGSPEC1<unk>SGPST
+sözlükçülere	sözlükçüNDATPL
+kuşkonmazları	kuşkonmazNACCPL
+şaşırmadık mı?	şaşırmakVIND1PLPSTNEGINTR
+kokuymuşuz	kokuNLGSPEC11PSGLGSPEC2
+insanımsının	insanımsıNGENSGPSS2S
+tasarımını	tasarımNACCSGPSS3S
+balinamızda	balinaNLOCSGPSS1P
+mazotumuzun	mazotNGENSGPSS1P
+numaralamalarımızı	numaralamaNACCPLPSS1P
+salonun	salonNNOMSGPSS2S
+camilerini	camiNACCPLPSS3P
+hamızlarımızda	hamızNLOCPLPSS1P
+sosislerimin	sosisNGENPLPSS1S
+parçacıklarınızın	parçacıkNGENPLPSS2P
+kızlıklarında	kızlıkNLOCPLPSS2S
+sesteşimde	sesteşNLOCSGPSS1S
+saldırıyorlar	saldırmakVIND3PLPRSPROGPOSDECL
+mumlarınızı	mumNACCPLPSS2P
+penayı	penaNACCSG
+yıldızlarından	yıldızNABLPLPSS3S
+peynirli pastamda	peynirli pastaNLOCSGPSS1S
+kuramların	kuramNGENPL
+mükemmel değil miymişsin?	mükemmelADJLGSPEC1LGSPEC22SGNEGINTR
+karar verecekler mi?	karar vermekVIND3PLFUTPOSINTR
+akrobatlarsın	akrobatNLGSPEC1<unk>PLPRS
+yolunduruyor muydunuz?	yolundurmakVIND2PLPSTPROGPOSINTR
+marullarım	marulNNOMPLPSS1S
+basınlarını	basınNACCSGPSS3P
+kızgın değilmişler	kızgınADJLGSPEC1LGSPEC23PLNEGDECL
+balıklarsın	balıkNLGSPEC1<unk>PLPRS
+hinterlantlarınızın	hinterlantNGENPLPSS2P
+ana fikrinizde	ana fikirNLOCSGPSS2P
+canlandırılmayacağız	canlandırılmakVIND1PLFUTNEGDECL
+maratoncularımı	maratoncuNACCPLPSS1S
+paylaşmayacak	paylaşmakVIND3SGFUTNEGDECL
+aşık olurlar	aşık olmakVIND3PLPRSPOSDECL
+örtülerini	örtüNACCPLPSS3P
+patates	patatesNNOMSG
+maydanozlarından	maydanozNABLPLPSS3S
+sikişmez miyim?	sikişmekVIND1SGPRSNEGINTR
+hamızıma	hamızNDATSGPSS1S
+sınıflarına	sınıfNDATPLPSS2S
+sinmeyeceğim	sinmekVIND1SGFUTNEGDECL
+örmeyecek miyiz?	örmekVIND1PLFUTNEGINTR
+semercilerdin	semerciNLGSPEC1<unk>PLPST
+koptular mu?	kopmakVIND3PLPSTPOSINTR
+kırıklarıma	kırıkNDATPLPSS1S
+dizileriniz	diziNNOMPLPSS2P
+kolonyalarından	kolonyaNABLSGPSS3P
+yaramıyor muyduk?	yaramakVIND1PLPSTPROGNEGINTR
+bitkilerin	bitkiNGENPL
+dindar değilmiş	dindarADJLGSPEC1LGSPEC23SGNEGDECL
+kapatmazlar mı?	kapatmakVIND3PLPRSNEGINTR
+bamyadan	bamyaNABLSG
+eşeğimi	eşekNACCSGPSS1S
+telefonlarımı	telefonNACCPLPSS1S
+kömlerinde	kömNLOCPLPSS3S
+bitiriyorlar	bitirmekVIND3PLPRSPROGPOSDECL
+kıyametlerine	kıyametNDATPLPSS3P
+numaralamama	numaralamamaNNOMSG
+temsilleri	temsilNNOMPLPSS3S
+yelkenmişim	yelkenNLGSPEC1<unk>SGLGSPEC2
+sabahınızı	sabahNACCSGPSS2P
+yağmurumuzda	yağmurNLOCSGPSS1P
+masallarımızın	masalNGENPLPSS1P
+doğru muydular?	doğruADJLGSPEC1PST3PLPOSINTR
+fındık kırmıyorlar	fındık kırmakVIND3PLPRSPROGNEGDECL
+yetiştirirler	yetiştirmekVIND3PLPRSPOSDECL
+gizliyoruz	gizlemekVIND1PLPRSPROGPOSDECL
+tandırını	tandırNACCSGPSS2S
+gelinmediniz mi?	gelinmekVIND2PLPSTNEGINTR
+çıkmıyorlar mıydı?	çıkmakVIND3PLPSTPROGNEGINTR
+bulundunuz	bulunmakVIND2PLPSTPOSDECL
+yemişinizden	yemişNABLSGPSS2P
+akvaryumlarında	akvaryumNLOCPLPSS3P
+iletmiyorlar mıydı?	iletmekVIND3PLPSTPROGNEGINTR
+şikâyet etecek	şik<unk>yet etmekVIND3SGFUTPOSDECL
+eşzamanlı dönüşleri	eşzamanlı dönüşNACCPL
+tekfurlarımızdan	tekfurNABLPLPSS1P
+dadıları	dadıNNOMPLPSS3P
+polinomum	polinomNNOMSGPSS1S
+uyanırlar	uyanmakVIND3PLPRSPOSDECL
+bahçıvanlardır	bahçıvanNLGSPEC1<unk>PLPRS
+ekşiyecekler mi?	ekşimekVIND3PLFUTPOSINTR
+dirim bilimciydiler	dirim bilimciNLGSPEC1<unk>SGPST
+çavuşuna	çavuşNDATSGPSS3S
+yağlıyorsun	yağlamakVIND2SGPRSPROGPOSDECL
+buluyor muydum?	bulmakVIND1SGPSTPROGPOSINTR
+ritimleri	ritimNNOMPLPSS3S
+romanlarınızda	romanNLOCPLPSS2P
+çalışmayı	çalışmaNACCSG
+kanar mısın?	kanamakVIND2SGPRSPOSINTR
+sıkacaklar	sıkmakVIND3PLFUTPOSDECL
+dikdörtgenlerini	dikdörtgenNACCPLPSS3P
+sillelerinizin	silleNGENPLPSS2P
+bineklerine	binekNDATPLPSS3S
+deliyi	deliNACCSG
+kırdırtmayacak	kırdırtmakVIND3SGFUTNEGDECL
+eğlendiler mi?	eğlenmekVIND3PLPSTPOSINTR
+kelimeciğine	kelimecikNDATSGPSS3S
+günahkârında	günahk<unk>rNLOCSGPSS2S
+strüktürlerinde	strüktürNLOCPLPSS3P
+yoğurdumuzdan	yoğurtNABLSGPSS1P
+bakirdik	bakirNLGSPEC11PSGPST
+mesuliyetlerine	mesuliyetNDATPLPSS3P
+saymaz mısın?	saymakVIND2SGPRSNEGINTR
+terzilerde	terziNLOCPL
+raporun	raporNGENSG
+striptizlerime	striptizNDATPLPSS1S
+huzurlar	huzurNLGSPEC1<unk>PLPRS
+akvaryumumuzu	akvaryumNACCSGPSS1P
+biniyor muyum?	binmekVIND1SGPRSPROGPOSINTR
+meşrubatında	meşrubatNLOCSGPSS2S
+kürerler mi?	küremekVIND3PLPRSPOSINTR
+kaynaştırtmayacak	kaynaştırtmakVIND3SGFUTNEGDECL
+Kopenhaglılardım	<unk>openhaglıNLGSPEC1<unk>PLPST
+telofazlarında	telofazNLOCPLPSS3P
+yendirtiyordun	yendirtmekVIND2SGPSTPROGPOSDECL
+pornonuz	pornoNNOMSGPSS2P
+alındırtıyor musunuz?	alındırtmakVIND2PLPRSPROGPOSINTR
+müşterilerimiz	müşteriNNOMPLPSS1P
+peynirlerinde	peynirNLOCPLPSS2S
+şahlarımda	şahNLOCPLPSS1S
+eskediler mi?	eskimekVIND3PLPSTPOSINTR
+karşılığından	karşılıkNABLSGPSS2S
+umuyorlardı	ummakVIND3PLPSTPROGPOSDECL
+düşmandılar	düşmanNLGSPEC1<unk>SGPST
+hendeseniz	hendeseNNOMSGPSS2P
+çevirmeyecek	çevirmekVIND3SGFUTNEGDECL
+korkutmayacak mısınız?	korkutmakVIND2PLFUTNEGINTR
+rehberimin	rehberNGENSGPSS1S
+ittirilmiyordu	ittirilmekVIND3SGPSTPROGNEGDECL
+bluzsuzunun	bluzsuzNGENSGPSS3S
+yankılarım	yankıNNOMPLPSS1S
+onuru	onurNACCSG
+ayarlanmayacak mısınız?	ayarlanmakVIND2PLFUTNEGINTR
+hırsızlarının	hırsızNGENPLPSS3S
+canlandırıyoruz	canlandırmakVIND1PLPRSPROGPOSDECL
+yıpranıyor musun?	yıpranmakVIND2SGPRSPROGPOSINTR
+karılardık	karıNLGSPEC11PPLPST
+kirletmeyeceksiniz	kirletmekVIND2PLFUTNEGDECL
+çakılımda	çakılNLOCSGPSS1S
+solunumunuzu	solunumNACCSGPSS2P
+daldırtdın mı?	daldırtmakVIND2SGPSTPOSINTR
+granüllü endoplazmik retikulumunuza	granüllü endoplazmik retikulumNDATSGPSS2P
+makinamın	makinaNGENSGPSS1S
+sikişmiyor musunuz?	sikişmekVIND2PLPRSPROGNEGINTR
+otunda	otNLOCSGPSS2S
+sıvılaşmazlar mı?	sıvılaşmakVIND3PLPRSNEGINTR
+hücrelersin	hücreNLGSPEC1<unk>PLPRS
+dökeceğim	dökmekVIND1SGFUTPOSDECL
+minarelerinin	minareNGENPLPSS2S
+tavernamızı	tavernaNACCSGPSS1P
+erkeneklerim	erkenekNLGSPEC1<unk>PLPRS
+karında	karıNLOCSGPSS2S
+örttüler	örtmekVIND3PLPSTPOSDECL
+gözledi	gözlemekVIND3SGPSTPOSDECL
+yaymıyor musunuz?	yaymakVIND2PLPRSPROGNEGINTR
+serverlerdik	serverNLGSPEC11PPLPST
+teşhirlerinde	teşhirNLOCSGPSS3P

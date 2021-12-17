@@ -1,0 +1,11291 @@
+
+---- <s>mUziGim
+
+<s>: 24
+<s>mU: 23
+<s>m: 18
+<s>mUzi: 12
+<s>mUziGi: 9
+<s>mUz: 5
+<s>mUziG: 4
+<s>mUziGim: 0
+
+---- <s>paCavralara
+
+<s>: 25
+<s>pa: 19
+<s>paCa: 16
+<s>paCav: 12
+<s>paCavra: 12
+<s>paC: 10
+<s>p: 8
+<s>paCavr: 6
+<s>paCavral: 4
+<s>paCavrala: 2
+<s>paCavralar: 1
+<s>paCavralara: 0
+
+---- <s>avucunu
+
+<s>: 27
+<s>a: 21
+<s>avu: 12
+<s>av: 7
+<s>avuc: 7
+<s>avucun: 6
+<s>avucu: 1
+<s>avucunu: 0
+
+---- <s>terorizmi
+
+<s>t: 23
+<s>: 16
+<s>te: 15
+<s>teror: 15
+<s>ter: 10
+<s>terori: 8
+<s>tero: 7
+<s>teroriz: 5
+<s>terorizm: 5
+<s>terorizmi: 0
+
+---- <s>yayIndandIr
+
+<s>: 20
+<s>ya: 13
+<s>yayIndandI: 8
+<s>yayInda: 7
+<s>y: 6
+<s>yay: 6
+<s>yayI: 6
+<s>yayInd: 5
+<s>yayIn: 4
+<s>yayIndand: 3
+<s>yayIndan: 2
+<s>yayIndandIr: 0
+
+---- <s>giyiliyor
+
+<s>giyili: 18
+<s>giyiliy: 16
+<s>gi: 14
+<s>giyiliyo: 14
+<s>: 13
+<s>giyi: 11
+<s>giyil: 7
+<s>g: 6
+<s>giy: 6
+<s>giyiliyor: 0
+
+---- <s>kazaka
+
+<s>: 20
+<s>ka: 19
+<s>k: 8
+<s>kaz: 4
+<s>kaza: 2
+<s>kazak: 2
+<s>kazaka: 0
+
+---- <s>konCertolar
+
+<s>k: 31
+<s>: 24
+<s>kon: 18
+<s>konC: 13
+<s>konCerta: 13
+<s>konCe: 11
+<s>ko: 10
+<s>konCer: 10
+<s>konCertala: 6
+<s>konCert: 4
+<s>konCertal: 3
+<s>konCertalar: 0
+
+---- <s>suClamalarIn
+
+<s>: 27
+<s>sI: 12
+<s>s: 10
+<s>sICla: 10
+<s>sIClama: 10
+<s>sICl: 8
+<s>sIClamal: 7
+<s>sIClamala: 7
+<s>sIC: 5
+<s>sIClam: 5
+<s>sIClamalar: 2
+<s>sIClamalarI: 1
+<s>sIClamalarIn: 0
+
+---- <s>kayIklardaki
+
+<s>: 18
+<s>ka: 12
+<s>k: 11
+<s>kayI: 11
+<s>kayIk: 8
+<s>kayIkl: 7
+<s>kay: 6
+<s>kayIkla: 6
+<s>kayIklar: 3
+<s>kayIklard: 3
+<s>kayIklarda: 1
+<s>kayIklardak: 1
+<s>kayIklardaki: 0
+
+---- <s>eGitildikleri
+
+<s>: 17
+<s>e: 13
+<s>eGitil: 10
+<s>eGiti: 8
+<s>eGitild: 7
+<s>eG: 5
+<s>eGi: 5
+<s>eGit: 5
+<s>eGitildikl: 5
+<s>eGitildi: 3
+<s>eGitildikle: 3
+<s>eGitildik: 1
+<s>eGitildikler: 1
+<s>eGitildikleri: 0
+
+---- <s>hububatI
+
+<s>: 29
+<s>hu: 17
+<s>hubu: 12
+<s>h: 7
+<s>hub: 7
+<s>hububa: 5
+<s>hubub: 4
+<s>hububat: 3
+<s>hububatI: 0
+
+---- <s>Saklatarak
+
+<s>: 17
+<s>Sa: 16
+<s>Sak: 9
+<s>Sakla: 9
+<s>S: 8
+<s>Saklata: 8
+<s>Sakl: 5
+<s>Saklat: 2
+<s>Saklatar: 1
+<s>Saklatara: 1
+<s>Saklatarak: 0
+
+---- <s>dostluklarla
+
+<s>dostl: 23
+<s>d: 21
+<s>do: 17
+<s>dost: 17
+<s>: 15
+<s>dos: 13
+<s>dostlu: 10
+<s>dostlukl: 9
+<s>dostluk: 4
+<s>dostluklar: 3
+<s>dostluklarl: 3
+<s>dostlukla: 1
+<s>dostluklarla: 0
+
+---- <s>deSildikCe
+
+<s>: 16
+<s>de: 13
+<s>deSild: 13
+<s>deSi: 10
+<s>d: 9
+<s>deSil: 8
+<s>deSildik: 8
+<s>deSildikC: 8
+<s>deS: 7
+<s>deSildi: 6
+<s>deSildikCe: 0
+
+---- <s>istihbaratCIlIGInI
+
+<s>istihba: 23
+<s>istihbarat: 22
+<s>isti: 21
+<s>istihbaratCIl: 21
+<s>istih: 19
+<s>istihbaratCIlIG: 19
+<s>istihbar: 18
+<s>i: 17
+<s>is: 17
+<s>: 16
+<s>istihb: 16
+<s>istihbara: 16
+<s>ist: 13
+<s>istihbaratCIlI: 13
+<s>istihbaratC: 12
+<s>istihbaratCI: 10
+<s>istihbaratCIlIGI: 3
+<s>istihbaratCIlIGIn: 3
+<s>istihbaratCIlIGInI: 0
+
+---- <s>CobanlIGa
+
+<s>: 28
+<s>Co: 21
+<s>C: 17
+<s>Coban: 16
+<s>Cobanl: 9
+<s>CobanlIG: 7
+<s>Cob: 5
+<s>Coba: 5
+<s>CobanlI: 1
+<s>CobanlIGa: 0
+
+---- <s>sIyIrdIGImI
+
+<s>: 20
+<s>sIyIrdI: 12
+<s>sIyI: 11
+<s>sIyIrd: 11
+<s>sIyIr: 10
+<s>sI: 9
+<s>sIy: 9
+<s>sIyIrdIG: 9
+<s>sIyIrdIGIm: 6
+<s>s: 4
+<s>sIyIrdIGI: 1
+<s>sIyIrdIGImI: 0
+
+---- <s>gUCleStirmemek
+
+<s>: 19
+<s>gU: 13
+<s>g: 12
+<s>gUCleStirme: 12
+<s>gUCleSt: 11
+<s>gUCl: 10
+<s>gUCleStirmeme: 10
+<s>gUCle: 9
+<s>gUCleS: 7
+<s>gUCleStir: 7
+<s>gUCleStirm: 7
+<s>gUC: 6
+<s>gUCleSti: 6
+<s>gUCleStirmem: 1
+<s>gUCleStirmemek: 0
+
+---- <s>gOzUkmek
+
+<s>: 22
+<s>g: 22
+<s>gO: 22
+<s>gOzUkme: 11
+<s>gOzU: 9
+<s>gOz: 6
+<s>gOzUk: 4
+<s>gOzUkm: 1
+<s>gOzUkmek: 0
+
+---- <s>pasife
+
+<s>: 24
+<s>pasi: 14
+<s>pa: 13
+<s>p: 7
+<s>pas: 4
+<s>pasif: 3
+<s>pasife: 0
+
+---- <s>getirmeyerek
+
+<s>getirme: 15
+<s>: 14
+<s>ge: 13
+<s>getirmeyere: 11
+<s>getir: 9
+<s>getirmey: 9
+<s>get: 8
+<s>geti: 8
+<s>getirmeye: 8
+<s>getirm: 7
+<s>g: 6
+<s>getirmeyer: 1
+<s>getirmeyerek: 0
+
+---- <s>pilota
+
+<s>: 19
+<s>pi: 10
+<s>pil: 7
+<s>pilo: 7
+<s>p: 5
+<s>pilot: 3
+<s>pilota: 0
+
+---- <s>yazIldIlar
+
+<s>: 24
+<s>ya: 19
+<s>y: 7
+<s>yazIldIla: 7
+<s>yazIldI: 6
+<s>yazIldIl: 6
+<s>yazI: 5
+<s>yazIl: 4
+<s>yazIld: 4
+<s>yaz: 3
+<s>yazIldIlar: 0
+
+---- <s>sOylenilmiS
+
+<s>: 19
+<s>seyleni: 17
+<s>se: 14
+<s>seylenilmi: 11
+<s>seylenil: 10
+<s>s: 9
+<s>seylen: 8
+<s>sey: 7
+<s>seyl: 7
+<s>seyle: 7
+<s>seylenilm: 6
+<s>seylenilmiS: 0
+
+---- <s>besteciyle
+
+<s>: 23
+<s>bes: 20
+<s>be: 16
+<s>beste: 16
+<s>bestec: 13
+<s>b: 12
+<s>besteciy: 9
+<s>best: 7
+<s>besteciyl: 6
+<s>besteci: 5
+<s>besteciyle: 0
+
+---- <s>izlenimlerimizin
+
+<s>: 18
+<s>i: 14
+<s>izleni: 13
+<s>izlenimler: 13
+<s>izlenimlerim: 10
+<s>izleniml: 8
+<s>izlenimle: 8
+<s>izlenimleri: 8
+<s>izl: 7
+<s>iz: 5
+<s>izle: 5
+<s>izlen: 5
+<s>izlenimlerimi: 5
+<s>izlenim: 4
+<s>izlenimlerimizi: 3
+<s>izlenimlerimiz: 1
+<s>izlenimlerimizin: 0
+
+---- <s>akadIn
+
+<s>: 21
+<s>a: 17
+<s>akadI: 7
+<s>aka: 6
+<s>ak: 3
+<s>akad: 3
+<s>akadIn: 0
+
+---- <s>aralayacaktI
+
+<s>aralaya: 19
+<s>: 17
+<s>arala: 16
+<s>aralayaca: 13
+<s>a: 12
+<s>ara: 10
+<s>aralayac: 8
+<s>aral: 7
+<s>aralay: 7
+<s>ar: 4
+<s>aralayacak: 3
+<s>aralayacakt: 3
+<s>aralayacaktI: 0
+
+---- <s>yansItabilmesi
+
+<s>yansIta: 22
+<s>ya: 19
+<s>yan: 17
+<s>: 15
+<s>y: 14
+<s>yansI: 14
+<s>yansItabil: 12
+<s>yansIt: 10
+<s>yansItab: 10
+<s>yansItabilm: 8
+<s>yans: 7
+<s>yansItabilme: 5
+<s>yansItabilmes: 4
+<s>yansItabi: 2
+<s>yansItabilmesi: 0
+
+---- <s>fIrlatmasI
+
+<s>: 23
+<s>fI: 14
+<s>fIrla: 8
+<s>fIr: 7
+<s>fIrl: 7
+<s>fIrlat: 7
+<s>fIrlatm: 7
+<s>f: 6
+<s>fIrlatma: 6
+<s>fIrlatmas: 2
+<s>fIrlatmasI: 0
+
+---- <s>algIlanabilme
+
+<s>: 23
+<s>algIlana: 20
+<s>algIlan: 16
+<s>algIla: 13
+<s>algIlanabil: 13
+<s>a: 12
+<s>al: 11
+<s>algIl: 10
+<s>algIlanab: 9
+<s>algI: 6
+<s>algIlanabilm: 6
+<s>alg: 5
+<s>algIlanabi: 1
+<s>algIlanabilme: 0
+
+---- <s>bohCasInI
+
+<s>: 31
+<s>b: 28
+<s>bo: 24
+<s>bohCa: 17
+<s>boh: 15
+<s>bohC: 6
+<s>bohCas: 6
+<s>bohCasIn: 3
+<s>bohCasI: 2
+<s>bohCasInI: 0
+
+---- <s>donanIrken
+
+<s>d: 20
+<s>do: 17
+<s>: 16
+<s>donanar: 10
+<s>don: 7
+<s>donana: 7
+<s>dona: 5
+<s>donan: 5
+<s>donanark: 5
+<s>donanarke: 5
+<s>donanarken: 0
+
+---- <s>somkayanIn
+
+<s>: 26
+<s>som: 19
+<s>s: 18
+<s>so: 11
+<s>somka: 11
+<s>somkay: 6
+<s>somkaya: 6
+<s>somk: 4
+<s>somkayan: 2
+<s>somkayanI: 2
+<s>somkayanIn: 0
+
+---- <s>mIzraklar
+
+<s>: 22
+<s>mI: 20
+<s>m: 12
+<s>mIz: 12
+<s>mIzra: 10
+<s>mIzr: 6
+<s>mIzrakla: 5
+<s>mIzrakl: 3
+<s>mIzrak: 1
+<s>mIzraklar: 0
+
+---- <s>baSkalaSIm
+
+<s>: 25
+<s>ba: 18
+<s>baS: 17
+<s>baSkala: 14
+<s>baSka: 12
+<s>b: 11
+<s>baSkalaSI: 10
+<s>baSk: 5
+<s>baSkal: 3
+<s>baSkalaS: 2
+<s>baSkalaSIm: 0
+
+---- <s>kOtUleStiren
+
+<s>k: 19
+<s>: 15
+<s>kO: 14
+<s>kOtUle: 14
+<s>kOtUl: 13
+<s>kOtUleS: 11
+<s>kOtUleSt: 10
+<s>kOt: 9
+<s>kOtUleStire: 9
+<s>kOtU: 8
+<s>kOtUleSti: 7
+<s>kOtUleStir: 6
+<s>kOtUleStiren: 0
+
+---- <s>paralelliGini
+
+<s>: 18
+<s>pa: 18
+<s>paralel: 15
+<s>parale: 13
+<s>paralelli: 13
+<s>para: 10
+<s>paralell: 10
+<s>paralelliG: 8
+<s>p: 5
+<s>par: 5
+<s>paral: 4
+<s>paralelliGin: 2
+<s>paralelliGi: 1
+<s>paralelliGini: 0
+
+---- <s>enselenip
+
+<s>: 24
+<s>ensele: 17
+<s>en: 13
+<s>enseleni: 13
+<s>ense: 10
+<s>ens: 5
+<s>e: 3
+<s>enselen: 3
+<s>ensel: 2
+<s>enselenip: 0
+
+---- <s>belirtilmediGi
+
+<s>: 21
+<s>beli: 13
+<s>belirtilme: 11
+<s>belirti: 10
+<s>belirtilmed: 10
+<s>bel: 9
+<s>belirtil: 9
+<s>belirtilm: 8
+<s>be: 7
+<s>belir: 7
+<s>b: 6
+<s>belirt: 5
+<s>belirtilmediG: 5
+<s>belirtilmedi: 4
+<s>belirtilmediGi: 0
+
+---- <s>karSIlaStIrIlIr
+
+<s>karSIlaStIrI: 19
+<s>karSIla: 13
+<s>karSIlaStI: 13
+<s>karSIlaStIrIlI: 11
+<s>: 10
+<s>k: 10
+<s>kar: 10
+<s>ka: 8
+<s>karSI: 8
+<s>karSIl: 7
+<s>karSIlaSt: 7
+<s>karSIlaS: 6
+<s>karS: 5
+<s>karSIlaStIr: 5
+<s>karSIlaStIrIl: 4
+<s>karSIlaStIrIlIr: 0
+
+---- <s>atalarImIz
+
+<s>: 16
+<s>a: 13
+<s>atala: 13
+<s>ata: 11
+<s>atal: 6
+<s>atalarI: 6
+<s>atalar: 5
+<s>at: 4
+<s>atalarIm: 1
+<s>atalarImI: 1
+<s>atalarImIz: 0
+
+---- <s>tasarruflarIndaki
+
+<s>ta: 27
+<s>tasarrI: 20
+<s>tasar: 19
+<s>tasarr: 14
+<s>tasarrIfl: 14
+<s>: 13
+<s>tasa: 12
+<s>tasarrIf: 12
+<s>tas: 11
+<s>t: 9
+<s>tasarrIflar: 8
+<s>tasarrIfla: 6
+<s>tasarrIflarInd: 4
+<s>tasarrIflarI: 3
+<s>tasarrIflarIn: 3
+<s>tasarrIflarInda: 2
+<s>tasarrIflarIndak: 2
+<s>tasarrIflarIndaki: 0
+
+---- <s>avSara
+
+<s>: 28
+<s>a: 15
+<s>av: 11
+<s>avS: 4
+<s>avSar: 3
+<s>avSa: 1
+<s>avSara: 0
+
+---- <s>kullanabilirsiniz
+
+<s>kullana: 26
+<s>kullanab: 18
+<s>kullan: 17
+<s>kullanabil: 16
+<s>: 14
+<s>kullanabili: 14
+<s>kullanabilir: 13
+<s>k: 12
+<s>kul: 11
+<s>kullanabilirs: 11
+<s>kulla: 10
+<s>kull: 9
+<s>kullanabilirsi: 8
+<s>ku: 7
+<s>kullanabi: 5
+<s>kullanabilirsin: 1
+<s>kullanabilirsini: 1
+<s>kullanabilirsiniz: 0
+
+---- <s>geliSme
+
+<s>: 22
+<s>gel: 8
+<s>geli: 8
+<s>geliS: 8
+<s>ge: 7
+<s>geliSm: 7
+<s>g: 5
+<s>geliSme: 0
+
+---- <s>medyam
+
+<s>: 22
+<s>med: 11
+<s>me: 9
+<s>m: 7
+<s>medy: 5
+<s>medya: 5
+<s>medyam: 0
+
+---- <s>lUksUmUzdU
+
+<s>lUk: 21
+<s>: 19
+<s>l: 19
+<s>lU: 14
+<s>lUks: 12
+<s>lUksUm: 12
+<s>lUksU: 7
+<s>lUksUmUzd: 7
+<s>lUksUmUz: 5
+<s>lUksUmU: 2
+<s>lUksUmUzdU: 0
+
+---- <s>fosille
+
+<s>: 22
+<s>f: 13
+<s>fo: 13
+<s>fosi: 8
+<s>fos: 5
+<s>fosil: 5
+<s>fosill: 5
+<s>fosille: 0
+
+---- <s>asIrlardIr
+
+<s>: 25
+<s>a: 17
+<s>asI: 8
+<s>asIrla: 7
+<s>asIrlardI: 7
+<s>as: 6
+<s>asIrl: 6
+<s>asIr: 5
+<s>asIrlard: 3
+<s>asIrlar: 1
+<s>asIrlardIr: 0
+
+---- <s>paylaSmalarIndan
+
+<s>: 21
+<s>pa: 15
+<s>pay: 15
+<s>payl: 14
+<s>paylaSma: 14
+<s>payla: 11
+<s>paylaS: 9
+<s>paylaSmal: 9
+<s>paylaSmalar: 9
+<s>paylaSmala: 8
+<s>p: 7
+<s>paylaSm: 7
+<s>paylaSmalarInda: 5
+<s>paylaSmalarI: 2
+<s>paylaSmalarInd: 2
+<s>paylaSmalarIn: 1
+<s>paylaSmalarIndan: 0
+
+---- <s>bObreklerini
+
+<s>: 26
+<s>bO: 17
+<s>bOb: 16
+<s>b: 14
+<s>bObre: 12
+<s>bObr: 11
+<s>bObrekle: 5
+<s>bObrekler: 5
+<s>bObrekl: 4
+<s>bObrek: 3
+<s>bObrekleri: 1
+<s>bObreklerin: 1
+<s>bObreklerini: 0
+
+---- <s>boylamaya
+
+<s>b: 23
+<s>: 22
+<s>boyla: 15
+<s>bo: 13
+<s>boy: 11
+<s>boyl: 7
+<s>boylam: 7
+<s>boylama: 5
+<s>boylamay: 5
+<s>boylamaya: 0
+
+---- <s>aCIklayIp
+
+<s>aCIkla: 19
+<s>: 16
+<s>a: 15
+<s>aCI: 13
+<s>aCIklayI: 8
+<s>aC: 6
+<s>aCIk: 3
+<s>aCIkl: 3
+<s>aCIklay: 2
+<s>aCIklayIp: 0
+
+---- <s>yumruklanmasI
+
+<s>: 20
+<s>y: 19
+<s>yu: 18
+<s>yumr: 16
+<s>yum: 15
+<s>yumrukl: 11
+<s>yumru: 10
+<s>yumruklan: 8
+<s>yumrukla: 7
+<s>yumruklanm: 7
+<s>yumruklanma: 7
+<s>yumruk: 6
+<s>yumruklanmas: 4
+<s>yumruklanmasI: 0
+
+---- <s>SIkI
+
+<s>: 23
+<s>S: 4
+<s>SI: 3
+<s>SIk: 3
+<s>SIkI: 0
+
+---- <s>deGiStirilmesinin
+
+<s>deGiStirilme: 17
+<s>: 16
+<s>deGiSti: 15
+<s>deGiStiril: 15
+<s>deGi: 14
+<s>deGiStiri: 13
+<s>de: 11
+<s>deGiStirilm: 11
+<s>deG: 9
+<s>deGiS: 8
+<s>deGiStirilmes: 8
+<s>d: 7
+<s>deGiSt: 7
+<s>deGiStir: 7
+<s>deGiStirilmesi: 6
+<s>deGiStirilmesini: 2
+<s>deGiStirilmesin: 1
+<s>deGiStirilmesinin: 0
+
+---- <s>gOrUntUsU
+
+<s>g: 20
+<s>: 13
+<s>gO: 12
+<s>gOr: 12
+<s>gOrUn: 10
+<s>gOrUnt: 9
+<s>gOrUntU: 6
+<s>gOrU: 5
+<s>gOrUntUs: 4
+<s>gOrUntUsU: 0
+
+---- <s>kIsImsa
+
+<s>: 20
+<s>kI: 15
+<s>kIsIm: 12
+<s>kIs: 6
+<s>k: 5
+<s>kIsI: 5
+<s>kIsIms: 3
+<s>kIsImsa: 0
+
+---- <s>Ozcanla
+
+<s>: 31
+<s>Oz: 17
+<s>O: 12
+<s>Ozcan: 6
+<s>Ozc: 5
+<s>Ozcanl: 4
+<s>Ozca: 1
+<s>Ozcanla: 0
+
+---- <s>alaylarInI
+
+<s>: 16
+<s>ala: 12
+<s>a: 11
+<s>alaylar: 9
+<s>al: 7
+<s>alayl: 6
+<s>alay: 5
+<s>alayla: 5
+<s>alaylarIn: 2
+<s>alaylarI: 1
+<s>alaylarInI: 0
+
+---- <s>SaSIlIGInI
+
+<s>Sa: 17
+<s>: 15
+<s>SaSIlI: 11
+<s>SaSIl: 9
+<s>SaSIlIG: 9
+<s>S: 8
+<s>SaSI: 6
+<s>SaS: 5
+<s>SaSIlIGI: 2
+<s>SaSIlIGIn: 2
+<s>SaSIlIGInI: 0
+
+---- <s>Cenede
+
+<s>: 20
+<s>Ce: 9
+<s>Cene: 5
+<s>C: 4
+<s>Cen: 4
+<s>Cened: 2
+<s>Cenede: 0
+
+---- <s>gelinliGinin
+
+<s>: 19
+<s>gelinli: 12
+<s>gelinliG: 9
+<s>geli: 7
+<s>gelinl: 6
+<s>g: 5
+<s>gel: 5
+<s>gelin: 5
+<s>ge: 4
+<s>gelinliGini: 4
+<s>gelinliGi: 3
+<s>gelinliGin: 1
+<s>gelinliGinin: 0
+
+---- <s>tUkendim
+
+<s>t: 18
+<s>: 16
+<s>tU: 13
+<s>tUke: 8
+<s>tUkendi: 6
+<s>tUk: 5
+<s>tUkend: 5
+<s>tUken: 3
+<s>tUkendim: 0
+
+---- <s>acelecilikten
+
+<s>: 27
+<s>ecelecili: 19
+<s>e: 18
+<s>ecele: 16
+<s>eceleci: 16
+<s>ecelecil: 16
+<s>ece: 15
+<s>ecelecilikte: 11
+<s>ecelec: 8
+<s>ec: 7
+<s>ecelecilik: 7
+<s>ecel: 6
+<s>ecelecilikt: 3
+<s>ecelecilikten: 0
+
+---- <s>sakinleStirdik
+
+<s>: 27
+<s>sa: 14
+<s>saki: 9
+<s>sakinle: 8
+<s>sakinleSt: 8
+<s>sakinl: 6
+<s>sakinleS: 6
+<s>sakinleStird: 6
+<s>sak: 5
+<s>sakin: 5
+<s>sakinleSti: 5
+<s>sakinleStir: 5
+<s>s: 4
+<s>sakinleStirdi: 3
+<s>sakinleStirdik: 0
+
+---- <s>ektirir
+
+<s>e: 14
+<s>: 13
+<s>ektiri: 9
+<s>ekti: 7
+<s>ek: 6
+<s>ekt: 5
+<s>ektir: 1
+<s>ektirir: 0
+
+---- <s>iletmez
+
+<s>iletme: 17
+<s>: 14
+<s>ile: 13
+<s>i: 10
+<s>il: 7
+<s>ilet: 5
+<s>iletm: 3
+<s>iletmez: 0
+
+---- <s>kutuplar
+
+<s>: 22
+<s>k: 11
+<s>ku: 11
+<s>kutu: 11
+<s>kut: 7
+<s>kutupla: 6
+<s>kutupl: 5
+<s>kutup: 4
+<s>kutuplar: 0
+
+---- <s>saptIGInIzda
+
+<s>: 23
+<s>s: 14
+<s>sa: 14
+<s>sap: 14
+<s>saptIG: 13
+<s>saptI: 12
+<s>saptIGIn: 9
+<s>sapt: 7
+<s>saptIGI: 7
+<s>saptIGInIz: 5
+<s>saptIGInIzd: 4
+<s>saptIGInI: 3
+<s>saptIGInIzda: 0
+
+---- <s>atlattIn
+
+<s>: 15
+<s>a: 12
+<s>atla: 12
+<s>at: 6
+<s>atl: 5
+<s>atlat: 4
+<s>atlattI: 4
+<s>atlatt: 2
+<s>atlattIn: 0
+
+---- <s>seslendiril
+
+<s>: 19
+<s>se: 15
+<s>seslendi: 12
+<s>seslendiri: 9
+<s>s: 8
+<s>ses: 7
+<s>seslend: 7
+<s>sesl: 6
+<s>seslen: 5
+<s>sesle: 3
+<s>seslendir: 3
+<s>seslendiril: 0
+
+---- <s>tarafgirliGi
+
+<s>ta: 19
+<s>tara: 15
+<s>tarafirl: 13
+<s>: 11
+<s>tarafir: 11
+<s>tar: 10
+<s>taraf: 9
+<s>tarafi: 7
+<s>t: 5
+<s>tarafirli: 3
+<s>tarafirliG: 3
+<s>tarafirliGi: 0
+
+---- <s>Onemsemeli
+
+<s>: 26
+<s>One: 18
+<s>Onemse: 18
+<s>O: 17
+<s>On: 13
+<s>Onemseme: 11
+<s>Onem: 9
+<s>Onems: 6
+<s>Onemsem: 6
+<s>Onemsemel: 4
+<s>Onemsemeli: 0
+
+---- <s>sUzdUler
+
+<s>: 25
+<s>sU: 18
+<s>s: 15
+<s>sUz: 9
+<s>sUzd: 8
+<s>sUzdUle: 6
+<s>sUzdU: 5
+<s>sUzdUl: 3
+<s>sUzdUler: 0
+
+---- <s>OpUSUyordu
+
+<s>: 24
+<s>O: 24
+<s>OpUSUy: 20
+<s>OpUSU: 13
+<s>OpU: 11
+<s>OpUSUyo: 11
+<s>OpUSUyord: 10
+<s>OpUS: 9
+<s>Op: 7
+<s>OpUSUyor: 3
+<s>OpUSUyordu: 0
+
+---- <s>kerpiCleri
+
+<s>: 19
+<s>kerpi: 16
+<s>k: 15
+<s>ker: 15
+<s>ke: 13
+<s>kerp: 5
+<s>kerpiC: 4
+<s>kerpiCl: 2
+<s>kerpiCle: 2
+<s>kerpiCler: 1
+<s>kerpiCleri: 0
+
+---- <s>duramIyoruz
+
+<s>duramIy: 20
+<s>d: 19
+<s>: 18
+<s>du: 17
+<s>duramIyo: 17
+<s>duramI: 16
+<s>duramIyoru: 11
+<s>dur: 7
+<s>dura: 7
+<s>duram: 7
+<s>duramIyor: 3
+<s>duramIyoruz: 0
+
+---- <s>denendi
+
+<s>: 19
+<s>denen: 7
+<s>den: 6
+<s>d: 4
+<s>de: 4
+<s>denend: 2
+<s>dene: 1
+<s>denendi: 0
+
+---- <s>baSlamISIz
+
+<s>: 23
+<s>baSla: 16
+<s>baSlamI: 14
+<s>ba: 12
+<s>b: 9
+<s>baS: 9
+<s>baSl: 7
+<s>baSlam: 6
+<s>baSlamISI: 2
+<s>baSlamIS: 1
+<s>baSlamISIz: 0
+
+---- <s>COzebilirler
+
+<s>CO: 25
+<s>C: 21
+<s>COze: 18
+<s>: 17
+<s>COzebili: 15
+<s>COzeb: 10
+<s>COzebil: 9
+<s>COzebilirle: 9
+<s>COz: 6
+<s>COzebilirl: 5
+<s>COzebi: 4
+<s>COzebilir: 1
+<s>COzebilirler: 0
+
+---- <s>salIverilmesini
+
+<s>: 24
+<s>salI: 22
+<s>salIverilme: 15
+<s>sa: 14
+<s>salIve: 13
+<s>salIveril: 13
+<s>salIv: 12
+<s>salIveri: 11
+<s>sal: 10
+<s>salIverilm: 10
+<s>salIver: 9
+<s>s: 7
+<s>salIverilmes: 5
+<s>salIverilmesi: 4
+<s>salIverilmesin: 4
+<s>salIverilmesini: 0
+
+---- <s>devamsIzlIklarIyla
+
+<s>de: 28
+<s>d: 23
+<s>dev: 19
+<s>devamsIzl: 19
+<s>devam: 16
+<s>devams: 13
+<s>: 12
+<s>deva: 12
+<s>devamsI: 12
+<s>devamsIzlIkl: 12
+<s>devamsIzlIklarIyl: 12
+<s>devamsIzlI: 10
+<s>devamsIzlIklar: 10
+<s>devamsIzlIklarIy: 10
+<s>devamsIzlIk: 9
+<s>devamsIz: 6
+<s>devamsIzlIklarI: 6
+<s>devamsIzlIkla: 2
+<s>devamsIzlIklarIyla: 0
+
+---- <s>organizasyonlarI
+
+<s>: 19
+<s>o: 17
+<s>orga: 16
+<s>or: 13
+<s>organi: 13
+<s>organiz: 13
+<s>organiza: 10
+<s>organ: 8
+<s>organizas: 8
+<s>org: 6
+<s>organizasy: 6
+<s>organizasyo: 5
+<s>organizasyonl: 5
+<s>organizasyon: 4
+<s>organizasyonla: 1
+<s>organizasyonlar: 1
+<s>organizasyonlarI: 0
+
+---- <s>anImsatmadan
+
+<s>: 23
+<s>anI: 11
+<s>anImsa: 11
+<s>anImsatma: 11
+<s>a: 9
+<s>anIm: 7
+<s>anIms: 7
+<s>an: 6
+<s>anImsat: 6
+<s>anImsatmada: 5
+<s>anImsatm: 4
+<s>anImsatmad: 2
+<s>anImsatmadan: 0
+
+---- <s>dUzeyden
+
+<s>dU: 22
+<s>: 18
+<s>d: 17
+<s>dUze: 9
+<s>dUz: 7
+<s>dUzeyde: 7
+<s>dUzey: 6
+<s>dUzeyd: 5
+<s>dUzeyden: 0
+
+---- <s>adetleriyle
+
+<s>: 19
+<s>a: 12
+<s>adetl: 12
+<s>ade: 11
+<s>adetler: 11
+<s>ad: 7
+<s>adet: 5
+<s>adetleriyl: 4
+<s>adetleriy: 3
+<s>adetle: 2
+<s>adetleri: 2
+<s>adetleriyle: 0
+
+---- <s>baSlayabilirler
+
+<s>baSlaya: 25
+<s>: 22
+<s>baSla: 15
+<s>baSlayabili: 15
+<s>b: 13
+<s>ba: 13
+<s>baSlay: 13
+<s>baSlayab: 12
+<s>baS: 10
+<s>baSl: 9
+<s>baSlayabil: 8
+<s>baSlayabilirle: 8
+<s>baSlayabi: 4
+<s>baSlayabilirl: 4
+<s>baSlayabilir: 1
+<s>baSlayabilirler: 0
+
+---- <s>hIrCInlIk
+
+<s>: 16
+<s>hI: 13
+<s>hIr: 13
+<s>h: 10
+<s>hIrCInlI: 10
+<s>hIrCI: 8
+<s>hIrC: 5
+<s>hIrCIn: 3
+<s>hIrCInl: 2
+<s>hIrCInlIk: 0
+
+---- <s>fazlalIGa
+
+<s>: 21
+<s>fa: 20
+<s>fazlal: 9
+<s>fazla: 7
+<s>fazl: 6
+<s>f: 4
+<s>fazlalIG: 4
+<s>faz: 3
+<s>fazlalI: 2
+<s>fazlalIGa: 0
+
+---- <s>UleStirildiGi
+
+<s>UleStirild: 19
+<s>: 16
+<s>UleStiril: 15
+<s>Ule: 12
+<s>UleStiri: 12
+<s>UleSti: 11
+<s>Ul: 10
+<s>U: 9
+<s>UleSt: 9
+<s>UleS: 7
+<s>UleStir: 7
+<s>UleStirildiG: 4
+<s>UleStirildi: 3
+<s>UleStirildiGi: 0
+
+---- <s>idealini
+
+<s>: 20
+<s>i: 13
+<s>ide: 8
+<s>idea: 7
+<s>ideal: 6
+<s>id: 4
+<s>idealin: 3
+<s>ideali: 1
+<s>idealini: 0
+
+---- <s>dUnyamIzdaki
+
+<s>d: 30
+<s>: 20
+<s>dUn: 17
+<s>dU: 10
+<s>dUny: 9
+<s>dUnya: 8
+<s>dUnyam: 7
+<s>dUnyamIzda: 6
+<s>dUnyamI: 5
+<s>dUnyamIz: 4
+<s>dUnyamIzd: 4
+<s>dUnyamIzdak: 3
+<s>dUnyamIzdaki: 0
+
+---- <s>yinelemiS
+
+<s>: 19
+<s>yi: 14
+<s>yinele: 14
+<s>yine: 9
+<s>yinelemi: 9
+<s>y: 5
+<s>yin: 4
+<s>yinel: 3
+<s>yinelem: 3
+<s>yinelemiS: 0
+
+---- <s>arIndIrIyorlar
+
+<s>arIndIrIy: 21
+<s>: 19
+<s>arIndIrI: 19
+<s>a: 9
+<s>arI: 9
+<s>arIndIrIyo: 9
+<s>arIndI: 8
+<s>arIndIrIyorla: 8
+<s>arInd: 6
+<s>arIndIrIyorl: 5
+<s>ar: 4
+<s>arIndIr: 4
+<s>arIn: 3
+<s>arIndIrIyor: 1
+<s>arIndIrIyorlar: 0
+
+---- <s>yarIlar
+
+<s>: 16
+<s>y: 7
+<s>ya: 6
+<s>yarIla: 6
+<s>yarI: 5
+<s>yar: 2
+<s>yarIl: 2
+<s>yarIlar: 0
+
+---- <s>takInmIStIr
+
+<s>ta: 13
+<s>takInmI: 12
+<s>: 11
+<s>takInmIStI: 7
+<s>tak: 6
+<s>takIn: 6
+<s>takI: 5
+<s>t: 4
+<s>takInm: 4
+<s>takInmISt: 3
+<s>takInmIS: 2
+<s>takInmIStIr: 0
+
+---- <s>geCirmeyecek
+
+<s>: 20
+<s>geCirme: 18
+<s>geCirmeye: 16
+<s>geCirmeyece: 16
+<s>ge: 15
+<s>geCi: 12
+<s>geCirmey: 9
+<s>geCir: 8
+<s>g: 7
+<s>geC: 7
+<s>geCirm: 6
+<s>geCirmeyec: 4
+<s>geCirmeyecek: 0
+
+---- <s>kesimlerimize
+
+<s>ke: 18
+<s>: 17
+<s>kesimler: 17
+<s>kesimlerim: 15
+<s>kesi: 13
+<s>kesiml: 10
+<s>kesimleri: 10
+<s>kesimle: 9
+<s>kesimlerimiz: 9
+<s>k: 6
+<s>kes: 5
+<s>kesim: 5
+<s>kesimlerimi: 2
+<s>kesimlerimize: 0
+
+---- <s>yoldaSlarla
+
+<s>: 22
+<s>y: 12
+<s>yalda: 12
+<s>yal: 11
+<s>ya: 10
+<s>yald: 10
+<s>yaldaSl: 8
+<s>yaldaSlarl: 5
+<s>yaldaSlar: 4
+<s>yaldaS: 3
+<s>yaldaSla: 1
+<s>yaldaSlarla: 0
+
+---- <s>yUrUtmeyen
+
+<s>y: 17
+<s>yUrUtme: 16
+<s>: 14
+<s>yU: 14
+<s>yUr: 13
+<s>yUrU: 12
+<s>yUrUt: 10
+<s>yUrUtm: 6
+<s>yUrUtmey: 5
+<s>yUrUtmeye: 3
+<s>yUrUtmeyen: 0
+
+---- <s>kalpteki
+
+<s>: 19
+<s>kal: 16
+<s>k: 15
+<s>ka: 9
+<s>kalp: 7
+<s>kalpt: 2
+<s>kalpte: 2
+<s>kalptek: 1
+<s>kalpteki: 0
+
+---- <s>geCindiGimi
+
+<s>: 16
+<s>ge: 14
+<s>geCindi: 12
+<s>g: 7
+<s>geCi: 7
+<s>geCindiG: 7
+<s>geC: 6
+<s>geCind: 6
+<s>geCin: 5
+<s>geCindiGim: 5
+<s>geCindiGi: 1
+<s>geCindiGimi: 0
+
+---- <s>aktedilecek
+
+<s>aktedile: 22
+<s>: 15
+<s>a: 14
+<s>ak: 14
+<s>aktedilece: 14
+<s>aktedi: 12
+<s>akte: 11
+<s>akt: 8
+<s>aktedil: 4
+<s>akted: 2
+<s>aktedilec: 2
+<s>aktedilecek: 0
+
+---- <s>davranmamIStIr
+
+<s>da: 21
+<s>: 12
+<s>dav: 12
+<s>davranmamI: 12
+<s>d: 11
+<s>davranma: 11
+<s>davr: 9
+<s>davran: 7
+<s>davranm: 6
+<s>davranmamIStI: 6
+<s>davra: 5
+<s>davranmam: 5
+<s>davranmamISt: 3
+<s>davranmamIS: 1
+<s>davranmamIStIr: 0
+
+---- <s>elkatmIS
+
+<s>: 21
+<s>el: 15
+<s>e: 11
+<s>elka: 11
+<s>elkatmI: 8
+<s>elk: 6
+<s>elkat: 3
+<s>elkatm: 2
+<s>elkatmIS: 0
+
+---- <s>onarIlmak
+
+<s>: 26
+<s>o: 17
+<s>ona: 9
+<s>onarIl: 8
+<s>on: 6
+<s>onarIlma: 6
+<s>onar: 5
+<s>onarI: 5
+<s>onarIlm: 3
+<s>onarIlmak: 0
+
+---- <s>doGmalar
+
+<s>d: 28
+<s>: 26
+<s>do: 18
+<s>doG: 8
+<s>doGma: 7
+<s>doGm: 6
+<s>doGmala: 4
+<s>doGmal: 3
+<s>doGmalar: 0
+
+---- <s>iskoCyanIn
+
+<s>: 20
+<s>is: 18
+<s>i: 14
+<s>isko: 14
+<s>iskoC: 12
+<s>iskoCya: 11
+<s>isk: 9
+<s>iskoCy: 8
+<s>iskoCyan: 2
+<s>iskoCyanI: 2
+<s>iskoCyanIn: 0
+
+---- <s>yOrelerin
+
+<s>: 12
+<s>y: 9
+<s>yOrel: 8
+<s>yOre: 7
+<s>yO: 6
+<s>yOr: 6
+<s>yOrele: 6
+<s>yOreler: 4
+<s>yOreleri: 2
+<s>yOrelerin: 0
+
+---- <s>olacaGImda
+
+<s>: 19
+<s>ola: 16
+<s>o: 13
+<s>ol: 12
+<s>olaca: 12
+<s>olacaG: 10
+<s>olac: 9
+<s>olacaGIm: 9
+<s>olacaGImd: 8
+<s>olacaGI: 7
+<s>olacaGImda: 0
+
+---- <s>dokunabilirsen
+
+<s>d: 26
+<s>dokuna: 25
+<s>do: 18
+<s>dokunabili: 17
+<s>dok: 13
+<s>dokunab: 13
+<s>dokunabil: 13
+<s>dokun: 12
+<s>: 11
+<s>doku: 11
+<s>dokunabilir: 8
+<s>dokunabilirse: 8
+<s>dokunabi: 6
+<s>dokunabilirs: 6
+<s>dokunabilirsen: 0
+
+---- <s>sIGInamaz
+
+<s>: 21
+<s>sIGInama: 13
+<s>sI: 11
+<s>sIGIna: 8
+<s>sIGI: 7
+<s>s: 6
+<s>sIGIn: 5
+<s>sIG: 3
+<s>sIGInam: 3
+<s>sIGInamaz: 0
+
+---- <s>kOpUrsUn
+
+<s>k: 20
+<s>kO: 20
+<s>: 17
+<s>kOp: 10
+<s>kOpUr: 9
+<s>kOpU: 7
+<s>kOpUrs: 6
+<s>kOpUrsU: 3
+<s>kOpUrsUn: 0
+
+---- <s>benzemezmiS
+
+<s>: 28
+<s>ben: 17
+<s>benzeme: 16
+<s>benze: 14
+<s>be: 13
+<s>b: 10
+<s>benzemezmi: 7
+<s>benz: 5
+<s>benzem: 3
+<s>benzemezm: 2
+<s>benzemez: 1
+<s>benzemezmiS: 0
+
+---- <s>anlatmadInIz
+
+<s>: 24
+<s>anlatmadI: 20
+<s>anlatma: 13
+<s>anl: 8
+<s>anla: 8
+<s>anlat: 8
+<s>anlatmad: 8
+<s>a: 5
+<s>an: 5
+<s>anlatm: 5
+<s>anlatmadIn: 1
+<s>anlatmadInI: 1
+<s>anlatmadInIz: 0
+
+---- <s>seyrediyorduk
+
+<s>seyrediy: 30
+<s>seyrediyord: 21
+<s>: 20
+<s>sey: 19
+<s>se: 15
+<s>seyredi: 15
+<s>seyrediyo: 14
+<s>seyred: 11
+<s>seyrediyordu: 11
+<s>s: 10
+<s>seyr: 10
+<s>seyre: 10
+<s>seyrediyor: 4
+<s>seyrediyorduk: 0
+
+---- <s>propagandalarInI
+
+<s>: 21
+<s>pro: 20
+<s>p: 17
+<s>propa: 11
+<s>pr: 10
+<s>propag: 9
+<s>prop: 6
+<s>propaga: 6
+<s>propagan: 6
+<s>propaganda: 6
+<s>propagandala: 6
+<s>propagand: 5
+<s>propagandal: 4
+<s>propagandalar: 3
+<s>propagandalarI: 1
+<s>propagandalarIn: 1
+<s>propagandalarInI: 0
+
+---- <s>okumamIStI
+
+<s>: 17
+<s>o: 14
+<s>okumam: 9
+<s>oku: 8
+<s>okuma: 8
+<s>ok: 7
+<s>okum: 6
+<s>okumamI: 5
+<s>okumamIS: 5
+<s>okumamISt: 4
+<s>okumamIStI: 0
+
+---- <s>bIrakacaGImI
+
+<s>bI: 20
+<s>: 19
+<s>bIraka: 18
+<s>bIra: 16
+<s>bIrakaca: 12
+<s>bIrakac: 9
+<s>b: 8
+<s>bIr: 6
+<s>bIrak: 6
+<s>bIrakacaG: 6
+<s>bIrakacaGI: 2
+<s>bIrakacaGIm: 2
+<s>bIrakacaGImI: 0
+
+---- <s>tespittir
+
+<s>te: 18
+<s>tes: 17
+<s>t: 16
+<s>: 15
+<s>tespi: 8
+<s>tespitti: 6
+<s>tesp: 3
+<s>tespit: 3
+<s>tespitt: 1
+<s>tespittir: 0
+
+---- <s>SekillendirilmiStir
+
+<s>: 20
+<s>Sekillendiri: 16
+<s>Sekillendirilmi: 16
+<s>Se: 15
+<s>Sekillendiril: 13
+<s>Sekillend: 11
+<s>Sekillendi: 9
+<s>Sekillendirilm: 9
+<s>Seki: 8
+<s>Sekillendir: 8
+<s>S: 7
+<s>Sek: 5
+<s>Sekill: 4
+<s>Sekil: 3
+<s>Sekille: 3
+<s>Sekillen: 3
+<s>SekillendirilmiSt: 3
+<s>SekillendirilmiSti: 3
+<s>SekillendirilmiS: 2
+<s>SekillendirilmiStir: 0
+
+---- <s>vermekmiS
+
+<s>: 20
+<s>verme: 12
+<s>ver: 11
+<s>ve: 10
+<s>v: 8
+<s>verm: 6
+<s>vermekmi: 5
+<s>vermekm: 3
+<s>vermek: 2
+<s>vermekmiS: 0
+
+---- <s>rezalettir
+
+<s>re: 25
+<s>: 19
+<s>rezale: 10
+<s>reza: 9
+<s>r: 8
+<s>rez: 6
+<s>rezal: 6
+<s>rezaletti: 6
+<s>rezalet: 3
+<s>rezalett: 1
+<s>rezalettir: 0
+
+---- <s>ilhanI
+
+<s>: 17
+<s>il: 17
+<s>i: 9
+<s>ilh: 3
+<s>ilhan: 3
+<s>ilha: 2
+<s>ilhanI: 0
+
+---- <s>eSleStirilebilecek
+
+<s>eSleStirile: 24
+<s>eSleStiril: 17
+<s>eSleStirilebilece: 17
+<s>: 16
+<s>eSleStirilebile: 16
+<s>eSle: 14
+<s>eSleSti: 14
+<s>eSleStiri: 13
+<s>eS: 12
+<s>eSl: 10
+<s>eSleS: 10
+<s>e: 9
+<s>eSleSt: 8
+<s>eSleStirileb: 7
+<s>eSleStirilebil: 6
+<s>eSleStir: 3
+<s>eSleStirilebi: 2
+<s>eSleStirilebilec: 2
+<s>eSleStirilebilecek: 0
+
+---- <s>standartlarIyla
+
+<s>: 22
+<s>sendar: 17
+<s>senda: 16
+<s>s: 14
+<s>sen: 14
+<s>send: 14
+<s>se: 12
+<s>sendart: 12
+<s>sendarta: 11
+<s>sendartal: 11
+<s>sendartalar: 10
+<s>sendartalarIyl: 6
+<s>sendartalarIy: 4
+<s>sendartala: 3
+<s>sendartalarI: 1
+<s>sendartalarIyla: 0
+
+---- <s>anlaSmamIzI
+
+<s>: 20
+<s>anla: 10
+<s>anlaSma: 10
+<s>anlaSm: 9
+<s>a: 7
+<s>an: 6
+<s>anl: 6
+<s>anlaS: 6
+<s>anlaSmam: 6
+<s>anlaSmamI: 1
+<s>anlaSmamIz: 1
+<s>anlaSmamIzI: 0
+
+---- <s>kavrayamayacaktIm
+
+<s>kav: 24
+<s>kavrayamaya: 23
+<s>kavrayamayaca: 22
+<s>kavrayama: 19
+<s>: 18
+<s>ka: 18
+<s>kavra: 14
+<s>kavraya: 13
+<s>kavrayamay: 13
+<s>kavrayamayac: 13
+<s>kavray: 11
+<s>k: 10
+<s>kavr: 7
+<s>kavrayamayacaktI: 7
+<s>kavrayam: 6
+<s>kavrayamayacakt: 5
+<s>kavrayamayacak: 4
+<s>kavrayamayacaktIm: 0
+
+---- <s>kISkIrtmalarIn
+
+<s>: 16
+<s>kISk: 15
+<s>kIS: 14
+<s>kISkIrtma: 13
+<s>kI: 10
+<s>kISkIr: 10
+<s>k: 9
+<s>kISkI: 8
+<s>kISkIrt: 8
+<s>kISkIrtmal: 8
+<s>kISkIrtm: 5
+<s>kISkIrtmala: 3
+<s>kISkIrtmalar: 3
+<s>kISkIrtmalarI: 3
+<s>kISkIrtmalarIn: 0
+
+---- <s>bUyUtUcU
+
+<s>: 26
+<s>b: 23
+<s>bU: 14
+<s>bUyUtU: 14
+<s>bUy: 11
+<s>bUyU: 10
+<s>bUyUtUc: 9
+<s>bUyUt: 8
+<s>bUyUtUcU: 0
+
+---- <s>sOylUyorsan
+
+<s>sOylUy: 30
+<s>sOylUyo: 19
+<s>sOyl: 17
+<s>: 16
+<s>s: 16
+<s>sOy: 12
+<s>sOylU: 12
+<s>sO: 10
+<s>sOylUyor: 8
+<s>sOylUyors: 7
+<s>sOylUyorsa: 3
+<s>sOylUyorsan: 0
+
+---- <s>troyayI
+
+<s>t: 27
+<s>: 16
+<s>tro: 12
+<s>tr: 8
+<s>troya: 6
+<s>troy: 5
+<s>troyay: 3
+<s>troyayI: 0
+
+---- <s>hayIflandIGInI
+
+<s>: 16
+<s>ha: 16
+<s>hayI: 16
+<s>hayIfland: 16
+<s>hayIflandI: 16
+<s>hay: 10
+<s>hayIf: 10
+<s>hayIflandIG: 10
+<s>hayIflan: 9
+<s>hayIfl: 8
+<s>h: 7
+<s>hayIfla: 7
+<s>hayIflandIGIn: 2
+<s>hayIflandIGI: 1
+<s>hayIflandIGInI: 0
+
+---- <s>alacaklIlIk
+
+<s>alaca: 18
+<s>: 16
+<s>ala: 16
+<s>a: 13
+<s>alacaklIlI: 10
+<s>al: 8
+<s>alac: 6
+<s>alacakl: 6
+<s>alacaklI: 5
+<s>alacak: 3
+<s>alacaklIl: 2
+<s>alacaklIlIk: 0
+
+---- <s>vurgulanmasInI
+
+<s>v: 22
+<s>: 19
+<s>vur: 13
+<s>vurgulanma: 12
+<s>vurgul: 11
+<s>vu: 10
+<s>vurg: 10
+<s>vurgulanm: 9
+<s>vurgulanmas: 8
+<s>vurgula: 7
+<s>vurgulan: 7
+<s>vurgu: 5
+<s>vurgulanmasIn: 3
+<s>vurgulanmasI: 1
+<s>vurgulanmasInI: 0
+
+---- <s>anlarInIn
+
+<s>: 25
+<s>a: 5
+<s>anla: 5
+<s>anlar: 5
+<s>anlarI: 5
+<s>an: 4
+<s>anl: 4
+<s>anlarInI: 2
+<s>anlarIn: 1
+<s>anlarInIn: 0
+
+---- <s>seCebiliriz
+
+<s>seCebili: 22
+<s>se: 21
+<s>: 19
+<s>seCe: 17
+<s>s: 8
+<s>seCeb: 8
+<s>seCebi: 7
+<s>seCebil: 7
+<s>seCebiliri: 7
+<s>seC: 4
+<s>seCebilir: 1
+<s>seCebiliriz: 0
+
+---- <s>evliliklerinin
+
+<s>: 24
+<s>e: 14
+<s>evlili: 13
+<s>evlilikler: 11
+<s>evlil: 10
+<s>evlilikl: 9
+<s>evli: 7
+<s>evl: 6
+<s>ev: 5
+<s>evlilik: 4
+<s>evlilikle: 4
+<s>evlilikleri: 3
+<s>evliliklerini: 2
+<s>evliliklerin: 1
+<s>evliliklerinin: 0
+
+---- <s>yakInlIklarI
+
+<s>: 19
+<s>ya: 13
+<s>y: 7
+<s>yakIn: 7
+<s>yak: 5
+<s>yakI: 5
+<s>yakInl: 5
+<s>yakInlI: 5
+<s>yakInlIkl: 2
+<s>yakInlIk: 1
+<s>yakInlIkla: 1
+<s>yakInlIklar: 1
+<s>yakInlIklarI: 0
+
+---- <s>aSaGIdaGdereliler
+
+<s>aSaGad: 20
+<s>aSaGadaSIg: 19
+<s>aSaGadaS: 17
+<s>aSa: 16
+<s>aSaGa: 16
+<s>aSaGadaSIgO: 15
+<s>: 14
+<s>a: 14
+<s>aS: 13
+<s>aSaGadaSI: 13
+<s>aSaG: 12
+<s>aSaGadaSIgOre: 12
+<s>aSaGadaSIgOrele: 9
+<s>aSaGada: 8
+<s>aSaGadaSIgOr: 5
+<s>aSaGadaSIgOrel: 4
+<s>aSaGadaSIgOreler: 0
+
+---- <s>plakete
+
+<s>: 21
+<s>pla: 16
+<s>p: 8
+<s>pl: 6
+<s>plak: 4
+<s>plake: 4
+<s>plaket: 2
+<s>plakete: 0
+
+---- <s>savInIn
+
+<s>: 25
+<s>sa: 20
+<s>s: 10
+<s>savI: 7
+<s>sav: 4
+<s>savIn: 3
+<s>savInI: 2
+<s>savInIn: 0
+
+---- <s>esirgememeliyiz
+
+<s>: 17
+<s>esi: 16
+<s>esirgememe: 16
+<s>esir: 14
+<s>e: 11
+<s>esirge: 10
+<s>esirgeme: 9
+<s>esirg: 7
+<s>esirgem: 7
+<s>esirgememeli: 7
+<s>esirgemem: 5
+<s>esirgememel: 5
+<s>esirgememeliyi: 5
+<s>es: 4
+<s>esirgememeliy: 4
+<s>esirgememeliyiz: 0
+
+---- <s>CIrpIp
+
+<s>: 17
+<s>CIr: 14
+<s>CI: 11
+<s>CIrpI: 9
+<s>C: 4
+<s>CIrp: 2
+<s>CIrpIp: 0
+
+---- <s>bizimse
+
+<s>: 31
+<s>bi: 24
+<s>b: 12
+<s>bizim: 11
+<s>bizi: 8
+<s>biz: 6
+<s>bizims: 2
+<s>bizimse: 0
+
+---- <s>akISIkIn
+
+<s>: 16
+<s>a: 14
+<s>akI: 13
+<s>akISI: 10
+<s>ak: 8
+<s>akIS: 7
+<s>akISIkI: 4
+<s>akISIk: 1
+<s>akISIkIn: 0
+
+---- <s>nilUfer
+
+<s>: 26
+<s>ni: 18
+<s>nilU: 17
+<s>nil: 12
+<s>nilUfe: 9
+<s>n: 5
+<s>nilUf: 2
+<s>nilUfer: 0
+
+---- <s>atIlImIm
+
+<s>a: 15
+<s>: 13
+<s>atIlI: 12
+<s>atIlImI: 8
+<s>atI: 7
+<s>at: 5
+<s>atIl: 5
+<s>atIlIm: 1
+<s>atIlImIm: 0
+
+---- <s>UskUfUnU
+
+<s>: 24
+<s>U: 17
+<s>Us: 17
+<s>UskU: 15
+<s>Usk: 12
+<s>UskUf: 7
+<s>UskUfUn: 6
+<s>UskUfU: 1
+<s>UskUfUnU: 0
+
+---- <s>gerginliklere
+
+<s>: 19
+<s>ger: 12
+<s>g: 9
+<s>ge: 8
+<s>gergi: 6
+<s>gerginlikl: 6
+<s>gerginl: 5
+<s>gerg: 4
+<s>gergin: 4
+<s>gerginli: 4
+<s>gerginlik: 3
+<s>gerginlikler: 3
+<s>gerginlikle: 1
+<s>gerginliklere: 0
+
+---- <s>yaygInlaStIGIna
+
+<s>: 21
+<s>yaygInlaStIG: 20
+<s>yaygInlaSt: 19
+<s>yay: 17
+<s>ya: 14
+<s>yaygInl: 13
+<s>yaygInlaStI: 12
+<s>yaygInla: 11
+<s>yaygInlaS: 10
+<s>yaygInlaStIGIn: 10
+<s>y: 8
+<s>yayg: 8
+<s>yaygI: 6
+<s>yaygIn: 6
+<s>yaygInlaStIGI: 1
+<s>yaygInlaStIGIna: 0
+
+---- <s>uygunluGun
+
+<s>: 23
+<s>uy: 15
+<s>u: 14
+<s>uygunlu: 12
+<s>uygunl: 11
+<s>uyg: 8
+<s>uygunluGu: 6
+<s>uygu: 5
+<s>uygun: 4
+<s>uygunluG: 4
+<s>uygunluGun: 0
+
+---- <s>fenomeni
+
+<s>: 24
+<s>fen: 8
+<s>fe: 6
+<s>f: 5
+<s>fenom: 5
+<s>fenome: 4
+<s>feno: 3
+<s>fenomen: 2
+<s>fenomeni: 0
+
+---- <s>sUrmeyeceksiniz
+
+<s>sUrmeye: 27
+<s>sUrmeyec: 24
+<s>sUrmeyece: 24
+<s>sUrmey: 20
+<s>s: 19
+<s>sUrmeyeceks: 18
+<s>sUr: 17
+<s>: 16
+<s>sU: 15
+<s>sUrme: 15
+<s>sUrmeyecek: 13
+<s>sUrmeyeceksi: 10
+<s>sUrm: 8
+<s>sUrmeyeceksin: 1
+<s>sUrmeyeceksini: 1
+<s>sUrmeyeceksiniz: 0
+
+---- <s>katIlaSmIS
+
+<s>: 15
+<s>katIla: 15
+<s>ka: 12
+<s>katI: 11
+<s>k: 9
+<s>katIlaSmI: 9
+<s>katIl: 7
+<s>katIlaS: 7
+<s>katIlaSm: 5
+<s>kat: 4
+<s>katIlaSmIS: 0
+
+---- <s>kubi
+
+<s>: 24
+<s>k: 10
+<s>ku: 8
+<s>kub: 5
+<s>kubi: 0
+
+---- <s>muhafazakarlarla
+
+<s>muhafa: 29
+<s>muha: 28
+<s>mu: 27
+<s>m: 26
+<s>: 25
+<s>muhafaza: 22
+<s>muhafaz: 21
+<s>muhafazaka: 18
+<s>muh: 13
+<s>muhaf: 13
+<s>muhafazak: 13
+<s>muhafazakar: 8
+<s>muhafazakarl: 4
+<s>muhafazakarlarl: 3
+<s>muhafazakarla: 2
+<s>muhafazakarlar: 2
+<s>muhafazakarlarla: 0
+
+---- <s>Cindeydi
+
+<s>: 18
+<s>Ci: 11
+<s>Cin: 6
+<s>Cind: 6
+<s>C: 4
+<s>Cindeyd: 4
+<s>Cinde: 3
+<s>Cindey: 3
+<s>Cindeydi: 0
+
+---- <s>onurunuzu
+
+<s>: 20
+<s>o: 13
+<s>onurun: 13
+<s>on: 9
+<s>onur: 9
+<s>onuru: 8
+<s>onu: 7
+<s>onurunu: 3
+<s>onurunuz: 3
+<s>onurunuzu: 0
+
+---- <s>uyacaGImIzI
+
+<s>uyaca: 20
+<s>uya: 18
+<s>: 17
+<s>uy: 13
+<s>uyac: 13
+<s>u: 12
+<s>uyacaGIm: 11
+<s>uyacaG: 10
+<s>uyacaGI: 8
+<s>uyacaGImIz: 2
+<s>uyacaGImI: 1
+<s>uyacaGImIzI: 0
+
+---- <s>baGImsIzlIGImIzI
+
+<s>: 25
+<s>baGImsIzlIG: 19
+<s>ba: 16
+<s>baGIm: 15
+<s>baGI: 13
+<s>baGIms: 13
+<s>baGImsI: 13
+<s>baG: 12
+<s>baGImsIzl: 11
+<s>baGImsIzlIGIm: 11
+<s>b: 10
+<s>baGImsIzlI: 10
+<s>baGImsIz: 5
+<s>baGImsIzlIGI: 2
+<s>baGImsIzlIGImI: 2
+<s>baGImsIzlIGImIz: 2
+<s>baGImsIzlIGImIzI: 0
+
+---- <s>vitrinlerle
+
+<s>: 16
+<s>vit: 14
+<s>vi: 12
+<s>vitrin: 6
+<s>vitr: 5
+<s>vitrinl: 4
+<s>v: 3
+<s>vitri: 3
+<s>vitrinlerl: 3
+<s>vitrinler: 2
+<s>vitrinle: 1
+<s>vitrinlerle: 0
+
+---- <s>yazarlarca
+
+<s>: 27
+<s>ya: 27
+<s>yaza: 13
+<s>yazar: 12
+<s>yazarl: 12
+<s>yazarlar: 12
+<s>y: 11
+<s>yaz: 6
+<s>yazarlarc: 4
+<s>yazarla: 2
+<s>yazarlarca: 0
+
+---- <s>uGradIk
+
+<s>: 29
+<s>u: 17
+<s>uG: 7
+<s>uGra: 6
+<s>uGradI: 6
+<s>uGr: 4
+<s>uGrad: 3
+<s>uGradIk: 0
+
+---- <s>southampton
+
+<s>: 21
+<s>so: 19
+<s>sout: 19
+<s>sou: 16
+<s>south: 15
+<s>s: 14
+<s>southam: 14
+<s>southa: 13
+<s>southampto: 11
+<s>southamp: 7
+<s>southampt: 3
+<s>southampton: 0
+
+---- <s>birleStirmesiyle
+
+<s>: 18
+<s>birleStirmes: 14
+<s>birleStirm: 13
+<s>birleS: 12
+<s>birleSt: 12
+<s>birleSti: 12
+<s>birleStir: 12
+<s>birl: 11
+<s>birleStirme: 11
+<s>birleStirmesiy: 10
+<s>birleStirmesiyl: 9
+<s>birle: 8
+<s>b: 7
+<s>bi: 7
+<s>bir: 6
+<s>birleStirmesi: 5
+<s>birleStirmesiyle: 0
+
+---- <s>soyutlamadan
+
+<s>: 23
+<s>so: 13
+<s>soyutla: 12
+<s>soyutl: 11
+<s>soy: 10
+<s>soyu: 10
+<s>s: 9
+<s>soyutlama: 9
+<s>soyut: 8
+<s>soyutlam: 6
+<s>soyutlamada: 6
+<s>soyutlamad: 4
+<s>soyutlamadan: 0
+
+---- <s>kavgacI
+
+<s>: 18
+<s>ka: 15
+<s>k: 14
+<s>kavga: 12
+<s>kav: 11
+<s>kavg: 4
+<s>kavgac: 3
+<s>kavgacI: 0
+
+---- <s>bozmasIydI
+
+<s>: 32
+<s>b: 25
+<s>bo: 19
+<s>boz: 11
+<s>bozmas: 11
+<s>bozma: 10
+<s>bozm: 6
+<s>bozmasIyd: 6
+<s>bozmasIy: 5
+<s>bozmasI: 2
+<s>bozmasIydI: 0
+
+---- <s>jalede
+
+<s>: 25
+<s>j: 8
+<s>ja: 8
+<s>jal: 4
+<s>jale: 4
+<s>jaled: 2
+<s>jalede: 0
+
+---- <s>tutunuyorsun
+
+<s>tutunuy: 26
+<s>tutunuyo: 20
+<s>: 17
+<s>t: 13
+<s>tutunu: 13
+<s>tu: 12
+<s>tutunuyor: 9
+<s>tutunuyors: 9
+<s>tutunuyorsu: 9
+<s>tut: 7
+<s>tutun: 7
+<s>tutu: 6
+<s>tutunuyorsun: 0
+
+---- <s>taksitle
+
+<s>tak: 21
+<s>: 18
+<s>ta: 18
+<s>t: 12
+<s>taksi: 9
+<s>taks: 5
+<s>taksit: 4
+<s>taksitl: 4
+<s>taksitle: 0
+
+---- <s>taSCIyan
+
+<s>: 20
+<s>taS: 15
+<s>ta: 12
+<s>taSCI: 11
+<s>t: 6
+<s>taSCIy: 6
+<s>taSC: 4
+<s>taSCIya: 4
+<s>taSCIyan: 0
+
+---- <s>kaCamaktIr
+
+<s>ka: 18
+<s>: 17
+<s>kaCama: 14
+<s>k: 13
+<s>kaCa: 8
+<s>kaCamaktI: 8
+<s>kaC: 6
+<s>kaCam: 2
+<s>kaCamakt: 2
+<s>kaCamak: 1
+<s>kaCamaktIr: 0
+
+---- <s>kararla
+
+<s>: 14
+<s>k: 8
+<s>ka: 7
+<s>kar: 4
+<s>kararl: 3
+<s>karar: 2
+<s>kara: 1
+<s>kararla: 0
+
+---- <s>hamalInIm
+
+<s>: 20
+<s>ha: 18
+<s>hamalI: 10
+<s>h: 9
+<s>hama: 9
+<s>hamalImI: 9
+<s>hamal: 7
+<s>ham: 5
+<s>hamalIm: 1
+<s>hamalImIn: 0
+
+---- <s>baSarIsIzlIGIdIr
+
+<s>: 23
+<s>ba: 23
+<s>baSarI: 16
+<s>baSarIsI: 14
+<s>baSarIsIzlIGIdI: 12
+<s>baSa: 11
+<s>baSarIsIzlI: 11
+<s>b: 9
+<s>baS: 9
+<s>baSarIs: 9
+<s>baSar: 8
+<s>baSarIsIz: 6
+<s>baSarIsIzl: 6
+<s>baSarIsIzlIGI: 6
+<s>baSarIsIzlIG: 5
+<s>baSarIsIzlIGId: 5
+<s>baSarIsIzlIGIdIr: 0
+
+---- <s>kalkanIm
+
+<s>: 16
+<s>kal: 13
+<s>k: 9
+<s>ka: 9
+<s>kalkanI: 8
+<s>kalka: 7
+<s>kalk: 4
+<s>kalkan: 1
+<s>kalkanIm: 0
+
+---- <s>amerikasIz
+
+<s>amerika: 25
+<s>ame: 19
+<s>a: 18
+<s>ameri: 16
+<s>: 13
+<s>amer: 12
+<s>am: 11
+<s>amerik: 7
+<s>amerikasI: 3
+<s>amerikas: 2
+<s>amerikasIz: 0
+
+---- <s>indirmiSler
+
+<s>: 16
+<s>indirmi: 14
+<s>i: 13
+<s>ind: 10
+<s>indi: 10
+<s>indir: 8
+<s>indirmiSle: 7
+<s>indirm: 6
+<s>in: 5
+<s>indirmiSl: 5
+<s>indirmiS: 2
+<s>indirmiSler: 0
+
+---- <s>sistemlerimiz
+
+<s>: 21
+<s>si: 19
+<s>sistemle: 14
+<s>sis: 13
+<s>sisteml: 8
+<s>sistemleri: 8
+<s>s: 7
+<s>sist: 6
+<s>siste: 6
+<s>sistemler: 6
+<s>sistem: 4
+<s>sistemlerim: 2
+<s>sistemlerimi: 2
+<s>sistemlerimiz: 0
+
+---- <s>efkarda
+
+<s>: 23
+<s>e: 19
+<s>ef: 16
+<s>efk: 5
+<s>efka: 2
+<s>efkar: 2
+<s>efkard: 1
+<s>efkarda: 0
+
+---- <s>sUrdUremezsiniz
+
+<s>s: 20
+<s>sUrd: 19
+<s>sUrdUremezs: 18
+<s>sUr: 16
+<s>sUrdUr: 16
+<s>: 15
+<s>sUrdUreme: 15
+<s>sUrdU: 13
+<s>sUrdUre: 13
+<s>sU: 12
+<s>sUrdUremezsi: 12
+<s>sUrdUrem: 11
+<s>sUrdUremez: 7
+<s>sUrdUremezsini: 2
+<s>sUrdUremezsin: 1
+<s>sUrdUremezsiniz: 0
+
+---- <s>yiyecekten
+
+<s>: 21
+<s>yiyece: 20
+<s>yi: 14
+<s>yiye: 13
+<s>yiyec: 10
+<s>y: 7
+<s>yiy: 7
+<s>yiyecekte: 7
+<s>yiyecek: 6
+<s>yiyecekt: 2
+<s>yiyecekten: 0
+
+---- <s>biCimiyle
+
+<s>: 21
+<s>bi: 17
+<s>biCimiy: 13
+<s>biCim: 10
+<s>biCimiyl: 10
+<s>b: 8
+<s>biCi: 8
+<s>biC: 6
+<s>biCimi: 5
+<s>biCimiyle: 0
+
+---- <s>rastlasam
+
+<s>: 19
+<s>ra: 17
+<s>ras: 17
+<s>rast: 13
+<s>rastla: 13
+<s>r: 12
+<s>rastlasa: 10
+<s>rastl: 7
+<s>rastlas: 3
+<s>rastlasam: 0
+
+---- <s>kadastrosunun
+
+<s>kadast: 22
+<s>kadastro: 21
+<s>: 20
+<s>kad: 19
+<s>kadastr: 18
+<s>kadas: 15
+<s>k: 11
+<s>ka: 11
+<s>kada: 11
+<s>kadastros: 9
+<s>kadastrosu: 6
+<s>kadastrosunu: 4
+<s>kadastrosun: 2
+<s>kadastrosunun: 0
+
+---- <s>taliplerin
+
+<s>ta: 13
+<s>tali: 13
+<s>: 11
+<s>tal: 9
+<s>t: 6
+<s>talipl: 6
+<s>taliple: 6
+<s>talip: 4
+<s>talipler: 4
+<s>talipleri: 2
+<s>taliplerin: 0
+
+---- <s>zarda
+
+<s>: 22
+<s>za: 8
+<s>z: 7
+<s>zar: 3
+<s>zard: 2
+<s>zarda: 0
+
+---- <s>saGlayabilirken
+
+<s>saGlaya: 29
+<s>: 20
+<s>sa: 18
+<s>saGla: 17
+<s>saGlay: 16
+<s>saGlayabili: 15
+<s>saGlayab: 13
+<s>saGlayabil: 12
+<s>s: 9
+<s>saGlayabilirke: 7
+<s>saG: 6
+<s>saGl: 5
+<s>saGlayabi: 5
+<s>saGlayabilir: 4
+<s>saGlayabilirk: 1
+<s>saGlayabilirken: 0
+
+---- <s>oturakaldI
+
+<s>: 16
+<s>o: 13
+<s>otura: 13
+<s>otu: 10
+<s>otur: 10
+<s>ot: 9
+<s>oturak: 6
+<s>oturaka: 4
+<s>oturakal: 4
+<s>oturakald: 4
+<s>oturakaldI: 0
+
+---- <s>kIlgIn
+
+<s>: 19
+<s>kIl: 11
+<s>kI: 7
+<s>k: 5
+<s>kIlg: 3
+<s>kIlgI: 3
+<s>kIlgIn: 0
+
+---- <s>everdik
+
+<s>: 22
+<s>e: 16
+<s>eve: 7
+<s>everdi: 5
+<s>ev: 4
+<s>ever: 2
+<s>everd: 2
+<s>everdik: 0
+
+---- <s>kurdudur
+
+<s>: 20
+<s>k: 16
+<s>kurdu: 11
+<s>kurdudu: 11
+<s>ku: 10
+<s>kur: 8
+<s>kurd: 7
+<s>kurdud: 4
+<s>kurdudur: 0
+
+---- <s>dOnUStUrebildiler
+
+<s>d: 19
+<s>dO: 17
+<s>: 15
+<s>dOnU: 14
+<s>dOnUStUre: 14
+<s>dOnUStUrebildile: 14
+<s>dOnUSt: 13
+<s>dOnUStUreb: 12
+<s>dOn: 11
+<s>dOnUStUr: 11
+<s>dOnUS: 8
+<s>dOnUStUrebil: 7
+<s>dOnUStUrebild: 7
+<s>dOnUStUrebildil: 7
+<s>dOnUStU: 6
+<s>dOnUStUrebi: 5
+<s>dOnUStUrebildi: 4
+<s>dOnUStUrebildiler: 0
+
+---- <s>tekellerince
+
+<s>: 20
+<s>te: 20
+<s>tekeller: 19
+<s>tekellerin: 19
+<s>tekel: 17
+<s>tekell: 17
+<s>teke: 15
+<s>t: 12
+<s>tekellerinc: 9
+<s>tek: 7
+<s>tekelle: 6
+<s>tekelleri: 3
+<s>tekellerince: 0
+
+---- <s>sulak
+
+<s>: 24
+<s>sula: 10
+<s>su: 7
+<s>s: 6
+<s>sul: 4
+<s>sulak: 0
+
+---- <s>UtopyacIlIkla
+
+<s>Uto: 21
+<s>Ut: 20
+<s>Utopya: 19
+<s>UtopyacIl: 18
+<s>: 17
+<s>U: 14
+<s>Utop: 14
+<s>Utopyac: 11
+<s>UtopyacIlIkl: 10
+<s>Utopy: 9
+<s>UtopyacI: 7
+<s>UtopyacIlIk: 7
+<s>UtopyacIlI: 5
+<s>UtopyacIlIkla: 0
+
+---- <s>gitmediklerini
+
+<s>git: 15
+<s>: 13
+<s>gi: 12
+<s>gitme: 8
+<s>gitmed: 8
+<s>g: 7
+<s>gitmedi: 7
+<s>gitmedikl: 6
+<s>gitmedikle: 6
+<s>gitmedikler: 6
+<s>gitm: 5
+<s>gitmedikleri: 3
+<s>gitmediklerin: 3
+<s>gitmedik: 1
+<s>gitmediklerini: 0
+
+---- <s>tokalaSmIS
+
+<s>: 22
+<s>t: 21
+<s>to: 18
+<s>tokala: 14
+<s>toka: 13
+<s>tokal: 8
+<s>tokalaSmI: 8
+<s>tokalaS: 7
+<s>tokalaSm: 6
+<s>tok: 5
+<s>tokalaSmIS: 0
+
+---- <s>kaldIGIn
+
+<s>: 18
+<s>kal: 10
+<s>kaldI: 9
+<s>k: 8
+<s>kald: 8
+<s>ka: 7
+<s>kaldIG: 2
+<s>kaldIGI: 2
+<s>kaldIGIn: 0
+
+---- <s>yapaylIGI
+
+<s>ya: 24
+<s>: 23
+<s>yapa: 12
+<s>yapayl: 10
+<s>y: 9
+<s>yapay: 7
+<s>yap: 6
+<s>yapaylIG: 2
+<s>yapaylI: 1
+<s>yapaylIGI: 0
+
+---- <s>nasa
+
+<s>: 24
+<s>na: 12
+<s>n: 6
+<s>nas: 3
+<s>nasa: 0
+
+---- <s>ibiS
+
+<s>: 22
+<s>i: 13
+<s>ibi: 9
+<s>ib: 2
+<s>ibiS: 0
+
+---- <s>mUsteSarI
+
+<s>: 27
+<s>m: 21
+<s>mUste: 20
+<s>mU: 17
+<s>mUs: 17
+<s>mUst: 9
+<s>mUsteSa: 7
+<s>mUsteS: 6
+<s>mUsteSar: 2
+<s>mUsteSarI: 0
+
+---- <s>kollarIndayIz
+
+<s>kollarInda: 18
+<s>: 17
+<s>k: 12
+<s>kol: 10
+<s>ko: 9
+<s>kollarIndayI: 8
+<s>kollar: 7
+<s>koll: 5
+<s>kolla: 5
+<s>kollarI: 5
+<s>kollarIn: 4
+<s>kollarInd: 4
+<s>kollarInday: 4
+<s>kollarIndayIz: 0
+
+---- <s>tereddUtlere
+
+<s>te: 16
+<s>: 15
+<s>t: 13
+<s>tered: 12
+<s>teredd: 12
+<s>ter: 8
+<s>tere: 8
+<s>tereddU: 7
+<s>tereddUt: 7
+<s>tereddUtl: 7
+<s>tereddUtler: 5
+<s>tereddUtle: 1
+<s>tereddUtlere: 0
+
+---- <s>sofra
+
+<s>: 24
+<s>s: 20
+<s>so: 15
+<s>sof: 12
+<s>sofr: 4
+<s>sofra: 0
+
+---- <s>sIklaStIrdIm
+
+<s>: 23
+<s>sI: 17
+<s>sIkla: 11
+<s>sIk: 10
+<s>sIklaSt: 9
+<s>sIklaStIrdI: 9
+<s>s: 8
+<s>sIklaStI: 7
+<s>sIkl: 6
+<s>sIklaS: 5
+<s>sIklaStIrd: 5
+<s>sIklaStIr: 4
+<s>sIklaStIrdIm: 0
+
+---- <s>uSaklIk
+
+<s>uSa: 14
+<s>: 13
+<s>u: 12
+<s>uS: 6
+<s>uSaklI: 5
+<s>uSakl: 3
+<s>uSak: 2
+<s>uSaklIk: 0
+
+---- <s>karSInIzdayIm
+
+<s>: 14
+<s>karSInIzda: 14
+<s>kar: 12
+<s>ka: 11
+<s>karSInIzdayI: 10
+<s>k: 9
+<s>karSI: 9
+<s>karSInI: 8
+<s>karSInIzday: 7
+<s>karSIn: 6
+<s>karSInIz: 5
+<s>karS: 4
+<s>karSInIzd: 4
+<s>karSInIzdayIm: 0
+
+---- <s>otelcilik
+
+<s>: 17
+<s>o: 16
+<s>ote: 15
+<s>otel: 13
+<s>otelcili: 12
+<s>otelci: 11
+<s>ot: 9
+<s>otelc: 5
+<s>otelcil: 3
+<s>otelcilik: 0
+
+---- <s>kUsUrlUk
+
+<s>: 21
+<s>kU: 21
+<s>k: 17
+<s>kUsU: 9
+<s>kUs: 8
+<s>kUsUrlU: 6
+<s>kUsUrl: 5
+<s>kUsUr: 3
+<s>kUsUrlUk: 0
+
+---- <s>hatlarIyla
+
+<s>: 16
+<s>h: 14
+<s>ha: 13
+<s>hat: 10
+<s>hatlar: 9
+<s>hatl: 8
+<s>hatlarIy: 4
+<s>hatlarIyl: 4
+<s>hatla: 2
+<s>hatlarI: 2
+<s>hatlarIyla: 0
+
+---- <s>kIzIlordusu
+
+<s>kI: 20
+<s>: 16
+<s>kIzIlord: 16
+<s>kIzIlo: 13
+<s>kIzIlordu: 10
+<s>kIzIl: 9
+<s>kIzIlor: 9
+<s>k: 7
+<s>kIz: 6
+<s>kIzI: 6
+<s>kIzIlordus: 3
+<s>kIzIlordusu: 0
+
+---- <s>fueloil
+
+<s>: 27
+<s>fue: 12
+<s>fu: 11
+<s>fueli: 11
+<s>f: 8
+<s>fuelio: 7
+<s>fuel: 4
+<s>fueliol: 0
+
+---- <s>CarpIlmanIz
+
+<s>: 19
+<s>Car: 18
+<s>CarpIlma: 17
+<s>C: 9
+<s>Ca: 9
+<s>CarpIl: 8
+<s>CarpI: 7
+<s>CarpIlm: 6
+<s>Carp: 5
+<s>CarpIlman: 4
+<s>CarpIlmanI: 2
+<s>CarpIlmanIz: 0
+
+---- <s>dUSUnU
+
+<s>: 21
+<s>d: 19
+<s>dU: 12
+<s>dUS: 10
+<s>dUSUn: 7
+<s>dUSU: 3
+<s>dUSUnU: 0
+
+---- <s>sarImdIr
+
+<s>: 24
+<s>sa: 12
+<s>sarI: 9
+<s>s: 8
+<s>sarImdI: 7
+<s>sar: 5
+<s>sarImd: 3
+<s>sarIm: 1
+<s>sarImdIr: 0
+
+---- <s>tabaklarIn
+
+<s>ta: 19
+<s>: 15
+<s>taba: 11
+<s>t: 9
+<s>tab: 8
+<s>tabakl: 5
+<s>tabakla: 5
+<s>tabak: 4
+<s>tabaklar: 2
+<s>tabaklarI: 1
+<s>tabaklarIn: 0
+
+---- <s>kaptanIndan
+
+<s>: 17
+<s>k: 17
+<s>ka: 12
+<s>kap: 8
+<s>kapt: 4
+<s>kaptanInda: 4
+<s>kapta: 3
+<s>kaptan: 3
+<s>kaptanI: 3
+<s>kaptanInd: 2
+<s>kaptanIn: 1
+<s>kaptanIndan: 0
+
+---- <s>harflerinden
+
+<s>har: 19
+<s>: 18
+<s>h: 12
+<s>ha: 11
+<s>harfler: 7
+<s>harf: 6
+<s>harfl: 6
+<s>harfle: 3
+<s>harflerinde: 3
+<s>harflerind: 2
+<s>harfleri: 1
+<s>harflerin: 1
+<s>harflerinden: 0
+
+---- <s>tUrkerden
+
+<s>tUr: 17
+<s>: 15
+<s>t: 14
+<s>tUrk: 8
+<s>tU: 7
+<s>tUrke: 4
+<s>tUrker: 3
+<s>tUrkerd: 3
+<s>tUrkerde: 2
+<s>tUrkerden: 0
+
+---- <s>ceolarInI
+
+<s>: 24
+<s>ce: 15
+<s>c: 10
+<s>ceola: 9
+<s>ceol: 8
+<s>ceolar: 7
+<s>ceo: 6
+<s>ceolarIn: 3
+<s>ceolarI: 2
+<s>ceolarInI: 0
+
+---- <s>IsItISIn
+
+<s>I: 19
+<s>: 18
+<s>IsI: 10
+<s>IsItI: 10
+<s>IsIt: 6
+<s>Is: 5
+<s>IsItISI: 5
+<s>IsItIS: 2
+<s>IsItISIn: 0
+
+---- <s>beklemezdik
+
+<s>: 25
+<s>be: 17
+<s>bek: 14
+<s>bekle: 14
+<s>b: 13
+<s>bekleme: 13
+<s>bekl: 8
+<s>beklem: 6
+<s>beklemezd: 6
+<s>beklemezdi: 6
+<s>beklemez: 2
+<s>beklemezdik: 0
+
+---- <s>gerecekler
+
+<s>: 20
+<s>gere: 17
+<s>ge: 14
+<s>gerece: 10
+<s>g: 8
+<s>gerecekle: 7
+<s>ger: 5
+<s>gerec: 5
+<s>gerecek: 1
+<s>gerecekl: 1
+<s>gerecekler: 0
+
+---- <s>CantasIz
+
+<s>: 19
+<s>Canta: 14
+<s>Ca: 13
+<s>Can: 11
+<s>C: 6
+<s>Cant: 2
+<s>Cantas: 1
+<s>CantasI: 1
+<s>CantasIz: 0
+
+---- <s>otuzlardaki
+
+<s>: 18
+<s>otu: 18
+<s>ot: 15
+<s>o: 13
+<s>otuzl: 11
+<s>otuzla: 9
+<s>otuz: 7
+<s>otuzlar: 3
+<s>otuzlard: 3
+<s>otuzlardak: 3
+<s>otuzlarda: 2
+<s>otuzlardaki: 0
+
+---- <s>hinoGluhin
+
+<s>: 28
+<s>hi: 27
+<s>hinoGlu: 24
+<s>hin: 16
+<s>hino: 15
+<s>hinoGl: 14
+<s>hinoG: 12
+<s>h: 7
+<s>hinoGluhi: 6
+<s>hinoGluh: 3
+<s>hinoGluhin: 0
+
+---- <s>zorlamayanlarIn
+
+<s>: 28
+<s>z: 13
+<s>zo: 13
+<s>zorlamay: 12
+<s>zor: 10
+<s>zorla: 10
+<s>zorlama: 10
+<s>zorl: 9
+<s>zorlamaya: 9
+<s>zorlamayanla: 6
+<s>zorlam: 5
+<s>zorlamayanl: 4
+<s>zorlamayanlarI: 3
+<s>zorlamayan: 2
+<s>zorlamayanlar: 2
+<s>zorlamayanlarIn: 0
+
+---- <s>yapIlamadIGInI
+
+<s>yapIlamad: 20
+<s>: 19
+<s>ya: 18
+<s>yapIlamadI: 16
+<s>yapIlama: 14
+<s>yapIlamadIG: 14
+<s>yapIla: 12
+<s>yapIl: 11
+<s>yapI: 8
+<s>yapIlam: 8
+<s>y: 7
+<s>yap: 4
+<s>yapIlamadIGI: 4
+<s>yapIlamadIGIn: 4
+<s>yapIlamadIGInI: 0
+
+---- <s>turlarIm
+
+<s>: 15
+<s>t: 14
+<s>tu: 8
+<s>turl: 7
+<s>turlarI: 6
+<s>tur: 5
+<s>turla: 5
+<s>turlar: 3
+<s>turlarIm: 0
+
+---- <s>derneklerinin
+
+<s>: 15
+<s>de: 9
+<s>der: 8
+<s>d: 6
+<s>derne: 6
+<s>dernekler: 6
+<s>dern: 4
+<s>dernekl: 4
+<s>dernekle: 2
+<s>dernek: 1
+<s>dernekleri: 1
+<s>derneklerin: 1
+<s>derneklerini: 1
+<s>derneklerinin: 0
+
+---- <s>shovda
+
+<s>: 25
+<s>s: 21
+<s>sh: 11
+<s>sho: 10
+<s>shov: 6
+<s>shovd: 2
+<s>shovda: 0
+
+---- <s>yaGdIrdIklarI
+
+<s>: 24
+<s>y: 12
+<s>ya: 10
+<s>yaGd: 9
+<s>yaGdI: 9
+<s>yaGdIr: 9
+<s>yaG: 7
+<s>yaGdIrd: 7
+<s>yaGdIrdIkl: 4
+<s>yaGdIrdIklar: 3
+<s>yaGdIrdI: 2
+<s>yaGdIrdIkla: 2
+<s>yaGdIrdIk: 1
+<s>yaGdIrdIklarI: 0
+
+---- <s>hedefidir
+
+<s>: 22
+<s>hede: 20
+<s>he: 18
+<s>hedefidi: 10
+<s>h: 8
+<s>hedefi: 7
+<s>hed: 3
+<s>hedef: 2
+<s>hedefid: 1
+<s>hedefidir: 0
+
+---- <s>oynamasIdIr
+
+<s>: 17
+<s>oynamasIdI: 14
+<s>oynama: 13
+<s>oyna: 10
+<s>o: 9
+<s>oy: 8
+<s>oyn: 7
+<s>oynam: 4
+<s>oynamas: 4
+<s>oynamasI: 4
+<s>oynamasId: 3
+<s>oynamasIdIr: 0
+
+---- <s>uyuduGunuzu
+
+<s>uyuduG: 23
+<s>uyud: 19
+<s>: 18
+<s>uyudu: 16
+<s>uyu: 14
+<s>u: 12
+<s>uyuduGun: 12
+<s>uyuduGu: 10
+<s>uy: 8
+<s>uyuduGunuz: 3
+<s>uyuduGunu: 2
+<s>uyuduGunuzu: 0
+
+---- <s>belirlemedim
+
+<s>: 23
+<s>belirle: 13
+<s>beli: 12
+<s>belirleme: 9
+<s>bel: 8
+<s>belirl: 7
+<s>b: 6
+<s>be: 6
+<s>belirlemedi: 6
+<s>belir: 4
+<s>belirlem: 4
+<s>belirlemed: 4
+<s>belirlemedim: 0
+
+---- <s>sunmasIydI
+
+<s>: 26
+<s>s: 20
+<s>su: 14
+<s>sun: 11
+<s>sunmas: 11
+<s>sunma: 9
+<s>sunmasIyd: 9
+<s>sunmasIy: 7
+<s>sunm: 6
+<s>sunmasI: 3
+<s>sunmasIydI: 0
+
+---- <s>SiSmanlatmaz
+
+<s>: 15
+<s>Si: 14
+<s>SiSmanlatma: 13
+<s>SiS: 12
+<s>SiSmanla: 12
+<s>SiSm: 10
+<s>SiSman: 10
+<s>SiSma: 9
+<s>S: 8
+<s>SiSmanl: 8
+<s>SiSmanlat: 7
+<s>SiSmanlatm: 3
+<s>SiSmanlatmaz: 0
+
+---- <s>ortaklaSmacI
+
+<s>: 16
+<s>o: 16
+<s>orta: 16
+<s>or: 12
+<s>ortakla: 12
+<s>ortaklaS: 10
+<s>ortak: 9
+<s>ortaklaSm: 8
+<s>ort: 7
+<s>ortakl: 7
+<s>ortaklaSma: 7
+<s>ortaklaSmac: 3
+<s>ortaklaSmacI: 0
+
+---- <s>mevcuda
+
+<s>: 22
+<s>mev: 20
+<s>me: 16
+<s>m: 14
+<s>mevc: 7
+<s>mevcu: 5
+<s>mevcud: 3
+<s>mevcuda: 0
+
+---- <s>maskesinin
+
+<s>: 26
+<s>me: 17
+<s>mes: 17
+<s>m: 12
+<s>meske: 11
+<s>meskes: 5
+<s>meskesi: 5
+<s>mesk: 4
+<s>meskesini: 2
+<s>meskesin: 1
+<s>meskesinin: 0
+
+---- <s>okutulursa
+
+<s>okutulu: 17
+<s>okutulur: 16
+<s>o: 14
+<s>okutu: 14
+<s>okutul: 13
+<s>: 11
+<s>oku: 11
+<s>ok: 7
+<s>okutulurs: 7
+<s>okut: 5
+<s>okutulursa: 0
+
+---- <s>artIdayIz
+
+<s>artIda: 19
+<s>: 18
+<s>artI: 9
+<s>a: 8
+<s>ar: 8
+<s>art: 5
+<s>artId: 3
+<s>artIday: 3
+<s>artIdayI: 2
+<s>artIdayIz: 0
+
+---- <s>geniSletilemez
+
+<s>geniSletile: 18
+<s>geniSletileme: 17
+<s>: 15
+<s>ge: 14
+<s>geni: 11
+<s>g: 9
+<s>geniSle: 9
+<s>geniSletil: 9
+<s>gen: 8
+<s>geniSleti: 6
+<s>geniSl: 5
+<s>geniS: 4
+<s>geniSlet: 4
+<s>geniSletilem: 4
+<s>geniSletilemez: 0
+
+---- <s>zerrin
+
+<s>: 18
+<s>ze: 8
+<s>z: 7
+<s>zer: 7
+<s>zerri: 4
+<s>zerr: 2
+<s>zerrin: 0
+
+---- <s>inanIldIGI
+
+<s>: 18
+<s>inanIl: 8
+<s>inanI: 7
+<s>inanIld: 7
+<s>i: 6
+<s>inan: 6
+<s>inanIldI: 6
+<s>ina: 4
+<s>in: 3
+<s>inanIldIG: 2
+<s>inanIldIGI: 0
+
+---- <s>keSfedivermiS
+
+<s>keS: 27
+<s>ke: 20
+<s>keSfedi: 20
+<s>keSfedive: 19
+<s>: 18
+<s>keSfediv: 18
+<s>keSfe: 15
+<s>k: 14
+<s>keSfed: 14
+<s>keSfedivermi: 12
+<s>keSf: 8
+<s>keSfediver: 6
+<s>keSfediverm: 4
+<s>keSfedivermiS: 0
+
+---- <s>CaGIrdIklarInI
+
+<s>: 21
+<s>C: 10
+<s>Ca: 10
+<s>CaGIr: 10
+<s>CaGIrdIklar: 10
+<s>CaGI: 9
+<s>CaGIrd: 8
+<s>CaGIrdIkl: 8
+<s>CaG: 6
+<s>CaGIrdI: 6
+<s>CaGIrdIkla: 3
+<s>CaGIrdIk: 2
+<s>CaGIrdIklarIn: 2
+<s>CaGIrdIklarI: 1
+<s>CaGIrdIklarInI: 0
+
+---- <s>gOremiyormuSuz
+
+<s>gOremiy: 27
+<s>g: 20
+<s>gOremiyorm: 19
+<s>gO: 18
+<s>gOremiyormu: 17
+<s>gOre: 16
+<s>: 14
+<s>gOremi: 12
+<s>gOremiyo: 11
+<s>gOremiyor: 10
+<s>gOremiyormuSu: 10
+<s>gOr: 8
+<s>gOrem: 8
+<s>gOremiyormuS: 4
+<s>gOremiyormuSuz: 0
+
+---- <s>anamadIm
+
+<s>: 23
+<s>anama: 12
+<s>anamadI: 10
+<s>a: 9
+<s>ana: 8
+<s>an: 4
+<s>anam: 3
+<s>anamad: 3
+<s>anamadIm: 0
+
+---- <s>perCemlerinin
+
+<s>: 21
+<s>per: 16
+<s>perCemler: 12
+<s>pe: 11
+<s>p: 9
+<s>perCeml: 9
+<s>perCemle: 8
+<s>perCe: 7
+<s>perC: 5
+<s>perCem: 5
+<s>perCemleri: 3
+<s>perCemlerini: 2
+<s>perCemlerin: 1
+<s>perCemlerinin: 0
+
+---- <s>yeGlemiStik
+
+<s>: 21
+<s>y: 14
+<s>ye: 12
+<s>yeGlemi: 12
+<s>yeGle: 10
+<s>yeGl: 7
+<s>yeG: 6
+<s>yeGlem: 5
+<s>yeGlemiSti: 3
+<s>yeGlemiS: 2
+<s>yeGlemiSt: 1
+<s>yeGlemiStik: 0
+
+---- <s>defterimdeki
+
+<s>de: 23
+<s>d: 18
+<s>: 17
+<s>def: 17
+<s>defte: 6
+<s>defter: 6
+<s>deft: 5
+<s>defteri: 5
+<s>defterimde: 5
+<s>defterim: 2
+<s>defterimd: 2
+<s>defterimdek: 1
+<s>defterimdeki: 0
+
+---- <s>yani
+
+<s>: 25
+<s>y: 6
+<s>ya: 6
+<s>yan: 5
+<s>yani: 0
+
+---- <s>zehirlenmeden
+
+<s>: 28
+<s>ze: 26
+<s>zehirlenme: 11
+<s>zehi: 8
+<s>z: 7
+<s>zehirl: 7
+<s>zeh: 6
+<s>zehirle: 6
+<s>zehir: 5
+<s>zehirlen: 5
+<s>zehirlenm: 5
+<s>zehirlenmed: 4
+<s>zehirlenmede: 4
+<s>zehirlenmeden: 0
+
+---- <s>Cekmemesi
+
+<s>: 21
+<s>CO: 19
+<s>C: 13
+<s>COk: 13
+<s>COkme: 12
+<s>COkm: 7
+<s>COkmem: 7
+<s>COkmeme: 7
+<s>COkmemes: 5
+<s>COkmemesi: 0
+
+---- <s>tepetaklak
+
+<s>: 18
+<s>te: 17
+<s>t: 15
+<s>teke: 12
+<s>tekela: 12
+<s>tek: 9
+<s>tekel: 7
+<s>tekelak: 2
+<s>tekelakt: 0
+
+---- <s>belagatla
+
+<s>: 22
+<s>b: 15
+<s>bela: 13
+<s>be: 12
+<s>bel: 10
+<s>belag: 7
+<s>belaga: 6
+<s>belagatl: 6
+<s>belagat: 4
+<s>belagatla: 0
+
+---- <s>kovuGundan
+
+<s>k: 28
+<s>: 24
+<s>ko: 19
+<s>kovu: 10
+<s>kovuG: 8
+<s>kov: 6
+<s>kovuGund: 6
+<s>kovuGunda: 5
+<s>kovuGu: 4
+<s>kovuGun: 2
+<s>kovuGundan: 0
+
+---- <s>mUjdelediGi
+
+<s>: 30
+<s>mU: 22
+<s>m: 15
+<s>mUjdele: 13
+<s>mUjdeled: 13
+<s>mUj: 11
+<s>mUjde: 11
+<s>mUjd: 7
+<s>mUjdel: 7
+<s>mUjdeledi: 4
+<s>mUjdelediG: 4
+<s>mUjdelediGi: 0
+
+---- <s>samanlardI
+
+<s>: 24
+<s>sa: 9
+<s>s: 7
+<s>sama: 5
+<s>saman: 5
+<s>sam: 4
+<s>samanl: 3
+<s>samanla: 2
+<s>samanlard: 2
+<s>samanlar: 1
+<s>samanlardI: 0
+
+---- <s>deGiSiklikte
+
+<s>: 17
+<s>de: 14
+<s>deGi: 12
+<s>deGiSi: 9
+<s>deGiS: 8
+<s>deGiSikl: 8
+<s>d: 7
+<s>deG: 6
+<s>deGiSik: 6
+<s>deGiSiklik: 6
+<s>deGiSikli: 5
+<s>deGiSiklikt: 5
+<s>deGiSiklikte: 0
+
+---- <s>kardeSimsin
+
+<s>kardeSi: 17
+<s>k: 14
+<s>karde: 14
+<s>: 13
+<s>ka: 12
+<s>kar: 11
+<s>kardeS: 10
+<s>kardeSim: 10
+<s>kard: 7
+<s>kardeSims: 5
+<s>kardeSimsi: 5
+<s>kardeSimsin: 0
+
+---- <s>objeleStirme
+
+<s>ob: 25
+<s>o: 20
+<s>: 19
+<s>objeleSt: 18
+<s>obje: 13
+<s>objeleStir: 12
+<s>objeleS: 10
+<s>objeleStirm: 10
+<s>objele: 8
+<s>obj: 7
+<s>objel: 6
+<s>objeleSti: 2
+<s>objeleStirme: 0
+
+---- <s>emrin
+
+<s>: 22
+<s>e: 9
+<s>em: 5
+<s>emr: 3
+<s>emri: 3
+<s>emrin: 0
+
+---- <s>notasInda
+
+<s>: 19
+<s>n: 19
+<s>no: 11
+<s>not: 6
+<s>notasIn: 6
+<s>nota: 5
+<s>notasInd: 5
+<s>notas: 4
+<s>notasI: 1
+<s>notasInda: 0
+
+---- <s>tUndUkten
+
+<s>: 16
+<s>t: 16
+<s>tUnd: 11
+<s>tUn: 9
+<s>tUndU: 8
+<s>tU: 7
+<s>tUndUkte: 4
+<s>tUndUk: 3
+<s>tUndUkt: 3
+<s>tUndUkten: 0
+
+---- <s>sorgulanacaktIk
+
+<s>s: 25
+<s>: 22
+<s>sorgulanaca: 19
+<s>sorgulana: 17
+<s>sorgul: 14
+<s>sor: 13
+<s>sorgulan: 13
+<s>so: 11
+<s>sorg: 10
+<s>sorgula: 9
+<s>sorgulanac: 9
+<s>sorgu: 7
+<s>sorgulanacak: 5
+<s>sorgulanacakt: 3
+<s>sorgulanacaktI: 2
+<s>sorgulanacaktIk: 0
+
+---- <s>ofislerin
+
+<s>: 26
+<s>o: 17
+<s>ofi: 9
+<s>ofis: 6
+<s>ofisle: 5
+<s>ofisl: 4
+<s>of: 3
+<s>ofisleri: 3
+<s>ofisler: 2
+<s>ofislerin: 0
+
+---- <s>gidemediler
+
+<s>gi: 12
+<s>gide: 12
+<s>gidemedile: 11
+<s>gideme: 10
+<s>: 9
+<s>gid: 8
+<s>gidemedi: 6
+<s>gidemedil: 6
+<s>gidem: 5
+<s>gidemed: 5
+<s>g: 4
+<s>gidemediler: 0
+
+---- <s>gUvenenin
+
+<s>g: 22
+<s>gU: 16
+<s>: 14
+<s>gUv: 6
+<s>gUven: 4
+<s>gUve: 3
+<s>gUvene: 2
+<s>gUveneni: 2
+<s>gUvenen: 1
+<s>gUvenenin: 0
+
+---- <s>amaClarImIz
+
+<s>ama: 15
+<s>: 14
+<s>a: 14
+<s>amaCla: 11
+<s>amaCl: 10
+<s>amaClarI: 9
+<s>am: 8
+<s>amaC: 6
+<s>amaClar: 6
+<s>amaClarIm: 2
+<s>amaClarImI: 1
+<s>amaClarImIz: 0
+
+---- <s>hissetmesini
+
+<s>: 30
+<s>hi: 17
+<s>his: 17
+<s>hissetme: 14
+<s>hisse: 12
+<s>h: 9
+<s>hiss: 7
+<s>hissetm: 7
+<s>hissetmes: 7
+<s>hisset: 6
+<s>hissetmesin: 3
+<s>hissetmesi: 1
+<s>hissetmesini: 0
+
+---- <s>eylemelerine
+
+<s>: 16
+<s>eyle: 13
+<s>e: 11
+<s>ey: 10
+<s>eylemel: 10
+<s>eylemeler: 10
+<s>eyl: 8
+<s>eyleme: 8
+<s>eylem: 4
+<s>eylemelerin: 3
+<s>eylemele: 2
+<s>eylemeleri: 1
+<s>eylemelerine: 0
+
+---- <s>korolarIna
+
+<s>: 18
+<s>k: 14
+<s>ko: 10
+<s>koro: 9
+<s>korol: 9
+<s>korolar: 9
+<s>kor: 6
+<s>korolarIn: 6
+<s>korola: 5
+<s>korolarI: 1
+<s>korolarIna: 0
+
+---- <s>lake
+
+<s>: 25
+<s>l: 8
+<s>la: 5
+<s>lak: 3
+<s>lake: 0
+
+---- <s>veriStirdi
+
+<s>: 15
+<s>veri: 10
+<s>ve: 8
+<s>veriSt: 6
+<s>ver: 5
+<s>veriS: 5
+<s>v: 3
+<s>veriStir: 3
+<s>veriStird: 3
+<s>veriSti: 1
+<s>veriStirdi: 0
+
+---- <s>dUSmanlara
+
+<s>d: 27
+<s>: 21
+<s>dU: 12
+<s>dUS: 12
+<s>dUSm: 7
+<s>dUSma: 7
+<s>dUSmanl: 6
+<s>dUSman: 4
+<s>dUSmanla: 1
+<s>dUSmanlar: 1
+<s>dUSmanlara: 0
+
+---- <s>OrtUlmUStUr
+
+<s>: 18
+<s>O: 14
+<s>OrtUlmU: 13
+<s>Or: 12
+<s>OrtUlm: 12
+<s>OrtUl: 9
+<s>OrtU: 8
+<s>OrtUlmUStU: 7
+<s>Ort: 6
+<s>OrtUlmUSt: 3
+<s>OrtUlmUS: 1
+<s>OrtUlmUStUr: 0
+
+---- <s>tutmalI
+
+<s>: 19
+<s>t: 19
+<s>tu: 12
+<s>tut: 8
+<s>tutm: 6
+<s>tutma: 6
+<s>tutmal: 3
+<s>tutmalI: 0
+
+---- <s>Cekilirdik
+
+<s>: 20
+<s>Ci: 18
+<s>Cikil: 12
+<s>Cikili: 10
+<s>Ciki: 8
+<s>Cikilird: 6
+<s>C: 5
+<s>Cikilir: 5
+<s>Cikilirdi: 5
+<s>Cik: 4
+<s>Cikilirdik: 0
+
+---- <s>etkitilecektir
+
+<s>etkileti: 22
+<s>et: 16
+<s>etkile: 15
+<s>etkileticedi: 14
+<s>etki: 11
+<s>: 10
+<s>etkiletice: 8
+<s>e: 6
+<s>etkiletic: 6
+<s>etkilet: 5
+<s>etk: 4
+<s>etkil: 4
+<s>etkileticed: 2
+<s>etkileticedir: 0
+
+---- <s>sOkmenden
+
+<s>: 19
+<s>sO: 15
+<s>s: 13
+<s>sOk: 9
+<s>sOkme: 7
+<s>sOkm: 5
+<s>sOkmende: 5
+<s>sOkmen: 2
+<s>sOkmend: 1
+<s>sOkmenden: 0
+
+---- <s>bitirenlerin
+
+<s>: 20
+<s>bi: 13
+<s>b: 8
+<s>bitir: 6
+<s>bit: 5
+<s>biti: 4
+<s>bitire: 4
+<s>bitirenl: 4
+<s>bitirenler: 4
+<s>bitiren: 3
+<s>bitirenle: 3
+<s>bitirenleri: 2
+<s>bitirenlerin: 0
+
+---- <s>nOronlarIn
+
+<s>: 19
+<s>n: 13
+<s>nO: 8
+<s>nOr: 7
+<s>nOro: 5
+<s>nOronl: 5
+<s>nOronlar: 3
+<s>nOron: 2
+<s>nOronla: 2
+<s>nOronlarI: 2
+<s>nOronlarIn: 0
+
+---- <s>hizmettir
+
+<s>: 32
+<s>hi: 25
+<s>h: 9
+<s>hiz: 9
+<s>hizme: 8
+<s>hizmetti: 6
+<s>hizmet: 4
+<s>hizm: 3
+<s>hizmett: 1
+<s>hizmettir: 0
+
+---- <s>tanItIlacak
+
+<s>tanItIla: 17
+<s>tanItIlaca: 15
+<s>: 14
+<s>ta: 14
+<s>tanI: 10
+<s>tanItI: 10
+<s>t: 5
+<s>tan: 4
+<s>tanIt: 4
+<s>tanItIl: 4
+<s>tanItIlac: 2
+<s>tanItIlacak: 0
+
+---- <s>OrgUtlemesiyle
+
+<s>: 24
+<s>O: 18
+<s>OrgUtle: 18
+<s>Or: 17
+<s>OrgUtlemes: 15
+<s>OrgUtlem: 14
+<s>Org: 13
+<s>OrgUtl: 13
+<s>OrgUtlemesiyl: 13
+<s>OrgU: 11
+<s>OrgUtleme: 8
+<s>OrgUt: 6
+<s>OrgUtlemesiy: 5
+<s>OrgUtlemesi: 2
+<s>OrgUtlemesiyle: 0
+
+---- <s>petrolUyle
+
+<s>pet: 22
+<s>: 19
+<s>pe: 15
+<s>petrolUy: 14
+<s>p: 12
+<s>petrol: 12
+<s>petr: 11
+<s>petrolUyl: 7
+<s>petro: 6
+<s>petrolU: 5
+<s>petrolUyle: 0
+
+---- <s>dinlenemedim
+
+<s>: 13
+<s>dinleneme: 13
+<s>dinlenemedi: 9
+<s>di: 7
+<s>dinlene: 7
+<s>dinle: 6
+<s>dinlen: 6
+<s>d: 5
+<s>din: 5
+<s>dinl: 5
+<s>dinlenem: 4
+<s>dinlenemed: 3
+<s>dinlenemedim: 0
+
+---- <s>danalardan
+
+<s>da: 18
+<s>: 16
+<s>d: 8
+<s>danal: 7
+<s>danalarda: 6
+<s>dan: 5
+<s>dana: 5
+<s>danala: 4
+<s>danalar: 2
+<s>danalard: 2
+<s>danalardan: 0
+
+---- <s>selametCi
+
+<s>: 22
+<s>se: 14
+<s>sela: 13
+<s>selame: 13
+<s>selamet: 9
+<s>s: 8
+<s>sel: 8
+<s>selam: 7
+<s>selametC: 4
+<s>selametCi: 0
+
+---- <s>bakmalarInI
+
+<s>: 27
+<s>ba: 20
+<s>bak: 14
+<s>b: 11
+<s>bakma: 8
+<s>bakmala: 7
+<s>bakmalar: 7
+<s>bakm: 5
+<s>bakmal: 5
+<s>bakmalarIn: 2
+<s>bakmalarI: 1
+<s>bakmalarInI: 0
+
+---- <s>koGulmuS
+
+<s>k: 20
+<s>: 18
+<s>ko: 14
+<s>koGulmu: 13
+<s>koGu: 11
+<s>koGul: 10
+<s>koG: 8
+<s>koGulm: 5
+<s>koGulmuS: 0
+
+---- <s>siyasileSmesi
+
+<s>: 24
+<s>siya: 19
+<s>si: 16
+<s>siyasile: 16
+<s>siyasi: 13
+<s>siy: 9
+<s>siyasil: 9
+<s>siyasileSm: 9
+<s>siyasileSme: 8
+<s>siyasileS: 6
+<s>s: 5
+<s>siyas: 5
+<s>siyasileSmes: 3
+<s>siyasileSmesi: 0
+
+---- <s>yanItlIdIrlar
+
+<s>: 15
+<s>ya: 15
+<s>yanI: 10
+<s>yanItlId: 10
+<s>yanItlIdI: 10
+<s>yanItl: 7
+<s>yanItlIdIrla: 7
+<s>y: 6
+<s>yan: 6
+<s>yanIt: 5
+<s>yanItlI: 5
+<s>yanItlIdIrl: 3
+<s>yanItlIdIr: 1
+<s>yanItlIdIrlar: 0
+
+---- <s>ayIrabileceGimizi
+
+<s>ayIra: 27
+<s>ayIrabile: 23
+<s>ayI: 22
+<s>ayIrabilece: 16
+<s>: 15
+<s>ayIrabilec: 13
+<s>a: 12
+<s>ayIrabil: 12
+<s>ayIr: 10
+<s>ayIrab: 9
+<s>ay: 8
+<s>ayIrabi: 8
+<s>ayIrabileceG: 8
+<s>ayIrabileceGim: 8
+<s>ayIrabileceGi: 5
+<s>ayIrabileceGimi: 2
+<s>ayIrabileceGimiz: 1
+<s>ayIrabileceGimizi: 0
+
+---- <s>lisanlarInI
+
+<s>: 20
+<s>li: 18
+<s>l: 8
+<s>lis: 7
+<s>lisanla: 7
+<s>lisanlar: 7
+<s>lisan: 5
+<s>lisanl: 4
+<s>lisa: 3
+<s>lisanlarI: 2
+<s>lisanlarIn: 2
+<s>lisanlarInI: 0
+
+---- <s>CIkIlmayacaktI
+
+<s>CIkIl: 16
+<s>CIkIlmaya: 16
+<s>: 15
+<s>CIkIlma: 15
+<s>CIkIlmayaca: 15
+<s>CIkIlmay: 14
+<s>CI: 13
+<s>CIkIlmayac: 11
+<s>CIkI: 10
+<s>CIk: 6
+<s>CIkIlm: 6
+<s>C: 4
+<s>CIkIlmayacak: 4
+<s>CIkIlmayacakt: 4
+<s>CIkIlmayacaktI: 0
+
+---- <s>hangarlarI
+
+<s>: 18
+<s>han: 14
+<s>ha: 11
+<s>h: 5
+<s>hang: 5
+<s>hanga: 5
+<s>hangar: 3
+<s>hangarl: 2
+<s>hangarlar: 2
+<s>hangarla: 1
+<s>hangarlarI: 0
+
+---- <s>arayISlarIndan
+
+<s>: 20
+<s>a: 11
+<s>ara: 10
+<s>arayI: 10
+<s>arayISl: 10
+<s>arayISlar: 8
+<s>aray: 7
+<s>arayIS: 7
+<s>arayISla: 7
+<s>ar: 5
+<s>arayISlarInd: 4
+<s>arayISlarInda: 4
+<s>arayISlarI: 2
+<s>arayISlarIn: 1
+<s>arayISlarIndan: 0
+
+---- <s>mizacImda
+
+<s>mi: 27
+<s>: 23
+<s>miza: 13
+<s>m: 10
+<s>mizac: 8
+<s>mizacIm: 8
+<s>miz: 6
+<s>mizacI: 5
+<s>mizacImd: 2
+<s>mizacImda: 0
+
+---- <s>veziristanda
+
+<s>: 20
+<s>ve: 20
+<s>vezigit: 15
+<s>v: 12
+<s>vezig: 12
+<s>vezi: 11
+<s>vezigi: 11
+<s>vezigitand: 10
+<s>vez: 9
+<s>vezigitan: 7
+<s>vezigita: 6
+<s>vezigitanda: 0
+
+---- <s>tanISIyorlar
+
+<s>tanISIy: 23
+<s>tanISI: 21
+<s>: 18
+<s>tanI: 15
+<s>tanISIyo: 14
+<s>tanISIyorla: 13
+<s>ta: 10
+<s>tanISIyorl: 8
+<s>tan: 4
+<s>t: 3
+<s>tanIS: 3
+<s>tanISIyor: 1
+<s>tanISIyorlar: 0
+
+---- <s>sansUrUnden
+
+<s>: 27
+<s>san: 20
+<s>s: 17
+<s>sa: 15
+<s>sans: 10
+<s>sansUr: 9
+<s>sansUrUnde: 7
+<s>sansU: 5
+<s>sansUrUnd: 5
+<s>sansUrU: 2
+<s>sansUrUn: 1
+<s>sansUrUnden: 0
+
+---- <s>rahatInIzI
+
+<s>ra: 20
+<s>: 17
+<s>raha: 14
+<s>rahat: 10
+<s>r: 8
+<s>rah: 8
+<s>rahatI: 8
+<s>rahatIn: 7
+<s>rahatInIz: 2
+<s>rahatInI: 1
+<s>rahatInIzI: 0
+
+---- <s>affetmedi
+
+<s>: 25
+<s>a: 19
+<s>af: 19
+<s>affe: 9
+<s>aff: 7
+<s>affetme: 7
+<s>affet: 5
+<s>affetm: 3
+<s>affetmed: 2
+<s>affetmedi: 0
+
+---- <s>yetinmeyeceksiniz
+
+<s>yetinmeyece: 22
+<s>yetinmeye: 19
+<s>yetinmeyec: 19
+<s>yetinmeyeceksi: 18
+<s>: 17
+<s>yetinmeyeceks: 17
+<s>yetinme: 15
+<s>yetinmey: 15
+<s>ye: 10
+<s>yet: 10
+<s>yeti: 10
+<s>yetin: 10
+<s>y: 9
+<s>yetinmeyecek: 9
+<s>yetinm: 5
+<s>yetinmeyeceksini: 5
+<s>yetinmeyeceksin: 1
+<s>yetinmeyeceksiniz: 0
+
+---- <s>sevmediGinden
+
+<s>: 23
+<s>se: 22
+<s>sevmedi: 18
+<s>s: 14
+<s>sev: 12
+<s>sevmediG: 12
+<s>sevmed: 10
+<s>sevme: 8
+<s>sevmediGinde: 6
+<s>sevm: 5
+<s>sevmediGind: 3
+<s>sevmediGi: 2
+<s>sevmediGin: 1
+<s>sevmediGinden: 0
+
+---- <s>ulaSabilirlerse
+
+<s>ulaSa: 25
+<s>ula: 23
+<s>ulaSabilec: 21
+<s>ulaSabil: 17
+<s>ulaSabile: 16
+<s>: 14
+<s>ulaSab: 14
+<s>ulaSabilecekl: 12
+<s>ul: 11
+<s>ulaSabilece: 11
+<s>ulaS: 9
+<s>ulaSabileceklerid: 9
+<s>ulaSabi: 8
+<s>ulaSabilecekler: 7
+<s>u: 6
+<s>ulaSabilecek: 5
+<s>ulaSabilecekleri: 2
+<s>ulaSabilecekle: 1
+<s>ulaSabilecekleride: 0
+
+---- <s>bOlgemizde
+
+<s>: 21
+<s>bOl: 14
+<s>b: 12
+<s>bO: 11
+<s>bOlge: 10
+<s>bOlgem: 10
+<s>bOlg: 9
+<s>bOlgemi: 8
+<s>bOlgemizd: 6
+<s>bOlgemiz: 4
+<s>bOlgemizde: 0
+
+---- <s>erkekleSen
+
+<s>: 22
+<s>erkekle: 13
+<s>e: 11
+<s>er: 11
+<s>erke: 10
+<s>erkekleSe: 5
+<s>erk: 3
+<s>erkek: 2
+<s>erkekl: 2
+<s>erkekleS: 1
+<s>erkekleSen: 0
+
+---- <s>densizlikle
+
+<s>den: 18
+<s>de: 15
+<s>densizl: 15
+<s>: 13
+<s>densi: 11
+<s>d: 9
+<s>dens: 9
+<s>densizlik: 5
+<s>densiz: 4
+<s>densizli: 4
+<s>densizlikl: 3
+<s>densizlikle: 0
+
+---- <s>yUkseltme
+
+<s>y: 26
+<s>: 21
+<s>yUk: 14
+<s>yU: 13
+<s>yUkse: 11
+<s>yUks: 8
+<s>yUksel: 8
+<s>yUkseltm: 7
+<s>yUkselt: 6
+<s>yUkseltme: 0
+
+---- <s>teleonda
+
+<s>: 21
+<s>te: 12
+<s>t: 11
+<s>tele: 9
+<s>teleon: 7
+<s>tel: 6
+<s>teleo: 2
+<s>teleond: 1
+<s>teleonda: 0
+
+---- <s>uzanabilecekleri
+
+<s>: 22
+<s>u: 22
+<s>uzana: 20
+<s>uzanabile: 17
+<s>uza: 15
+<s>uzanabil: 11
+<s>uzanabilece: 11
+<s>uzanab: 10
+<s>uzan: 9
+<s>uzanabilec: 7
+<s>uz: 6
+<s>uzanabi: 4
+<s>uzanabilecekl: 4
+<s>uzanabilecek: 2
+<s>uzanabilecekle: 2
+<s>uzanabilecekler: 1
+<s>uzanabilecekleri: 0
+
+---- <s>ihtiyarlarI
+
+<s>: 24
+<s>i: 20
+<s>ihti: 15
+<s>ihtiya: 15
+<s>ih: 14
+<s>ihtiy: 11
+<s>iht: 8
+<s>ihtiyar: 6
+<s>ihtiyarl: 6
+<s>ihtiyarla: 3
+<s>ihtiyarlar: 3
+<s>ihtiyarlarI: 0
+
+---- <s>sInIrlandIrmadIlar
+
+<s>: 23
+<s>sI: 15
+<s>sInI: 10
+<s>sInIrland: 8
+<s>sInIrlandIrma: 8
+<s>sInIrlandIrmadIla: 8
+<s>sIn: 7
+<s>sInIrl: 7
+<s>sInIrlandIr: 7
+<s>sInIrlandIrmad: 7
+<s>sInIrlandIrmadI: 6
+<s>sInIrlandIrmadIl: 6
+<s>s: 5
+<s>sInIrlandIrm: 5
+<s>sInIrla: 4
+<s>sInIrlandI: 4
+<s>sInIr: 3
+<s>sInIrlan: 3
+<s>sInIrlandIrmadIlar: 0
+
+---- <s>koktum
+
+<s>k: 25
+<s>: 17
+<s>kok: 15
+<s>ko: 13
+<s>koktu: 6
+<s>kokt: 5
+<s>koktum: 0
+
+---- <s>bUyUGUz
+
+<s>: 29
+<s>b: 17
+<s>bU: 16
+<s>bUyU: 14
+<s>bUy: 11
+<s>bUyUGU: 8
+<s>bUyUG: 5
+<s>bUyUGUz: 0
+
+---- <s>dISlanIyorum
+
+<s>dISlanI: 21
+<s>dISlanIy: 18
+<s>d: 14
+<s>dISlanIyo: 14
+<s>dISlanIyoru: 14
+<s>: 12
+<s>dI: 11
+<s>dISlan: 7
+<s>dIS: 6
+<s>dISl: 6
+<s>dISla: 6
+<s>dISlanIyor: 3
+<s>dISlanIyorum: 0
+
+---- <s>senteye
+
+<s>: 22
+<s>sen: 15
+<s>s: 11
+<s>se: 11
+<s>sent: 3
+<s>sente: 2
+<s>sentey: 2
+<s>senteye: 0
+
+---- <s>cevaplandIrIlmasI
+
+<s>: 31
+<s>ce: 26
+<s>c: 16
+<s>cev: 15
+<s>ceva: 15
+<s>cevaplandIrIl: 11
+<s>cevaplandIrIlm: 11
+<s>cevapl: 10
+<s>cevaplandIr: 8
+<s>cevaplandIrI: 8
+<s>cevaplandIrIlma: 7
+<s>cevap: 6
+<s>cevapland: 6
+<s>cevapla: 5
+<s>cevaplan: 5
+<s>cevaplandIrIlmas: 5
+<s>cevaplandI: 3
+<s>cevaplandIrIlmasI: 0
+
+---- <s>gOlgeliydi
+
+<s>g: 18
+<s>: 17
+<s>ge: 13
+<s>gel: 13
+<s>gelgeliy: 10
+<s>gelge: 9
+<s>gelg: 7
+<s>gelgel: 7
+<s>gelgeliyd: 5
+<s>gelgeli: 3
+<s>gelgeliydi: 0
+
+---- <s>yaSamIyorsa
+
+<s>yaSamIy: 29
+<s>: 26
+<s>ya: 17
+<s>yaSamIyo: 16
+<s>y: 13
+<s>yaSamI: 13
+<s>yaSamIyor: 11
+<s>yaSam: 9
+<s>yaSa: 7
+<s>yaS: 6
+<s>yaSamIyors: 6
+<s>yaSamIyorsa: 0
+
+---- <s>simgelerini
+
+<s>: 20
+<s>si: 20
+<s>sim: 13
+<s>simgele: 9
+<s>simgeler: 9
+<s>simge: 8
+<s>s: 7
+<s>simgel: 7
+<s>simg: 5
+<s>simgeleri: 2
+<s>simgelerin: 1
+<s>simgelerini: 0
+
+---- <s>muGlaklaSacaGI
+
+<s>: 21
+<s>m: 21
+<s>muG: 20
+<s>muGlak: 19
+<s>mu: 18
+<s>muGl: 17
+<s>muGla: 17
+<s>muGlakla: 16
+<s>muGlaklaSac: 11
+<s>muGlaklaSa: 10
+<s>muGlaklaS: 8
+<s>muGlaklaSaca: 8
+<s>muGlakl: 7
+<s>muGlaklaSacaG: 3
+<s>muGlaklaSacaGI: 0
+
+---- <s>saydamInIn
+
+<s>: 26
+<s>sayda: 15
+<s>say: 14
+<s>s: 10
+<s>sa: 9
+<s>sayd: 9
+<s>saydam: 4
+<s>saydamI: 3
+<s>saydamInI: 3
+<s>saydamIn: 1
+<s>saydamInIn: 0
+
+---- <s>OlmeyeceGine
+
+<s>Olmey: 24
+<s>Olmeye: 23
+<s>Olmeyec: 22
+<s>Ol: 20
+<s>: 19
+<s>Olme: 18
+<s>O: 15
+<s>OlmeyeceG: 15
+<s>Olmeyece: 13
+<s>OlmeyeceGin: 8
+<s>Olm: 7
+<s>OlmeyeceGi: 1
+<s>OlmeyeceGine: 0
+
+---- <s>gOCmenlerinden
+
+<s>: 21
+<s>g: 20
+<s>gOC: 14
+<s>gO: 13
+<s>gOCme: 9
+<s>gOCmen: 7
+<s>gOCmenl: 6
+<s>gOCmenler: 6
+<s>gOCm: 4
+<s>gOCmenle: 4
+<s>gOCmenlerinde: 4
+<s>gOCmenlerind: 2
+<s>gOCmenleri: 1
+<s>gOCmenlerin: 1
+<s>gOCmenlerinden: 0
+
+---- <s>yorumlayInIz
+
+<s>yorumlayI: 21
+<s>: 18
+<s>yorumla: 18
+<s>yo: 12
+<s>y: 11
+<s>yoruml: 10
+<s>yorumlay: 9
+<s>yoru: 7
+<s>yorum: 7
+<s>yor: 6
+<s>yorumlayIn: 6
+<s>yorumlayInI: 4
+<s>yorumlayInIz: 0
+
+---- <s>sevdiysem
+
+<s>: 19
+<s>se: 16
+<s>sevdiy: 15
+<s>sevdi: 13
+<s>sevdiyse: 13
+<s>s: 9
+<s>sev: 9
+<s>sevd: 5
+<s>sevdiys: 5
+<s>sevdiysem: 0
+
+---- <s>ayrIlmamamIz
+
+<s>: 14
+<s>ayrIlmama: 14
+<s>ayrIlma: 13
+<s>ay: 12
+<s>ayrIl: 11
+<s>ayrI: 10
+<s>ayrIlm: 9
+<s>a: 8
+<s>ayr: 8
+<s>ayrIlmam: 4
+<s>ayrIlmamamI: 4
+<s>ayrIlmamam: 3
+<s>ayrIlmamamIz: 0
+
+---- <s>gOrmelisiniz
+
+<s>gO: 15
+<s>gOrme: 15
+<s>gOrmeli: 15
+<s>: 14
+<s>g: 14
+<s>gOrmel: 12
+<s>gOr: 10
+<s>gOrmelis: 8
+<s>gOrm: 7
+<s>gOrmelisi: 6
+<s>gOrmelisin: 1
+<s>gOrmelisini: 1
+<s>gOrmelisiniz: 0
+
+---- <s>bahsetmediGimizi
+
+<s>: 26
+<s>ba: 25
+<s>bahsetmedi: 22
+<s>bah: 21
+<s>bahsetmediG: 16
+<s>b: 15
+<s>bahsetme: 15
+<s>bahsetmed: 15
+<s>bahse: 13
+<s>bahs: 10
+<s>bahset: 10
+<s>bahsetmediGim: 10
+<s>bahsetm: 8
+<s>bahsetmediGi: 6
+<s>bahsetmediGimi: 1
+<s>bahsetmediGimiz: 1
+<s>bahsetmediGimizi: 0
+
+---- <s>tatminle
+
+<s>tat: 15
+<s>: 14
+<s>ta: 13
+<s>t: 10
+<s>tatm: 6
+<s>tatminl: 5
+<s>tatmin: 4
+<s>tatmi: 1
+<s>tatminle: 0
+
+---- <s>kahvemi
+
+<s>ka: 22
+<s>: 20
+<s>kah: 17
+<s>k: 16
+<s>kahve: 8
+<s>kahv: 5
+<s>kahvem: 2
+<s>kahvemi: 0
+
+---- <s>gelebilmesidir
+
+<s>: 23
+<s>gele: 20
+<s>ge: 19
+<s>gelebilme: 14
+<s>gel: 12
+<s>gelebilmesidi: 9
+<s>gelebil: 8
+<s>g: 7
+<s>gelebi: 7
+<s>geleb: 6
+<s>gelebilm: 6
+<s>gelebilmesi: 6
+<s>gelebilmes: 4
+<s>gelebilmesid: 3
+<s>gelebilmesidir: 0
+
+---- <s>COreklerden
+
+<s>: 17
+<s>C: 13
+<s>CO: 10
+<s>COre: 8
+<s>COrekl: 7
+<s>COr: 5
+<s>COrek: 4
+<s>COrekle: 4
+<s>COreklerd: 4
+<s>COreklerde: 3
+<s>COrekler: 1
+<s>COreklerden: 0
+
+---- <s>kelebektir
+
+<s>: 20
+<s>kele: 15
+<s>ke: 13
+<s>kelebe: 11
+<s>k: 9
+<s>kel: 7
+<s>kelebekti: 6
+<s>keleb: 5
+<s>kelebek: 2
+<s>kelebekt: 1
+<s>kelebektir: 0
+
+---- <s>benetlerinin
+
+<s>: 21
+<s>b: 15
+<s>benetler: 9
+<s>be: 8
+<s>bene: 7
+<s>ben: 6
+<s>benetl: 5
+<s>benet: 3
+<s>benetle: 3
+<s>benetleri: 3
+<s>benetlerin: 1
+<s>benetlerini: 1
+<s>benetlerinin: 0
+
+---- <s>sininin
+
+<s>: 24
+<s>si: 13
+<s>s: 7
+<s>sin: 4
+<s>sini: 4
+<s>sinini: 4
+<s>sinin: 1
+<s>sininin: 0
+
+---- <s>buluSmuStuk
+
+<s>: 25
+<s>b: 23
+<s>buluSm: 15
+<s>buluSmu: 15
+<s>bu: 12
+<s>bulu: 11
+<s>bul: 10
+<s>buluS: 10
+<s>buluSmuStu: 8
+<s>buluSmuS: 6
+<s>buluSmuSt: 6
+<s>buluSmuStuk: 0
+
+---- <s>gaptan
+
+<s>: 20
+<s>g: 14
+<s>ga: 14
+<s>gap: 6
+<s>gapta: 3
+<s>gapt: 1
+<s>gaptan: 0
+
+---- <s>boSalImIn
+
+<s>: 23
+<s>b: 21
+<s>bo: 18
+<s>boSalI: 14
+<s>boSa: 9
+<s>boSal: 9
+<s>boS: 6
+<s>boSalImI: 4
+<s>boSalIm: 2
+<s>boSalImIn: 0
+
+---- <s>kazandIracaktIr
+
+<s>: 22
+<s>kazandIra: 21
+<s>ka: 20
+<s>kazandIraca: 18
+<s>k: 13
+<s>kazand: 8
+<s>kazandIracaktI: 8
+<s>kazan: 7
+<s>kazandI: 7
+<s>kazandIr: 7
+<s>kaz: 5
+<s>kazandIrac: 4
+<s>kaza: 3
+<s>kazandIracakt: 3
+<s>kazandIracak: 1
+<s>kazandIracaktIr: 0
+
+---- <s>kIsmetinin
+
+<s>: 24
+<s>kI: 18
+<s>kIs: 15
+<s>k: 11
+<s>kIsme: 8
+<s>kIsm: 7
+<s>kIsmeti: 7
+<s>kIsmet: 5
+<s>kIsmetini: 4
+<s>kIsmetin: 1
+<s>kIsmetinin: 0
+
+---- <s>adamISlIGI
+
+<s>: 16
+<s>a: 10
+<s>adam: 9
+<s>adamI: 9
+<s>adamISl: 9
+<s>ada: 7
+<s>adamIS: 7
+<s>ad: 6
+<s>adamISlIG: 4
+<s>adamISlI: 1
+<s>adamISlIGI: 0
+
+---- <s>kustuGunu
+
+<s>: 24
+<s>ku: 17
+<s>kus: 14
+<s>k: 13
+<s>kustuG: 11
+<s>kustu: 10
+<s>kust: 7
+<s>kustuGun: 4
+<s>kustuGu: 3
+<s>kustuGunu: 0
+
+---- <s>eGmelidir
+
+<s>: 23
+<s>e: 13
+<s>eGme: 9
+<s>eGmelidi: 9
+<s>eGmeli: 7
+<s>eG: 6
+<s>eGm: 5
+<s>eGmel: 4
+<s>eGmelid: 2
+<s>eGmelidir: 0
+
+---- <s>liberalleStirilmesi
+
+<s>li: 24
+<s>: 22
+<s>libe: 21
+<s>liber: 17
+<s>lib: 16
+<s>liberalle: 12
+<s>l: 11
+<s>libera: 11
+<s>liberalleS: 11
+<s>liberalleSt: 10
+<s>liberalleStiril: 10
+<s>liberalleStiri: 9
+<s>liberal: 8
+<s>liberalleStir: 8
+<s>liberalleStirilme: 8
+<s>liberall: 7
+<s>liberalleSti: 7
+<s>liberalleStirilm: 7
+<s>liberalleStirilmes: 7
+<s>liberalleStirilmesi: 0
+
+---- <s>duyurmamIStI
+
+<s>d: 19
+<s>: 17
+<s>du: 13
+<s>duyur: 12
+<s>duy: 11
+<s>duyurm: 10
+<s>duyu: 8
+<s>duyurma: 8
+<s>duyurmam: 8
+<s>duyurmamISt: 6
+<s>duyurmamI: 3
+<s>duyurmamIS: 3
+<s>duyurmamIStI: 0
+
+---- <s>yasasIyla
+
+<s>: 25
+<s>ya: 16
+<s>yasasIy: 11
+<s>yasa: 10
+<s>yasas: 9
+<s>y: 7
+<s>yasasI: 7
+<s>yasasIyl: 6
+<s>yas: 5
+<s>yasasIyla: 0
+
+---- <s>OlCeGinde
+
+<s>: 28
+<s>Ol: 18
+<s>O: 11
+<s>OlC: 10
+<s>OlCe: 9
+<s>OlCeG: 9
+<s>OlCeGin: 6
+<s>OlCeGind: 5
+<s>OlCeGi: 1
+<s>OlCeGinde: 0
+
+---- <s>uyguladIGI
+
+<s>: 23
+<s>uy: 16
+<s>uygulad: 13
+<s>u: 12
+<s>uygula: 10
+<s>uyguladI: 10
+<s>uyg: 6
+<s>uygul: 6
+<s>uygu: 5
+<s>uyguladIG: 4
+<s>uyguladIGI: 0
+
+---- <s>kataloGunun
+
+<s>ka: 19
+<s>: 18
+<s>katalo: 16
+<s>katal: 15
+<s>kata: 14
+<s>kataloG: 13
+<s>k: 12
+<s>kat: 5
+<s>kataloGu: 5
+<s>kataloGunu: 3
+<s>kataloGun: 2
+<s>kataloGunun: 0
+
+---- <s>CatalcayI
+
+<s>: 20
+<s>Ca: 17
+<s>Catal: 13
+<s>Cata: 10
+<s>C: 9
+<s>Cat: 6
+<s>Catalc: 4
+<s>Catalca: 3
+<s>Catalcay: 3
+<s>CatalcayI: 0
+
+---- <s>CubuGa
+
+<s>: 23
+<s>Cu: 21
+<s>C: 13
+<s>Cub: 9
+<s>CubuG: 7
+<s>Cubu: 4
+<s>CubuGa: 0
+
+---- <s>tezgaha
+
+<s>: 22
+<s>te: 18
+<s>tez: 18
+<s>tezga: 16
+<s>t: 13
+<s>tezg: 6
+<s>tezgah: 3
+<s>tezgaha: 0
+
+---- <s>meSrulaStIrIlmasInI
+
+<s>meSrulaStIrIl: 19
+<s>: 16
+<s>meSrulaStIrIlma: 16
+<s>meS: 15
+<s>meSrulaStIrI: 15
+<s>meSr: 13
+<s>meSrul: 13
+<s>meSrulaSt: 13
+<s>meSrulaStI: 13
+<s>meSrulaStIrIlm: 13
+<s>m: 12
+<s>meSrulaStIr: 12
+<s>meSrulaStIrIlmas: 12
+<s>me: 11
+<s>meSrulaS: 9
+<s>meSru: 8
+<s>meSrula: 8
+<s>meSrulaStIrIlmasIn: 2
+<s>meSrulaStIrIlmasI: 1
+<s>meSrulaStIrIlmasInI: 0
+
+---- <s>halime
+
+<s>: 18
+<s>h: 8
+<s>ha: 4
+<s>hal: 4
+<s>halim: 4
+<s>hali: 2
+<s>halime: 0
+
+---- <s>popUlistliktir
+
+<s>: 24
+<s>p: 23
+<s>po: 22
+<s>popUlistl: 14
+<s>popUl: 13
+<s>popUli: 13
+<s>popUlis: 13
+<s>popUlist: 13
+<s>popUlistli: 13
+<s>popU: 11
+<s>pop: 10
+<s>popUlistlikti: 8
+<s>popUlistlikt: 3
+<s>popUlistlik: 2
+<s>popUlistliktir: 0
+
+---- <s>iCteki
+
+<s>: 19
+<s>i: 13
+<s>iC: 12
+<s>iCt: 3
+<s>iCte: 3
+<s>iCtek: 2
+<s>iCteki: 0
+
+---- <s>haykIrmakta
+
+<s>: 21
+<s>ha: 20
+<s>hay: 19
+<s>hayk: 14
+<s>h: 12
+<s>haykIr: 11
+<s>haykI: 10
+<s>haykIrm: 7
+<s>haykIrma: 7
+<s>haykIrmak: 3
+<s>haykIrmakt: 3
+<s>haykIrmakta: 0
+
+---- <s>yOnelmiSliGin
+
+<s>y: 16
+<s>yOne: 15
+<s>yOnelmi: 15
+<s>yOnelmiSli: 15
+<s>: 12
+<s>yO: 12
+<s>yOnelmiSl: 12
+<s>yOnel: 11
+<s>yOnelmiSliG: 10
+<s>yOn: 7
+<s>yOnelmiS: 6
+<s>yOnelm: 5
+<s>yOnelmiSliGi: 3
+<s>yOnelmiSliGin: 0
+
+---- <s>CalISmasIn
+
+<s>: 21
+<s>CalISma: 14
+<s>CalI: 12
+<s>CalIS: 11
+<s>Ca: 10
+<s>Cal: 9
+<s>CalISm: 8
+<s>C: 7
+<s>CalISmas: 5
+<s>CalISmasI: 4
+<s>CalISmasIn: 0
+
+---- <s>diyalogdur
+
+<s>di: 18
+<s>: 13
+<s>diya: 12
+<s>diy: 10
+<s>diyalo: 10
+<s>diyal: 9
+<s>diyalog: 8
+<s>diyalogd: 8
+<s>diyalogdu: 6
+<s>d: 5
+<s>diyalogdur: 0
+
+---- <s>beygirlerini
+
+<s>: 23
+<s>be: 15
+<s>b: 12
+<s>bey: 9
+<s>beygirler: 9
+<s>beygirle: 6
+<s>beyg: 5
+<s>beygi: 5
+<s>beygirl: 5
+<s>beygir: 4
+<s>beygirleri: 1
+<s>beygirlerin: 1
+<s>beygirlerini: 0
+
+---- <s>pamukCuklar
+
+<s>: 25
+<s>pa: 23
+<s>pamuk: 20
+<s>pamu: 15
+<s>pam: 14
+<s>pamukC: 12
+<s>p: 11
+<s>pamukCu: 8
+<s>pamukCukla: 7
+<s>pamukCukl: 3
+<s>pamukCuk: 2
+<s>pamukCuklar: 0
+
+---- <s>kalemlinin
+
+<s>: 17
+<s>ka: 13
+<s>k: 10
+<s>kal: 8
+<s>kale: 6
+<s>kaleml: 6
+<s>kalemlini: 6
+<s>kalem: 4
+<s>kalemli: 2
+<s>kalemlin: 1
+<s>kalemlinin: 0
+
+---- <s>puanlamaya
+
+<s>: 18
+<s>puna: 15
+<s>pu: 13
+<s>punala: 11
+<s>punalam: 10
+<s>p: 7
+<s>pun: 7
+<s>punal: 7
+<s>punalamay: 7
+<s>punalama: 2
+<s>punalamaya: 0
+
+---- <s>milliler
+
+<s>: 22
+<s>mil: 10
+<s>milli: 8
+<s>millile: 8
+<s>mi: 5
+<s>millil: 5
+<s>m: 4
+<s>mill: 3
+<s>milliler: 0
+
+---- <s>yarattInIz
+
+<s>: 21
+<s>ya: 15
+<s>yarattI: 12
+<s>yarat: 10
+<s>y: 9
+<s>yara: 9
+<s>yar: 8
+<s>yaratt: 5
+<s>yarattIn: 1
+<s>yarattInI: 1
+<s>yarattInIz: 0
+
+---- <s>fagot
+
+<s>: 24
+<s>fa: 15
+<s>f: 7
+<s>fago: 7
+<s>fag: 3
+<s>fagot: 0
+
+---- <s>azalmamIStIr
+
+<s>: 27
+<s>a: 21
+<s>azalmamI: 13
+<s>azalma: 12
+<s>aza: 11
+<s>azal: 8
+<s>azalm: 8
+<s>az: 6
+<s>azalmamIStI: 6
+<s>azalmam: 3
+<s>azalmamIS: 2
+<s>azalmamISt: 2
+<s>azalmamIStIr: 0
+
+---- <s>mamasInda
+
+<s>: 24
+<s>ma: 13
+<s>m: 12
+<s>mamas: 7
+<s>mam: 6
+<s>mama: 6
+<s>mamasIn: 4
+<s>mamasI: 3
+<s>mamasInd: 3
+<s>mamasInda: 0
+
+---- <s>daGItamadIGIm
+
+<s>daGItamadI: 22
+<s>da: 15
+<s>: 12
+<s>daGIta: 12
+<s>daGItamad: 12
+<s>daGI: 11
+<s>d: 10
+<s>daGItama: 10
+<s>daGIt: 7
+<s>daG: 5
+<s>daGItam: 3
+<s>daGItamadIG: 2
+<s>daGItamadIGI: 2
+<s>daGItamadIGIm: 0
+
+---- <s>tarihlendirilmiStir
+
+<s>ta: 21
+<s>tari: 18
+<s>tarihlendiri: 15
+<s>tarihlendirilmi: 15
+<s>tarihlendiril: 12
+<s>: 9
+<s>tarihlendi: 8
+<s>tarihlendir: 8
+<s>tar: 7
+<s>tarihlend: 7
+<s>tarihlendirilm: 7
+<s>t: 6
+<s>tarihle: 5
+<s>tarihl: 4
+<s>tarih: 3
+<s>tarihlen: 3
+<s>tarihlendirilmiS: 2
+<s>tarihlendirilmiSt: 2
+<s>tarihlendirilmiSti: 2
+<s>tarihlendirilmiStir: 0
+
+---- <s>giriSiyorlar
+
+<s>giriSiy: 23
+<s>giriSiyo: 18
+<s>giri: 17
+<s>giriSi: 16
+<s>: 15
+<s>gi: 14
+<s>giriSiyorla: 13
+<s>giriSiyorl: 11
+<s>gir: 10
+<s>g: 7
+<s>giriS: 6
+<s>giriSiyor: 3
+<s>giriSiyorlar: 0
+
+---- <s>verdiGimizden
+
+<s>: 15
+<s>verdi: 13
+<s>ver: 10
+<s>verdiGimi: 10
+<s>verdiGi: 9
+<s>verdiG: 8
+<s>verdiGim: 8
+<s>v: 6
+<s>verd: 6
+<s>verdiGimizd: 6
+<s>verdiGimizde: 6
+<s>ve: 5
+<s>verdiGimiz: 2
+<s>verdiGimizden: 0
+
+---- <s>sUngUnUz
+
+<s>s: 22
+<s>: 21
+<s>sUn: 15
+<s>sU: 10
+<s>sUng: 10
+<s>sUngU: 8
+<s>sUngUn: 8
+<s>sUngUnU: 2
+<s>sUngUnUz: 0
+
+---- <s>incindirilerek
+
+<s>: 20
+<s>incindiri: 19
+<s>incindirile: 18
+<s>in: 16
+<s>incindiril: 15
+<s>i: 14
+<s>inci: 11
+<s>incindirilere: 9
+<s>inc: 7
+<s>incind: 7
+<s>incindir: 6
+<s>incin: 5
+<s>incindi: 5
+<s>incindiriler: 3
+<s>incindirilerek: 0
+
+---- <s>kanadoGlu
+
+<s>: 20
+<s>ka: 17
+<s>kanad: 16
+<s>k: 11
+<s>kana: 10
+<s>kan: 8
+<s>kanadoG: 8
+<s>kanado: 5
+<s>kanadoGl: 5
+<s>kanadoGlu: 0
+
+---- <s>komedidir
+
+<s>: 20
+<s>k: 18
+<s>ko: 17
+<s>komedi: 12
+<s>kome: 11
+<s>komedidi: 9
+<s>kom: 6
+<s>komed: 5
+<s>komedid: 1
+<s>komedidir: 0
+
+---- <s>deneyselciliGin
+
+<s>: 19
+<s>d: 18
+<s>de: 17
+<s>dene: 14
+<s>deneyselc: 14
+<s>deney: 13
+<s>deneyse: 13
+<s>deneysel: 13
+<s>deneyselcili: 11
+<s>den: 10
+<s>deneyselci: 10
+<s>deneyselcil: 10
+<s>deneys: 7
+<s>deneyselciliG: 7
+<s>deneyselciliGi: 7
+<s>deneyselciliGin: 0
+
+---- <s>OvUnmektedir
+
+<s>: 28
+<s>O: 23
+<s>OvUnme: 14
+<s>OvUnmektedi: 11
+<s>Ov: 10
+<s>OvUn: 10
+<s>OvU: 8
+<s>OvUnmekte: 8
+<s>OvUnm: 7
+<s>OvUnmekt: 6
+<s>OvUnmekted: 5
+<s>OvUnmek: 2
+<s>OvUnmektedir: 0
+
+---- <s>nevsal
+
+<s>: 26
+<s>ne: 19
+<s>n: 18
+<s>nev: 12
+<s>nevsa: 6
+<s>nevs: 1
+<s>nevsal: 0
+
+---- <s>battIktan
+
+<s>: 25
+<s>b: 11
+<s>bat: 10
+<s>ba: 9
+<s>battI: 6
+<s>batt: 5
+<s>battIkta: 4
+<s>battIk: 3
+<s>battIkt: 2
+<s>battIktan: 0
+
+---- <s>oluSturabilmiS
+
+<s>oluStura: 24
+<s>oluStu: 19
+<s>: 18
+<s>olu: 17
+<s>oluSt: 15
+<s>oluStur: 15
+<s>o: 11
+<s>ol: 11
+<s>oluSturab: 11
+<s>oluSturabilmi: 11
+<s>oluS: 10
+<s>oluSturabi: 10
+<s>oluSturabilm: 8
+<s>oluSturabil: 7
+<s>oluSturabilmiS: 0
+
+---- <s>lehimsiz
+
+<s>: 22
+<s>le: 20
+<s>l: 13
+<s>lehi: 11
+<s>lehim: 10
+<s>lehimsi: 9
+<s>leh: 6
+<s>lehims: 4
+<s>lehimsiz: 0
+
+---- <s>aGartmaya
+
+<s>: 19
+<s>a: 18
+<s>aGa: 11
+<s>aGart: 11
+<s>aGar: 10
+<s>aGartm: 10
+<s>aG: 9
+<s>aGartmay: 3
+<s>aGartma: 1
+<s>aGartmaya: 0
+
+---- <s>yorganlarIn
+
+<s>: 22
+<s>y: 14
+<s>yor: 12
+<s>yorg: 8
+<s>yo: 7
+<s>yorga: 4
+<s>yorganl: 4
+<s>yorgan: 3
+<s>yorganla: 3
+<s>yorganlar: 2
+<s>yorganlarI: 1
+<s>yorganlarIn: 0
+
+---- <s>aynaya
+
+<s>: 19
+<s>a: 10
+<s>ay: 5
+<s>ayn: 5
+<s>aynay: 3
+<s>ayna: 2
+<s>aynaya: 0
+
+---- <s>oyuncaklar
+
+<s>: 16
+<s>oyun: 16
+<s>oyunca: 13
+<s>oyu: 12
+<s>o: 11
+<s>oy: 9
+<s>oyunc: 8
+<s>oyuncakla: 4
+<s>oyuncak: 1
+<s>oyuncakl: 1
+<s>oyuncaklar: 0
+
+---- <s>seCmelere
+
+<s>: 21
+<s>se: 20
+<s>seC: 11
+<s>seCme: 10
+<s>s: 9
+<s>seCmel: 5
+<s>seCm: 4
+<s>seCmele: 1
+<s>seCmeler: 1
+<s>seCmelere: 0
+
+---- <s>geCeceGinin
+
+<s>: 20
+<s>geCe: 18
+<s>geCece: 18
+<s>ge: 17
+<s>geCec: 9
+<s>geCeceG: 9
+<s>g: 8
+<s>geC: 5
+<s>geCeceGi: 5
+<s>geCeceGini: 2
+<s>geCeceGin: 1
+<s>geCeceGinin: 0
+
+---- <s>sIralanIrken
+
+<s>: 21
+<s>sI: 15
+<s>sIralanI: 12
+<s>sIralan: 8
+<s>sIralanIr: 8
+<s>s: 7
+<s>sIra: 6
+<s>sIral: 6
+<s>sIrala: 6
+<s>sIr: 4
+<s>sIralanIrk: 3
+<s>sIralanIrke: 3
+<s>sIralanIrken: 0
+
+---- <s>ruhta
+
+<s>: 25
+<s>ru: 16
+<s>r: 11
+<s>ruh: 9
+<s>ruht: 3
+<s>ruhta: 0
+
+---- <s>sOzcUklerdeki
+
+<s>: 23
+<s>sOzc: 23
+<s>sO: 20
+<s>s: 18
+<s>sOz: 18
+<s>sOzcUkl: 13
+<s>sOzcUk: 9
+<s>sOzcU: 8
+<s>sOzcUkle: 5
+<s>sOzcUklerd: 4
+<s>sOzcUkler: 3
+<s>sOzcUklerde: 2
+<s>sOzcUklerdek: 1
+<s>sOzcUklerdeki: 0
+
+---- <s>parCalamIS
+
+<s>: 21
+<s>pa: 16
+<s>parCala: 15
+<s>par: 13
+<s>p: 10
+<s>parCa: 10
+<s>parCalamI: 8
+<s>parCal: 6
+<s>parC: 5
+<s>parCalam: 2
+<s>parCalamIS: 0
+
+---- <s>saGlIklIlIGIyla
+
+<s>saGlIklIl: 19
+<s>saGlIkl: 15
+<s>saGl: 13
+<s>saGlI: 11
+<s>: 10
+<s>saGlIklIlIG: 10
+<s>s: 7
+<s>saG: 7
+<s>saGlIk: 7
+<s>saGlIklI: 7
+<s>sa: 6
+<s>saGlIklIlI: 6
+<s>saGlIklIlIGIy: 5
+<s>saGlIklIlIGIyl: 5
+<s>saGlIklIlIGI: 2
+<s>saGlIklIlIGIyla: 0
+
+---- <s>prodUksiyonlardI
+
+<s>prod: 23
+<s>p: 20
+<s>pro: 19
+<s>prodUk: 17
+<s>: 16
+<s>prodU: 16
+<s>prodUksiy: 12
+<s>prodUks: 11
+<s>prodUksiyo: 11
+<s>pr: 8
+<s>prodUksi: 8
+<s>prodUksiyonl: 7
+<s>prodUksiyon: 6
+<s>prodUksiyonlard: 4
+<s>prodUksiyonla: 3
+<s>prodUksiyonlar: 2
+<s>prodUksiyonlardI: 0
+
+---- <s>istatistikleridir
+
+<s>: 14
+<s>i: 14
+<s>ista: 13
+<s>is: 12
+<s>istati: 12
+<s>istatisti: 12
+<s>istatistikleridi: 12
+<s>istatistikle: 11
+<s>ist: 7
+<s>istat: 6
+<s>istatis: 6
+<s>istatistikleri: 6
+<s>istatist: 4
+<s>istatistiklerid: 4
+<s>istatistikl: 3
+<s>istatistik: 2
+<s>istatistikler: 1
+<s>istatistikleridir: 0
+
+---- <s>yeksan
+
+<s>: 24
+<s>ye: 15
+<s>y: 12
+<s>yek: 8
+<s>yeksa: 4
+<s>yeks: 2
+<s>yeksan: 0
+
+---- <s>yaSlandIn
+
+<s>: 19
+<s>ya: 11
+<s>yaSlandI: 8
+<s>yaSl: 7
+<s>yaS: 6
+<s>y: 5
+<s>yaSla: 4
+<s>yaSland: 3
+<s>yaSlan: 2
+<s>yaSlandIn: 0
+
+---- <s>OzgUvenli
+
+<s>: 28
+<s>O: 22
+<s>Ozg: 19
+<s>Oz: 16
+<s>OzgU: 14
+<s>OzgUven: 10
+<s>OzgUv: 7
+<s>OzgUvenl: 7
+<s>OzgUve: 3
+<s>OzgUvenli: 0
+
+---- <s>bildiklerimiz
+
+<s>: 21
+<s>bil: 10
+<s>bildi: 10
+<s>bild: 9
+<s>bildikle: 9
+<s>bildikleri: 9
+<s>b: 8
+<s>bildikl: 8
+<s>bildikler: 8
+<s>bi: 4
+<s>bildik: 3
+<s>bildiklerim: 3
+<s>bildiklerimi: 2
+<s>bildiklerimiz: 0
+
+---- <s>gayretin
+
+<s>: 23
+<s>ga: 13
+<s>gay: 11
+<s>gayre: 11
+<s>g: 7
+<s>gayr: 7
+<s>gayreti: 3
+<s>gayret: 2
+<s>gayretin: 0
+
+---- <s>itirazlarImIzda
+
+<s>itira: 18
+<s>itirazlar: 17
+<s>itirazl: 14
+<s>itirazlarIm: 13
+<s>iti: 11
+<s>: 10
+<s>itirazlarImIzd: 10
+<s>itir: 9
+<s>itiraz: 9
+<s>i: 8
+<s>itirazlarI: 8
+<s>it: 7
+<s>itirazlarImIz: 7
+<s>itirazlarImI: 6
+<s>itirazla: 5
+<s>itirazlarImIzda: 0
+
+---- <s>beSimde
+
+<s>: 25
+<s>be: 13
+<s>b: 8
+<s>beS: 6
+<s>beSi: 6
+<s>beSim: 5
+<s>beSimd: 3
+<s>beSimde: 0
+
+---- <s>devrede
+
+<s>: 19
+<s>de: 15
+<s>d: 10
+<s>dev: 10
+<s>devr: 4
+<s>devre: 3
+<s>devred: 2
+<s>devrede: 0
+
+---- <s>yaptIrIlabileceGinin
+
+<s>yaptIrIla: 32
+<s>yaptIrIlabilece: 29
+<s>yaptIrIlabilec: 22
+<s>yaptIrIl: 21
+<s>yaptIrIlabileceG: 21
+<s>yap: 19
+<s>ya: 18
+<s>yaptIrIlabile: 18
+<s>: 17
+<s>yaptIrIlab: 17
+<s>y: 16
+<s>yaptIrI: 11
+<s>yaptIrIlabil: 11
+<s>yaptI: 10
+<s>yaptIrIlabi: 10
+<s>yapt: 5
+<s>yaptIrIlabileceGi: 5
+<s>yaptIr: 4
+<s>yaptIrIlabileceGin: 2
+<s>yaptIrIlabileceGini: 2
+<s>yaptIrIlabileceGinin: 0
+
+---- <s>temsillerden
+
+<s>tem: 17
+<s>: 16
+<s>t: 16
+<s>te: 16
+<s>tems: 10
+<s>temsl: 9
+<s>temsle: 4
+<s>temsler: 3
+<s>temslerd: 3
+<s>temslerde: 2
+<s>temslerden: 0
+
+---- <s>etter
+
+<s>: 16
+<s>e: 8
+<s>et: 8
+<s>ett: 1
+<s>ette: 1
+<s>etter: 0
+
+---- <s>kUltUrUnUzle
+
+<s>kUltUrUn: 25
+<s>k: 21
+<s>kUltUr: 19
+<s>kUltUrUnUz: 16
+<s>: 14
+<s>kUl: 11
+<s>kUlt: 10
+<s>kUltUrU: 8
+<s>kU: 7
+<s>kUltU: 7
+<s>kUltUrUnUzl: 6
+<s>kUltUrUnU: 5
+<s>kUltUrUnUzle: 0
+
+---- <s>yargIsInIn
+
+<s>: 21
+<s>yargI: 14
+<s>y: 10
+<s>yar: 10
+<s>ya: 8
+<s>yarg: 5
+<s>yargIs: 5
+<s>yargIsI: 5
+<s>yargIsInI: 3
+<s>yargIsIn: 1
+<s>yargIsInIn: 0
+
+---- <s>yakalandIlar
+
+<s>: 21
+<s>ya: 16
+<s>y: 8
+<s>yakala: 7
+<s>yakalandIla: 7
+<s>yaka: 5
+<s>yakal: 5
+<s>yak: 4
+<s>yakaland: 4
+<s>yakalandI: 4
+<s>yakalandIl: 4
+<s>yakalan: 3
+<s>yakalandIlar: 0
+
+---- <s>ezilmiSlikte
+
+<s>: 20
+<s>e: 17
+<s>ezilmi: 14
+<s>ezil: 11
+<s>ezi: 8
+<s>ezilmiSl: 8
+<s>ezilmiS: 7
+<s>ezilm: 6
+<s>ez: 5
+<s>ezilmiSli: 5
+<s>ezilmiSlik: 3
+<s>ezilmiSlikt: 3
+<s>ezilmiSlikte: 0
+
+---- <s>arttIramIyor
+
+<s>: 20
+<s>arttIramI: 15
+<s>ar: 14
+<s>arttIra: 12
+<s>art: 11
+<s>arttIramIyo: 11
+<s>a: 9
+<s>arttI: 9
+<s>arttIramIy: 8
+<s>artt: 4
+<s>arttIr: 4
+<s>arttIram: 4
+<s>arttIramIyor: 0
+
+---- <s>toplardamarlar
+
+<s>t: 20
+<s>: 19
+<s>to: 17
+<s>topl: 10
+<s>topla: 10
+<s>top: 8
+<s>toplardama: 8
+<s>toplar: 7
+<s>toplard: 7
+<s>toplarda: 6
+<s>toplardam: 5
+<s>toplardamarl: 5
+<s>toplardamarla: 5
+<s>toplardamar: 2
+<s>toplardamarlar: 0
+
+---- <s>zincirimiz
+
+<s>: 28
+<s>zin: 19
+<s>zi: 16
+<s>zinciri: 16
+<s>z: 8
+<s>zincir: 8
+<s>zincirimi: 8
+<s>zinci: 7
+<s>zinc: 6
+<s>zincirim: 4
+<s>zincirimiz: 0
+
+---- <s>nedameti
+
+<s>: 27
+<s>ne: 17
+<s>neda: 10
+<s>n: 8
+<s>nedame: 8
+<s>ned: 5
+<s>nedam: 5
+<s>nedamet: 2
+<s>nedameti: 0
+
+---- <s>mankenli
+
+<s>: 26
+<s>men: 15
+<s>me: 9
+<s>m: 8
+<s>menken: 8
+<s>menk: 4
+<s>menkenl: 4
+<s>menke: 3
+<s>menkenli: 0
+
+---- <s>konumlanmasI
+
+<s>k: 22
+<s>: 15
+<s>kon: 10
+<s>konumlan: 10
+<s>konum: 9
+<s>konu: 7
+<s>konuml: 7
+<s>konumlanm: 7
+<s>konumlanma: 6
+<s>ko: 5
+<s>konumla: 5
+<s>konumlanmas: 3
+<s>konumlanmasI: 0
+
+---- <s>bergama
+
+<s>: 25
+<s>b: 20
+<s>ber: 17
+<s>be: 9
+<s>berg: 6
+<s>berga: 5
+<s>bergam: 4
+<s>bergama: 0
+
+---- <s>meraklanmIStIk
+
+<s>: 21
+<s>meraklanmI: 13
+<s>m: 11
+<s>me: 10
+<s>mera: 10
+<s>mer: 9
+<s>merakl: 9
+<s>meraklan: 9
+<s>merakla: 8
+<s>meraklanm: 7
+<s>merak: 6
+<s>meraklanmIStI: 3
+<s>meraklanmISt: 2
+<s>meraklanmIS: 1
+<s>meraklanmIStIk: 0
+
+---- <s>hemi
+
+<s>: 29
+<s>h: 6
+<s>he: 4
+<s>hem: 3
+<s>hemi: 0
+
+---- <s>tiplemesinden
+
+<s>ti: 15
+<s>t: 14
+<s>tiple: 14
+<s>: 13
+<s>tip: 13
+<s>tipleme: 13
+<s>tiplemes: 9
+<s>tipl: 8
+<s>tiplem: 7
+<s>tiplemesinde: 5
+<s>tiplemesi: 2
+<s>tiplemesind: 2
+<s>tiplemesin: 1
+<s>tiplemesinden: 0
+
+---- <s>aklamaktan
+
+<s>: 20
+<s>akla: 14
+<s>a: 11
+<s>ak: 8
+<s>aklama: 8
+<s>akl: 7
+<s>aklam: 7
+<s>aklamakta: 6
+<s>aklamak: 2
+<s>aklamakt: 2
+<s>aklamaktan: 0
+
+---- <s>tIrnaklanmIS
+
+<s>: 16
+<s>tI: 12
+<s>tIr: 10
+<s>tIrna: 9
+<s>tIrnaklan: 8
+<s>tIrnaklanmI: 8
+<s>t: 6
+<s>tIrn: 6
+<s>tIrnakl: 6
+<s>tIrnakla: 6
+<s>tIrnak: 4
+<s>tIrnaklanm: 3
+<s>tIrnaklanmIS: 0
+
+---- <s>nenizin
+
+<s>: 25
+<s>ne: 13
+<s>neni: 11
+<s>nenizi: 7
+<s>n: 6
+<s>nen: 4
+<s>neniz: 1
+<s>nenizin: 0
+
+---- <s>mahallelisidir
+
+<s>ma: 26
+<s>: 23
+<s>m: 18
+<s>maha: 16
+<s>mahalel: 16
+<s>mahaleli: 15
+<s>mahale: 14
+<s>mahal: 11
+<s>mahalelisidi: 10
+<s>mah: 6
+<s>mahalelisi: 6
+<s>mahalelis: 4
+<s>mahalelisid: 1
+<s>mahalelisidir: 0
+
+---- <s>vardiyada
+
+<s>: 15
+<s>v: 10
+<s>va: 10
+<s>vardi: 8
+<s>var: 7
+<s>vardiya: 6
+<s>vard: 5
+<s>vardiy: 5
+<s>vardiyad: 3
+<s>vardiyada: 0
+
+---- <s>veballer
+
+<s>: 19
+<s>ve: 19
+<s>v: 16
+<s>veba: 7
+<s>veb: 5
+<s>veballe: 4
+<s>vebal: 3
+<s>veball: 3
+<s>veballer: 0
+
+---- <s>charlesla
+
+<s>: 27
+<s>c: 17
+<s>cha: 16
+<s>char: 15
+<s>ch: 11
+<s>charla: 10
+<s>charl: 9
+<s>charlas: 5
+<s>charlasl: 4
+<s>charlasle: 0
+
+---- <s>mUnasebetimizin
+
+<s>: 26
+<s>mU: 24
+<s>mUnase: 24
+<s>mUna: 22
+<s>m: 18
+<s>mUnasebe: 17
+<s>mUnasebeti: 16
+<s>mUn: 14
+<s>mUnasebetimi: 13
+<s>mUnasebetimizi: 12
+<s>mUnaseb: 11
+<s>mUnasebet: 10
+<s>mUnas: 9
+<s>mUnasebetim: 6
+<s>mUnasebetimiz: 1
+<s>mUnasebetimizin: 0
+
+---- <s>gOstersem
+
+<s>: 25
+<s>g: 21
+<s>gO: 16
+<s>gOs: 15
+<s>gOste: 11
+<s>gOsterse: 10
+<s>gOst: 9
+<s>gOster: 9
+<s>gOsters: 2
+<s>gOstersem: 0
+
+---- <s>gOrUSUrken
+
+<s>gO: 18
+<s>: 17
+<s>g: 17
+<s>gOrU: 13
+<s>gOrUS: 11
+<s>gOrUSUr: 11
+<s>gOrUSU: 9
+<s>gOr: 7
+<s>gOrUSUrk: 5
+<s>gOrUSUrke: 2
+<s>gOrUSUrken: 0
+
+---- <s>memurlukla
+
+<s>: 25
+<s>memurl: 22
+<s>memur: 11
+<s>memu: 10
+<s>m: 9
+<s>me: 8
+<s>mem: 8
+<s>memurlu: 8
+<s>memurluk: 7
+<s>memurlukl: 6
+<s>memurlukla: 0
+
+---- <s>mahvolmak
+
+<s>ma: 28
+<s>: 25
+<s>mah: 22
+<s>m: 18
+<s>mahv: 15
+<s>mahvolma: 12
+<s>mahvo: 11
+<s>mahvol: 11
+<s>mahvolm: 6
+<s>mahvolmak: 0
+
+---- <s>hafiflemek
+
+<s>: 21
+<s>hafi: 17
+<s>ha: 15
+<s>hafifle: 13
+<s>hafifleme: 13
+<s>h: 7
+<s>hafifl: 5
+<s>haf: 4
+<s>hafif: 4
+<s>hafiflem: 1
+<s>hafiflemek: 0
+
+---- <s>Ofkelendiler
+
+<s>: 25
+<s>O: 21
+<s>Of: 13
+<s>Ofkele: 12
+<s>Ofkelendile: 9
+<s>Ofke: 8
+<s>Ofkel: 7
+<s>Ofkelen: 6
+<s>Ofk: 5
+<s>Ofkelend: 5
+<s>Ofkelendi: 4
+<s>Ofkelendil: 4
+<s>Ofkelendiler: 0
+
+---- <s>kurtarIlIr
+
+<s>: 20
+<s>kurtarI: 16
+<s>k: 15
+<s>kurtarIlI: 10
+<s>ku: 9
+<s>kur: 9
+<s>kurta: 8
+<s>kurt: 5
+<s>kurtar: 4
+<s>kurtarIl: 3
+<s>kurtarIlIr: 0
+
+---- <s>sergiledim
+
+<s>: 20
+<s>s: 13
+<s>se: 13
+<s>sergiledi: 11
+<s>ser: 10
+<s>sergile: 9
+<s>sergi: 6
+<s>serg: 4
+<s>sergil: 4
+<s>sergiled: 3
+<s>sergiledim: 0
+
+---- <s>eriSebilsek
+
+<s>eriSe: 18
+<s>: 14
+<s>e: 12
+<s>eri: 12
+<s>eriSebilse: 9
+<s>eriS: 8
+<s>eriSeb: 8
+<s>eriSebil: 8
+<s>er: 6
+<s>eriSebi: 6
+<s>eriSebils: 2
+<s>eriSebilsek: 0
+
+---- <s>olmamasIyla
+
+<s>ol: 20
+<s>: 18
+<s>o: 15
+<s>olma: 14
+<s>olmamas: 13
+<s>olm: 11
+<s>olmam: 11
+<s>olmamasIyl: 11
+<s>olmama: 9
+<s>olmamasIy: 9
+<s>olmamasI: 4
+<s>olmamasIyla: 0
+
+---- <s>fantezilere
+
+<s>: 24
+<s>fan: 18
+<s>fante: 18
+<s>fa: 15
+<s>f: 12
+<s>fantezil: 5
+<s>fant: 4
+<s>fantezi: 4
+<s>fantez: 3
+<s>fantezile: 2
+<s>fanteziler: 1
+<s>fantezilere: 0
+
+---- <s>CeSnilerin
+
+<s>: 20
+<s>Ce: 11
+<s>C: 9
+<s>CeS: 9
+<s>CeSni: 6
+<s>CeSnile: 6
+<s>CeSnil: 5
+<s>CeSn: 4
+<s>CeSniler: 4
+<s>CeSnileri: 2
+<s>CeSnilerin: 0
+
+---- <s>tutukevi
+
+<s>: 21
+<s>t: 17
+<s>tu: 17
+<s>tutu: 17
+<s>tutuke: 14
+<s>tut: 10
+<s>tutuk: 6
+<s>tutukev: 4
+<s>tutukevi: 0
+
+---- <s>duyamadIktan
+
+<s>: 22
+<s>d: 19
+<s>du: 19
+<s>duya: 10
+<s>duyamad: 10
+<s>duy: 9
+<s>duyama: 9
+<s>duyamada: 9
+<s>duyamadaktI: 7
+<s>duyam: 4
+<s>duyamadak: 3
+<s>duyamadakt: 2
+<s>duyamadaktIr: 0
+
+---- <s>yerkUreye
+
+<s>yer: 22
+<s>: 20
+<s>y: 15
+<s>yerkU: 15
+<s>ye: 13
+<s>yerk: 12
+<s>yerkUr: 9
+<s>yerkUrey: 5
+<s>yerkUre: 3
+<s>yerkUreye: 0
+
+---- <s>antitezi
+
+<s>: 20
+<s>an: 11
+<s>anti: 9
+<s>a: 7
+<s>ant: 3
+<s>antiCe: 3
+<s>antiC: 2
+<s>antiCes: 1
+<s>antiCesi: 0
+
+---- <s>kUCUltmeye
+
+<s>k: 15
+<s>kUCUlt: 15
+<s>: 14
+<s>kUCUltm: 14
+<s>kU: 12
+<s>kUCUl: 12
+<s>kUC: 7
+<s>kUCU: 7
+<s>kUCUltmey: 5
+<s>kUCUltme: 2
+<s>kUCUltmeye: 0
+
+---- <s>meyvacI
+
+<s>: 22
+<s>me: 17
+<s>mey: 17
+<s>meyva: 15
+<s>m: 13
+<s>meyv: 4
+<s>meyvac: 3
+<s>meyvacI: 0
+
+---- <s>iCiSi
+
+<s>: 16
+<s>i: 13
+<s>iC: 4
+<s>iCi: 3
+<s>iCiS: 3
+<s>iCiSi: 0
+
+---- <s>ilker
+
+<s>: 19
+<s>il: 12
+<s>i: 6
+<s>ilk: 3
+<s>ilke: 3
+<s>ilker: 0
+
+---- <s>olda
+
+<s>: 21
+<s>ol: 7
+<s>o: 4
+<s>old: 3
+<s>olda: 0
+
+---- <s>gOrUlmekteydi
+
+<s>: 17
+<s>g: 15
+<s>gO: 14
+<s>gOrUlme: 13
+<s>gOrUl: 12
+<s>gOrU: 11
+<s>gOrUlm: 11
+<s>gOr: 8
+<s>gOrUlmekt: 8
+<s>gOrUlmekteyd: 5
+<s>gOrUlmekte: 4
+<s>gOrUlmek: 3
+<s>gOrUlmektey: 2
+<s>gOrUlmekteydi: 0
+
+---- <s>aydInlatIlmasIndan
+
+<s>: 20
+<s>aydInlatIlma: 15
+<s>aydInlatIl: 13
+<s>ay: 12
+<s>a: 11
+<s>aydInlatIlm: 10
+<s>aydInlatIlmas: 10
+<s>aydInla: 9
+<s>aydInl: 8
+<s>aydInlatI: 8
+<s>ayd: 7
+<s>aydI: 7
+<s>aydInlat: 7
+<s>aydInlatIlmasInda: 7
+<s>aydInlatIlmasInd: 5
+<s>aydIn: 4
+<s>aydInlatIlmasI: 2
+<s>aydInlatIlmasIn: 1
+<s>aydInlatIlmasIndan: 0
+
+---- <s>bulayan
+
+<s>: 25
+<s>b: 13
+<s>bula: 10
+<s>bu: 9
+<s>bulaya: 6
+<s>bul: 5
+<s>bulay: 4
+<s>bulayan: 0
+
+---- <s>cinsiyetinden
+
+<s>: 29
+<s>ci: 18
+<s>cin: 14
+<s>c: 13
+<s>cinsiyetinde: 9
+<s>cinsi: 7
+<s>cinsiy: 7
+<s>cinsiyet: 7
+<s>cinsiye: 5
+<s>cinsiyetind: 4
+<s>cinsiyeti: 3
+<s>cins: 2
+<s>cinsiyetin: 2
+<s>cinsiyetinden: 0
+
+---- <s>rejide
+
+<s>: 21
+<s>re: 15
+<s>r: 6
+<s>rej: 5
+<s>reji: 3
+<s>rejid: 2
+<s>rejide: 0
+
+---- <s>sabittir
+
+<s>: 20
+<s>sa: 20
+<s>sabi: 9
+<s>s: 7
+<s>sab: 5
+<s>sabitti: 5
+<s>sabit: 4
+<s>sabitt: 1
+<s>sabittir: 0
+
+---- <s>gUnahsIzIn
+
+<s>g: 25
+<s>: 24
+<s>gUna: 17
+<s>gUnah: 17
+<s>gU: 16
+<s>gUn: 16
+<s>gUnahsI: 13
+<s>gUnahsIzI: 11
+<s>gUnahs: 5
+<s>gUnahsIz: 5
+<s>gUnahsIzIn: 0
+
+---- <s>dUSUnecektir
+
+<s>d: 25
+<s>dU: 19
+<s>dUSUnece: 19
+<s>dUSUne: 17
+<s>: 16
+<s>dUSUnec: 12
+<s>dUSU: 9
+<s>dUSUn: 9
+<s>dUSUnecekti: 8
+<s>dUS: 6
+<s>dUSUnecekt: 5
+<s>dUSUnecek: 2
+<s>dUSUnecektir: 0
+
+---- <s>baGlIdIrlar
+
+<s>: 25
+<s>ba: 11
+<s>b: 10
+<s>baGlIdI: 10
+<s>baGlId: 8
+<s>baGlI: 7
+<s>baGlIdIrla: 7
+<s>baG: 4
+<s>baGl: 4
+<s>baGlIdIrl: 4
+<s>baGlIdIr: 1
+<s>baGlIdIrlar: 0
+
+---- <s>CiCeklerinden
+
+<s>: 16
+<s>Ci: 16
+<s>CiCe: 14
+<s>CiCekler: 9
+<s>CiCek: 8
+<s>C: 7
+<s>CiCekl: 7
+<s>CiCekle: 5
+<s>CiCeklerinde: 5
+<s>CiC: 4
+<s>CiCekleri: 2
+<s>CiCeklerind: 2
+<s>CiCeklerin: 1
+<s>CiCeklerinden: 0
+
+---- <s>haberdeyse
+
+<s>ha: 21
+<s>: 16
+<s>h: 11
+<s>haberdey: 11
+<s>habe: 10
+<s>hab: 9
+<s>haber: 8
+<s>haberd: 7
+<s>haberde: 6
+<s>haberdeys: 1
+<s>haberdeyse: 0
+
+---- <s>CalayIm
+
+<s>: 19
+<s>Ca: 16
+<s>Cala: 14
+<s>CalayI: 9
+<s>C: 6
+<s>Cal: 4
+<s>Calay: 4
+<s>CalayIm: 0
+
+---- <s>anneanne
+
+<s>: 25
+<s>an: 15
+<s>a: 7
+<s>annean: 6
+<s>ann: 4
+<s>anne: 3
+<s>anneann: 2
+<s>annea: 1
+<s>anneanne: 0
+
+---- <s>giovanninin
+
+<s>: 17
+<s>gi: 14
+<s>g: 12
+<s>gio: 12
+<s>giovan: 10
+<s>giov: 8
+<s>giova: 3
+<s>giovani: 2
+<s>giovanin: 2
+<s>giovanini: 1
+<s>giovaninin: 0
+
+---- <s>yUkleniveren
+
+<s>y: 20
+<s>: 16
+<s>yUkleni: 16
+<s>yU: 14
+<s>yUk: 10
+<s>yUkleniv: 9
+<s>yUkl: 6
+<s>yUkle: 6
+<s>yUklen: 5
+<s>yUklenive: 5
+<s>yUklenivere: 3
+<s>yUkleniver: 1
+<s>yUkleniveren: 0
+
+---- <s>CIkrIklarIn
+
+<s>: 17
+<s>CI: 12
+<s>CIk: 11
+<s>CIkrI: 8
+<s>C: 7
+<s>CIkrIkla: 6
+<s>CIkr: 5
+<s>CIkrIk: 4
+<s>CIkrIkl: 4
+<s>CIkrIklarI: 3
+<s>CIkrIklar: 2
+<s>CIkrIklarIn: 0
+
+---- <s>OdediGinizi
+
+<s>: 24
+<s>Odedi: 19
+<s>OdediG: 17
+<s>Oded: 13
+<s>O: 12
+<s>Ode: 12
+<s>OdediGin: 12
+<s>OdediGi: 9
+<s>Od: 7
+<s>OdediGini: 1
+<s>OdediGiniz: 1
+<s>OdediGinizi: 0
+
+---- <s>farlarImI
+
+<s>: 17
+<s>fa: 9
+<s>f: 7
+<s>farlar: 6
+<s>farl: 5
+<s>farla: 5
+<s>far: 4
+<s>farlarI: 2
+<s>farlarIm: 2
+<s>farlarImI: 0
+
+---- <s>pehlivanInI
+
+<s>: 25
+<s>pe: 19
+<s>pehli: 18
+<s>p: 15
+<s>peh: 13
+<s>pehliva: 13
+<s>pehliv: 8
+<s>pehlivan: 8
+<s>pehl: 7
+<s>pehlivanIn: 4
+<s>pehlivanI: 3
+<s>pehlivanInI: 0
+
+---- <s>dikeyine
+
+<s>di: 17
+<s>: 12
+<s>dikeyin: 8
+<s>d: 7
+<s>dike: 7
+<s>dikey: 6
+<s>dik: 5
+<s>dikeyi: 1
+<s>dikeyine: 0
+
+---- <s>abimi
+
+<s>: 24
+<s>a: 14
+<s>ab: 5
+<s>abi: 2
+<s>abim: 2
+<s>abimi: 0
+
+---- <s>sonuClandIrIlmasInIn
+
+<s>: 20
+<s>sonuClandIrIlma: 19
+<s>s: 16
+<s>so: 16
+<s>sonu: 15
+<s>sonuCl: 12
+<s>sonuClandIrIl: 11
+<s>sonuClandIrIlm: 11
+<s>sonuClandIrI: 10
+<s>son: 9
+<s>sonuClandIr: 8
+<s>sonuClandIrIlmas: 7
+<s>sonuC: 6
+<s>sonuCland: 6
+<s>sonuClandIrIlmasI: 6
+<s>sonuCla: 5
+<s>sonuClan: 4
+<s>sonuClandIrIlmasIn: 4
+<s>sonuClandI: 3
+<s>sonuClandIrIlmasInI: 3
+<s>sonuClandIrIlmasInIz: 0
+
+---- <s>dizgesinde
+
+<s>di: 22
+<s>: 12
+<s>d: 12
+<s>diz: 11
+<s>dizg: 6
+<s>dizge: 6
+<s>dizges: 6
+<s>dizgesin: 3
+<s>dizgesind: 3
+<s>dizgesi: 1
+<s>dizgesinde: 0
+
+---- <s>Serifdeki
+
+<s>: 24
+<s>Se: 13
+<s>Seri: 11
+<s>S: 5
+<s>Ser: 5
+<s>Serifde: 5
+<s>Serif: 4
+<s>Serifd: 2
+<s>Serifdek: 1
+<s>Serifdeki: 0
+
+---- <s>salgIlanmIS
+
+<s>: 19
+<s>sa: 12
+<s>sal: 10
+<s>salgIla: 10
+<s>salgIlanmI: 10
+<s>s: 8
+<s>salgIlan: 8
+<s>salg: 6
+<s>salgIl: 6
+<s>salgI: 4
+<s>salgIlanm: 2
+<s>salgIlanmIS: 0
+
+---- <s>gUnlerimizi
+
+<s>g: 19
+<s>gU: 16
+<s>: 15
+<s>gUnler: 10
+<s>gUnle: 9
+<s>gUnleri: 9
+<s>gUnlerim: 9
+<s>gUn: 7
+<s>gUnl: 6
+<s>gUnlerimi: 2
+<s>gUnlerimiz: 1
+<s>gUnlerimizi: 0
+
+---- <s>kapanmayI
+
+<s>ka: 18
+<s>: 17
+<s>k: 12
+<s>kapan: 8
+<s>kapanm: 7
+<s>kapanma: 6
+<s>kap: 4
+<s>kapa: 3
+<s>kapanmay: 3
+<s>kapanmayI: 0
+
+---- <s>buGdaylarInI
+
+<s>: 23
+<s>b: 23
+<s>bu: 18
+<s>buG: 13
+<s>buGda: 11
+<s>buGdaylar: 10
+<s>buGd: 9
+<s>buGday: 9
+<s>buGdayl: 8
+<s>buGdayla: 5
+<s>buGdaylarIn: 2
+<s>buGdaylarI: 1
+<s>buGdaylarInI: 0
+
+---- <s>savsaklamamak
+
+<s>: 24
+<s>sa: 21
+<s>s: 17
+<s>sav: 17
+<s>savsakla: 12
+<s>savsaklama: 10
+<s>savsa: 8
+<s>savsakl: 6
+<s>savsaklamama: 6
+<s>savs: 5
+<s>savsaklam: 5
+<s>savsak: 4
+<s>savsaklamam: 1
+<s>savsaklamamak: 0
+
+---- <s>kaplIyordu
+
+<s>: 15
+<s>k: 15
+<s>ka: 15
+<s>kaplIy: 11
+<s>kaplIyo: 10
+<s>kap: 9
+<s>kaplI: 7
+<s>kaplIyord: 5
+<s>kapl: 4
+<s>kaplIyor: 4
+<s>kaplIyordu: 0
+
+---- <s>vatanperverlikten
+
+<s>v: 19
+<s>va: 18
+<s>: 16
+<s>vatan: 16
+<s>vatanfe: 16
+<s>vatanferterle: 16
+<s>vat: 15
+<s>vatanf: 13
+<s>vata: 12
+<s>vatanfer: 10
+<s>vatanferte: 10
+<s>vatanferter: 9
+<s>vatanfert: 8
+<s>vatanferterler: 8
+<s>vatanferterl: 5
+<s>vatanferterleri: 4
+<s>vatanferterlerin: 0
+
+---- <s>kIrbasIn
+
+<s>: 18
+<s>kIr: 16
+<s>kIrba: 14
+<s>kI: 12
+<s>k: 7
+<s>kIrb: 4
+<s>kIrbas: 3
+<s>kIrbasI: 2
+<s>kIrbasIn: 0
+
+---- <s>italyalIlar
+
+<s>italla: 15
+<s>itallaya: 15
+<s>itallayalIla: 14
+<s>: 11
+<s>i: 11
+<s>ita: 10
+<s>itall: 8
+<s>ital: 7
+<s>it: 6
+<s>itallayalI: 4
+<s>itallay: 3
+<s>itallayal: 2
+<s>itallayalIl: 1
+<s>itallayalIlar: 0
+
+---- <s>homojenleStirmesi
+
+<s>: 24
+<s>ho: 24
+<s>homo: 18
+<s>hom: 17
+<s>h: 16
+<s>homoj: 12
+<s>homojenleSt: 12
+<s>homojenleStirm: 12
+<s>homojen: 9
+<s>homojenle: 9
+<s>homojenleStir: 9
+<s>homojenleS: 8
+<s>homojenleStirme: 7
+<s>homojenl: 6
+<s>homoje: 5
+<s>homojenleStirmes: 3
+<s>homojenleSti: 2
+<s>homojenleStirmesi: 0
+
+---- <s>dUzeltmelerine
+
+<s>d: 26
+<s>dU: 22
+<s>dUzeltme: 15
+<s>: 13
+<s>dUzeltmeler: 11
+<s>dUze: 10
+<s>dUzeltmel: 10
+<s>dUzel: 9
+<s>dUzelt: 8
+<s>dUzeltm: 8
+<s>dUz: 6
+<s>dUzeltmelerin: 4
+<s>dUzeltmele: 1
+<s>dUzeltmeleri: 1
+<s>dUzeltmelerine: 0
+
+---- <s>birCoGunun
+
+<s>: 25
+<s>b: 19
+<s>bir: 18
+<s>bi: 16
+<s>birCo: 14
+<s>birCoG: 10
+<s>birC: 8
+<s>birCoGu: 4
+<s>birCoGun: 2
+<s>birCoGunu: 2
+<s>birCoGunun: 0
+
+---- <s>safmIS
+
+<s>: 25
+<s>sa: 23
+<s>s: 15
+<s>safmI: 12
+<s>saf: 11
+<s>safm: 2
+<s>safmIS: 0
+
+---- <s>uzlaStIrabilirsek
+
+<s>uzlaStIra: 28
+<s>uzlaSt: 20
+<s>u: 19
+<s>uzl: 18
+<s>uzlaStIr: 18
+<s>uzlaStIrabili: 18
+<s>uzla: 16
+<s>: 15
+<s>uzlaStI: 15
+<s>uzlaStIrab: 15
+<s>uzlaS: 12
+<s>uz: 11
+<s>uzlaStIrabil: 11
+<s>uzlaStIrabi: 5
+<s>uzlaStIrabilir: 5
+<s>uzlaStIrabilirs: 3
+<s>uzlaStIrabilirse: 1
+<s>uzlaStIrabilirsek: 0
+
+---- <s>kaSmir
+
+<s>: 19
+<s>k: 14
+<s>ka: 13
+<s>kaS: 11
+<s>kaSmi: 8
+<s>kaSm: 3
+<s>kaSmir: 0
+
+---- <s>dUSUrmedin
+
+<s>d: 19
+<s>: 14
+<s>dUSUrme: 13
+<s>dU: 12
+<s>dUSU: 10
+<s>dUSUr: 10
+<s>dUSUrmed: 10
+<s>dUS: 8
+<s>dUSUrmedi: 7
+<s>dUSUrm: 6
+<s>dUSUrmedin: 0
+
+---- <s>sokulmaya
+
+<s>: 22
+<s>s: 16
+<s>so: 14
+<s>sokulm: 11
+<s>sok: 10
+<s>soku: 7
+<s>sokul: 7
+<s>sokulmay: 6
+<s>sokulma: 4
+<s>sokulmaya: 0
+
+---- <s>intifadaya
+
+<s>inti: 19
+<s>: 16
+<s>in: 16
+<s>intifa: 12
+<s>i: 8
+<s>intif: 6
+<s>int: 5
+<s>intifad: 5
+<s>intifada: 3
+<s>intifaday: 3
+<s>intifadaya: 0
+
+---- <s>bantlarIyla
+
+<s>: 24
+<s>bant: 16
+<s>ban: 14
+<s>ba: 12
+<s>bantlar: 11
+<s>b: 9
+<s>bantl: 9
+<s>bantla: 5
+<s>bantlarIyl: 4
+<s>bantlarIy: 3
+<s>bantlarI: 2
+<s>bantlarIyla: 0
+
+---- <s>kendilerindedir
+
+<s>: 16
+<s>kendilerinde: 9
+<s>ke: 8
+<s>ken: 7
+<s>kendil: 7
+<s>kendilerindedi: 7
+<s>k: 6
+<s>kendi: 6
+<s>kendiler: 6
+<s>kend: 5
+<s>kendilerind: 5
+<s>kendilerinded: 5
+<s>kendile: 4
+<s>kendilerin: 3
+<s>kendileri: 2
+<s>kendilerindedir: 0
+
+---- <s>hatIrlamamIz
+
+<s>: 18
+<s>ha: 18
+<s>hatIrla: 15
+<s>hatIrlama: 14
+<s>hatI: 11
+<s>h: 9
+<s>hatIr: 7
+<s>hatIrl: 7
+<s>hat: 6
+<s>hatIrlam: 6
+<s>hatIrlamam: 4
+<s>hatIrlamamI: 4
+<s>hatIrlamamIz: 0
+
+---- <s>suskunluGu
+
+<s>: 25
+<s>s: 20
+<s>sus: 16
+<s>su: 15
+<s>suskun: 11
+<s>susk: 10
+<s>suskunl: 9
+<s>suskunlu: 6
+<s>susku: 4
+<s>suskunluG: 4
+<s>suskunluGu: 0
+
+---- <s>karakterimin
+
+<s>ka: 19
+<s>: 15
+<s>karak: 15
+<s>karakteri: 15
+<s>k: 13
+<s>kara: 13
+<s>kar: 11
+<s>karakte: 11
+<s>karakt: 7
+<s>karakter: 6
+<s>karakterimi: 3
+<s>karakterim: 1
+<s>karakterimin: 0
+
+---- <s>hazIrlanabilmesi
+
+<s>hazIrlana: 25
+<s>ha: 18
+<s>: 16
+<s>hazIrl: 13
+<s>hazIrla: 12
+<s>hazIrlan: 12
+<s>hazI: 11
+<s>hazIrlanab: 9
+<s>hazIrlanabil: 7
+<s>hazIrlanabilme: 7
+<s>h: 6
+<s>haz: 6
+<s>hazIr: 6
+<s>hazIrlanabilm: 3
+<s>hazIrlanabilmes: 3
+<s>hazIrlanabi: 2
+<s>hazIrlanabilmesi: 0
+
+---- <s>borCluluk
+
+<s>b: 29
+<s>: 26
+<s>borClu: 18
+<s>bor: 16
+<s>borC: 16
+<s>bo: 13
+<s>borCl: 13
+<s>borClulu: 11
+<s>borClul: 7
+<s>borCluluk: 0
+
+---- <s>azma
+
+<s>: 28
+<s>a: 18
+<s>az: 4
+<s>azm: 4
+<s>azma: 0
+
+---- <s>yurtseverliGinde
+
+<s>yurt: 24
+<s>y: 22
+<s>yurtsev: 22
+<s>yurts: 21
+<s>yurtse: 21
+<s>: 20
+<s>yur: 18
+<s>yurtseverl: 18
+<s>yu: 16
+<s>yurtsever: 15
+<s>yurtseverliG: 15
+<s>yurtseverli: 11
+<s>yurtseve: 7
+<s>yurtseverliGin: 5
+<s>yurtseverliGind: 4
+<s>yurtseverliGi: 2
+<s>yurtseverliGinde: 0
+
+---- <s>bunalabilir
+
+<s>bunala: 24
+<s>: 23
+<s>bu: 20
+<s>b: 18
+<s>buna: 14
+<s>bunalabili: 10
+<s>bunalab: 8
+<s>bun: 7
+<s>bunal: 7
+<s>bunalabi: 7
+<s>bunalabil: 4
+<s>bunalabilir: 0
+
+---- <s>gOnderemiyor
+
+<s>gOnderemi: 22
+<s>g: 19
+<s>gOndere: 17
+<s>: 16
+<s>gOnde: 14
+<s>gO: 12
+<s>gOn: 10
+<s>gOnderemiy: 10
+<s>gOnder: 9
+<s>gOnderem: 9
+<s>gOnd: 7
+<s>gOnderemiyo: 6
+<s>gOnderemiyor: 0
+
+---- <s>edibe
+
+<s>: 20
+<s>e: 8
+<s>edi: 5
+<s>ed: 3
+<s>edib: 3
+<s>edibe: 0
+
+---- <s>kurabileceGini
+
+<s>kurabilece: 23
+<s>: 20
+<s>ku: 19
+<s>kura: 19
+<s>kurabile: 17
+<s>kurabilec: 17
+<s>kurabileceG: 12
+<s>k: 11
+<s>kurabil: 10
+<s>kurab: 9
+<s>kur: 8
+<s>kurabi: 6
+<s>kurabileceGin: 4
+<s>kurabileceGi: 2
+<s>kurabileceGini: 0
+
+---- <s>duymasa
+
+<s>: 22
+<s>d: 19
+<s>du: 14
+<s>duy: 13
+<s>duyma: 8
+<s>duym: 5
+<s>duymas: 3
+<s>duymasa: 0
+
+---- <s>yaverini
+
+<s>: 23
+<s>ye: 18
+<s>y: 7
+<s>yeve: 6
+<s>yever: 6
+<s>yev: 4
+<s>yeverin: 2
+<s>yeveri: 1
+<s>yeverini: 0
+
+---- <s>bulaStIGImI
+
+<s>: 22
+<s>b: 14
+<s>bulaSt: 11
+<s>bul: 10
+<s>bula: 10
+<s>bu: 9
+<s>bulaS: 9
+<s>bulaStI: 7
+<s>bulaStIG: 7
+<s>bulaStIGIm: 3
+<s>bulaStIGI: 1
+<s>bulaStIGImI: 0
+
+---- <s>karnIn
+
+<s>: 15
+<s>k: 8
+<s>ka: 7
+<s>kar: 6
+<s>karnI: 5
+<s>karn: 1
+<s>karnIn: 0
+
+---- <s>aldattIGInIzI
+
+<s>: 19
+<s>aldattIG: 15
+<s>aldat: 14
+<s>alda: 13
+<s>aldatt: 12
+<s>ald: 10
+<s>aldattI: 10
+<s>al: 8
+<s>a: 7
+<s>aldattIGI: 7
+<s>aldattIGIn: 6
+<s>aldattIGInI: 1
+<s>aldattIGInIz: 1
+<s>aldattIGInIzI: 0
+
+---- <s>dinamiGini
+
+<s>di: 23
+<s>: 12
+<s>dina: 9
+<s>din: 8
+<s>dinami: 7
+<s>dinamiG: 7
+<s>d: 6
+<s>dinam: 6
+<s>dinamiGin: 5
+<s>dinamiGi: 2
+<s>dinamiGini: 0
+
+---- <s>temellendirecek
+
+<s>te: 19
+<s>: 15
+<s>temellendire: 15
+<s>t: 11
+<s>temellendirece: 11
+<s>temellend: 10
+<s>teme: 9
+<s>temel: 9
+<s>temellen: 9
+<s>tem: 8
+<s>temell: 7
+<s>temelle: 4
+<s>temellendi: 4
+<s>temellendir: 2
+<s>temellendirec: 2
+<s>temellendirecek: 0
+
+---- <s>ahlakdISIlIk
+
+<s>: 23
+<s>a: 21
+<s>ahlaStI: 16
+<s>ah: 13
+<s>ahla: 11
+<s>ahlaStIlI: 11
+<s>ahl: 10
+<s>ahlaS: 9
+<s>ahlaSt: 8
+<s>ahlaStIl: 4
+<s>ahlaStIlIk: 0
+
+---- <s>kaCInamayacaGI
+
+<s>: 17
+<s>kaCInama: 17
+<s>ka: 15
+<s>kaCInamaya: 12
+<s>kaCI: 9
+<s>kaCInamayac: 9
+<s>kaCInamayaca: 9
+<s>kaCIna: 8
+<s>k: 5
+<s>kaCIn: 5
+<s>kaCInam: 5
+<s>kaCInamayacaG: 5
+<s>kaC: 4
+<s>kaCInamay: 4
+<s>kaCInamayacaGI: 0
+
+---- <s>baf
+
+<s>: 24
+<s>ba: 13
+<s>b: 5
+<s>baf: 0
+
+---- <s>arkadaSlarImIn
+
+<s>: 20
+<s>ar: 17
+<s>arkadaSlar: 14
+<s>arkadaSl: 13
+<s>a: 12
+<s>arkada: 11
+<s>arkadaSla: 10
+<s>arka: 9
+<s>arkad: 9
+<s>ark: 7
+<s>arkadaSlarI: 7
+<s>arkadaS: 4
+<s>arkadaSlarImI: 3
+<s>arkadaSlarIm: 1
+<s>arkadaSlarImIn: 0
+
+---- <s>koruyacaGIz
+
+<s>koruyaca: 21
+<s>koruya: 20
+<s>: 17
+<s>k: 16
+<s>ko: 15
+<s>koru: 15
+<s>koruy: 12
+<s>koruyac: 10
+<s>kor: 7
+<s>koruyacaG: 3
+<s>koruyacaGI: 2
+<s>koruyacaGIz: 0
+
+---- <s>kangalIn
+
+<s>: 19
+<s>ka: 13
+<s>kan: 11
+<s>k: 10
+<s>kanga: 6
+<s>kang: 4
+<s>kangalI: 3
+<s>kangal: 2
+<s>kangalIn: 0
+
+---- <s>deGerlendireceGinize
+
+<s>deGerlendireceG: 20
+<s>deGerlendirec: 19
+<s>deGerlendirece: 19
+<s>de: 14
+<s>deGerlend: 14
+<s>deGerlendir: 13
+<s>deGerlendire: 13
+<s>d: 10
+<s>deGe: 9
+<s>deGerlendireceGin: 9
+<s>: 8
+<s>deGerlendi: 8
+<s>deG: 7
+<s>deGer: 7
+<s>deGerlendireceGiniz: 7
+<s>deGerlen: 6
+<s>deGerl: 5
+<s>deGerlendireceGi: 5
+<s>deGerle: 3
+<s>deGerlendireceGini: 1
+<s>deGerlendireceGinize: 0
+
+---- <s>yaSara
+
+<s>: 22
+<s>ya: 15
+<s>y: 9
+<s>yaS: 4
+<s>yaSar: 2
+<s>yaSa: 1
+<s>yaSara: 0
+
+---- <s>korkakmISIm
+
+<s>k: 21
+<s>: 17
+<s>kor: 15
+<s>ko: 12
+<s>kork: 9
+<s>korka: 9
+<s>korkakmI: 9
+<s>korkak: 7
+<s>korkakmISI: 5
+<s>korkakm: 4
+<s>korkakmIS: 1
+<s>korkakmISIm: 0
+
+---- <s>lokmayla
+
+<s>l: 21
+<s>: 20
+<s>lok: 19
+<s>lo: 13
+<s>lokm: 10
+<s>lokma: 4
+<s>lokmayl: 4
+<s>lokmay: 3
+<s>lokmayla: 0
+
+---- <s>iyisin
+
+<s>: 18
+<s>i: 13
+<s>iyi: 11
+<s>iy: 6
+<s>iyis: 5
+<s>iyisi: 4
+<s>iyisin: 0
+
+---- <s>buruSuklarI
+
+<s>: 23
+<s>b: 18
+<s>bu: 14
+<s>buru: 14
+<s>bur: 8
+<s>buruSu: 8
+<s>buruS: 7
+<s>buruSukl: 6
+<s>buruSuk: 5
+<s>buruSuklar: 3
+<s>buruSukla: 1
+<s>buruSuklarI: 0
+
+---- <s>aGIrlIGImIz
+
+<s>: 15
+<s>a: 13
+<s>aGI: 11
+<s>aGIr: 10
+<s>aGIrlI: 10
+<s>aG: 8
+<s>aGIrl: 8
+<s>aGIrlIGI: 7
+<s>aGIrlIG: 6
+<s>aGIrlIGIm: 1
+<s>aGIrlIGImI: 1
+<s>aGIrlIGImIz: 0
+
+---- <s>SahIsI
+
+<s>Sa: 21
+<s>: 20
+<s>S: 9
+<s>Sah: 4
+<s>SahI: 3
+<s>SahIs: 3
+<s>SahIsI: 0
+
+---- <s>kIyIlarInIza
+
+<s>kIyIl: 18
+<s>kIyIlar: 17
+<s>: 16
+<s>kI: 14
+<s>kIyIlarIn: 13
+<s>kIyIla: 10
+<s>kIyIlarInIz: 9
+<s>kIyIlarI: 8
+<s>kIyI: 7
+<s>kIy: 5
+<s>k: 4
+<s>kIyIlarInI: 2
+<s>kIyIlarInIza: 0
+
+---- <s>tIkamamaya
+
+<s>: 20
+<s>tI: 13
+<s>tIka: 11
+<s>tIkam: 11
+<s>tIkama: 8
+<s>tIkamam: 7
+<s>t: 5
+<s>tIk: 4
+<s>tIkamamay: 4
+<s>tIkamama: 2
+<s>tIkamamaya: 0
+
+---- <s>patolojilerinde
+
+<s>patolo: 27
+<s>: 21
+<s>pa: 21
+<s>pato: 19
+<s>patoloji: 12
+<s>patol: 11
+<s>patoloj: 11
+<s>pat: 10
+<s>patolojil: 10
+<s>p: 9
+<s>patolojiler: 8
+<s>patolojile: 7
+<s>patolojilerin: 6
+<s>patolojilerind: 5
+<s>patolojileri: 2
+<s>patolojilerinde: 0
+
+---- <s>duruStaki
+
+<s>d: 24
+<s>: 17
+<s>du: 15
+<s>duru: 10
+<s>dur: 8
+<s>duruS: 4
+<s>duruSt: 4
+<s>duruStak: 3
+<s>duruSta: 2
+<s>duruStaki: 0
+
+---- <s>konuSturalIm
+
+<s>k: 25
+<s>: 17
+<s>konuStura: 17
+<s>konuStu: 14
+<s>ko: 12
+<s>konu: 12
+<s>kon: 11
+<s>konuSt: 8
+<s>konuStur: 7
+<s>konuSturalI: 7
+<s>konuS: 6
+<s>konuStural: 3
+<s>konuSturalIm: 0
+
+---- <s>kirlenme
+
+<s>: 15
+<s>kirlen: 10
+<s>k: 7
+<s>kirl: 6
+<s>kirlenm: 6
+<s>ki: 5
+<s>kir: 4
+<s>kirle: 3
+<s>kirlenme: 0
+
+---- <s>ihanetleri
+
+<s>i: 23
+<s>: 20
+<s>iha: 6
+<s>ihan: 6
+<s>ihane: 5
+<s>ih: 4
+<s>ihanetl: 3
+<s>ihanet: 2
+<s>ihanetle: 1
+<s>ihanetler: 1
+<s>ihanetleri: 0
+
+---- <s>zalimane
+
+<s>: 25
+<s>zali: 10
+<s>z: 8
+<s>za: 8
+<s>zalim: 7
+<s>zal: 6
+<s>zaliman: 4
+<s>zalima: 2
+<s>zalimane: 0
+
+---- <s>araStIrmacIlarla
+
+<s>araStIrma: 21
+<s>: 18
+<s>araS: 17
+<s>ara: 14
+<s>araStIrmacIl: 13
+<s>ar: 12
+<s>araSt: 12
+<s>araStI: 12
+<s>a: 11
+<s>araStIr: 11
+<s>araStIrmac: 9
+<s>araStIrm: 7
+<s>araStIrmacIlar: 4
+<s>araStIrmacI: 3
+<s>araStIrmacIlarl: 2
+<s>araStIrmacIla: 1
+<s>araStIrmacIlarla: 0
+
+---- <s>kIpIrtIlarIyla
+
+<s>: 18
+<s>kI: 18
+<s>kIpIrtIl: 16
+<s>kIpIrtIlar: 10
+<s>kIpIrtIlarIy: 10
+<s>kIpIrtI: 9
+<s>k: 8
+<s>kIp: 7
+<s>kIpIr: 7
+<s>kIpIrtIlarIyl: 6
+<s>kIpI: 5
+<s>kIpIrt: 4
+<s>kIpIrtIlarI: 4
+<s>kIpIrtIla: 2
+<s>kIpIrtIlarIyla: 0
+
+---- <s>bilgilerimi
+
+<s>: 21
+<s>bil: 11
+<s>bi: 10
+<s>b: 8
+<s>bilgile: 8
+<s>bilgi: 7
+<s>bilgiler: 7
+<s>bilgil: 6
+<s>bilg: 5
+<s>bilgileri: 3
+<s>bilgilerim: 3
+<s>bilgilerimi: 0
+
+---- <s>sorulmasInIn
+
+<s>s: 23
+<s>: 22
+<s>sorul: 15
+<s>sorulma: 14
+<s>so: 12
+<s>soru: 10
+<s>sorulm: 10
+<s>sor: 9
+<s>sorulmas: 8
+<s>sorulmasI: 4
+<s>sorulmasInI: 3
+<s>sorulmasIn: 1
+<s>sorulmasInIn: 0
+
+---- <s>huzursuzluklarInI
+
+<s>: 28
+<s>hu: 27
+<s>huzursuzl: 18
+<s>huzur: 17
+<s>huzu: 16
+<s>h: 13
+<s>huzursu: 13
+<s>huzurs: 12
+<s>huzursuzlukl: 11
+<s>huz: 10
+<s>huzursuzluklar: 10
+<s>huzursuzlu: 7
+<s>huzursuzlukla: 7
+<s>huzursuzluklarIn: 6
+<s>huzursuz: 5
+<s>huzursuzluklarI: 5
+<s>huzursuzluk: 3
+<s>huzursuzluklarInI: 0
+
+---- <s>ateSleri
+
+<s>: 14
+<s>a: 10
+<s>ate: 10
+<s>at: 6
+<s>ateSl: 4
+<s>ateS: 3
+<s>ateSle: 2
+<s>ateSler: 2
+<s>ateSleri: 0
+
+---- <s>satIlmadIGInI
+
+<s>: 24
+<s>satIlmadI: 17
+<s>sa: 15
+<s>satIlma: 13
+<s>satIlmadIG: 13
+<s>satIlmad: 12
+<s>satIl: 11
+<s>satI: 9
+<s>s: 6
+<s>sat: 5
+<s>satIlm: 5
+<s>satIlmadIGI: 3
+<s>satIlmadIGIn: 3
+<s>satIlmadIGInI: 0
+
+---- <s>baSvurulmamIStI
+
+<s>baS: 25
+<s>: 21
+<s>ba: 19
+<s>baSv: 19
+<s>baSvurulm: 17
+<s>baSvurul: 15
+<s>b: 12
+<s>baSvurulma: 11
+<s>baSvu: 9
+<s>baSvur: 9
+<s>baSvuru: 9
+<s>baSvurulmam: 7
+<s>baSvurulmamI: 6
+<s>baSvurulmamIS: 4
+<s>baSvurulmamISt: 4
+<s>baSvurulmamIStI: 0
+
+---- <s>kurtulmasI
+
+<s>: 16
+<s>kurtul: 16
+<s>k: 15
+<s>kur: 14
+<s>kurt: 11
+<s>ku: 10
+<s>kurtu: 10
+<s>kurtulm: 10
+<s>kurtulma: 8
+<s>kurtulmas: 3
+<s>kurtulmasI: 0
+
+---- <s>yokolmalarI
+
+<s>y: 29
+<s>: 18
+<s>yo: 13
+<s>yok: 10
+<s>yoko: 10
+<s>yokol: 8
+<s>yokolm: 7
+<s>yokolma: 6
+<s>yokolmal: 3
+<s>yokolmala: 1
+<s>yokolmalar: 1
+<s>yokolmalarI: 0
+
+---- <s>kasabaydI
+
+<s>ka: 19
+<s>: 18
+<s>k: 16
+<s>kasa: 15
+<s>kasab: 8
+<s>kas: 6
+<s>kasabay: 4
+<s>kasaba: 3
+<s>kasabayd: 3
+<s>kasabaydI: 0
+
+---- <s>bakUdeki
+
+<s>: 26
+<s>ba: 21
+<s>b: 13
+<s>baS: 10
+<s>baSi: 9
+<s>baSike: 9
+<s>baSik: 4
+<s>baSiked: 2
+<s>baSikedi: 1
+<s>baSikedik: 0
+
+---- <s>zIpkInlar
+
+<s>: 29
+<s>zI: 14
+<s>zIp: 13
+<s>z: 6
+<s>zIpk: 5
+<s>zIpkI: 5
+<s>zIpkInla: 5
+<s>zIpkIn: 4
+<s>zIpkInl: 2
+<s>zIpkInlar: 0
+
+---- <s>gebertmeliyiz
+
+<s>gebertme: 25
+<s>: 21
+<s>ge: 19
+<s>geb: 14
+<s>gebe: 13
+<s>geber: 12
+<s>g: 11
+<s>gebertmeli: 9
+<s>gebert: 8
+<s>gebertm: 6
+<s>gebertmel: 6
+<s>gebertmeliy: 5
+<s>gebertmeliyi: 4
+<s>gebertmeliyiz: 0
+
+---- <s>tartIStIrIyor
+
+<s>tartIStIrI: 22
+<s>: 16
+<s>tartIStI: 16
+<s>tartIStIrIyo: 13
+<s>tar: 12
+<s>tartI: 12
+<s>ta: 11
+<s>t: 10
+<s>tartIStIrIy: 9
+<s>tart: 8
+<s>tartIS: 7
+<s>tartISt: 7
+<s>tartIStIr: 3
+<s>tartIStIrIyor: 0
+
+---- <s>alIndIGIndaysa
+
+<s>alIndIGInd: 22
+<s>: 21
+<s>alIndIGInday: 19
+<s>alIndIG: 12
+<s>alI: 10
+<s>alIndI: 10
+<s>alIndIGIn: 8
+<s>alIndIGIndays: 8
+<s>a: 6
+<s>alInd: 6
+<s>alIndIGI: 6
+<s>al: 5
+<s>alIn: 4
+<s>alIndIGInda: 2
+<s>alIndIGIndaysa: 0
+
+---- <s>cIzIrtI
+
+<s>: 30
+<s>cI: 18
+<s>c: 5
+<s>cIz: 4
+<s>cIzI: 4
+<s>cIzIr: 3
+<s>cIzIrt: 2
+<s>cIzIrtI: 0
+
+---- <s>pozisyondur
+
+<s>po: 24
+<s>: 22
+<s>p: 21
+<s>pozisyondu: 15
+<s>pozi: 11
+<s>pozis: 10
+<s>pozisy: 9
+<s>poz: 8
+<s>pozisyo: 8
+<s>pozisyon: 6
+<s>pozisyond: 5
+<s>pozisyondur: 0
+
+---- <s>animi
+
+<s>: 22
+<s>a: 8
+<s>an: 5
+<s>ani: 2
+<s>anim: 2
+<s>animi: 0
+
+---- <s>kabuldUr
+
+<s>ka: 19
+<s>: 18
+<s>k: 13
+<s>kabu: 10
+<s>kab: 8
+<s>kabuldU: 7
+<s>kabuld: 6
+<s>kabul: 3
+<s>kabuldUr: 0
+
+---- <s>toptancIlarI
+
+<s>t: 20
+<s>toptan: 18
+<s>to: 16
+<s>top: 16
+<s>: 13
+<s>topt: 6
+<s>toptanc: 6
+<s>topta: 5
+<s>toptancIl: 3
+<s>toptancI: 2
+<s>toptancIlar: 2
+<s>toptancIla: 1
+<s>toptancIlarI: 0
+
+---- <s>yaratIkmIS
+
+<s>: 21
+<s>ya: 21
+<s>yaratI: 15
+<s>y: 13
+<s>yara: 9
+<s>yar: 8
+<s>yarat: 8
+<s>yaratIkmI: 6
+<s>yaratIk: 3
+<s>yaratIkm: 1
+<s>yaratIkmIS: 0
+
+---- <s>taSIyabilmelidir
+
+<s>taSIya: 19
+<s>taSI: 17
+<s>: 16
+<s>ta: 15
+<s>taSIyabilme: 15
+<s>taSIy: 13
+<s>taSIyabilmelidi: 12
+<s>taSIyab: 10
+<s>taSIyabil: 10
+<s>taS: 6
+<s>taSIyabilm: 6
+<s>t: 5
+<s>taSIyabilmeli: 5
+<s>taSIyabilmelid: 5
+<s>taSIyabilmel: 4
+<s>taSIyabi: 3
+<s>taSIyabilmelidir: 0
+
+---- <s>demirOzdUr
+
+<s>de: 18
+<s>: 17
+<s>demir: 16
+<s>demirO: 15
+<s>d: 14
+<s>dem: 12
+<s>demi: 12
+<s>demirOzdU: 9
+<s>demirOzd: 5
+<s>demirOz: 3
+<s>demirOzdUr: 0
+
+---- <s>kuruluSlarImIzI
+
+<s>: 17
+<s>kurulu: 15
+<s>ku: 14
+<s>kuruluSlarIm: 13
+<s>kuruluSl: 12
+<s>kuruluSlar: 12
+<s>kurul: 11
+<s>kuru: 10
+<s>kuruluS: 9
+<s>k: 7
+<s>kur: 6
+<s>kuruluSla: 6
+<s>kuruluSlarI: 5
+<s>kuruluSlarImI: 2
+<s>kuruluSlarImIz: 1
+<s>kuruluSlarImIzI: 0
+
+---- <s>baGlasInlar
+
+<s>: 25
+<s>b: 11
+<s>ba: 9
+<s>baGla: 9
+<s>baG: 6
+<s>baGlasInla: 6
+<s>baGlasI: 4
+<s>baGl: 3
+<s>baGlas: 3
+<s>baGlasIn: 2
+<s>baGlasInl: 2
+<s>baGlasInlar: 0
+
+---- <s>taylanddaki
+
+<s>: 16
+<s>ta: 13
+<s>tay: 10
+<s>t: 8
+<s>tayl: 6
+<s>taylandda: 4
+<s>taylan: 3
+<s>taylandd: 3
+<s>tayland: 2
+<s>tayla: 1
+<s>taylanddak: 1
+<s>taylanddaki: 0
+
+---- <s>camcI
+
+<s>: 26
+<s>ca: 13
+<s>cam: 13
+<s>c: 12
+<s>camc: 3
+<s>camcI: 0
+
+---- <s>sileceGi
+
+<s>: 18
+<s>sile: 15
+<s>si: 11
+<s>sil: 7
+<s>silece: 7
+<s>silec: 6
+<s>s: 4
+<s>sileceG: 2
+<s>sileceGi: 0
+
+---- <s>katlederler
+
+<s>: 14
+<s>k: 12
+<s>ka: 12
+<s>kat: 11
+<s>katle: 11
+<s>katlede: 8
+<s>katl: 6
+<s>katlederle: 6
+<s>katled: 5
+<s>katlederl: 3
+<s>katleder: 2
+<s>katlederler: 0
+
+---- <s>yalamIS
+
+<s>: 22
+<s>ya: 14
+<s>y: 12
+<s>yala: 12
+<s>yalamI: 8
+<s>yal: 5
+<s>yalam: 2
+<s>yalamIS: 0
+
+---- <s>reddetmediklerini
+
+<s>: 15
+<s>red: 13
+<s>re: 11
+<s>reddetmed: 11
+<s>r: 10
+<s>redde: 10
+<s>redd: 9
+<s>reddet: 8
+<s>reddetm: 6
+<s>reddetmedikler: 6
+<s>reddetme: 5
+<s>reddetmedikl: 5
+<s>reddetmedi: 4
+<s>reddetmedikle: 4
+<s>reddetmediklerin: 2
+<s>reddetmedik: 1
+<s>reddetmedikleri: 1
+<s>reddetmediklerini: 0
+
+---- <s>getireceGini
+
+<s>: 16
+<s>getire: 16
+<s>getirece: 15
+<s>ge: 13
+<s>geti: 12
+<s>getirec: 10
+<s>get: 5
+<s>g: 4
+<s>getir: 4
+<s>getireceG: 4
+<s>getireceGin: 2
+<s>getireceGi: 1
+<s>getireceGini: 0
+
+---- <s>kalIrdInIz
+
+<s>: 18
+<s>kalIrdI: 15
+<s>kalI: 9
+<s>k: 7
+<s>kalIrd: 7
+<s>kalIr: 6
+<s>kal: 5
+<s>ka: 4
+<s>kalIrdInI: 2
+<s>kalIrdIn: 1
+<s>kalIrdInIz: 0
+
+---- <s>kulatIna
+
+<s>: 19
+<s>k: 10
+<s>kulatIn: 10
+<s>kul: 5
+<s>kulat: 5
+<s>ku: 4
+<s>kula: 3
+<s>kulatI: 1
+<s>kulatIna: 0
+
+---- <s>kibarlar
+
+<s>: 21
+<s>ki: 17
+<s>k: 9
+<s>kiba: 7
+<s>kib: 6
+<s>kibarla: 5
+<s>kibarl: 4
+<s>kibar: 3
+<s>kibarlar: 0
+
+---- <s>rolUmU
+
+<s>: 21
+<s>r: 18
+<s>rol: 9
+<s>ro: 8
+<s>rolUm: 4
+<s>rolU: 3
+<s>rolUmU: 0
+
+---- <s>gOstergeleriydi
+
+<s>g: 25
+<s>: 24
+<s>gO: 17
+<s>gOster: 16
+<s>gOsterge: 16
+<s>gOs: 15
+<s>gOst: 12
+<s>gOste: 10
+<s>gOsterg: 8
+<s>gOstergele: 8
+<s>gOstergel: 6
+<s>gOstergeler: 5
+<s>gOstergeleriy: 5
+<s>gOstergeleriyd: 5
+<s>gOstergeleri: 2
+<s>gOstergeleriydi: 0
+
+---- <s>rUfekasI
+
+<s>: 24
+<s>rU: 24
+<s>r: 16
+<s>rUfe: 14
+<s>rUf: 8
+<s>rUfeka: 5
+<s>rUfekas: 5
+<s>rUfek: 4
+<s>rUfekasI: 0
+
+---- <s>yOnetiyormuS
+
+<s>yOnetiy: 27
+<s>y: 24
+<s>yOneti: 23
+<s>yOne: 15
+<s>yOnetiyorm: 15
+<s>yO: 14
+<s>yOnet: 12
+<s>yOnetiyo: 12
+<s>yOnetiyormu: 10
+<s>yOn: 9
+<s>: 8
+<s>yOnetiyor: 7
+<s>yOnetiyormuS: 0
+
+---- <s>tanrICaydIn
+
+<s>ta: 16
+<s>: 15
+<s>tan: 15
+<s>tanrI: 15
+<s>tanrICa: 12
+<s>tanrICayd: 7
+<s>tanrICaydI: 7
+<s>t: 5
+<s>tanrIC: 5
+<s>tanrICay: 4
+<s>tanr: 3
+<s>tanrICaydIn: 0
+
+---- <s>mirasIndIr
+
+<s>: 24
+<s>mirasIndI: 11
+<s>mi: 10
+<s>mira: 8
+<s>m: 7
+<s>mir: 5
+<s>miras: 5
+<s>mirasI: 5
+<s>mirasInd: 3
+<s>mirasIn: 2
+<s>mirasIndIr: 0
+
+---- <s>erdemindendir
+
+<s>: 19
+<s>e: 8
+<s>er: 7
+<s>erdeminde: 6
+<s>erdemindendi: 6
+<s>erd: 5
+<s>erdem: 4
+<s>erdemind: 4
+<s>erde: 3
+<s>erdemi: 3
+<s>erdemin: 1
+<s>erdeminden: 1
+<s>erdemindend: 1
+<s>erdemindendir: 0
+
+---- <s>Suurumuza
+
+<s>: 25
+<s>Suuru: 12
+<s>Suu: 11
+<s>Suurumuz: 10
+<s>Su: 9
+<s>Suurum: 9
+<s>Suur: 7
+<s>S: 5
+<s>Suurumu: 5
+<s>Suurumuza: 0
+
+---- <s>sIkISmISlIGIn
+
+<s>: 24
+<s>sIkISmISlIG: 16
+<s>sI: 15
+<s>sIkISmI: 14
+<s>sIkISmISl: 13
+<s>sIkISmISlI: 12
+<s>sIkIS: 11
+<s>sIkI: 10
+<s>sIk: 9
+<s>sIkISm: 8
+<s>s: 7
+<s>sIkISmIS: 7
+<s>sIkISmISlIGI: 4
+<s>sIkISmISlIGIn: 0
+
+---- <s>fethedilmemiS
+
+<s>fet: 19
+<s>fethedilme: 17
+<s>: 16
+<s>fe: 16
+<s>f: 12
+<s>fethe: 10
+<s>fethedil: 10
+<s>fethedilmemi: 9
+<s>fethedilm: 8
+<s>fethedi: 7
+<s>feth: 6
+<s>fethed: 4
+<s>fethedilmem: 3
+<s>fethedilmemiS: 0
+
+---- <s>dileke
+
+<s>: 13
+<s>di: 9
+<s>d: 4
+<s>dil: 4
+<s>dile: 3
+<s>dilek: 2
+<s>dileke: 0
+
+---- <s>tacizcisine
+
+<s>ta: 20
+<s>taci: 17
+<s>taciz: 17
+<s>: 15
+<s>tac: 10
+<s>tacizc: 10
+<s>tacizcis: 8
+<s>tacizci: 7
+<s>t: 6
+<s>tacizcisin: 5
+<s>tacizcisi: 1
+<s>tacizcisine: 0
+
+---- <s>bastIrmIStIn
+
+<s>: 22
+<s>bastIrmI: 20
+<s>ba: 17
+<s>b: 10
+<s>bastIr: 10
+<s>bas: 8
+<s>bast: 7
+<s>bastIrm: 7
+<s>bastI: 5
+<s>bastIrmIS: 5
+<s>bastIrmIStI: 5
+<s>bastIrmISt: 3
+<s>bastIrmIStIn: 0
+
+---- <s>Universitelerle
+
+<s>: 29
+<s>Uni: 24
+<s>Univ: 20
+<s>Unive: 15
+<s>Universite: 15
+<s>U: 14
+<s>Un: 14
+<s>Univer: 14
+<s>Universi: 11
+<s>Universitel: 6
+<s>Universitelerl: 6
+<s>Universitele: 5
+<s>Universiteler: 4
+<s>Univers: 3
+<s>Universit: 3
+<s>Universitelerle: 0
+
+---- <s>tedavisi
+
+<s>: 17
+<s>te: 17
+<s>t: 16
+<s>teda: 16
+<s>ted: 9
+<s>tedavi: 8
+<s>tedav: 5
+<s>tedavis: 4
+<s>tedavisi: 0
+
+---- <s>istencinden
+
+<s>: 22
+<s>is: 15
+<s>isten: 11
+<s>i: 8
+<s>istenc: 6
+<s>ist: 5
+<s>iste: 5
+<s>istencinde: 4
+<s>istenci: 2
+<s>istencind: 2
+<s>istencin: 1
+<s>istencinden: 0
+
+---- <s>kuSUzUmUnU
+
+<s>k: 19
+<s>kuSU: 18
+<s>: 17
+<s>ku: 15
+<s>kuSUzUm: 15
+<s>kuS: 10
+<s>kuSUz: 10
+<s>kuSUzUmUn: 8
+<s>kuSUzU: 7
+<s>kuSUzUmU: 2
+<s>kuSUzUmUnU: 0
+
+---- <s>kaynaklanabilir
+
+<s>kaynaklana: 28
+<s>: 19
+<s>k: 14
+<s>kay: 13
+<s>kaynakla: 13
+<s>ka: 11
+<s>kayna: 10
+<s>kaynaklan: 9
+<s>kaynaklanabili: 9
+<s>kaynaklanab: 8
+<s>kaynakl: 7
+<s>kayn: 6
+<s>kaynak: 4
+<s>kaynaklanabi: 2
+<s>kaynaklanabil: 2
+<s>kaynaklanabilir: 0
+
+---- <s>ayamama
+
+<s>: 17
+<s>a: 13
+<s>aya: 7
+<s>ayam: 7
+<s>ayamam: 5
+<s>ay: 4
+<s>ayama: 1
+<s>ayamama: 0
+
+---- <s>doGumuyla
+
+<s>d: 28
+<s>doGumuy: 16
+<s>: 15
+<s>do: 15
+<s>doG: 11
+<s>doGum: 11
+<s>doGumuyl: 10
+<s>doGu: 7
+<s>doGumu: 6
+<s>doGumuyla: 0
+
+---- <s>altISar
+
+<s>: 19
+<s>altI: 12
+<s>a: 10
+<s>al: 9
+<s>alt: 5
+<s>altISa: 5
+<s>altIS: 1
+<s>altISar: 0
+
+---- <s>niyetleniyorum
+
+<s>niyetleni: 21
+<s>niyetleniy: 21
+<s>: 20
+<s>niyetleniyoru: 16
+<s>ni: 14
+<s>niyetleniyo: 14
+<s>niyetle: 13
+<s>niy: 11
+<s>niye: 11
+<s>niyet: 9
+<s>niyetlen: 9
+<s>niyetl: 8
+<s>n: 6
+<s>niyetleniyor: 2
+<s>niyetleniyorum: 0
+
+---- <s>trabzonsporda
+
+<s>t: 22
+<s>trab: 22
+<s>tra: 18
+<s>trabz: 18
+<s>trabzon: 18
+<s>trabzons: 16
+<s>trabzonsp: 13
+<s>: 11
+<s>tr: 10
+<s>trabzo: 8
+<s>trabzonspo: 7
+<s>trabzonspor: 5
+<s>trabzonspord: 3
+<s>trabzonsporda: 0
+
+---- <s>gOzlemesini
+
+<s>g: 22
+<s>ge: 20
+<s>: 17
+<s>gezle: 15
+<s>gezleme: 13
+<s>gezl: 7
+<s>gezlem: 7
+<s>gez: 6
+<s>gezlemes: 5
+<s>gezlemesi: 1
+<s>gezlemesin: 1
+<s>gezlemesini: 0
+
+---- <s>kimliklerdir
+
+<s>: 16
+<s>kim: 12
+<s>kimli: 11
+<s>ki: 10
+<s>kiml: 10
+<s>k: 9
+<s>kimlikl: 8
+<s>kimlikle: 6
+<s>kimliklerdi: 6
+<s>kimlik: 3
+<s>kimliklerd: 3
+<s>kimlikler: 2
+<s>kimliklerdir: 0
+
+---- <s>mabet
+
+<s>: 24
+<s>ma: 16
+<s>m: 8
+<s>mabe: 4
+<s>mab: 3
+<s>mabet: 0
+
+---- <s>teSvik
+
+<s>teS: 17
+<s>: 16
+<s>te: 16
+<s>t: 10
+<s>teSvi: 7
+<s>teSv: 3
+<s>teSvik: 0
+
+---- <s>bileceGim
+
+<s>: 21
+<s>bile: 17
+<s>bi: 11
+<s>bilece: 11
+<s>bileceGi: 11
+<s>b: 7
+<s>bilec: 7
+<s>bil: 5
+<s>bileceG: 5
+<s>bileceGim: 0
+
+---- <s>yapItIndaki
+
+<s>: 18
+<s>ya: 17
+<s>yapI: 9
+<s>y: 7
+<s>yapIt: 6
+<s>yap: 5
+<s>yapItIn: 5
+<s>yapItInda: 4
+<s>yapItI: 3
+<s>yapItInd: 2
+<s>yapItIndak: 2
+<s>yapItIndaki: 0
+
+---- <s>IzdIrabI
+
+<s>: 24
+<s>I: 19
+<s>Iz: 8
+<s>IzdI: 7
+<s>Izd: 5
+<s>IzdIra: 5
+<s>IzdIrab: 4
+<s>IzdIr: 3
+<s>IzdIrabI: 0
+
+---- <s>varsalar
+
+<s>va: 17
+<s>: 16
+<s>var: 10
+<s>v: 9
+<s>varsa: 8
+<s>vars: 3
+<s>varsala: 3
+<s>varsal: 1
+<s>varsalar: 0
+
+---- <s>Cizgisine
+
+<s>: 22
+<s>Ci: 19
+<s>C: 11
+<s>Ciz: 10
+<s>Cizgi: 9
+<s>Cizgis: 6
+<s>Cizgisin: 6
+<s>Cizg: 5
+<s>Cizgisi: 1
+<s>Cizgisine: 0
+
+---- <s>kOCek
+
+<s>: 20
+<s>k: 18
+<s>kO: 14
+<s>kOCe: 6
+<s>kOC: 1
+<s>kOCek: 0
+
+---- <s>basayI
+
+<s>: 25
+<s>ba: 21
+<s>basa: 8
+<s>b: 6
+<s>bas: 4
+<s>basay: 4
+<s>basayI: 0
+
+---- <s>bUrUnebilirler
+
+<s>: 26
+<s>bUrUne: 21
+<s>bU: 19
+<s>b: 16
+<s>bUr: 12
+<s>bUrUneb: 11
+<s>bUrUnebil: 10
+<s>bUrUnebili: 10
+<s>bUrUn: 9
+<s>bUrUnebilirle: 9
+<s>bUrU: 7
+<s>bUrUnebilirl: 6
+<s>bUrUnebi: 4
+<s>bUrUnebilir: 1
+<s>bUrUnebilirler: 0
+
+---- <s>sUrUlmekle
+
+<s>sU: 15
+<s>: 14
+<s>s: 13
+<s>sUrUl: 10
+<s>sUrUlm: 10
+<s>sUrUlmekl: 7
+<s>sUrU: 6
+<s>sUrUlme: 6
+<s>sUr: 5
+<s>sUrUlmek: 3
+<s>sUrUlmekle: 0
+
+---- <s>Uzerindekilerin
+
+<s>U: 19
+<s>: 15
+<s>Uze: 10
+<s>Uzerind: 8
+<s>Uzerinde: 8
+<s>Uzerindek: 8
+<s>Uzerindekil: 7
+<s>Uz: 6
+<s>Uzerin: 6
+<s>Uzerindekile: 6
+<s>Uzerindekiler: 6
+<s>Uzer: 5
+<s>Uzeri: 5
+<s>Uzerindeki: 4
+<s>Uzerindekileri: 4
+<s>Uzerindekilerin: 0
+
+---- <s>irfanInkilerin
+
+<s>irfanIn: 19
+<s>ir: 18
+<s>: 14
+<s>irfan: 14
+<s>i: 12
+<s>irfanI: 10
+<s>irfanInk: 9
+<s>irfa: 7
+<s>irf: 4
+<s>irfanInkil: 4
+<s>irfanInkiler: 4
+<s>irfanInki: 2
+<s>irfanInkile: 2
+<s>irfanInkileri: 1
+<s>irfanInkilerin: 1
+<s>irfanInkilerini: 1
+<s>irfanInkilerinin: 0
+
+---- <s>CIkarIna
+
+<s>: 20
+<s>CI: 15
+<s>CIkarIn: 8
+<s>CIk: 5
+<s>CIkar: 5
+<s>C: 4
+<s>CIka: 3
+<s>CIkarI: 1
+<s>CIkarIna: 0
+
+---- <s>yaklaSamIyorsa
+
+<s>yaklaSamay: 22
+<s>: 19
+<s>yakla: 18
+<s>yaklaSamayac: 18
+<s>y: 17
+<s>ya: 16
+<s>yak: 15
+<s>yakl: 12
+<s>yaklaSa: 12
+<s>yaklaSam: 12
+<s>yaklaSamayacaG: 12
+<s>yaklaSamayacaGIy: 11
+<s>yaklaSamayaca: 8
+<s>yaklaSamayacaGIyd: 8
+<s>yaklaS: 7
+<s>yaklaSama: 7
+<s>yaklaSamaya: 1
+<s>yaklaSamayacaGI: 1
+<s>yaklaSamayacaGIydI: 0
+
+---- <s>pohpohlayacak
+
+<s>po: 26
+<s>pohpo: 26
+<s>: 25
+<s>poh: 24
+<s>pohpohla: 23
+<s>p: 21
+<s>pohp: 18
+<s>pohpohlaya: 17
+<s>pohpohlayaca: 17
+<s>pohpoh: 13
+<s>pohpohl: 7
+<s>pohpohlay: 6
+<s>pohpohlayac: 4
+<s>pohpohlayacak: 0
+
+---- <s>tanImayacaGIna
+
+<s>tanImayac: 20
+<s>: 14
+<s>tanImay: 14
+<s>tanImaya: 14
+<s>tanImayacaG: 14
+<s>tanIma: 12
+<s>ta: 11
+<s>tanI: 11
+<s>tanImayaca: 11
+<s>tanIm: 7
+<s>tanImayacaGIn: 6
+<s>t: 4
+<s>tan: 4
+<s>tanImayacaGI: 2
+<s>tanImayacaGIna: 0
+
+---- <s>eleStirmeyeceksek
+
+<s>eleSt: 27
+<s>: 23
+<s>eleStirmeye: 20
+<s>eleStirmeyece: 20
+<s>eleSti: 18
+<s>eleStirme: 18
+<s>eleS: 17
+<s>eleStirmey: 16
+<s>el: 15
+<s>ele: 15
+<s>eleStirmeyec: 14
+<s>eleStir: 13
+<s>e: 12
+<s>eleStirm: 7
+<s>eleStirmeyecekse: 5
+<s>eleStirmeyecek: 3
+<s>eleStirmeyeceks: 2
+<s>eleStirmeyeceksek: 0
+
+---- <s>ulema
+
+<s>: 25
+<s>u: 7
+<s>ul: 7
+<s>ulem: 5
+<s>ule: 3
+<s>ulema: 0
+
+---- <s>etkilemediklerine
+
+<s>etkile: 16
+<s>: 12
+<s>etkilemed: 12
+<s>et: 11
+<s>etkileme: 11
+<s>etkilemedikler: 9
+<s>etki: 8
+<s>e: 7
+<s>etkil: 7
+<s>etk: 6
+<s>etkilem: 6
+<s>etkilemedikl: 6
+<s>etkilemediklerin: 4
+<s>etkilemedi: 3
+<s>etkilemedik: 1
+<s>etkilemedikle: 1
+<s>etkilemedikleri: 1
+<s>etkilemediklerine: 0
+
+---- <s>kamulaStIracaktIr
+
+<s>kamula: 16
+<s>kamulaStIra: 16
+<s>ka: 15
+<s>kamulaStIraca: 15
+<s>kamulaS: 14
+<s>k: 13
+<s>kamul: 11
+<s>kamulaStI: 11
+<s>kamulaStIr: 11
+<s>kamulaStIrac: 11
+<s>kam: 10
+<s>kamulaSt: 10
+<s>: 9
+<s>kamu: 9
+<s>kamulaStIracakt: 4
+<s>kamulaStIracaktI: 3
+<s>kamulaStIracak: 2
+<s>kamulaStIracaktIr: 0
+
+---- <s>hasrettirmiS
+
+<s>ha: 18
+<s>: 16
+<s>has: 16
+<s>hasre: 8
+<s>hasrett: 8
+<s>hasrettirmi: 8
+<s>h: 7
+<s>hasr: 7
+<s>hasret: 6
+<s>hasretti: 6
+<s>hasrettir: 4
+<s>hasrettirm: 2
+<s>hasrettirmiS: 0
+
+---- <s>yenilgilerde
+
+<s>: 26
+<s>ye: 16
+<s>yenil: 8
+<s>yenilgi: 8
+<s>yeni: 7
+<s>yen: 6
+<s>yenilg: 6
+<s>yenilgilerd: 5
+<s>y: 4
+<s>yenilgil: 4
+<s>yenilgile: 4
+<s>yenilgiler: 4
+<s>yenilgilerde: 0
+
+---- <s>imzala
+
+<s>: 25
+<s>im: 18
+<s>i: 15
+<s>imz: 5
+<s>imza: 4
+<s>imzal: 3
+<s>imzala: 0
+
+---- <s>dOnememen
+
+<s>d: 22
+<s>: 17
+<s>dOneme: 10
+<s>dOn: 9
+<s>dOne: 8
+<s>dOnememe: 8
+<s>dO: 7
+<s>dOnem: 5
+<s>dOnemem: 1
+<s>dOnememem: 0
+
+---- <s>gemilere
+
+<s>: 12
+<s>ge: 9
+<s>gemi: 8
+<s>g: 6
+<s>gemil: 5
+<s>gem: 4
+<s>gemile: 4
+<s>gemiler: 1
+<s>gemilere: 0
+
+---- <s>biriktirilmesinin
+
+<s>: 23
+<s>bi: 14
+<s>biriktirilme: 14
+<s>biri: 13
+<s>biriktiri: 12
+<s>birikti: 11
+<s>biriktiril: 10
+<s>b: 8
+<s>birikt: 6
+<s>biriktir: 6
+<s>biriktirilm: 6
+<s>biriktirilmes: 6
+<s>bir: 5
+<s>birik: 5
+<s>biriktirilmesi: 4
+<s>biriktirilmesin: 1
+<s>biriktirilmesini: 1
+<s>biriktirilmesinin: 0
+
+---- <s>koalisyonlarIyla
+
+<s>koalisyon: 23
+<s>koalisyonl: 22
+<s>k: 17
+<s>ko: 16
+<s>koa: 16
+<s>koalisy: 16
+<s>: 14
+<s>koalis: 14
+<s>koalisyo: 14
+<s>koalisyonlar: 14
+<s>koalisyonlarIyl: 13
+<s>koali: 12
+<s>koalisyonlarIy: 12
+<s>koal: 9
+<s>koalisyonla: 2
+<s>koalisyonlarI: 2
+<s>koalisyonlarIyla: 0
+
+---- <s>gUldUrmenin
+
+<s>g: 19
+<s>: 16
+<s>gUld: 13
+<s>gUldUr: 13
+<s>gU: 11
+<s>gUl: 11
+<s>gUldUrme: 10
+<s>gUldU: 8
+<s>gUldUrm: 8
+<s>gUldUrmen: 3
+<s>gUldUrmeni: 3
+<s>gUldUrmenin: 0
+
+---- <s>hakimiyetindeki
+
+<s>: 19
+<s>ha: 19
+<s>haki: 16
+<s>hakimiy: 12
+<s>hakimiye: 10
+<s>hakimi: 9
+<s>hakimiyet: 9
+<s>h: 8
+<s>hak: 7
+<s>hakim: 6
+<s>hakimiyeti: 5
+<s>hakimiyetinde: 5
+<s>hakimiyetin: 4
+<s>hakimiyetind: 2
+<s>hakimiyetindek: 1
+<s>hakimiyetindeki: 0
+
+---- <s>rakkasen
+
+<s>: 23
+<s>rak: 19
+<s>ra: 15
+<s>r: 11
+<s>rakka: 9
+<s>rakk: 4
+<s>rakkas: 2
+<s>rakkase: 2
+<s>rakkasen: 0
+
+---- <s>sahneliyor
+
+<s>: 27
+<s>sa: 22
+<s>sahneli: 15
+<s>s: 13
+<s>sah: 13
+<s>sahne: 13
+<s>sahneliyo: 13
+<s>sahn: 6
+<s>sahneliy: 6
+<s>sahnel: 3
+<s>sahneliyor: 0
+
+---- <s>diretmedi
+
+<s>di: 11
+<s>: 8
+<s>dire: 7
+<s>d: 5
+<s>dir: 5
+<s>diret: 4
+<s>diretm: 4
+<s>diretmed: 4
+<s>diretme: 3
+<s>diretmedi: 0
+
+---- <s>valiyle
+
+<s>: 16
+<s>v: 7
+<s>val: 5
+<s>valiy: 5
+<s>valiyl: 5
+<s>va: 4
+<s>vali: 4
+<s>valiyle: 0
+
+---- <s>yIkmaktan
+
+<s>: 18
+<s>yI: 15
+<s>yIk: 12
+<s>yIkma: 10
+<s>y: 9
+<s>yIkm: 4
+<s>yIkmakta: 4
+<s>yIkmak: 2
+<s>yIkmakt: 2
+<s>yIkmaktan: 0
+
+---- <s>ekmiS
+
+<s>: 13
+<s>ekmi: 12
+<s>e: 11
+<s>ek: 7
+<s>ekm: 3
+<s>ekmiS: 0
+
+---- <s>koparmadI
+
+<s>k: 28
+<s>: 17
+<s>ko: 16
+<s>kop: 8
+<s>kopa: 7
+<s>kopar: 5
+<s>koparm: 5
+<s>koparma: 4
+<s>koparmad: 3
+<s>koparmadI: 0
+
+---- <s>yerlinin
+
+<s>: 20
+<s>y: 8
+<s>ye: 6
+<s>yer: 4
+<s>yerl: 4
+<s>yerlini: 4
+<s>yerli: 3
+<s>yerlin: 1
+<s>yerlinin: 0
+
+---- <s>ilerideydi
+
+<s>: 12
+<s>i: 8
+<s>ile: 8
+<s>il: 6
+<s>ileri: 5
+<s>ileride: 4
+<s>ilerideyd: 4
+<s>iler: 3
+<s>ilerid: 3
+<s>ileridey: 3
+<s>ilerideydi: 0
+
+---- <s>OldUrUyorlarsa
+
+<s>OldUrUy: 29
+<s>OldUrUyo: 24
+<s>OldUrUyorl: 23
+<s>Old: 22
+<s>OldUr: 18
+<s>OldUrU: 18
+<s>OldUrUyor: 13
+<s>OldU: 12
+<s>Ol: 11
+<s>OldUrUyorlar: 9
+<s>: 8
+<s>OldUrUyorla: 7
+<s>O: 6
+<s>OldUrUyorlars: 4
+<s>OldUrUyorlarsa: 0
+
+---- <s>canlandIrmIStIr
+
+<s>: 24
+<s>canlandIrmI: 18
+<s>canland: 11
+<s>ca: 10
+<s>c: 8
+<s>can: 8
+<s>canlandIr: 8
+<s>canlandIrmIStI: 8
+<s>canlandI: 7
+<s>canlan: 5
+<s>canlandIrm: 5
+<s>canl: 4
+<s>canla: 4
+<s>canlandIrmIS: 2
+<s>canlandIrmISt: 2
+<s>canlandIrmIStIr: 0
+
+---- <s>IlImlIlIGInI
+
+<s>IlImlIl: 17
+<s>: 15
+<s>IlImlI: 15
+<s>IlImlIlIG: 15
+<s>IlImlIlI: 13
+<s>Il: 11
+<s>IlI: 11
+<s>IlIml: 8
+<s>I: 7
+<s>IlIm: 6
+<s>IlImlIlIGIn: 3
+<s>IlImlIlIGI: 2
+<s>IlImlIlIGInI: 0
+
+---- <s>uslanma
+
+<s>: 22
+<s>u: 14
+<s>uslan: 13
+<s>uslanm: 7
+<s>usl: 6
+<s>us: 4
+<s>usla: 2
+<s>uslanma: 0
+
+---- <s>olunabildiGini
+
+<s>oluna: 28
+<s>: 22
+<s>o: 13
+<s>olun: 13
+<s>olunabil: 13
+<s>olunabild: 13
+<s>olunabildiG: 13
+<s>olunab: 12
+<s>olunabildi: 12
+<s>olu: 10
+<s>ol: 9
+<s>olunabildiGin: 7
+<s>olunabi: 6
+<s>olunabildiGi: 3
+<s>olunabildiGini: 0
+
+---- <s>gezginidir
+
+<s>: 20
+<s>ge: 18
+<s>gezginidi: 12
+<s>gezgini: 10
+<s>gez: 9
+<s>g: 6
+<s>gezgi: 6
+<s>gezgin: 3
+<s>gezg: 2
+<s>gezginid: 1
+<s>gezginidir: 0
+
+---- <s>diplere
+
+<s>di: 15
+<s>: 14
+<s>d: 6
+<s>dip: 4
+<s>dipl: 4
+<s>dipler: 4
+<s>diple: 1
+<s>diplere: 0
+
+---- <s>mersinliyi
+
+<s>: 21
+<s>mer: 16
+<s>me: 13
+<s>mersinl: 10
+<s>mersin: 9
+<s>m: 5
+<s>mersi: 5
+<s>mers: 4
+<s>mersinliy: 4
+<s>mersinli: 2
+<s>mersinliyi: 0
+
+---- <s>dezavantajlara
+
+<s>de: 25
+<s>d: 20
+<s>: 18
+<s>dezav: 16
+<s>dezavan: 16
+<s>deza: 15
+<s>dezavanta: 13
+<s>dez: 12
+<s>dezava: 9
+<s>dezavant: 9
+<s>dezavantajl: 8
+<s>dezavantaj: 7
+<s>dezavantajlar: 4
+<s>dezavantajla: 1
+<s>dezavantajlara: 0
+
+---- <s>Sirinyerdeki
+
+<s>: 25
+<s>Si: 19
+<s>Sirinderde: 12
+<s>Sir: 6
+<s>Siri: 6
+<s>Sirin: 6
+<s>Sirinde: 6
+<s>S: 5
+<s>Sirind: 4
+<s>Sirinder: 4
+<s>Sirinderd: 2
+<s>Sirinderdek: 1
+<s>Sirinderdeki: 0
+
+---- <s>maksadImIzI
+
+<s>: 24
+<s>ma: 18
+<s>mak: 16
+<s>m: 15
+<s>maksa: 15
+<s>maksadI: 14
+<s>maksad: 10
+<s>maks: 8
+<s>maksadIm: 7
+<s>maksadImI: 1
+<s>maksadImIz: 1
+<s>maksadImIzI: 0
+
+---- <s>yadsIyIcI
+
+<s>: 17
+<s>yad: 14
+<s>y: 12
+<s>ya: 11
+<s>yadsIy: 9
+<s>yadsI: 8
+<s>yadsIyI: 6
+<s>yads: 5
+<s>yadsIyIc: 4
+<s>yadsIyIcI: 0
+
+---- <s>aCabileceGine
+
+<s>aCa: 19
+<s>aCabile: 19
+<s>: 17
+<s>a: 17
+<s>aCabilec: 15
+<s>aCabil: 11
+<s>aCabilece: 10
+<s>aC: 7
+<s>aCabileceG: 7
+<s>aCab: 6
+<s>aCabi: 6
+<s>aCabileceGin: 4
+<s>aCabileceGi: 1
+<s>aCabileceGine: 0
+
+---- <s>dOvUSemeyen
+
+<s>d: 27
+<s>: 24
+<s>dO: 21
+<s>dOvUSeme: 21
+<s>dOvUS: 11
+<s>dOvU: 10
+<s>dOvUSe: 10
+<s>dOv: 9
+<s>dOvUSemey: 7
+<s>dOvUSemeye: 7
+<s>dOvUSem: 5
+<s>dOvUSemeyen: 0
+
+---- <s>dolaysIzlIGIn
+
+<s>: 18
+<s>d: 16
+<s>dola: 15
+<s>dolay: 14
+<s>dolaysIzlI: 13
+<s>do: 12
+<s>dolaysI: 12
+<s>dolaysIzlIG: 12
+<s>dol: 10
+<s>dolaysIzl: 10
+<s>dolays: 9
+<s>dolaysIz: 7
+<s>dolaysIzlIGI: 5
+<s>dolaysIzlIGIn: 0
+
+---- <s>ceketimin
+
+<s>: 25
+<s>ce: 15
+<s>ceke: 13
+<s>ceketi: 11
+<s>c: 9
+<s>ceket: 5
+<s>cek: 3
+<s>ceketimi: 3
+<s>ceketim: 1
+<s>ceketimin: 0
+
+---- <s>iktibasta
+
+<s>: 23
+<s>ikti: 22
+<s>ik: 16
+<s>i: 13
+<s>iktib: 9
+<s>iktiba: 8
+<s>ikt: 7
+<s>iktibas: 4
+<s>iktibast: 2
+<s>iktibasta: 0
+
+---- <s>esrarlarIyla
+
+<s>: 20
+<s>e: 15
+<s>es: 15
+<s>esrarl: 14
+<s>esra: 12
+<s>esrarlar: 11
+<s>esrar: 8
+<s>esr: 7
+<s>esrarlarI: 5
+<s>esrarlarIy: 5
+<s>esrarlarIyl: 4
+<s>esrarla: 1
+<s>esrarlarIyla: 0
+
+---- <s>yamalarIn
+
+<s>: 20
+<s>ya: 15
+<s>y: 7
+<s>yama: 6
+<s>yam: 5
+<s>yamal: 5
+<s>yamala: 5
+<s>yamalar: 2
+<s>yamalarI: 2
+<s>yamalarIn: 0
+
+---- <s>fikirlerinde
+
+<s>: 28
+<s>fi: 19
+<s>f: 7
+<s>fik: 6
+<s>fikir: 6
+<s>fikirlerind: 6
+<s>fiki: 5
+<s>fikirl: 5
+<s>fikirler: 5
+<s>fikirle: 4
+<s>fikirlerin: 4
+<s>fikirleri: 1
+<s>fikirlerinde: 0
+
+---- <s>yatIyordun
+
+<s>: 16
+<s>ya: 15
+<s>yatIy: 15
+<s>yatIyo: 14
+<s>yatIyordu: 13
+<s>yatIyord: 12
+<s>y: 8
+<s>yatI: 8
+<s>yatIyor: 5
+<s>yat: 4
+<s>yatIyordun: 0
+
+---- <s>gUzelliGindeydi
+
+<s>gU: 23
+<s>: 17
+<s>g: 13
+<s>gUzelliGinde: 11
+<s>gUzelliGindeyd: 9
+<s>gUzel: 8
+<s>gUzelli: 8
+<s>gUze: 7
+<s>gUzelliG: 7
+<s>gUzelliGind: 7
+<s>gUz: 6
+<s>gUzell: 6
+<s>gUzelliGin: 5
+<s>gUzelliGindey: 5
+<s>gUzelliGi: 2
+<s>gUzelliGindeydi: 0
+
+---- <s>mektuplarIndaki
+
+<s>: 23
+<s>me: 15
+<s>mekt: 14
+<s>mektupl: 14
+<s>mek: 13
+<s>mektu: 13
+<s>m: 10
+<s>mektup: 8
+<s>mektuplar: 8
+<s>mektupla: 5
+<s>mektuplarI: 3
+<s>mektuplarIn: 3
+<s>mektuplarInd: 3
+<s>mektuplarInda: 3
+<s>mektuplarIndak: 3
+<s>mektuplarIndaki: 0
+
+---- <s>davamI
+
+<s>da: 23
+<s>: 18
+<s>d: 9
+<s>dav: 6
+<s>davam: 4
+<s>dava: 3
+<s>davamI: 0
+
+---- <s>inlerine
+
+<s>: 21
+<s>inler: 7
+<s>i: 6
+<s>in: 6
+<s>inl: 5
+<s>inlerin: 4
+<s>inle: 2
+<s>inleri: 1
+<s>inlerine: 0
+
+---- <s>aslIndan
+
+<s>: 24
+<s>a: 15
+<s>as: 5
+<s>asl: 5
+<s>aslI: 5
+<s>aslInd: 3
+<s>aslIn: 1
+<s>aslInda: 1
+<s>aslIndan: 0
+
+---- <s>gUdUyor
+
+<s>: 18
+<s>g: 18
+<s>gU: 15
+<s>gUdU: 14
+<s>gUdUy: 13
+<s>gUd: 11
+<s>gUdUyo: 10
+<s>gUdUyor: 0
+
+---- <s>aSmIStI
+
+<s>: 13
+<s>a: 10
+<s>aS: 10
+<s>aSm: 4
+<s>aSmISt: 3
+<s>aSmI: 2
+<s>aSmIS: 2
+<s>aSmIStI: 0
+
+---- <s>yIGInaGInIn
+
+<s>: 19
+<s>yIGInaG: 12
+<s>yI: 8
+<s>yIGIna: 8
+<s>y: 7
+<s>yIGI: 7
+<s>yIGIn: 6
+<s>yIGInaGI: 6
+<s>yIG: 4
+<s>yIGInaGIn: 2
+<s>yIGInaGInI: 2
+<s>yIGInaGInIn: 0
+
+---- <s>meslektaSlarInIz
+
+<s>: 20
+<s>me: 17
+<s>mes: 15
+<s>mesle: 15
+<s>m: 13
+<s>meslek: 12
+<s>meslektaSl: 12
+<s>meslektaSla: 12
+<s>meslektaSlar: 12
+<s>mesl: 11
+<s>meslekt: 11
+<s>meslekta: 11
+<s>meslektaSlarI: 11
+<s>meslektaS: 7
+<s>meslektaSlarIn: 1
+<s>meslektaSlarInI: 1
+<s>meslektaSlarInIz: 0
+
+---- <s>kaydedilmediGi
+
+<s>: 16
+<s>kay: 16
+<s>kaydedil: 14
+<s>k: 13
+<s>kaydedi: 13
+<s>kaydedilme: 13
+<s>ka: 12
+<s>kaydedilmed: 12
+<s>kayde: 10
+<s>kaydedilm: 9
+<s>kayd: 8
+<s>kaydedilmedi: 7
+<s>kayded: 6
+<s>kaydedilmediG: 5
+<s>kaydedilmediGi: 0
+
+---- <s>serpiStirilen
+
+<s>: 22
+<s>ser: 18
+<s>serpiStiri: 16
+<s>s: 12
+<s>se: 12
+<s>serpi: 11
+<s>serpiSti: 9
+<s>serpiStiril: 9
+<s>serpiStirile: 8
+<s>serpiSt: 7
+<s>serp: 5
+<s>serpiS: 5
+<s>serpiStir: 5
+<s>serpiStirilen: 0
+
+---- <s>SarabI
+
+<s>: 24
+<s>Sa: 9
+<s>S: 8
+<s>Sara: 8
+<s>Sar: 5
+<s>Sarab: 4
+<s>SarabI: 0
+
+---- <s>yUzdeyim
+
+<s>y: 25
+<s>: 21
+<s>yU: 20
+<s>yUzde: 14
+<s>yUzdeyi: 10
+<s>yUz: 9
+<s>yUzd: 6
+<s>yUzdey: 4
+<s>yUzdeyim: 0
+
+---- <s>yemleyin
+
+<s>: 20
+<s>yemle: 17
+<s>y: 12
+<s>ye: 12
+<s>yemleyi: 9
+<s>yem: 6
+<s>yeml: 5
+<s>yemley: 3
+<s>yemleyin: 0
+
+---- <s>uyarIsIz
+
+<s>uyarI: 17
+<s>: 15
+<s>uya: 14
+<s>u: 12
+<s>uy: 8
+<s>uyar: 6
+<s>uyarIs: 3
+<s>uyarIsI: 3
+<s>uyarIsIz: 0
+
+---- <s>Sebekesine
+
+<s>Se: 19
+<s>: 15
+<s>Sebe: 13
+<s>S: 9
+<s>Sebek: 9
+<s>Seb: 7
+<s>Sebeke: 6
+<s>Sebekes: 6
+<s>Sebekesin: 4
+<s>Sebekesi: 1
+<s>Sebekesine: 0
+
+---- <s>konmuStur
+
+<s>k: 25
+<s>: 17
+<s>kon: 12
+<s>konmu: 12
+<s>konm: 9
+<s>konmuStu: 9
+<s>ko: 6
+<s>konmuSt: 3
+<s>konmuS: 2
+<s>konmuStur: 0
+
+---- <s>CalISIlamamIS
+
+<s>CalISIla: 21
+<s>: 18
+<s>CalISIl: 14
+<s>CalI: 13
+<s>CalISI: 12
+<s>CalISIlama: 10
+<s>CalISIlam: 9
+<s>CalISIlamamI: 8
+<s>C: 6
+<s>Ca: 5
+<s>CalIS: 5
+<s>Cal: 4
+<s>CalISIlamam: 3
+<s>CalISIlamamIS: 0
+
+---- <s>edindiGini
+
+<s>: 18
+<s>edindi: 14
+<s>edind: 9
+<s>edi: 8
+<s>edindiG: 7
+<s>e: 6
+<s>ed: 6
+<s>edin: 6
+<s>edindiGin: 3
+<s>edindiGi: 1
+<s>edindiGini: 0
+
+---- <s>gerCekleStirdiklerimizle
+
+<s>ger: 17
+<s>gerCekleStirilmektedirl: 15
+<s>: 14
+<s>ge: 14
+<s>gerCekleStirilmektedir: 13
+<s>g: 12
+<s>gerCekleStiri: 12
+<s>gerCekleStiril: 12
+<s>gerCe: 11
+<s>gerCekleStirilme: 11
+<s>gerCekleStirilmektedirlikl: 11
+<s>gerCekleStirilmekted: 10
+<s>gerCekleStir: 9
+<s>gerCekleStirilmektedirlikler: 9
+<s>gerCekleStirilmektedirliklerim: 9
+<s>gerCekleStirilm: 8
+<s>gerCekleStirilmekt: 8
+<s>gerCekleStirilmektedirli: 8
+<s>gerC: 7
+<s>gerCekle: 6
+<s>gerCekleSti: 6
+<s>gerCekl: 5
+<s>gerCekleSt: 5
+<s>gerCekleStirilmektedi: 5
+<s>gerCekleStirilmektedirliklerimiz: 5
+<s>gerCekleS: 4
+<s>gerCekleStirilmek: 4
+<s>gerCekleStirilmektedirlik: 4
+<s>gerCekleStirilmektedirliklerimizl: 4
+<s>gerCekleStirilmektedirlikleri: 3
+<s>gerCekleStirilmektedirliklerimi: 3
+<s>gerCek: 1
+<s>gerCekleStirilmekte: 1
+<s>gerCekleStirilmektedirlikle: 1
+<s>gerCekleStirilmektedirliklerimizle: 0
+
+---- <s>hIzlandIrarak
+
+<s>: 18
+<s>hI: 16
+<s>hIzlandIra: 9
+<s>hIz: 7
+<s>hIzland: 7
+<s>hIzlandIr: 7
+<s>hIzl: 6
+<s>hIzlandI: 6
+<s>h: 5
+<s>hIzla: 5
+<s>hIzlan: 5
+<s>hIzlandIrara: 5
+<s>hIzlandIrar: 1
+<s>hIzlandIrarak: 0
+
+---- <s>naklediliyormuS
+
+<s>nakledili: 29
+<s>naklediliy: 29
+<s>nakledi: 23
+<s>nakledil: 17
+<s>: 14
+<s>na: 14
+<s>nak: 14
+<s>nakle: 11
+<s>nakled: 11
+<s>naklediliyo: 11
+<s>n: 9
+<s>naklediliyormu: 9
+<s>nakl: 8
+<s>naklediliyorm: 8
+<s>naklediliyor: 2
+<s>naklediliyormuS: 0
+
+---- <s>konuSabilen
+
+<s>k: 26
+<s>konuSa: 26
+<s>: 19
+<s>konu: 16
+<s>ko: 15
+<s>kon: 11
+<s>konuSab: 9
+<s>konuSabile: 9
+<s>konuS: 7
+<s>konuSabi: 6
+<s>konuSabil: 5
+<s>konuSabilen: 0
+
+---- <s>Ozendirmek
+
+<s>: 26
+<s>O: 21
+<s>Ozendirme: 14
+<s>Ozend: 9
+<s>Ozendir: 8
+<s>Oz: 7
+<s>Oze: 7
+<s>Ozendi: 7
+<s>Ozen: 5
+<s>Ozendirm: 2
+<s>Ozendirmek: 0
+
+---- <s>dayandIrIlmIS
+
+<s>dayandIrI: 19
+<s>: 18
+<s>da: 17
+<s>dayandIrIlmI: 13
+<s>d: 9
+<s>dayandIrIl: 9
+<s>day: 8
+<s>daya: 8
+<s>dayandIr: 7
+<s>dayand: 6
+<s>dayandI: 6
+<s>dayandIrIlm: 6
+<s>dayan: 5
+<s>dayandIrIlmIS: 0
+
+---- <s>hesaplanacakmIS
+
+<s>hesaplanaca: 23
+<s>: 21
+<s>he: 20
+<s>hesaplana: 17
+<s>hes: 15
+<s>hesa: 14
+<s>hesaplanac: 14
+<s>hesapla: 12
+<s>hesaplanacakmI: 10
+<s>hesaplan: 9
+<s>h: 7
+<s>hesaplanacak: 6
+<s>hesap: 5
+<s>hesapl: 4
+<s>hesaplanacakm: 3
+<s>hesaplanacakmIS: 0
+
+---- <s>mutabakatIyla
+
+<s>: 23
+<s>muta: 20
+<s>mutaba: 20
+<s>mu: 13
+<s>mutab: 13
+<s>mutabak: 13
+<s>mutabakat: 12
+<s>mutabakatIyl: 11
+<s>mut: 9
+<s>mutabakatIy: 9
+<s>m: 7
+<s>mutabaka: 7
+<s>mutabakatI: 6
+<s>mutabakatIyla: 0
+
+---- <s>aksimizde
+
+<s>ak: 16
+<s>a: 15
+<s>: 13
+<s>aksim: 10
+<s>aksi: 8
+<s>aksimiz: 7
+<s>aks: 6
+<s>aksimizd: 3
+<s>aksimi: 2
+<s>aksimizde: 0
+
+---- <s>kapIlarImIzI
+
+<s>ka: 18
+<s>: 13
+<s>kapIla: 12
+<s>kapIlar: 11
+<s>k: 8
+<s>kapIl: 8
+<s>kapIlarIm: 8
+<s>kapI: 7
+<s>kapIlarI: 7
+<s>kap: 5
+<s>kapIlarImI: 2
+<s>kapIlarImIz: 2
+<s>kapIlarImIzI: 0
+
+---- <s>iSlememesi
+
+<s>iSle: 16
+<s>i: 13
+<s>: 12
+<s>iS: 12
+<s>iSleme: 12
+<s>iSl: 8
+<s>iSlememe: 7
+<s>iSlem: 6
+<s>iSlemem: 6
+<s>iSlememes: 3
+<s>iSlememesi: 0
+
+---- <s>mayalandIrIp
+
+<s>: 22
+<s>mayalandI: 19
+<s>ma: 14
+<s>mayalandIrI: 13
+<s>mayaland: 12
+<s>mayal: 10
+<s>m: 9
+<s>maya: 9
+<s>mayala: 8
+<s>mayalan: 7
+<s>may: 6
+<s>mayalandIr: 2
+<s>mayalandIrIp: 0
+
+---- <s>OGretisi
+
+<s>: 26
+<s>O: 20
+<s>OG: 15
+<s>OGre: 10
+<s>OGr: 8
+<s>OGreti: 6
+<s>OGret: 5
+<s>OGretis: 3
+<s>OGretisi: 0
+
+---- <s>aGzImIzdan
+
+<s>: 25
+<s>aG: 14
+<s>a: 12
+<s>aGzI: 8
+<s>aGzImI: 8
+<s>aGz: 6
+<s>aGzIm: 6
+<s>aGzImIzda: 6
+<s>aGzImIzd: 5
+<s>aGzImIz: 4
+<s>aGzImIzdan: 0
+
+---- <s>parlementosu
+
+<s>: 21
+<s>par: 20
+<s>parlemen: 16
+<s>parle: 15
+<s>p: 10
+<s>pa: 10
+<s>parlem: 9
+<s>parlement: 9
+<s>parl: 8
+<s>parleme: 7
+<s>parlemento: 3
+<s>parlementos: 2
+<s>parlementosu: 0
+
+---- <s>ballanIrsa
+
+<s>: 20
+<s>b: 9
+<s>ba: 9
+<s>ballanIr: 9
+<s>bal: 8
+<s>ballan: 7
+<s>ballanI: 7
+<s>ball: 3
+<s>ballanIrs: 3
+<s>balla: 2
+<s>ballanIrsa: 0
+
+---- <s>sevilir
+
+<s>se: 26
+<s>: 25
+<s>sevili: 11
+<s>s: 10
+<s>sev: 5
+<s>sevi: 4
+<s>sevil: 3
+<s>sevilir: 0
+
+---- <s>OngOrUlmekte
+
+<s>: 30
+<s>Ong: 19
+<s>On: 18
+<s>OngOrUl: 15
+<s>OngOrUlm: 15
+<s>OngO: 14
+<s>O: 11
+<s>OngOrU: 11
+<s>OngOrUlme: 10
+<s>OngOrUlmekt: 9
+<s>OngOr: 8
+<s>OngOrUlmek: 4
+<s>OngOrUlmekte: 0
+
+---- <s>bilmeyeceGiz
+
+<s>bilmeye: 24
+<s>bilmeyece: 23
+<s>: 17
+<s>bil: 15
+<s>bilme: 14
+<s>b: 9
+<s>bi: 9
+<s>bilmey: 8
+<s>bilm: 6
+<s>bilmeyec: 6
+<s>bilmeyeceG: 4
+<s>bilmeyeceGi: 2
+<s>bilmeyeceGiz: 0
+
+---- <s>florasInda
+
+<s>: 21
+<s>f: 19
+<s>flo: 15
+<s>flor: 12
+<s>fl: 11
+<s>flora: 7
+<s>floras: 7
+<s>florasIn: 5
+<s>florasInd: 4
+<s>florasI: 1
+<s>florasInda: 0
+
+---- <s>dergaha
+
+<s>d: 19
+<s>der: 18
+<s>: 16
+<s>derga: 16
+<s>de: 11
+<s>derg: 6
+<s>dergah: 3
+<s>dergaha: 0
+
+---- <s>harbisi
+
+<s>: 16
+<s>har: 16
+<s>ha: 12
+<s>h: 8
+<s>harbi: 4
+<s>harb: 2
+<s>harbis: 2
+<s>harbisi: 0
+
+---- <s>koymazsanIz
+
+<s>k: 22
+<s>koy: 22
+<s>: 21
+<s>koymazsa: 18
+<s>koyma: 15
+<s>ko: 13
+<s>koym: 10
+<s>koymaz: 8
+<s>koymazs: 6
+<s>koymazsan: 3
+<s>koymazsanI: 1
+<s>koymazsanIz: 0
+
+---- <s>kaybetmemesi
+
+<s>kay: 20
+<s>kayb: 17
+<s>: 16
+<s>kaybe: 15
+<s>ka: 13
+<s>kaybetme: 13
+<s>k: 12
+<s>kaybetmeme: 8
+<s>kaybet: 7
+<s>kaybetm: 6
+<s>kaybetmem: 6
+<s>kaybetmemes: 2
+<s>kaybetmemesi: 0
+
+---- <s>emekliyi
+
+<s>: 22
+<s>e: 13
+<s>eme: 13
+<s>emekl: 9
+<s>em: 5
+<s>emek: 5
+<s>emekliy: 4
+<s>emekli: 1
+<s>emekliyi: 0
+
+---- <s>karIklarI
+
+<s>: 13
+<s>ka: 10
+<s>k: 8
+<s>karI: 5
+<s>kar: 4
+<s>karIk: 3
+<s>karIkl: 2
+<s>karIklar: 2
+<s>karIkla: 1
+<s>karIklarI: 0
+
+---- <s>dualarIma
+
+<s>: 17
+<s>d: 13
+<s>du: 13
+<s>dua: 10
+<s>duala: 9
+<s>dual: 7
+<s>dualar: 6
+<s>dualarIm: 6
+<s>dualarI: 2
+<s>dualarIma: 0
+
+---- <s>umursamazlIk
+
+<s>: 22
+<s>um: 19
+<s>umursama: 18
+<s>umu: 17
+<s>umur: 15
+<s>umursa: 13
+<s>u: 12
+<s>umurs: 12
+<s>umursam: 7
+<s>umursamazl: 6
+<s>umursamazlI: 5
+<s>umursamaz: 4
+<s>umursamazlIk: 0
+
+---- <s>yetiSsin
+
+<s>: 16
+<s>yet: 12
+<s>yeti: 12
+<s>yetiS: 11
+<s>y: 9
+<s>ye: 9
+<s>yetiSs: 4
+<s>yetiSsi: 4
+<s>yetiSsin: 0
+
+---- <s>vadisi
+
+<s>: 15
+<s>va: 10
+<s>v: 7
+<s>vad: 3
+<s>vadi: 3
+<s>vadis: 2
+<s>vadisi: 0
+
+---- <s>gizleyince
+
+<s>gizleyin: 21
+<s>gi: 15
+<s>: 13
+<s>gizley: 10
+<s>gizleyinc: 10
+<s>giz: 8
+<s>g: 6
+<s>gizl: 6
+<s>gizle: 4
+<s>gizleyi: 2
+<s>gizleyince: 0
+
+---- <s>kraliCeye
+
+<s>k: 20
+<s>: 15
+<s>krali: 15
+<s>kra: 14
+<s>kraliC: 6
+<s>kr: 5
+<s>kral: 5
+<s>kraliCey: 3
+<s>kraliCe: 1
+<s>kraliCeye: 0
+
+---- <s>iSlevimizi
+
+<s>iSle: 16
+<s>: 13
+<s>i: 12
+<s>iSlev: 11
+<s>iSlevim: 11
+<s>iS: 10
+<s>iSlevi: 10
+<s>iSl: 8
+<s>iSlevimi: 1
+<s>iSlevimiz: 1
+<s>iSlevimizi: 0
+
+---- <s>Uretilmesini
+
+<s>: 24
+<s>U: 17
+<s>Uretil: 16
+<s>Uretilme: 15
+<s>Ure: 13
+<s>Uretilm: 11
+<s>Ureti: 10
+<s>Uretilmes: 10
+<s>Ur: 8
+<s>Uret: 5
+<s>Uretilmesin: 3
+<s>Uretilmesi: 1
+<s>Uretilmesini: 0
+
+---- <s>semptomlarIna
+
+<s>: 26
+<s>sem: 20
+<s>s: 19
+<s>se: 16
+<s>semp: 15
+<s>sempt: 13
+<s>sempto: 10
+<s>semptoml: 10
+<s>semptomlar: 10
+<s>semptom: 9
+<s>semptomlarIn: 7
+<s>semptomla: 4
+<s>semptomlarI: 1
+<s>semptomlarIna: 0
+
+---- <s>con
+
+<s>: 28
+<s>c: 6
+<s>co: 1
+<s>con: 0
+
+---- <s>yaramazlIklar
+
+<s>: 20
+<s>ya: 16
+<s>y: 13
+<s>yara: 13
+<s>yarama: 12
+<s>yaramazl: 9
+<s>yar: 7
+<s>yaram: 7
+<s>yaramazlI: 6
+<s>yaramazlIkla: 6
+<s>yaramazlIkl: 4
+<s>yaramaz: 3
+<s>yaramazlIk: 1
+<s>yaramazlIklar: 0
+
+---- <s>unutmayacaktIm
+
+<s>: 28
+<s>unutmayaca: 21
+<s>unutmaya: 20
+<s>unutma: 18
+<s>unutmayac: 16
+<s>unutmay: 14
+<s>unu: 13
+<s>unutmayacaktI: 13
+<s>u: 11
+<s>un: 9
+<s>unutm: 9
+<s>unut: 8
+<s>unutmayacakt: 8
+<s>unutmayacak: 7
+<s>unutmayacaktIm: 0
+
+---- <s>Cevirmektir
+
+<s>Ci: 27
+<s>: 18
+<s>Cizertme: 11
+<s>Cize: 10
+<s>Cizer: 9
+<s>C: 7
+<s>Cizert: 7
+<s>Ciz: 6
+<s>Cizertmekti: 5
+<s>Cizertm: 3
+<s>Cizertmekt: 3
+<s>Cizertmek: 1
+<s>Cizertmektir: 0
+
+---- <s>imarIna
+
+<s>: 16
+<s>I: 14
+<s>Im: 7
+<s>ImarIn: 6
+<s>Imar: 5
+<s>Ima: 4
+<s>ImarI: 1
+<s>ImarIna: 0
+
+---- <s>dalIm
+
+<s>: 15
+<s>da: 7
+<s>d: 6
+<s>dalI: 6
+<s>dal: 3
+<s>dalIm: 0
+
+---- <s>muhtevasInda
+
+<s>: 26
+<s>m: 24
+<s>mu: 22
+<s>muh: 19
+<s>muhte: 17
+<s>muht: 14
+<s>muhtevas: 12
+<s>muhtev: 10
+<s>muhteva: 10
+<s>muhtevasIn: 6
+<s>muhtevasInd: 3
+<s>muhtevasI: 1
+<s>muhtevasInda: 0
+
+---- <s>uCuSur
+
+<s>: 24
+<s>uCuSu: 16
+<s>uCu: 13
+<s>u: 12
+<s>uC: 6
+<s>uCuS: 2
+<s>uCuSur: 0
+
+---- <s>sayIStaya
+
+<s>: 26
+<s>sayI: 14
+<s>sa: 13
+<s>sayIS: 10
+<s>s: 8
+<s>say: 7
+<s>sayIStay: 5
+<s>sayISt: 4
+<s>sayISta: 1
+<s>sayIStaya: 0
+
+---- <s>enfrarujdaki
+
+<s>en: 27
+<s>enf: 26
+<s>: 19
+<s>e: 14
+<s>enfr: 12
+<s>enfra: 10
+<s>enfrar: 10
+<s>enfrarI: 8
+<s>enfrarIz: 3
+<s>enfrarIzda: 3
+<s>enfrarIzdak: 2
+<s>enfrarIzd: 1
+<s>enfrarIzdaki: 0
+
+---- <s>kestirirdik
+
+<s>: 19
+<s>ke: 17
+<s>kestiri: 14
+<s>k: 13
+<s>kestir: 8
+<s>kesti: 7
+<s>kes: 6
+<s>kest: 6
+<s>kestirird: 4
+<s>kestirirdi: 4
+<s>kestirir: 3
+<s>kestirirdik: 0
+
+---- <s>sanatsallaSmasInda
+
+<s>: 21
+<s>sa: 19
+<s>sana: 14
+<s>san: 13
+<s>sanatsalla: 12
+<s>sanatsallaSmas: 12
+<s>sanat: 11
+<s>sanatsallaSma: 11
+<s>sanatsa: 10
+<s>sanatsall: 10
+<s>sanatsallaSm: 10
+<s>s: 9
+<s>sanatsal: 9
+<s>sanatsallaS: 9
+<s>sanatsallaSmasInd: 5
+<s>sanats: 4
+<s>sanatsallaSmasIn: 4
+<s>sanatsallaSmasI: 2
+<s>sanatsallaSmasInda: 0
+
+---- <s>reseptOrUnde
+
+<s>re: 26
+<s>r: 23
+<s>: 18
+<s>res: 13
+<s>rese: 13
+<s>resept: 12
+<s>reseptOr: 10
+<s>resep: 9
+<s>reseptOrUnd: 6
+<s>reseptOrUn: 5
+<s>reseptO: 4
+<s>reseptOrU: 1
+<s>reseptOrUnde: 0
+
+---- <s>allahlarI
+
+<s>al: 20
+<s>: 18
+<s>alla: 17
+<s>a: 11
+<s>all: 7
+<s>allah: 4
+<s>allahl: 3
+<s>allahla: 2
+<s>allahlar: 2
+<s>allahlarI: 0
+
+---- <s>destekCilerini
+
+<s>d: 20
+<s>: 19
+<s>de: 16
+<s>des: 16
+<s>deste: 16
+<s>destekCile: 11
+<s>destekCiler: 8
+<s>destek: 7
+<s>dest: 6
+<s>destekC: 6
+<s>destekCi: 5
+<s>destekCil: 4
+<s>destekCilerin: 4
+<s>destekCileri: 1
+<s>destekCilerini: 0
+
+---- <s>seferberliGin
+
+<s>: 27
+<s>se: 25
+<s>sefer: 17
+<s>sefe: 15
+<s>seferbe: 13
+<s>seferber: 13
+<s>s: 12
+<s>sef: 12
+<s>seferberli: 9
+<s>seferberl: 7
+<s>seferb: 6
+<s>seferberliGi: 3
+<s>seferberliG: 1
+<s>seferberliGin: 0
+
+---- <s>edebildiGi
+
+<s>ede: 20
+<s>: 18
+<s>e: 10
+<s>edebil: 10
+<s>edebild: 10
+<s>edeb: 6
+<s>edebi: 5
+<s>ed: 4
+<s>edebildiG: 4
+<s>edebildi: 3
+<s>edebildiGi: 0
+
+---- <s>inanmayInIz
+
+<s>inanmayI: 18
+<s>: 15
+<s>inanma: 13
+<s>inanmay: 8
+<s>i: 7
+<s>inan: 7
+<s>in: 6
+<s>ina: 5
+<s>inanm: 5
+<s>inanmayInI: 3
+<s>inanmayIn: 1
+<s>inanmayInIz: 0
+
+---- <s>mUdUrlerin
+
+<s>: 22
+<s>mU: 15
+<s>mUd: 12
+<s>mUdUrl: 11
+<s>mUdUrler: 10
+<s>m: 9
+<s>mUdUr: 9
+<s>mUdUrle: 8
+<s>mUdU: 7
+<s>mUdUrleri: 2
+<s>mUdUrlerin: 0
+
+---- <s>markada
+
+<s>: 23
+<s>m: 15
+<s>ma: 14
+<s>mar: 14
+<s>mark: 4
+<s>markad: 2
+<s>marka: 1
+<s>markada: 0
+
+---- <s>tahsillerine
+
+<s>ta: 25
+<s>tah: 17
+<s>: 16
+<s>t: 14
+<s>tahsiller: 9
+<s>tahsill: 7
+<s>tahsi: 5
+<s>tahsil: 5
+<s>tahsillerin: 4
+<s>tahs: 3
+<s>tahsille: 3
+<s>tahsilleri: 1
+<s>tahsillerine: 0
+
+---- <s>toparlandIk
+
+<s>t: 19
+<s>to: 16
+<s>: 15
+<s>topar: 8
+<s>top: 7
+<s>topa: 7
+<s>toparl: 6
+<s>toparla: 6
+<s>toparlan: 6
+<s>toparland: 4
+<s>toparlandI: 2
+<s>toparlandIk: 0
+
+---- <s>hezarfenin
+
+<s>: 22
+<s>he: 19
+<s>hezar: 16
+<s>hezare: 13
+<s>heza: 12
+<s>hezaren: 9
+<s>hez: 8
+<s>h: 6
+<s>hezarenfi: 2
+<s>hezarenf: 1
+<s>hezarenfin: 0
+
+---- <s>iSbirlikCisidir
+
+<s>iSbirli: 20
+<s>iSb: 19
+<s>iSbirl: 18
+<s>iSbi: 17
+<s>iS: 16
+<s>iSbirlikC: 16
+<s>iSbirlikCi: 16
+<s>i: 15
+<s>iSbir: 13
+<s>iSbirlik: 11
+<s>: 10
+<s>iSbirlikCisidi: 10
+<s>iSbirlikCisi: 5
+<s>iSbirlikCisid: 3
+<s>iSbirlikCis: 2
+<s>iSbirlikCisidir: 0
+
+---- <s>bariton
+
+<s>: 22
+<s>ba: 12
+<s>bari: 10
+<s>b: 8
+<s>bar: 7
+<s>barito: 3
+<s>barit: 2
+<s>bariton: 0
+
+---- <s>ertelenmeyecekmiS
+
+<s>ertelenmeyece: 28
+<s>ertelenmeye: 23
+<s>: 22
+<s>e: 16
+<s>ertelenmeyec: 15
+<s>ertelenme: 14
+<s>er: 13
+<s>ertelen: 12
+<s>erte: 10
+<s>ertelenmey: 10
+<s>ertele: 9
+<s>ertelenm: 8
+<s>ertel: 5
+<s>ert: 4
+<s>ertelenmeyecek: 4
+<s>ertelenmeyecekm: 4
+<s>ertelenmeyecekmi: 3
+<s>ertelenmeyecekmiS: 0
+
+---- <s>kitleme
+
+<s>: 17
+<s>k: 10
+<s>ki: 9
+<s>kit: 8
+<s>kitle: 7
+<s>kitl: 6
+<s>kitlem: 5
+<s>kitleme: 0
+
+---- <s>deliliktir
+
+<s>: 14
+<s>delili: 13
+<s>delilikti: 9
+<s>deli: 7
+<s>delil: 7
+<s>de: 6
+<s>d: 5
+<s>del: 5
+<s>delilik: 3
+<s>delilikt: 2
+<s>deliliktir: 0
+
+---- <s>grozniyi
+
+<s>: 20
+<s>g: 20
+<s>gro: 13
+<s>groz: 11
+<s>grozn: 9
+<s>gr: 8
+<s>grozni: 4
+<s>grozniy: 2
+<s>grozniyi: 0
+
+---- <s>kulvarlarInda
+
+<s>: 20
+<s>k: 19
+<s>kul: 17
+<s>kulvar: 12
+<s>kulv: 10
+<s>kulvarl: 10
+<s>ku: 7
+<s>kulva: 7
+<s>kulvarlar: 6
+<s>kulvarlarIn: 6
+<s>kulvarlarInd: 5
+<s>kulvarla: 4
+<s>kulvarlarI: 2
+<s>kulvarlarInda: 0
+
+---- <s>OGrenemeyeceGimi
+
+<s>: 24
+<s>OGreneme: 17
+<s>O: 16
+<s>OGrenemeye: 16
+<s>OGrenemeyece: 16
+<s>OG: 14
+<s>OGre: 11
+<s>OGrene: 11
+<s>OGrenemey: 11
+<s>OGrenemeyec: 11
+<s>OGrenem: 8
+<s>OGren: 7
+<s>OGrenemeyeceG: 7
+<s>OGr: 6
+<s>OGrenemeyeceGim: 3
+<s>OGrenemeyeceGi: 2
+<s>OGrenemeyeceGimi: 0
+
+---- <s>hUmanizmanIn
+
+<s>: 21
+<s>O: 15
+<s>OnamIz: 15
+<s>Ona: 13
+<s>Onam: 11
+<s>OnamI: 11
+<s>On: 9
+<s>OnamIza: 9
+<s>OnamIzanI: 6
+<s>OnamIzan: 4
+<s>OnamIzanIn: 0
+
+---- <s>mondenler
+
+<s>: 22
+<s>m: 16
+<s>mon: 10
+<s>mo: 7
+<s>mond: 5
+<s>mondenle: 5
+<s>monde: 4
+<s>monden: 3
+<s>mondenl: 1
+<s>mondenler: 0
+
+---- <s>teknolojideki
+
+<s>t: 23
+<s>teknolo: 22
+<s>tek: 21
+<s>tekno: 19
+<s>te: 17
+<s>: 15
+<s>tekn: 12
+<s>teknol: 10
+<s>teknoloji: 7
+<s>teknoloj: 6
+<s>teknolojide: 4
+<s>teknolojid: 2
+<s>teknolojidek: 1
+<s>teknolojideki: 0
+
+---- <s>kafesli
+
+<s>ka: 18
+<s>: 17
+<s>k: 16
+<s>kafe: 6
+<s>kaf: 4
+<s>kafesl: 3
+<s>kafes: 2
+<s>kafesli: 0
+
+---- <s>ekibiyle
+
+<s>: 17
+<s>e: 13
+<s>eki: 11
+<s>ekibiy: 10
+<s>ekib: 7
+<s>ekibi: 7
+<s>ekibiyl: 4
+<s>ek: 3
+<s>ekibiyle: 0
+
+---- <s>CIkartIlIr
+
+<s>: 18
+<s>CI: 18
+<s>CIka: 9
+<s>CIkartI: 9
+<s>CIkartIlI: 8
+<s>CIk: 7
+<s>CIkar: 6
+<s>C: 4
+<s>CIkart: 4
+<s>CIkartIl: 2
+<s>CIkartIlIr: 0
+
+---- <s>dolaSmIS
+
+<s>: 20
+<s>d: 14
+<s>dola: 14
+<s>do: 11
+<s>dolaSmI: 9
+<s>dol: 7
+<s>dolaS: 6
+<s>dolaSm: 5
+<s>dolaSmIS: 0
+
+---- <s>bedbinliktir
+
+<s>: 18
+<s>bed: 18
+<s>be: 12
+<s>bedbinli: 10
+<s>bedbinlikti: 10
+<s>bedb: 8
+<s>b: 7
+<s>bedbin: 7
+<s>bedbi: 6
+<s>bedbinl: 6
+<s>bedbinlik: 2
+<s>bedbinlikt: 1
+<s>bedbinliktir: 0
+
+---- <s>dOkemiyor
+
+<s>d: 24
+<s>dOkemi: 20
+<s>: 18
+<s>dO: 17
+<s>dOkemiy: 16
+<s>dOke: 13
+<s>dOkemiyo: 11
+<s>dOkem: 10
+<s>dOk: 8
+<s>dOkemiyor: 0
+
+---- <s>bayramlarInIn
+
+<s>: 27
+<s>ba: 16
+<s>b: 12
+<s>bayramlar: 12
+<s>bay: 11
+<s>bayraml: 10
+<s>bayr: 9
+<s>bayra: 8
+<s>bayramla: 6
+<s>bayramlarI: 6
+<s>bayram: 4
+<s>bayramlarInI: 3
+<s>bayramlarIn: 1
+<s>bayramlarInIn: 0
+
+---- <s>mihraklarI
+
+<s>mi: 25
+<s>: 24
+<s>m: 18
+<s>mih: 15
+<s>mihra: 11
+<s>mihr: 7
+<s>mihrak: 4
+<s>mihrakl: 3
+<s>mihrakla: 2
+<s>mihraklar: 2
+<s>mihraklarI: 0
+
+---- <s>yIpranmadan
+
+<s>: 19
+<s>yI: 16
+<s>yIp: 16
+<s>yIpranma: 10
+<s>y: 9
+<s>yIpr: 7
+<s>yIpra: 6
+<s>yIpran: 5
+<s>yIpranm: 4
+<s>yIpranmada: 3
+<s>yIpranmad: 2
+<s>yIpranmadan: 0
+
+---- <s>bilincinle
+
+<s>: 20
+<s>bilin: 20
+<s>bilincin: 15
+<s>bilincinl: 13
+<s>bilinc: 9
+<s>bil: 8
+<s>bili: 8
+<s>b: 7
+<s>bi: 7
+<s>bilinci: 2
+<s>bilincinle: 0
+
+---- <s>alISmadIGIm
+
+<s>alISmadI: 18
+<s>: 14
+<s>alI: 13
+<s>a: 11
+<s>alISma: 11
+<s>al: 9
+<s>alIS: 8
+<s>alISmad: 8
+<s>alISm: 6
+<s>alISmadIGI: 5
+<s>alISmadIG: 4
+<s>alISmadIGIm: 0
+
+---- <s>CabalIyorsun
+
+<s>CabalIy: 30
+<s>Ca: 21
+<s>CabalIyo: 21
+<s>: 18
+<s>CabalI: 18
+<s>CabalIyor: 17
+<s>Caba: 13
+<s>Cab: 8
+<s>Cabal: 8
+<s>C: 7
+<s>CabalIyors: 5
+<s>CabalIyorsu: 5
+<s>CabalIyorsun: 0
+
+---- <s>bulunmalIsIn
+
+<s>: 27
+<s>bulunma: 17
+<s>bulunmalI: 16
+<s>b: 13
+<s>bulu: 10
+<s>bulunmal: 10
+<s>bulun: 9
+<s>bul: 8
+<s>bu: 6
+<s>bulunm: 6
+<s>bulunmalIs: 4
+<s>bulunmalIsI: 4
+<s>bulunmalIsIn: 0
+
+---- <s>sarkmIStI
+
+<s>: 18
+<s>sa: 13
+<s>sar: 11
+<s>s: 10
+<s>sark: 10
+<s>sarkm: 7
+<s>sarkmI: 2
+<s>sarkmISt: 2
+<s>sarkmIS: 1
+<s>sarkmIStI: 0
+
+---- <s>finans
+
+<s>: 23
+<s>fi: 12
+<s>f: 9
+<s>finan: 7
+<s>fin: 5
+<s>fina: 2
+<s>finans: 0
+
+---- <s>damItIlmasI
+
+<s>da: 14
+<s>damItIl: 14
+<s>: 12
+<s>damI: 11
+<s>damItIlm: 11
+<s>d: 9
+<s>damItI: 9
+<s>damItIlma: 8
+<s>dam: 6
+<s>damIt: 5
+<s>damItIlmas: 3
+<s>damItIlmasI: 0
+
+---- <s>uzadIGInda
+
+<s>: 27
+<s>u: 19
+<s>uzadIG: 15
+<s>uzad: 11
+<s>uzadI: 10
+<s>uzadIGInd: 8
+<s>uzadIGIn: 7
+<s>uz: 5
+<s>uza: 5
+<s>uzadIGI: 4
+<s>uzadIGInda: 0

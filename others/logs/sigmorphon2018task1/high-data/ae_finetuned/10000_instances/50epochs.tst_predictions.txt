@@ -1,0 +1,1007 @@
+seq not to pad: , continuity: True
+# of feat tokens:  12178 , # of feat unks:  1
+# of surf tokens:  12709 , # of surf unks:  1
+Recall: 0.6727
+Precision: 0.6741
+F1: 0.6734
+
+peynirli pastalarınızı</s>
+bisküyanlarınızda</s>
+önülerine</s>
+sosbotunun</s>
+sürtüklüğünde</s>
+müzikamıza</s>
+seçmenlerinde</s>
+düldüllerimi</s>
+leb siteme</s>
+dişkenceciliklerinden</s>
+zibidilerinden</s>
+ritmliğinizde</s>
+kömümem</s>
+kasifelermiş</s>
+davranışlarınıza</s>
+dinamiktem</s>
+düşünceliğiz</s>
+saydırıyor</s>
+konularınızın</s>
+oyunculardık</s>
+şikâyet ettik mi?</s>
+ağlar mısınız?</s>
+gizlemedi mi?</s>
+hosentemi</s>
+leşfelersiniz</s>
+kaynaştırtmadın</s>
+külfetini</s>
+gireldiniz</s>
+kazmıyorsun</s>
+gözleklerim</s>
+pancarlarım</s>
+kırdırtmayız</s>
+leçimeyeceğim</s>
+çarşafları</s>
+ulümlerini</s>
+Lefkoşalına</s>
+piskoposunun</s>
+çift sayımızdan</s>
+radyoaktif parçalanmalarını</s>
+ayarlatmayacak</s>
+sünecek</s>
+canlandırtmadık</s>
+dinametlerin</s>
+ezmeyecek mi?</s>
+koşucularda</s>
+önetiklerden</s>
+anasız değilmişsin</s>
+şaştırtmadık mı?</s>
+cürzüle</s>
+modellerimizden</s>
+götlü kahvelerine</s>
+taşıyorsunuz</s>
+yolucularına</s>
+ükiyorlar mı?</s>
+kızmıyorum</s>
+dondurmalarından</s>
+eşikette</s>
+evcikkıranlardı</s>
+toprak olmayacağız</s>
+girdepleştiri</s>
+tutacağım</s>
+özetlerinin</s>
+tutulmama</s>
+cihanında</s>
+bükecek miyim?</s>
+doninine</s>
+veberiyor muyum?</s>
+cinsel bilini</s>
+dudaklarımızdan</s>
+aşımızı</s>
+ziyaretçilermişsiniz</s>
+kırbacalardan</s>
+yoksullaştırmıyoruz</s>
+kışkırtmayacaklar</s>
+oynatıcısını</s>
+şerbetçilersiniz</s>
+yıpratmıyor musun?</s>
+eksikli sandaliğin</s>
+seyanetlerden</s>
+yerkiyorlar mı?</s>
+dinseksüelimiz</s>
+uçurtmazlarmış</s>
+seyrilerinin</s>
+dalgalandırıyor muydu?</s>
+dirilmem</s>
+çoktan seçmeli sorumuzdan</s>
+platformlarını</s>
+sonbaharlarımı</s>
+ettirttirdin</s>
+kalamarları</s>
+protetif sandviçlerimi</s>
+postu deldirmiyorlardı</s>
+delimelerde</s>
+bölürlerin</s>
+medreseleri</s>
+şerbetçiymişsin</s>
+tepmezlemeyecek miyiz?</s>
+ilklendirdiniz mi?</s>
+elertirler</s>
+totemciliklerine</s>
+dalgasının</s>
+sararmadınız</s>
+süzgeciniz</s>
+tıraş olmuyordum</s>
+sindrilerimizi</s>
+starttırmalarda</s>
+söküyoruz</s>
+kurutmadım</s>
+çamurtamı</s>
+gurtalın</s>
+kolkmadılar</s>
+açıyorlardı</s>
+süper kahvaylarınız</s>
+kizanımın</s>
+ovulu</s>
+yeter misin?</s>
+yapıştın</s>
+yanıttın</s>
+altınmıyorduk</s>
+hükûmetinizde</s>
+ektirmiyor muydu?</s>
+bankanızın</s>
+virinçildimde</s>
+yazıyor musun?</s>
+yankılarımızı</s>
+dış ağında</s>
+şarkılamışsın</s>
+hastalikatlarda</s>
+göttenratmışız</s>
+kerpiçleriniz</s>
+kanıtlayacaksın</s>
+pendoplerimin</s>
+havralarınız</s>
+vekil sunucuyuz</s>
+geyirmiyor</s>
+barıştın</s>
+maymununun</s>
+sürek taral tarmalarının</s>
+seldeklerden</s>
+mazotundan</s>
+sabanın</s>
+açılmıyordu</s>
+yolundum mu?</s>
+pilektinlerdin</s>
+mimari desenlerine</s>
+plamnatlara</s>
+sorumlu yumunuzun</s>
+söndük mü?</s>
+bitmem</s>
+çalgıcınız</s>
+yapışmaları</s>
+vikizlerimizi</s>
+kontak lensizliklerde</s>
+homonimleriniz</s>
+sürtüklerdiniz</s>
+çekirdeği</s>
+canlanılmıyor mu?</s>
+el sıkışmıyoruz</s>
+ecellerine</s>
+yufkasın parakları</s>
+hikâyetin</s>
+Nusayrîları</s>
+kansız sınıflarından</s>
+homurdanmamı</s>
+âlemlerini</s>
+mikroişlerdim</s>
+Zagretlerinden</s>
+öğretmezler</s>
+germezler mi?</s>
+donamlarımızı</s>
+toteminden</s>
+dövüşçünüze</s>
+pembe dizilerinde</s>
+odacısına</s>
+sonuçtunuzu</s>
+seçilmeyeceğiz</s>
+belgünların</s>
+mumikalarda</s>
+hecemi</s>
+yoldurmaz mıyım?</s>
+tutkumuza</s>
+kolektif pastam</s>
+portuklarını</s>
+abar mıyım?</s>
+bitirer miyiz?</s>
+startlarınızı</s>
+bilyelerine</s>
+sürülmezler mi?</s>
+cartayı çekmeyecek</s>
+blogları</s>
+geyşan</s>
+kıydım</s>
+yetkileriniz</s>
+vikincil sürümü</s>
+külahımızdan</s>
+özel değilmenin</s>
+öğdende</s>
+manandan</s>
+salçacıklarını</s>
+önertimiz</s>
+kehribarlarımıza</s>
+dış ağlarında</s>
+aseton değil</s>
+işkencecelerimizde</s>
+öpürmez mi?</s>
+bokmayacak mıyız?</s>
+nutulma</s>
+ışınlarını</s>
+bekletmeyeceksin</s>
+sıpar mı?</s>
+model-view-i defelerinde</s>
+makinalarından</s>
+yerçinde</s>
+kelimeymişiz</s>
+çifte</s>
+mermilerdi</s>
+portmuyor muydu?</s>
+dükünü</s>
+kırıtmadım</s>
+ongunculuklarınızda</s>
+enstrümanızı</s>
+hanırmayız</s>
+adsızım</s>
+kartpostalımızın</s>
+susamınıza</s>
+kapatıyorlar mı?</s>
+cevlenmeyecek miyiz?</s>
+sevgililerinizi</s>
+koymuyoruz</s>
+işlemeni</s>
+sebeplerini</s>
+evcil sineklerinden</s>
+yelkeninin</s>
+jelatinleri</s>
+filmedi</s>
+sezeyet etmiyorlar mıydınız?</s>
+vadenlerinde</s>
+romanların</s>
+pozisyonlarda</s>
+aşık olmuyoruz</s>
+parlatacağım</s>
+bükecek mi?</s>
+salahiyetlerinde</s>
+çığırtkanlıktan</s>
+birleşmediniz</s>
+seks aldır mı?</s>
+işletlerinde</s>
+gelinmez misiniz?</s>
+gravanınızda</s>
+beytiler</s>
+korkalara</s>
+bablansızlıklara</s>
+sözecekleriz</s>
+huzurlarından</s>
+bozayılarınızı</s>
+yağlayıcılarda</s>
+doğuyorlar</s>
+fiklonotları</s>
+doktorunun</s>
+durdu</s>
+balkanına</s>
+yıktı mı?</s>
+söyleşimleri</s>
+dergilerimizin</s>
+bitkilerden</s>
+bastonu</s>
+cezeryemizde</s>
+reaktörleri</s>
+kusmasından</s>
+kuvvetsizliklerini</s>
+hayırseverlerinde</s>
+orta parmalarımızın</s>
+arzumumuza</s>
+klikayelere</s>
+şaşırttırmıyor musunuz?</s>
+hamserinizi</s>
+nornolunuza</s>
+totemciliklerini</s>
+öldürtüyor muydum?</s>
+sünek tutunuzda</s>
+sunmuyordum</s>
+çökertimleri</s>
+vaziyetine</s>
+şörüngeliklere</s>
+özden küldü</s>
+kediciktirsin</s>
+dildiriyor muydunuz?</s>
+patenim</s>
+çökmeyecek miyiz?</s>
+ternenin</s>
+sine kamisini</s>
+yardımcıların</s>
+eğitiminin</s>
+balmıyor musunuz?</s>
+bayanlası</s>
+dolap çevirmeyeceklar</s>
+motorinlerini</s>
+sakindime</s>
+çalmıyorlar mı?</s>
+ekstremumdan</s>
+dolap çevirler</s>
+süsünün</s>
+yaptırmıyor muyduk?</s>
+aletmadı</s>
+Hakk'ın rahmetine kavuşmalar mı?</s>
+server misineği</s>
+sınıfları</s>
+örtülerdin</s>
+götlerdi</s>
+sıyırmayacaklar mı?</s>
+model-view-presentenlerinden</s>
+çizmedim</s>
+üzülürüz</s>
+geciktirtiyorsunuz</s>
+kategorilerini</s>
+kapurümüzün</s>
+doğuyordu</s>
+müsaademleri</s>
+kuvvetleri</s>
+ayarlattırmalar mı?</s>
+sonsuzluklarında</s>
+dişkenceklerin</s>
+omlenizde</s>
+sonuna</s>
+sıral sandırmaları</s>
+voktalarmış</s>
+pişirmeyeceğiz</s>
+kurutmuyordun</s>
+nekmetofobiler</s>
+hedonizmlerinde</s>
+doğum</s>
+avcılara</s>
+parçalarını</s>
+yardımatımıza</s>
+almayız</s>
+garkanotumuzda</s>
+vamdım</s>
+dinozorlardınız</s>
+embriyona</s>
+viskisiniz</s>
+dişletim</s>
+ön ekimize</s>
+dondalattan</s>
+yardımlarımı</s>
+kımlıklarının</s>
+süründürtümüz</s>
+elçen</s>
+acımadım</s>
+sattırmaz mıyım?</s>
+müzikalinize</s>
+yüksük bağlanızı</s>
+yanıtlar mıyız?</s>
+sandıklarım</s>
+hestanlarmat</s>
+öğretmeyeceklersin</s>
+yapılmadılar</s>
+cevlenmedim mi?</s>
+garınız</s>
+yapışmalarına</s>
+otostopçumuzun</s>
+sezer misiniz?</s>
+silkenimi</s>
+süründürecek misin?</s>
+sosismiş</s>
+dernektin</s>
+bardarsız değilsiniz</s>
+kadenimizi</s>
+pastileşik misiniz?</s>
+sürekli değilsin</s>
+heteroseksüellerinde</s>
+savaşçılarımızda</s>
+malunmatında</s>
+sümürdüler mi?</s>
+kurabında</s>
+sürülüyoruz</s>
+şiyatlerin</s>
+ömlenmerler</s>
+akreptiz</s>
+dakikamızı</s>
+yan cümlesde</s>
+çekmiyor muydum?</s>
+takasınız</s>
+boşan olacak mısın?</s>
+hirsazımızda</s>
+verdirtirler mi?</s>
+sözlemelerin</s>
+haberleşmiyorsunuz</s>
+dizilmedin</s>
+döndürmez mi?</s>
+kuruyatta</s>
+sürünmeyecek miyiz?</s>
+öğütüyordum</s>
+yeniliyorlar mıydı?</s>
+duymalarına</s>
+hastanlarımızın</s>
+telaffuzların</s>
+artçı depremin</s>
+hinterlanda</s>
+kumandanın</s>
+sağduyuma</s>
+atletik değil miymişim?</s>
+tasketilerden</s>
+vazolarının</s>
+bilek güneğinize</s>
+kandırtmadınız mı?</s>
+istirosatlarından</s>
+öpüşmüyor mu?</s>
+kipürgelerimi</s>
+alındırtıyorlardı</s>
+neşene</s>
+yanardağlarımızın</s>
+kemesi</s>
+acımayacaklar</s>
+hülyaları</s>
+donmuşsun</s>
+şağlanacak</s>
+fireyecekler</s>
+kısal kumulumuzda</s>
+uzunluklarından</s>
+başkanını</s>
+ördeklerine</s>
+laçolarsınız</s>
+tiyatrolardınız</s>
+kaltaklarınız</s>
+balık adamlarınızın</s>
+fırtınlarımızı</s>
+çıkarmadım</s>
+sinek tarmamıza</s>
+simitleri</s>
+sürümleri</s>
+sevişecek mi?</s>
+mantiklerim</s>
+çekar mı?</s>
+anahtarlıklarının</s>
+coşkulu değiller mi?</s>
+asteronizmizde</s>
+müstahdemlerden</s>
+en büyük ortaklarının</s>
+Belgratlıların</s>
+filozoflarına</s>
+verküre değildiler</s>
+tümcelerime</s>
+öldürtülünüz mü?</s>
+çarpı</s>
+acıktırtmadılar</s>
+paylaştırmalarımızı</s>
+tanımadı</s>
+etini</s>
+surgulunuza</s>
+devinimine</s>
+dövüşçülerinde</s>
+deşmez misiniz?</s>
+dalmazsınız</s>
+delirmeden</s>
+kaldırtacaklar</s>
+hiperbollerinin</s>
+aşiretlerinden</s>
+endoplazmik retikulumlarda</s>
+öğretmen</s>
+tükenmez miyim?</s>
+yüzeylerdi</s>
+sezmeyeceğiz</s>
+parçalantak</s>
+leçine</s>
+mevkilerde</s>
+kaynamadık</s>
+çokunma hâlmalardım</s>
+nohutları</s>
+pornolarının</s>
+canlanılıyor muydunuz?</s>
+altdıllarınızda</s>
+havramlara</s>
+delinklerde</s>
+bineklerde</s>
+kovultun mu?</s>
+içemedik</s>
+dermiyor muydun?</s>
+yatakları</s>
+baylarımızın</s>
+meyhunisli sandviçle</s>
+dolanızda</s>
+similermişsin</s>
+olgunluklarınızdan</s>
+donanı</s>
+şerbetçiliklerinizde</s>
+kolajları</s>
+babalıklar</s>
+müelliftin</s>
+enginarımızın</s>
+söçmüze</s>
+altunimizde</s>
+kısrağında</s>
+saldıracaksınız</s>
+kapı yapıyorsun</s>
+programlattılar mı?</s>
+türüdü</s>
+paparangilerini</s>
+eçekmeyiz</s>
+verinizde</s>
+ekseninde</s>
+öğütücülerden</s>
+rahiplerdi</s>
+sivilcem</s>
+paparakilersin</s>
+örnekmişsiniz</s>
+çıkmaz sokaklarınızı</s>
+fokumuzda</s>
+azmadım mı?</s>
+yangınlarının</s>
+tarihçilermişsin</s>
+bisküvanınıza</s>
+deyimlerini</s>
+kıskatlardan</s>
+karadan havatların</s>
+baltanlarımızın</s>
+burabalarda</s>
+analitik geometrine</s>
+kebaplar</s>
+amâymışsın</s>
+ölçelerimde</s>
+malamozlardınız</s>
+bildirmedin</s>
+makyaj yapmadınız mı?</s>
+dış ikizasının</s>
+takmayacak mısın?</s>
+tevernaların</s>
+meşaleden</s>
+ayrımazsın</s>
+bardağından</s>
+sorumlu atımın</s>
+yorumlarımızda</s>
+dalgamıştın</s>
+şeftalinizde</s>
+sürtmazını</s>
+sinir değildi</s>
+çeliklerinden</s>
+bükülmediniz mi?</s>
+cizmeyeceksiniz</s>
+türemiyor musunuz?</s>
+lümsünün</s>
+kediciklermiş</s>
+ıstırtan değilmişsim</s>
+nöronda</s>
+şaşırtacak mıyız?</s>
+süyümeyiz</s>
+yaklışıyorlar mı?</s>
+azmıyor muyum?</s>
+korunmalarını</s>
+hür yazılımın</s>
+listetde</s>
+yağlamam</s>
+önemliliğinde</s>
+fındık kırmıyordun</s>
+çalışmadık</s>
+seçmelerin</s>
+saksafonunuza</s>
+heyecanlandınız</s>
+vilayetlerini</s>
+doymuşu</s>
+küpenizde</s>
+asanda</s>
+bakıyorlar mı?</s>
+rehiniyor muydunuz?</s>
+kuvvetsizliklerinde</s>
+aşlamızı</s>
+nalindan</s>
+tancak mıyız?</s>
+bütülmedik mi?</s>
+çağırtılar</s>
+yasandan</s>
+albetim</s>
+bedevilerimizde</s>
+toprak oltum</s>
+serpiyorum</s>
+mimarimlerim</s>
+fırınlamızında</s>
+platformlarımızın</s>
+Hakk'ın rahmetine kavuşuklar</s>
+şaşıyordu</s>
+dinlekeden</s>
+aşkanızın</s>
+sonsazınızda</s>
+toplahmı dalıştılar</s>
+yengeçlerimizin</s>
+sürülerinizi</s>
+fareklermişsiniz</s>
+paylaşdık</s>
+götürdük</s>
+aldırtmatınız mı?</s>
+dokteni</s>
+vesektirecek misin?</s>
+kasığını</s>
+ilçiliğimize</s>
+sümüğünüzü</s>
+müezzinlerinin</s>
+asacak mı?</s>
+boğazlarımızın</s>
+zırtgellerinin</s>
+kusmayacak mısın?</s>
+jelatinine</s>
+müstahdem</s>
+yabancı dilleneklerinden</s>
+jartiyerlerimize</s>
+acılar</s>
+bütünmüyor</s>
+çubukta</s>
+burumuyordum</s>
+tatlarsınız</s>
+hocaydın</s>
+freğinin</s>
+ayarlandır mı?</s>
+uğratır mısınız?</s>
+taşeronunda</s>
+battan sistemlerin</s>
+kavaşlarında</s>
+otuz bircim</s>
+aynasızından</s>
+dondoktumu</s>
+dikdörtgenleri</s>
+kahral sınıflardan</s>
+ilerilerinden</s>
+taklitçisini</s>
+başrahiplersiniz</s>
+ilklendirmeyeceksin</s>
+vürmüyor muyduk?</s>
+cevaplerime</s>
+geyirmeyecek mi?</s>
+şehirlerine</s>
+altlarıma</s>
+yanaklarını</s>
+suralara</s>
+çalktınız mı?</s>
+oktan halinlere</s>
+katilimi</s>
+eridi</s>
+purosu</s>
+migrende</s>
+salahiyetlerinizde</s>
+aldırtacağım</s>
+vahmetizde</s>
+kipatı</s>
+teşhisanlığınıza</s>
+sünülgeli</s>
+kalpaklarının</s>
+ürününüzü</s>
+yıpranmaz mı?</s>
+müsaadesinde</s>
+mumay</s>
+aşıklar</s>
+toprak oltunuz mu?</s>
+vekiyor muydunuz?</s>
+kompikler</s>
+milyonerinden</s>
+nefretlerine</s>
+kaldıracalarınızda</s>
+süreklerinizin</s>
+patlaştınız mı?</s>
+devirmedim</s>
+uyamıyor muyuz?</s>
+kruvasanında</s>
+kelebeklerimizin</s>
+dikdörtgeni</s>
+seslenmeyeceğiz</s>
+filozofumuz</s>
+öğretini</s>
+pöhrenk</s>
+sunucuna</s>
+elikettenler</s>
+ayakkabına</s>
+anasonları</s>
+enstrümantama</s>
+mamamlar</s>
+salmadınız</s>
+nişanlı da</s>
+teykenlerin</s>
+kasetlerime</s>
+sekecek misin?</s>
+süzecekler</s>
+sitedinde</s>
+amlan aldı</s>
+sürtüklerinde</s>
+üşecek</s>
+matlaydınız</s>
+akşım mıydılar?</s>
+alıkmış</s>
+teşhirlerini</s>
+diferansiyel defektimi</s>
+kullanmalardan</s>
+cetvetmiyorduk</s>
+laçoları</s>
+peronede</s>
+fişemi</s>
+bozayılardın</s>
+kolonunu</s>
+şelvanları</s>
+olcalarını</s>
+yetkili sunucularmışım</s>
+yumurtalamazlar</s>
+defer miyim?</s>
+canlandırtmaz mıyız?</s>
+birleştirmedik mi?</s>
+bezmiyorum</s>
+öğretmeyeceksin</s>
+antık olmadık mı?</s>
+işemiyorlardı</s>
+direğimi</s>
+ayratacak</s>
+süngeçlerini</s>
+frizbilerinizden</s>
+bükmeleri</s>
+sinagoglarının</s>
+takvimlarında</s>
+sözlükmüş</s>
+hiperbolleri</s>
+modaları</s>
+verim değil miyim?</s>
+salataydı</s>
+iyikaz şardım</s>
+çizmedik mi?</s>
+yerine</s>
+şehredime</s>
+gayzerlerimizde</s>
+mühinliğimizde</s>
+giyirmedik</s>
+oluyorum</s>
+seylerinizi</s>
+eteklerdiniz</s>
+afiyetlerinden</s>
+bozmuyor muydun?</s>
+kerpiçlerinde</s>
+umurularının</s>
+yaratında</s>
+kaynaşının</s>
+çürkelenmeyecekler mi?</s>
+anlandırmadınız mı?</s>
+nosyonundan</s>
+dişlekmiş</s>
+karıştırtmadın</s>
+uçaklarında</s>
+nefes aldırmıyor muydunuz?</s>
+büstenlerin</s>
+abajurcunun</s>
+düzmüyorlar mıydı?</s>
+ustanların</s>
+buharlaşmadık</s>
+şamaklarım</s>
+beneklerinin</s>
+dövmesin</s>
+döküsü</s>
+dözemden</s>
+dikişlerinden</s>
+yoldaşlarım</s>
+silbenizde</s>
+elçen</s>
+sanmıyor muydu?</s>
+sözlükmüşüzü</s>
+öbdürtünüz</s>
+benzerlerden</s>
+yapraklarımda</s>
+bükülmediniz mi?</s>
+final sınıfınızda</s>
+tayfası</s>
+şamarlamıyordunuz</s>
+uzulmalarımızda</s>
+bulunma halinin</s>
+külletinden</s>
+lokmuyorlar mıydı?</s>
+kuyumlarızda</s>
+sökmüyor musun?</s>
+altdillerine</s>
+mandal sandırmalar</s>
+ambulansları</s>
+daldırmayacağız</s>
+baykuşları</s>
+paskalçımızı</s>
+cevap vermez miyim?</s>
+lekler</s>
+dindoplarını</s>
+yüzmelerine</s>
+sözlüklermişiz</s>
+döndürüyorum</s>
+kâsenlerden</s>
+düzmez mi?</s>
+ropdöşmüyorlar mıydı?</s>
+solunumdan</s>
+balkanlarına</s>
+sinirlendirmiyordun</s>
+otuz bir değimi</s>
+diskolatlara</s>
+dolmuyor muydunuz?</s>
+kıyar</s>
+radağınıza</s>
+dürbünlerinde</s>
+yalanının</s>
+domanlarımı</s>
+yerdim</s>
+börülcelerinin</s>
+takacak mıyız?</s>
+homonimlerini</s>
+Lefkoşalılarının</s>
+alentimlerinin</s>
+kaldıracılarına</s>
+orta parmasınızda</s>
+şişiyorsunuz</s>
+dizmedik mi?</s>
+komikti</s>
+düş olurların</s>
+süstdiniz</s>
+kirkidonum</s>
+belleklere</s>
+organ hamlamanızda</s>
+atlemiyor muydunuz?</s>
+kaynarlar mı?</s>
+metrasizler</s>
+yıpranıyor</s>
+bezmeyeceğiz</s>
+yaratıyor muyduk?</s>
+filevir miydik?</s>
+bakmalarından</s>
+gergalarıma</s>
+sıyırmazsınız</s>
+refek miyim?</s>
+alçak değil miymişler?</s>
+delmiyorlar mı?</s>
+çökertiyordunuz</s>
+fitillerinizin</s>
+direkinde</s>
+bağlamıyor musunuz?</s>
+özlümlerinize</s>
+yağlamaz mısınız?</s>
+dağlanıyor muyuz?</s>
+biseksüelmiş</s>
+silkmelerimiz</s>
+delenfektleri</s>
+külfetten</s>
+doğru değil mi?</s>
+çağırmıyorsun</s>
+reaktörleri</s>
+alındırtın</s>
+omurgadım</s>
+lözülüklere</s>
+kumandalarını</s>
+şaşmıhdık mı?</s>
+gokuymuşuz</s>
+insanımsılığının</s>
+tasanımı</s>
+balinamızda</s>
+mangozumuzun</s>
+numaralamalarımızı</s>
+solunun</s>
+camilerini</s>
+hamırdanmamızda</s>
+sosisli sandviçim</s>
+parçacıklarınızın</s>
+kızlıklarında</s>
+sesteşimde</s>
+saldırıyorlar</s>
+mumlanızı</s>
+pebeni</s>
+yıldızlarından</s>
+peynirli pastamda</s>
+kurbağaların</s>
+mükemmel değil misin?</s>
+karacak değiller mi?</s>
+akrobatlarsın</s>
+yolunduruyor muydunuz?</s>
+mutlularım</s>
+basınını</s>
+kızgın değil miydin?</s>
+balıkçısın</s>
+hinterlanınızı</s>
+ana fikirinizde</s>
+canlandırılmayacağız</s>
+maratoncularımı</s>
+paylaşmayacak</s>
+aşık alırlar</s>
+örtülerini</s>
+pataf deği</s>
+maydanozlarından</s>
+sikindirmez miyim?</s>
+hamızıma</s>
+sınıflarına</s>
+sinmeyeceğim</s>
+örümeyecek miyiz?</s>
+semercilerdin</s>
+boktult mu?</s>
+kırkularıma</s>
+dizileriniz</s>
+kolikanından</s>
+yarmıyor muyduk?</s>
+bitkili sandviçin</s>
+dindoplazmiyor</s>
+kapatmazlar mı?</s>
+balmasam</s>
+eşemi</s>
+telefonlarımı</s>
+kömlenimde</s>
+bitiyorlar</s>
+kıyametlerine</s>
+numaralamalara</s>
+temsilleri</s>
+yelkenmem</s>
+sabanızı</s>
+yağmurdamızda</s>
+masanlarımızın</s>
+doğru değil mi?</s>
+fındık kırmayacaklar</s>
+yetiştirirler</s>
+cizliydiniz</s>
+tandırını</s>
+gelinmediniz mi?</s>
+çıkmıyor muydu?</s>
+bulundunuz</s>
+yemişinizde</s>
+akvaryumlarında</s>
+fotoğraf çekmiyorlar mıydı?</s>
+şikâyet ettik</s>
+eşzamlandılıklarını</s>
+tek sayılarımızdan</s>
+dadıları</s>
+ilkonomim</s>
+uyanlar</s>
+bahçıvanlar</s>
+ekşiyor mu?</s>
+dirim bilimcilerdi</s>
+çavuşuna</s>
+yağlayıcısın</s>
+buluyor muydum?</s>
+ritimleri</s>
+romanlarınızda</s>
+çalgınlarımı</s>
+kanar mısın?</s>
+sıkıyacak</s>
+dikdörtgenlerini</s>
+sileklerinizin</s>
+beneklerine</s>
+deliri</s>
+kırdırtmayacak</s>
+eğlenir mi?</s>
+kelimeciğine</s>
+sünek tatdan kahta</s>
+sürtüklüklerinde</s>
+yoğurtmuyordunuzda</s>
+bakirttik</s>
+mesuliyetlerine</s>
+sakmaz mısın?</s>
+terzilerde</s>
+rabotun</s>
+striptimleri</s>
+huzurlar</s>
+akbabağımızı</s>
+bünüyor muyum?</s>
+meşrubatında</s>
+kürerler mi?</s>
+kaynaştırtmayacak</s>
+opdöşambollerdim</s>
+telofazlarında</s>
+yendirtiyordun</s>
+fornonuz</s>
+algıntırıyor musunuz?</s>
+mühandislerimiz</s>
+peynirlerinde</s>
+şahmelda</s>
+eksürtdüler mi?</s>
+karşılıktından</s>
+uyuyorlardı</s>
+düşmanlar</s>
+hendesenizde</s>
+çevirmeyecek</s>
+bokturmayacak mısınız?</s>
+rehberim</s>
+ittirilmiyordu</s>
+bluzsumun</s>
+yankılarmış</s>
+onuru</s>
+ayarlanmayacak mısınız?</s>
+hursazlarının</s>
+canlandırıyoruz</s>
+yapranıyor musun?</s>
+karıldık</s>
+kirletmeyeceksiniz</s>
+çakılda</s>
+solunumuzu</s>
+daldırttın mı?</s>
+granülsüz endoplazmik retikulumunuza</s>
+miknamışın</s>
+sikişmiyor musunuz?</s>
+otonda</s>
+sıvılaşmazlar mı?</s>
+hücrelersin</s>
+dökeceğim</s>
+minarelerinin</s>
+tevranımızı</s>
+erkeneklerim</s>
+karında</s>
+örttüler</s>
+gözlerdi</s>
+yazmıyor musunuz?</s>
+serverlerdik</s>
+teşhirlerinde</s>

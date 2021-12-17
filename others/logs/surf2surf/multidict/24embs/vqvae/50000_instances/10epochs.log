@@ -1,0 +1,61 @@
+VQVAE_2(
+  (encoder): LSTMEncoder(
+    (embed): Embedding(39, 512)
+    (lstm): LSTM(512, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (decoder): LSTMDecoder(
+    (embed): Embedding(39, 512, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (lstm): LSTM(1024, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=39, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+  (multi_vq_layer): MultiVectorQuantizer(
+    (embedding_1): Embedding(6, 128)
+    (embedding_2): Embedding(6, 128)
+    (embedding_3): Embedding(6, 128)
+    (embedding_4): Embedding(6, 128)
+  )
+)beta:0.25
+----- Parameters: -----
+encoder.embed.weight, torch.Size([39, 512]): True
+encoder.lstm.weight_ih_l0, torch.Size([2048, 512]): True
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+encoder.lstm.bias_ih_l0, torch.Size([2048]): True
+encoder.lstm.bias_hh_l0, torch.Size([2048]): True
+decoder.embed.weight, torch.Size([39, 512]): True
+decoder.lstm.weight_ih_l0, torch.Size([2048, 1024]): True
+decoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+decoder.lstm.bias_ih_l0, torch.Size([2048]): True
+decoder.lstm.bias_hh_l0, torch.Size([2048]): True
+decoder.pred_linear.weight, torch.Size([39, 512]): True
+multi_vq_layer.embedding_1.weight, torch.Size([6, 128]): True
+multi_vq_layer.embedding_2.weight, torch.Size([6, 128]): True
+multi_vq_layer.embedding_3.weight, torch.Size([6, 128]): True
+multi_vq_layer.embedding_4.weight, torch.Size([6, 128]): True
+Epoch 0, ppl: 1.0212,  recon_loss: 26.5783, vq_loss: 0.8491, acc: 0.2360
+val -- ppl: 1.0237,  recon_loss: 25.0082, vq_loss: 0.8249, acc: 0.3282 
+update best loss
+Epoch 1, ppl: 1.0165,  recon_loss: 20.7850, vq_loss: 1.5273, acc: 0.3696
+val -- ppl: 1.0205,  recon_loss: 21.6803, vq_loss: 2.9723, acc: 0.4124 
+update best loss
+Epoch 2, ppl: 1.0146,  recon_loss: 18.3952, vq_loss: 3.0779, acc: 0.4347
+val -- ppl: 1.0186,  recon_loss: 19.6736, vq_loss: 3.4096, acc: 0.4472 
+update best loss
+Epoch 3, ppl: 1.0134,  recon_loss: 16.8765, vq_loss: 3.4791, acc: 0.4743
+val -- ppl: 1.0172,  recon_loss: 18.1837, vq_loss: 3.6314, acc: 0.4846 
+update best loss
+Epoch 4, ppl: 1.0126,  recon_loss: 15.8380, vq_loss: 3.6424, acc: 0.5041
+val -- ppl: 1.0162,  recon_loss: 17.1774, vq_loss: 3.7343, acc: 0.5083 
+update best loss
+Epoch 5, ppl: 1.0120,  recon_loss: 15.0611, vq_loss: 3.7486, acc: 0.5250
+val -- ppl: 1.0156,  recon_loss: 16.5277, vq_loss: 3.8231, acc: 0.5192 
+update best loss
+Epoch 6, ppl: 1.0115,  recon_loss: 14.4942, vq_loss: 3.8132, acc: 0.5401
+val -- ppl: 1.0151,  recon_loss: 15.9526, vq_loss: 3.8573, acc: 0.5387 
+update best loss
+Epoch 7, ppl: 1.0111,  recon_loss: 13.9362, vq_loss: 3.8596, acc: 0.5553
+val -- ppl: 1.0146,  recon_loss: 15.4968, vq_loss: 3.8884, acc: 0.5507 
+update best loss

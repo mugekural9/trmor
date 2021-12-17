@@ -1,0 +1,100 @@
+otuz bircimiz	otuz birciNNOMSGPSS1P
+heyetlerinin	heyetNGENPLPSS3P
+kötüleştirmiyor	kötüleştirmekVIND3SGPRSPROGNEGDECL
+eşyayız	eşyaNLGSPEC11PSGPRS
+yontuyor muydunuz?	yontmakVIND2PLPSTPROGPOSINTR
+altınımızı	altınNACCSGPSS1P
+dirseğinizden	dirsekNABLSGPSS2P
+boğmuyordum	boğmakVIND1SGPSTPROGNEGDECL
+ettirir miyim?	ettirmekVIND1SGPRSPOSINTR
+yasağın	yasakNNOMSGPSS2S
+koşucularım	koşucuNNOMPLPSS1S
+peçetelerinden	peçeteNABLPLPSS3S
+kartından	kartNABLSGPSS2S
+tohumlarımda	tohumNLOCPLPSS1S
+sevdin	sevmekVIND2SGPSTPOSDECL
+patatesimde	patatesNLOCSGPSS1S
+küpelerinden	küpeNABLPLPSS3S
+geçinirler mi?	geçinmekVIND3PLPRSPOSINTR
+makara	makaraNNOMSG
+ece	eceNNOMSG
+kefallarımızı	kefalNACCPLPSS1P
+parasızlıklarında	parasızlıkNLOCPLPSS2S
+avokadonda	avokadoNLOCSGPSS2S
+islerinizi	isNACCPLPSS2P
+odağın	odakNGENSG
+ateşe verecek mi?	ateşe vermekVIND3SGFUTPOSINTR
+bahçelerinde	bahçeNLOCPLPSS2S
+papyonumuza	papyonNDATSGPSS1P
+uzaylarımdan	uzayNABLPLPSS1S
+sorumsuzluğunuzda	sorumsuzlukNLOCSGPSS2P
+kabuklarımızın	kabukNGENPLPSS1P
+kapasitemizin	kapasiteNGENSGPSS1P
+tanımadı	tanımakVIND3SGPSTNEGDECL
+duş alır mıyım?	duş almakVIND1SGPRSPOSINTR
+kefalımızı	kefalNACCSGPSS1P
+sönmüyor muyduk?	sönmekVIND1PLPSTPROGNEGINTR
+öper miyiz?	öpmekVIND1PLPRSPOSINTR
+penislerinin	penisNGENPLPSS2S
+sunuyor muydu?	sunmakVIND3SGPSTPROGPOSINTR
+sevgililere	sevgiliNDATPL
+geçmişine	geçmişNDATSGPSS3S
+cihazınızın	cihazNGENSGPSS2P
+samurunda	samurNLOCSGPSS2S
+arınır mı?	arınmakVIND3SGPRSPOSINTR
+rüyama	rüyaNDATSGPSS1S
+sonralara	sonraNDATPL
+takmadılar mı?	takmakVIND3PLPSTNEGINTR
+el sıkışıyor muyduk?	el sıkışmakVIND1PLPSTPROGPOSINTR
+ışınımızın	ışınNGENSGPSS1P
+ateşe vermeyecek misiniz?	ateşe vermekVIND2PLFUTNEGINTR
+yardımcılıklarını	yardımcılıkNACCPLPSS3P
+örümceklerin	örümcekNGENPL
+zibillerin	zibilNNOMPLPSS2S
+tavernadan	tavernaNABLSG
+olmazsa olmazlarına	olmazsa olmazNDATPLPSS3S
+bellerim	belNNOMPLPSS1S
+hemzemin geçidinizden	hemzemin geçitNABLSGPSS2P
+mobilyalarının	mobilyaNGENPLPSS3P
+dirilmiyor muyduk?	dirilmekVIND1PLPSTPROGNEGINTR
+itlerinin	itNGENPLPSS2S
+otoculuklarını	otoculukNACCPLPSS2S
+sığıyor musun?	sığmakVIND2SGPRSPROGPOSINTR
+çizgili sineklerinin	çizgili sinekNGENPLPSS3S
+kırmızı şaraplarımıza	kırmızı şarapNDATPLPSS1P
+örümcek ağlarını	örümcek ağıNACCPL
+canlandırtmıyor	canlandırtmakVIND3SGPRSPROGNEGDECL
+öğrencinden	öğrenciNABLSGPSS2S
+papalarmışsınız	papaNLGSPEC12PPLLGSPEC2
+değirmenin	değirmenNGENSG
+çizmecilerini	çizmeciNACCSGPSS3P
+süründürmeyecek misin?	süründürmekVIND2SGFUTNEGINTR
+Lefkoşalılardan	LefkoşalıNABLPL
+coşkusuz değil mi?	coşkusuzADJLGSPEC1PRS3SGNEGINTR
+verniklerimi	vernikNACCPLPSS1S
+enflasyonların	enflasyonNGENPL
+yapıncaklarımızı	yapıncakNACCPLPSS1P
+katıyorsun	katmakVIND2SGPRSPROGPOSDECL
+bağırsaklarından	bağırsakNABLPLPSS3P
+kravatından	kravatNABLSGPSS3S
+çalışır mıyız?	çalışmakVIND1PLPRSPOSINTR
+yetenekliymişler	yetenekliADJLGSPEC1LGSPEC23PLPOSDECL
+okiyamız	okiyaNNOMSGPSS1P
+olay güdümlü programlamanda	olay güdümlü programlamaNLOCSGPSS2S
+tekilaydınız	tekilaNLGSPEC12PSGPST
+meşelerimizde	meşeNLOCPLPSS1P
+sokaklarının	sokakNGENPLPSS2S
+objelerinde	objeNLOCPLPSS3P
+alçak değil mi?	alçakADJLGSPEC1PRS3SGNEGINTR
+kediciklerine	kedicikNDATPLPSS3S
+otocularından	otocuNABLPLPSS3P
+iç ağlarını	iç ağNACCPLPSS3S
+kurabiyelerden	kurabiyeNABLPL
+köpüklerim	köpükNNOMPLPSS1S
+dalağınızdan	dalakNABLSGPSS2P
+yendirmiyor muydunuz?	yendirmekVIND2PLPSTPROGNEGINTR
+pehlivanda	pehlivanNLOCSG
+sorularında	soruNLOCPLPSS2S
+neşelerine	neşeNDATPLPSS3S
+çıktılar	çıktıNNOMPL
+valizlerinden	valizNABLPLPSS2S

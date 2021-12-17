@@ -1,0 +1,7 @@
+bulunmaktayım	bulun+Verb+Pos+Prog2+A1sg
+unutmamakta	unut+Verb+Neg+Prog2+A3sg
+katılmaktayız	kat+Verb^DB+Verb+Pass+Pos+Prog2+A1pl
+hissetmekteyim	hisset+Verb+Pos+Prog2+A1sg
+bakmaktayım	bak+Verb+Pos+Prog2+A1sg
+karşılamaktayız	karşıla+Verb+Pos+Prog2+A1pl
+taşımaktayız	taşı+Verb+Pos+Prog2+A1pl

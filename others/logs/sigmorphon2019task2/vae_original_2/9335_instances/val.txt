@@ -1,0 +1,1168 @@
+	
+yediyabancıyıölümTürkiye'deyakaladı.	yediNOM;SG;3;NUMyabancı3;ACC;ADJ;SGölümNOM;N;3;SGTürkiye3;PROPN;ESS;SGyakalaPFV;PST;V;IND;SG;3;POS._
+	
+Konserprogramınıanımsamıyorum,(!)tepkileriniincelemeyekoyulduğumiçinherhalde.	konserNOM;N;3;SGprogramPSS3S;ACC;SG;3;NanımsaINFM;1;NEG;PRS;V;IND;PROG;SG,_(_!_)_tepkiPSS3S;ACC;PL;3;NinceleV.MSDR;PFV;PRS;V;IND;DAT;POSkoy<unk>içinADPherhaldeADV._
+	
+Bizavucumuzdadarıheryereekiyoruz"dedi.	biz1;PRO;NOM;PLavuçPSS1P;SG;3;N;ESSdarıNOM;N;3;SGherDETyer3;N;DAT;SGekINFM;1;PRS;V;IND;PL;PROG;POS"_dePFV;PST;V;IND;SG;3;POS._
+	
+Birarababanızlaannenizinayrılacağındankorktunuz.	birNUMaraNOM;ADJ;3;SGbaba<unk>annePSS2P;SG;3;N;GENayrıl<unk>korkPFV;2;PST;V;IND;PL;POS._
+	
+Tekrarediyorum:Belki.	tekrarADVetINFM;1;PRS;V;IND;PROG;SG;POS:_belkiADV._
+	
+Böylecebufilozof,felsefetarihinedebirparabolgibigiriyor,yenidenonuterketmeküzere.	böyleceADVbuDETfilozofSG;3;N;NOM,_felsefeSG;3;N;NOMtarihPSS3S;DAT;3;SG;NdeCONJbirNUMparabolSG;3;N;NOMgibiADPgir3;POS;IND;PRS;INFM;SG;PROG;V,_yenidenADVo3;SG;PRO;ACCterkSG;3;N;NOMetNOM;POS;IND;PRS;PFV;V;V.MSDRüzereADP._
+	
+Hazinebütçesine,KİTödemeleriiçindörtyüzyetmişsekiztrilyon,SSKiçindörtyüzüçtrilyon,Bağ-Kuriçinsekiztrilyonlirayakadarödenekeklenebilecek.	hazineSG;NOM;N;3bütçePSS3S;3;DAT;SG;N,_kitSG;NOM;N;3ödePSS3S;IND;NOM;V.MSDR;POS;PFV;PRS;ViçinADPdörtyüzyetmişsekizNUMtrilyonNUM,_SskSG;NOM;PROPN;3içinADPdörtyüzüçNUMtrilyonNUM,_Bağ-KurNOM;3;SG;NiçinADPsekizNUMtrilyonNUMliraSG;DAT;N;3kadarADPödenekSG;NOM;N;3ekle<unk>._
+	
+Onlarınölümündenhabersizolduğunuzannediyorum.	oPRO;PL;3;GENölümPSS3S;AT+ABL;SG;3;NhabersizADJolPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POSzannetINFM;1;PRS;V;IND;PROG;SG;POS._
+	
+Mademyaşlıolacaktı,yeğeninevarsaydımkeşke.	mademNOM;N;3;SGyaşlıADJol{FUT/PST};V;IND;PROSP;SG;3;POS,_yeğenPSS3S;SG;3;N;DATvar1;PFV;PST;V;SG;POSkeşkeADV._
+	
+	
+Yalnızcayararlıolandantiksiniyoruz...	yalnızcaADVyararlıADJol<unk>tiksinINFM;IND;POS;1;PROG;PRS;PL;V..._
+	
+Allahrahmeteylesin,dediler,büyükadamdı.	AllahNOM;PROPN;3;SGrahmetNOM;N;3;SGeylePFV;PRS;V;SG;3;IMP;POS,_dePFV;PST;V;IND;PL;3;POS,_büyükADJadamNOM;N;3;SGiPFV;V;PST;IND;SG;3._
+	
+Döndüm.	dön1;PFV;PST;V;IND;SG;POS._
+	
+Hiçdematahbirşeydeğildir.	hiçADVdeCONJmatahNOM;N;3;SGbirNUMşeyNOM;N;3;SGdeğilNEG;PFV;PRS;V;SG;3._
+	
+Sondefadaaynıyokuşunbaşındadurupışıklıpencerelerebakmıştım.	sonADJdefaNOM;N;3;SGdaCONJaynıADJyokuş3;N;SG;GENbaşPSS3S;SG;3;N;ESSdurPFV;PRS;V;IND;POS;V.CVBışıklıADJpencere3;N;PL;DATbak1;PFV;V;IND;SG;PST+PRF;POS._
+	
+Dulbirkadınbu.	dulADJbirNUMkadınNOM;ADJ;3;SGbuPRO;NOM;SG;3._
+	
+Şaşkınşaşkınonlarıizledim.	şaşkınADJşaşkınADJoPRO;ACC;PL;3izle1;PFV;PST;V;IND;SG;POS._
+	
+Keşke...	keşkeADV..._
+	
+No'yuseviyorum,üstünzekalıçünkü.	noSG;N;ACC;3sev1;POS;IND;PRS;INFM;SG;PROG;V,_üstünADJzekaSG;3;N;NOMliADPçünküCONJ._
+	
+İnsanzihninin,algısalbilgidenteorikbilgiyegidenyoldakienönemlibaşarılarındanbiri,matematiğinkaynağınıoluşturanbuniceliksoyutlamasıdır.	insanSG;3;N;NOMzihinPSS3S;3;SG;N;GEN,_algısalADJbilgiSG;AT+ABL;N;3teorikADJbilgiSG;DAT;N;3gitPOS;PRS;IND;PFV;V.PTCP;VyolSG;ESS;N;3kiADPenADVönemSG;3;N;NOMliADPbaşarıPSS3S;3;PL;N;AT+ABLbiriPSS3S;3;NOM;SG;PRO,_matematikSG;GEN;N;3kaynakPSS3S;3;SG;N;ACColuşPOS;PRS;IND;PFV;V.PTCP;V;CAUSbuDETnicelikSG;3;N;NOMsoyutlaPSS3S;V.MSDR;NOM;POS;IND;PRS;PFV;ViV;3;PRS;SG;PFV._
+	
+Kimseylekonuşmazilkkocası.	kimse3;N;INS;SGkonuşNEG;HAB;PRS;V;IND;SG;3ilkADJkocaPSS3S;NOM;ADJ;SG;3._
+	
+KamuTekHesabı'nınkapsamıgenişletildi.	kamuNOM;N;3;SGTekNOM;PROPN;3;SGhesapPSS3S;GEN;SG;3;NkapsamPSS3S;NOM;SG;3;NgenişlePFV;PST;V;IND;SG;3;POS._
+	
+Yeşilkadifeelbisemvedantelyakasıylaçokşıktım.	yeşilADJkadifeADJelbisePSS1S;NOM;SG;3;NveCONJdantelNOM;N;3;SGyakaPSS3S;INS;SG;3;NçokADVşıkNOM;ADJ;3;SGi1;PFV;V;PST;IND;SG._
+	
+Düngece,insanlarhakkındabazenacelehükümverdiğimikavradım.	dünNOM;N;3;SGgeceNOM;N;3;SG,_insanNOM;N;PL;3hakPSS3S;SG;3;N;ESSbazenADVaceleADJhükümNOM;N;3;SGverPSS1S;ACC;PFV;PST;V;IND;V.PTCP;POSkavra1;PFV;PST;V;IND;SG;POS._
+	
+Başesgioğluverdiğiönergeylegüvenlik,savunmaamaçlıhibeveyardımlarailişkinuygulamaboşluğudoğmamasıiçin,2002'demevcutolandüzenlemelerindevamısağlandı.	BaşesgioğluNOM;PROPN;3;SGverPSS3S;PFV;PST;V;IND;V.PTCP;POSönerge3;N;INS;SGgüvenlikNOM;N;3;SG,_savunV.MSDR;PFV;PRS;NOM;V;IND;POSamaçlıADJhibeNOM;N;3;SGveCONJyardım3;N;PL;DATilişkinADPuygulamaNOM;N;3;SGboşlukPSS3S;NOM;SG;3;NdoğPSS3S;V.MSDR;NEG;PFV;PRS;NOM;V;INDiçinADP,_2002SG;3;NUM;ESSmevcutNOM;ADJ;3;SGolPFV;PRS;V;IND;V.PTCP;POSdüzenleV.MSDR;PFV;PRS;V;IND;POS;GENdevamPSS3S;NOM;SG;3;NsağlaPASS;PFV;PST;V;IND;SG;3;POS._
+	
+Ndekırmızınınbanayakıştığınıyineledi.	nNOM;N;3;SGdeCONJkırmızı3;ADJ;SG;GENben1;PRO;SG;DATyakışPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POSyinelePFV;PST;V;IND;SG;3;POS._
+	
+Gözlemvedeneylerdentüretilmişolanhipotezlertemelindeyükselenkuramlarbirçokfizikselsüreciaçıklamanınyanısırabirdiziöngörülerdedebulunmalıdır.	gözlemNOM;N;3;SGveCONJdeney3;N;PL;AT+ABLtürePFV;PST;V;NFH;IND;V.PTCP;POSolPFV;PRS;V;IND;V.PTCP;POShipotezNOM;N;PL;3temelPSS3S;ADJ;SG;3;ESSyükselPFV;PRS;V;IND;V.PTCP;POSkuramNOM;N;PL;3birçokDETfizikselADJsüreç3;N;ACC;SGaçıklaV.MSDR;PFV;PRS;V;IND;POS;GENyanPSS3S;NOM;ADJ;SG;3sıraNOM;N;3;SGbirNUMdiziNOM;N;3;SGöngörü3;N;PL;ESSdeCONJbulunPFV;PRS;V;SG;3;POS._
+	
+CumartesigünüdeSingapur'dandönmüştü.	cumartesiNOM;N;3;SGgünPSS3S;NOM;SG;3;NdeCONJSingapur3;PROPN;SG;AT+ABLdönPFV;V;IND;SG;3;PST+PRF;POS._
+	
+Güldü.	gülPST;3;POS;IND;SG;PFV;V._
+	
+FizikyasasıolaraknitelendirebileceğimizilkbulgularıeldeedenArşimed'in,kumunüstüneçizdiğişekillerlebugeometriprobleminiçözmeyeçalışırken,Siraküza'yıişgaledenRomaordusununbiraskeritarafındanöldürülmesi,adetaRoma'nınteoridüşmanlığınınbirsimgesiolaraktarihegeçmiştir.	fizikNOM;N;3;SGyasaPSS3S;NOM;SG;3;NolarakADPnitelendirPSS1P;FUT;PFV;V;IND;V.PTCP;POSilkADJbulgu3;N;PL;ACCel3;N;ESS;SGetPFV;PRS;V;IND;V.PTCP;POSArşimed3;PROPN;SG;GEN,_kum3;N;SG;GENüstPSS3S;ADJ;SG;3;DATçizPSS3S;PFV;PST;V;IND;V.PTCP;POSşekil3;N;INS;PLbuDETgeometriNOM;N;3;SGproblemPSS3S;ACC;SG;3;NçözV.MSDR;PFV;PRS;V;IND;DAT;POSçalışHAB;PRS;V;IND;SG;3;POS;V.CVB,_Siraküza3;PROPN;ACC;SGişgalNOM;N;3;SGetPFV;PRS;V;IND;V.PTCP;POSRomaNOM;PROPN;3;SGorduPSS3S;GEN;SG;3;NbirNUMaskerPSS3S;NOM;SG;3;NtarafPSS3S;AT+ABL;SG;3;NölPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POS,_adetaADVRoma3;PROPN;SG;GENteoriNOM;N;3;SGdüşmanlıkPSS3S;GEN;SG;3;NbirNUMsimgePSS3S;NOM;SG;3;NolarakADPtarih3;N;DAT;SGgeçPFV;PST;V;NFH;SG;3;POS._
+	
+Iraksavaşısonucubölgedekisermayemaliyetleriyükseleceği,İsrailvebirçokArapülkesindensermayeçıkışınınyaşanacağıifadeediliyor.	IrakSG;NOM;PROPN;3savaşPSS3S;NOM;3;SG;NsonuçPSS3S;NOM;3;SG;NbölgeSG;ESS;N;3kiADPsermayeSG;NOM;N;3maliyetPSS3S;NOM;3;PL;NyükselPSS3S;IND;NOM;POS;FUT;PFV;V.PTCP;V,_İsrailSG;NOM;PROPN;3veCONJbirçokDETArapSG;NOM;PROPN;3ülkePSS3S;AT+ABL;3;SG;NsermayeSG;NOM;N;3çıkışPSS3S;GEN;3;SG;Nyaşa<unk>ifadeSG;NOM;N;3etINFM;IND;POS;3;PASS;PRS;SG;PROG;V._
+	
+Bizimkinde,bilinmeyenbirÖtekiDünya'daaklımızahayalimizegelmeyecekcezalarauğramakorkusuvar.	biz1;PRO;PL;GENki<unk>,_bilPASS;NEG;PFV;PRS;V;IND;V.PTCPbirNUMötekiNOM;N;3;SGDünya3;PROPN;ESS;SGakılPSS1P;SG;3;N;DAThayalPSS1P;SG;3;N;DATgelFUT;NEG;PFV;V;IND;SG;3ceza3;N;PL;DATuğraV.MSDR;PFV;PRS;NOM;V;IND;POSkorkuPSS3S;NOM;SG;3;NvarADJ._
+	
+Onuniçindirki,askeridarbelerinhakkınıyemeyelim.	oPRO;GEN;3;SGiçGEN;SG;ADJ;3iV;3;PRS;PFV;SGkiCONJ,_askeriADJdarbeGEN;PL;N;3hakPSS3S;ACC;3;SG;Nye<unk>._
+	
+Kapıyıitiyorum,zorluyorum,tambirazaçılırgibioluyor,genekapanıyor.	kapı3;N;ACC;SGitINFM;1;PRS;V;IND;PROG;SG;POS,_zorlaINFM;1;PRS;V;IND;PROG;SG;POS,_tamADVbirazADVaçPASS;HAB;PRS;V;IND;SG;3;POSgibiADPolINFM;PRS;V;IND;PROG;SG;3;POS,_geneADVkapaINFM;PASS;PRS;V;IND;PROG;SG;3;POS._
+	
+Ürkerimoanondan.	ürk1;HAB;PRS;V;IND;SG;POSoDETanNOM;N;3;SGoPRO;AT+ABL;SG;3._
+	
+Diyarbakır'agitmedenönceannesine,"Meraketme,buküçükuçaklasongörevim"dedi.	Diyarbakır3;PROPN;DAT;SGgitNEG;PFV;PRS;V;IND;V.CVBönceADPannePSS3S;SG;3;N;DAT,_"_merakNOM;N;3;SGetNEG;PFV;PRS;2;V;SG;IMP,_buDETküçükADJuçak3;N;INS;SGsonNOM;ADJ;3;SGgörevNOM;N;3;SGi1;PFV;PRS;V;IND;SG"_dePFV;PST;V;IND;SG;3;POS._
+	
+Duyarlıkılıyor.	duyarlıADJkılINFM;IND;POS;3;PRS;SG;PROG;V._
+	
+Hemismikolayolursaköpeğinöğrenmesidekolayolur.	hemCONJisimPSS3S;NOM;SG;3;NkolayADJolCOND;HAB;PRS;V;SG;3;POSköpek3;N;SG;GENöğrenPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSdeCONJkolayADJolHAB;PRS;V;IND;SG;3;POS._
+	
+FatihOngun,on'daikiCASAsavaşuçağıylaDenizliÇardakHavaalanı'nagitmeküzerehavalandı.	FatihSG;NOM;PROPN;3OngunSG;NOM;PROPN;3,_onNUM;ESS;3;SGikiNUMCASANOM;3;SG;NsavaşSG;NOM;N;3uçakPSS3S;INS;3;SG;NDenizliSG;NOM;PROPN;3ÇardakSG;NOM;PROPN;3havaalanıPSS3S;3;DAT;SG;NgitIND;NOM;V.MSDR;POS;PRS;PFV;VüzereADPhavalanIND;PST;POS;3;PFV;SG;V._
+	
+Kahveleribendeiçelim.	kahve3;N;PL;ACCben1;PRO;SG;ESSiç1;OPT;PFV;PRS;V;PL;POS._
+	
+Keseyezarar.	kese3;ADJ;DAT;SGzararNOM;N;3;SG._
+	
+RumKesimi'ninAB'yeüyeolmasıdurumundaTürkiye-ABilişkilerindesüreklisürtüşmeyaşanacak.	RumADJkesimPSS3S;GEN;SG;3;NAbSG;3;N;DATüyeNOM;N;3;SGolPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSdurumPSS3S;SG;3;N;ESSTürkiyeNOM;PROPN;3;SG-_AbNOM;SG;3;NilişkiPSS3S;PL;3;N;ESSsürekliADVsürtüşV.MSDR;PFV;PRS;NOM;V;IND;POSyaşaFUT;PASS;PFV;V;IND;SG;3;POS._
+	
+Yutmadımama,buseferlikgeçyerineotur,demekistiyordu.	yut1;NEG;PFV;PST;V;IND;SGamaCONJ,_buDETseferNOM;N;3;SGlikNOM;ADP;3;SGgeçPFV;PRS;2;V;SG;IMP;POSyerPSS3S;SG;3;N;DAToturPFV;PRS;2;V;SG;IMP;POS,_deV.MSDR;PFV;PRS;NOM;V;IND;POSisteINFM;PST;V;IND;PROG;SG;3;POS._
+	
+Odahararetinyüksekçıkmasınanedenoldu"dedi.	oPRO;NOM;SG;3daCONJhararet3;N;SG;GENyüksekADJçıkPSS3S;V.MSDR;PFV;PRS;V;IND;DAT;POSnedenNOM;N;3;SGolPFV;PST;V;IND;SG;3;POS"_dePFV;PST;V;IND;SG;3;POS._
+	
+Amayaşamdanduygularımızlazevkalırız.	amaCONJyaşam3;N;SG;AT+ABLduygu<unk>zevkNOM;N;3;SGal1;HAB;PRS;V;IND;PL;POS._
+	
+Yılboyuncahergündeğişikbirpeyniryiyebilirsin.	yılNOM;N;3;SGboyuncaADPherDETgünNOM;N;3;SGdeğişikADJbirNUMpeynirNOM;N;3;SGyeHAB;2;PRS;V;POT;SG;POS._
+	
+MaastrichtAnlaşmasıdeğerleriesasalınarakçokyıllıkbütçeuygulansın.	MaastrichtNOM;PROPN;3;SGanlaşmaPSS3S;NOM;SG;3;NdeğerPSS3S;NOM;PL;3;NesasADJalPASS;PFV;PRS;V;IND;POS;V.CVBçokADVyıllıkNOM;ADJ;3;SGbütçeNOM;N;3;SGuygulaPASS;PFV;PRS;V;SG;3;IMP;POS._
+	
+Sanabunlarıgetirdimdemiş,büyükbirciddiyetleönümeatıvermiştigiysileri.	senPRO;2;DAT;SGbuPRO;ACC;3;PLgetirIND;PST;POS;1;PFV;SG;VdeNFH;IND;PST;POS;3;PFV;SG;V,_büyükADJbirNUMciddiyetSG;INS;N;3önPSS1S;3;DAT;SG;ADJatıverIND;POS;3;PFV;SG;PST+PRF;VgiysiACC;PL;N;3._
+	
+Yaşlılıkişte,çarpıntılar...	yaşlılıkNOM;N;3;SGişteADV,_çarpıntıNOM;N;PL;3..._
+	
+UçağınKaptanPilotuAlaattinYunak'ınGölcük'ebağlıDeğirmenderebeldesindekibabaevindeyasvar.	uçakGEN;SG;N;3kaptanSG;NOM;N;3pilotPSS3S;NOM;3;SG;NAlaattinSG;NOM;PROPN;3YunakGEN;SG;PROPN;3GölcükSG;DAT;PROPN;3bağlıADJDeğirmendereSG;NOM;PROPN;3beldePSS3S;ESS;3;SG;NkiADPbabaSG;NOM;N;3evPSS3S;ESS;3;SG;NyasSG;NOM;N;3varADJ._
+	
+Mitingde'GenelBaşkanıCemUzanileCumhurbaşkanıRaufDenktaş'ınDanışmanıProf.Dr.MümtazSoysal,Kıbrıskonusundakiaçıklamalarınedeniylesuçlamalardannasibinialdı.	miting3;N;ESS;SG'_genelADJbaşkanPSS3S;NOM;SG;3;NCemNOM;PROPN;3;SGUzanNOM;PROPN;3;SGileCONJcumhurbaşkanıPSS3S;NOM;SG;3;NRaufNOM;PROPN;3;SGDenktaş3;PROPN;SG;GENdanışmanPSS3S;NOM;SG;3;NProf.NOM;PROPN;3;SGdoktorNOM;N;3;SGMümtazNOM;PROPN;3;SGSoysalNOM;PROPN;3;SG,_KıbrısNOM;PROPN;3;SGkonuPSS3S;SG;3;N;ESSkiADPaçıklaPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSnedenPSS3S;INS;SG;3;NsuçlaV.MSDR;AT+ABL;PFV;PRS;V;IND;POSnasipPSS3S;ACC;SG;3;NalPFV;PST;V;IND;SG;3;POS._
+	
+Üveyoluncailledekötüolurdiyekendiniinandırmışsın.	üveyADJolIND;POS;PRS;PFV;V.CVB;VilleADVdeCONJkötüADJolIND;POS;3;PRS;SG;HAB;VdiyeADPkendiPSS2S;PRO;ACC;2;SG;REFLinan<unk>._
+	
+Birmücadeleyiizliyoruzişte.	birNUMmücadele3;N;ACC;SGizleINFM;1;PRS;V;IND;PL;PROG;POSişteADV._
+	
+Çünküörneğinsesiledeboşluklarmekanlaşabilir.	çünküCONJörneğinCONJsesNOM;N;3;SGileCONJdeCONJboşlukNOM;N;PL;3mekanlaşHAB;PRS;V;POT;SG;3;POS._
+	
+Aslındaseninonugörmengerek.	aslındaADVsenPRO;2;SG;GENoPRO;ACC;SG;3görPSS2S;V.MSDR;PFV;PRS;NOM;V;IND;POSgerekPFV;PRS;2;V;SG;IMP;POS._
+	
+ÇocukpantolonuRecep'inelindenkaptığıgibikayığınarkasınageçti.	çocukSG;NOM;N;3pantolonACC;SG;N;3RecepGEN;SG;PROPN;3elPSS3S;AT+ABL;3;SG;NkapPSS3S;IND;PST;POS;PFV;V.PTCP;VgibiADPkayıkGEN;SG;N;3arkaPSS3S;3;DAT;SG;ADJgeçIND;PST;POS;3;PFV;SG;V._
+	
+HernekadarAmatem'degörevyapanpsikiyatristAliBabaoğlubuzekapırıltılarınıeleştirsede:...	herDETneNOM;3;PRO;SGkadarADPAmatemSG;3;N;ESSgörevNOM;N;3;SGyapPFV;PRS;V;IND;V.PTCP;POSpsikiyatristNOM;N;3;SGAliNOM;PROPN;3;SGBabaoğluNOM;PROPN;3;SGbuDETzekaNOM;N;3;SGpırıltıPSS3S;ACC;PL;3;NeleştirCOND;PFV;PRS;V;SG;3;POSdeCONJ:_..._
+	
+Yapamambunu.	yap1;PRS;SG;NEG;POT;V;HABbu3;SG;PRO;ACC._
+	
+RefahyolHükümetidönemindeSİADHazinetekhesabı'olarakuygulanandahasonrayumuşatılarak'KamuDoçdönüşenuygulamayenidengetiriliyor.	RefahyolSG;NOM;PROPN;3hükümetPSS3S;NOM;3;SG;NdönemPSS3S;ESS;3;SG;NSİADNOM;3;SG;NhazineSG;NOM;N;3tekADJhesapPSS3S;NOM;3;SG;N'_olarakADPuygulaIND;POS;PASS;PRS;PFV;V.PTCP;VdahaADVsonraADVyumuşaIND;POS;PRS;PFV;V.CVB;V'_kamuSG;NOM;N;3DoçNOM;3;SG;NdönüşIND;POS;PRS;PFV;V.PTCP;VuygulamaSG;NOM;N;3yenidenADVgetirINFM;IND;POS;3;PASS;PRS;SG;PROG;V._
+	
+EkonomiyetkililerininYPKtoplantısındagündemegetirmeyiplanladığıtoplusözleşmegörüşmelerikonusundadaişçikonfederasyonlarınadüşükoranlıbirzammınönerilmesitartışılıyor.	ekonomiNOM;N;3;SGyetkiliPSS3S;GEN;ADJ;PL;3YpkNOM;PROPN;3;SGtoplantıPSS3S;SG;3;N;ESSgündem3;N;DAT;SGgetirV.MSDR;ACC;PFV;PRS;V;IND;POSplanlaPSS3S;PFV;PST;V;IND;V.PTCP;POStoplusözleşmeNOM;N;3;SGgörüşmePSS3S;NOM;PL;3;NkonuPSS3S;SG;3;N;ESSdaCONJişçiNOM;N;3;SGkonfederasyonPSS3S;PL;3;N;DATdüşükADJoranNOM;N;3;SGliADPbirNUMzam3;N;SG;GENönerPSS3S;PASS;V.MSDR;PFV;PRS;NOM;V;IND;POStartışINFM;PASS;PRS;V;IND;PROG;SG;3;POS._
+	
+O,değişikrenkleriveyandanışıklarıilekarşımdahazırdır.	oPRO;NOM;3;SG,_değişikADJrenkPSS3S;NOM;3;PL;NveCONJyanAT+ABL;SG;ADJ;3ışıkPSS3S;NOM;3;PL;NileCONJkarşı<unk>hazırSG;NOM;ADJ;3iV;3;PRS;PFV;SG._
+	
+-Çiziyormusunyani.	-_çizINFM;PRS;V;IND;PROG;SG;3;POSmuPFV;PRS;2;V;IND;SGyaniADV._
+	
+	
+Bütünvücudunukızarıncayakadarovalamıştın.	bütünADJvücutPSS2S;3;SG;N;ACCkızar<unk>kadarADPovalaPOS;IND;SG;PFV;2;PST+PRF;V._
+	
+Payçıkaracaksınkendine.	payNOM;N;3;SGçıkarFUT;PFV;2;V;IND;SG;POSkendiPSS2S;PRO;2;SG;REFL;DAT._
+	
+Benklasikşubemezunuyum.	ben1;PRO;NOM;SGklasikADJşubeNOM;N;3;SGmezunPSS3S;NOM;ADJ;SG;3i1;PFV;PRS;V;IND;SG._
+	
+SaimeSezginler:BirdosyahazırladıkvebunusunmaküzerebirlikteMilliSavunmaBakanlığı'nagittik.	SaimeSG;NOM;PROPN;3SezginlerSG;NOM;PROPN;3:_birNUMdosyaSG;NOM;N;3hazırlaIND;PST;POS;1;PFV;PL;VveCONJbuPRO;ACC;3;SGsunIND;NOM;V.MSDR;POS;PRS;PFV;VüzereADPbirlikteADPmilliADJsavunIND;NOM;V.MSDR;POS;PRS;PFV;VbakanlıkPSS3S;3;DAT;SG;NgitIND;PST;POS;1;PFV;PL;V._
+	
+	
+Yunanlılarınsavaşımverdiklerikonulardanbiridebudur.	YunanNOM;ADJ;3;SGli3;ADP;PL;GENsavaşımNOM;N;3;SGverPSS3P;PFV;PST;V;IND;V.PTCP;POSkonu3;N;PL;AT+ABLbiriPSS3S;PRO;NOM;SG;3deCONJbuPRO;NOM;SG;3iPFV;PRS;V;SG;3._
+	
+Yenigelen,masanınbirkenarındakiboşsandalyeyeatmıştıkendini.	yeniADJgelPFV;PRS;V;IND;V.PTCP;POS,_masa3;N;SG;GENbirNUMkenarPSS2S;ADJ;SG;3;ESSkiADPboşADJsandalye3;N;DAT;SGatPFV;V;IND;SG;3;PST+PRF;POSkendiPSS3S;REFL;PRO;ACC;SG;3._
+	
+Hepsionubekliyor.	hepsiPSS3P;3;NOM;PL;PROo3;SG;PRO;ACCbekle3;POS;IND;PRS;INFM;SG;PROG;V._
+	
+BeyinTakımıdiyeisimedindiler.	beyinNOM;N;3;SGtakımPSS3S;NOM;SG;3;NdiyeADPisimNOM;N;3;SGedinPFV;PST;V;IND;PL;3;POS._
+	
+Rakısındanbiryudumaldı.	rakıPSS3S;3;SG;N;AT+ABLbirNUMyudumSG;3;N;NOMalPST;3;POS;IND;SG;PFV;V._
+	
+Okadarçokşeysaydıki,annemlekonuşurkenkapıldığımkorkularyenidenortayaçıktı.	oDETkadarADPçokADJşeyNOM;N;3;SGsayPFV;PST;V;IND;SG;3;POSkiCONJ,_annePSS1S;INS;SG;3;NkonuşHAB;PRS;V;IND;SG;3;POS;V.CVBkapPSS1S;PASS;PFV;PST;V;IND;V.PTCP;POSkorkuNOM;N;PL;3yenidenADVorta3;ADJ;DAT;SGçıkPFV;PST;V;IND;SG;3;POS._
+	
+Mükelleflerinsondörtyıldakivergimatrahlarınıartırmalarıveborçlarınıuzunvadelitaksitlerleödemelerihalindevergiincelemesiyapılmamalı.	mükellef3;ADJ;PL;GENsonADJdörtNUMyıl3;N;ESS;SGkiADPvergiNOM;N;3;SGmatrahPSS3P;ACC;PL;3;NartırmaPSS3P;NOM;SG;3;NveCONJborçPSS3P;ACC;PL;3;NuzunADJvadeNOM;N;3;SGliADPtaksit3;N;INS;PLödePSS3P;V.MSDR;PFV;PRS;NOM;V;IND;POShalPSS3S;SG;3;N;ESSvergiNOM;N;3;SGincelePSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSyapPASS;NEG;PFV;PRS;V;SG;3._
+	
+Rokfor'unefsanesi:Vaktiyle,gençbirçobanvarmış.	RokforSG;GEN;PROPN;3efsanePSS3S;3;NOM;SG;N:_vakitPSS3S;3;SG;N;INS,_gençADJbirNUMçobanSG;3;N;NOMvarSG;3;ADJ;NOMiPST;V;3;IND;SG;PFV;NFH._
+	
+Nereyegidiyoruz.	nereSG;PRO;DAT;3gitINFM;IND;POS;1;PROG;PRS;PL;V._
+	
+Sigaraveeroinonuntekdostu.	sigaraNOM;N;3;SGveCONJeroinNOM;N;3;SGoPRO;SG;3;GENtekADJdostPSS3S;NOM;ADJ;SG;3._
+	
+Oradaki,kalemdekigörevlilerinkaprisiyledekarşılaştık.	ora3;ESS;PRO;SGkiADP,_kalem3;N;ESS;SGkiADPgörevli3;ADJ;PL;GENkaprisPSS3S;INS;SG;3;NdeCONJkarşılaş1;PFV;PST;V;IND;PL;POS._
+	
+Bakkalçuvalındançıkmış,kuruyemişçicamekanınagitmiştir.	bakkalSG;3;N;NOMçuvalPSS3S;3;SG;N;AT+ABLçıkPST;3;POS;IND;SG;PFV;V;NFH,_kuruADJyemişçiSG;3;N;NOMcamekanPSS3S;DAT;3;SG;NgitPST;3;POS;SG;PFV;V;NFH._
+	
+Üçüdeyakışırlarsoframıza.	üçNUM;ACC;3;SGdeCONJyakışIND;POS;3;PRS;PL;V;HABsofraPSS1P;3;DAT;SG;N._
+	
+Yurtdışlarınagitti,ekonomi-mekonomi,işletme-mişletmedeokudu.	yurtdışıPSS3P;SG;3;N;DATgitPFV;PST;V;IND;SG;3;POS,_ekonomiNOM;N;3;SG-_mekonomiNOM;N;3;SG,_işleV.MSDR;PFV;PRS;NOM;V;IND;CAUS;POS-_mişletmeNOM;N;3;SGdeCONJokuPFV;PST;V;IND;SG;3;POS._
+	
+Hergüzelşeyinsonuolduğugibibaledebitti.	herDETgüzelADJşeyGEN;SG;N;3sonPSS3S;NOM;3;SG;ADJolPSS3S;IND;PST;POS;PFV;V.PTCP;VgibiADPbaleSG;NOM;N;3deCONJbitIND;PST;POS;3;PFV;SG;V._
+	
+Tekkeileilgiliolarakverilenbilgilerinçoğuyanlıştır.	tekkeNOM;N;3;SGileCONJilgiliADJolarakADPverPASS;PFV;PRS;V;IND;V.PTCP;POSbilgi3;N;PL;GENçokPSS3S;NOM;ADJ;SG;3yanlışNOM;ADJ;3;SGiPFV;PRS;V;SG;3._
+	
+Ramizhalaanlatmaktadiretiyor:Evdeyemekgötürecekkimseyoktu,diyor,sonraannembana...	RamizNOM;PROPN;3;SGhalaADVanlatFORM;PRS;V;IND;PROG;SG;3;POSdireINFM;PRS;V;IND;PROG;SG;3;CAUS;POS:_ev3;N;ESS;SGyemekNOM;N;3;SGgötürFUT;PFV;V;IND;V.PTCP;POSkimseNOM;N;3;SGyokADViPFV;V;PST;IND;SG;3,_deINFM;PRS;V;IND;PROG;SG;3;POS,_sonraADVannePSS1S;NOM;SG;3;Nben1;PRO;SG;DAT..._
+	
+Eroinbağımlılığıtesadüfenolmaz.	eroinSG;NOM;N;3bağımlılıkPSS3S;NOM;3;SG;NtesadüfenADVolNEG;IND;3;PRS;SG;HAB;V._
+	
+dörtyüzotuztrilyonciroylaTürkiye'ninenbüyükyirmiüç'üncükuruluşuolanTPAOveikibinbiryılıvergirekortmeniKıyıEmniyeti,gelirlerininyüzdeon'unubütçeyeaktaracak.	dörtyüzotuzNUMtrilyonNUMciro3;N;INS;SGTürkiye3;PROPN;SG;GENenADVbüyükADJyirmiüçNUMkuruluşPSS3S;NOM;SG;3;NolPFV;PRS;V;IND;V.PTCP;POSTpaoNOM;PROPN;3;SGveCONJikibinbirNOM;SG;3;NUMyılPSS3S;NOM;SG;3;NvergiNOM;N;3;SGrekortmenPSS3S;NOM;SG;3;NkıyıNOM;N;3;SGemniyetPSS3S;NOM;SG;3;N,_gelirPSS3S;GEN;PL;3;NyüzSG;3;NUM;ESSon<unk>bütçe3;N;DAT;SGaktarFUT;PFV;V;IND;SG;3;POS._
+	
+İkisidedeğil.	ikiPSS3S;NUM;NOM;3;SGdeCONJdeğilNEG;IND;3;PRS;PFV;SG;V._
+	
+"OnlardadaHıristiyanlıkvedemokrasininbiraradaolupuyumiçindeyaşamasıvar.	"_o<unk>daCONJhıristiyanSG;NOM;N;3likADP;SG;NOM;3veCONJdemokrasiGEN;SG;N;3birNUM;NOM;3;SGaraSG;ESS;ADJ;3olIND;POS;PRS;PFV;V.CVB;VuyumSG;NOM;N;3içPSS3S;ESS;3;SG;ADJyaşaPSS3S;IND;NOM;V.MSDR;POS;PFV;PRS;VvarADJ._
+	
+Buparkonunruhununiçinde,onunbelleğinde.	buDETparkNOM;N;3;SGoPRO;SG;3;GENruhPSS3S;GEN;SG;3;NiçPSS3S;ADJ;SG;3;ESS,_oPRO;SG;3;GENbellekPSS3S;SG;3;N;ESS._
+	
+Öyleysebendeoturupbirüveybabamasalıyazayım.	öyleNOM;ADJ;3;SGiCOND;PFV;PRS;V;SG;3ben1;PRO;NOM;SGdeCONJoturPFV;PRS;V;IND;POS;V.CVBbirNUMüveyADJbabaNOM;N;3;SGmasal3;N;ACC;SGyaz1;OPT;PFV;PRS;V;SG;POS._
+	
+Eğitimgörmüştür.	eğitimNOM;N;3;SGgörPFV;PST;V;NFH;SG;3;POS._
+	
+Yorum:HaberigeçenDoğanHaberAjansı(DHA)KonyamuhabiriMehmetBüyükarı,haberindoğruolduğundaısrarlı.	yorumSG;3;N;NOM:_haberSG;N;ACC;3geçPOS;PRS;IND;PFV;V.PTCP;VDoğanSG;3;PROPN;NOMhaberSG;3;N;NOMajansPSS3S;3;NOM;SG;N(_DhaSG;3;PROPN;NOM)_KonyaSG;3;PROPN;NOMmuhabirSG;N;ACC;3MehmetSG;3;PROPN;NOMBüyükarıSG;3;PROPN;NOM,_haberSG;GEN;N;3doğruADJolPSS3S;PST;POS;IND;PFV;V.PTCP;V;ESSısrarlıADJ._
+	
+DışardaakiçadırdaŞuraekmekhazırlıyor.	dışarı3;N;ESS;SGkiADPçadır3;N;ESS;SGŞuraNOM;PROPN;3;SGekmekNOM;N;3;SGhazırlaINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Otobiyografisizler.	otobiyografiSG;NOM;N;3sizADPiV;IND;3;PRS;PFV;PL._
+	
+Ozamankigecekonduuygulamalarışöyleydi.	oDETzamanNOM;N;3;SGkiADPgecekonduNOM;N;3;SGuygulamaPSS3S;NOM;PL;3;NşöyleADViPFV;V;PST;IND;SG;3._
+	
+Etrafımızdakiizlerisordum:Siegendiyeyanıtladı.	etrafPSS1P;SG;3;N;ESSkiADPiz3;N;PL;ACCsor1;PFV;PST;V;IND;SG;POS:_SiegenNOM;PROPN;3;SGdiyeADPyanıtlaPFV;PST;V;IND;SG;3;POS._
+	
+Bupazarbizekatılsanıza...	buDETpazarNOM;N;3;SGbiz1;PRO;PL;DATkat<unk>..._
+	
+Deliğialkolle,haplarla,kokainle,LSDileyadaeroiniledoldurmamfarketmiyordu.	delik3;ACC;ADJ;SGalkol3;N;INS;SG,_hap3;N;INS;PL,_kokain3;N;INS;SG,_LSDNOM;SG;3;NileCONJyaCONJdaCONJeroinNOM;N;3;SGileCONJdolPSS1S;V.MSDR;PFV;PRS;NOM;V;IND;CAUS;POSfarkNOM;N;3;SGetINFM;NEG;PST;V;IND;PROG;SG;3._
+	
+Onayardımcıolmalıyız,dedi.	oPRO;SG;3;DATyardımcıNOM;N;3;SGol1;PFV;PRS;V;PL;POS,_dePFV;PST;V;IND;SG;3;POS._
+	
+Benim,açınkapıyı.	ben1;PRO;NOM;SGi1;PFV;PRS;V;IND;SG,_açPFV;PRS;2;V;PL;IMP;POSkapı3;N;ACC;SG._
+	
+Var,dediKerem.	varADJ,_deIND;PST;POS;3;PFV;SG;VKeremSG;NOM;PROPN;3._
+	
+Odahaçekici:Melez,soyuamazonbelkide.	oPRO;NOM;SG;3dahaADVçekiciADJ:_melezADJ,_soyPSS3S;NOM;SG;3;NamazonNOM;N;3;SGbelkiADVdeCONJ._
+	
+NihatHoca,onlarıkamuoyunaBeyinTakımıdiyesundu.	NihatNOM;PROPN;3;SGhocaNOM;N;3;SG,_oPRO;ACC;PL;3kamuoyuPSS3S;SG;3;N;DATbeyinNOM;N;3;SGtakımPSS3S;NOM;SG;3;NdiyeADPsunPFV;PST;V;IND;SG;3;POS._
+	
+Elektrikakımıgibi.	elektrikSG;3;N;NOMakımPSS3S;3;NOM;SG;NgibiADP._
+	
+Buyüzdentrendlerleçokilgililer.	buDETyüz3;N;SG;AT+ABLtrend3;N;INS;PLçokADVilgiliNOM;ADJ;PL;3._
+	
+	
+PKKAteşAçtıbaşlığıiseiçerdekullanılmış.	PkkNOM;PROPN;3;SGAteşNOM;PROPN;3;SGaçPFV;PST;V;IND;SG;3;POSbaşlıkPSS3S;NOM;SG;3;NiViçeri3;N;ESS;SGkullanPASS;PFV;PST;V;NFH;IND;SG;3;POS._
+	
+Eyvah!Mantarabasıyoruzgaliba.	eyvahINTJ!_mantar3;N;DAT;SGbasINFM;1;PRS;V;IND;PL;PROG;POSgalibaADV._
+	
+ÇelikkaleSokağı'ndamanevrakıyafetliikiHarpOkuluöğrencisibizidurdurdu.	ÇelikkaleNOM;PROPN;3;SGsokakPSS3S;SG;3;N;ESSmanevraNOM;N;3;SGkıyafetNOM;N;3;SGliADPikiNUMharpNOM;N;3;SGokulPSS3S;NOM;SG;3;NöğrenciPSS3S;NOM;SG;3;Nbiz1;PRO;ACC;PLdurPFV;PST;V;IND;SG;3;CAUS;POS._
+	
+Bendesakızçiğnemekleayıparasındabirbağlantıkuramıyorum.	ben1;PRO;NOM;SGdeCONJsakızNOM;N;3;SGçiğneV.MSDR;PFV;PRS;V;INS;IND;POSayıpNOM;N;3;SGaraPSS3S;ADJ;SG;3;ESSbirNUMbağlantıNOM;N;3;SGkurINFM;1;NEG;PRS;V;POT;PROG;SG._
+	
+Birdenbire.	birdenbireADV._
+	
+Düşünüyordum.	düşünINFM;1;PST;V;IND;PROG;SG;POS._
+	
+Erkendi.	erkenADViPFV;V;PST;IND;SG;3._
+	
+İşistiyorum.	işNOM;N;3;SGisteINFM;1;PRS;V;IND;PROG;SG;POS._
+	
+Buneperhiz,bunelahanaturşusu.	bu3;NOM;SG;PROneSG;3;PRO;NOMperhizSG;3;N;NOM,_bu3;NOM;SG;PROneSG;3;PRO;NOMlahanaSG;3;N;NOMturşuPSS3S;3;NOM;SG;N._
+	
+Riskalabilenyatırımcıseçimeyaklaşıldıkçapozisyonalabilir.	riskSG;3;N;NOMal<unk>yatırımcıSG;3;N;NOMseçimSG;DAT;N;3yaklaşPASS;POS;PRS;IND;V.CVB;PFV;VpozisyonSG;3;N;NOMal3;POS;PRS;SG;POT;V;HAB._
+	
+Islıkkimeçalınmışsaokoşardı.	ıslıkSG;NOM;N;3kimSG;PRO;DAT;3çal<unk>oPRO;NOM;3;SGkoşIND;PST;POS;3;SG;HAB;V._
+	
+Gözlerikorgibiyanıyordu.	gözPSS3S;NOM;PL;3;NkorNOM;N;3;SGgibiADPyanINFM;PST;V;IND;PROG;SG;3;POS._
+	
+Mahmut'uhemengördüm.	Mahmut3;PROPN;ACC;SGhemenADVgör1;PFV;PST;V;IND;SG;POS._
+	
+Birgünbirküçükkazaolur,çantanızdakibirflasterbelkidehayatınızıkurtarır.	birNUMgünNOM;N;3;SGbirNUMküçükADJkazaNOM;N;3;SGolHAB;PRS;V;IND;SG;3;POS,_çanta<unk>kiADPbirNUMflasterNOM;N;3;SGbelkiADVdeCONJhayatPSS2P;ACC;SG;3;NkurtarHAB;PRS;V;IND;SG;3;POS._
+	
+NaciBey,şusayfadanşusayfayakadarokuyun,demiş.	NaciNOM;PROPN;3;SGbeyNOM;N;3;SG,_şuDETsayfa3;N;SG;AT+ABLşuDETsayfa3;N;DAT;SGkadarADPokuPFV;PRS;2;V;PL;IMP;POS,_dePFV;PST;V;NFH;IND;SG;3;POS._
+	
+Vedeyapabiliyorlar.	veCONJdeCONJyap<unk>._
+	
+NA'nınonikibasamağıdabuamacayönelik.	NaGEN;SG;PROPN;3onNUM;NOM;3;SGikiNUM;NOM;3;SGbasamakPSS3S;NOM;3;SG;NdaCONJbuPRO;NOM;3;SGamaçSG;DAT;N;3yönelikADP._
+	
+Odaherkesegülümser,şakalaşır,saçlarınakurdeletakılmışküçükbirkızgibidavranırdı.	o3;NOM;SG;PROdaCONJherkesSG;DAT;N;3gülümse3;POS;IND;PRS;SG;V;HAB,_şakalaş3;POS;IND;PRS;SG;V;HAB,_saçPSS3S;DAT;3;PL;NkurdeleSG;3;N;NOMtakPASS;PST;POS;IND;PFV;V.PTCP;V;NFHküçükADJbirNUMkızSG;3;ADJ;NOMgibiADPdavranPST;3;POS;IND;SG;V;HAB._
+	
+Görüşürüz.deyipkapattım.	görüş1;POS;IND;PL;PRS;V;HAB._deyPOS;PRS;IND;V.CVB;PFV;VkapaPST;1;POS;IND;SG;PFV;V;CAUS._
+	
+Birtaksibulduk.	birNUMtaksiNOM;N;3;SGbul1;PFV;PST;V;IND;PL;POS._
+	
+Artıkseninlesevişmeyeceğim.	artıkADVsenPRO;2;INS;SGseviş<unk>._
+	
+Arada,işegidipbütüngazeteleriokuyupajanshaberlerinitarayarak,cinayetleriçıkarıyordum.	araSG;ESS;ADJ;3,_işSG;DAT;N;3gitPOS;PRS;IND;V.CVB;PFV;VbütünADJgazetePSS3S;3;NOM;PL;NokuPOS;PRS;IND;V.CVB;PFV;VajansSG;3;N;NOMhaberPSS3S;3;PL;N;ACCtaraPOS;PRS;IND;V.CVB;PFV;V,_cinayetPL;N;ACC;3çıkarPST;1;POS;IND;INFM;SG;PROG;V._
+	
+Artıkkimsekelkafalıbirfahişeilesevişmekistemezdi.	artıkADVkimseNOM;N;3;SGkelADJkafalıADJbirNUMfahişeNOM;N;3;SGileADPsevişV.MSDR;PFV;PRS;NOM;V;IND;POSisteNEG;HAB;PST;V;IND;SG;3._
+	
+Viskibardağınıaldı,dikipbitirdi.	viskiNOM;N;3;SGbardakPSS3S;ACC;SG;3;NalPFV;PST;V;IND;SG;3;POS,_dikPFV;PRS;V;IND;POS;V.CVBbitirPFV;PST;V;IND;SG;3;POS._
+	
+Herbiribinüçyüzdolarharcıyor.	herDETbirNUM;ACC;3;SGbinüçyüzNUM;NOM;3;SGdolarSG;NOM;N;3harcaINFM;IND;POS;3;PRS;SG;PROG;V._
+	
+YAŞtoplantılarındayıllardırtekrarlananuygulamayagöreTaylor'ınüyeleritoplantınınilkbölümüveAnıtkabir'iziyaretlerininardındanbirkuvvetkomutanınınverdiğiöğleyemeğindebirarayageliyor.	yaşNOM;ADJ;3;SGtoplantıPSS3P;SG;3;N;ESSyılNOM;N;PL;3dirADPtekrarlaPASS;PFV;PRS;V;IND;V.PTCP;POSuygulama3;N;DAT;SGgöreADPTaylor3;PROPN;SG;GENüyePSS3P;NOM;SG;3;Ntoplantı3;N;SG;GENilkADJbölümPSS3S;NOM;SG;3;NveCONJAnıtkabir3;PROPN;ACC;SGziyaretPSS3P;PL;3;N;GENardındanADVbirNUMkuvvetNOM;N;3;SGkomutanPSS3S;GEN;SG;3;NverPSS3S;PFV;PST;V;IND;V.PTCP;POSöğleNOM;N;3;SGyemekPSS3S;SG;3;N;ESSbirNUMara3;ADJ;DAT;SGgelINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Ozamanbenneyaparım?	oDETzamanNOM;N;3;SGben1;PRO;NOM;SGneNOM;3;PRO;SGyap1;HAB;PRS;V;IND;SG;POS?_
+	
+AnnemeTibetkonusunudahaaçamadım.	annePSS1S;SG;3;N;DATTibetNOM;PROPN;3;SGkonuPSS3S;ACC;SG;3;NdahaADVaç1;NEG;PFV;PST;V;POT;SG._
+	
+Birkadınlabirerkeğinoynayabileceğibütünoyunlarıoynamış,kadınlığıdaerkekliğidesonunakadaryaşamıştık.	birNUMkadın3;INS;ADJ;SGbirNUMerkek3;ADJ;SG;GENoynaPSS3S;FUT;PFV;V;POT;V.PTCP;POSbütünADJoyun3;N;PL;ACCoynaPFV;PST;V;NFH;IND;SG;3;POS,_kadınlık3;N;ACC;SGdaCONJerkeklik3;N;ACC;SGdeCONJsonPSS3S;ADJ;SG;3;DATkadarADPyaşa1;PFV;V;IND;PL;PST+PRF;POS._
+	
+Öncetanıdılar...	önceADVtanıPST;3;POS;IND;PL;PFV;V..._
+	
+	
+Vedilvarlığıneviise,evdedilindoğumevidir.	veCONJdilNOM;N;3;SGvarlık3;N;SG;GENev3;N;ACC;SGi3;COND;V;SG,_evNOM;N;3;SGdeCONJdil3;N;SG;GENdoğumeviPSS3S;NOM;SG;3;NiPFV;PRS;V;SG;3._
+	
+İzleyicilerbubakışınfarkındaolmasalarda,Recepkahrolur,darbukasınahırslavurmaya,tempoyuhızlandırıpSaffet'izorlamayabaşlardı.	izleyiciNOM;N;PL;3buDETbakış3;N;SG;GENfarkPSS3S;SG;3;N;ESSolNEG;COND;PFV;PRS;V;PL;3daCONJ,_RecepNOM;PROPN;3;SGkahrolHAB;PRS;V;IND;SG;3;POS,_darbukaPSS3S;SG;3;N;DAThırs3;N;INS;SGvurOPT;NEG;PFV;PRS;V;SG;3,_tempo3;N;ACC;SGhızlanPFV;PRS;V;IND;CAUS;POS;V.CVBSaffet3;PROPN;ACC;SGzorlaOPT;NEG;PFV;PRS;V;SG;3başlaHAB;PST;V;IND;SG;3;POS._
+	
+Kabuleder.	kabulNOM;N;3;SGetHAB;PRS;V;IND;SG;3;POS._
+	
+Kimseleregüvenemem.	kimseDAT;PL;N;3güvenPOT;NEG;1;PRS;SG;HAB;V._
+	
+Busatırlar,odüşüncelerinkağıdadökülmüşüdür.	buDETsatırNOM;PL;N;3,_oDETdüşünceGEN;PL;N;3kağıtSG;DAT;ADJ;3dökNFH;IND;PST;POS;PASS;PFV;V.PTCP;ViV;3;PRS;PFV;SG._
+	
+Tamdeğil.	tamADJdeğilNEG;IND;3;PRS;PFV;SG;V._
+	
+Onagöreduygulartehlikelidir.	oDAT;3;SG;PROgöreADPduygu3;PL;N;NOMtehlikeSG;3;N;NOMliADPiV;3;PRS;SG;PFV._
+	
+	
+AncakIrakkonusununsürekligündemdekalıyorolmasıortavadelidüşünenleriçinciddibirtehdit.	ancakCONJIrakNOM;PROPN;3;SGkonuPSS3S;GEN;SG;3;NsürekliADVgündem3;N;ESS;SGkalINFM;PRS;V;IND;PROG;SG;3;POSolPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSortaADJvadeNOM;N;3;SGliADPdüşünPFV;PRS;NOM;V;IND;PL;V.PTCP;3;POSiçinADPciddiADJbirNUMtehditNOM;N;3;SG._
+	
+Baktıolmayacak,beniyanağımdanöptü,saçlarımıokşadı.	bakPFV;PST;V;IND;SG;3;POSolFUT;NEG;PFV;V;IND;SG;3,_ben1;PRO;ACC;SGyanakPSS1S;AT+ABL;SG;3;NöpPFV;PST;V;IND;SG;3;POS,_saçPSS1S;ACC;PL;3;NokşaPFV;PST;V;IND;SG;3;POS._
+	
+SermayeartırımısonrasındaReina'dePlatformKozanoğluClub'aTechnologies'inpayıyüzdedoksanaltı'danyüzdeatmışbeş'einerken,ÇukurovaHolding'inpayıyüzde4'tenyüzdedokuz'ayükseldi.	sermayeSG;3;N;NOMartırımPSS3S;3;NOM;SG;NsonraPSS3S;3;SG;N;ESSReinaSG;ESS;PROPN;3platformSG;3;N;NOMKozanoğluPSS3S;3;NOM;PROPN;SGClubSG;DAT;PROPN;3TechnologiesSG;GEN;PROPN;3payPSS3S;3;NOM;SG;Nyüz3;SG;NUM;ESSdoksanaltı3;SG;NUM;AT+ABLyüz3;SG;NUM;ESSatmışbeş<unk>in3;POS;IND;PRS;V.CVB;SG;V;HAB,_ÇukurovaSG;3;PROPN;NOMHoldingSG;GEN;PROPN;3payPSS3S;3;NOM;SG;Nyüz3;SG;NUM;ESS43;SG;NUM;AT+ABLyüz3;SG;NUM;ESSdokuz<unk>yükselPST;3;POS;IND;SG;PFV;V._
+	
+Tabanlarışişmiş,ayaklarıparçalanmışamaişaslanağzındaymış.	tabanPSS3S;NOM;ADJ;PL;3şişPFV;PST;V;NFH;IND;SG;3;POS,_ayakPSS3S;NOM;PL;3;NparçalaPASS;PFV;PST;V;NFH;IND;SG;3;POSamaCONJişNOM;N;3;SGaslanNOM;ADJ;3;SGağızPSS3S;SG;3;N;ESSiPFV;V;PST;NFH;IND;SG;3._
+	
+Önümeuzunboylubirigelmemesiiçinduayabaşladım.	önPSS1S;ADJ;SG;3;DATuzunADJboyluADJbiriPSS3S;PRO;NOM;SG;3gelPSS3S;V.MSDR;NEG;PFV;PRS;NOM;V;INDiçinADPdua3;N;DAT;SGbaşla1;PFV;PST;V;IND;SG;POS._
+	
+	
+Sahnededansedenlersankiinsandeğildetüygibigeldibana.	sahne3;N;ESS;SGdansNOM;N;3;SGetPFV;PRS;NOM;V;IND;PL;V.PTCP;3;POSsankiADVinsanNOM;N;3;SGdeğilCONJdeCONJtüyNOM;ADJ;3;SGgibiADPgelPFV;PST;V;IND;SG;3;POSben1;PRO;SG;DAT._
+	
+Budaemmioğlu!	buPRO;NOM;SG;3daCONJemmioğluNOM;N;3;SG!_
+	
+Hadiyürü.	hadiINTJyürü2;POS;IMP;PRS;PFV;SG;V._
+	
+Yanişimdiogerçekleşiyor.	yaniCONJşimdiADVoPRO;NOM;SG;3gerçekleşINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+TCK'nınilgilimaddesi,ikiilebeşyılarasındahapiscezasınıöngörüyor.	TckGEN;3;SG;NilgiliADJmaddePSS3S;NOM;3;SG;N,_ikiNUM;NOM;3;SGileCONJbeşNUM;NOM;3;SGyılSG;NOM;N;3araPSS3S;ESS;3;SG;ADJhapisSG;NOM;N;3cezaPSS3S;ACC;3;SG;NöngörINFM;IND;POS;3;PRS;SG;PROG;V._
+	
+Sosyalboyutudaihmaledemeyiz"dedi.	sosyalADJboyut3;N;ACC;SGdaCONJihmalNOM;N;3;SGet<unk>"_dePFV;PST;V;IND;SG;3;POS._
+	
+Buranınyerlisio.	bura3;SG;PRO;GENyerliPSS3S;NOM;ADJ;SG;3oPRO;NOM;SG;3._
+	
+Genedurdu,sıkılmıştı.	geneADVdurPST;3;POS;IND;SG;PFV;V,_sıkıl3;POS;IND;SG;PFV;PST+PRF;V._
+	
+ii)potansiyelrahipadaylarıCelal,benvehülya'dır.	2NUM;NOM;3;SG)_potansiyelSG;NOM;N;3rahipSG;NOM;N;3adayPSS3S;NOM;3;PL;NCelalSG;NOM;PROPN;3,_benPRO;NOM;1;SGveCONJhülyaSG;NOM;N;3iV;3;PRS;PFV;SG._
+	
+Matematiktedoğruluğunukendiiçindebarındıranhipotezlerdenyolaçıkarakbirteoremikanıtlarsınızvedosyakapanır.	matematik3;N;ESS;SGdoğrulukPSS3S;ACC;SG;3;NkendiPSS3S;REFL;PRO;NOM;SG;3içPSS3S;ADJ;SG;3;ESSbarınPFV;PRS;V;IND;V.PTCP;CAUS;POShipotez3;N;PL;AT+ABLyol3;N;DAT;SGçıkPFV;PRS;V;IND;POS;V.CVBbirNUMteorem3;N;ACC;SGkanıtlaHAB;2;PRS;V;IND;PL;POSveCONJdosyaNOM;N;3;SGkapaPASS;HAB;PRS;V;IND;SG;3;POS._
+	
+Esasen,ülkemizdeolduğugibi,emperyalizmveOrtaçağ'akarşısınıfmücadelesinincanlıolduğuülkelerdeböylebirbarışiklimininbulunmamasıda,aynınedenledir.	esasenADV,_ülkePSS1P;3;SG;N;ESSolPSS3S;PST;POS;IND;PFV;V.PTCP;VgibiADP,_emperyalizmSG;3;N;NOMveCONJOrtaçağSG;DAT;PROPN;3karşıADPsınıfSG;3;N;NOMmücadelePSS3S;3;SG;N;GENcanlıADJolPSS3S;PST;POS;IND;PFV;V.PTCP;VülkeESS;PL;N;3böyleADJbirNUMbarışSG;3;N;NOMiklimPSS3S;3;SG;N;GENbulun<unk>daCONJ,_aynıADJnedenSG;3;N;INSiV;3;PRS;SG;PFV._
+	
+	
+Kaçgündürbuböyle.	kaçNUMgünNOM;N;3;SGiPFV;PRS;V;SG;3buPRO;NOM;SG;3böyleADV._
+	
+GeorgeBerkeley(binaltıyüzseksenbeş-binyediyüzelliüç)özdeğinvarlığınıyadsıyanfelsefidizgesiyleünlüdür.	GeorgeNOM;PROPN;3;SGBerkeleyNOM;PROPN;3;SG(_binaltıyüzseksenbeşNOM;N;3;SG-_binyediyüzelliüçNOM;N;3;SG)_özdek3;N;SG;GENvarlıkPSS3S;ACC;SG;3;NyadsıPFV;PRS;V;IND;V.PTCP;POSfelsefiADJdizgePSS3S;INS;SG;3;NünlüNOM;ADJ;3;SGiPFV;PRS;V;SG;3._
+	
+İstanbul,Ankara,İzmir,Antalya,Dalaman,Adana,Trabzon,BodrumMilas,Bursa'da'bulunuyor.	İstanbulNOM;PROPN;3;SG,_AnkaraNOM;PROPN;3;SG,_İzmirNOM;PROPN;3;SG,_AntalyaNOM;PROPN;3;SG,_DalamanNOM;PROPN;3;SG,_AdanaNOM;PROPN;3;SG,_TrabzonNOM;PROPN;3;SG,_BodrumNOM;PROPN;3;SGMilasNOM;PROPN;3;SG,_Bursa3;PROPN;ESS;SG'_bulunINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Ayhan,tümgururuvedeonuruvedemühendislikşuuruilecevapladı.	AyhanNOM;PROPN;3;SG,_tümDETgururPSS3S;NOM;SG;3;NveCONJdeCONJonurPSS3S;NOM;SG;3;NveCONJdeCONJmühendislikNOM;N;3;SGşuurPSS3S;NOM;SG;3;NileCONJcevaplaPFV;PST;V;IND;SG;3;POS._
+	
+Benhersabahyürüyorum.	ben1;PRO;NOM;SGherDETsabahNOM;N;3;SGyürüINFM;1;PRS;V;IND;PROG;SG;POS._
+	
+Yenidensizidüşünmeyebaşlayabilir.	yenidenADVsizPL;2;PRO;ACCdüşünDAT;POS;IND;PRS;PFV;V;V.MSDRbaşla3;POS;PRS;SG;POT;V;HAB._
+	
+İkibayramarasıIMFCHP'liolacak.	ikiNUMbayramSG;NOM;N;3araPSS3S;NOM;3;SG;ADJImfNOM;3;SG;NChpNOM;3;SG;NliADPolIND;POS;3;FUT;PFV;SG;V._
+	
+Biryasaklamanıniçindeydik.	birNUMyasaklaV.MSDR;PFV;PRS;V;IND;POS;GENiçindeNOM;N;3;SGi1;PFV;V;PST;IND;PL._
+	
+Hafifkonyakımsı,amakonyakdadeğil,skoçviskilerinegöredahayanıkkokulusanki.	hafifADJkonyakımsıADJ,_amaCONJkonyakNOM;N;3;SGdaCONJdeğilNEG;PFV;PRS;V;IND;SG;3,_SkoçNOM;PROPN;3;SGviskiPSS3S;PL;3;N;DATgöreADPdahaADVyanıkADJkokuNOM;N;3;SGliADPsankiADV._
+	
+Şimditekrarevegirdiler,geyiketliyemekzamanıgelmişti.	şimdiADVtekrarADVev3;N;DAT;SGgirPFV;PST;V;IND;PL;3;POS,_geyikNOM;N;3;SGetNOM;N;3;SGliADPyemekNOM;N;3;SGzamanPSS3S;NOM;SG;3;NgelPFV;V;IND;SG;3;PST+PRF;POS._
+	
+-Nedenbıraktınbeni.	-_nedenADVbırakPST;POS;IND;SG;PFV;2;Vben1;SG;PRO;ACC._
+	
+Hazine'ninyaptığıçalışmayagöreIrak'aaskerioperasyondurumundaTürkiyeenazotuzmilyardolarlıkkayıpyaşayacak.	hazine3;N;SG;GENyapPSS3S;PFV;PST;V;IND;V.PTCP;POSçalışV.MSDR;PFV;PRS;V;IND;DAT;POSgöreADPIrak3;PROPN;DAT;SGaskeriADJoperasyonNOM;N;3;SGdurumPSS3S;SG;3;N;ESSTürkiyeNOM;PROPN;3;SGenADVazADVotuzNOM;SG;3;NUMmilyarNOM;SG;3;NUMdolarNOM;N;3;SGlikNOM;ADP;3;SGkayıpADJyaşaFUT;PFV;V;IND;SG;3;POS._
+	
+Amacımseniniçinirahatlatmak.	amaçPSS1S;NOM;3;SG;NsenPRO;GEN;2;SGiç<unk>rahatlaCAUS;IND;NOM;V.MSDR;POS;PRS;PFV;V._
+	
+Aydınlıkyetkilileriellerindekikimibelgelerden,duyumlardanbahsettiler.	AydınlıkNOM;PROPN;3;SGyetkiliPSS3P;NOM;ADJ;SG;3elPSS3P;PL;3;N;ESSkiADPkimiDETbelge3;N;PL;AT+ABL,_duyum3;N;PL;AT+ABLbahsetPFV;PST;V;IND;PL;3;POS._
+	
+Gönlününbüyüklüğünügösterdi.	gönülPSS3S;GEN;SG;3;NbüyüklükPSS3S;ACC;SG;3;NgösterPFV;PST;V;IND;SG;3;POS._
+	
+Şuüniversiteişinibirtürlüoturtamadık.	şuDETüniversiteSG;NOM;N;3işPSS3S;ACC;3;SG;NbirADVtürlüADJotur<unk>._
+	
+Ummadığıinandırıcısoğukkanlılığım,açığavurmasınayaradı,umutbeklentisini...	umPSS3S;NEG;PFV;PST;V;IND;V.PTCPinandırıcıADJsoğukkanlılıkPSS1S;NOM;SG;3;N,_açık3;ADJ;DAT;SGvurPSS3S;V.MSDR;PFV;PRS;V;IND;DAT;POSyaraPFV;PST;V;IND;SG;3;POS,_umutNOM;N;3;SGbeklentiPSS3S;ACC;SG;3;N..._
+	
+CasinoVenüs...diyemırıldandı.	casinoSG;NOM;N;3VenüsSG;NOM;PROPN;3..._diyeADPmırıldaIND;PST;POS;3;PASS;PFV;SG;V._
+	
+Gözkırptı.	gözNOM;N;3;SGkırpPFV;PST;V;IND;SG;3;POS._
+	
+ŞükranHanım,ağzınınşarapkoktuğunudüşünereksustu.	ŞükranNOM;PROPN;3;SGHanımNOM;PROPN;3;SG,_ağızPSS3S;GEN;SG;3;NşarapNOM;N;3;SGkokPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POSdüşünPFV;PRS;V;IND;POS;V.CVBsusPFV;PST;V;IND;SG;3;POS._
+	
+Amaonlarınduygusalboşluklarınıanlamakiçinpsikiyatristyadapsikologolmakgerekmiyor.	amaCONJo<unk>duygusalADJboşlukPSS3S;3;PL;N;ACCanlaNOM;POS;IND;PRS;PFV;V;V.MSDRiçinADPpsikiyatristSG;3;N;NOMyaCONJdaCONJpsikologSG;3;N;NOMolNOM;POS;IND;PRS;PFV;V;V.MSDRgerek3;IND;PRS;INFM;SG;NEG;PROG;V._
+	
+Ogünlerdenbugünebirazalışın,yokoluşayaklaşışınamaaynışiddettebirdirenişin,birvaroluşmücadelesininöyküsüTunguzlar.	oDETgünAT+ABL;PL;N;3bugünSG;DAT;N;3birNUMazalışGEN;SG;N;3,_yokADJoluşSG;DAT;N;3yaklaşGEN;IND;V.MSDR;POS;PRS;PFV;VamaCONJaynıADJşiddetSG;ESS;N;3birNUMdirenişGEN;SG;N;3,_birNUMvaroluşSG;NOM;N;3mücadelePSS3S;GEN;3;SG;NöyküPSS3S;NOM;3;SG;NtunguzNOM;PL;N;3._
+	
+AkçaalanMahallesindekieviyiydihoştu,amahattaeşdost,hısımakrabaheporadaydı,amadevirdeğişiyordu.	AkçaalanNOM;PROPN;3;SGmahallePSS3S;SG;3;N;ESSkiADPevNOM;N;3;SGiyiADViPFV;V;PST;IND;SG;3hoşADViPFV;V;PST;IND;SG;3,_amaCONJhattaCONJeşNOM;ADJ;3;SGdostNOM;ADJ;3;SG,_hısımNOM;N;3;SGakrabaNOM;N;3;SGhepADVora3;ESS;PRO;SGiPFV;V;PST;IND;SG;3,_amaCONJdevirNOM;N;3;SGdeğişINFM;PST;V;IND;PROG;SG;3;POS._
+	
+Görüşmede,KDVoranlarındakieşitsizliğiifadeettiklerinidekaydedenAygün,Bakan'ınvergibarışındansonravergireformukapsamındaKDV'yielealacaklarınıbelirttiğinisöyledi.	görüşme3;N;ESS;SG,_KdvNOM;SG;3;NoranPSS3S;PL;3;N;ESSkiADPeşitsizlik3;N;ACC;SGifadeNOM;N;3;SGetPSS3P;ACC;PFV;PST;V;IND;V.PTCP;POSdeCONJkaydetPFV;PRS;V;IND;V.PTCP;POSAygünNOM;PROPN;3;SG,_Bakan3;PROPN;SG;GENvergiNOM;N;3;SGbarışPSS3S;AT+ABL;SG;3;NsonraADPvergiNOM;N;3;SGreformPSS3S;NOM;SG;3;NkapsamPSS3S;SG;3;N;ESSKdvACC;SG;3;Nel3;N;DAT;SGalacakPSS3P;ACC;SG;3;NbelirPSS3S;ACC;PFV;PST;V;IND;V.PTCP;CAUS;POSsöylePFV;PST;V;IND;SG;3;POS._
+	
+Adamınkapkaragözleriışıldamış.	adamSG;GEN;N;3kapkaraADJgözPSS3S;3;NOM;PL;NışıldaPST;3;POS;IND;SG;PFV;V;NFH._
+	
+Kafalarındakibütünsorularıncevabıodosyadayeralıyordu.	kafaPSS3P;ESS;3;PL;NkiADPbütünADJsoruGEN;PL;N;3cevapPSS3S;NOM;3;SG;NoDETdosyaSG;ESS;N;3yerSG;NOM;N;3alINFM;IND;PST;POS;3;SG;PROG;V._
+	
+Destekolunbana.	destekNOM;N;3;SGolPFV;PRS;2;V;PL;IMP;POSben1;PRO;SG;DAT._
+	
+Kimtamiredecektibeni?	kimNOM;3;PRO;SGtamirNOM;N;3;SGet{FUT/PST};V;IND;PROSP;SG;3;POSben1;PRO;ACC;SG?_
+	
+Bardakdagetir,dediHacıMurat.	bardakSG;NOM;N;3daCONJgetir2;POS;IMP;PRS;PFV;SG;V,_deIND;PST;POS;3;PFV;SG;VhacıSG;NOM;N;3MuratSG;NOM;PROPN;3._
+	
+Osözcüğü,bugünekadariçinesıkıştırıldığıideolojikboyutunundışındaalgılayarakdiyorumki,toplumlarda,bireylerde,yarınaaitplanlarıyla,tasarımlarıyla,hayalleriylesıçrayarakgeçecekler,dündenyarına...	oDETsözcükSG;N;ACC;3,_bugünSG;DAT;N;3kadarADPiçPSS3S;DAT;3;ADJ;SGsıkışPSS3S;PST;POS;IND;PFV;V.PTCP;VideolojikADJboyutPSS3S;3;SG;N;GENdışPSS3S;3;ADJ;SG;ESSalgılaPOS;PRS;IND;V.CVB;PFV;Vde1;POS;IND;PRS;INFM;SG;PROG;VkiCONJ,_toplum3;PL;N;NOMdaCONJ,_birey3;PL;N;NOMdeCONJ,_yarınSG;DAT;N;3aitADPplanPSS3S;3;PL;N;INS,_tasarımPSS3S;3;PL;N;INS,_hayalPSS3P;3;PL;N;INSsıçraPOS;PRS;IND;V.CVB;PFV;VgeçNOM;POS;FUT;IND;PFV;V.PTCP;V,_dünSG;AT+ABL;N;3yarınSG;DAT;N;3..._
+	
+Babankendiniastığızaman,babanımı,kendinimisuçlusaydın.	babaPSS2S;3;NOM;SG;NkendiPSS3S;3;REFL;SG;PRO;ACCasPSS3S;PST;POS;IND;PFV;V.PTCP;VzamanSG;3;N;NOM,_babaPSS2S;3;SG;N;ACCmıV;3;IND;PRS;SG;PFV,_kendiPSS3S;3;REFL;SG;PRO;ACCmiV;3;IND;PRS;SG;PFVsuçluADJsayPST;POS;IND;SG;PFV;2;V._
+	
+NecmettinErbakan,vatandaşlardanoylarınıSP'yevermeleriniisteyerek,"Türkiye'ninişi,buçolukçocuğabırakılamaz"dedi.	NecmettinSG;3;PROPN;NOMErbakanSG;3;PROPN;NOM,_vatandaşPL;AT+ABL;N;3oyPSS3S;3;PL;N;ACCSPDAT;3;SG;Nver<unk>istePOS;PRS;IND;V.CVB;PFV;V,_"_TürkiyeSG;GEN;PROPN;3işPSS3S;3;NOM;SG;N,_buDETçolukSG;3;N;NOMçocukSG;DAT;N;3bırak<unk>"_dePST;3;POS;IND;SG;PFV;V._
+	
+	
+	
+Birdeenönemlisi,ottoplayıcılığıvardıhalkarasında.	birNUMdeCONJenADVönemNOM;N;3;SGliPSS3S;ADP;NOM;SG;3,_otNOM;N;3;SGtoplaPFV;PRS;V;IND;V.PTCP;POSlikPSS3S;ADP;NOM;SG;3varNOM;ADJ;3;SGiPFV;V;PST;IND;SG;3halkNOM;N;3;SGaraPSS3S;ADJ;SG;3;ESS._
+	
+UlaştırmaBakanıBinaliYıldırımda,kazaylailgilibeşibakanlık,biriTHYgörevlisialtıkişidenoluşankaza-kırımekibioluşturduklarınıvekazayerindeincelemelerinisürdüreceklerinikaydetti.	ulaşV.MSDR;PFV;PRS;NOM;V;IND;CAUS;POSbakanPSS3S;NOM;SG;3;NBinaliNOM;PROPN;3;SGYıldırımNOM;PROPN;3;SGdaCONJ,_kaza3;N;INS;SGilgiliNOM;ADJ;3;SGbeşACC;SG;3;NUMbakanlıkNOM;N;3;SG,_biriPSS3S;PRO;NOM;SG;3ThyNOM;SG;3;NgörevliPSS3S;NOM;ADJ;SG;3altıNUMkişi3;N;SG;AT+ABLoluşPFV;PRS;V;IND;V.PTCP;POSkazaNOM;N;3;SG-_kırımNOM;N;3;SGekipPSS3S;NOM;SG;3;Noluş<unk>veCONJkazaNOM;N;3;SGyerPSS3S;SG;3;N;ESSincelePSS3P;V.MSDR;ACC;PFV;PRS;V;IND;POSsürPSS3P;FUT;ACC;PFV;V;IND;V.PTCP;POS;CAUSkaydetPFV;PST;V;IND;SG;3;POS._
+	
+Oysasizlerenekadarçokanlatacağımvardı.	oysaCONJsizPRO;2;PL;DATneNOM;3;PRO;SGkadarADPçokADVanlatPSS1S;FUT;PFV;NOM;V;IND;V.PTCP;POSvarNOM;ADJ;3;SGiPFV;V;PST;IND;SG;3._
+	
+Serhat,ÖylebirşeyöneriyorsunkiKemal,dedi,buöylebirçırpıdakararverilebilecekbirşeydeğil.	SerhatNOM;PROPN;3;SG,_öyleADJbirNUMşeyNOM;N;3;SGönerINFM;PRS;2;V;IND;PROG;SG;POSkiCONJKemalNOM;PROPN;3;SG,_dePFV;PST;V;IND;SG;3;POS,_buPRO;NOM;SG;3öyleADVbirNUMçırpı3;N;ESS;SGkararNOM;N;3;SGver<unk>birNUMşeyNOM;N;3;SGdeğilNEG;PFV;PRS;V;IND;SG;3._
+	
+Muhaliflerinkışkırtmasıylaiçkarışıklıkçıkabilir.	muhalif3;N;PL;GENkışkırtmaPSS3S;INS;SG;3;NiçADJkarışıklıkNOM;N;3;SGçıkHAB;PRS;V;POT;SG;3;POS._
+	
+Celaluzaktankumandayıelimdenalıp,yuzelliyılönceyağmurgrisigökleraltındayağmuryeşiliçayırlardabirmetremesafeyleyürüyereksevişenaşıklarhakkındakiİngilizTVfilmlerindenbirinibuldu,kumandaaletiniaramızadeğilöbüryanınakoydu.	CelalNOM;PROPN;3;SGuzak3;ADJ;SG;AT+ABLkumanda3;N;ACC;SGelPSS1S;AT+ABL;SG;3;NalPFV;PRS;V;IND;POS;V.CVB,_yuzelliNUMyılPFV;PRS;2;V;SG;IMP;POSönceADPyağmurNOM;N;3;SGgriPSS3S;NOM;ADJ;SG;3gökNOM;N;PL;3altPSS3S;ADJ;SG;3;ESSyağmurNOM;N;3;SGyeşilPSS3S;NOM;ADJ;SG;3çayır3;N;PL;ESSbirNUMmetreNOM;N;3;SGmesafe3;N;INS;SGyürüPFV;PRS;V;IND;POS;V.CVBsevişPFV;PRS;V;IND;V.PTCP;POSaşıkNOM;ADJ;PL;3hakPSS3S;SG;3;N;ESSkiADPİngilizNOM;ADJ;3;SGtvNOM;SG;3;NfilmPSS3S;AT+ABL;PL;3;NbirPSS3S;ACC;SG;3;NUMbulPFV;PST;V;IND;SG;3;POS,_kumandaNOM;N;3;SGaletPSS3S;ACC;SG;3;NaraPSS1P;ADJ;SG;3;DATdeğilNEG;PFV;PRS;V;IND;SG;3öbürADJyanPSS3S;ADJ;SG;3;DATkoyPFV;PST;V;IND;SG;3;POS._
+	
+Birazhayalkırıklığınauğramıştımaslında.	birazADVhayalNOM;N;3;SGkırıklıkPSS3S;SG;3;N;DATuğra1;PFV;V;IND;SG;PST+PRF;POSaslındaADV._
+	
+Beyazpeynirrakınınbüyükaşkıdır.	beyazADJpeynirSG;3;N;NOMrakıSG;GEN;N;3büyükADJaşkPSS3S;3;NOM;SG;NiV;3;PRS;SG;PFV._
+	
+Sonrasendebirkertenkeleoluveripogöbekli,genişburunlu,kırmızıyüzlüadamınöptüğü,ellerinigezdirdiğiincebeyazderindenvehattaruhundankurtulmakistemiştin.	sonraADVsenPRO;2;NOM;SGdeCONJbirNUMkertenkeleNOM;N;3;SGol<unk>oDETgöbekNOM;N;3;SGliADP,_genişADJburunNOM;N;3;SGliADP,_kırmızıADJyüzlüADJadam3;N;SG;GENöpPSS3S;PFV;PST;V;IND;V.PTCP;POS,_elPSS3S;ACC;PL;3;NgezPSS3S;PFV;PST;V;IND;V.PTCP;CAUS;POSinceADJbeyazADJderiPSS2S;AT+ABL;ADJ;SG;3veCONJhattaCONJruhPSS2S;AT+ABL;SG;3;NkurtulV.MSDR;PFV;PRS;NOM;V;IND;POSistePFV;2;V;IND;SG;PST+PRF;POS._
+	
+	
+Kumralsaçlarıhafifçekarışmıştı.	kumralADJsaçPSS3S;3;NOM;PL;NhafifçeADVkarış3;POS;IND;SG;PFV;PST+PRF;V._
+	
+Kendinesakladığıbirgizemivardır.	kendiPSS3S;REFL;PRO;SG;3;DATsaklaPSS3S;PFV;PST;V;IND;V.PTCP;POSbirNUMgizemPSS3S;NOM;SG;3;NvarNOM;ADJ;3;SGiPFV;PRS;V;SG;3._
+	
+	
+Hükümetinhedefleritutturabilmekiçinönümüzdekiyaklaşıkongünlüksüreçteyenigelirartırıcıveyaharcamaazaltıcıtedbirpaketlerihazırlamasıgerekiyor.	hükümet3;N;SG;GENhedefPSS3S;NOM;PL;3;NtutV.MSDR;PFV;PRS;NOM;V;POT;CAUS;POSiçinADPönPSS1P;ADJ;SG;3;ESSkiADPyaklaşıkADJonNUMgünlükNOM;ADJ;3;SGsüreç3;N;ESS;SGyeniADJgelirNOM;N;3;SGartPFV;PRS;V;IND;V.PTCP;CAUS;POSveyaCONJharcaV.MSDR;PFV;PRS;NOM;V;IND;POSazalPFV;PRS;V;IND;V.PTCP;CAUS;POStedbirNOM;N;3;SGpaketPSS3S;NOM;PL;3;NhazırlaPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSgerekINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+'BİNNAZ'adlışarkısıylaolayyaratanCiguli,katıldığıcanlıyayındadramınıanlatıpherkesiağlatıncaişsahibioldu.	'_BinnazNOM;PROPN;3;SG'_adNOM;N;3;SGliADPşarkıPSS3S;INS;SG;3;NolayNOM;N;3;SGyaratPFV;PRS;V;IND;V.PTCP;POSCiguliNOM;PROPN;3;SG,_katPSS3S;PASS;PFV;PST;V;IND;V.PTCP;POScanlıNOM;ADJ;3;SGyayın3;N;ESS;SGdramPSS3S;ACC;SG;3;NanlatPFV;PRS;V;IND;POS;V.CVBherkes3;N;ACC;SGağlaPFV;PRS;V;IND;CAUS;POS;V.CVBişNOM;N;3;SGsahipPSS3S;NOM;SG;3;NolPFV;PST;V;IND;SG;3;POS._
+	
+Yanibenimkansızolduğunahükmetmişimbirkere.	yaniCONJben1;PRO;NOM;SGimkanNOM;N;3;SGsizADPolPSS3S;PFV;PST;V;IND;V.PTCP;DAT;POShükmet1;PFV;PST;V;NFH;IND;SG;POSbirNUMkereNOM;N;3;SG._
+	
+Onedemek.	oPRO;NOM;SG;3neNOM;3;PRO;SGdeV.MSDR;PFV;PRS;NOM;V;IND;POS._
+	
+Busıradansorununyanıtıdaaslındaokadarbasitvesıradandıki,busıradanlıkyanıtıninandırıcılığınıyokediyordu.	buPRO;NOM;3;SGsıradanADJsoruGEN;SG;N;3yanıtPSS3S;NOM;3;SG;NdaCONJaslındaADVoDETkadarADPbasitADJveCONJsıradanSG;NOM;ADJ;3iV;IND;PST;3;PFV;SGkiCONJ,_buDETsıradanlıkSG;NOM;N;3yanıtGEN;SG;N;3inandırıcılıkPSS3S;ACC;3;SG;NyokADVetINFM;IND;PST;POS;3;SG;PROG;V._
+	
+Bizleribırakmanınçokzorolduğunu,bizlerikendiçocuğukadarsevdiğini,amaonundabirçocuksahibiolmayıyıllardıristediğinianlattı.	biz1;PRO;ACC;PLbırakV.MSDR;PFV;PRS;V;IND;POS;GENçokADVzorADJolPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POS,_biz1;PRO;ACC;PLkendiPSS3S;REFL;PRO;NOM;SG;3çocukPSS3S;NOM;SG;3;NkadarADPsevPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POS,_amaCONJoPRO;SG;3;GENdaCONJbirNUMçocukNOM;N;3;SGsahipPSS3S;NOM;SG;3;NolV.MSDR;ACC;PFV;PRS;V;IND;POSyılNOM;N;PL;3dirADPistePSS3S;ACC;PFV;PST;V;IND;V.PTCP;POSanlatPFV;PST;V;IND;SG;3;POS._
+	
+BenCeza,dedim,sırtındalanetinitaşıyanadam,böyledoğmuşum;bundaneanamınsuçuvar,nebabamın.	ben1;PRO;NOM;SGcezaNOM;N;3;SG,_de1;PFV;PST;V;IND;SG;POS,_sırtPSS3S;SG;3;N;ESSlanetPSS3S;ACC;SG;3;NtaşıPFV;PRS;V;IND;V.PTCP;POSadamNOM;N;3;SG,_böyleADVdoğ1;PFV;PST;V;NFH;IND;SG;POS;_buPRO;SG;3;ESSneCONJana<unk>suçPSS3S;NOM;SG;3;NvarADJ,_neCONJbabaPSS1S;GEN;SG;3;N._
+	
+	
+Drugstore'daalışverişyapanlarınyüzde91'iambalajınönyüzünü,yüzde42'siarkasını,yüzde8'ideyanyüzleriniokuyor.	Drugstore3;PROPN;ESS;SGalışverişNOM;N;3;SGyapPFV;PRS;V;IND;PL;V.PTCP;3;POS;GENyüzSG;3;NUM;ESS91ACC;SG;3;NUMambalajPSS2S;NOM;SG;3;NönyüzPSS3S;ACC;SG;3;N,_yüzSG;3;NUM;ESS42PSS3S;NOM;SG;3;NUMarkaPSS3S;ACC;ADJ;SG;3,_yüzSG;3;NUM;ESS8PSS3S;NOM;SG;3;NUMdeCONJyanADJyüzPSS3P;ACC;SG;3;NokuINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Parkkurşunsesleriileyankılanmış.	parkNOM;N;3;SGkurşunNOM;ADJ;3;SGsesPSS3S;NOM;PL;3;NileADPyankılaPASS;PFV;PST;V;NFH;IND;SG;3;POS._
+	
+Almancaveİngilizce'yiçokiyikonuşanJouni,sıksıkyurtdışıseferlerineçıkıyordu.	AlmancaNOM;ADJ;3;SGveCONJİngilizce3;ACC;ADJ;SGçokADViyiADJkonuşPFV;PRS;V;IND;V.PTCP;POSJouniNOM;PROPN;3;SG,_sıkADVsıkADVyurtdışıADJseferPSS3S;PL;3;N;DATçıkINFM;PST;V;IND;PROG;SG;3;POS._
+	
+Bengötürürveririm.	ben1;PRO;NOM;SGgötürHAB;PRS;V;IND;V.PTCP;POSver1;HAB;PRS;V;IND;SG;POS._
+	
+ÖnceSerpilBiriçim,sonraFikretBilaBey'iaradım..	önceADPSerpilNOM;PROPN;3;SGBiriçimNOM;PROPN;3;SG,_sonraADPFikretNOM;PROPN;3;SGBilaNOM;PROPN;3;SGBey3;PROPN;ACC;SGara1;PFV;PST;V;IND;SG;POS.._
+	
+Ünüdünyayıtutmuşşair.	ünPSS3S;NOM;SG;3;Ndünya3;N;ACC;SGtutPFV;PST;V;NFH;IND;V.PTCP;POSşairNOM;N;3;SG._
+	
+Aklıevvellerondandatartışmaaçarlar.	aklıevvelNOM;PL;ADJ;3oPRO;AT+ABL;3;SGdaCONJtartışIND;NOM;V.MSDR;POS;PRS;PFV;VaçIND;POS;3;PRS;PL;V;HAB._
+	
+	
+OrhanogeceyitekraryaşıyormuşgibiaynıheyecanlaolanlarıZeynep'eanlattı.	OrhanSG;3;PROPN;NOMoDETgeceSG;N;ACC;3tekrarADVyaşa<unk>gibiADPaynıADJheyecanSG;3;N;INSol3;POS;IND;PL;PRS;PFV;ACC;V.PTCP;VZeynepSG;DAT;PROPN;3anlatPST;3;POS;IND;SG;PFV;V._
+	
+Mahmutlakadınbirbirlerinesarılmışlardı.	Mahmut3;PROPN;INS;SGkadınNOM;ADJ;3;SGbirbiriPSS3P;PRO;PL;3;DATsar<unk>._
+	
+Yoksullukiçindeolankişilerigözetmeyiamaçlayanyardımpolitikasında,sadelik,titizlikvekişilikleresaygıesasınaözenlegösterilmesinieşitlikveadaleteriayetedilmesiniönemliricaederim.	yoksullukNOM;N;3;SGiçPSS3S;ADJ;SG;3;ESSolPFV;PRS;V;IND;V.PTCP;POSkişi3;N;PL;ACCgözetV.MSDR;ACC;PFV;PRS;V;IND;POSamaçlaPFV;PRS;V;IND;V.PTCP;POSyardımNOM;N;3;SGpolitikaPSS3S;SG;3;N;ESS,_sadelikNOM;N;3;SG,_titizlikNOM;N;3;SGveCONJkişilik3;N;PL;DATsaygıNOM;N;3;SGesasPSS3S;ADJ;SG;3;DATözen3;N;INS;SGgösterPSS3S;PASS;V.MSDR;ACC;PFV;PRS;V;IND;POSeşitlikNOM;N;3;SGveCONJadalet3;N;DAT;SGriayetNOM;N;3;SGetPSS3S;PASS;V.MSDR;ACC;PFV;PRS;V;IND;POSönemNOM;N;3;SGliADPricaNOM;N;3;SGet1;HAB;PRS;V;IND;SG;POS._
+	
+Yinezamgelmiş.	yineADVzamNOM;N;3;SGgelPFV;PST;V;NFH;IND;SG;3;POS._
+	
+	
+Senneredesindiyesordum.	senPRO;2;NOM;SGnere3;ESS;PRO;SGiPFV;PRS;2;V;IND;SGdiyeADPsor1;PFV;PST;V;IND;SG;POS._
+	
+Çöreklereiliştirilmişdavetiyelerde.	çörek3;N;PL;DATilişPFV;PST;V;NFH;IND;V.PTCP;POSdavetiyeNOM;N;PL;3deCONJ._
+	
+Korucuyoktu.	korucuSG;NOM;N;3yokADViV;IND;PST;3;PFV;SG._
+	
+Yalın,iddiasız,yapmacıksız.	yalınNOM;ADJ;3;SG,_iddiasızADJ,_yapmacıksızADJ._
+	
+BakalımdahaneleresokacakGrekburnunu...	bak1;OPT;PFV;PRS;V;PL;POSdahaADVne3;PL;DAT;PROsokFUT;PFV;V;IND;SG;3;POSGrekNOM;PROPN;3;SGburunPSS3S;ACC;SG;3;N..._
+	
+Kaşaretmiş.	kaşarNOM;N;3;SGetPFV;PST;V;NFH;IND;SG;3;POS._
+	
+Niçin.	niçinADV._
+	
+BuevibanateslimedenMadamKuvesözünüetti:çokmodabirkahvevarmış.	buDETevSG;N;ACC;3benDAT;1;SG;PROteslimSG;3;N;NOMetPOS;PRS;IND;PFV;V.PTCP;VmadamSG;3;N;NOMKuveSG;3;PROPN;NOMsözPSS3S;3;SG;N;ACCetPST;3;POS;IND;SG;PFV;V:_çokADVmodaSG;3;N;NOMbirNUMkahveSG;3;N;NOMvarPST;3;POS;IND;SG;PFV;V;NFH._
+	
+.	._
+	
+Eskidenbalıkçılıkyapanbuköyüninsanlarınınbirbölümü,bölgeturizmeaçılınca,dedelerindenkalmaevlerini,mandalinabahçelerini,büyükkentlerdengelenişletmecileresatmışlar,kiralamışlar;azbirbölümüde,evlerini,pansiyon,motelhalineçevirerekkendileriişletmeyebaşlamışlardı.	eskidenADVbalıkçılıkSG;3;N;NOMyapPOS;PRS;IND;PFV;V.PTCP;VbuDETköySG;GEN;N;3insanPSS3S;3;PL;N;GENbirNUMbölümSG;N;ACC;3,_bölgeSG;3;N;NOMturizmSG;DAT;N;3açPASS;POS;PRS;IND;V.CVB;PFV;V,_dede<unk>kalNOM;POS;IND;PRS;PFV;V;V.MSDRevPSS3P;3;PL;N;ACC,_mandalinaSG;3;N;NOMbahçePSS3P;3;PL;N;ACC,_büyükADJkentPL;AT+ABL;N;3gelPOS;PRS;IND;PFV;V.PTCP;VişletmeciPL;DAT;N;3satPST;3;POS;PL;IND;PFV;V;NFH,_kiralaPST;3;POS;PL;IND;PFV;V;NFH;_azADVbirNUMbölümPSS3S;3;NOM;SG;NdeCONJ,_evPSS3P;3;PL;N;ACC,_pansiyonSG;3;N;NOM,_motelSG;3;N;NOMhalPSS3S;DAT;3;SG;NçevirPOS;PRS;IND;V.CVB;PFV;VkendiPSS3P;3;NOM;PL;REFL;PROişleDAT;POS;IND;PRS;PFV;V;CAUS;V.MSDRbaşla3;POS;IND;PL;PFV;PST+PRF;V._
+	
+Seveceksin.	sevFUT;PFV;2;V;IND;SG;POS._
+	
+SözgelimiZeynep,hiçdesandığımgibivurdumduymazbirannedeğilmiş.	sözgelimiADVZeynepNOM;PROPN;3;SG,_hiçADVdeCONJsanPSS1S;PFV;PST;V;IND;V.PTCP;POSgibiADPvurdumduymazADJbirNUManneNOM;N;3;SGdeğilNEG;PFV;PST;V;NFH;IND;SG;3._
+	
+Bunusöylemekiçinyanlışbirzamandı,amadayanamamıştım.	buPRO;ACC;3;SGsöyleIND;NOM;V.MSDR;POS;PRS;PFV;ViçinADPyanlışADJbirNUMzamanSG;NOM;N;3iV;IND;PST;3;PFV;SG,_amaCONJdayanPOT;NEG;1;PFV;SG;PST+PRF;V._
+	
+Kurtulamamışımdemek,diyemırıldandı.	kurtul<unk>demekADV,_diyeADPmırıldanPFV;PST;V;IND;SG;3;POS._
+	
+Çünküdiğerlerikoyunsütükullanmıyor.	çünküCONJdiğer3;N;PL;ACCkoyunNOM;N;3;SGsütPSS3S;NOM;SG;3;NkullanINFM;NEG;PRS;V;IND;PROG;SG;3._
+	
+Sanagölgedeyatmadediksıpa.	senPRO;2;SG;DATgölge3;N;ESS;SGyatNEG;PFV;PRS;2;V;SG;IMPde1;PFV;PST;V;IND;PL;POSsıpaNOM;N;3;SG._
+	
+Türkiye'ninenönemlikonusunepeki.	TürkiyeGEN;SG;PROPN;3enADVönemSG;NOM;N;3liADPkonuPSS3S;NOM;3;SG;NneADJpekiADV._
+	
+	
+BizleblebidiyinceyekadarpazarsavrulurdiyorAnadoludeyimi.	bizNOM;1;PL;PROleblebiSG;3;N;NOMde<unk>kadarADPpazarSG;3;N;NOMsavrul3;POS;IND;PRS;SG;V;HABde3;POS;IND;PRS;INFM;SG;PROG;VAnadoluSG;3;PROPN;NOMdeyimPSS3S;3;NOM;SG;N._
+	
+Birerkeğinbeynivedüşünceleri...dedim.	birNUMerkek3;ADJ;SG;GENbeyinPSS3S;NOM;SG;3;NveCONJdüşüncePSS3S;NOM;PL;3;N..._de1;PFV;PST;V;IND;SG;POS._
+	
+Seninlebirliktegideceğim.	senPRO;2;INS;SGbirlikteADVgitFUT;1;PFV;V;IND;SG;POS._
+	
+	
+Nelerisevmediklerinegelince,müşteri,beklemeyi,kendisinegereksizsorularınsorulmasını,stoktakalmamışürünleri,okunamayanfiyatetiketleriniverahatsızedicihizmetisevmez.	ne<unk>sev<unk>gelPFV;PRS;V;IND;POS;V.CVB,_müşteriNOM;N;3;SG,_bekleV.MSDR;ACC;PFV;PRS;V;IND;POS,_kendiPSS3S;REFL;PRO;SG;3;DATgereksizADJsoru3;N;PL;GENsorPSS3S;PASS;V.MSDR;ACC;PFV;PRS;V;IND;POS,_stok3;N;ESS;SGkalNEG;PFV;PST;V;NFH;IND;V.PTCPürünPSS3P;NOM;PL;3;N,_oku<unk>fiyatNOM;N;3;SGetiketPSS3P;ACC;PL;3;NveCONJrahatsızADJetPFV;PRS;V;IND;V.PTCP;POShizmetPSS3S;NOM;SG;3;NsevNEG;HAB;PRS;V;IND;SG;3._
+	
+	
+Duygularıöldürmeeşiğinintavanıiseölüm.	duygu3;N;PL;ACCölV.MSDR;PFV;PRS;NOM;V;IND;CAUS;POSeşikPSS3S;GEN;SG;3;NtavanPSS3S;NOM;ADJ;SG;3iVölümNOM;N;3;SG._
+	
+onsekizhavaalanındaILSbulunmuyor.	onsekizNUMhavaalanıPSS3S;SG;3;N;ESSILSNOM;SG;3;NbulunINFM;NEG;PRS;V;IND;PROG;SG;3._
+	
+	
+PerakendeciliktearaştırmalarıvemetodoljikçalışmalarıylatanınanUnderhill,dünyada"WhyWeBuy:TheScienceofShopping"(NedensatınAlıyoruz:AlışverişBilimi)adlıkitabıylatanındı.	perakendecilik3;N;ESS;SGaraştırPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSveCONJmetodolojikADJçalış<unk>tanıPASS;PFV;PRS;V;IND;V.PTCP;POSUnderhillNOM;PROPN;3;SG,_dünya3;N;ESS;SG"_WhyNOM;PROPN;3;SGWeNOM;PROPN;3;SGBuyNOM;PROPN;3;SG:_TheNOM;PROPN;3;SGScienceNOM;PROPN;3;SGofINTJShoppingNOM;PROPN;3;SG"_(_nedenADVsatınADValINFM;1;PRS;V;IND;PL;PROG;POS:_alışverişNOM;N;3;SGbilim3;N;ACC;SG)_adNOM;N;3;SGliADPkitapPSS3S;INS;SG;3;NtanıPASS;PFV;PST;V;IND;SG;3;POS._
+	
+Onudövenadamdaşurada,şuağacınaltındaki.	oPRO;ACC;SG;3dövPFV;PRS;V;IND;V.PTCP;POSadamNOM;N;3;SGdaCONJşura3;ESS;PRO;SG,_şuPRO;NOM;SG;3ağaç3;N;SG;GENaltıPSS2S;SG;3;NUM;ESSkiADP._
+	
+Telefonçalıyor.	telefonNOM;N;3;SGçalINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+İnsanlar,beyinlerindeyadagenlerindemantıkladonanmışolarakdoğmazlar.	insanNOM;N;PL;3,_beyinPSS3S;PL;3;N;ESSyaCONJdaCONJgenPSS3S;PL;3;N;ESSmantık3;N;INS;SGdonanPFV;PST;V;NFH;IND;V.PTCP;POSolarakADPdoğNEG;HAB;PRS;V;IND;PL;3._
+	
+Kadınlargittiktensonrasizinkineveririm.	kadınNOM;PL;ADJ;3git<unk>sonraADPsizPRO;GEN;2;PLki<unk>verIND;POS;1;PRS;SG;HAB;V._
+	
+Anlamadıkları,ölenbenimkardeşimdi...	anla<unk>,_ölPOS;PRS;IND;PFV;V.PTCP;Vben1;SG;PRO;GENkardeşPSS1S;3;NOM;SG;NiPST;V;3;IND;SG;PFV..._
+	
+Onatapıyordum.	oPRO;SG;3;DATtapINFM;1;PST;V;IND;PROG;SG;POS._
+	
+Böylecehazırvesoğukmezeveyemeklerleidareetmekgelenekoldu.	böyleceADVhazırADJveCONJsoğukADJmezeSG;NOM;N;3veCONJyemekINS;PL;N;3idareSG;NOM;N;3etIND;NOM;V.MSDR;POS;PRS;PFV;VgelenekSG;NOM;N;3olIND;PST;POS;3;PFV;SG;V._
+	
+İçeridenfırlayangenççobanlar,geyiklerikızaklarındançözmeyebaşlarkenyolcularhızlaiçerigirdi,bendearkalarından.	içeri3;N;SG;AT+ABLfırlaPFV;PRS;V;IND;V.PTCP;POSgençADJçobanNOM;N;PL;3,_geyik3;N;PL;ACCkızakPSS3P;AT+ABL;PL;3;NçözV.MSDR;PFV;PRS;V;IND;DAT;POSbaşlaHAB;PRS;V;IND;SG;3;POS;V.CVByolcuNOM;N;PL;3hız3;N;INS;SGiçeriNOM;N;3;SGgirPFV;PST;V;IND;SG;3;POS,_ben1;PRO;NOM;SGdeCONJarka<unk>._
+	
+Yaklaşıkbinkişilikgrup,"ABDaskeriolmayacağız","''Unakıtan","Savaşahayır,kahrolsunemperyalizm"sloganlarıattı.	yaklaşıkADJbinNUMkişilikSG;NOM;N;3grupSG;NOM;N;3,_"_AbdNOM;3;SG;NaskerPSS3S;NOM;3;SG;NolNEG;IND;1;FUT;PFV;PL;V"_,_"_'_'_UnakıtanSG;NOM;PROPN;3"_,_"_savaşSG;DAT;N;3hayırSG;NOM;N;3,_kahrolPOS;IMP;3;PRS;PFV;SG;VemperyalizmSG;NOM;N;3"_sloganPSS3S;NOM;3;PL;NatIND;PST;POS;3;PFV;SG;V._
+	
+NAtoplantılarındailkkezbaşkalarınayöneldim.	NaNOM;PROPN;3;SGtoplantıPSS3S;PL;3;N;ESSilkADJkezNOM;N;3;SGbaşkaPSS3S;ADJ;PL;3;DATyönel1;PFV;PST;V;IND;SG;POS._
+	
+Uzakuzakülkelerdenbirindefakirbirannevekızıyaşarmış.	uzakADJuzakADJülke3;N;PL;AT+ABLbirPSS3S;SG;3;NUM;ESSfakirADJbirNUManneNOM;N;3;SGveCONJkızPSS3S;NOM;ADJ;SG;3yaşaHAB;PST;NFH;V;IND;SG;3;POS._
+	
+Herkes.	herkesSG;3;N;NOM._
+	
+Birmağazaçocukdostubiryaklaşımsergilemiyorsamüşteriebeveynlerbunualgılarvebumağazadanuzakdurur.	birNUMmağazaSG;NOM;N;3çocukSG;NOM;N;3dostPSS3S;NOM;3;SG;ADJbirNUMyaklaşımSG;NOM;N;3sergile<unk>müşteriSG;NOM;N;3ebeveynNOM;PL;N;3buPRO;ACC;3;SGalgıNOM;PL;N;3veCONJbuDETmağazaAT+ABL;SG;N;3uzakADJdurIND;POS;3;PRS;SG;HAB;V._
+	
+Buatılım,insanlığıçağdaşbilimkavramınıneşiğineulaştırmış,amaRomaİmparatorluğuveonuizleyenfeodaldönemlekesintiyeuğramıştır.	buDETatılımNOM;N;3;SG,_insanlık3;N;ACC;SGçağdaşADJbilimNOM;N;3;SGkavramPSS3S;GEN;SG;3;NeşikPSS3S;SG;3;N;DATulaşPFV;PST;V;NFH;IND;SG;3;CAUS;POS,_amaCONJRomaNOM;PROPN;3;SGimparatorlukPSS3S;NOM;SG;3;NveCONJoPRO;ACC;SG;3izlePFV;PRS;V;IND;V.PTCP;POSfeodalADJdönem3;N;INS;SGkesinti3;N;DAT;SGuğraPFV;PST;V;NFH;SG;3;POS._
+	
+Bendemutlakatenisöğreneceğim.	ben1;PRO;NOM;SGdeCONJmutlakaADVtenisNOM;N;3;SGöğrenFUT;1;PFV;V;IND;SG;POS._
+	
+Onuncanlıolduğunagiderekdahaçokinanıyorum.	oPRO;SG;3;GENcanlıADJolPSS3S;PFV;PST;V;IND;V.PTCP;DAT;POSgitPFV;PRS;V;IND;POS;V.CVBdahaADVçokADVinanINFM;1;PRS;V;IND;PROG;SG;POS._
+	
+	
+	
+Ayrıcabunlardanbirincisi,dahaçokyüzyılınilkyarısındagerçekleşmiş,ikincisiise,yüzyılınikinciyarısındazirvesineulaşmıştır.	ayrıcaADVbuPRO;AT+ABL;PL;3birPSS3S;NOM;SG;3;NUM,_dahaADVçokADVyüzyıl3;N;SG;GENilkADJyarıPSS3S;ADJ;SG;3;ESSgerçekleşPFV;PST;V;NFH;IND;SG;3;POS,_ikiPSS3S;NOM;SG;3;NUMiV,_yüzyıl3;N;SG;GENikiNOM;SG;3;NUMyarıPSS3S;ADJ;SG;3;ESSzirvePSS3S;SG;3;N;DATulaşPFV;PST;V;NFH;SG;3;POS._
+	
+Ancakkazaylabirliktebugüzelhayallervemutlubiryuvayokoldu.	ancakCONJkaza3;N;INS;SGbirlikteADPbuDETgüzelADJhayalNOM;N;PL;3veCONJmutluADJbirNUMyuvaNOM;N;3;SGyokADJolPFV;PST;V;IND;SG;3;POS._
+	
+Ayla:Böyleolurmubilmiyorum.	AylaNOM;PROPN;3;SG:_böyleADVolHAB;PRS;V;IND;SG;3;POSmuPFV;PRS;V;IND;SG;3bilINFM;1;NEG;PRS;V;IND;PROG;SG._
+	
+Negüzelgünlerdideğilmi?Ah,ah...	neADVgüzelADJgünNOM;PL;N;3iV;IND;PST;3;PFV;SGdeğilNEG;IND;3;PRS;PFV;SG;VmiV;IND;3;PRS;PFV;SG?_ahINTJ,_ahINTJ..._
+	
+bir)Lezzetinebayılmış.	birNOM;SG;3;NUM)_lezzetPSS3S;SG;3;N;DATbayılPFV;PST;V;NFH;IND;SG;3;POS._
+	
+Yaşlandıkçatuhaflaşıyorsun.	yaşlanPFV;PRS;V;IND;POS;V.CVBtuhaflaşINFM;PRS;2;V;IND;PROG;SG;POS._
+	
+Onaltıyaşındaavtezkeresialabilengençler,tümyılboyuncaavlanabiliyor,askeregitmiyorvevergivermiyorlar.	onNUMaltıNUMyaşPSS3S;ESS;3;SG;ADJavSG;NOM;N;3tezkerePSS3S;NOM;3;SG;NalPOT;POS;PRS;PFV;V.PTCP;VgençNOM;PL;ADJ;3,_tümDETyılSG;NOM;N;3boyuncaADPavla<unk>,_askerSG;DAT;N;3gitINFM;NEG;IND;3;PRS;SG;PROG;VveCONJvergiSG;NOM;N;3verINFM;NEG;IND;3;PROG;PRS;PL;V._
+	
+Herzamankimasasındaoturuyordur.	herDETzamanNOM;N;3;SGkiADPmasaPSS3S;SG;3;N;ESSotur<unk>._
+	
+SektördekarmarjlarınındaraldığınadikkatçekenDemiray,komisyonbankacılığınınbirazdahaönemkazanacağınısöyledi.	sektörSG;ESS;N;3karSG;3;N;NOMmarjPSS3S;3;PL;N;GENdaralPSS3S;PST;DAT;POS;IND;PFV;V.PTCP;VdikkatSG;3;N;NOMçekPOS;PRS;IND;PFV;V.PTCP;VDemiraySG;3;PROPN;NOM,_komisyonSG;3;N;NOMbankacılıkPSS3S;3;SG;N;GENbirazADVdahaADVönemSG;3;N;NOMkazanPSS3S;POS;FUT;IND;PFV;ACC;V.PTCP;VsöylePST;3;POS;IND;SG;PFV;V._
+	
+Ayaktaalkışladık.	ayak3;N;ESS;SGalkışla1;PFV;PST;V;IND;PL;POS._
+	
+İtirazJandarmaGenelKomutanlığıAskeriMahkemesi'ncedeğerlendirildi.	itirazSG;3;N;NOMjandarmaSG;3;N;NOMgenelADJkomutanlıkSG;N;ACC;3askeriADJmahkeme<unk>değerlenPST;3;POS;IND;SG;PFV;V._
+	
+ÖnceTanrı'nınveBey'inkuluolmadığımızıöğrendik;sonradünyayıdeğiştirebileceğimizi.	önceADVTanrı3;PROPN;SG;GENveCONJBey3;PROPN;SG;GENkulPSS3S;NOM;SG;3;Nol<unk>öğren1;PFV;PST;V;IND;PL;POS;_sonraADVdünya3;N;ACC;SGdeğiş<unk>._
+	
+İşçiPartisiveAydınlıkgazetesininçeşitlidavalarıdahilbelalıdenebilecekpekçokdavayıalıp,üzerinegitmektençekinmiyordu.	işçiNOM;N;3;SGpartiPSS3S;NOM;SG;3;NveCONJAydınlıkNOM;PROPN;3;SGgazetePSS3S;GEN;SG;3;NçeşitliADJdavaPSS3P;NOM;PL;3;NdahilNOM;N;3;SGbelalıADJde<unk>pekADVçokADJdava3;N;ACC;SGalPFV;PRS;V;IND;POS;V.CVB,_üzerPSS3S;SG;3;N;DATgitV.MSDR;AT+ABL;PFV;PRS;V;IND;POSçekinINFM;NEG;PST;V;IND;PROG;SG;3._
+	
+Kabuletmekgerekirkigünümüztoplumubağımlıbirtoplum.	kabulSG;3;N;NOMetNOM;POS;IND;PRS;PFV;V;V.MSDRgerek3;POS;IND;PRS;SG;V;HABkiCONJgünPSS1P;3;NOM;SG;NtoplumPSS3S;3;NOM;SG;NbağımlıADJbirNUMtoplumSG;3;N;NOM._
+	
+	
+Evlerdeisetıpkıdünkügibieşyalar,kürklerçuvallaradolduruluyordu.	ev3;N;PL;ESSiVtıpkıADVdünNOM;N;3;SGkiADPgibiADPeşyaNOM;N;PL;3,_kürkNOM;ADJ;PL;3çuval3;N;PL;DATdolINFM;PST;V;IND;PROG;SG;3;POS._
+	
+Kendinizibirbağımlılıktankurtarıpburayageldiniz.	kendiPSS2P;PRO;ACC;2;PL;REFLbirNUMbağımlılık3;N;SG;AT+ABLkurtarPFV;PRS;V;IND;POS;V.CVBbura3;DAT;PRO;SGgelPFV;2;PST;V;IND;PL;POS._
+	
+Bunusizistediniz.	buPRO;ACC;SG;3sizPRO;2;NOM;PListePFV;2;PST;V;IND;PL;POS._
+	
+Neokuluseverdi,nedeNaciBeyi.	neCONJokulPSS3S;NOM;SG;3;NsevHAB;PST;V;IND;SG;3;POS,_neCONJdeCONJNaciNOM;PROPN;3;SGbey3;N;ACC;SG._
+	
+Onaanlatmayıpdakimeanlatacaktım?Kimimkimsemyoktu,herşeyimoydu.	oPRO;SG;3;DATanlatNEG;PFV;PRS;V;IND;V.CVBdaCONJkim3;DAT;PRO;SGanlat1;{FUT/PST};V;IND;PROSP;SG;POS?_kimPSS1S;PRO;NOM;SG;3kimsePSS1S;NOM;SG;3;NyokADViPFV;V;PST;IND;SG;3,_herDETşeyPSS1S;NOM;SG;3;NoPRO;NOM;SG;3iPFV;V;PST;IND;SG;3._
+	
+Enyakınımızabileanlatamadığımızşeylerionaanlatalım.	enADVyakınPSS1P;ADJ;SG;3;DATbileADVanlat<unk>şey3;N;PL;ACCoPRO;SG;3;DATanlat1;OPT;PFV;PRS;V;PL;POS._
+	
+Onuelindenkaçırmış,birbaşkaerkeğekaptırmıştı.	oPRO;ACC;3;SGelPSS3S;AT+ABL;3;SG;NkaçırNFH;IND;PST;POS;3;PFV;SG;V,_birNUMbaşkaADJerkekSG;DAT;ADJ;3kapCAUS;IND;POS;3;PFV;SG;PST+PRF;V._
+	
+BuAnayasakarmaşasıaydınlardatepkiuyandırıyordu.	buDETanayasaNOM;N;3;SGkarmaşaPSS3S;NOM;SG;3;Naydın3;ADJ;PL;ESStepkiNOM;N;3;SGuyanINFM;PST;V;IND;PROG;SG;3;CAUS;POS._
+	
+Daire,hapiscezasınıondokuzOcak'akadaronarsaAkgündüzSiirt'teyapılacakseçimdeadayolamayacak.	daireSG;3;N;NOM,_hapisSG;3;N;NOMcezaPSS3S;3;SG;N;ACCondokuz3;NOM;SG;NUMOcakSG;DAT;PROPN;3kadarADPona3;POS;COND;PRS;SG;V;HABAkgündüzSG;3;PROPN;NOMSiirtSG;ESS;PROPN;3yapPASS;POS;FUT;IND;PFV;V.PTCP;VseçimSG;ESS;N;3adaySG;3;N;NOMol<unk>._
+	
+Temizlendinizmi?	temizlenPST;POS;IND;PL;PFV;2;VmiV;3;IND;PRS;SG;PFV?_
+	
+BirdeEsinköpeğimizinerkekolacağınıduyuncabirazüzülürgibioldu.	birADVdeCONJEsinSG;3;PROPN;NOMköpekPSS1P;3;SG;N;GENerkekSG;3;ADJ;NOMolacakPSS3S;3;ADJ;SG;ACCduyPOS;PRS;IND;V.CVB;PFV;VbirazADJüz<unk>gibiADPolPST;3;POS;IND;SG;PFV;V._
+	
+Benibulamazlar.	ben1;PRO;ACC;SGbulNEG;HAB;PRS;V;POT;PL;3._
+	
+Sınavıgeçti.	sınavACC;SG;N;3geçIND;PST;POS;3;PFV;SG;V._
+	
+Düğüngecesininsabahındaadamküçükkızaartıkihtiyaçlarıolmadığınısöylemiş.	düğünSG;3;N;NOMgecePSS3S;3;SG;N;GENsabahPSS3S;3;SG;N;ESSadamSG;3;N;NOMküçükADJkızSG;DAT;ADJ;3artıkADVihtiyaçPSS3P;3;NOM;SG;NolPSS3S;PST;IND;NEG;PFV;ACC;V.PTCP;VsöylePST;3;POS;IND;SG;PFV;V;NFH._
+	
+Portekizhükümetininmüşaviriolarakçalışıyordum.	PortekizSG;3;PROPN;NOMhükümetPSS3S;3;SG;N;GENmüşavirPSS3S;3;NOM;SG;NolarakADPçalışPST;1;POS;IND;INFM;SG;PROG;V._
+	
+	
+Biro,birben,hiçöncedenkararlaştırmadan,kendiliğindenbiro,birben,olupbitenlerianlatmayabaşladık...desediye,sabırsızlanasabırsızlanadinledimonu.	birNUMoPRO;NOM;SG;3,_birNUMben1;PRO;NOM;SG,_hiçADVöncedenADVkararlaşNEG;PFV;PRS;V;IND;CAUS;V.CVB,_kendiliğindenADVbirNUMoPRO;NOM;SG;3,_birNUMben1;PRO;NOM;SG,_olPFV;PRS;V;IND;POS;V.CVBbitACC;PFV;PRS;V;IND;PL;V.PTCP;3;POSanlatV.MSDR;PFV;PRS;V;IND;DAT;POSbaşla1;PFV;PST;V;IND;PL;POS..._deCOND;PFV;PRS;V;SG;3;POSdiyeADP,_sabırsızlanOPT;PFV;PRS;V;SG;3;POSsabırsızlanOPT;PFV;PRS;V;SG;3;POSdinle1;PFV;PST;V;IND;SG;POSoPRO;ACC;SG;3._
+	
+Oysakabak,patlıcanınkuzeni.	oysaADVkabakNOM;ADJ;3;SG,_patlıcan3;N;SG;GENkuzenPSS3S;NOM;SG;3;N._
+	
+Biliminbugüniçindebulunduğukonumudahayakındançözümlemekvegeleceğeilişkinbazıkestirimlerdebulunabilmekiçin,buradasözünüettiğimizilişkilerintarihiçindeizlediğigelişmeçizgisinielealmakistiyoruz.	bilim3;N;SG;GENbugünNOM;N;3;SGiçPSS3S;ADJ;SG;3;ESSbulPSS3S;PASS;PFV;PST;V;IND;V.PTCP;POSkonum3;N;ACC;SGdahaADVyakın3;ADJ;SG;AT+ABLçözümleV.MSDR;PFV;PRS;NOM;V;IND;POSveCONJgelecek3;ADJ;DAT;SGilişkinADPbazıDETkestirim3;N;PL;ESSbul<unk>içinADP,_bura3;ESS;PRO;SGsözPSS3S;ACC;SG;3;NetPSS1P;PFV;PST;V;IND;V.PTCP;POSilişki3;N;PL;GENtarihNOM;N;3;SGiçPSS3S;ADJ;SG;3;ESSizlePSS3S;PFV;PST;V;IND;V.PTCP;POSgelişV.MSDR;PFV;PRS;NOM;V;IND;POSçizgiPSS3S;ACC;SG;3;Nel3;N;DAT;SGalV.MSDR;PFV;PRS;NOM;V;IND;POSisteINFM;1;PRS;V;IND;PL;PROG;POS._
+	
+Onunlabaşlayalım.	oPRO;INS;SG;3başla1;OPT;PFV;PRS;V;PL;POS._
+	
+MeselaTavşanlı'danbiridiyorki:Çorum'danohutbileyoktur.	meselaADVTavşanlı3;PROPN;SG;AT+ABLbiriPSS3S;PRO;NOM;SG;3deINFM;PRS;V;IND;PROG;SG;3;POSkiCONJ:_Çorum3;PROPN;ESS;SGnohutNOM;N;3;SGbileADVyokNOM;ADJ;3;SGiPFV;PRS;V;SG;3._
+	
+Benhanımefendiyleberaberdavayabaşladıktansonraelimizdebelge,dokümanyoktu.	ben1;PRO;NOM;SGhanımefendi3;N;INS;SGberaberADPdava3;N;DAT;SGbaşlaAT+ABL;PFV;PST;V;IND;V.PTCP;POSsonraADPelPSS1P;SG;3;N;ESSbelgeNOM;N;3;SG,_dokümanNOM;N;3;SGyokADViPFV;V;PST;IND;SG;3._
+	
+Tabiiaralarındakisınıfvekültüruçurumunubildiğindenövgülerindeonunkadarilerigitmiyordu.	tabiiADJaraPSS3S;ADJ;PL;3;ESSkiADPsınıfNOM;N;3;SGveCONJkültürNOM;N;3;SGuçurumPSS3S;ACC;SG;3;NbilPSS3S;AT+ABL;PFV;PST;V;IND;V.PTCP;POSövgüPSS3P;PL;3;N;ESSoPRO;SG;3;GENkadarADPileriADJgitINFM;NEG;PST;V;IND;PROG;SG;3._
+	
+Onunhiçbircevapvermesinefırsatbırakmadanhemenekledimardından:Zatenhiçbirkadınsevgisözcüğünüağzınaalmadanherhangibirerkeklesevişmeyekalkışmaz,öyledeğilmi?diyesordum.	o3;SG;PRO;GENhiçbirDETcevapSG;3;N;NOMverPSS3S;V.MSDR;DAT;POS;IND;PRS;PFV;VfırsatSG;3;N;NOMbırakPRS;IND;V.CVB;NEG;PFV;VhemenADVeklePST;1;POS;IND;SG;PFV;VardındanADV:_zatenADVhiçbirDETkadınSG;3;ADJ;NOMsevgiSG;3;N;NOMsözcükPSS3S;3;SG;N;ACCağızPSS3S;DAT;3;SG;NalPRS;IND;V.CVB;NEG;PFV;VherhangiADJbirNUMerkekSG;3;ADJ;INSsevişDAT;POS;IND;PRS;PFV;V;V.MSDRkalkış3;IND;PRS;SG;NEG;V;HAB,_öyleADVdeğil3;IND;PRS;SG;NEG;PFV;VmiV;3;IND;PRS;SG;PFV?_diyeADPsorPST;1;POS;IND;SG;PFV;V._
+	
+"Bankalaröylebirizlenimyarattıkisankiverilenhizmetlerhava,sugibiücretsizolabilir"diyenDemiray,bundansonraverilenhizmetlerdenücretalınacağınıbildirdi.	"_bankaNOM;N;PL;3öyleADVbirNUMizlenimNOM;N;3;SGyaratPFV;PST;V;IND;SG;3;POSkiCONJsankiADVverPASS;PFV;PRS;V;IND;V.PTCP;POShizmetNOM;N;PL;3havaNOM;N;3;SG,_suNOM;N;3;SGgibiADPücretNOM;N;3;SGsizADPolHAB;PRS;V;POT;SG;3;POS"_dePFV;PRS;V;IND;V.PTCP;POSDemirayNOM;PROPN;3;SG,_buPRO;AT+ABL;SG;3sonraADPverPASS;PFV;PRS;V;IND;V.PTCP;POShizmet3;N;PL;AT+ABLücretNOM;N;3;SGalınPSS3S;FUT;ACC;PFV;V;IND;V.PTCP;POSbilPFV;PST;V;IND;SG;3;CAUS;POS._
+	
+Karşıdairedekimühendisbozuntusuhabiretelefonediyor.	karşıADJdaire3;N;ESS;SGkiADPmühendisNOM;N;3;SGbozuntuPSS3S;NOM;SG;3;NhabireADVtelefonNOM;N;3;SGetINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Amasöylediğifikirşahsifikri,aslındagenelbirgörüşükapsıyordu.	amaCONJsöylePSS3S;PFV;PST;V;IND;V.PTCP;POSfikirNOM;N;3;SGşahsiADJfikirPSS3S;NOM;SG;3;N,_aslındaADVgenelADJbirNUMgörüş3;N;ACC;SGkapsaINFM;PST;V;IND;PROG;SG;3;POS._
+	
+DedikibuMustafaDoğanbana.	dePST;3;POS;IND;SG;PFV;VkiCONJbuDETMustafaSG;3;PROPN;NOMDoğanSG;3;PROPN;NOMbenDAT;1;SG;PRO._
+	
+Biranonahaksızlıkyapıyormuşumhissinekapıldım.	birNUManSG;NOM;N;3oPRO;3;DAT;SGhaksızlıkSG;NOM;N;3yap<unk>hisPSS3S;3;DAT;SG;NkapIND;PST;POS;PASS;1;PFV;SG;V._
+	
+Mutlu,sevgininkösteklenmediğibirlikteliklerineayakuydurmayaçalışıyordum.	mutluADJ,_sevgiSG;GEN;N;3köstekle<unk>birliktelikPSS3P;DAT;3;SG;NayakSG;3;N;NOMuyDAT;POS;IND;PRS;PFV;V;CAUS;V.MSDRçalışPST;1;POS;IND;INFM;SG;PROG;V._
+	
+Hayret,nezamanyazmışım?	hayretNOM;N;3;SG,_neNOM;3;PRO;SGzamanNOM;N;3;SGyaz1;PFV;PST;V;NFH;IND;SG;POS?_
+	
+Üşümüyordum.	üşüINFM;1;NEG;PST;V;IND;PROG;SG._
+	
+Gözlemvedeneyleröngörülerdoğrultusundasonuçlarverirse,kuramkanıtlandıdenmez,kuramgözlemlerletutarlıdırdenir.	gözlemSG;NOM;N;3veCONJdeneyNOM;PL;N;3öngörüNOM;PL;N;3doğrultuPSS3S;ESS;3;SG;NsonuçNOM;PL;N;3verCOND;POS;3;PRS;SG;HAB;V,_kuramSG;NOM;N;3kanıtlaIND;PST;POS;3;PASS;PFV;SG;VdeNEG;IND;3;PASS;PRS;SG;HAB;V,_kuramSG;NOM;N;3gözlemINS;PL;N;3tutarlıSG;NOM;ADJ;3iV;3;PRS;PFV;SGdeIND;POS;3;PASS;PRS;SG;HAB;V._
+	
+	
+AyhanÇilingiroğlu,AtilaSav'ınortakokulbirincisınıftanarkadaşı.	AyhanSG;NOM;PROPN;3ÇilingiroğluPSS3S;NOM;3;PROPN;SG,_AtilaSG;NOM;PROPN;3SavGEN;SG;PROPN;3ortakokulSG;NOM;N;3birNUM;NOM;3;SGsınıfAT+ABL;SG;N;3arkadaşACC;SG;N;3._
+	
+	
+Onlarhayoşmuş,aynıbüyükamcamgibi,hiçbiriadamolmazmışonların.	o3;NOM;PL;PROhayoşSG;3;N;NOMiPST;V;3;IND;SG;PFV;NFH,_aynıADJbüyükADJamcaPSS1S;3;NOM;SG;NgibiADP,_hiçbiriPSS3S;3;NOM;SG;PROadamSG;3;N;NOMolPST;3;IND;SG;NEG;V;HAB;NFHo<unk>._
+	
+Dinleniyorumbuodada.	dinlenINFM;1;PRS;V;IND;PROG;SG;POSbuDEToda3;N;ESS;SG._
+	
+Ancaksavaştehdidininolduğubirortamdaborsayatazeparagelmiyor.	ancakADVsavaşSG;3;N;NOMtehditPSS3S;3;SG;N;GENolPSS3S;PST;POS;IND;PFV;V.PTCP;VbirNUMortamSG;ESS;N;3borsaSG;DAT;N;3tazeADJparaSG;3;N;NOMgel3;IND;PRS;INFM;SG;NEG;PROG;V._
+	
+Geleceğedairnevarsayüktehafif,pahadaağır,bizleledir.	gelecek3;ADJ;DAT;SGdairADPneNOM;3;PRO;SGvarCOND;PFV;PRS;V;SG;3;POSyük3;N;ESS;SGhafifADJ,_paha3;N;ESS;SGağırADJ,_biz1;PRO;INS;PLiPFV;PRS;V;SG;3._
+	
+Ezmelervetaratorlarımezedensaymıyorumben.	ezmeNOM;PL;N;3veCONJtaratorACC;PL;N;3mezeAT+ABL;SG;N;3sayINFM;NEG;IND;1;PRS;SG;PROG;VbenPRO;NOM;1;SG._
+	
+Gemiuzaklaştıkçael-kolhareketleri,çırpınışlarıgörülmezoluyor.	gemiNOM;N;3;SGuzaklaşPFV;PRS;V;IND;POS;V.CVBelNOM;N;3;SG-_kolNOM;N;3;SGhareketPSS3S;NOM;PL;3;N,_çırpınışPSS3S;NOM;PL;3;NgörPASS;NEG;HAB;PRS;V;IND;V.PTCPolINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Yenigeleceköğretmeniçokmerakediyoruz.	yeniADJgelecekADJöğretmen3;N;ACC;SGçokADVmerakNOM;N;3;SGetINFM;1;PRS;V;IND;PL;PROG;POS._
+	
+YTPGenelBaşkanıİsmailCem,AnkaraYükselCaddesi'ndebulunanLemanKültürMerkezi'ndegençlerlesohbetetti.	YTPNOM;3;SG;NgenelADJbaşkanPSS3S;NOM;3;SG;NİsmailSG;NOM;PROPN;3CemSG;NOM;PROPN;3,_AnkaraSG;NOM;PROPN;3YükselSG;NOM;PROPN;3caddePSS3S;ESS;3;SG;NbulIND;POS;PASS;PRS;PFV;V.PTCP;VLemanSG;NOM;PROPN;3kültürSG;NOM;N;3merkezPSS3S;ESS;3;SG;Ngenç<unk>sohbetSG;NOM;N;3etSG;NOM;N;3iV;IND;PST;3;PFV;SG._
+	
+Anlatmasıgüçduygularbunlar.	anlatPSS3S;IND;NOM;V.MSDR;POS;PFV;PRS;VgüçADJduyguNOM;PL;N;3buPRO;NOM;3;PL._
+	
+Evet,burayabirşeyanlatmakiçingelmiştim,dediKerem.	evetNOM;N;3;SG,_bura3;DAT;PRO;SGbirNUMşeyNOM;N;3;SGanlatV.MSDR;PFV;PRS;NOM;V;IND;POSiçinADPgel1;PFV;V;IND;SG;PST+PRF;POS,_dePFV;PST;V;IND;SG;3;POSKeremNOM;PROPN;3;SG._
+	
+Kimdemişöldüğünü?..	kimNOM;3;PRO;SGdePFV;PST;V;NFH;IND;SG;3;POSölPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POS?_.._
+	
+Timur,uyuşturucukullanırkenetrafımdaolanbitenherşeyinbenimleilgiliolduğunusanıyordum.	TimurNOM;PROPN;3;SG,_uyuşturucuNOM;ADJ;3;SGkullanHAB;PRS;V;IND;SG;3;POS;V.CVBetrafPSS1S;SG;3;N;ESSolPFV;PRS;V;IND;V.PTCP;POSbitPFV;PRS;V;IND;V.PTCP;POSherDETşey3;N;SG;GENben1;PRO;INS;SGilgiliADJolPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POSsanINFM;1;PST;V;IND;PROG;SG;POS._
+	
+Kapıyıbenmi,yoksadahasonrabenimgibisanaaşıkolanasistanımmıaçtı,şimdihatırlamıyorum,amagelensendin.	kapı3;N;ACC;SGben1;PRO;NOM;SGmiPFV;PRS;V;IND;SG;3,_yokNOM;ADJ;3;SGiCOND;PFV;PRS;V;SG;3dahaADVsonraADVben1;PRO;SG;GENgibiADPsenPRO;2;SG;DATaşıkNOM;ADJ;3;SGolPFV;PRS;V;IND;V.PTCP;POSasistanPSS1S;NOM;SG;3;NmıPFV;PRS;V;IND;SG;3açPFV;PST;V;IND;SG;3;POS,_şimdiADVhatırlaINFM;1;NEG;PRS;V;IND;PROG;SG,_amaCONJgelPFV;PRS;V;IND;V.PTCP;POSsenPRO;2;NOM;SGiPFV;2;V;PST;IND;SG._
+	
+BukocayuvarlakDünya'nınetrafındadönüyordu.	buDETkocaADJyuvarlakADJDünya3;PROPN;SG;GENetrafPSS3S;SG;3;N;ESSdönINFM;PST;V;IND;PROG;SG;3;POS._
+	
+Neoldu.	neNOM;3;PRO;SGolPFV;PST;V;IND;SG;3;POS._
+	
+Ayhan'ınhikayesinidürelim..	Ayhan3;PROPN;SG;GENhikayePSS3S;ACC;SG;3;Ndür1;OPT;PFV;PRS;V;PL;POS.._
+	
+Banadeğildearkamdaduran,dönüpbaksambenimgöremeyeceğimbirşeye,belkidebiraslanabakıyordu.	ben1;PRO;SG;DATdeğilNEG;PFV;PRS;V;IND;SG;3deCONJarkaPSS1S;ADJ;SG;3;ESSdurPFV;PRS;V;IND;V.PTCP;POS,_dönPFV;PRS;V;IND;POS;V.CVBbak1;COND;PFV;PRS;V;SG;POSben1;PRO;SG;GENgör<unk>birNUMşey3;N;DAT;SG,_belkiADVdeCONJbirNUMaslan3;ADJ;DAT;SGbakINFM;PST;V;IND;PROG;SG;3;POS._
+	
+IraktehdiditepemizdedurmasınakarşınborsacılarınhayalindekihükümetformülüolanDYPCHP-koalisyonunungerçekleşmesidurumundaborsaseçimdensonrabirralliyapabilir.	IrakNOM;PROPN;3;SGtehditPSS3S;NOM;SG;3;NtepePSS1P;SG;3;N;ESSdurPSS3S;V.MSDR;PFV;PRS;V;IND;DAT;POSkarşınADPborsacı3;N;PL;GENhayalPSS3S;SG;3;N;ESSkiADPhükümetNOM;N;3;SGformülPSS3S;NOM;SG;3;NolPFV;PRS;V;IND;V.PTCP;POSDYPPROPN;NOM;SG;3CHPPROPN;NOM;SG;3-_koalisyonPSS3S;GEN;SG;3;NgerçekleşPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSdurumPSS3S;SG;3;N;ESSborsaNOM;N;3;SGseçim3;N;SG;AT+ABLsonraADPbirNUMralliNOM;N;3;SGyapHAB;PRS;V;POT;SG;3;POS._
+	
+Kızınıçokbeğendik.	kızPSS3S;ACC;ADJ;SG;3çokADVbeğen1;PFV;PST;V;IND;PL;POS._
+	
+Hiçdüşünmedenkarşılıkverdibukez.	hiçADVdüşünNEG;PFV;PRS;V;IND;V.CVBkarşılıkNOM;N;3;SGverPFV;PST;V;IND;SG;3;POSbuDETkezNOM;N;3;SG._
+	
+Âdetimolsabari.	adetPSS1S;3;NOM;SG;Nol3;POS;PRS;SG;PFV;VbariADV._
+	
+Keremyerindenkalkmıştı.	KeremNOM;PROPN;3;SGyerPSS3S;AT+ABL;SG;3;NkalkPFV;V;IND;SG;3;PST+PRF;POS._
+	
+Ana'nınoradaolmadığınısöylediktensonraben,bunaneinanırmış,nedeinanmazmışgibibirtavırtakındım.	Ana3;PROPN;SG;GENora3;ESS;PRO;SGolPSS3S;NEG;ACC;PFV;PST;V;IND;V.PTCPsöyleAT+ABL;PFV;PST;V;IND;V.PTCP;POSsonraADPben1;PRO;NOM;SG,_buPRO;SG;3;DATneADVinanHAB;PST;NFH;V;IND;SG;3;POS,_neADVdeCONJinan<unk>gibiADPbirNUMtavırNOM;N;3;SGtakın1;PFV;PST;V;IND;SG;POS._
+	
+ÜniversitedehocayızdesekŞüphelikişiolacağızçünkü.	üniversite3;N;ESS;SGhocaNOM;N;3;SGi1;PFV;PRS;V;IND;PLde1;COND;PFV;PRS;V;PL;POSşüpheNOM;N;3;SGliADPkişiNOM;N;3;SGolFUT;1;PFV;V;IND;PL;POSçünküCONJ._
+	
+onmilyonaşıktişörtler,pantolonlar,30-40milyonapaltolarvar.	onNUMmilyonSG;3;NUM;DATşıkADJtişörtNOM;N;PL;3,_pantolonNOM;N;PL;3,_30-40NUMmilyonSG;3;NUM;DATpaltoNOM;N;PL;3varADJ._
+	
+Nedengeldiniz.	neAT+ABL;PRO;SG;3gel2;IND;PST;POS;PFV;PL;V._
+	
+Olmaz,köylüağzı.	ol3;IND;PRS;SG;NEG;V;HAB,_köylüSG;3;ADJ;NOMağızPSS3S;3;NOM;SG;N._
+	
+Kiraişlemi,...	kiraSG;NOM;N;3işlemPSS3S;NOM;3;SG;N,_..._
+	
+Hazine'nin,bugündüzenleyeceğidoksanikigünvadeli,yirmiikiOcakikibinüçBüyükhanlı'nınbonoihalesindeitfatarihiyirmidörtNisanikibindörtolarakbelirlendi.	hazine3;N;SG;GEN,_bugünNOM;N;3;SGdüzenlePSS3S;FUT;PFV;V;IND;V.PTCP;POSdoksanikiNUMgünNOM;N;3;SGvadeNOM;N;3;SGliADP,_yirmiikiNOM;SG;3;NUMocakNOM;N;3;SGikibinüçNUMBüyükhanlı3;N;SG;GENbonoNOM;N;3;SGihalePSS3S;SG;3;N;ESSitfaNOM;N;3;SGtarihPSS3S;NOM;SG;3;NyirmidörtNOM;SG;3;NUMnisanNOM;N;3;SGikibindörtNOM;SG;3;NUMolarakADPbelirlePASS;PFV;PST;V;IND;SG;3;POS._
+	
+Zeynepşaşkınlıklakardeşinebaktı,Sennedediğininfarkındamısın?	ZeynepNOM;PROPN;3;SGşaşkınlık3;N;INS;SGkardeşPSS3S;SG;3;N;DATbakPFV;PST;V;IND;SG;3;POS,_senPRO;2;NOM;SGneNOM;3;PRO;SGdePSS3S;GEN;PFV;PST;V;IND;V.PTCP;POSfarkPSS3S;SG;3;N;ESSmıPFV;PRS;2;V;IND;SG?_
+	
+Partidışı.	partiSG;NOM;N;3dışPSS3S;NOM;3;SG;ADJ._
+	
+Dolayısıylayenidokümanlaraulaşmak,olayıngerçekyönlerinibelgelemekihtiyacıçokönemliydi.	dolayısıylaADVyeniADJdokümanPL;DAT;N;3ulaşNOM;POS;IND;PRS;PFV;V;V.MSDR,_olaySG;GEN;N;3gerçekADJyönPSS3S;3;PL;N;ACCbelgeleNOM;POS;IND;PRS;PFV;V;V.MSDRihtiyaçPSS3S;3;NOM;SG;NçokADVönemSG;3;N;NOMliADPiPST;V;3;IND;SG;PFV._
+	
+BirsüresonraMilliSavunmaBakanlığı'ndabize,çokgerekçelibirdosyahazırladığımızhalde,ikisatırlıkbircevapgeldi.	birNUMsüreNOM;N;3;SGsonraADPmilliADJsavunNEG;PFV;PRS;2;V;SG;IMPbakanlıkPSS3S;SG;3;N;ESSbiz1;PRO;PL;DAT,_çokADVgerekçeNOM;N;3;SGliADPbirNUMdosyaNOM;N;3;SGhazırlaPSS1S;PFV;PST;NOM;V;IND;V.PTCP;POSi1;PFV;PRS;V;IND;PLhal3;N;ESS;SG,_ikiNUMsatırNOM;N;3;SGlikNOM;ADP;3;SGbirNUMcevapNOM;N;3;SGgelPFV;PST;V;IND;SG;3;POS._
+	
+İncelemeelemanıkimSodexho.	inceleV.MSDR;PFV;PRS;NOM;V;IND;POSelemanPSS3S;NOM;SG;3;NkimNOM;3;PRO;SGSodexhoNOM;PROPN;3;SG._
+	
+Sıkıntılarınıbirkenarabırakıpokuluntamamlanmasınısağladı.	sıkıntıPSS3P;3;PL;N;ACCbirNUMkenarSG;DAT;ADJ;3bırakPOS;PRS;IND;V.CVB;PFV;VokulSG;GEN;N;3tamamlaPSS3S;V.MSDR;PASS;POS;IND;PRS;PFV;ACC;VsağlaPST;3;POS;IND;SG;PFV;V._
+	
+Neredenbiliyorsunuzkiokadınolduğunu.	nere3;SG;PRO;AT+ABLbilINFM;PRS;2;V;IND;PL;PROG;POSkiCONJoDETkadınNOM;ADJ;3;SGolPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POS._
+	
+Kalkındım.	kalkın1;PFV;PST;V;IND;SG;POS._
+	
+Kırmızıyaboyattım.	kırmızı3;ADJ;DAT;SGboya1;PFV;PST;V;IND;SG;CAUS;POS._
+	
+Kimibirşişerakıylaöldürüyor,kimiüçgramkokainle,kimibeşgrameroinle.	kimiPSS3S;PRO;NOM;SG;3birNUMşişeNOM;N;3;SGrakı3;N;INS;SGölINFM;PRS;V;IND;PROG;SG;3;CAUS;POS,_kimiPSS3S;PRO;NOM;SG;3üçNUMgramNOM;N;3;SGkokain3;N;INS;SG,_kimiPSS3S;PRO;NOM;SG;3beşNUMgramNOM;N;3;SGeroin3;N;INS;SG._
+	
+Fakatbumuammayısonundaçözdüm.	fakatCONJbuDETmuamma3;N;ACC;SGsonundaADVçöz1;PFV;PST;V;IND;SG;POS._
+	
+	
+(İzninizle,nedenolmasın...	(_izinPSS2P;INS;3;SG;N,_nedenADV;AT+ABL;SG;3olNEG;IMP;3;PRS;PFV;SG;V..._
+	
+Materyalizm-idealizmkarşıtlığıBilimselDevrim'inilkdönemlerindeçokaçıktırveyaşamıntümalanlarınıkapsamaktadır.	materyalizmNOM;N;3;SG-_idealizmNOM;N;3;SGkarşıtlıkPSS3S;NOM;SG;3;NbilimselADJDevrim3;PROPN;SG;GENilkADJdönemPSS3S;PL;3;N;ESSçokADVaçıkNOM;ADJ;3;SGiPFV;PRS;V;SG;3veCONJyaşam3;N;SG;GENtümDETalanPSS3S;ACC;PL;3;NkapsaFORM;PRS;V;PROG;SG;3;POS._
+	
+-Okuyorum.	-_okuINFM;1;PRS;V;IND;PROG;SG;POS._
+	
+Ayhantarihintahririnibaşlattı.	AyhanNOM;PROPN;3;SGtarih3;N;SG;GENtahrirPSS3S;ACC;SG;3;NbaşlaPFV;PST;V;IND;SG;3;CAUS;POS._
+	
+Bunlarıizlediğimdeolayınkapatılmayaçalışıldığıizleniminekapıldım.	buPRO;ACC;PL;3izlePSS1S;PFV;PST;V;IND;V.PTCP;POS;ESSolay3;N;SG;GENkapaV.MSDR;PFV;PRS;V;IND;DAT;POSçalışPSS3S;PASS;PFV;PST;NOM;V;IND;V.PTCP;POSizlenimPSS3S;SG;3;N;DATkap1;PASS;PFV;PST;V;IND;SG;POS._
+	
+Enerjik,taşkınvepervasızlar.	enerjikADJ,_taşkınADJveCONJpervasızNOM;ADJ;3;SGiPFV;PRS;V;IND;PL;3._
+	
+Eskieşyaylahaşırneşiroldum.	eskiADJeşya3;N;INS;SGhaşır_neşirNOM;N;3;SGol1;PFV;PST;V;IND;SG;POS._
+	
+Kahramanlarınızın,kadın-erkekilişkilerinedönükyönlerindede,kulaklarınızainanamıyorveduyduklarınızladüşkırıklıklarınaduçaroluyorsunuz.	kahraman<unk>,_kadınNOM;ADJ;3;SG-_erkekNOM;ADJ;3;SGilişkiPSS3S;PL;3;N;DATdönükADJyönPSS3S;PL;3;N;ESSdeCONJ,_kulak<unk>inanINFM;NEG;PRS;V;POT;PROG;SG;3veCONJduy<unk>düşNOM;N;3;SGkırıklıkPSS2S;PL;3;N;DATduçarADJolINFM;PRS;2;V;IND;PL;PROG;POS._
+	
+Buraporlardanbirerfotokopialdılar.	buDETrapor3;N;PL;AT+ABLbirNUMfotokopiNOM;N;3;SGalPFV;PST;V;IND;PL;3;POS._
+	
+Vebirçoközelliklerininnedeni.	veCONJbirçokDETözellikPSS3P;GEN;3;PL;NnedenPSS3S;NOM;3;SG;N._
+	
+Peebles:Bigbangyaradılışınçağımızdakiversiyonudur.	PeeblesSG;NOM;PROPN;3:_bigSG;NOM;N;3bangSG;NOM;N;3yaradılışGEN;SG;N;3çağPSS1P;ESS;3;SG;NkiADPversiyonPSS3S;NOM;3;SG;NiV;3;PRS;PFV;SG._
+	
+	
+Buişlem,bardakağzınaulaşanadeközenlesürerdi.	buDETişlemNOM;N;3;SG,_bardakNOM;N;3;SGağızPSS3S;SG;3;N;DATulaşPFV;PRS;V;IND;V.PTCP;SG;3;DAT;POSdekADPözen3;N;INS;SGsürHAB;PST;V;IND;SG;3;POS._
+	
+Bunlarıdemekyasakdeğilditabii.	buPRO;ACC;3;PLdeIND;NOM;V.MSDR;POS;PRS;PFV;VyasakSG;NOM;ADJ;3değilNEG;IND;PST;3;PFV;SG;VtabiiADJ._
+	
+Buyüzdenmiterkettinevini.	buDETyüz3;N;SG;AT+ABLmiPFV;PRS;V;IND;SG;3terkNOM;N;3;SGetPFV;2;PST;V;IND;SG;POSevPSS2S;ACC;SG;3;N._
+	
+Patlıcanerdemlibirsebzedir.	patlıcanNOM;N;3;SGerdemliADJbirNUMsebzeNOM;N;3;SGiPFV;PRS;V;SG;3._
+	
+doğadahepsininbirerbarınağıvar.	doğa3;N;ESS;SGhepsiPSS3P;PRO;PL;3;GENbirNUMbarınakPSS3S;NOM;SG;3;NvarADJ._
+	
+Sürprizneacaba?	sürprizSG;NOM;N;3neSG;PRO;NOM;3acabaADV?_
+	
+Kesilmiş,içorganlarıtemizlenmişvesoğuğunetkisiylekaskatıolmuşdörtgeyik,boynuzları,başları,bacaklarıilekamyonataşındı.	kesPASS;PFV;PST;V;NFH;IND;V.PTCP;POS,_içADJorganPSS3P;NOM;PL;3;NtemizlePASS;PFV;PST;V;NFH;IND;V.PTCP;POSveCONJsoğuk3;ADJ;SG;GENetkiPSS3S;INS;SG;3;NkaskatıADJolPFV;PST;V;NFH;IND;V.PTCP;POSdörtNUMgeyikNOM;N;3;SG,_boynuzPSS3P;NOM;PL;3;N,_başPSS3P;NOM;PL;3;N,_bacakPSS3P;NOM;PL;3;NileADPkamyon3;N;DAT;SGtaşıPASS;PFV;PST;V;IND;SG;3;POS._
+	
+Kimdertliondaalırsoluğu...	kimNOM;3;PRO;SGdertliADJoPRO;SG;3;ESSalHAB;PRS;V;IND;SG;3;POSsoluk3;ACC;ADJ;SG..._
+	
+Haftanınsorunsuzatlatılacağıtahminediliyor.	hafta3;N;SG;GENsorunsuzADJatlaPSS3S;FUT;PFV;NOM;V;IND;V.PTCP;POStahminNOM;N;3;SGetINFM;PASS;PRS;V;IND;PROG;SG;3;POS._
+	
+Oalandadoğruyubulmuşolanbilimdalıdahafazlailerleyemez;sonbilgiyeulaşmıştır,kapalıdır;yenibilgilere,olaylara,süreçlereyeryoktur.	oDETalan3;N;ESS;SGdoğru3;ACC;ADJ;SGbulPFV;PST;V;NFH;IND;V.PTCP;POSolPFV;PRS;V;IND;V.PTCP;POSbilimNOM;N;3;SGdalPSS3S;NOM;SG;3;NdahaADVfazlaADVilerleNEG;HAB;PRS;V;POT;SG;3;_sonADJbilgi3;N;DAT;SGulaşPFV;PST;V;NFH;SG;3;POS,_kapalıNOM;ADJ;3;SGiPFV;PRS;V;SG;3;_yeniADJbilgi3;N;PL;DAT,_olay3;N;PL;DAT,_süreç3;N;PL;DATyerNOM;N;3;SGyokNOM;ADJ;3;SGiPFV;PRS;V;SG;3._
+	
+Yaktımhemen.	yak1;PFV;PST;V;IND;SG;POShemenADV._
+	
+Sanayimallarındaasgarigarantisüresibiryıldanikiyılaçıkarılıyor.	sanayiSG;NOM;N;3malPSS3S;ESS;3;PL;NasgariADJgarantiSG;NOM;N;3sürePSS3S;NOM;3;SG;NbirNUMyılAT+ABL;SG;N;3ikiNUMyılSG;DAT;N;3çıkarINFM;IND;POS;3;PASS;PRS;SG;PROG;V._
+	
+Hattahayattakalmabecerisi,bufarkındalığıbilinçlibirşekildeyaşamageçirebilmektegizliydi.	hattaCONJhayatSG;ESS;N;3kalNOM;POS;IND;PRS;PFV;V;V.MSDRbeceriPSS3S;3;NOM;SG;N,_buDETfarkındalıkSG;N;ACC;3bilinçliADJbirNUMşekilSG;ESS;N;3yaşamSG;DAT;N;3geçir<unk>gizliADViPST;V;3;IND;SG;PFV._
+	
+Kafamıdinleyeceğim"dedi.	kafaPSS1S;ACC;SG;3;NdinleFUT;1;PFV;V;IND;SG;POS"_dePFV;PST;V;IND;SG;3;POS._
+	
+-Bukağıtlarne,dersmi.	-_buDETkağıt3;PL;ADJ;NOMneSG;3;PRO;NOM,_dersSG;3;N;NOMmiV;3;IND;PRS;SG;PFV._
+	
+HendektenatlarlarkenMiskoye'ninayağıkaydı.	hendekAT+ABL;SG;N;3atla<unk>MiskoyeGEN;SG;PROPN;3ayakPSS3S;NOM;3;SG;NkayIND;PST;POS;3;PFV;SG;V._
+	
+Unakıtanhükümeti,işçilerinyasalzorunluluktankaynaklananvetoplusözleşmeyekonulmasışartıylaödenenikiikramiyedenikisiniödememekonusunudeğerlendirecek.	UnakıtanNOM;PROPN;3;SGhükümet3;N;ACC;SG,_işçi3;N;PL;GENyasalADJzorunluluk3;N;SG;AT+ABLkaynaklaPASS;PFV;PRS;V;IND;V.PTCP;POSveCONJtoplusözleşme3;N;DAT;SGkonPSS3S;PASS;V.MSDR;PFV;PRS;NOM;V;IND;POSşartPSS3S;INS;SG;3;NödePASS;PFV;PRS;V;IND;V.PTCP;POSikiNUMikramiye3;N;SG;AT+ABLikiPSS3S;ACC;SG;3;NUMödeV.MSDR;NEG;PFV;PRS;NOM;V;INDkonuPSS3S;ACC;SG;3;Ndeğerlen<unk>._
+	
+Beniçmem.	benPRO;NOM;1;SGiçNEG;IND;1;PRS;SG;HAB;V._
+	
+Onugörmekistiyorum"diyerekmorgagirdi.	oPRO;ACC;SG;3görV.MSDR;PFV;PRS;NOM;V;IND;POSisteINFM;1;PRS;V;IND;PROG;SG;POS"_dePFV;PRS;V;IND;POS;V.CVBmorg3;N;DAT;SGgirPFV;PST;V;IND;SG;3;POS._
+	
+Ama,dediumutsuzluklakadın,Obenidüşünmediğisürecehiçbirşeyyapamamki!	amaCONJ,_dePFV;PST;V;IND;SG;3;POSumutsuzluk3;N;INS;SGkadınNOM;ADJ;3;SG,_oPRO;NOM;SG;3ben1;PRO;ACC;SGdüşünPSS3S;NEG;PFV;PST;V;IND;V.PTCPsüre3;N;EQTV;SGhiçbirDETşeyNOM;N;3;SGyap1;NEG;HAB;PRS;V;POT;SGkiCONJ!_
+	
+	
+Heyecandanarasıranazikçeboğazlartemizlenir,dudaklarınüzerlerindebirikenterdamlacıklarırujlarındağılmamasınaözengösterilerekhafifçesiliniverir.	heyecan3;N;SG;AT+ABLaraNOM;ADJ;3;SGsıraNOM;N;3;SGnazikçeADVboğazNOM;N;PL;3temizlePASS;HAB;PRS;V;IND;SG;3;POS,_dudak3;N;PL;GENüzerPSS3P;PL;3;N;ESSbirikPFV;PRS;V;IND;V.PTCP;POSterNOM;N;3;SGdamlacıkPSS3S;NOM;PL;3;Nruj3;N;PL;GENdağılPSS3S;V.MSDR;NEG;PFV;PRS;V;IND;DATözenNOM;N;3;SGgösterPASS;PFV;PRS;V;IND;POS;V.CVBhafifçeADVsilPASS;HAB;PRS;V;IND;SG;3;POS._
+	
+Bizzatkendiniz.	bizzatADVkendi<unk>._
+	
+Metindeyeralanisim,MustafaSezai'ydi.	metin3;ADJ;ESS;SGyerNOM;N;3;SGalPFV;PRS;V;IND;V.PTCP;POSisimNOM;N;3;SG,_MustafaNOM;PROPN;3;SGSezaiNOM;PROPN;3;SGiPFV;V;PST;IND;SG;3._
+	
+Dolayısıyla,bilimselteorilerinbazıkavramlarıoluşturupkullanabilmeleri,toplumunideolojikdüzeyininokavramlarınortayaçıkmasınaelverenbirolgunluğaulaşmışolmasınıgerektirir.	dolayısıylaADV,_bilimselADJteori3;N;PL;GENbazıDETkavram3;N;PL;ACColuşPFV;PRS;V;IND;CAUS;POS;V.CVBkullan<unk>,_toplum3;N;SG;GENideolojikADJdüzeyPSS3S;GEN;SG;3;NoDETkavram3;N;PL;GENorta3;ADJ;DAT;SGçıkPSS3S;V.MSDR;PFV;PRS;V;IND;DAT;POSelverPFV;PRS;V;IND;V.PTCP;POSbirNUMolgunluk3;N;DAT;SGulaşPFV;PST;V;NFH;IND;SG;3;POSolPSS3S;V.MSDR;ACC;PFV;PRS;V;IND;POSgerekHAB;PRS;V;IND;SG;3;CAUS;POS._
+	
+Lahanaailesibüyüktür.	lahanaSG;3;N;NOMailePSS3S;3;NOM;SG;NbüyükSG;3;ADJ;NOMiV;3;PRS;SG;PFV._
+	
+-Niyeçizgi-romankahramanıozaman.	-_niyeADVçizgiNOM;N;3;SG-_romanNOM;N;3;SGkahramanPSS3S;NOM;ADJ;SG;3oDETzamanNOM;N;3;SG._
+	
+Rakısofrasındaönmezelerarasınagirerler.	rakıSG;NOM;N;3sofraPSS3S;ESS;3;SG;NönADJmezeNOM;PL;N;3araPSS3S;3;DAT;SG;ADJgirIND;POS;3;PRS;PL;V;HAB._
+	
+Henüzikisaattiryoldaydıkvebenaltıkezdüşmüştüm.	henüzADVikiNUMsaatNOM;N;3;SGiPFV;PRS;V;SG;3yol3;N;ESS;SGi1;PFV;V;PST;IND;PLveCONJben1;PRO;NOM;SGaltıNUMkezNOM;N;3;SGdüş1;PFV;V;IND;SG;PST+PRF;POS._
+	
+Yaradılıştamamenbirinançsorunudur.	yaradılışNOM;N;3;SGtamamenADVbirNUMinançNOM;N;3;SGsorunPSS3S;NOM;SG;3;NiPFV;PRS;V;SG;3._
+	
+Küçükgörmeyin.	küçükADJgörNEG;PFV;PRS;2;V;PL;IMP._
+	
+Yangözleinceleniyorumbiryandan.	yanADJgöz3;N;INS;SGinceleINFM;1;PASS;PRS;V;IND;PROG;SG;POSbirNUMyan3;ADJ;SG;AT+ABL._
+	
+Halbukişuandaişyerlerininsağladığıfinansmanlabuişyürüyor"dedi.	halbukiCONJşuDETan3;N;ESS;SGişyeriPSS3P;PL;3;N;GENsağlaPSS3S;PFV;PST;V;IND;V.PTCP;POSfinansman3;N;INS;SGbuDETişNOM;N;3;SGyürüINFM;PRS;V;IND;PROG;SG;3;POS"_dePFV;PST;V;IND;SG;3;POS._
+	
+BudosyayıMilliSavunmaBakanlığı'nailetmelisiniz.	buDETdosya3;N;ACC;SGmilliADJsavunV.MSDR;PFV;PRS;NOM;V;IND;POSbakanlıkPSS3S;SG;3;N;DATiletPFV;PRS;2;V;PL;POS._
+	
+Nasılçıkabilirimoraya.	nasılADVçık1;HAB;PRS;V;POT;SG;POSora3;DAT;PRO;SG._
+	
+Elininbirhareketiyleçakmağıkaymış,masadanaşağıyauçmuştu.	elPSS3S;GEN;3;SG;NbirNUMhareketPSS3S;INS;3;SG;NçakmakACC;SG;N;3kayNFH;IND;PST;POS;3;PFV;SG;V,_masaAT+ABL;SG;N;3aşağıSG;DAT;ADJ;3uçIND;POS;3;PFV;SG;PST+PRF;V._
+	
+Bakondanyakınırımamabelkidehaksızım.	bakPFV;PRS;2;V;SG;IMP;POSoPRO;AT+ABL;SG;3yakınHAB;PRS;V;IND;V.PTCP;POSi1;PFV;PRS;V;IND;SGamaCONJbelkiADVdeCONJhaksızNOM;ADJ;3;SGi1;PFV;PRS;V;IND;SG._
+	
+Yinekafambulanıkken,teyzemindefterindenaktarmışımdır.	yineADVkafaPSS1S;NOM;SG;3;NbulanıkNOM;ADJ;3;SGiPFV;PRS;V;IND;V.CVB,_teyzePSS1S;GEN;SG;3;NdefterPSS3S;AT+ABL;SG;3;Naktar1;PFV;PST;V;NFH;SG;POS._
+	
+Onlarönemlideğilki.	o3;NOM;PL;PROönemSG;3;N;NOMliADPdeğil3;IND;PRS;SG;NEG;PFV;VkiCONJ._
+	
+TürkPopMüziği'ninhaddinibilmezliği,sınırtanımazlığı,güncelliğivemüzikalyadasözelhiçbirkodabağlıolmayışıonlarıSüleymanoğluediyor.	TürkADJpopADJmüzikPSS3S;GEN;3;SG;NhadPSS3S;ACC;3;SG;NbilmezlikPSS3S;NOM;3;SG;N,_sınırSG;NOM;N;3tanımazlıkPSS3S;NOM;3;SG;N,_güncellikPSS3S;NOM;3;SG;NveCONJmüzikalADJyaCONJdaCONJsözelADJhiçbirDETkodSG;DAT;N;3bağlıADJol<unk>oPRO;ACC;3;PLSüleymanoğluSG;NOM;PROPN;3etINFM;IND;POS;3;PRS;SG;PROG;V._
+	
+Kemal:Çokparçalıyorsunherşeyi,Nesrin.	KemalNOM;PROPN;3;SG:_çokADVparçalaINFM;PRS;2;V;IND;PROG;SG;POSherDETşey3;N;ACC;SG,_NesrinNOM;PROPN;3;SG._
+	
+Kapıaralanırgibioluyor,büyükbirgürültüileyenidençarpıpkapanıyordu.	kapıNOM;N;3;SGaralaPASS;HAB;PRS;V;IND;SG;3;POSgibiADPolINFM;PRS;V;IND;PROG;SG;3;POS,_büyükADJbirNUMgürültüNOM;N;3;SGileADPyenidenADVçarpPFV;PRS;V;IND;POS;V.CVBkapaINFM;PASS;PST;V;IND;PROG;SG;3;POS._
+	
+İkimizdeoğulduk.	iki<unk>deCONJoğulSG;3;N;NOMi<unk>._
+	
+Ellerimituttu,şefkatlegözlerimebaktı:.	elPSS1S;ACC;PL;3;NtutPFV;PST;V;IND;SG;3;POS,_şefkat3;N;INS;SGgözPSS1S;PL;3;N;DATbakPFV;PST;V;IND;SG;3;POS:_._
+	
+Birdetuzsuzpeynirlerimizvar:Lor,dilgibi.	birADVdeCONJtuzsuzADJpeynirPSS1P;NOM;PL;3;NvarADJ:_lorNOM;N;3;SG,_dilNOM;N;3;SGgibiADP._
+	
+Ürünlerinizinkonuşulduğubiratmosferyaratabiliyorsanız,ürünkendikendinisatacaktır.	ürün<unk>konuşPSS3S;PASS;PFV;PST;V;IND;V.PTCP;POSbirNUMatmosferNOM;N;3;SGyarat<unk>,_ürünNOM;N;3;SGkendiPSS3S;REFL;PRO;NOM;SG;3kendiPSS3S;REFL;PRO;ACC;SG;3satFUT;PFV;V;SG;3;POS._
+	
+	
+THYUçuşİşletmeBaşkanıKaptanPilotİlhamiRojdaise,aileninverdiğibilgininaksineUlusu'nunkazagünüstandRojda(nöbetçi)olmadığınısöyledi.	ThyNOM;3;SG;Nuçuş2;POS;IMP;PRS;PFV;SG;VişletmeSG;NOM;N;3başkanPSS3S;NOM;3;SG;NkaptanSG;NOM;N;3pilotSG;NOM;N;3İlhamiSG;NOM;PROPN;3RojdaSG;NOM;PROPN;3iV,_aileGEN;SG;N;3verPSS3S;IND;PST;POS;PFV;V.PTCP;VbilgiGEN;SG;N;3aksineADVUlusuGEN;SG;PROPN;3kazaSG;NOM;N;3günPSS3S;NOM;3;SG;NstandSG;NOM;N;3RojdaSG;NOM;PROPN;3(_nöbetçiSG;NOM;N;3)_olPSS3S;ACC;NEG;IND;PST;PFV;V.PTCP;VsöyleIND;PST;POS;3;PFV;SG;V._
+	
+Zarfıaçtıvemektubuokuyor.	zarf3;N;ACC;SGaçPFV;PST;V;IND;SG;3;POSveCONJmektup3;N;ACC;SGokuINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Sendekolluyorduncanımteyzeciğim,sezdirmemeyeçalışarakikimizi...	senPRO;2;NOM;SGdeCONJkollaINFM;2;PST;V;IND;PROG;SG;POScanPSS1S;NOM;SG;3;NteyzeciğPSS1S;NOM;SG;3;N,_sez<unk>çalışPFV;PRS;V;IND;POS;V.CVBikiPSS1P;ACC;SG;3;NUM..._
+	
+Resminebakıpbirparçagözyaşıdöküyorsakeğer,onudaaşkımızınimkansızlığınaverin...	resimPSS3S;DAT;3;SG;NbakPOS;PRS;IND;V.CVB;PFV;VbirNUMparçaSG;3;N;NOMgözyaşıSG;3;N;NOMdök<unk>eğerCONJ,_o3;SG;PRO;ACCdaCONJaşkPSS1P;3;SG;N;GENimkanSG;3;N;NOMsizADPlik<unk>verPOS;PL;PRS;IMP;PFV;2;V..._
+	
+ANAPİstanbulİlBenokanbasıntoplantısınaÇelebi'ninyanısıra,diğergenelbaşkanadaylarıLütfullahKayalarveAliTalipÖzdemirdekatıldı.	AnapNOM;PROPN;3;SGİstanbulNOM;PROPN;3;SGilNOM;N;3;SGBenokanNOM;PROPN;3;SGbasınNOM;N;3;SGtoplantıPSS3S;SG;3;N;DATÇelebi3;PROPN;SG;GENyanPSS3S;NOM;ADJ;SG;3sıraNOM;N;3;SG,_diğerADJgenelADJbaşkanNOM;N;3;SGadayPSS3S;NOM;PL;3;NLütfullahNOM;PROPN;3;SGKayalarNOM;PROPN;3;SGveCONJAliNOM;PROPN;3;SGTalipNOM;PROPN;3;SGÖzdemirNOM;PROPN;3;SGdeCONJkatPASS;PFV;PST;V;IND;SG;3;POS._
+	
+Sürünürşimdi.	sürünHAB;PRS;V;IND;SG;3;POSşimdiADV._
+	
+Ancakçokdeneyimlibirpsikiyatristyadapsikologbukabuğunaltındakiduygusalboşluğusezebilirvepekçokaydınınçokdokunaklıbulduğubuzekaparıltılarındanetkilenmedentanısınıkoyabilir.	ancakCONJçokADJdeneyimliADJbirNUMpsikiyatristNOM;N;3;SGyaCONJdaCONJpsikologNOM;N;3;SGbuDETkabuk3;N;SG;GENaltıPSS2S;SG;3;NUM;ESSkiADPduygusalADJboşluk3;N;ACC;SGsezHAB;PRS;V;POT;SG;3;POSveCONJpekADVçokADJaydın3;ADJ;SG;GENçokADJdokunaklıADJbulPSS3S;PFV;PST;V;IND;V.PTCP;POSbuDETzekaNOM;N;3;SGparıltıPSS3S;AT+ABL;PL;3;NetkilePASS;NEG;PFV;PRS;V;IND;V.CVBtanıPSS3S;ACC;SG;3;NkoyHAB;PRS;V;POT;SG;3;POS._
+	
+Hemsütemsinhemdebirazdahabüyüsün.demişti.	hemCONJsütNOM;N;3;SGemPFV;PRS;V;SG;3;IMP;POShemCONJdeCONJbirazADVdahaADVbüyüPFV;PRS;V;SG;3;IMP;POS._dePFV;V;IND;SG;3;PST+PRF;POS._
+	
+OnunProtestanfondamantalizminibiryanabırakıyorum.	oPRO;SG;3;GENProtestanNOM;PROPN;3;SGfondamantalizPSS3S;ACC;SG;3;NbirNUMyan3;ADJ;DAT;SGbırakINFM;1;PRS;V;IND;PROG;SG;POS._
+	
+Zeynepbirsüresessizkalıpdüşünceyedaldı.	ZeynepSG;NOM;PROPN;3birNUMsüreSG;NOM;N;3sesSG;NOM;N;3sizADPkalIND;POS;PRS;PFV;V.CVB;VdüşünceSG;DAT;N;3dalIND;PST;POS;3;PFV;SG;V._
+	
+İyikidedemvardagündüzlerionunlakonuşabiliyorum.	iyiADJkiCONJdedePSS1S;NOM;SG;3;NvarADJdaCONJgündüzleriADVoPRO;INS;SG;3konuş<unk>._
+	
+Nekadarçokinsanvardeğilmi?	neSG;3;PRO;NOMkadarADPçokADJinsanSG;3;N;NOMvarPOS;PRS;IMP;SG;PFV;2;Vdeğil3;IND;PRS;SG;NEG;PFV;VmiV;3;IND;PRS;SG;PFV?_
+	
+Önemliolanöncülilekanıtınçelişmemesidir.	önemNOM;N;3;SGliADPolPFV;PRS;V;IND;V.PTCP;POSöncülNOM;N;3;SGileCONJkanıt3;N;SG;GENçelişPSS3S;V.MSDR;NEG;PFV;PRS;NOM;V;INDiPFV;PRS;V;SG;3._
+	
+MaliyeBakanıadınaincelemeyapıyor.	maliyeNOM;N;3;SGbakanPSS3S;NOM;SG;3;NadPSS3S;SG;3;N;DATinceleV.MSDR;PFV;PRS;NOM;V;IND;POSyapINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Hastanebayırınınoralaradoğruyürüdüm.	hastaneSG;NOM;N;3bayırPSS3S;GEN;3;SG;Nora<unk>doğruADPyürüIND;PST;POS;1;PFV;SG;V._
+	
+Bebelermuradınaerdi.	bebe3;PL;N;NOMmuratPSS3S;DAT;3;SG;NerPST;3;POS;IND;SG;PFV;V._
+	
+Açşimdi.	açPFV;PRS;2;V;SG;IMP;POSşimdiADV._
+	
+"Planevleredağıtılsın".	"_planNOM;N;3;SGev3;N;PL;DATdağıtPASS;PFV;PRS;V;SG;3;IMP;POS"_._
+	
+Taşhan'ınkapısıbüyükbirgüçlezorlanıyordu.	Taşhan3;PROPN;SG;GENkapıPSS3S;NOM;SG;3;NbüyükADJbirNUMgüç3;INS;ADJ;SGzorlaINFM;PASS;PST;V;IND;PROG;SG;3;POS._
+	
+SonraKuzeyAvrupa'yayayıldılar.	sonraADVkuzeyADJAvrupa3;PROPN;DAT;SGyay<unk>._
+	
+Nereyedokunsamaltınışıklarsaçılıyorduzarifkolhareketlerimden.	nere3;DAT;PRO;SGdokun1;COND;PFV;PRS;V;SG;POSaltınADJışıkNOM;N;PL;3saçINFM;PASS;PST;V;IND;PROG;SG;3;POSzarifADJkolNOM;N;3;SGhareketPSS1S;AT+ABL;PL;3;N._
+	
+	
+Neysekiüçüncükezsorduğundaiyibircevaphazırlamıştım:Esinciğimevdetekkızolmasınındahaiyiolduğunakararverdik.	neyseADVkiCONJüçNOM;SG;3;NUMkezNOM;N;3;SGsorPSS3S;PFV;PST;V;IND;V.PTCP;POS;ESSiyiADJbirNUMcevapNOM;N;3;SGhazırla1;PFV;V;IND;SG;PST+PRF;POS:_EsinciğPSS1S;NOM;SG;3;Nev3;N;ESS;SGtekADJkızNOM;ADJ;3;SGolPSS3S;GEN;V.MSDR;PFV;PRS;V;IND;POSdahaADViyiADJolPSS3S;PFV;PST;V;IND;V.PTCP;DAT;POSkararNOM;N;3;SGver1;PFV;PST;V;IND;PL;POS._
+	
+ElektrikİşleriEtüdİdaresi.	elektrikNOM;N;3;SGiş3;N;PL;ACCetüdNOM;N;3;SGidarePSS3S;NOM;SG;3;N._
+	
+Ozamanlar...Sadeceelektrikmühendisiydiler.	oDETzamanNOM;N;PL;3..._sadeceADVelektrikNOM;N;3;SGmühendisPSS3S;NOM;SG;3;NiPFV;V;PST;IND;PL;3._
+	
+Patilerininüstükremrengi.	patiPSS3S;GEN;PL;3;NüstPSS3S;NOM;ADJ;SG;3kremNOM;ADJ;3;SGrenkPSS3S;NOM;SG;3;N._
+	
+Çaresizliklebanabakıyordu.	çaresizlikSG;3;N;INSbenDAT;1;SG;PRObakPST;3;POS;IND;INFM;SG;PROG;V._
+	
+Sebzeyeşildemekdedik.	sebzeNOM;N;3;SGyeşilADJdeV.MSDR;PFV;PRS;NOM;V;IND;POSde1;PFV;PST;V;IND;PL;POS._
+	
+Bastırpehlivan,dalçakşırına...	basPFV;PRS;2;V;SG;CAUS;IMP;POSpehlivanNOM;N;3;SG,_dalNOM;N;3;SGçakşırPSS3S;SG;3;N;DAT..._
+	
+BaşbakanYardımcısıMehmetAliŞahin,ikibinüçyılımemurmaaşzammındageçmişenflasyonuesasalacaklarınıaçıkladı.	başbakanSG;3;N;NOMyardımcıPSS3S;3;NOM;SG;NMehmetSG;3;PROPN;NOMAliSG;3;PROPN;NOMŞahinSG;3;PROPN;NOM,_ikibinüç3;NOM;SG;NUMyılPSS3S;3;NOM;SG;NmemurSG;3;N;NOMmaaşSG;3;N;NOMzamPSS3S;3;SG;N;ESSgeçmişADJenflasyonSG;N;ACC;3esasADJalPSS3P;POS;FUT;IND;PFV;ACC;V.PTCP;VaçıklaPST;3;POS;IND;SG;PFV;V._
+	
+Benikıskıvrakyakaladı,tutsaketti.	ben1;SG;PRO;ACCkıskıvrakADVyakalaPST;3;POS;IND;SG;PFV;V,_tutsakSG;3;ADJ;NOMetPST;3;POS;IND;SG;PFV;V._
+	
+AB'nindeyakındanilgilendiğibusorunayeniyönetmelikleçözümgetirilmeliydi.	AbSG;3;N;GENdeCONJyakın3;ADJ;SG;AT+ABLilgilenPSS3S;PFV;PST;V;IND;V.PTCP;POSbuDETsorun3;N;DAT;SGyeniADJyönetmelik3;N;INS;SGçözümNOM;N;3;SGgetirPASS;PFV;PST;V;SG;3;POS._
+	
+Keremcebindenbirmendilçıkartmış;yüzündeki,boynundakiterdamlacıklarınısiliyordu.	KeremSG;NOM;PROPN;3cepPSS3S;AT+ABL;3;SG;NbirNUMmendilSG;NOM;N;3çıkar<unk>;_yüzPSS3S;ESS;3;SG;NkiADP,_boyunPSS3S;ESS;3;SG;NkiADPterSG;NOM;N;3damlacıkPSS3S;ACC;3;PL;NsilINFM;IND;PST;POS;3;SG;PROG;V._
+	
+	
+	
+Tahvilinikincikuponuvebukuponailişkinyapılacakolanreferansbonoihalesiisedoksangünvadeliolacak.	tahvil3;N;SG;GENikiNOM;SG;3;NUMkuponPSS3S;NOM;SG;3;NveCONJbuDETkupon3;N;DAT;SGilişkinADPyapFUT;PASS;PFV;V;IND;V.PTCP;POSolPFV;PRS;V;IND;V.PTCP;POSreferansNOM;N;3;SGbonoNOM;N;3;SGihalePSS3S;NOM;SG;3;NiVdoksanNUMgünNOM;N;3;SGvadeNOM;N;3;SGliADPolFUT;PFV;V;IND;SG;3;POS._
+	
+Buyolabaşvurun,dedi.	buDETyol3;N;DAT;SGbaşvurPFV;PRS;2;V;PL;IMP;POS,_dePFV;PST;V;IND;SG;3;POS._
+	
+Keyifbenim,sizene?	keyifSG;NOM;N;3benPRO;NOM;1;SGiV;IND;1;PRS;PFV;SG,_sizPRO;2;DAT;PLneSG;PRO;NOM;3?_
+	
+-Ellerinimasanınüstünekoy,dedim.	-_elPSS2S;ACC;3;PL;NmasaGEN;SG;N;3üstPSS3S;3;DAT;SG;ADJkoy2;POS;IMP;PRS;PFV;SG;V,_deIND;PST;POS;1;PFV;SG;V._
+	
+	
+Algılayaniseruhtur.	algılaPOS;PRS;IND;PFV;V.PTCP;ViVruhSG;3;N;NOMiV;3;PRS;SG;PFV._
+	
+AyırmakiçinZerzevatdedim.	ayırV.MSDR;PFV;PRS;NOM;V;IND;POSiçinADPzerzevatNOM;N;3;SGde1;PFV;PST;V;IND;SG;POS._
+	
+Hayır,sonralarıhiçdesevmiyordumonu.	hayırNOM;N;3;SG,_sonralarıADVhiçADVdeCONJsevINFM;1;NEG;PST;V;IND;PROG;SGoPRO;ACC;SG;3._
+	
+BuhaftaokurlardangelenumumitalepüzerineKırmızıTürkler'intemelözelliklerinimaddemaddesıralıyoruz:.	buDEThaftaNOM;N;3;SGokur3;N;PL;AT+ABLgelPFV;PRS;V;IND;V.PTCP;POSumumiADJtalepNOM;N;3;SGüzerPSS3S;SG;3;N;DATkırmızıADJTürk3;ADJ;PL;GENtemelADJözellikPSS3P;ACC;PL;3;NmaddeNOM;N;3;SGmaddeNOM;N;3;SGsıralaINFM;1;PRS;V;IND;PL;PROG;POS:_._
+	
+Acabaşimdidendavetiyeleriyazıpdağıtsammı?	acabaADVşimdidenADVdavetiye3;N;PL;ACCyazPFV;PRS;V;IND;POS;V.CVBdağıt1;COND;PFV;PRS;V;SG;POSmıPFV;PRS;V;IND;SG;3?_
+	
+Dikmesibenden.	dikPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSben1;PRO;AT+ABL;SG._
+	
+Gel,dedimCelal'e.	gelPFV;PRS;2;V;SG;IMP;POS,_de1;PFV;PST;V;IND;SG;POSCelal3;PROPN;DAT;SG._
+	
+Notlarınıdaverdi.	notPSS3S;ACC;PL;3;NdaCONJverPFV;PST;V;IND;SG;3;POS._
+	
+Yareddedilirsem!korkusuvarya.	yaCONJreddet<unk>!_korkuPSS3S;NOM;SG;3;NvarPFV;PRS;2;V;SG;IMP;POSyaCONJ._
+	
+Uzunparmaklı,incederiliellerinebizcerrahlarıngiydiğitürdensaydameldivenlergeçiripaynanınkarşısındasaatlerceoturuphazırladığınboyabulamacınısaçlarınasürecektürdenkadındeğildin.	uzunADJparmakSG;NOM;N;3liADP,_inceADJderiSG;NOM;ADJ;3liADPel<unk>bizPRO;NOM;1;PLcerrahGEN;PL;N;3giyPSS3S;IND;PST;POS;PFV;V.PTCP;VtürAT+ABL;SG;N;3saydamADJeldivenNOM;PL;N;3geçirIND;POS;PRS;PFV;V.CVB;VaynaGEN;SG;N;3karşıPSS3S;ESS;3;SG;ADJsaatlerceADVoturIND;POS;PRS;PFV;V.CVB;VhazırlaPSS2S;V.PTCP;IND;PST;POS;PFV;VboyaSG;NOM;N;3bulamaçPSS3S;ACC;3;SG;Nsaç<unk>sürIND;POS;FUT;PFV;V.PTCP;VtürAT+ABL;SG;N;3kadınSG;NOM;ADJ;3değil2;NEG;IND;PST;PFV;SG;V._
+	
+Yanlışlanankuramındoğurganlığıburadayatar.	YanlışlanPFV;PRS;V;IND;V.PTCP;POSkuram3;N;SG;GENdoğurganlıkPSS3S;NOM;SG;3;Nbura3;ESS;PRO;SGyatHAB;PRS;V;IND;SG;3;POS._
+	
+Berkeleyveyazarlarınınsavlarının,benzerliğinedemeyeceğim,aynılığınadikkatediniz!	BerkeleyNOM;PROPN;3;SGveCONJyazarPSS3S;GEN;PL;3;NsavPSS3P;PL;3;N;GEN,_benzerlikPSS3S;SG;3;N;DATde<unk>,_aynılıkPSS3S;SG;3;N;DATdikkatNOM;N;3;SGetPFV;PRS;2;V;PL;IMP;POS!_
+	
+Peşrevebaşlamalı.	peşrevSG;DAT;N;3başla3;POS;PRS;SG;PFV;V._
+	
+Kapıyıtıklattı.	kapı3;N;ACC;SGtıklaPFV;PST;V;IND;SG;3;CAUS;POS._
+	
+Halamınçocuklarıdaokadaryaramazkianlatamam.	halaPSS1S;3;SG;N;GENçocukPSS3S;3;NOM;PL;NdaCONJo3;NOM;SG;PROkadarADPyaramazADJkiCONJanlat1;PRS;SG;NEG;POT;V;HAB._
+	
+Patlıcanınbabayemeği.	patlıcan3;N;SG;GENbabaNOM;N;3;SGyemekPSS3S;NOM;SG;3;N._
+	
+İncil'deveyadiğerkutsalkitaplardasözüedilenyaradılışsöylenceleribilimselliktenuzaktır;yaradılışöyküsünündoğruluğu,günümüzdeyapılacakolangözlemvedeneylerlesınanamaz.	İncilSG;ESS;PROPN;3veyaCONJdiğerADJkutsalADJkitapESS;PL;N;3sözPSS3S;NOM;3;SG;NetIND;POS;PASS;PRS;PFV;V.PTCP;VyaradılışSG;NOM;N;3söylencePSS3S;NOM;3;PL;NbilimsellikAT+ABL;SG;N;3uzakSG;NOM;ADJ;3iV;3;PRS;PFV;SG;_yaradılışSG;NOM;N;3öyküPSS3S;GEN;3;SG;NdoğrulukPSS3S;NOM;3;SG;N,_günPSS1P;ESS;3;SG;NyapIND;POS;PASS;FUT;PFV;V.PTCP;VolIND;POS;PRS;PFV;V.PTCP;VgözlemSG;NOM;N;3veCONJdeneyINS;PL;N;3sına<unk>._
+	
+Matbaadanişçiliğindensonrasomyakaynakçılığınıdaterketmemihazmedemiyordu.	matbaa3;N;SG;AT+ABLişçilikPSS3S;AT+ABL;SG;3;NsonraADPsomyaNOM;N;3;SGkaynakçılıkPSS3S;ACC;SG;3;NdaCONJterkNOM;N;3;SGetPSS1S;V.MSDR;ACC;PFV;PRS;V;IND;POShazmetINFM;NEG;PST;V;POT;PROG;SG;3._
+	
+Dolayısıylailkgündenitibarenciddiyetleyapılmasıgerekenbirsoruşturmaydı.	dolayısıylaADVilkADJgün3;N;SG;AT+ABLitibarenADPciddiyet3;N;INS;SGyapPSS3S;PASS;V.MSDR;PFV;PRS;NOM;V;IND;POSgerekPFV;PRS;V;IND;V.PTCP;POSbirNUMsoruşturmaNOM;N;3;SGiPFV;V;PST;IND;SG;3._
+	
+Hiçbiri,hiçbirimizesürprizolmadı...	hiçbiriPSS3S;PRO;NOM;SG;3,_hiçbiriPSS1P;1;PRO;PL;DATsürprizNOM;N;3;SGolNEG;PFV;PST;V;IND;SG;3..._
+	
+Kimsezorlamadıbeni,üçölüzamanlaralanınıbenterkedipgeldimbueve.	kimseNOM;N;3;SGzorlaNEG;PFV;PST;V;IND;SG;3ben1;PRO;ACC;SG,_üçNUMölüADJzamanNOM;N;PL;3alanPSS3S;ACC;SG;3;Nben1;PRO;NOM;SGterketPFV;PRS;V;IND;POS;V.CVBgel1;PFV;PST;V;IND;SG;POSbuDETev3;N;DAT;SG._
+	
+-Atlattısayılır.	-_atlaCAUS;IND;PST;POS;3;PFV;SG;VsayIND;POS;3;PASS;PRS;SG;HAB;V._
+	
+Gönlümsizinbukadarçokacıçekmenizerazıdeğil.	gönülPSS1S;3;NOM;SG;Nsiz<unk>buDETkadarADPçokADJacıSG;3;ADJ;NOMçek<unk>razıADJdeğil3;IND;PRS;SG;NEG;PFV;V._
+	
+	
+OnyedinciyüzyılaraştırmacılarınınsaptadığıseksenaltıbinEvennüfusu,üçyüzyılsonrakırksekizbinkişiyedüşmüştü.	on3;NOM;SG;NUMyedi3;NOM;SG;NUMyüzyılSG;3;N;NOMaraştırmacıPSS3S;3;PL;N;GENsaptaPSS3S;PST;POS;IND;PFV;V.PTCP;VseksenaltıNUMbinNUMEvenSG;3;PROPN;NOMnüfusPSS3S;3;NOM;SG;N,_üçNUMyüzyılSG;3;N;NOMsonraADPkırksekizNUMbinNUMkişiSG;DAT;N;3düş3;POS;IND;SG;PFV;PST+PRF;V._
+	
+Birtanedeonauzattı.	birNUMtaneSG;NOM;N;3deCONJoPRO;3;DAT;SGuzaCAUS;IND;PST;POS;3;PFV;SG;V._
+	
+Önlerdebiryereoturduk.	ön3;ADJ;PL;ESSbirNUMyer3;N;DAT;SGotur1;PFV;PST;V;IND;PL;POS._
+	
+Giriyorumiçeriye,dedim.	girINFM;1;PRS;V;IND;PROG;SG;POSiçeri3;N;DAT;SG,_de1;PFV;PST;V;IND;SG;POS._
+	
+mektubunbirazetkisioldugaliba.	mektup3;N;SG;GENbirazADVetkiPSS3S;NOM;SG;3;NolPFV;PST;V;IND;SG;3;POSgalibaADV._
+	
+Birbirbuçuk-saatiçindeçokhızlıbirşekildeincelemekzorundakaldık.	birNUMbirbuçukNUM-_saatNOM;N;3;SGiçPSS3S;ADJ;SG;3;ESSçokADVhızlıADJbirNUMşekil3;N;ESS;SGinceleV.MSDR;PFV;PRS;NOM;V;IND;POSzorPSS3S;ADJ;SG;3;ESSkal1;PFV;PST;V;IND;PL;POS._
+	
+Hemenonunlaevlenmekistemiş.	hemenADVoPRO;INS;SG;3evlenV.MSDR;PFV;PRS;NOM;V;IND;POSistePFV;PST;V;NFH;IND;SG;3;POS._
+	
+Düşünmekistemedikçedüşünür,anımsamakistemedikçeanımsarsınız.	düşünNOM;POS;IND;PRS;PFV;V;V.MSDRistePRS;IND;V.CVB;NEG;PFV;Vdüşün3;POS;IND;PRS;SG;V;HAB,_anımsaNOM;POS;IND;PRS;PFV;V;V.MSDRistePRS;IND;V.CVB;NEG;PFV;VanımsaPOS;IND;PL;PRS;2;V;HAB._
+	
+Yenibirsosyolojiktabanahitapedenbirpartiyiz.	yeniADJbirNUMsosyolojikADJtaban3;ADJ;DAT;SGhitapNOM;N;3;SGetPFV;PRS;V;IND;V.PTCP;POSbirNUMpartiNOM;N;3;SGi1;PFV;PRS;V;IND;PL._
+	
+Benimevleilgiliütopyam,baştanberievleilgilisöylediklerimdensonra,ütopyanınreddinedayanmaktadır.	ben1;PRO;SG;GENev3;N;INS;SGilgiliNOM;ADJ;3;SGütopyaPSS1S;NOM;SG;3;N,_baştanADVberiADPev3;N;INS;SGilgiliNOM;ADJ;3;SGsöylePSS1S;AT+ABL;PFV;PST;V;IND;V.PTCP;POSsonraADP,_ütopya3;N;SG;GENretPSS3S;SG;3;N;DATdayanFORM;PRS;V;PROG;SG;3;POS._
+	
+GözünükapaMelek!	gözPSS3S;ACC;SG;3;NkapaPFV;PRS;2;V;SG;IMP;POSMelekNOM;PROPN;3;SG!_
+	
+Teriçindeuyandım.	terNOM;N;3;SGiçPSS3S;ADJ;SG;3;ESSuyan1;PFV;PST;V;IND;SG;POS._
+	
+Ticarimalstoklarıvemuhtelifservetunsurlarındandüşükbirvergialınsın.	ticariADJmalNOM;N;3;SGstokPSS3S;NOM;PL;3;NveCONJmuhtelifADJservetNOM;N;3;SGunsurPSS3S;AT+ABL;PL;3;NdüşükADJbirNUMvergiNOM;N;3;SGalPASS;PFV;PRS;V;SG;3;IMP;POS._
+	
+İkisınıfsonra.	ikiNUMsınıfNOM;N;3;SGsonraADV._
+	
+Amakeyfiöyleistiyor.	amaCONJkeyifPSS3S;NOM;SG;3;NöyleADVisteINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Çokyeğinbirmanyetikalanadikyöndegirengammaışınınınelektron-pozitronçiftineayrıldığıbilinenbirsüreçtir.	çokADVyeğinADJbirNUMmanyetikADJalan3;N;DAT;SGdikADJyön3;N;ESS;SGgirPFV;PRS;V;IND;V.PTCP;POSgammaNOM;N;3;SGışınPSS3S;GEN;SG;3;NelektronNOM;N;3;SG-_pozitronNOM;N;3;SGçiftPSS3S;ADJ;SG;3;DATayrılPSS3S;PFV;PST;V;IND;V.PTCP;POSbilPASS;PFV;PRS;V;IND;V.PTCP;POSbirNUMsüreçNOM;N;3;SGiPFV;PRS;V;SG;3._
+	
+Fotokopileridikkatleincelediklerindegelenraporlardakimisayfalarıneksikolduğunugördüler.	fotokopi3;N;PL;ACCdikkat3;N;INS;SGincelePSS3P;POS;PFV;PST;V;IND;V.PTCP;ESSgelPFV;PRS;V;IND;V.PTCP;POSrapor3;N;PL;ESSkimiDETsayfa3;N;PL;GENeksikADJolPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POSgörPFV;PST;V;IND;PL;3;POS._
+	
+Çocuklarbulduğunuzisimlerçokgüzeldediannembanagözkırparak.	çocukNOM;PL;N;3bulPSS2P;V.PTCP;IND;PST;POS;PFV;VisimNOM;PL;N;3çokADVgüzelADJdeIND;PST;POS;3;PFV;SG;VannePSS1S;NOM;3;SG;NbenPRO;DAT;1;SGgözSG;NOM;N;3kırpIND;POS;PRS;PFV;V.CVB;V._
+	
+Bütünkomşularağızbirliğietmişçesine,Bizdeişçokamasanaverecekparayok,diyeyanıtlamışlar.	bütünADJkomşuNOM;ADJ;PL;3ağızNOM;N;3;SGbirlikPSS3S;NOM;SG;3;Net<unk>,_biz1;PRO;PL;ESSişNOM;N;3;SGçokADVamaCONJsenPRO;2;SG;DATverFUT;PFV;V;IND;V.PTCP;POSparaNOM;N;3;SGyokADJ,_diyeADPyanıtlaPFV;PST;V;NFH;IND;PL;3;POS._
+	
+Soğukservisalanındaikirakip:PiyazilePilaki.	soğukADJservisNOM;N;3;SGalanPSS3S;SG;3;N;ESSikiNUMrakipNOM;N;3;SG:_piyazNOM;N;3;SGileCONJpilakiNOM;N;3;SG._
+	
+Aferindoğrusu.	aferinPSS3S;NOM;SG;3;NdoğruPSS3S;NOM;ADJ;SG;3._
+	
+Mademişistiyorsungiriçeri,demiş.	mademNOM;N;3;SGişNOM;N;3;SGisteINFM;PRS;2;V;IND;PROG;SG;POSgirPFV;PRS;2;V;SG;IMP;POSiçeri3;N;DAT;SG,_dePFV;PST;V;NFH;IND;SG;3;POS._
+	
+Onuntutsağı.	oPRO;SG;3;GENtutsakPSS3S;NOM;ADJ;SG;3._
+	
+Birbirimizehiçdokunmadan,benonunellerineodabenimgözlerimebakaraksevişirdikkalabalığıniçinde.	birbiriPSS1P;1;PRO;PL;DAThiçADVdokunNEG;PFV;PRS;V;IND;V.CVB,_ben1;PRO;NOM;SGoPRO;SG;3;GENelPSS3S;PL;3;N;DAToPRO;NOM;SG;3daCONJben1;PRO;SG;GENgözPSS1S;PL;3;N;DATbakPFV;PRS;V;IND;POS;V.CVBseviş1;HAB;PST;V;IND;PL;POSkalabalık3;N;SG;GENiçPSS3S;ADJ;SG;3;ESS._
+	
+	
+Ramizyerineoturanadekdegözlüklerininüstündenizledi.	RamizNOM;PROPN;3;SGyerPSS3S;SG;3;N;DAToturPFV;PRS;V;IND;V.PTCP;SG;3;DAT;POSdekADPdeCONJgözlükPSS3S;GEN;PL;3;NüstPSS3S;AT+ABL;ADJ;SG;3izlePFV;PST;V;IND;SG;3;POS._
+	
+Gırtlağımakadardoluyumdemiş.	gırtlakPSS1S;SG;3;N;DATkadarADPdoluNOM;ADJ;3;SGi1;PFV;PRS;V;IND;SGdePFV;PST;V;NFH;IND;SG;3;POS._
+	
+Hızlıhızlıyürümeyebaşlamıştı.	hızlıADJhızlıADJyürüV.MSDR;PFV;PRS;V;IND;DAT;POSbaşlaPFV;V;IND;SG;3;PST+PRF;POS._
+	
+Tekhesabınkapsamıgenişliyor.	tekADJhesap3;N;SG;GENkapsamPSS3S;NOM;SG;3;NgenişleINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Bazılarımızbunagerekolmadığınıdüşünüyorduamaçoğunluk,apartmanaesprilibiradtaksakfenamıolurayatkındı.	bazıPSS1P;1;PRO;NOM;PLbuPRO;SG;3;DATgerekNOM;N;3;SGolPSS3S;NEG;ACC;PFV;PST;V;IND;V.PTCPdüşünINFM;PST;V;IND;PROG;SG;3;POSamaCONJçoğunlukNOM;N;3;SG,_apartman3;N;DAT;SGespriNOM;N;3;SGliADPbirNUMadNOM;N;3;SGtak1;COND;PFV;PRS;V;PL;POSfenaADJmıPFV;PRS;V;IND;SG;3olHAB;PRS;V;IND;SG;3;POSaINTJyatkınNOM;ADJ;3;SGiPFV;V;PST;IND;SG;3._
+	
+Yürülan,dediKatana,Ramiz'ikolundançekerek,Miskoyekorkuyo.	yürüPOS;PRS;IMP;SG;PFV;2;VlanINTJ,_dePST;3;POS;IND;SG;PFV;VkatanaSG;3;N;NOM,_RamizSG;PROPN;ACC;3kolPSS3S;3;SG;N;AT+ABLçekPOS;PRS;IND;V.CVB;PFV;V,_MiskoyeSG;3;PROPN;NOMkork3;POS;IND;PRS;INFM;SG;PROG;V._
+	
+	
+Meralacabahangiodadaydılar?	MeralNOM;PROPN;3;SGacabaADVhangiDEToda3;N;ESS;SGiPFV;V;PST;IND;PL;3?_
+	
+BilimselDevrim'inkahramanlarıylaKilisearasındakiölümkalımsavaşınınartıkinsanlığınortakkültürünemalolmuşörnekleri,busürecinnekadarçetinvezahmetlibirsüreçolduğunugöstermektedir.	bilimselADJDevrimSG;GEN;PROPN;3kahraman<unk>kiliseSG;3;N;NOMaraPSS3S;3;ADJ;SG;ESSkiADPölümSG;3;N;NOMkalımSG;3;N;NOMsavaşPSS3S;3;SG;N;GENartıkADVinsanlıkSG;GEN;N;3ortakADJkültürPSS3S;DAT;3;SG;NmalSG;3;N;NOMolPST;POS;IND;PFV;V.PTCP;V;NFHörnekPSS3S;3;NOM;PL;N,_buDETsüreçSG;GEN;N;3neADVkadarADPçetinADJveCONJzahmetSG;3;N;NOMliADPbirNUMsüreçSG;3;N;NOMolPSS3S;PST;POS;IND;PFV;ACC;V.PTCP;Vgöster3;POS;FORM;PRS;SG;PROG;V._
+	
+Barbunyafasulyesi.	barbunyaNOM;N;3;SGfasulyePSS3S;NOM;SG;3;N._
+	
+Hattaaramızdabirbirimizesözdeverdik,ölmekvardönmekyokdiye.	hattaCONJaraPSS1P;ADJ;SG;3;ESSbirbiriPSS1P;1;PRO;PL;DATsözNOM;N;3;SGdeCONJver1;PFV;PST;V;IND;PL;POS,_ölV.MSDR;PFV;PRS;NOM;V;IND;POSvarADJdönV.MSDR;PFV;PRS;NOM;V;IND;POSyokADJdiyeADP._
+	
+Demirkapıkorkunçbirgürültüyleaçılmış.	demirADJkapıNOM;N;3;SGkorkunçADJbirNUMgürültü3;N;INS;SGaçPASS;PFV;PST;V;NFH;IND;SG;3;POS._
+	
+İzinibulursanız,bunumarayahaberverirsiniz,dedi.	izPSS3S;ACC;SG;3;NbulCOND;HAB;2;PRS;V;PL;POS,_buDETnumara3;N;DAT;SGhaberNOM;N;3;SGverHAB;2;PRS;V;IND;PL;POS,_dePFV;PST;V;IND;SG;3;POS._
+	
+	
+	
+Niyemutsuzolduklarınıisesöylemezlerdi,mutsuzluklarınınnedeninisizkeşfetmekzorundaydınız,bunukeşfedemezsenizbirazdahadüşmanlaşırlardı;budüşmanlıkgerçekdeğildi,yalnızcamutsuzluklarınınüstüneörtmeyeçalıştıklarıyakıcıbirörtüydü.	niyeADVmutsuzADJolPSS3P;ACC;PFV;PST;V;IND;V.PTCP;POSiVsöyle<unk>,_mutsuzlukPSS3P;PL;3;N;GENnedenPSS3S;ACC;SG;3;NsizPRO;2;NOM;PLkeşfetV.MSDR;PFV;PRS;NOM;V;IND;POSzorun3;N;ESS;SGi<unk>,_buPRO;ACC;SG;3keşfet<unk>birazADVdahaADVdüşmanlaşHAB;PST;V;IND;PL;3;POS;_buDETdüşmanlıkNOM;N;3;SGgerçekNOM;ADJ;3;SGdeğilNEG;PFV;PST;V;IND;SG;3,_yalnızcaADVmutsuzlukPSS3P;PL;3;N;GENüstPSS3S;ADJ;SG;3;DATörtV.MSDR;PFV;PRS;V;IND;DAT;POSçalışPSS3P;PFV;PST;NOM;V;IND;V.PTCP;POSyakPFV;PRS;V;IND;V.PTCP;POSbirNUMörtüNOM;N;3;SGiPFV;V;PST;IND;SG;3._
+	
+Onunlaensoniçenceza'ydı,diyorlar.	oPRO;INS;SG;3enADVsonADJiçPFV;PRS;V;IND;V.PTCP;POScezaNOM;N;3;SGiPFV;V;PST;IND;SG;3,_deINFM;PRS;V;IND;PL;PROG;3;POS._
+	
+Nasılbirkadıno?diyesordum.	nasılADVbirNUMkadınNOM;ADJ;3;SGoPRO;NOM;SG;3?_diyeADPsor1;PFV;PST;V;IND;SG;POS._
+	
+Erkekdelisiolmuş,başınavurmuşyalnızlık.	erkekNOM;ADJ;3;SGdeliPSS3S;NOM;ADJ;SG;3olPFV;PST;V;NFH;IND;SG;3;POS,_başPSS3S;SG;3;N;DATvurPFV;PST;V;NFH;IND;SG;3;POSyalnızlıkNOM;N;3;SG._
+	
+AncakpencereniniçindeduranvekullanmatarihigeçmeküzereolanYunanistan'danithalşeftalikompostosunakimsenindeğmesineizinolacağınısanmıyorum.	ancakADVpencereGEN;SG;N;3içPSS3S;ESS;3;SG;ADJdurIND;POS;PRS;PFV;V.PTCP;VveCONJkullanIND;NOM;V.MSDR;POS;PRS;PFV;VtarihPSS3S;NOM;3;SG;NgeçIND;NOM;V.MSDR;POS;PRS;PFV;VüzereADPolIND;POS;PRS;PFV;V.PTCP;VYunanistanAT+ABL;SG;PROPN;3ithalSG;NOM;N;3şeftaliADJkompostoPSS3S;3;DAT;SG;NkimseGEN;SG;N;3değPSS3S;IND;V.MSDR;POS;DAT;PFV;PRS;VizinSG;NOM;N;3olacakPSS3S;ACC;3;SG;ADJsanINFM;NEG;IND;1;PRS;SG;PROG;V._
+	
+Resmibütünyollarkapalıydı.	resmiADJbütünADJyolNOM;N;PL;3kapalıNOM;ADJ;3;SGiPFV;V;PST;IND;SG;3._
+	
+Maliyemüfettişlerimiz,teftişkurulumuzbizimTürkiye'ningözbebeğibirkuruluştur.	maliyeSG;3;N;NOMmüfettişPSS1P;3;NOM;PL;N,_teftişSG;3;N;NOMkurulPSS1P;3;NOM;SG;Nbiz1;PL;PRO;GENTürkiyeSG;GEN;PROPN;3gözbebeğiPSS3S;3;NOM;SG;NbirNUMkuruluşSG;3;N;NOMiV;3;PRS;SG;PFV._
+	
+	
+Çobansalatasıiseayrıbircümbüş.	çobanNOM;N;3;SGsalataPSS3S;NOM;SG;3;NiVayrıADJbirNUMcümbüşNOM;N;3;SG._
+	
+Asgariücretikiyüzyirmiüç.yedimilyonlira.	asgariADJücretNOM;N;3;SGikiyüzyirmiüç.yediNUMmilyonNUMliraNOM;N;3;SG._
+	
+Obaşroldeolmalıdır.	oPRO;NOM;SG;3başrol3;N;ESS;SGolPFV;PRS;V;SG;3;POS._
+	
+Zenginleriseven,yoksullarıdöven.	zengin3;ACC;ADJ;PLsevPFV;PRS;V;IND;V.PTCP;POS,_yoksul3;ACC;ADJ;PLdövPFV;PRS;V;IND;V.PTCP;POS._
+	
+Denktaşveekibi,KKTC'demuhaliflerinkışkırtmasıylakarışıklıkyaşanmasıihtimaliüzerindedurdu.	DenktaşNOM;PROPN;3;SGveCONJekipPSS3S;NOM;SG;3;N,_KktcSG;3;N;ESSmuhalif3;N;PL;GENkışkırtmaPSS3S;INS;SG;3;NkarışıklıkNOM;N;3;SGyaşaPSS3S;PASS;V.MSDR;PFV;PRS;NOM;V;IND;POSihtimalPSS3S;NOM;SG;3;NüzerPSS3S;SG;3;N;ESSdurPFV;PST;V;IND;SG;3;POS._
+	
+Birdebanabirsürpriziolacağındanbahsediyor.	birADVdeCONJbenDAT;1;SG;PRObirNUMsürprizPSS3S;3;NOM;SG;NolacakPSS3S;3;ADJ;SG;AT+ABLbahset3;POS;IND;PRS;INFM;SG;PROG;V._
+	
+ŞuMusakka'nınmilliyetinedebiraçıklıkgetirmezamanıgeldi.	şuDETMusakka3;PROPN;SG;GENmilliyetPSS3S;SG;3;N;DATdeCONJbirNUMaçıklıkNOM;N;3;SGgetirV.MSDR;PFV;PRS;NOM;V;IND;POSzamanPSS3S;NOM;SG;3;NgelPFV;PST;V;IND;SG;3;POS._
+	
+Oysabunuhaketmedik.	oysaCONJbuPRO;ACC;SG;3hakNOM;N;3;SGet1;NEG;PFV;PST;V;IND;PL._
+	
+Helebenimhiçyok.	heleADVben1;PRO;SG;GENhiçNOM;N;3;SGyokADJ._
+	
+Kadınyanınaoturmuştu,eleleydiler.	kadınSG;3;ADJ;NOMyanPSS3S;DAT;3;ADJ;SGotur3;POS;IND;SG;PFV;PST+PRF;V,_elSG;3;N;NOMelSG;DAT;N;3i<unk>._
+	
+	
+Nerdeydin.	nere3;ESS;PRO;SGiPFV;2;V;PST;IND;SG._
+	
+Annemdekabuletti.	annePSS1S;NOM;3;SG;NdeCONJkabulSG;NOM;N;3etIND;PST;POS;3;PFV;SG;V._
+	
+Keşkeduymasaydım.	keşkeADVduy<unk>._
+	
+Yetkilileritanıyordur.	yetkiliPSS3S;3;NOM;PL;ADJtanı3;POS;PRS;INFM;SG;PROG;V._
+	
+Tartışmaktanyorulmuşgibisustuk.	tartışV.MSDR;AT+ABL;PFV;PRS;V;IND;POSyorPASS;PFV;PST;V;NFH;IND;V.PTCP;POSgibiADPsus1;PFV;PST;V;IND;PL;POS._
+	
+Konuşmaarasındakendisininhakimolduğunuöğrendim.	konuşIND;NOM;V.MSDR;POS;PRS;PFV;VaraPSS3S;ESS;3;SG;ADJkendiPSS3S;PRO;GEN;3;SG;REFLhakimSG;NOM;N;3olPSS3S;ACC;IND;PST;POS;PFV;V.PTCP;VöğrenIND;PST;POS;1;PFV;SG;V._
+	
+Yolculuk,başkabirkentteolmak,hepkarşılaştığımyenişeyler,derindenderineizinisürenheyecandirilikyaratmıştıbende.	yolculukNOM;N;3;SG,_başkaADJbirNUMkent3;N;ESS;SGolV.MSDR;PFV;PRS;NOM;V;IND;POS,_hepADVkarşılaşPSS1S;PFV;PST;V;IND;V.PTCP;POSyeniADJşeyNOM;N;PL;3,_derin3;ADJ;SG;AT+ABLderin3;ADJ;DAT;SGizPSS3S;ACC;SG;3;NsürPFV;PRS;V;IND;V.PTCP;POSheyecanNOM;N;3;SGdirilikNOM;N;3;SGyaratPFV;V;IND;SG;3;PST+PRF;POSben1;PRO;SG;ESS._
+	
+Osmanlı,İstanbul'agetirmiş.	OsmanlıSG;3;PROPN;NOM,_İstanbulSG;DAT;PROPN;3getirPST;3;POS;IND;SG;PFV;V;NFH._
+	
+	
+Çocuklarıpeksevmem,amaonlarlakonuşmaktanhoşlanırım;çünkübenceinsanlarınenilginçfikirleriaslındasöylemeyipkendilerinesakladıklarıfikirleridir,çocuklarisehiçbirdüşüncelerinikendilerinesaklamazlarhemensöylerler,onuniçinonlarlakonuşurkendaimailginçbirşeylerduyabilirsiniz.	çocukACC;PL;N;3pekADVsevNEG;IND;1;PRS;SG;HAB;V,_amaCONJon<unk>konuşAT+ABL;IND;V.MSDR;POS;PRS;PFV;VhoşlanIND;POS;1;PRS;SG;HAB;V;_çünküCONJbenPRO;EQTV;1;SGinsanGEN;PL;N;3enADVilginçADJfikirACC;PL;N;3aslındaADVsöyleNEG;IND;PRS;PFV;V.CVB;Vkendi<unk>saklaPSS3P;IND;NOM;PST;POS;PFV;V.PTCP;VfikirPSS3P;NOM;3;PL;NiV;3;PRS;PFV;SG,_çocukNOM;PL;N;3iVhiçbirDETdüşüncePSS3P;ACC;3;PL;Nkendi<unk>sakla<unk>hemenADVsöyleIND;POS;3;PRS;PL;V;HAB,_oPRO;GEN;3;SGiçinADPon<unk>konuşIND;POS;3;PRS;SG;V.CVB;HAB;VdaimaADVilginçADJbirNUMşeyNOM;PL;N;3duy<unk>._
+	
+Teknelerinkaptanlarına,getirdiklerimüşterilerdenyüzdeveriyordu.	tekne3;N;PL;GENkaptanPSS3P;PL;3;N;DAT,_getirPSS3P;PFV;PST;V;IND;V.PTCP;POSmüşteri3;N;PL;AT+ABLyüzSG;3;NUM;ESSverINFM;PST;V;IND;PROG;SG;3;POS._
+	
+Siz,sonsuzadekyürüyeceksiniz.	sizPRO;2;NOM;PL,_sonsuz3;ADJ;DAT;SGdekADPyürüFUT;PFV;2;V;IND;PL;POS._
+	
+Golfdeoynarlar.	golfNOM;N;3;SGdeCONJoynaHAB;PRS;V;IND;PL;3;POS._
+	
+İkimizdekendimiziyenikhissediyorduk,bu,ilişkimizsüreceğianlamınageliyordu.	ikiPSS1P;NOM;SG;3;NUMdeCONJkendiPSS1P;1;PRO;ACC;PL;REFLyenikNOM;ADJ;3;SGhissetINFM;1;PST;V;IND;PL;PROG;POS,_buDET,_ilişkiPSS1P;NOM;SG;3;NsürPSS3S;FUT;PFV;V;IND;V.PTCP;POSanlamPSS3S;SG;3;N;DATgelINFM;PST;V;IND;PROG;SG;3;POS._
+	
+Yıllarınyerleştirdiğibiralışkanlıklaistemedenellerinimasanınüstünekoydu.	yıl3;GEN;N;PLyerleşPSS3S;PST;POS;IND;PFV;V.PTCP;V;CAUSbirNUMalışkanlıkSG;3;N;INSistePRS;IND;V.CVB;NEG;PFV;VelPSS3S;3;PL;N;ACCmasaSG;GEN;N;3üstPSS3S;DAT;3;ADJ;SGkoyPST;3;POS;IND;SG;PFV;V._
+	
+Kargadankorkan,darıekmez.	kargaAT+ABL;SG;N;3korkIND;POS;PRS;PFV;V.PTCP;V,_darıSG;NOM;N;3ekNEG;IND;3;PRS;SG;HAB;V._
+	
+Saçlarınıboyattı,modelinideğiştirdi.	saçPSS3S;ACC;PL;3;NboyaPFV;PST;V;IND;SG;3;CAUS;POS,_modelPSS3S;ACC;SG;3;NdeğişPFV;PST;V;IND;SG;3;CAUS;POS._
+	
+Olabilir...	olHAB;PRS;V;POT;SG;3;POS..._
+	
+Hüseyin'indansönerisinigeriçevirmesikolayolmadı.	HüseyinSG;GEN;PROPN;3dansSG;3;N;NOMöneriPSS3S;3;SG;N;ACCgeriADVçevirPSS3S;V.MSDR;NOM;POS;IND;PRS;PFV;VkolayADJolPST;3;IND;SG;NEG;PFV;V._
+	
+Senbenişaşırtıyorsun,dedi.	senPRO;2;NOM;SGben1;PRO;ACC;SGşaşır<unk>,_dePFV;PST;V;IND;SG;3;POS._
+	
+Alışverişbilimibizeiknaetmeklekarlılıkarasındaçokgiriftveayrılmazbirbağlantınınolduğunugösterir.	alışverişNOM;N;3;SGbilimPSS3S;NOM;SG;3;Nbiz1;PRO;PL;DATiknaNOM;N;3;SGetV.MSDR;PFV;PRS;V;INS;IND;POSkarNOM;N;3;SGliADPlikNOM;ADP;3;SGaraPSS3S;ADJ;SG;3;ESSçokADPgiriftADJveCONJayrılNEG;HAB;PRS;V;IND;V.PTCPbirNUMbağlantı3;N;SG;GENolPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POSgösterHAB;PRS;V;IND;SG;3;POS._
+	
+Yahavayıkatılaştırır,seferlerikaldırır,yollarınıkaparlarsa.	yaCONJhava3;N;ACC;SGkatılaşHAB;PRS;V;IND;SG;3;CAUS;POS,_sefer3;N;PL;ACCkalHAB;PRS;V;IND;SG;3;CAUS;POS,_yolPSS3S;ACC;PL;3;NkapaCOND;HAB;PRS;V;PL;3;POS._
+	
+Onlarlailgilibindokuzyüzotuz'luyıllardabaşlayanantropolojikçalışmalarakadarkendilerineLamutdemişler.	on<unk>ilgiliADJbindokuzyüzotuzNUM;NOM;3;SGliADPyılESS;PL;N;3başlaIND;POS;PRS;PFV;V.PTCP;VantropolojikSG;NOM;N;3çalışIND;V.MSDR;POS;DAT;PRS;PFV;VkadarADPkendi<unk>LamutSG;NOM;PROPN;3deNFH;IND;PST;POS;3;PFV;PL;V._
+	
+Yahunasılyaptırırızzorla?	yahuINTJnasılADVyap1;HAB;PRS;V;IND;PL;CAUS;POSzor3;INS;ADJ;SG?_
+	
+Katanagururlasaatinebaktı.	katanaNOM;N;3;SGgurur3;N;INS;SGsaatPSS3S;SG;3;N;DATbakPFV;PST;V;IND;SG;3;POS._
+	
+Ağbimegüvenirim.	ağbiPSS1S;NOM;SG;3;Ngüven1;HAB;PRS;V;IND;SG;POS._
+	
+Eskisevgilisikapınındışındabekliyor.	eskiADJsevgiliPSS3S;NOM;ADJ;SG;3kapı3;N;SG;GENdışPSS3S;ADJ;SG;3;ESSbekleINFM;PRS;V;IND;PROG;SG;3;POS._
+	
+Ana'yıarayanyabancı,sizdenbirazdahauzunboyluydu,dediJul.	Ana3;PROPN;ACC;SGaraPFV;PRS;V;IND;V.PTCP;POSyabancıNOM;ADJ;3;SG,_siz<unk>birazADVdahaADVuzunADJboyluNOM;ADJ;3;SGiPFV;V;PST;IND;SG;3,_dePFV;PST;V;IND;SG;3;POSjulNOM;N;3;SG._
+	
+Onlarauyarsan,büyükamcangibisokaklardageberipgidersin.	oPRO;PL;3;DATuyCOND;HAB;2;PRS;V;SG;POS,_büyükADJamcaPSS2S;NOM;SG;3;NgibiADPsokak3;N;PL;ESSgeberPFV;PRS;V;IND;POS;V.CVBgitHAB;2;PRS;V;IND;SG;POS._
+	
+Kimsebirsavaşolmasınıistemiyor.	kimseSG;3;N;NOMbirNUMsavaşSG;3;N;NOMolPSS3S;V.MSDR;POS;IND;PRS;PFV;ACC;Viste3;IND;PRS;INFM;SG;NEG;PROG;V._
+	
+Tamdaosatırgibiydimosabah,birbaşkasıgibi,pişmanvesıkıntılı.	tamADVdaCONJoPRO;NOM;SG;3satırNOM;N;3;SGgibiADPi1;PFV;V;PST;IND;SGoDETsabahNOM;N;3;SG,_birNUMbaşkaPSS3S;NOM;ADJ;SG;3gibiADP,_pişmanADJveCONJsıkıntıNOM;N;3;SGliADP._
+	
+Biliyorum!Biliyorumişte!Obenimmakinem!diyebağırdım.	bilINFM;IND;POS;1;PRS;SG;PROG;V!_bilINFM;IND;POS;1;PRS;SG;PROG;VişteADV!_oPRO;NOM;3;SGbenPRO;GEN;1;SGmakinePSS1S;NOM;3;SG;N!_diyeADPbağırIND;PST;POS;1;PFV;SG;V._
+	
+NeyinvarAli?Hastamısınyoksa?diyesoruncaBirşeyimyokdiyecevapverdi.	ne<unk>varPFV;PRS;2;V;SG;IMP;POSAliNOM;PROPN;3;SG?_hastaNOM;ADJ;3;SGmıPFV;PRS;2;V;IND;SGyokNOM;ADJ;3;SGiCOND;PFV;PRS;V;SG;3?_diyeADPsorPFV;PRS;V;IND;POS;V.CVBbirNUMşeyPSS1S;NOM;SG;3;NyokADVdiyeADPcevapNOM;N;3;SGverPFV;PST;V;IND;SG;3;POS._
+	
+Kanamıyordu...	kanaINFM;NEG;PST;V;IND;PROG;SG;3..._
+	
+Öylesanıyorum,dediJul.	öyleADVsanINFM;1;PRS;V;IND;PROG;SG;POS,_dePFV;PST;V;IND;SG;3;POSjulNOM;N;3;SG._
+	
+Prezervatifyokmubumarkette?diyesordun.	prezervatifNOM;N;3;SGyokADJmuPFV;PRS;V;IND;SG;3buDETmarket3;N;ESS;SG?_diyeADPsorPFV;2;PST;V;IND;SG;POS._
+	
+Acabaseninbüyükdayıngibibendeaşıkmıyım?	acabaADVsenPRO;2;SG;GENbüyükADJdayıPSS2S;NOM;SG;3;NgibiADPben1;PRO;NOM;SGdeCONJaşıkNOM;ADJ;3;SGmı1;PFV;PRS;V;IND;SG?_
+	
+Mazimkalbimdebiryaragibideğildi...	maziPSS1S;NOM;ADJ;SG;3kalbiPSS1S;ADJ;SG;3;ESSbirNUMyaraNOM;N;3;SGgibiADPdeğilNEG;PFV;PST;V;IND;SG;3..._
+	
+"Yapılandüzenleme,suçtürüvesuçtarihiayrımıyapılmaksızın,tümhakyasaklamalarıiçinöngörülmüşsüreklibiruygulamaniteliğindeolmayıpafyasalarınaözgüolduğubiçimde,yalnızcabellitarihekadarişlenensuçlarıkapsamaktadır.	"_yapPASS;PFV;PRS;V;IND;V.PTCP;POSdüzenleV.MSDR;PFV;PRS;NOM;V;IND;POS,_suçNOM;N;3;SGtürPSS3S;NOM;SG;3;NveCONJsuçNOM;N;3;SGtarihPSS3S;NOM;SG;3;NayrımPSS3S;NOM;SG;3;NyapPASS;NEG;PFV;PRS;V;IND;V.CVB,_tümDEThakNOM;N;3;SGyasaklaPSS3S;V.MSDR;PFV;PRS;NOM;V;IND;POSiçinADPöngörPASS;PFV;PST;V;NFH;IND;V.PTCP;POSsürekliADVbirNUMuygulamaNOM;N;3;SGnitelikPSS3S;SG;3;N;ESSolNEG;PFV;PRS;V;IND;V.CVBafNOM;N;3;SGyasaPSS3S;PL;3;N;DATözgüADJolPSS3S;PFV;PST;V;IND;V.PTCP;POSbiçim3;N;ESS;SG,_yalnızcaADVbelliADJtarih3;N;DAT;SGkadarADPişlePASS;PFV;PRS;V;IND;V.PTCP;POSsuç3;N;PL;ACCkapsaFORM;PRS;V;PROG;SG;3;POS._
+	
+	
+TabiibirayağımAnkara'daidi.	tabiiADJbirNUMayakPSS1S;NOM;SG;3;NAnkara3;PROPN;ESS;SGi3;V;PST;SG._
+	
+Yoksabusabahbenimutlakaarardı.	yokSG;NOM;ADJ;3iCOND;V;3;PRS;PFV;SGbuDETsabahSG;NOM;N;3benPRO;ACC;1;SGmutlakaADVaraIND;PST;POS;3;SG;HAB;V._
+	
+Çöktükoltuğa,pıtırpıtırdökülüyorgözyaşları.	çökPFV;PST;V;IND;SG;3;POSkoltuk3;N;DAT;SG,_pıtır_pıtır_dökINFM;PASS;PRS;V;IND;PROG;SG;3;POSgözyaşıPSS3P;NOM;PL;3;N._
+	
+BunlarıyazanSuolamazdiyegeçirdimaklımdan.	buPRO;ACC;PL;3yazPFV;PRS;V;IND;V.PTCP;POSsuNOM;N;3;SGolNEG;HAB;PRS;V;POT;SG;3diyeADPgeçir1;PFV;PST;V;IND;SG;POSakılPSS1S;AT+ABL;SG;3;N._
+	
+Balıkçılarıdakendisinebağlamıştı.	balıkçıPL;N;ACC;3daCONJkendiPSS3S;DAT;3;REFL;SG;PRObağla3;POS;IND;SG;PFV;PST+PRF;V._
+	
+Enazındanfendahisi.	enADVazPSS3S;AT+ABL;ADJ;SG;3fenNOM;N;3;SGdahiPSS3S;NOM;ADJ;SG;3._
+	
+Sıkılmıştı.	sıkılPFV;V;IND;SG;3;PST+PRF;POS._
+	
+Çocukutandı,donualdı,birlikteyürümeyebaşladılaruzaktagörülenkıyılokantasınadoğru.	çocukSG;3;N;NOMutanPST;3;POS;IND;SG;PFV;V,_donSG;N;ACC;3alPST;3;POS;IND;SG;PFV;V,_birlikteADVyürüDAT;POS;IND;PRS;PFV;V;V.MSDRbaşlaPST;3;POS;IND;PL;PFV;VuzakSG;ESS;ADJ;3görPASS;POS;PRS;IND;PFV;V.PTCP;VkıyıSG;3;N;NOMlokantaPSS3S;DAT;3;SG;NdoğruADP._
+	
+"Baskıpolitikamızyok.	"_baskıNOM;N;3;SGpolitikaPSS1P;NOM;SG;3;NyokADJ._
+	
+	
+Senaryo,çünkübileşenleritamamenmetafiziköğelerdenoluşmaktadır.	senaryoNOM;N;3;SG,_çünküCONJbileşenPSS3S;NOM;PL;3;NtamamenADVmetafizikNOM;ADJ;3;SGöğe3;N;PL;AT+ABLoluşFORM;PRS;V;PROG;SG;3;POS._
+	
+tümhaşmetiyleortayaçıkıyor.	tümDEThaşmetPSS3S;INS;3;SG;NortaSG;DAT;ADJ;3çıkINFM;IND;POS;3;PRS;SG;PROG;V._
+	
+KardeşinineşiylebirlikteBismilOğuzlarKöyüİlköğretimOkulu'ndagörevyaptığınıanlatanağabeyMehmetKaramutlu,"Gerçeğionanasılsöylerizbilmiyorum.	kardeşPSS3S;GEN;SG;3;NeşPSS3S;INS;ADJ;SG;3birlikteADPBismilNOM;PROPN;3;SGOğuzlarNOM;PROPN;3;SGköyPSS3S;NOM;SG;3;NilköğretimNOM;N;3;SGokulPSS3S;SG;3;N;ESSgörevNOM;N;3;SGyapPSS3S;ACC;PFV;PST;V;IND;V.PTCP;POSanlatPFV;PRS;V;IND;V.PTCP;POSağabeyNOM;N;3;SGMehmetNOM;PROPN;3;SGKaramutluNOM;PROPN;3;SG,_"_gerçek3;ACC;ADJ;SGoPRO;SG;3;DATnasılADVsöyle1;HAB;PRS;V;IND;PL;POSbilINFM;1;NEG;PRS;V;IND;PROG;SG._
+	
