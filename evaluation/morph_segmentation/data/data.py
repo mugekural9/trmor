@@ -22,31 +22,11 @@ def read_data(maxdsize, file, surface_vocab, mode):
         data.append([surf])
     return data
     
-def build_data(args):
+def build_data(args, surf_vocab):
     # Read data and get batches...
-    surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
-    trndata = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
-    args.trnsize = len(trndata)
-    trn_batches, _ = get_batches(trndata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
-
-    vlddata = read_data(args.maxvalsize, args.valdata, surface_vocab, 'VAL')    
-    args.valsize = len(vlddata)
-    vld_batches, _ = get_batches(vlddata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
-
-    tstdata = read_data(args.maxtstsize, args.tstdata, surface_vocab, 'TST')
-    args.tstsize = len(tstdata)
-    tst_batches, _ = get_batches(tstdata, surface_vocab, args.batchsize, '') 
-    return (trndata, vlddata, tstdata), (trn_batches, vld_batches, tst_batches), surface_vocab
-
-def log_data(data, dset, surface_vocab, logger, modelname, dsettype='trn'):
-    f = open(modelname+'/'+dset+".txt", "w")
-    total_surf_len = 0
-    for (surf, feat) in data:
-        total_surf_len += len(surf)
-        f.write(''.join(surface_vocab.decode_sentence_2(surf))+'\n')
-    f.close()
-    avg_surf_len = total_surf_len / len(data)
-    logger.write('%s -- size:%.1d,  avg_surf_len: %.2f \n' % (dset, len(data), avg_surf_len))
+    tst_data = read_data(args.maxtstsize, args.tstdata, surf_vocab, 'TST')
+    tst_batches, _ = get_batches(tst_data, surf_vocab, 1) 
+    return tst_data, tst_batches
 
 
 class MonoTextData(object):
@@ -70,7 +50,6 @@ class MonoTextData(object):
             vocab['</s>'] = 2
             vocab['<unk>'] = 3
 
-        # wordlist.tur
         with open(fname) as fin:
             for line in fin:
                 if label:
@@ -89,7 +68,7 @@ class MonoTextData(object):
                         continue
                 if label:
                     labels.append(lb)
-                data.append([vocab[char] for char in split_line[0].strip().split(' ')[1]])
+                data.append([vocab[char] for char in split_line[0].strip().split(' ')[0]])
 
 
         if isinstance(vocab, VocabEntry):
