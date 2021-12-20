@@ -42,13 +42,19 @@ class VocabEntry(object):
     def id2word(self, wid):
         return self.id2word_[wid]
 
-    def decode_sentence(self, sentence):
+    def decode_sentence(self, ids):
         decoded_sentence = []
-        for wid_t in sentence:
+        for wid_t in ids:
             wid = wid_t.item()
             decoded_sentence.append(self.id2word_[wid])
         return decoded_sentence
     
+    def encode_sentence(self, sentence):
+        encode_sentence = []
+        for char in sentence:
+            encode_sentence.append(self.word2id[char])
+        return encode_sentence
+
     def decode_sentence_2(self, sentence):
         decoded_sentence = []
         for wid_t in sentence:

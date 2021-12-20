@@ -1,0 +1,224 @@
+
+number of params: 2490752 
+Namespace(batchsize=128, dec_dropout_in=0.2, dec_dropout_out=0.3, dec_nh=512, device='cuda', enc_dropout_in=0.2, enc_dropout_out=0.3, enc_nh=512, epochs=50, fig_path='model/ae/results/50000_instances/50epochs.png', log_path='model/ae/results/50000_instances/50epochs.log', logger=<common.utils.Logger object at 0x7f2c00c1ba50>, lr=0.001, maxtrnsize=57769, maxtstsize=10000, maxvalsize=10000, mname='ae', model=AE(
+  (encoder): AE_Encoder(
+    (embed): Embedding(39, 64)
+    (lstm): LSTM(64, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.2, inplace=False)
+    (linear): Linear(in_features=512, out_features=32, bias=False)
+  )
+  (decoder): AE_Decoder(
+    (embed): Embedding(39, 64, padding_idx=0)
+    (dropout_in): Dropout(p=0.2, inplace=False)
+    (dropout_out): Dropout(p=0.3, inplace=False)
+    (trans_linear): Linear(in_features=32, out_features=512, bias=False)
+    (lstm): LSTM(96, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=39, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), modelname='model/ae/results/50000_instances/', ni=64, nz=32, opt='Adam', save_path='model/ae/results/50000_instances/50epochs.pt', seq_to_no_pad='surface', surface_vocab_file='model/ae/data/surf.uniquesurfs.trn.txt', task='ae', trndata='model/ae/data/surf.uniquesurfs.trn.txt', trnsize=50000, tstdata='model/ae/data/surf.uniquesurfs.val.txt', tstsize=50000, valdata='model/ae/data/surf.uniquesurfs.val.txt', valsize=4000)
+
+encoder.embed.weight, torch.Size([39, 64]): True
+encoder.lstm.weight_ih_l0, torch.Size([2048, 64]): True
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+encoder.lstm.bias_ih_l0, torch.Size([2048]): True
+encoder.lstm.bias_hh_l0, torch.Size([2048]): True
+encoder.linear.weight, torch.Size([32, 512]): True
+decoder.embed.weight, torch.Size([39, 64]): True
+decoder.trans_linear.weight, torch.Size([512, 32]): True
+decoder.lstm.weight_ih_l0, torch.Size([2048, 96]): True
+decoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+decoder.lstm.bias_ih_l0, torch.Size([2048]): True
+decoder.lstm.bias_hh_l0, torch.Size([2048]): True
+decoder.pred_linear.weight, torch.Size([39, 512]): True
+epoch: 0 avg_loss: 2.4764, acc: 0.2283
+val --- avg_loss: 2.1506, acc: 0.3055  
+update best loss 
+
+epoch: 1 avg_loss: 2.0470, acc: 0.3261
+val --- avg_loss: 1.9698, acc: 0.3555  
+update best loss 
+
+epoch: 2 avg_loss: 1.8697, acc: 0.3748
+val --- avg_loss: 1.8434, acc: 0.4020  
+update best loss 
+
+epoch: 3 avg_loss: 1.7677, acc: 0.4029
+val --- avg_loss: 1.7028, acc: 0.4421  
+update best loss 
+
+epoch: 4 avg_loss: 1.6691, acc: 0.4319
+val --- avg_loss: 1.6397, acc: 0.4580  
+update best loss 
+
+epoch: 5 avg_loss: 1.5956, acc: 0.4531
+val --- avg_loss: 1.6193, acc: 0.4534  
+update best loss 
+
+epoch: 6 avg_loss: 1.5328, acc: 0.4700
+val --- avg_loss: 1.5078, acc: 0.4903  
+update best loss 
+
+epoch: 7 avg_loss: 1.4484, acc: 0.4957
+val --- avg_loss: 1.4274, acc: 0.5104  
+update best loss 
+
+epoch: 8 avg_loss: 1.3949, acc: 0.5131
+val --- avg_loss: 1.3779, acc: 0.5328  
+update best loss 
+
+epoch: 9 avg_loss: 1.3208, acc: 0.5336
+val --- avg_loss: 1.3072, acc: 0.5534  
+update best loss 
+
+epoch: 10 avg_loss: 1.2323, acc: 0.5589
+val --- avg_loss: 1.2046, acc: 0.5837  
+update best loss 
+
+epoch: 11 avg_loss: 1.1440, acc: 0.5869
+val --- avg_loss: 1.1356, acc: 0.6025  
+update best loss 
+
+epoch: 12 avg_loss: 1.0728, acc: 0.6086
+val --- avg_loss: 1.0724, acc: 0.6215  
+update best loss 
+
+epoch: 13 avg_loss: 1.0070, acc: 0.6274
+val --- avg_loss: 1.0190, acc: 0.6396  
+update best loss 
+
+epoch: 14 avg_loss: 0.9445, acc: 0.6451
+val --- avg_loss: 0.9507, acc: 0.6589  
+update best loss 
+
+epoch: 15 avg_loss: 0.8862, acc: 0.6605
+val --- avg_loss: 0.9095, acc: 0.6670  
+update best loss 
+
+epoch: 16 avg_loss: 0.8199, acc: 0.6787
+val --- avg_loss: 0.8211, acc: 0.6955  
+update best loss 
+
+epoch: 17 avg_loss: 0.7644, acc: 0.6935
+val --- avg_loss: 0.8099, acc: 0.7022  
+update best loss 
+
+epoch: 18 avg_loss: 0.7091, acc: 0.7101
+val --- avg_loss: 0.7247, acc: 0.7241  
+update best loss 
+
+epoch: 19 avg_loss: 0.6251, acc: 0.7335
+val --- avg_loss: 0.6525, acc: 0.7424  
+update best loss 
+
+epoch: 20 avg_loss: 0.5570, acc: 0.7515
+val --- avg_loss: 0.5694, acc: 0.7665  
+update best loss 
+
+epoch: 21 avg_loss: 0.4875, acc: 0.7706
+val --- avg_loss: 0.5224, acc: 0.7810  
+update best loss 
+
+epoch: 22 avg_loss: 0.4436, acc: 0.7830
+val --- avg_loss: 0.4686, acc: 0.7945  
+update best loss 
+
+epoch: 23 avg_loss: 0.3854, acc: 0.7989
+val --- avg_loss: 0.4344, acc: 0.8045  
+update best loss 
+
+epoch: 24 avg_loss: 0.3493, acc: 0.8096
+val --- avg_loss: 0.4061, acc: 0.8161  
+update best loss 
+
+epoch: 25 avg_loss: 0.3048, acc: 0.8225
+val --- avg_loss: 0.3469, acc: 0.8312  
+update best loss 
+
+epoch: 26 avg_loss: 0.2805, acc: 0.8291
+val --- avg_loss: 0.3201, acc: 0.8384  
+update best loss 
+
+epoch: 27 avg_loss: 0.2523, acc: 0.8386
+val --- avg_loss: 0.3329, acc: 0.8381  
+
+epoch: 28 avg_loss: 0.2181, acc: 0.8473
+val --- avg_loss: 0.3122, acc: 0.8452  
+update best loss 
+
+epoch: 29 avg_loss: 0.2094, acc: 0.8503
+val --- avg_loss: 0.2677, acc: 0.8549  
+update best loss 
+
+epoch: 30 avg_loss: 0.1729, acc: 0.8602
+val --- avg_loss: 0.2445, acc: 0.8604  
+update best loss 
+
+epoch: 31 avg_loss: 0.1547, acc: 0.8656
+val --- avg_loss: 0.2541, acc: 0.8601  
+
+epoch: 32 avg_loss: 0.1412, acc: 0.8694
+val --- avg_loss: 0.2363, acc: 0.8608  
+update best loss 
+
+epoch: 33 avg_loss: 0.1292, acc: 0.8723
+val --- avg_loss: 0.2077, acc: 0.8705  
+update best loss 
+
+epoch: 34 avg_loss: 0.1270, acc: 0.8725
+val --- avg_loss: 0.1910, acc: 0.8714  
+update best loss 
+
+epoch: 35 avg_loss: 0.1314, acc: 0.8717
+val --- avg_loss: 0.2114, acc: 0.8727  
+
+epoch: 36 avg_loss: 0.1067, acc: 0.8797
+val --- avg_loss: 0.1860, acc: 0.8742  
+update best loss 
+
+epoch: 37 avg_loss: 0.1133, acc: 0.8785
+val --- avg_loss: 0.1820, acc: 0.8764  
+update best loss 
+
+epoch: 38 avg_loss: 0.0888, acc: 0.8845
+val --- avg_loss: 0.1806, acc: 0.8769  
+update best loss 
+
+epoch: 39 avg_loss: 0.0840, acc: 0.8856
+val --- avg_loss: 0.1673, acc: 0.8790  
+update best loss 
+
+epoch: 40 avg_loss: 0.0732, acc: 0.8888
+val --- avg_loss: 0.1654, acc: 0.8774  
+update best loss 
+
+epoch: 41 avg_loss: 0.0731, acc: 0.8887
+val --- avg_loss: 0.1532, acc: 0.8836  
+update best loss 
+
+epoch: 42 avg_loss: 0.0648, acc: 0.8912
+val --- avg_loss: 0.1785, acc: 0.8788  
+
+epoch: 43 avg_loss: 0.0657, acc: 0.8908
+val --- avg_loss: 0.1627, acc: 0.8820  
+
+epoch: 44 avg_loss: 0.0575, acc: 0.8935
+val --- avg_loss: 0.1475, acc: 0.8842  
+update best loss 
+
+epoch: 45 avg_loss: 0.0549, acc: 0.8942
+val --- avg_loss: 0.1525, acc: 0.8855  
+
+epoch: 46 avg_loss: 0.0583, acc: 0.8933
+val --- avg_loss: 0.1354, acc: 0.8876  
+update best loss 
+
+epoch: 47 avg_loss: 0.0523, acc: 0.8948
+val --- avg_loss: 0.1737, acc: 0.8781  
+
+epoch: 48 avg_loss: 0.0453, acc: 0.8971
+val --- avg_loss: 0.1240, acc: 0.8900  
+update best loss 
+
+epoch: 49 avg_loss: 0.0455, acc: 0.8970
+val --- avg_loss: 0.1275, acc: 0.8872  

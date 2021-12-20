@@ -70,7 +70,6 @@ class LSTMDecoder(DecoderBase):
 
         # (batch_size, nz)
         z = z.view(batch_size, self.nz)
-
        
         # (1, batch_size, dec_nh)
         #c_init = z.unsqueeze(0)
