@@ -8,13 +8,23 @@ def read_data(maxdsize, file, surface_vocab, mode):
     surf_data = []; data = []
     all_surfs = dict()
     count = 0
-    with open(file, 'r') as reader:
-        for line in reader: 
-            count += 1
-            if count > maxdsize:
-                break
-            surf = line.strip().split('\t')[0]
-            surf_data.append([surface_vocab[char] for char in surf])
+
+    if 'surf.uniquesurfs' in file:
+        with open(file, 'r') as reader:
+            for line in reader: 
+                count += 1
+                if count > maxdsize:
+                    break
+                surf = line.strip().split('\t')[0]
+                surf_data.append([surface_vocab[char] for char in surf])
+    elif 'wordlist.tur' in file:
+        with open(file, 'r') as reader:
+            for line in reader:     
+                count += 1
+                if count > maxdsize:
+                    break
+                surf = line.strip().split(' ')[1]
+                surf_data.append([surface_vocab[char] for char in surf])
     print(mode,':')
     print('surf_data:',  len(surf_data))
     for surf in surf_data:
@@ -101,7 +111,7 @@ class MonoTextData(object):
                     if label:
                         labels.append(lb)
                     data.append([vocab[char] for char in split_line[0].strip().split(' ')[1]])
-        elif 'goldstdsample.tur.trn' in fname:
+        elif 'goldstdsample.tur' in fname:
             with open(fname) as fin:
                 for line in fin:
                     if label:

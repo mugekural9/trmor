@@ -3,18 +3,28 @@ from collections import defaultdict, Counter
 from common.vocab import VocabEntry
 from common.batchify import get_batches
 
-
 def read_data(maxdsize, file, surface_vocab, mode):
     surf_data = []; data = []
     all_surfs = dict()
     count = 0
-    with open(file, 'r') as reader:
-        for line in reader: 
-            count += 1
-            if count > maxdsize:
-                break
-            surf = line.strip().split('\t')[0]
-            surf_data.append([surface_vocab[char] for char in surf])
+
+    if 'surf.uniquesurfs.trn.txt' in file:
+        with open(file, 'r') as reader:
+            for line in reader: 
+                count += 1
+                if count > maxdsize:
+                    break
+                surf = line.strip().split('\t')[0]
+                surf_data.append([surface_vocab[char] for char in surf])
+    elif 'wordlist.tur' in file:
+        with open(file, 'r') as reader:
+            for line in reader:     
+                count += 1
+                if count > maxdsize:
+                    break
+                surf = line.strip().split(' ')[1]
+                surf_data.append([surface_vocab[char] for char in surf])
+
     print(mode,':')
     print('surf_data:',  len(surf_data))
     for surf in surf_data:

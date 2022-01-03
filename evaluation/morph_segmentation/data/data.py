@@ -22,10 +22,10 @@ def read_data(maxdsize, file, surface_vocab, mode):
         data.append([surf])
     return data
     
-def build_data(args, surf_vocab):
+def build_data(args):
     # Read data and get batches...
-    tst_data = read_data(args.maxtstsize, args.tstdata, surf_vocab, 'TST')
-    tst_batches, _ = get_batches(tst_data, surf_vocab, 1) 
+    tst_data = read_data(args.maxtstsize, args.tstdata, args.vocab, 'TST')
+    tst_batches, _ = get_batches(tst_data, args.vocab, args.batch_size, '') 
     return tst_data, tst_batches
 
 

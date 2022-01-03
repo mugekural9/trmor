@@ -42,7 +42,7 @@ def train(data, args):
         args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
     numbatches = len(trnbatches)
     indices = list(range(numbatches))
-    #random.seed(0)
+    random.seed(0)
     best_loss = 1e4
     trn_loss_values = []; trn_acc_values = []
     val_loss_values = []; val_acc_values = []
@@ -85,12 +85,12 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 args.mname  = 'ae_probe' 
-model_path  = 'model/ae/results/50000_instances/30epochs.pt'
+model_path  = 'model/ae/results/50000_instances/15epochs.pt'
 model_vocab = 'model/ae/results/50000_instances/surf_vocab.json'
 
 # training
-args.batchsize = 128; args.epochs = 100
-args.opt= 'Adam'; args.lr = 0.001
+args.batchsize = 128; args.epochs = 200
+args.opt= 'Adam'; args.lr = 0.01
 args.task = 'surf2surfpos'
 args.seq_to_no_pad = 'surface'
 

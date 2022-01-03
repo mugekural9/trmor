@@ -2,6 +2,7 @@
 Logger class files
 """
 import sys
+import torch
 import torch.nn as nn
 
 class Logger(object):
@@ -77,3 +78,30 @@ def find_li_vectors(dim, R):
         i += 1
 
     return R_independent
+
+def get_model_info(id):
+    if id == 'vae_1':
+        model_path  = 'model/vae/results/training/582000_instances/10epochs.pt'
+        model_vocab = 'model/vae/results/training/582000_instances/surf_vocab.json'
+    elif id == 'vae_2': 
+        model_path = 'trmor_agg1_kls0.10_warm10_2612_0.pt'
+        model_vocab = 'model/vae/results/training/582000_instances/surf_vocab.json'
+    elif id == 'vae_3':
+        model_path  = 'model/vae/results/training/50000_instances/15epochs.pt'
+        model_vocab = 'model/vae/results/training/50000_instances/surf_vocab.json'
+    return model_path, model_vocab
+
+def log_sum_exp(value, dim=None, keepdim=False):
+    """Numerically stable implementation of the operation
+    value.exp().sum(dim, keepdim).log()
+    """
+    if dim is not None:
+        m, _ = torch.max(value, dim=dim, keepdim=True)
+        value0 = value - m
+        if keepdim is False:
+            m = m.squeeze(dim)
+        return m + torch.log(torch.sum(torch.exp(value0), dim=dim, keepdim=keepdim))
+    else:
+        m = torch.max(value)
+        sum_exp = torch.sum(torch.exp(value - m))
+        return m + torch.log(sum_exp)

@@ -21,7 +21,7 @@ def test(batches, mode, args):
         # (batchsize, t)
         surf = batches[idx] 
         loss, acc = args.model.ae_loss(surf)
-        epoch_num_tokens += surf.size(0) * surf.size(1)
+        epoch_num_tokens += surf.size(0) * (surf.size(1)-1)
         epoch_loss       += loss.item()
         epoch_acc        += acc
     nll = epoch_loss / numbatches 
@@ -34,6 +34,7 @@ def train(data, args):
 
     # initialize optimizer
     opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.parameters()), lr=args.lr)
+    #opt = optim.SGD(filter(lambda p: p.requires_grad, args.model.parameters()), lr=1.0, momentum=0)
     
     # Log trainable model parameters
     for name, prm in args.model.named_parameters():
@@ -52,8 +53,10 @@ def train(data, args):
             # (batchsize)
             loss, acc = args.model.ae_loss(surf)
             loss.backward()
+            #torch.nn.utils.clip_grad_norm_(args.model.parameters(), 5.0)
+
             opt.step()
-            epoch_num_tokens += surf.size(0) * surf.size(1)
+            epoch_num_tokens += surf.size(0) * (surf.size(1)-1)
             epoch_loss       += loss.item()
             epoch_acc        += acc
         nll = epoch_loss / numbatches 
@@ -79,7 +82,7 @@ args = parser.parse_args()
 args.device = 'cuda'
 
 # training
-args.batchsize = 128; args.epochs = 30
+args.batchsize = 128; args.epochs = 55
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'ae'
 args.seq_to_no_pad = 'surface'
@@ -100,8 +103,8 @@ model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
 args.ni = 512; args.nz = 32; 
 args.enc_nh = 1024; args.dec_nh = 1024
-args.enc_dropout_in = 0.2; args.enc_dropout_out = 0.3
-args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.3
+args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
+args.dec_dropout_in = 0.5; args.dec_dropout_out = 0.5
 args.model = AE(args, vocab, model_init, emb_init)
 args.model.to(args.device)
 

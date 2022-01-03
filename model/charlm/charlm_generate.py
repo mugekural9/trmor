@@ -13,8 +13,8 @@ import sys, argparse, random, torch, json, matplotlib, os
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-model_path = 'models/charlm/logs/50000_instances/35epochs.pt'
-model_vocab = 'models/charlm/logs/50000_instances/surf_vocab.json'
+model_path  = 'model/charlm/results/582000_instances/35epochs.pt'
+model_vocab = 'model/charlm/results/582000_instances/surf_vocab.json'
 
 # initialize model
 # load vocab (to initialize the model with correct vocabsize)
@@ -54,6 +54,7 @@ def generate(model):
             break
 
 # generate random words
-generate(model)
+for i in range(100):
+    generate(model)
 
 

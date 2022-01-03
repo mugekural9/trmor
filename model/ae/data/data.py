@@ -69,7 +69,7 @@ class MonoTextData(object):
             vocab['</s>'] = 2
             vocab['<unk>'] = 3
 
-        if 'surf.uniquesurfs.trn.txt' in fname:
+        if 'surf.uniquesurfs' in fname:
             with open(fname) as fin:
                 for line in fin:
                     split_line = line.split('\t') #line.split()
@@ -101,7 +101,7 @@ class MonoTextData(object):
                     if label:
                         labels.append(lb)
                     data.append([vocab[char] for char in split_line[0].strip().split(' ')[1]])
-        elif 'goldstdsample.tur.trn' in fname:
+        elif 'goldstdsample.tur' in fname:
             with open(fname) as fin:
                 for line in fin:
                     if label:
