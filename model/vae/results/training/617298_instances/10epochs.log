@@ -1,0 +1,64 @@
+
+number of params: 12904448 
+Namespace(batchsize=128, dec_dropout_in=0.5, dec_dropout_out=0.5, dec_nh=1024, device='cuda', enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=1024, epochs=10, fig_path='model/vae/results/training/617298_instances/10epochs.png', kl_anneal=True, kl_start=0.1, log_path='model/vae/results/training/617298_instances/10epochs.log', logger=<common.utils.Logger object at 0x7f08d96f3710>, lr=0.001, maxtrnsize=617300, maxtstsize=10000, maxvalsize=10000, mname='vae', model=VAE(
+  (encoder): VAE_Encoder(
+    (embed): Embedding(37, 512)
+    (lstm): LSTM(512, 1024, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=1024, out_features=64, bias=False)
+  )
+  (decoder): VAE_Decoder(
+    (embed): Embedding(37, 512, padding_idx=0)
+    (dropout_in): Dropout(p=0.5, inplace=False)
+    (dropout_out): Dropout(p=0.5, inplace=False)
+    (trans_linear): Linear(in_features=32, out_features=1024, bias=False)
+    (lstm): LSTM(544, 1024, batch_first=True)
+    (pred_linear): Linear(in_features=1024, out_features=37, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), modelname='model/vae/results/training/617298_instances/', ni=512, nz=32, opt='Adam', save_path='model/vae/results/training/617298_instances/10epochs.pt', seq_to_no_pad='surface', surface_vocab_file='model/vae/data/wordlist.tur', task='vae', trndata='model/vae/data/wordlist.tur', trnsize=617298, tstdata='model/vae/data/wordlist.tur.val', tstsize=617298, valdata='model/vae/data/wordlist.tur.val', valsize=923, warm_up=10)
+
+encoder.embed.weight, torch.Size([37, 512]): True
+encoder.lstm.weight_ih_l0, torch.Size([4096, 512]): True
+encoder.lstm.weight_hh_l0, torch.Size([4096, 1024]): True
+encoder.lstm.bias_ih_l0, torch.Size([4096]): True
+encoder.lstm.bias_hh_l0, torch.Size([4096]): True
+encoder.linear.weight, torch.Size([64, 1024]): True
+decoder.embed.weight, torch.Size([37, 512]): True
+decoder.trans_linear.weight, torch.Size([1024, 32]): True
+decoder.lstm.weight_ih_l0, torch.Size([4096, 544]): True
+decoder.lstm.weight_hh_l0, torch.Size([4096, 1024]): True
+decoder.lstm.bias_ih_l0, torch.Size([4096]): True
+decoder.lstm.bias_hh_l0, torch.Size([4096]): True
+decoder.pred_linear.weight, torch.Size([37, 1024]): True
+epoch: 0, kl_weight: 0.19, avg_loss: 21.2450, avg_recon_loss: 20.2084, avg_kl_loss: 1.0366, acc: 0.4470
+val --- kl_weight: 0.19, avg_loss: 16.3778, avg_recon_loss: 13.8364, avg_kl_loss: 2.5414, acc: 0.6338
+update best loss 
+
+epoch: 1, kl_weight: 0.28, avg_loss: 15.9424, avg_recon_loss: 12.5769, avg_kl_loss: 3.3655, acc: 0.6543
+val --- kl_weight: 0.28, avg_loss: 13.8782, avg_recon_loss: 9.5984, avg_kl_loss: 4.2798, acc: 0.7197
+update best loss 
+
+epoch: 2, kl_weight: 0.37, avg_loss: 15.2374, avg_recon_loss: 10.2806, avg_kl_loss: 4.9568, acc: 0.7113
+val --- kl_weight: 0.37, avg_loss: 14.0313, avg_recon_loss: 8.5638, avg_kl_loss: 5.4675, acc: 0.7303
+
+epoch: 3, kl_weight: 0.46, avg_loss: 15.6614, avg_recon_loss: 9.4647, avg_kl_loss: 6.1967, acc: 0.7328
+val --- kl_weight: 0.46, avg_loss: 14.3409, avg_recon_loss: 7.9404, avg_kl_loss: 6.4005, acc: 0.7562
+
+epoch: 4, kl_weight: 0.55, avg_loss: 16.3772, avg_recon_loss: 9.1752, avg_kl_loss: 7.2020, acc: 0.7418
+val --- kl_weight: 0.55, avg_loss: 15.4686, avg_recon_loss: 8.2522, avg_kl_loss: 7.2164, acc: 0.7391
+
+epoch: 5, kl_weight: 0.64, avg_loss: 17.1297, avg_recon_loss: 9.3471, avg_kl_loss: 7.7826, acc: 0.7333
+val --- kl_weight: 0.64, avg_loss: 15.9241, avg_recon_loss: 8.0921, avg_kl_loss: 7.8321, acc: 0.7331
+
+epoch: 6, kl_weight: 0.73, avg_loss: 17.9254, avg_recon_loss: 9.8836, avg_kl_loss: 8.0418, acc: 0.7167
+val --- kl_weight: 0.73, avg_loss: 17.2501, avg_recon_loss: 9.3492, avg_kl_loss: 7.9008, acc: 0.7011
+
+epoch: 7, kl_weight: 0.82, avg_loss: 18.6795, avg_recon_loss: 10.7276, avg_kl_loss: 7.9519, acc: 0.6921
+val --- kl_weight: 0.82, avg_loss: 17.6443, avg_recon_loss: 10.1171, avg_kl_loss: 7.5272, acc: 0.6802
+
+epoch: 8, kl_weight: 0.91, avg_loss: 19.3362, avg_recon_loss: 12.0021, avg_kl_loss: 7.3341, acc: 0.6557
+val --- kl_weight: 0.91, avg_loss: 18.1405, avg_recon_loss: 11.3796, avg_kl_loss: 6.7609, acc: 0.6477
+
+epoch: 9, kl_weight: 1.00, avg_loss: 19.7969, avg_recon_loss: 13.5888, avg_kl_loss: 6.2081, acc: 0.6102
+val --- kl_weight: 1.00, avg_loss: 18.5099, avg_recon_loss: 13.1318, avg_kl_loss: 5.3781, acc: 0.6018

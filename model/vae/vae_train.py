@@ -88,7 +88,7 @@ def train(data, args):
         if loss < best_loss:
             args.logger.write('update best loss \n')
             best_loss = loss
-            torch.save(args.model.state_dict(), args.save_path)
+        torch.save(args.model.state_dict(), args.save_path)
         args.model.train()
     plot_curves(args.task, args.mname, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
     plot_curves(args.task, args.mname, args.fig, args.axs[1], trn_kl_values, val_kl_values, args.plt_style, 'kl_loss')
@@ -108,11 +108,11 @@ args.kl_start = 0.1
 args.kl_anneal = True
 args.warm_up = 10
 # data
-args.trndata = 'model/vae/data/wordlist.tur.trn' # 'model/vae/data/surf.uniquesurfs.trn.txt' 
+args.trndata = 'model/vae/data/filtered_wordlist_50k.tur' # 'model/vae/data/surf.uniquesurfs.trn.txt' 
 args.valdata = 'model/vae/data/wordlist.tur.val' # 'model/vae/data/surf.uniquesurfs.val.txt'
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 582000; args.maxvalsize = 10000; args.maxtstsize = 10000
+args.maxtrnsize = 50000; args.maxvalsize = 10000; args.maxtstsize = 10000
 rawdata, batches, vocab = build_data(args)
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)

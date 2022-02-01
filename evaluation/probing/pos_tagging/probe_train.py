@@ -13,8 +13,11 @@ from torch import optim
 from common.utils import *
 from data.data import build_data, log_data
 from model.ae.ae import AE
+from model.vae.vae import VAE
 from common.vocab import VocabEntry
-from evaluation.probing.probe import Probe
+from evaluation.probing.ae_probe import AE_Probe
+from evaluation.probing.vae_probe import VAE_Probe
+
 matplotlib.use('Agg')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
 
@@ -70,7 +73,7 @@ def train(data, args):
             nll, acc = test(valbatches, "val", args)
         val_loss_values.append(nll)
         val_acc_values.append(acc)
-        #scheduler.step(nll)
+        scheduler.step(nll)
         if nll < best_loss:
             args.logger.write('update best loss \n')
             best_loss = nll
@@ -84,12 +87,12 @@ def train(data, args):
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-args.mname  = 'ae_probe' 
-model_path  = 'model/ae/results/50000_instances/15epochs.pt'
-model_vocab = 'model/ae/results/50000_instances/surf_vocab.json'
+model_id = 'vae_2'
+model_path, model_vocab  = get_model_info(model_id)
+args.mname  = model_id +'_probe' 
 
 # training
-args.batchsize = 128; args.epochs = 200
+args.batchsize = 128; args.epochs = 300
 args.opt= 'Adam'; args.lr = 0.01
 args.task = 'surf2surfpos'
 args.seq_to_no_pad = 'surface'
@@ -113,16 +116,16 @@ args.ni = 512; args.nz = 32;
 args.enc_nh = 1024; args.dec_nh = 1024
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
-args.pretrained_model = AE(args, surf_vocab, model_init, emb_init)
+args.pretrained_model = VAE(args, surf_vocab, model_init, emb_init)
 args.pretrained_model.load_state_dict(torch.load(model_path))
 args.nh = args.enc_nh
-args.model = Probe(args, surfpos_vocab, model_init, emb_init)
+args.model = VAE_Probe(args, surfpos_vocab, model_init, emb_init)
 for param in args.model.encoder.parameters():
     param.requires_grad = False
 args.model.to(args.device)
 
 # logging
-args.modelname = 'evaluation/probing/pos_tagging/results/'+args.mname+'/'+str(len(trndata))+'_instances/'
+args.modelname = 'evaluation/probing/pos_tagging/results/training/'+args.mname+'/'+str(len(trndata))+'_instances/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

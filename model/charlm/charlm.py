@@ -45,7 +45,7 @@ class CharLM(nn.Module):
     def charlm_output(self, x):
         return x[:, 1:]
 
-    def charlm_loss(self, x):
+    def charlm_loss(self, x, recon_type='avg'):
         # (batch_size, seq_len)
         src = self.charlm_input(x)
         batch_size, seq_len = src.size()
@@ -59,8 +59,18 @@ class CharLM(nn.Module):
         # (batch_size * seq_len)
         loss = self.loss(output_logits,  _tgt)
 
-        # loss: avg over tokens
-        return  loss.mean() 
+        # (batch_size, nsample)
+        if recon_type=='avg':
+            # avg over tokens
+            loss = loss.mean()
+        elif recon_type=='sum':
+            # sum over tokens
+            loss = loss.sum()
+        elif recon_type == 'eos':
+            # only eos token
+            loss = loss[-1]
+
+        return loss
 
     def forward(self, src):
         # (batch_size, seq_len-1, args.ni)
@@ -76,4 +86,6 @@ class CharLM(nn.Module):
         return output_logits.view(-1, output_logits.size(2))
 
 
+    def log_probability(self, x, recon_type='avg'):
+        return -self.charlm_loss(x, recon_type)
 

@@ -38,14 +38,14 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'vae_1'
+    model_id = 'vae_5'
     model_path, model_vocab  = get_model_info(model_id)
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
     args.recon_type = 'avg'
     # (a) word_given: sample z from full word, (b) subword_given: sample z from subword
-    args.sample_type = 'subword_given'
+    args.sample_type = 'word_given'
     # logging
-    args.logdir = 'model/vae/results/importance_sampling/'+model_id+'/'+args.recon_type+'/nsamples20000-30000/'+args.sample_type+'/'
+    args.logdir = 'model/vae/results/importance_sampling/'+model_id+'/'+args.recon_type+'/nsamples1-60000/'+args.sample_type+'/'
     args.logfile = args.logdir + 'importance_sampling.txt'
     try:
         os.makedirs(args.logdir)
@@ -68,32 +68,33 @@ def config():
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/morph_segmentation/data/goldstdsample.tur'
-    args.maxtstsize = 5
+    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_trainset.segments.eng'
+    args.maxtstsize = 10
     args.batch_size = 1
     return args
 
 def main():
     args = config()
     _, batches = build_data(args)
-    nsamples_list = [21000,25000,30000] #[35000,40000, 45000, 50000] #[8,16,32,64,128,512,1000,5000,7500,10000,12000,15000,20000]; 
+    nsamples_list = [8,16,32,64,128,512,1000,5000,7500,10000,12000,15000,20000, 21000,25000,30000, 35000,40000, 50000,52000,55000,60000]; 
     nruns = 10 
     with torch.no_grad():
         # loop through each word 
-        for data in batches:
-            sample_from = data
-            means = []
-            word = ''.join(args.vocab.decode_sentence(data[0][1:-1]))
-            print(word)
-            f = open(args.logfile+'_'+word, "w")
-            # loop through each nsamples 
-            for nsamples in nsamples_list:
-                f.write("\n---\n")
-                # run same experiment multiple times
-                mean_runs, stdev_runs = run(args, data, sample_from, nsamples, nruns, f)
-                means.append(mean_runs)
-                f.write("\nnumber of samples: %d, number of runs: %d, mean: %.4f, stddev: %.4f" % (nsamples, nruns, mean_runs, stdev_runs))
-            f.close()
+        if False: 
+            for data in batches:
+                sample_from = data
+                means = []
+                word = ''.join(args.vocab.decode_sentence(data[0][1:-1]))
+                print(word)
+                f = open(args.logfile+'_'+word, "w")
+                # loop through each nsamples 
+                for nsamples in nsamples_list:
+                    f.write("\n---\n")
+                    # run same experiment multiple times
+                    mean_runs, stdev_runs = run(args, data, sample_from, nsamples, nruns, f)
+                    means.append(mean_runs)
+                    f.write("\nnumber of samples: %d, number of runs: %d, mean: %.4f, stddev: %.4f" % (nsamples, nruns, mean_runs, stdev_runs))
+                f.close()
 
         # loop through each word's subwords, enable if necessary
         if True: 

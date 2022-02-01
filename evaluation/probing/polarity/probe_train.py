@@ -84,12 +84,12 @@ def train(data, args):
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-args.mname  = 'ae_probe' 
-model_path  = 'model/ae/results/50000_instances/30epochs.pt'
-model_vocab = 'model/ae/results/50000_instances/surf_vocab.json'
+model_id = 'ae_1'
+model_path, model_vocab  = get_model_info(model_id)
+args.mname  = model_id +'_probe' 
 
 # training
-args.batchsize = 128; args.epochs = 100
+args.batchsize = 128; args.epochs = 200
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'surf2polar'
 args.seq_to_no_pad = 'surface'
@@ -122,7 +122,8 @@ for param in args.model.encoder.parameters():
 args.model.to(args.device)
 
 # logging
-args.modelname = 'evaluation/probing/polarity/results/'+args.mname+'/'+str(len(trndata))+'_instances/'
+args.modelname = 'evaluation/probing/polarity/results/training/'+args.mname+'/'+str(len(trndata))+'_instances/'
+
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

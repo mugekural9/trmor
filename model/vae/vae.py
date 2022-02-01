@@ -209,6 +209,7 @@ class VAE(nn.Module):
         recon_loss = self.decoder.loss(_output_logits,  _tgt)
         # (batch_size, nsample, seq_len)
         recon_loss = recon_loss.view(batch_size, n_sample, -1)
+
         # (batch_size, nsample)
         if recon_type=='avg':
             # avg over tokens
@@ -216,6 +217,9 @@ class VAE(nn.Module):
         elif recon_type=='sum':
             # sum over tokens
             recon_loss = recon_loss.sum(-1)
+        elif recon_type == 'eos':
+            # only eos token
+            recon_loss = recon_loss[:,:,-1]
 
         # avg over batches and samples
         recon_acc  = self.accuracy(output_logits, tgt)
@@ -313,7 +317,7 @@ class VAE(nn.Module):
         return self.encoder.eval_inference_dist(x, z, param)
 
 
-    def nll_iw(self, x, nsamples, z, param, ns=100):
+    def nll_iw(self, x, nsamples, z, param, recon_type='avg', ns=100):
         """compute the importance weighting estimate of the log-likelihood
         Args:
             x: if the data is constant-length, x is the data tensor with
@@ -330,7 +334,7 @@ class VAE(nn.Module):
         tmp = []
         for _ in range(1):#range(int(nsamples / ns)):
             # logp_xz + logpz
-            log_comp_ll = self.eval_complete_ll(x, z)
+            log_comp_ll = self.eval_complete_ll(x, z, recon_type)
             # logqz, param is the parameters required to evaluate q(z|x)
             log_infer_ll = self.eval_inference_dist(x, z, param) 
             tmp.append(log_comp_ll - log_infer_ll)

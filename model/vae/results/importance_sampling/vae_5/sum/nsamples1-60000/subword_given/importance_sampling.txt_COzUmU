@@ -1,0 +1,287 @@
+
+---
+run 0: log p(x) = -7.42 
+run 1: log p(x) = -6.84 
+run 2: log p(x) = -4.16 
+run 3: log p(x) = -5.85 
+run 4: log p(x) = -2.03 
+run 5: log p(x) = -5.06 
+run 6: log p(x) = -6.51 
+run 7: log p(x) = -6.79 
+run 8: log p(x) = -6.13 
+run 9: log p(x) = -7.44 
+
+number of samples: 8, number of runs: 10, mean: -5.8247, stddev: 1.6829
+---
+run 0: log p(x) = -4.82 
+run 1: log p(x) = -6.83 
+run 2: log p(x) = -5.58 
+run 3: log p(x) = -5.06 
+run 4: log p(x) = -5.92 
+run 5: log p(x) = -6.45 
+run 6: log p(x) = -5.20 
+run 7: log p(x) = -5.66 
+run 8: log p(x) = -6.76 
+run 9: log p(x) = -5.49 
+
+number of samples: 16, number of runs: 10, mean: -5.7770, stddev: 0.7027
+---
+run 0: log p(x) = -5.33 
+run 1: log p(x) = -5.66 
+run 2: log p(x) = -6.78 
+run 3: log p(x) = -5.76 
+run 4: log p(x) = -6.16 
+run 5: log p(x) = -5.22 
+run 6: log p(x) = -6.59 
+run 7: log p(x) = -6.27 
+run 8: log p(x) = -5.69 
+run 9: log p(x) = -5.97 
+
+number of samples: 32, number of runs: 10, mean: -5.9435, stddev: 0.5103
+---
+run 0: log p(x) = -6.23 
+run 1: log p(x) = -6.06 
+run 2: log p(x) = -6.06 
+run 3: log p(x) = -5.36 
+run 4: log p(x) = -5.76 
+run 5: log p(x) = -4.73 
+run 6: log p(x) = -4.91 
+run 7: log p(x) = -5.68 
+run 8: log p(x) = -5.18 
+run 9: log p(x) = -6.12 
+
+number of samples: 64, number of runs: 10, mean: -5.6103, stddev: 0.5360
+---
+run 0: log p(x) = -4.66 
+run 1: log p(x) = -5.63 
+run 2: log p(x) = -5.56 
+run 3: log p(x) = -5.33 
+run 4: log p(x) = -5.74 
+run 5: log p(x) = -3.76 
+run 6: log p(x) = -5.16 
+run 7: log p(x) = -5.67 
+run 8: log p(x) = -4.78 
+run 9: log p(x) = -4.57 
+
+number of samples: 128, number of runs: 10, mean: -5.0857, stddev: 0.6369
+---
+run 0: log p(x) = -4.90 
+run 1: log p(x) = -4.36 
+run 2: log p(x) = -4.07 
+run 3: log p(x) = -4.96 
+run 4: log p(x) = -4.13 
+run 5: log p(x) = -5.48 
+run 6: log p(x) = -5.33 
+run 7: log p(x) = -5.16 
+run 8: log p(x) = -5.18 
+run 9: log p(x) = -4.92 
+
+number of samples: 512, number of runs: 10, mean: -4.8488, stddev: 0.4964
+---
+run 0: log p(x) = -3.80 
+run 1: log p(x) = -3.20 
+run 2: log p(x) = -4.14 
+run 3: log p(x) = -4.99 
+run 4: log p(x) = -4.85 
+run 5: log p(x) = -4.41 
+run 6: log p(x) = -4.95 
+run 7: log p(x) = -4.22 
+run 8: log p(x) = -4.06 
+run 9: log p(x) = -4.92 
+
+number of samples: 1000, number of runs: 10, mean: -4.3557, stddev: 0.5889
+---
+run 0: log p(x) = -4.90 
+run 1: log p(x) = -4.20 
+run 2: log p(x) = -4.61 
+run 3: log p(x) = -4.55 
+run 4: log p(x) = -4.66 
+run 5: log p(x) = -4.00 
+run 6: log p(x) = -4.49 
+run 7: log p(x) = -4.33 
+run 8: log p(x) = -4.67 
+run 9: log p(x) = -4.51 
+
+number of samples: 5000, number of runs: 10, mean: -4.4916, stddev: 0.2583
+---
+run 0: log p(x) = -4.56 
+run 1: log p(x) = -4.58 
+run 2: log p(x) = -2.99 
+run 3: log p(x) = -4.39 
+run 4: log p(x) = -4.21 
+run 5: log p(x) = -3.46 
+run 6: log p(x) = -4.42 
+run 7: log p(x) = -4.41 
+run 8: log p(x) = -4.89 
+run 9: log p(x) = -4.74 
+
+number of samples: 7500, number of runs: 10, mean: -4.2652, stddev: 0.5889
+---
+run 0: log p(x) = -4.57 
+run 1: log p(x) = -3.88 
+run 2: log p(x) = -4.78 
+run 3: log p(x) = -4.71 
+run 4: log p(x) = -4.54 
+run 5: log p(x) = -4.06 
+run 6: log p(x) = -4.48 
+run 7: log p(x) = -4.42 
+run 8: log p(x) = -4.47 
+run 9: log p(x) = -4.06 
+
+number of samples: 10000, number of runs: 10, mean: -4.3961, stddev: 0.2996
+---
+run 0: log p(x) = -4.26 
+run 1: log p(x) = -4.43 
+run 2: log p(x) = -4.67 
+run 3: log p(x) = -4.41 
+run 4: log p(x) = -3.87 
+run 5: log p(x) = -4.54 
+run 6: log p(x) = -4.42 
+run 7: log p(x) = -4.39 
+run 8: log p(x) = -4.23 
+run 9: log p(x) = -4.12 
+
+number of samples: 12000, number of runs: 10, mean: -4.3330, stddev: 0.2262
+---
+run 0: log p(x) = -4.31 
+run 1: log p(x) = -4.36 
+run 2: log p(x) = -4.25 
+run 3: log p(x) = -4.13 
+run 4: log p(x) = -4.32 
+run 5: log p(x) = -4.20 
+run 6: log p(x) = -4.53 
+run 7: log p(x) = -1.81 
+run 8: log p(x) = -3.58 
+run 9: log p(x) = -3.90 
+
+number of samples: 15000, number of runs: 10, mean: -3.9395, stddev: 0.7942
+---
+run 0: log p(x) = -4.28 
+run 1: log p(x) = -4.30 
+run 2: log p(x) = -4.56 
+run 3: log p(x) = -4.18 
+run 4: log p(x) = -3.77 
+run 5: log p(x) = -3.78 
+run 6: log p(x) = -3.86 
+run 7: log p(x) = -4.53 
+run 8: log p(x) = -4.44 
+run 9: log p(x) = -4.08 
+
+number of samples: 20000, number of runs: 10, mean: -4.1775, stddev: 0.2985
+---
+run 0: log p(x) = -3.80 
+run 1: log p(x) = -4.24 
+run 2: log p(x) = -4.33 
+run 3: log p(x) = -4.44 
+run 4: log p(x) = -3.81 
+run 5: log p(x) = -3.94 
+run 6: log p(x) = -4.23 
+run 7: log p(x) = -4.17 
+run 8: log p(x) = -3.96 
+run 9: log p(x) = -4.11 
+
+number of samples: 21000, number of runs: 10, mean: -4.1032, stddev: 0.2188
+---
+run 0: log p(x) = -4.46 
+run 1: log p(x) = -3.63 
+run 2: log p(x) = -2.24 
+run 3: log p(x) = -4.64 
+run 4: log p(x) = -4.36 
+run 5: log p(x) = -4.49 
+run 6: log p(x) = -4.30 
+run 7: log p(x) = -4.52 
+run 8: log p(x) = -4.56 
+run 9: log p(x) = -4.45 
+
+number of samples: 25000, number of runs: 10, mean: -4.1648, stddev: 0.7319
+---
+run 0: log p(x) = -4.03 
+run 1: log p(x) = -4.46 
+run 2: log p(x) = -4.40 
+run 3: log p(x) = -4.27 
+run 4: log p(x) = -4.04 
+run 5: log p(x) = -3.44 
+run 6: log p(x) = -4.33 
+run 7: log p(x) = -4.60 
+run 8: log p(x) = -4.06 
+run 9: log p(x) = -4.68 
+
+number of samples: 30000, number of runs: 10, mean: -4.2300, stddev: 0.3597
+---
+run 0: log p(x) = -4.17 
+run 1: log p(x) = -4.46 
+run 2: log p(x) = -4.25 
+run 3: log p(x) = -4.30 
+run 4: log p(x) = -4.51 
+run 5: log p(x) = -4.12 
+run 6: log p(x) = -4.22 
+run 7: log p(x) = -4.31 
+run 8: log p(x) = -3.86 
+run 9: log p(x) = -3.66 
+
+number of samples: 35000, number of runs: 10, mean: -4.1877, stddev: 0.2588
+---
+run 0: log p(x) = -4.55 
+run 1: log p(x) = -4.04 
+run 2: log p(x) = -4.19 
+run 3: log p(x) = -3.64 
+run 4: log p(x) = -3.87 
+run 5: log p(x) = -4.43 
+run 6: log p(x) = -4.45 
+run 7: log p(x) = -3.70 
+run 8: log p(x) = -4.42 
+run 9: log p(x) = -4.27 
+
+number of samples: 40000, number of runs: 10, mean: -4.1546, stddev: 0.3289
+---
+run 0: log p(x) = -4.15 
+run 1: log p(x) = -4.23 
+run 2: log p(x) = -4.43 
+run 3: log p(x) = -3.98 
+run 4: log p(x) = -4.38 
+run 5: log p(x) = -4.23 
+run 6: log p(x) = -4.09 
+run 7: log p(x) = -3.63 
+run 8: log p(x) = -4.32 
+run 9: log p(x) = -4.09 
+
+number of samples: 50000, number of runs: 10, mean: -4.1530, stddev: 0.2311
+---
+run 0: log p(x) = -4.29 
+run 1: log p(x) = -4.42 
+run 2: log p(x) = -3.86 
+run 3: log p(x) = -4.25 
+run 4: log p(x) = -4.11 
+run 5: log p(x) = -4.09 
+run 6: log p(x) = -3.85 
+run 7: log p(x) = -4.07 
+run 8: log p(x) = -4.29 
+run 9: log p(x) = -3.21 
+
+number of samples: 52000, number of runs: 10, mean: -4.0454, stddev: 0.3466
+---
+run 0: log p(x) = -3.48 
+run 1: log p(x) = -4.38 
+run 2: log p(x) = -4.47 
+run 3: log p(x) = -4.30 
+run 4: log p(x) = -4.28 
+run 5: log p(x) = -4.00 
+run 6: log p(x) = -4.02 
+run 7: log p(x) = -4.09 
+run 8: log p(x) = -4.31 
+run 9: log p(x) = -4.40 
+
+number of samples: 55000, number of runs: 10, mean: -4.1723, stddev: 0.2913
+---
+run 0: log p(x) = -4.49 
+run 1: log p(x) = -4.13 
+run 2: log p(x) = -4.40 
+run 3: log p(x) = -4.24 
+run 4: log p(x) = -4.53 
+run 5: log p(x) = -4.27 
+run 6: log p(x) = -4.01 
+run 7: log p(x) = -3.74 
+run 8: log p(x) = -3.96 
+run 9: log p(x) = -4.11 
+
+number of samples: 60000, number of runs: 10, mean: -4.1856, stddev: 0.2484

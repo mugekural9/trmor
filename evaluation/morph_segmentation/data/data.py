@@ -11,9 +11,13 @@ def read_data(maxdsize, file, surface_vocab, mode):
     with open(file, 'r') as reader:
         for line in reader: 
             count += 1
+            #if count < 5:
+            #    continue
             if count > maxdsize:
                 break
             surf = line.strip().split('\t')[0]
+            #if len(surf) > 10:
+            #    continue
             surf_data.append([surface_vocab[char] for char in surf])
             
     print(mode,':')

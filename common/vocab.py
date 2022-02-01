@@ -52,6 +52,8 @@ class VocabEntry(object):
     def encode_sentence(self, sentence):
         encode_sentence = []
         for char in sentence:
+            if torch.is_tensor(char):
+                char = char.item()
             encode_sentence.append(self.word2id[char])
         return encode_sentence
 

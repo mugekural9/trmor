@@ -20,7 +20,7 @@ def sample(args, z):
     c_init = args.model.decoder.trans_linear(z)
     h_init = torch.tanh(c_init)
     decoder_hidden = (c_init, h_init)
-    sampled = []; i = 0; max_length = 30
+    sampled = []; i = 0; max_length = 50
     word = ''
     while i < max_length:
         i +=1
@@ -46,7 +46,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'vae_2'
+    model_id = 'vae_7'
     model_path, model_vocab  = get_model_info(model_id)
     # logging
     args.logdir = 'model/vae/results/generation/'+model_id+'/'

@@ -1,204 +1,124 @@
 # -----------------------------------------------------------
-# Date:        2021/12/20 
+# Date:        2022/02/01 
 # Author:      Muge Kural
-# Description: Word morpheme segmentation for trained charLM model
+# Description: Morpheme segmentation heuristics for trained charlm model
 # -----------------------------------------------------------
 
 from common.vocab import VocabEntry
 from model.charlm.charlm import CharLM
 from common.utils import *
 import sys, argparse, random, torch, json, matplotlib, os
+import numpy as np
 from data.data import build_data
-
-# CONFIG
-parser = argparse.ArgumentParser(description='')
-args = parser.parse_args()
-args.device = 'cuda'
-model_path  = 'model/charlm/results/582000_instances/35epochs.pt'
-model_vocab = 'model/charlm/results/582000_instances/surf_vocab.json'
-args.mname = 'charlm'
-args.type = 'prev_mid_next3'
-args.eps = 0.00
-# logging
-args.logdir = 'evaluation/morph_segmentation/results/'+args.mname+'/'
-args.logfile_meta = args.logdir + 'segments_meta_'+args.type+'_'+str(args.eps)+'.txt'
-args.logfile = args.logdir + 'segments_'+args.type+'_'+str(args.eps)+'.txt'
-
-try:
-    os.makedirs(args.logdir)
-    print("Directory " , args.logdir ,  " Created ") 
-except FileExistsError:
-    print("Directory " , args.logdir ,  " already exists")
+from collections import OrderedDict
 
 
-# initialize model
-# load vocab (to initialize the model with correct vocabsize)
-with open(model_vocab) as f:
-    word2id = json.load(f)
-    vocab = VocabEntry(word2id)
-model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-args.ni = 64; args.nh = 350; args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-model = CharLM(args, vocab, model_init, emb_init) 
+# heur1: detects morpheme boundary if: 
+#        (1) the current likelihood(ll) exceeds prev and next ll
+def heur_prev_mid_next(logps, eps):
+    morphemes = []
+    prev_word = ''
+    logps = [(k,v) for k,v in logps.items()]
+    for i in range(1,len(logps)-1):
+        if i==1:
+            prev_of_prev = 0
+        else:
+            prev_of_prev =logps[i-2][1]
+        prev = logps[i-1][1]
+        cur = logps[i]
+        nex = logps[i+1][1]
+        if (cur[1] > prev + eps and cur[1] > nex and len(cur[0])>2): 
+            morph = cur[0][-(len(cur[0])-len(prev_word)):]
+            morphemes.append(morph)
+            prev_word = cur[0]
+    # add full word
+    morph = logps[-1][0][-(len(logps[-1][0])-len(prev_word)):]
+    morphemes.append(morph)
+    return morphemes
 
-# load model weights
-model.load_state_dict(torch.load(model_path))
-model.to(args.device)
-model.eval()
+# returns log likelihood of given word and its subwords
+def get_logps(args, word, data, from_file=False):
+    if from_file:
+        with open(args.fprob, 'r') as json_file:
+            logps = json.load(json_file)
+            return logps[word]
+    else:    
+        with torch.no_grad():
+            logps = dict()
+            logps[word] = np.exp(args.model.log_probability(data, args.recon_type).item())
+            # loop through word's subwords 
+            for i in range(len(data[0])-2, 1, -1):
+                eos  = torch.tensor([2]).to(args.device)
+                subdata = torch.cat([data[0][:i], eos])
+                subword = ''.join(args.vocab.decode_sentence(subdata[1:-1]))
+                logps[subword] = np.exp(args.model.log_probability(subdata.unsqueeze(0),  args.recon_type).item())
+        logps = dict(reversed(list(logps.items())))
+        return logps
 
-# data
-args.tstdata = 'evaluation/morph_segmentation/data/goldstdsample.tur'
-args.maxtstsize = 1000
-data, batches = build_data(args, vocab)
 
-def init_hidden(model, bsz):
-    weight = next(model.parameters())
-    return (weight.new_zeros(1, bsz, model.nh),
-            weight.new_zeros(1, bsz, model.nh))
-
-
-def segment(model, x):
-    eos_id = vocab.word2id['</s>']
-    sft = nn.Softmax(dim=2)
-    decoder_hidden = init_hidden(model,1)
-    eos_probs = []
-    # (1, t)
-    src = model.charlm_input(x) 
-    word_embed = model.embed(src)
-    output, decoder_hidden = model.lstm(word_embed, decoder_hidden)
-    output_logits = model.pred_linear(output).squeeze(1)
-    probs = sft(output_logits)
-    probs_indices = torch.argsort(probs, descending=True)
-    #t
-    eos_ranks = (probs_indices == eos_id).nonzero(as_tuple=True)[2].tolist()
-    #t
-    eos_probs = probs[:,:,2].squeeze(0).tolist()
-    return  eos_ranks, eos_probs
-
-'''# segment word into morphemes
-word = 'okuyorum'
-data = [1]+ [vocab[char] for char in word] 
-data = torch.tensor(data).to('cuda').unsqueeze(0)
-eos_ranks, eos_probs = segment(model, data)
-for i in range(len(word)):
-    print(word[:i+1] + ' eos_rank:' + str(eos_ranks[i]) + ' eos_prob:'+ str(eos_probs[i]))'''
-
-def segment_with_eos_prob_average():
-    fmeta = open(args.logfile_meta, "w")
-    fseg = open(args.logfile, "w")
-    for batch in batches:
-        fmeta.write('\n----\n')
-        word = ''.join(vocab.decode_sentence(batch[0][1:-1]))
-        eos_ranks, eos_probs = segment(model,batch)
-        avg_prob = sum(eos_probs) / len(eos_probs)
-        fmeta.write('avg_prob: %.4f \n' % avg_prob)
-        eos_probs_dict = dict()
-        for i in range(len(word)):
-            subword = word[:i+1]
-            eos_probs_dict[subword] = eos_probs[i+1]
-
-        morphemes = []
-        prev_word = ''
-        for k,v in eos_probs_dict.items():
-            if v > avg_prob or (k==word):
-                morph = k[-(len(k)-len(prev_word)):]
-                morphemes.append(morph)
-                prev_word = k
-                fmeta.write('%s %.4f morph: %s \n' % (k,v, morph))     
-        fseg.write(str(' '.join(morphemes)+'\n'))     
-
-        for i in range(len(word)):
-            #print(word[:i+1] + ' eos_rank:' + str(eos_ranks[i]) + ' eos_prob:'+ str(eos_probs[i]))
-            fmeta.write('%s, eos_rank: %d, eos_prob: %.4f \n' % (word[:i+1], eos_ranks[i+1], eos_probs[i+1]))
-    fmeta.close()
-    fseg.close()
-
-def segment_with_eos_prob_increase(eps):
-    fmeta = open(args.logfile_meta, "w")
-    fseg = open(args.logfile, "w")
-    for batch in batches:
-        fmeta.write('\n----\n')
-        word = ''.join(vocab.decode_sentence(batch[0][1:-1]))
-        eos_ranks, eos_probs = segment(model,batch)
-        
-        increases = []
-        subword_increases = dict()
-        prev_prob = 0 
-        for i in range(len(word)):
-            subword = word[:i+1]
-            current_prob = eos_probs[i+1]
-            increase = current_prob - prev_prob
-            increases.append(increase)
-            subword_increases[subword] = increase
-            prev_prob = current_prob
-            fmeta.write('%s, prob: %.4f, eos_rank: %d, increase: %.4f \n' % (word[:i+1],  current_prob, eos_ranks[i+1], increase))
-        
-        
-        increases = increases[:-1] # exclude last
-        avg_increase = sum(increases)/len(increases)
-        fmeta.write('avg_increase: %.4f \n' % avg_increase)
-        morphemes = []
-        prev_word = ''
-        for k,v in subword_increases.items():
-            if v > avg_increase + eps or (k==word):
-                morph = k[-(len(k)-len(prev_word)):]
-                morphemes.append(morph)
-                prev_word = k
-                fmeta.write('%s %.4f morph: %s \n' % (k,v, morph))     
-        fseg.write(str(' '.join(morphemes)+'\n'))     
-
-        #for i in range(len(word)):
-        #    #print(word[:i+1] + ' eos_rank:' + str(eos_ranks[i]) + ' eos_prob:'+ str(eos_probs[i]))
-        #    fmeta.write('%s, eos_rank: %d, eos_prob: %.4f \n' % (word[:i+1], eos_ranks[i], eos_probs[i]))
-    fmeta.close()
-    fseg.close()
-
-def segment_with_eos_prev_mid_next(eps):
-    fmeta = open(args.logfile_meta, "w")
-    fseg = open(args.logfile, "w")
-    for batch in batches:
-        fmeta.write('\n----\n')
-        word = ''.join(vocab.decode_sentence(batch[0][1:-1]))
-        eos_ranks, eos_probs = segment(model,batch)
+def config():
+     # CONFIG
+    parser = argparse.ArgumentParser(description='')
+    args = parser.parse_args()
+    args.device = 'cuda'
+    model_id = 'charlm_1'
+    model_path, model_vocab  = get_model_info(model_id)
+    # heuristic
+    args.heur_type = 'prev_mid_next'; args.eps = 0.0
+    # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
+    args.recon_type = 'eos' 
+    # logging
+    args.logdir = 'evaluation/morph_segmentation/results/charlm/'+model_id+'/'+args.recon_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
+    args.fseg   = args.logdir +'segments.txt'
+    args.fprob  = args.logdir +'probs.json'
+    args.load_probs_from_file = False; args.save_probs_to_file = not args.load_probs_from_file
+    try:
+        os.makedirs(args.logdir)
+        print("Directory " , args.logdir ,  " Created ") 
+    except FileExistsError:
+        print("Directory " , args.logdir ,  " already exists")
+    # initialize model
+    # load vocab (to initialize the model with correct vocabsize)
+    with open(model_vocab) as f:
+        word2id = json.load(f)
+        args.vocab = VocabEntry(word2id)
     
-        probs = []
-        subword_probs = dict()
-        subword_eos_ranks = dict()
-        prev_prob = 0 
+    model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
+    args.ni = 64; args.nh = 350; 
+    args.enc_nh = 1024; args.dec_nh = 1024
+    args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
+    args.model = CharLM(args, args.vocab, model_init, emb_init) 
 
-        for i in range(len(word)):
-            subword = word[:i+1]
-            current_prob = eos_probs[i+1]
-            probs.append(current_prob)
-            subword_probs[word[:i+1]] = current_prob
-            subword_eos_ranks[word[:i+1]] = eos_ranks[i+1]
-            fmeta.write('%s, eos_prob: %.4f, eos_rank: %.d   \n' % (word[:i+1],  eos_probs[i+1], eos_ranks[i+1]))
+    # load model weights
+    args.model.load_state_dict(torch.load(model_path))
+    args.model.to(args.device)
+    args.model.eval()
+    # data
+    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
+    args.maxtstsize = 3000
+    args.batch_size = 1
+    return args
 
-        avg_prob = sum(probs)/len(probs)
-        fmeta.write('avg_prob: %.4f \n' % avg_prob)
-       
-        # segment to morphemes
-        morphemes = []
-        prev_word = ''
-        subword_probs_list = [(k,v) for k,v in subword_probs.items()]
-        for i in range(1,len(subword_probs_list)-1):
-            prev = subword_probs_list[i-1][1]
-            cur = subword_probs_list[i]
-            nex = subword_probs_list[i+1][1]
-            if (cur[1] > prev and cur[1] > nex): #or (cur[1] > prev  and (cur[1]-prev > nex - cur[1] + eps) and (subword_eos_ranks[cur[0]] < 10)):
-                morph = cur[0][-(len(cur[0])-len(prev_word)):]
-                morphemes.append(morph)
-                prev_word = cur[0]
-                fmeta.write('%s %.4f morph: %s \n' % (cur[0],cur[1], morph))     
-        
-        # add full word:
-        morph = subword_probs_list[-1][0][-(len(subword_probs_list[-1][0])-len(prev_word)):]
-        morphemes.append(morph)
-        fmeta.write('%s %.4f morph: %s \n' % (subword_probs_list[-1][0],subword_probs_list[-1][1], morph)) 
+def main():
+    args = config()
+    data, batches = build_data(args)
+    word_probs = dict()
+    fseg = open(args.fseg, 'w')
+    # loop through each word 
+    for data in batches:
+        word = ''.join(args.vocab.decode_sentence(data[0][1:-1]))
+        print(word)
+        logps = get_logps(args, word, data, from_file=args.load_probs_from_file)
+        word_probs[word] = logps
+        # call segmentation heuristic 
+        if args.heur_type == 'prev_mid_next':
+            morphemes = heur_prev_mid_next(logps, args.eps)
         # write morphemes to file
-        fseg.write(str(' '.join(morphemes)+'\n')) 
+        fseg.write(str(' '.join(morphemes)+'\n'))     
+    if args.save_probs_to_file:
+        with open(args.fprob, 'w') as json_file:
+            json_object = json.dumps(word_probs, indent = 4)
+            json_file.write(json_object)
 
-    fmeta.close()
-    fseg.close()
-
-segment_with_eos_prev_mid_next(args.eps)
-#segment_with_eos_prob_average()
+if __name__=="__main__":
+    main()

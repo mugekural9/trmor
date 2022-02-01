@@ -20,7 +20,7 @@ def test(batches, mode, args):
     for i, idx in enumerate(indices):
         # (batchsize, t)
         surf = batches[idx] 
-        loss, acc = args.model.ae_loss(surf)
+        loss, acc = args.model.loss(surf)
         epoch_num_tokens += surf.size(0) * (surf.size(1)-1)
         epoch_loss       += loss.item()
         epoch_acc        += acc
@@ -51,10 +51,9 @@ def train(data, args):
             # (batchsize, t)
             surf = trnbatches[idx] 
             # (batchsize)
-            loss, acc = args.model.ae_loss(surf)
+            loss, acc = args.model.loss(surf)
             loss.backward()
             #torch.nn.utils.clip_grad_norm_(args.model.parameters(), 5.0)
-
             opt.step()
             epoch_num_tokens += surf.size(0) * (surf.size(1)-1)
             epoch_loss       += loss.item()
@@ -82,17 +81,17 @@ args = parser.parse_args()
 args.device = 'cuda'
 
 # training
-args.batchsize = 128; args.epochs = 55
+args.batchsize = 128; args.epochs = 3
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'ae'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata = 'model/ae/data/surf.uniquesurfs.trn.txt'
-args.valdata = 'model/ae/data/surf.uniquesurfs.val.txt'
+args.trndata = 'model/ae/data/wordlist.tur.trn' # 'model/vae/data/surf.uniquesurfs.trn.txt' 
+args.valdata = 'model/ae/data/wordlist.tur.val' # 'model/vae/data/surf.uniquesurfs.val.txt'
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 57769; args.maxvalsize = 10000; args.maxtstsize = 10000
+args.maxtrnsize = 582000; args.maxvalsize = 10000; args.maxtstsize = 10000
 rawdata, batches, vocab = build_data(args)
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
@@ -109,7 +108,7 @@ args.model = AE(args, vocab, model_init, emb_init)
 args.model.to(args.device)
 
 # logging
-args.modelname = 'model/'+args.mname+'/results/'+str(len(trndata))+'_instances/'
+args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

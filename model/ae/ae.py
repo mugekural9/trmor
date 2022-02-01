@@ -121,24 +121,50 @@ class AE(nn.Module):
         self.encoder = AE_Encoder(args, vocab, model_init, emb_init)
         self.decoder = AE_Decoder(args, vocab, model_init, emb_init)
 
-    def ae_loss(self, x):
+    def loss(self, x):
+        # z: (batchsize, 1, nz)
+        z, _ = self.encoder(x)
+        recon_loss, recon_acc = self.recon_loss(x, z, recon_type='sum')
+        # avg over batches
+        recon_loss = recon_loss.mean()
+        return recon_loss,  recon_acc
+
+    def recon_loss(self, x, z, recon_type='avg'):
         #remove end symbol
         src = x[:, :-1]
         # remove start symbol
         tgt = x[:, 1:]        
         batch_size, seq_len = src.size()
-        # z: (batchsize, 1, nz)
-        z, _ = self.encoder(x)
-        # (batch_size, seq_len, vocab_size)
+        n_sample = z.size(1)
+
+        # (batch_size * n_sample, seq_len, vocab_size)
         output_logits = self.decoder(src, z)
-        # (batch_size * seq_len, vocab_size)
+        # (batch_size * nsample * seq_len, vocab_size)
         _output_logits = output_logits.view(-1, output_logits.size(2))
         _tgt = tgt.contiguous().view(-1)
-        # (batch_size * seq_len)
-        loss = self.decoder.loss(_output_logits,  _tgt)
-        acc  = self.accuracy(output_logits, tgt)
-        # loss: avg over tokens
-        return loss.mean(), acc
+     
+        # (batch_size * nsample * seq_len)
+        recon_loss = self.decoder.loss(_output_logits,  _tgt)
+        # (batch_size, nsample, seq_len)
+        recon_loss = recon_loss.view(batch_size, n_sample, -1)
+
+        # (batch_size, nsample)
+        if recon_type=='avg':
+            # avg over tokens
+            recon_loss = recon_loss.mean(-1)
+        elif recon_type=='sum':
+            # sum over tokens
+            recon_loss = recon_loss.sum(-1)
+        elif recon_type == 'eos':
+            # only eos token
+            recon_loss = recon_loss[:,:,-1]
+
+        # avg over batches and samples
+        recon_acc  = self.accuracy(output_logits, tgt)
+        return recon_loss, recon_acc
+
+    def log_probability(self, x, z, recon_type='avg'):
+        return -self.recon_loss(x, z, recon_type)[0]
 
     def accuracy(self, output_logits, tgt):
         # calculate correct number of predictions 

@@ -17,7 +17,7 @@ def read_data(maxdsize, file, surface_vocab, mode):
                     break
                 surf = line.strip().split('\t')[0]
                 surf_data.append([surface_vocab[char] for char in surf])
-    elif 'wordlist.tur' in file:
+    elif 'wordlist' in file:
         with open(file, 'r') as reader:
             for line in reader:     
                 count += 1
@@ -79,7 +79,7 @@ class MonoTextData(object):
             vocab['</s>'] = 2
             vocab['<unk>'] = 3
 
-        if 'surf.uniquesurfs.trn.txt' in fname:
+        if 'surf.uniquesurfs' in fname:
             with open(fname) as fin:
                 for line in fin:
                     split_line = line.split('\t') #line.split()
@@ -92,7 +92,7 @@ class MonoTextData(object):
                             dropped += 1
                             continue
                     data.append([vocab[char] for char in split_line[0]])
-        elif 'wordlist.tur' in fname:
+        elif 'wordlist' in fname:
             with open(fname) as fin:
                 for line in fin:
                     if label:

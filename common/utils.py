@@ -80,15 +80,34 @@ def find_li_vectors(dim, R):
     return R_independent
 
 def get_model_info(id):
+    # ae
+    if id == 'ae_1':
+        model_path  = 'model/ae/results/training/50000_instances/15epochs.pt'
+        model_vocab = 'model/ae/results/training/50000_instances/surf_vocab.json'
+    elif id == 'ae_2':
+        model_path  = 'model/ae/results/training/582000_instances/5epochs.pt'
+        model_vocab = 'model/ae/results/training/582000_instances/surf_vocab.json'
+    # vae
     if id == 'vae_1':
         model_path  = 'model/vae/results/training/582000_instances/10epochs.pt'
         model_vocab = 'model/vae/results/training/582000_instances/surf_vocab.json'
     elif id == 'vae_2': 
         model_path = 'trmor_agg1_kls0.10_warm10_2612_0.pt'
         model_vocab = 'model/vae/results/training/582000_instances/surf_vocab.json'
-    elif id == 'vae_3':
-        model_path  = 'model/vae/results/training/50000_instances/15epochs.pt'
+    elif id == 'vae_5': 
+        model_path  = 'model/vae/results/training/617298_instances/10epochs.pt'
+        model_vocab = 'model/vae/results/training/617298_instances/surf_vocab.json'
+    elif id == 'vae_6': 
+        model_path  = 'model/vae/results/training/617298_instances/12epochs.pt'
+        model_vocab = 'model/vae/results/training/617298_instances/surf_vocab.json'
+    elif id == 'vae_7': 
+        model_path  = 'model/vae/results/training/50000_instances/10epochs.pt'
         model_vocab = 'model/vae/results/training/50000_instances/surf_vocab.json'
+    #charlm
+    elif id == 'charlm_1': 
+        model_path  = 'model/charlm/results/582000_instances/35epochs.pt'
+        model_vocab = 'model/charlm/results/582000_instances/surf_vocab.json'
+
     return model_path, model_vocab
 
 def log_sum_exp(value, dim=None, keepdim=False):
