@@ -1,2 +1,2 @@
-**Task**: Polarity probing.  
-**Definition**: "Given a word representation, classify its polarity tag via probe"  
+**Task**: Tense probing.  
+**Definition**: "Given a word representation, classify its tense tag via probe"  
