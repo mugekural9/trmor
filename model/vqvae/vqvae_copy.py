@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# Date:        2021/02/15
+# Date:        2022/02/15
 # Author:      Muge Kural
 # Description: Word copier for trained VQVAE model
 # -----------------------------------------------------------
@@ -60,12 +60,11 @@ def config():
         word2id = json.load(f)
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 512; 
-    args.enc_nh = 1024; args.dec_nh = 1024
+    args.ni = 64; 
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-    args.dec_dropout_in = 0.3; args.dec_dropout_out = 0.5
-    args.embedding_dim = args.enc_nh
-    args.nz = args.embedding_dim 
+    args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
+    args.enc_nh = 64;
+    args.dec_nh = args.enc_nh; args.embedding_dim = args.enc_nh; args.nz =  args.enc_nh 
     args.num_embeddings = 10
     args.beta = 0.25
     args.model = VQVAE(args, args.vocab, model_init, emb_init)
@@ -91,7 +90,6 @@ def main():
             else:
                 different_words[copied_word] += 1
             f.write(copied_word + "\n")
-    breakpoint()
     '''# copy word
     word = "CIkIlmayacaktI"
     for i in range(len(word)):

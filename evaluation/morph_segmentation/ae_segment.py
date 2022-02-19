@@ -70,18 +70,18 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'ae_2'
+    model_id = 'ae_3'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
     args.heur_type = 'prev_mid_next'; args.eps = 0.0
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
-    args.recon_type = 'sum' 
+    args.recon_type = 'avg' 
     # (a) word_given: sample z from full word, (b) subword_given: sample z from subword
     args.sample_type = 'word_given'
     # logging
     args.logdir = 'evaluation/morph_segmentation/results/ae/'+model_id+'/'+args.recon_type+'/'+args.sample_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
-    args.fseg   = args.logdir +'segments.txt'
-    args.fprob  = args.logdir +'probs.json'
+    args.fseg   = args.logdir +'40ksegments.txt'
+    args.fprob  = args.logdir +'40kprobs.json'
     args.load_probs_from_file = False; args.save_probs_to_file = not args.load_probs_from_file
     try:
         os.makedirs(args.logdir)
@@ -94,7 +94,7 @@ def config():
         word2id = json.load(f)
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 512; args.nz = 32; 
+    args.ni = 1024; args.nz = 32; 
     args.enc_nh = 1024; args.dec_nh = 1024
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
@@ -104,8 +104,8 @@ def config():
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
-    args.maxtstsize = 3000
+    args.tstdata = 'evaluation/morph_segmentation/data/top40k_wordlist.tur'
+    args.maxtstsize = 40000
     args.batch_size = 1
     return args
 

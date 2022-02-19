@@ -13,33 +13,23 @@ from data.data import build_data
 from collections import OrderedDict
 
 # heur2: detects morpheme boundary if: 
-#        
-def heur_2(logps, eps):
+#        (1) the current likelihood(ll) exceeds prev and next ll OR current ll increase excesses prev inc
+def heur_prev_mid_next_and_prevnext_exceed(logps, eps):
     morphemes = []
     prev_word = ''
     logps = [(k,v) for k,v in logps.items()]
-    '''incs = []
-    for i in range(1,len(logps)):
-        prev = logps[i-1][1]
-        cur = logps[i]
-        inc = cur[1] - prev
-        incs.append(inc)
-    avg_inc = sum(incs) / len(incs)'''
     for i in range(1,len(logps)-1):
         prev = logps[i-1][1]
         cur = logps[i]
         nex = logps[i+1][1]
-        if len(cur[0]) >2 and ((cur[1] > prev and cur[1] > nex) or (cur[1] > prev and (cur[1] - prev > nex - cur[1]))): 
+        if (i>0 and (cur[1] > (prev + nex)/2)  and len(cur[0])>2) or (cur[1] > prev + eps and cur[1] > nex and len(cur[0])>2): 
             morph = cur[0][-(len(cur[0])-len(prev_word)):]
-            if len(morph) == 1:
-                continue
             morphemes.append(morph)
             prev_word = cur[0]
     # add full word
     morph = logps[-1][0][-(len(logps[-1][0])-len(prev_word)):]
     morphemes.append(morph)
     return morphemes
-
 
 
 # heur1: detects morpheme boundary if: 
@@ -99,42 +89,8 @@ def get_logps(args, word, data, from_file=False):
         logps = dict(reversed(list(logps.items())))
         return logps
 
-# returns log likelihood of given word and its subwords
-def get_eos_logps(args, word, data, from_file=False):
-    if from_file:
-        with open(args.fprob, 'r') as json_file:
-            logps = json.load(json_file)
-            return logps[word]
-    else:    
-        with torch.no_grad():
-            logps = dict()
-            mu, logvar, _ = args.model.encoder(data)
-            param = (mu,logvar,_)
-            z = args.model.reparameterize(mu, logvar, args.nsamples)
-            logpx = args.model.nll_iw(data, args.nsamples, z, param, args.recon_type)
-            logpx = torch.mean(logpx).item()
-            logps[word] = logpx
-            # loop through word's subwords 
-            for i in range(len(data[0])-2, 1, -1):
-                eos  = torch.tensor([2]).to(args.device)
-                subdata = torch.cat([data[0][:i], eos])
-                subword = ''.join(args.vocab.decode_sentence(subdata[1:-1]))
-                if args.sample_type == 'subword_given':# sample z from subword 
-                    mu, logvar, _ = args.model.encoder(subdata.unsqueeze(0))
-                    param = (mu,logvar,_)
-                    z = args.model.reparameterize(mu, logvar, args.nsamples)
-                    logpx = args.model.nll_iw(subdata.unsqueeze(0), args.nsamples, z, param, args.recon_type)
-                    logpx = torch.mean(logpx).item()
-                else:
-                    # sample z from full word (i.e. word_given)
-                    logpx = args.model.nll_iw(subdata.unsqueeze(0), args.nsamples, z, param, args.recon_type)
-                    logpx = torch.mean(logpx).item()
-                logps[subword] = logpx #"{:.3f}".format(logpx)
-        logps = dict(reversed(list(logps.items())))
-        return logps
 
-
-# returns log likelihood of given word and its subwords
+# returns log likelihood of given word subwords and all
 def get_logps_matrix(args, word, data, from_file=False):
     if from_file:
         with open(args.fprob, 'r') as json_file:
@@ -164,10 +120,10 @@ def get_logps_matrix(args, word, data, from_file=False):
                     logpx = args.model.nll_iw(subsubdata.unsqueeze(0), args.nsamples, z, param, args.recon_type)
                     logpx = torch.mean(logpx).item()
                     logps[subsubword] = logpx
-                logps = dict(reversed(list(logps.items())))
+                logps =  dict(sorted(logps.items())) #dict(reversed(list(logps.items())))
                 matrix[subword] = logps
-            breakpoint()
         return matrix
+
 
 def config():
      # CONFIG
@@ -177,16 +133,16 @@ def config():
     model_id = 'vae_7'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
-    args.heur_type = 'prev_mid_next'; args.eps = 0.0
+    args.heur_type = 'prev_mid_next_and_prevnext_exceed'; args.eps = 0.0
     args.nsamples = 15000
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
-    args.recon_type = 'eos' 
+    args.recon_type = 'avg' 
     # (a) word_given: sample z from full word, (b) subword_given: sample z from subword
-    args.sample_type = 'subword_given'
+    args.sample_type = 'word_given'
     # logging
     args.logdir = 'evaluation/morph_segmentation/results/vae/'+model_id+'/'+args.recon_type+'/nsamples'+str(args.nsamples)+'/'+args.sample_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
-    args.fseg   = args.logdir +'deneme_segments.txt'
-    args.fprob  = args.logdir +'deneme_probs.json'
+    args.fseg   = args.logdir +'segments.txt'
+    args.fprob  = args.logdir +'probs.json'
     args.load_probs_from_file = True; args.save_probs_to_file = not args.load_probs_from_file
     try:
         os.makedirs(args.logdir)
@@ -210,9 +166,8 @@ def config():
     args.model.eval()
     # data
     #args.tstdata = 'evaluation/morph_segmentation/data/goldstdsample.tur'
-    #args.tstdata = 'evaluation/morph_segmentation/data/2010combined.segments.tur'
     args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
-    args.maxtstsize = 3000
+    args.maxtstsize = 100000
     args.batch_size = 1
     return args
 
@@ -228,8 +183,8 @@ def main():
         logps = get_logps(args, word, data, from_file=args.load_probs_from_file)
         word_probs[word] = logps
         # call segmentation heuristic 
-        if args.heur_type == 'heur_2':
-            morphemes = heur_2(logps, args.eps)
+        if args.heur_type == 'prev_mid_next_and_prevnext_exceed':
+            morphemes = heur_prev_mid_next_and_prevnext_exceed(logps, args.eps)
         elif args.heur_type == 'prev_mid_next':
             morphemes = heur_prev_mid_next(logps, args.eps)
         # write morphemes to file
@@ -238,6 +193,6 @@ def main():
         with open(args.fprob, 'w') as json_file:
             json_object = json.dumps(word_probs, indent = 4)
             json_file.write(json_object)
-
+            
 if __name__=="__main__":
     main()

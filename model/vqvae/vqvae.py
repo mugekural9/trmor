@@ -62,42 +62,43 @@ class VectorQuantizer(nn.Module):
         self.embedding.weight.data.uniform_(-1 / self.K, 1 / self.K)
 
     def forward(self, latents: Tensor) -> Tensor:
-        # latents: (B x T x D)
+        # latents: (batch_size x 1 x enc_nh)
         latents = latents.contiguous()  
         latents_shape = latents.shape
-        flat_latents = latents.view(-1, self.D)  # [BT x D]
+        batch_size, t, emb_dim = latents.shape
+        flat_latents = latents.view(batch_size * t, self.D)  # [batch_size * t, D]
 
-        # (BT x K)
+        # (batch_size * t, K)
         # Compute L2 distance between latents and embedding weights
         dist = torch.sum(flat_latents ** 2, dim=1, keepdim=True) + \
                torch.sum(self.embedding.weight ** 2, dim=1) - \
                2 * torch.matmul(flat_latents, self.embedding.weight.t())  
 
-        # (BT x 1)
+        # (batch_size * t, 1)
         # Get the encoding that has the min distance
         encoding_inds = torch.argmin(dist, dim=1).unsqueeze(1)  
-        #print(encoding_inds.t())
+        print(encoding_inds.t())
         # Convert to one-hot encodings
-        device = latents.device
-        encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=device)
-        # (BT x K)
+        encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=latents.device)
+        # (batch_size * t, K)
         encoding_one_hot.scatter_(1, encoding_inds, 1) 
 
         # Quantize the latents
-        # (BT, D)
+        # (batch_size * t, D)
         quantized_latents = torch.matmul(encoding_one_hot, self.embedding.weight)  
-        # (B x 1 x D)
+        # (batch_size, t, D)
         quantized_latents = quantized_latents.view(latents_shape)  
 
-        # Compute the VQ Losses
+        # Compute the VQ Losses (avg over all b*t*d)
         commitment_loss = F.mse_loss(quantized_latents.detach(), latents)
         embedding_loss = F.mse_loss(quantized_latents, latents.detach())
+        vq_loss = embedding_loss + (self.beta * commitment_loss)
 
-        vq_loss = commitment_loss * self.beta + embedding_loss
         # Add the residue back to the latents
         quantized_latents = latents + (quantized_latents - latents).detach()
-
-        return quantized_latents.contiguous(), vq_loss  # [B x D x 1]
+        
+        # quantized_latents: (batch_size, t, D), vq_loss: scalar
+        return quantized_latents.contiguous(), vq_loss  
 
 
 class VQVAE_Decoder(nn.Module):
@@ -137,25 +138,25 @@ class VQVAE_Decoder(nn.Module):
         emb_init(self.embed.weight)
 
     def forward(self, input, z):
-        batch_size, n_sample, _ = z.size()
+        batch_size, _, _ = z.size()
         seq_len = input.size(1)
         # (batch_size, seq_len, ni)
         word_embed = self.embed(input)
         word_embed = self.dropout_in(word_embed)
 
         z_ = z.expand(batch_size, seq_len, self.nz)
-     
-        # (batch_size * n_sample, seq_len, ni + nz)
+        # (batch_size, seq_len, ni + nz)
         word_embed = torch.cat((word_embed, z_), -1)
-        # (batch_size * n_sample, nz)
-        z = z.view(batch_size * n_sample, self.nz)
+        
+        # (1, batch_size, nz)
+        z = z.permute((1,0,2))
 
         # (1, batch_size, dec_nh)
-        c_init = z.unsqueeze(0) #self.trans_linear(z).unsqueeze(0)
+        c_init = z #self.trans_linear(z).unsqueeze(0)
         h_init = torch.tanh(c_init)
         output, _ = self.lstm(word_embed, (h_init, c_init))
         output = self.dropout_out(output)
-        # (batch_size * n_sample, seq_len, vocab_size)
+        # (batch_size, seq_len, vocab_size)
         output_logits = self.pred_linear(output)
         return output_logits
 
@@ -242,4 +243,4 @@ class VQVAE(nn.Module):
         # (batchsize, T)
         pred_tokens = torch.argmax(sft(output_logits),2)
         acc = (pred_tokens == tgt).sum().item()
-        return acc
+        return (acc, pred_tokens)

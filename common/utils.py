@@ -47,7 +47,6 @@ from numpy import dot, zeros
 from numpy.linalg import matrix_rank, norm
 
 def find_li_vectors(dim, R):
-    breakpoint()
     r = matrix_rank(R) 
     index = zeros( r ) #this will save the positions of the li columns in the matrix
     counter = 0
@@ -87,6 +86,9 @@ def get_model_info(id):
     elif id == 'ae_2':
         model_path  = 'model/ae/results/training/582000_instances/5epochs.pt'
         model_vocab = 'model/ae/results/training/582000_instances/surf_vocab.json'
+    elif id == 'ae_3':
+        model_path  = 'model/ae/results/training/617298_instances/5epochs.pt'
+        model_vocab = 'model/ae/results/training/617298_instances/surf_vocab.json'
     # vae
     if id == 'vae_1':
         model_path  = 'model/vae/results/training/582000_instances/10epochs.pt'
@@ -103,11 +105,29 @@ def get_model_info(id):
     elif id == 'vae_7': 
         model_path  = 'model/vae/results/training/50000_instances/10epochs.pt'
         model_vocab = 'model/vae/results/training/50000_instances/surf_vocab.json'
+    elif id == 'vae_8': 
+        model_path  = 'model/vae/results/training/20000_instances/30epochs.pt'
+        model_vocab = 'model/vae/results/training/20000_instances/surf_vocab.json'
+    elif id == 'vae_9': 
+        model_path  = 'model/vae/results/training/20000_instances/20epochs.pt'
+        model_vocab = 'model/vae/results/training/20000_instances/surf_vocab.json'
+    elif id == 'vae_10': 
+        model_path  = 'model/vae/results/training/50000_instances/15epochs.pt'
+        model_vocab = 'model/ae/results/training/50000_instances/surf_vocab.json'
     #charlm
     elif id == 'charlm_1': 
-        model_path  = 'model/charlm/results/582000_instances/35epochs.pt'
-        model_vocab = 'model/charlm/results/582000_instances/surf_vocab.json'
-
+        model_path  = 'model/charlm/results/training/582000_instances/35epochs.pt'
+        model_vocab = 'model/charlm/results/training/582000_instances/surf_vocab.json'
+    elif id == 'charlm_2': 
+        model_path  = 'model/charlm/results/training/617298_instances/35epochs.pt'
+        model_vocab = 'model/charlm/results/training/617298_instances/surf_vocab.json'
+    elif id == 'charlm_3': 
+        model_path  = 'model/charlm/results/training/617298_instances/30epochs.pt'
+        model_vocab = 'model/charlm/results/training/617298_instances/surf_vocab.json'
+    #vqvae
+    elif id == 'vqvae_1': 
+        model_path  = 'model/vqvae/results/training/50000_instances/100epochs.pt'
+        model_vocab = 'model/vqvae/results/training/50000_instances/surf_vocab.json'
     return model_path, model_vocab
 
 def log_sum_exp(value, dim=None, keepdim=False):

@@ -21,7 +21,7 @@ def test(batches, mode, args):
     for i, idx in enumerate(indices):
         # (batchsize, t)
         surf = batches[idx] 
-        loss, recon_loss, vq_loss, recon_acc = args.model.loss(surf)
+        loss, recon_loss, vq_loss, (recon_acc, pred_tokens)  = args.model.loss(surf)
         epoch_num_tokens += surf.size(0) * (surf.size(1)-1)  # exclude start token prediction
         epoch_loss       += loss.item()
         epoch_recon_loss += recon_loss.item()
@@ -58,7 +58,9 @@ def train(data, args):
             # (batchsize, t)
             surf = trnbatches[idx] 
             # (batchsize)
-            loss, recon_loss, vq_loss, acc = args.model.loss(surf)
+            loss, recon_loss, vq_loss, (acc,pred_tokens) = args.model.loss(surf)
+            #for i in range(surf.shape[0]):
+            #    print(''.join(vocab.decode_sentence(surf[i])),'----->', ''.join(vocab.decode_sentence(pred_tokens[i])))
             loss.backward()
             opt.step()
             epoch_num_tokens += surf.size(0) * (surf.size(1)-1) # exclude start token prediction
@@ -84,7 +86,7 @@ def train(data, args):
         if loss < best_loss:
             args.logger.write('update best loss \n')
             best_loss = loss
-        torch.save(args.model.state_dict(), args.save_path)
+            torch.save(args.model.state_dict(), args.save_path)
         args.model.train()
     plot_curves(args.task, args.mname, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
     plot_curves(args.task, args.mname, args.fig, args.axs[1], trn_vq_values, val_vq_values, args.plt_style, 'vq_loss')
@@ -113,12 +115,11 @@ args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trnd
 args.mname = 'vqvae' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.ni = 512; 
-args.enc_nh = 1024; args.dec_nh = 1024
+args.ni = 64; 
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.3; args.dec_dropout_out = 0.5
-args.embedding_dim = args.enc_nh
-args.nz = args.embedding_dim 
+args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
+args.enc_nh = 64;
+args.dec_nh = args.enc_nh; args.embedding_dim = args.enc_nh; args.nz =  args.enc_nh 
 args.num_embeddings = 10
 args.beta = 0.25
 

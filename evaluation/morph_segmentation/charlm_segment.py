@@ -13,6 +13,25 @@ from data.data import build_data
 from collections import OrderedDict
 
 
+# heur2: detects morpheme boundary if: 
+#        (1) the current likelihood(ll) exceeds prev and next ll OR current ll increase excesses prev inc
+def heur_prev_mid_next_and_prevnext_exceed(logps, eps):
+    morphemes = []
+    prev_word = ''
+    logps = [(k,v) for k,v in logps.items()]
+    for i in range(1,len(logps)-1):
+        prev = logps[i-1][1]
+        cur = logps[i]
+        nex = logps[i+1][1]
+        if (i>0 and (cur[1] > (prev + nex)/2)  and len(cur[0])>2) or (cur[1] > prev + eps and cur[1] > nex and len(cur[0])>2): 
+            morph = cur[0][-(len(cur[0])-len(prev_word)):]
+            morphemes.append(morph)
+            prev_word = cur[0]
+    # add full word
+    morph = logps[-1][0][-(len(logps[-1][0])-len(prev_word)):]
+    morphemes.append(morph)
+    return morphemes
+
 # heur1: detects morpheme boundary if: 
 #        (1) the current likelihood(ll) exceeds prev and next ll
 def heur_prev_mid_next(logps, eps):
@@ -61,16 +80,16 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'charlm_1'
+    model_id = 'charlm_3'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
     args.heur_type = 'prev_mid_next'; args.eps = 0.0
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
-    args.recon_type = 'eos' 
+    args.recon_type = 'avg' 
     # logging
     args.logdir = 'evaluation/morph_segmentation/results/charlm/'+model_id+'/'+args.recon_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
-    args.fseg   = args.logdir +'segments.txt'
-    args.fprob  = args.logdir +'probs.json'
+    args.fseg   = args.logdir +'40ksegments.txt'
+    args.fprob  = args.logdir +'40kprobs.json'
     args.load_probs_from_file = False; args.save_probs_to_file = not args.load_probs_from_file
     try:
         os.makedirs(args.logdir)
@@ -84,8 +103,7 @@ def config():
         args.vocab = VocabEntry(word2id)
     
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 64; args.nh = 350; 
-    args.enc_nh = 1024; args.dec_nh = 1024
+    args.ni = 512; args.nh = 1024; 
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.model = CharLM(args, args.vocab, model_init, emb_init) 
 
@@ -94,8 +112,8 @@ def config():
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
-    args.maxtstsize = 3000
+    args.tstdata = 'evaluation/morph_segmentation/data/top40k_wordlist.tur'
+    args.maxtstsize = 40000
     args.batch_size = 1
     return args
 
@@ -113,6 +131,8 @@ def main():
         # call segmentation heuristic 
         if args.heur_type == 'prev_mid_next':
             morphemes = heur_prev_mid_next(logps, args.eps)
+        elif args.heur_type == 'prev_mid_next_and_prevnext_exceed':
+            morphemes = heur_prev_mid_next_and_prevnext_exceed(logps, args.eps)
         # write morphemes to file
         fseg.write(str(' '.join(morphemes)+'\n'))     
     if args.save_probs_to_file:

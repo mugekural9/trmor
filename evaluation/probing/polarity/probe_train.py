@@ -12,9 +12,9 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch import optim
 from common.utils import *
 from data.data import build_data
-from model.ae.ae import AE
+from model.vae.vae import VAE
 from common.vocab import VocabEntry
-from evaluation.probing.probe import Probe
+from evaluation.probing.vae_probe import VAE_Probe
 matplotlib.use('Agg')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
 
@@ -84,12 +84,12 @@ def train(data, args):
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-model_id = 'ae_1'
+model_id = 'vae_10'
 model_path, model_vocab  = get_model_info(model_id)
 args.mname  = model_id +'_probe' 
 
 # training
-args.batchsize = 128; args.epochs = 200
+args.batchsize = 128; args.epochs = 500
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'surf2polar'
 args.seq_to_no_pad = 'surface'
@@ -113,10 +113,10 @@ args.ni = 512; args.nz = 32;
 args.enc_nh = 1024; args.dec_nh = 1024
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
-args.pretrained_model = AE(args, surf_vocab, model_init, emb_init)
+args.pretrained_model = VAE(args, surf_vocab, model_init, emb_init)
 args.pretrained_model.load_state_dict(torch.load(model_path))
 args.nh = args.enc_nh
-args.model = Probe(args, polar_vocab, model_init, emb_init)
+args.model = VAE_Probe(args, polar_vocab, model_init, emb_init)
 for param in args.model.encoder.parameters():
     param.requires_grad = False
 args.model.to(args.device)

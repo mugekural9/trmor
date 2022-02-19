@@ -77,17 +77,17 @@ args = parser.parse_args()
 args.device = 'cuda'
 
 # training
-args.batchsize = 128; args.epochs = 35
+args.batchsize = 128; args.epochs = 30
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'lm'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata = 'model/charlm/data/wordlist.tur.trn'
+args.trndata = 'model/charlm/data/wordlist.tur' #.trn'
 args.valdata = 'model/charlm/data/wordlist.tur.val'
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 600000; args.maxvalsize = 10000; args.maxtstsize = 10000
+args.maxtrnsize = 700000; args.maxvalsize = 10000; args.maxtstsize = 10000
 rawdata, batches, vocab = build_data(args)
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
@@ -96,13 +96,13 @@ args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trnd
 args.mname = 'charlm' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.ni = 64; args.nh = 350
+args.ni = 512; args.nh = 1024
 args.enc_dropout_in = 0.2; args.enc_dropout_out = 0.3
 args.model = CharLM(args, vocab, model_init, emb_init) 
 args.model.to(args.device)  
 
 # logging
-args.modelname = 'model/'+args.mname+'/results/'+str(len(trndata))+'_instances/'
+args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

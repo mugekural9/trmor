@@ -81,17 +81,17 @@ args = parser.parse_args()
 args.device = 'cuda'
 
 # training
-args.batchsize = 128; args.epochs = 3
+args.batchsize = 128; args.epochs = 5
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'ae'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata = 'model/ae/data/wordlist.tur.trn' # 'model/vae/data/surf.uniquesurfs.trn.txt' 
-args.valdata = 'model/ae/data/wordlist.tur.val' # 'model/vae/data/surf.uniquesurfs.val.txt'
+args.trndata = 'model/ae/data/wordlist.tur' 
+args.valdata = 'model/ae/data/wordlist.tur.val'
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 582000; args.maxvalsize = 10000; args.maxtstsize = 10000
+args.maxtrnsize = 1000000; args.maxvalsize = 10000; args.maxtstsize = 10000
 rawdata, batches, vocab = build_data(args)
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
@@ -100,7 +100,7 @@ args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trnd
 args.mname = 'ae' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.ni = 512; args.nz = 32; 
+args.ni = 1024; args.nz = 32; 
 args.enc_nh = 1024; args.dec_nh = 1024
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.5; args.dec_dropout_out = 0.5

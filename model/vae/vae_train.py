@@ -100,15 +100,15 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 10
+args.batchsize = 128; args.epochs = 20
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vae'
 args.seq_to_no_pad = 'surface'
 args.kl_start = 0.1
 args.kl_anneal = True
-args.warm_up = 10
+args.warm_up = 20
 # data
-args.trndata = 'model/vae/data/filtered_wordlist_50k.tur' # 'model/vae/data/surf.uniquesurfs.trn.txt' 
+args.trndata = 'model/vae/data/top20k_wordlist.tur' # 'model/vae/data/surf.uniquesurfs.trn.txt' 
 args.valdata = 'model/vae/data/wordlist.tur.val' # 'model/vae/data/surf.uniquesurfs.val.txt'
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
@@ -123,7 +123,7 @@ emb_init = uniform_initializer(0.1)
 args.ni = 512; args.nz = 32; 
 args.enc_nh = 1024; args.dec_nh = 1024
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.5; args.dec_dropout_out = 0.5
+args.dec_dropout_in = 0.3; args.dec_dropout_out = 0.5
 args.model = VAE(args, vocab, model_init, emb_init)
 args.model.to(args.device)
 # logging

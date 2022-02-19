@@ -1,0 +1,52 @@
+
+number of params: 17103872 
+Namespace(batchsize=128, dec_dropout_in=0.5, dec_dropout_out=0.5, dec_nh=1024, device='cuda', enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=1024, epochs=5, fig_path='model/ae/results/training/617298_instances/5epochs.png', log_path='model/ae/results/training/617298_instances/5epochs.log', logger=<common.utils.Logger object at 0x7f02366b77d0>, lr=0.001, maxtrnsize=1000000, maxtstsize=10000, maxvalsize=10000, mname='ae', model=AE(
+  (encoder): AE_Encoder(
+    (embed): Embedding(37, 1024)
+    (lstm): LSTM(1024, 1024, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=1024, out_features=32, bias=False)
+  )
+  (decoder): AE_Decoder(
+    (embed): Embedding(37, 1024, padding_idx=0)
+    (dropout_in): Dropout(p=0.5, inplace=False)
+    (dropout_out): Dropout(p=0.5, inplace=False)
+    (trans_linear): Linear(in_features=32, out_features=1024, bias=False)
+    (lstm): LSTM(1056, 1024, batch_first=True)
+    (pred_linear): Linear(in_features=1024, out_features=37, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), modelname='model/ae/results/training/617298_instances/', ni=1024, nz=32, opt='Adam', save_path='model/ae/results/training/617298_instances/5epochs.pt', seq_to_no_pad='surface', surface_vocab_file='model/ae/data/wordlist.tur', task='ae', trndata='model/ae/data/wordlist.tur', trnsize=617298, tstdata='model/ae/data/wordlist.tur.val', tstsize=617298, valdata='model/ae/data/wordlist.tur.val', valsize=923)
+
+encoder.embed.weight, torch.Size([37, 1024]): True
+encoder.lstm.weight_ih_l0, torch.Size([4096, 1024]): True
+encoder.lstm.weight_hh_l0, torch.Size([4096, 1024]): True
+encoder.lstm.bias_ih_l0, torch.Size([4096]): True
+encoder.lstm.bias_hh_l0, torch.Size([4096]): True
+encoder.linear.weight, torch.Size([32, 1024]): True
+decoder.embed.weight, torch.Size([37, 1024]): True
+decoder.trans_linear.weight, torch.Size([1024, 32]): True
+decoder.lstm.weight_ih_l0, torch.Size([4096, 1056]): True
+decoder.lstm.weight_hh_l0, torch.Size([4096, 1024]): True
+decoder.lstm.bias_ih_l0, torch.Size([4096]): True
+decoder.lstm.bias_hh_l0, torch.Size([4096]): True
+decoder.pred_linear.weight, torch.Size([37, 1024]): True
+epoch: 0 avg_loss: 17.1089, acc: 0.5417
+val --- avg_loss: 9.6514, acc: 0.7448  
+update best loss 
+
+epoch: 1 avg_loss: 7.0796, acc: 0.8140
+val --- avg_loss: 3.1925, acc: 0.8973  
+update best loss 
+
+epoch: 2 avg_loss: 2.4747, acc: 0.9386
+val --- avg_loss: 0.8936, acc: 0.9700  
+update best loss 
+
+epoch: 3 avg_loss: 1.5181, acc: 0.9649
+val --- avg_loss: 0.5156, acc: 0.9850  
+update best loss 
+
+epoch: 4 avg_loss: 1.1726, acc: 0.9742
+val --- avg_loss: 0.3030, acc: 0.9898  
+update best loss 
