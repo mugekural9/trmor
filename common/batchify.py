@@ -2,7 +2,7 @@ import re, torch, json, os
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
 number_of_surf_tokens = 0; number_of_surf_unks = 0
 
-def get_batch(x, surface_vocab):
+def get_batch(x, surface_vocab, device=device):
     global number_of_surf_tokens, number_of_surf_unks
     surf = []
     max_surf_len = max([len(s[0]) for s in x])
@@ -15,7 +15,7 @@ def get_batch(x, surface_vocab):
         number_of_surf_unks += surf_idx.count(surface_vocab['<unk>'])
     return  torch.tensor(surf, dtype=torch.long,  requires_grad=False, device=device)
 
-def get_batches(data, vocab, batchsize=64, seq_to_no_pad=''):
+def get_batches(data, vocab, batchsize=64, seq_to_no_pad='', device=device):
     continuity = (seq_to_no_pad == '')
     print('seq not to pad: %s, continuity: %s' % (seq_to_no_pad,continuity))
     # reset dataset statistics
@@ -41,10 +41,10 @@ def get_batches(data, vocab, batchsize=64, seq_to_no_pad=''):
             elif seq_to_no_pad == 'feature':
                 while jr < min(len(data), i+batchsize) and len(data[jr][1]) == len(data[i][1]): 
                     jr += 1
-            batches.append(get_batch(data[i: jr], vocab))
+            batches.append(get_batch(data[i: jr], vocab, device=device))
             i = jr
         else:
-            batches.append(get_batch(data[i: i+batchsize], vocab))
+            batches.append(get_batch(data[i: i+batchsize], vocab, device=device))
             i += batchsize
     print('# of surf tokens: ', number_of_surf_tokens, ', # of surf unks: ', number_of_surf_unks)
     return batches, order    

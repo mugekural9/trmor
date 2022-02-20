@@ -83,8 +83,8 @@ args.task = 'lm'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata = 'model/charlm/data/wordlist.tur' #.trn'
-args.valdata = 'model/charlm/data/wordlist.tur.val'
+args.trndata = 'model/charlm/data/surf.uniquesurfs.trn.txt' 
+args.valdata = 'model/charlm/data/surf.uniquesurfs.val.txt'
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
 args.maxtrnsize = 700000; args.maxvalsize = 10000; args.maxtstsize = 10000

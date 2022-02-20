@@ -88,7 +88,7 @@ def train(data, args):
         if loss < best_loss:
             args.logger.write('update best loss \n')
             best_loss = loss
-        torch.save(args.model.state_dict(), args.save_path)
+        torch.save(args.model.state_dict(), args.save_path) # do not save best model but last
         args.model.train()
     plot_curves(args.task, args.mname, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
     plot_curves(args.task, args.mname, args.fig, args.axs[1], trn_kl_values, val_kl_values, args.plt_style, 'kl_loss')

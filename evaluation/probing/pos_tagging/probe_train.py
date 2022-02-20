@@ -14,9 +14,11 @@ from common.utils import *
 from data.data import build_data, log_data
 from model.ae.ae import AE
 from model.vae.vae import VAE
+from model.charlm.charlm import CharLM
 from common.vocab import VocabEntry
 from evaluation.probing.ae_probe import AE_Probe
 from evaluation.probing.vae_probe import VAE_Probe
+from evaluation.probing.charlm_lstm_probe import CharLM_Lstm_Probe
 
 matplotlib.use('Agg')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
@@ -87,7 +89,7 @@ def train(data, args):
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-model_id = 'vae_2'
+model_id = 'charlm_4'
 model_path, model_vocab  = get_model_info(model_id)
 args.mname  = model_id +'_probe' 
 
@@ -112,14 +114,16 @@ args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(tstd
 
 # model
 model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-args.ni = 512; args.nz = 32; 
-args.enc_nh = 1024; args.dec_nh = 1024
-args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
-args.pretrained_model = VAE(args, surf_vocab, model_init, emb_init)
+args.ni = 512; #for ae,vae,charlm
+args.nz = 32   #for ae,vae
+args.enc_nh = 1024; args.dec_nh = 1024;  #for ae,vae
+args.nh = 1024 #for ae,vae,charlm
+args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0 #for ae,vae,charlm
+args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 #for ae,vae
+args.pretrained_model = CharLM(args, surf_vocab, model_init, emb_init)
 args.pretrained_model.load_state_dict(torch.load(model_path))
-args.nh = args.enc_nh
-args.model = VAE_Probe(args, surfpos_vocab, model_init, emb_init)
+#args.nh = args.enc_nh
+args.model = CharLM_Lstm_Probe(args, surfpos_vocab, model_init, emb_init)
 for param in args.model.encoder.parameters():
     param.requires_grad = False
 args.model.to(args.device)

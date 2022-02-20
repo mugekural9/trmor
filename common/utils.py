@@ -124,10 +124,29 @@ def get_model_info(id):
     elif id == 'charlm_3': 
         model_path  = 'model/charlm/results/training/617298_instances/30epochs.pt'
         model_vocab = 'model/charlm/results/training/617298_instances/surf_vocab.json'
+    elif id == 'charlm_4': 
+        model_path  = 'model/charlm/results/training/50000_instances/30epochs.pt'
+        model_vocab = 'model/charlm/results/training/50000_instances/surf_vocab.json'
     #vqvae
     elif id == 'vqvae_1': 
         model_path  = 'model/vqvae/results/training/50000_instances/100epochs.pt'
         model_vocab = 'model/vqvae/results/training/50000_instances/surf_vocab.json'
+    #probe
+    elif id == 'charlm_4_probe_polar': 
+        model_path  = 'evaluation/probing/polarity/results/training/charlm_4_probe/4000_instances/200epochs.pt'
+        surf_vocab  = 'evaluation/probing/polarity/results/training/charlm_4_probe/4000_instances/surf_vocab.json'
+        polar_vocab = 'evaluation/probing/polarity/results/training/charlm_4_probe/4000_instances/polar_vocab.json'
+        model_vocab = (surf_vocab, polar_vocab)
+    elif id == 'charlm_4_probe_pos_tagging': 
+        model_path  = 'evaluation/probing/pos_tagging/results/training/charlm_4_probe/14000_instances/300epochs.pt'
+        surf_vocab  = 'evaluation/probing/pos_tagging/results/training/charlm_4_probe/14000_instances/surf_vocab.json'
+        surfpos_vocab = 'evaluation/probing/pos_tagging/results/training/charlm_4_probe/14000_instances/surfpos_vocab.json'
+        model_vocab = (surf_vocab, surfpos_vocab)
+    elif id == 'charlm_4_probe_tense': 
+        model_path  = 'evaluation/probing/tense/results/training/charlm_4_probe/4000_instances/200epochs.pt'
+        surf_vocab  = 'evaluation/probing/tense/results/training/charlm_4_probe/4000_instances/surf_vocab.json'
+        tense_vocab = 'evaluation/probing/tense/results/training/charlm_4_probe/4000_instances/tense_vocab.json'
+        model_vocab = (surf_vocab, tense_vocab)
     return model_path, model_vocab
 
 def log_sum_exp(value, dim=None, keepdim=False):

@@ -49,7 +49,7 @@ class CharLM(nn.Module):
         # (batch_size, seq_len)
         src = self.charlm_input(x)
         batch_size, seq_len = src.size()
-        output_logits = self(src)
+        _, output_logits = self(src)
         
         # (batch_size, seq_len)
         tgt = self.charlm_output(x)
@@ -77,13 +77,15 @@ class CharLM(nn.Module):
         word_embed = self.embed(src)
         word_embed = self.dropout_in(word_embed)
         output, (last_state, last_cell) = self.lstm(word_embed)
+        # (batch_size, seq_len, args.nh)
         output = self.dropout_out(output)
-        
+        # (batch_size, 1, args.nh)
+        fhs = output[:,-1,:].unsqueeze(1)
         # (batch_size, seq_len, vocab_size)
         output_logits = self.pred_linear(output)
         
         # (batch_size * seq_len, vocab_size)
-        return output_logits.view(-1, output_logits.size(2))
+        return fhs, output_logits.view(-1, output_logits.size(2))
 
 
     def log_probability(self, x, recon_type='avg'):
