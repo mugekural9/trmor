@@ -1,7 +1,7 @@
 # -----------------------------------------------------------
 # Date:        2022/03/09 
 # Author:      Muge Kural
-# Description: Trainer of type-level inflection (surface forms to feature forms), saves the results under ./results directory.
+# Description: Trainer of type-level inflection (feature forms to surface forms), saves the results under ./results directory.
 # -----------------------------------------------------------
 
 import sys, argparse, random, torch, json, matplotlib, os
