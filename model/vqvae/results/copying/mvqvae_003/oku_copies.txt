@@ -1,0 +1,24 @@
+okuyorsunuz</s>	    (681, 0, 0, 0)   not in trnset
+okuyacaksınız</s>	(681, 0, 0, 1)
+kokuyorsunuz</s>	(681, 0, 1, 0)   not in trnset
+kovuyorsunuz</s>	(681, 0, 1, 1)   not in trnset
+okurur</s>	        (681, 1, 1, 0)   not in trnset
+okumayacak</s>	    (681, 1, 1, 1)   not in trnset
+okurdu</s>	        (681, 4, 4, 0)   not in trnset
+okumadı</s>	        (681, 4, 4, 1)   not in trnset
+oktular</s>	        (681, 1, 2, 1)   not in trnset
+okmadı</s>      	(681, 3, 4, 1)   not in trnset
+okuyorlar</s>	    (681, 1, 2, 0)
+okuyorum</s>	    (681, 2, 3, 0)
+
+okur</s>	        (681, 4, 5, 1)   not in trnset
+okur</s>	        (681, 4, 5, 0)
+
+okumamış</s>	    (681, 3, 3, 0)
+okumamış</s>	    (681, 3, 4, 0)
+
+okumayacağım</s>	(681, 3, 3, 1)
+okumayacağım</s>	(681, 2, 3, 1)
+
+okuyor</s>	        (681, 2, 2, 0)
+okuyor</s>	        (681, 2, 2, 1)

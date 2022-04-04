@@ -11,12 +11,16 @@ import matplotlib.pyplot as plt
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch import optim
 from common.utils import *
-from data.data import build_data
-from model.vae.vae import VAE
-from model.charlm.charlm import CharLM
 from common.vocab import VocabEntry
-from evaluation.probing.vae_probe import VAE_Probe
+from data.data import build_data
+from model.charlm.charlm import CharLM
+from model.vae.vae import VAE
+from model.ae.ae import AE
+from model.vqvae.vqvae import VQVAE
 from evaluation.probing.charlm_lstm_probe import CharLM_Lstm_Probe
+from evaluation.probing.vae_probe import VAE_Probe
+from evaluation.probing.ae_probe import AE_Probe
+from evaluation.probing.vqvae_probe import VQVAE_Probe
 
 matplotlib.use('Agg')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
@@ -25,13 +29,25 @@ def test(batches, mode, args):
     epoch_loss = 0; epoch_acc = 0;  epoch_num_instances = 0
     numbatches = len(batches)
     indices = list(range(numbatches))
+    surfs = []; tenses = []
     for i, idx in enumerate(indices):
         # (batchsize, t)
         surf, tense = batches[idx] 
-        loss, acc = args.model.probe_loss(surf, tense)
+        surfs.append(surf)
+        tenses.append(tense)
+
+        loss, (acc, pred_tokens) = args.model.probe_loss(surf, tense)
         epoch_num_instances += surf.size(0)
         epoch_loss += loss.item()
         epoch_acc  += acc
+
+    '''with open('_tense_val.txt', 'w') as writer:
+        for k in range(len(surfs)):
+            surf = surfs[k]
+            tense_info = tenses[k]
+            for j in range(surf.size(0)):
+                writer.write(''.join(surf_vocab.decode_sentence(surf[j]))+ '--->' + tense_vocab.id2word(tense_info[j].item()) +'\n')'''
+
     nll = epoch_loss / numbatches
     acc = epoch_acc / epoch_num_instances
     args.logger.write('%s --- avg_loss: %.4f, acc: %.4f  \n' % (mode, nll, acc))
@@ -41,8 +57,8 @@ def train(data, args):
     trnbatches, valbatches, tstbatches = data
     opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.parameters()), lr=args.lr)
     scheduler = ReduceLROnPlateau(opt, 'min', verbose=1, factor=0.5)
-    for name, prm in args.model.named_parameters():
-        args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
+    #for name, prm in args.model.named_parameters():
+    #    args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
     numbatches = len(trnbatches)
     indices = list(range(numbatches))
     #random.seed(0)
@@ -50,23 +66,49 @@ def train(data, args):
     trn_loss_values = []; trn_acc_values = []
     val_loss_values = []; val_acc_values = []
     for epc in range(args.epochs):
+        rdict= []
+        for i in range(512):
+            rdict.append(0)
+        surfs = []; preds = []; tenses = []
         epoch_loss = 0; epoch_acc = 0; epoch_num_instances = 0
         random.shuffle(indices) # this breaks continuity if there is
         for i, idx in enumerate(indices):
             args.model.zero_grad() 
             # (batchsize, t)
             surf, tense = trnbatches[idx]
-            loss, acc = args.model.probe_loss(surf, tense)
+            if epc==args.epochs -1:
+                loss, (acc,pred_tokens) = args.model.probe_loss(surf, tense, plot= True, ratiodict=rdict)
+                if i==len(indices)-1:
+                    loss, (acc,pred_tokens) = args.model.probe_loss(surf, tense, plot= True, ratiodict=rdict, last_iter=True)
+            else:
+                loss, (acc,pred_tokens) = args.model.probe_loss(surf, tense, plot= False, ratiodict=None)
+            surfs.append(surf)
+            tenses.append(tense)
+            preds.append(pred_tokens)
             loss.backward()
             opt.step()
             epoch_num_instances += surf.size(0) 
             epoch_loss       += loss.item()
             epoch_acc        += acc
+        
         nll = epoch_loss / numbatches
         acc = epoch_acc / epoch_num_instances
         trn_loss_values.append(nll)
         trn_acc_values.append(acc)
         args.logger.write('\nepoch: %.1d avg_loss: %.4f, acc: %.4f \n' % (epc, nll, acc))
+
+        '''with open('_tense_trn.txt', 'w') as writer:
+            for k in range(len(surfs)):
+                surf = surfs[k]
+                tense_info = tenses[k]
+                for j in range(surf.size(0)):
+                    writer.write(''.join(surf_vocab.decode_sentence(surf[j]))+ '--->' + tense_vocab.id2word(tense_info[j].item()) +'\n')'''
+        '''with open(str(epc)+'_tense_preds.txt', 'w') as writer:
+            for k in range(len(surfs)):
+                surf = surfs[k]
+                pred_tokens = preds[k]
+                for j in range(surf.size(0)):
+                    writer.write(''.join(surf_vocab.decode_sentence(surf[j]))+ '--->' + tense_vocab.id2word(pred_tokens[j].item()) +'\n')'''
         # VAL
         args.model.eval()
         with torch.no_grad():
@@ -81,18 +123,20 @@ def train(data, args):
         args.model.train()
     plot_curves(args.task, args.mname, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
     plot_curves(args.task, args.mname, args.fig, args.axs[1], trn_acc_values,  val_acc_values,  args.plt_style, 'acc')
-    
+    return trn_acc_values, val_acc_values
 
 # CONFIG
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-model_id = 'charlm_4'
+#model_id = 'vae_neu_2'
+model_id = 'vqvae_7d_2'
+
 model_path, model_vocab  = get_model_info(model_id)
 args.mname  = model_id +'_probe' 
 
 # training
-args.batchsize = 128; args.epochs = 200
+args.batchsize = 512; args.epochs = 1000
 args.opt= 'Adam'; args.lr = 0.01
 args.task = 'surf2tense'
 args.seq_to_no_pad = 'surface'
@@ -101,9 +145,12 @@ args.seq_to_no_pad = 'surface'
 with open(model_vocab) as f:
     word2id = json.load(f)
     surf_vocab = VocabEntry(word2id)
-args.trndata = 'evaluation/probing/tense/data/tense.uniquesurfs.trn.txt' 
-args.valdata = 'evaluation/probing/tense/data/tense.uniquesurfs.val.txt'
-args.tstdata = 'evaluation/probing/tense/data/tense.uniquesurfs.val.txt' 
+
+#args.trndata = 'evaluation/probing/tense/data/sosimple.new.trn.combined.txt' #tense.uniquesurfs.trn.txt' 
+#args.valdata = 'evaluation/probing/tense/data/sosimple.new.seenroots.val.txt' #tense.uniquesurfs.trn.txt' 
+args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
+args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
+args.tstdata = args.valdata
 
 args.maxtrnsize = 57769; args.maxvalsize = 10000; args.maxtstsize = 10000
 rawdata, batches, vocab = build_data(args, surf_vocab)
@@ -113,22 +160,38 @@ args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(tstd
 
 # model
 model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-args.ni = 512; #for ae,vae,charlm
-args.nz = 32   #for ae,vae
-args.enc_nh = 1024; args.dec_nh = 1024;  #for ae,vae
-args.nh = 1024 #for ae,vae,charlm
+args.ni = 256; #for ae,vae,charlm
+args.enc_nh = 512; args.dec_nh = 512;  #for ae,vae
+args.nh = 512 #for ae,vae,charlm
+args.embedding_dim = args.enc_nh #for vqvae
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0 #for ae,vae,charlm
 args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 #for ae,vae
-args.pretrained_model = CharLM(args, surf_vocab, model_init, emb_init)
-args.pretrained_model.load_state_dict(torch.load(model_path))
-#args.nh = args.enc_nh
-args.model = CharLM_Lstm_Probe(args, tense_vocab, model_init, emb_init)
-for param in args.model.encoder.parameters():
-    param.requires_grad = False
-args.model.to(args.device)
+args.beta = 0.25 #for vqvae
+args.num_dicts = 7
+args.rootdict_emb_dim = 320  #for vqvae
+args.rootdict_emb_num = 5000 #for vqvae
+args.orddict_emb_num  = 100   #for vqvae
 
+
+#args.nz = 32   #for ae,vae
+#args.pretrained_model = VAE(args, surf_vocab, model_init, emb_init)
+#args.model =  VAE_Probe(args, tense_vocab, model_init, emb_init)
+
+args.nz = 512   #for ae,vae
+args.pretrained_model = VQVAE(args, surf_vocab, model_init, emb_init, dict_assemble_type='concat')
+args.model = VQVAE_Probe(args, tense_vocab, model_init, emb_init)
+
+args.pretrained_model.load_state_dict(torch.load(model_path), strict=False)
+
+for param in args.model.parameters():
+    param.requires_grad = False
+
+for param in args.model.linear.parameters():
+    param.requires_grad = True
+
+args.model.to(args.device)
 # logging
-args.modelname = 'evaluation/probing/tense/results/training/'+args.mname+'/'+str(len(trndata))+'_instances/'
+args.modelname = 'evaluation/probing/tense/results/training/'+args.mname+'/'+str(len(trndata))+'_instances'
 
 try:
     os.makedirs(args.modelname)
@@ -144,16 +207,19 @@ with open(args.modelname+'/surf_vocab.json', 'w') as f:
 with open(args.modelname+'/tense_vocab.json', 'w') as f:
     f.write(json.dumps(tense_vocab.word2id))
 args.logger.write('\nnumber of params: %d \n' % count_parameters(args.model))
-args.logger.write(args)
-args.logger.write('\n')
+#args.logger.write(args)
+#args.logger.write('\n')
 
 # plotting
 args.fig, args.axs = plt.subplots(2, sharex=True)
 args.plt_style = pstyle = '-'
 
 # run
-train(batches, args)
+trn_acc_values, val_acc_values = train(batches, args)
 plt.savefig(args.fig_path)
 
+print('\nBEST TENSE acc value: %.4f' % max(trn_acc_values))
+print('\nBEST TENSE val acc: %.4f' % val_acc_values[np.argmax(trn_acc_values)])
+print('\nBEST trn TENSE at epoch acc: %d' % np.argmax(trn_acc_values))
 
   

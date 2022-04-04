@@ -28,7 +28,8 @@ def read_trndata_makevocab(args, surf_vocab):
                     polar_info_exists = True
                     break
             if not polar_info_exists:
-                polar_data.append(polar_vocab['<unk>'])
+                surf_data = surf_data[:-1]
+                #polar_data.append(polar_vocab['<unk>'])
     print('TRN:')
     print('surf_data:',  len(surf_data))
     print('polar_data:', len(polar_data))
@@ -59,7 +60,8 @@ def read_valdata(maxdsize, file, vocab, mode):
                     polar_info_exists = True
                     break
             if not polar_info_exists:
-                polar_data.append(polar_vocab['<unk>'])
+                surf_data = surf_data[:-1]
+                #polar_data.append(polar_vocab['<unk>'])
     print(mode,':')
     print('surf_data:',  len(surf_data))
     print('polar_data:', len(polar_data))
@@ -85,7 +87,7 @@ def get_batch(x, vocab):
 
 def get_batches(data, vocab, batchsize=64, seq_to_no_pad=''):
     continuity = (seq_to_no_pad == '')
-    print('seq not to pad: %s, continuity: %s' % (seq_to_no_pad,continuity))
+    #print('seq not to pad: %s, continuity: %s' % (seq_to_no_pad,continuity))
     # reset dataset statistics
     global  number_of_surf_tokens, number_of_polar_tokens, number_of_surf_unks, number_of_polar_unks
     number_of_surf_tokens = 0
@@ -123,8 +125,8 @@ def get_batches(data, vocab, batchsize=64, seq_to_no_pad=''):
         else:
             batches.append(get_batch(data[i: i+batchsize], vocab))
             i += batchsize
-    print('# of surf tokens: ', number_of_surf_tokens, ', # of surf unks: ', number_of_surf_unks)
-    print('# of polar tokens: ', number_of_polar_tokens, ', # of polar unks: ', number_of_polar_unks)
+    #print('# of surf tokens: ', number_of_surf_tokens, ', # of surf unks: ', number_of_surf_unks)
+    #print('# of polar tokens: ', number_of_polar_tokens, ', # of polar unks: ', number_of_polar_unks)
     
     return batches, order    
 

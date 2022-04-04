@@ -6,7 +6,7 @@
 
 import sys, argparse, random, torch, json, matplotlib, os
 import matplotlib.pyplot as plt
-from vae import VAE, VAE_Encoder, VAE_Decoder
+from vae import VAE
 from common.utils import *
 from torch import optim
 from data.data import build_data, log_data
@@ -100,17 +100,20 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 20
+args.batchsize = 128; args.epochs = 200
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vae'
 args.seq_to_no_pad = 'surface'
-args.kl_start = 0.1
-args.kl_anneal = True
+args.kl_start = 0.2
+args.kl_anneal = False#True
 args.warm_up = 20
 # data
-args.trndata = 'model/vae/data/top20k_wordlist.tur' # 'model/vae/data/surf.uniquesurfs.trn.txt' 
-args.valdata = 'model/vae/data/wordlist.tur.val' # 'model/vae/data/surf.uniquesurfs.val.txt'
+#args.trndata = 'model/vae/data/top20k_wordlist.tur' # 'model/vae/data/surf.uniquesurfs.trn.txt' 
+#args.valdata = 'model/vae/data/wordlist.tur.val' # 'model/vae/data/surf.uniquesurfs.val.txt'
+args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
+args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
 args.tstdata = args.valdata
+
 args.surface_vocab_file = args.trndata
 args.maxtrnsize = 50000; args.maxvalsize = 10000; args.maxtstsize = 10000
 rawdata, batches, vocab = build_data(args)
@@ -120,10 +123,10 @@ args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trnd
 args.mname = 'vae' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.ni = 512; args.nz = 32; 
-args.enc_nh = 1024; args.dec_nh = 1024
+args.ni = 256; args.nz = 32; 
+args.enc_nh = 512; args.dec_nh = 512
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.3; args.dec_dropout_out = 0.5
+args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
 args.model = VAE(args, vocab, model_init, emb_init)
 args.model.to(args.device)
 # logging

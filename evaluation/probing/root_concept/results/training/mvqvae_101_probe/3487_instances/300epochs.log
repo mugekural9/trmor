@@ -1,0 +1,81 @@
+
+number of params: 360448 
+Namespace(batchsize=1, beta=0.25, dec_dropout_in=0.0, dec_dropout_out=0.0, dec_nh=512, device='cuda', embedding_dim=512, enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=512, epochs=300, fig_path='evaluation/probing/root_concept/results/training/mvqvae_101_probe/3487_instances/300epochs.png', log_path='evaluation/probing/root_concept/results/training/mvqvae_101_probe/3487_instances/300epochs.log', logger=<common.utils.Logger object at 0x7f7f38347810>, lr=0.01, maxtrnsize=57769, maxtstsize=10000, maxvalsize=10000, mname='mvqvae_101_probe', model=AE_Probe(
+  (encoder): AE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=512, out_features=512, bias=False)
+  )
+  (linear): Linear(in_features=512, out_features=704, bias=False)
+  (loss): CrossEntropyLoss()
+), modelname='evaluation/probing/root_concept/results/training/mvqvae_101_probe/3487_instances/', nh=512, ni=256, num_embeddings=704, nz=512, opt='Adam', pretrained_model=AE(
+  (encoder): AE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=512, out_features=512, bias=False)
+  )
+  (decoder): AE_Decoder(
+    (embed): Embedding(32, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (trans_linear): Linear(in_features=512, out_features=512, bias=False)
+    (lstm): LSTM(768, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=32, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), save_path='evaluation/probing/root_concept/results/training/mvqvae_101_probe/3487_instances/300epochs.pt', seq_to_no_pad='surface', task='surf2root_concept', trndata='evaluation/probing/root_concept/data/sosimple.new.trn.combined.txt', trnsize=3487, tstdata='evaluation/probing/root_concept/data/sosimple.new.seenroots.val.txt', tstsize=209, valdata='evaluation/probing/root_concept/data/sosimple.new.seenroots.val.txt', valsize=209)
+
+encoder.embed.weight, torch.Size([32, 256]): False
+encoder.lstm.weight_ih_l0, torch.Size([2048, 256]): False
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): False
+encoder.lstm.bias_ih_l0, torch.Size([2048]): False
+encoder.lstm.bias_hh_l0, torch.Size([2048]): False
+encoder.linear.weight, torch.Size([512, 512]): False
+linear.weight, torch.Size([704, 512]): True
+epoch: 0 avg_loss: 7.6845, acc: 0.4987 
+
+epoch: 1 avg_loss: 1.8457, acc: 0.8371 
+
+epoch: 2 avg_loss: 0.9779, acc: 0.9143 
+
+epoch: 3 avg_loss: 0.4273, acc: 0.9581 
+
+epoch: 4 avg_loss: 0.2653, acc: 0.9745 
+
+epoch: 5 avg_loss: 0.1874, acc: 0.9808 
+
+epoch: 6 avg_loss: 0.1140, acc: 0.9839 
+
+epoch: 7 avg_loss: 0.0988, acc: 0.9897 
+
+epoch: 8 avg_loss: 0.0616, acc: 0.9928 
+
+epoch: 9 avg_loss: 0.0479, acc: 0.9923 
+
+epoch: 10 avg_loss: 0.0389, acc: 0.9948 
+
+epoch: 11 avg_loss: 0.0795, acc: 0.9920 
+
+epoch: 12 avg_loss: 0.0581, acc: 0.9931 
+
+epoch: 13 avg_loss: 0.0562, acc: 0.9946 
+
+epoch: 14 avg_loss: 0.0329, acc: 0.9968 
+
+epoch: 15 avg_loss: 0.0123, acc: 0.9980 
+
+epoch: 16 avg_loss: 0.0173, acc: 0.9983 
+
+epoch: 17 avg_loss: 0.0120, acc: 0.9991 
+
+epoch: 18 avg_loss: 0.0243, acc: 0.9986 
+
+epoch: 19 avg_loss: 0.0206, acc: 0.9968 
+
+epoch: 20 avg_loss: 0.0244, acc: 0.9974 
+
+epoch: 21 avg_loss: 0.0176, acc: 0.9980 
+
+epoch: 22 avg_loss: 0.0038, acc: 0.9994 

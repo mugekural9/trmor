@@ -5,3 +5,5 @@ plot_scripts/**
 zbin/**
 **/*.pt
 **/*.npy
+runs/**
+others/**

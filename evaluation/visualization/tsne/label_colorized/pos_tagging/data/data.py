@@ -8,7 +8,7 @@ def read_data(maxdsize, file, vocab, mode):
     surf_data = []; surfpos_data = []; data = []
     all_surfs = dict()
     count = 0
-    if 'surf.uniquesurfs' in file:
+    if 'unique' in file:
         with open(file, 'r') as reader:
             for line in reader: 
                 count += 1

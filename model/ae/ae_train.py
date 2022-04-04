@@ -81,14 +81,17 @@ args = parser.parse_args()
 args.device = 'cuda'
 
 # training
-args.batchsize = 128; args.epochs = 5
+args.batchsize = 128; args.epochs = 150
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'ae'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata = 'model/ae/data/wordlist.tur' 
-args.valdata = 'model/ae/data/wordlist.tur.val'
+#args.trndata = 'model/ae/data/wordlist.tur' 
+#args.valdata = 'model/ae/data/wordlist.tur.val'
+args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
+args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
+
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
 args.maxtrnsize = 1000000; args.maxvalsize = 10000; args.maxtstsize = 10000
@@ -100,10 +103,10 @@ args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trnd
 args.mname = 'ae' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.ni = 1024; args.nz = 32; 
-args.enc_nh = 1024; args.dec_nh = 1024
+args.ni = 256; args.nz = 32; 
+args.enc_nh = 512; args.dec_nh = 512
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.5; args.dec_dropout_out = 0.5
+args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
 args.model = AE(args, vocab, model_init, emb_init)
 args.model.to(args.device)
 

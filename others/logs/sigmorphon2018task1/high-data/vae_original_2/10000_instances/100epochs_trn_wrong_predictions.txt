@@ -1,6 +1,0 @@
-target: şizofreniler</s> pred: mizofrenizer</s>
-target: ikizkenar üçgenleri</s> pred: izizkenar hçgenleri</s>
-target: Musevilersin</s> pred: husevilersin</s>
-target: Pandora'nın kutularının</s> pred: Handora'nın kutularının</s>
-target: Yönetim Kurulu Başkanı'na</s> pred: Könetim kurulu Başkanı'na</s>
-target: Güneş tutulmalarından</s> pred: nüneş tutulmalarından</s>

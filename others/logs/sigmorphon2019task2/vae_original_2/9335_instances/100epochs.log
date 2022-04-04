@@ -1,3 +1,0 @@
-trn -- size:9335,  avg_surf_len: 26.12, avg_feat_len: 23.29  
-val -- size:1168,  avg_surf_len: 25.71, avg_feat_len: 22.98  
-tst -- size:1164,  avg_surf_len: 26.05, avg_feat_len: 23.09  

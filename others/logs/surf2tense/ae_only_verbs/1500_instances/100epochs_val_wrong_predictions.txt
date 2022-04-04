@@ -1,6 +1,0 @@
-büktü target: Past pred: Aor        (-) copied as: gitti
-buyurur target: Aor pred: Prog1     (+) copied as: buruyor
-uğraştım target: Past pred: Aor     (-) copied as: uğraştım
-tutmazsa target: Aor pred: Past     (-) tutuşacaksa
-yapmazsanız target: Aor pred: Fut   (-) yapmazsanız
-bilmiyordunuz target: Past pred: Prog1  (+) bilmiyorsunuz
