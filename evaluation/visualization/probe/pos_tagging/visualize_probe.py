@@ -20,6 +20,9 @@ from common.utils import *
 from data.data import build_data
 from model.charlm.charlm import CharLM
 from evaluation.probing.charlm_lstm_probe import CharLM_Lstm_Probe
+from model.ae.ae import AE
+from evaluation.probing.ae_probe import AE_Probe
+
 from common.vocab import VocabEntry
 #matplotlib.use('Agg')
 
@@ -52,7 +55,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'charlm_4_probe_pos_tagging'
+    model_id = 'ae_1_probe_pos_tagging'
     model_path, (surf_vocab, surfpos_vocab)  = get_model_info(model_id) 
     # logging
     args.logdir = 'evaluation/visualization/probe/pos_tagging/results/'+model_id+'/'
@@ -85,15 +88,15 @@ def config():
     args.nh = 1024 #for ae,vae,charlm
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0 #for ae,vae,charlm
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 #for ae,vae
-    args.pretrained_model = CharLM(args, args.surf_vocab,  model_init, emb_init)
-    args.model = CharLM_Lstm_Probe(args, args.surfpos_vocab, model_init, emb_init)
+    args.pretrained_model = AE(args, args.surf_vocab,  model_init, emb_init)
+    args.model = AE_Probe(args, args.surfpos_vocab, model_init, emb_init)
 
     # load model weights
     args.model.load_state_dict(torch.load(model_path))
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/visualization/probe/pos_tagging/data/surf.uniquesurfs.trn.txt'
+    args.tstdata = 'evaluation/visualization/probe/pos_tagging/data/pos(root)_verb.uniqueroots.trn.100.txt'
     args.maxtstsize = 10000
     args.batch_size = 1
     return args

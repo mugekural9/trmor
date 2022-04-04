@@ -1,0 +1,217 @@
+
+number of params: 99 
+Namespace(batchsize=512, beta=0.25, dec_dropout_in=0.0, dec_dropout_out=0.0, dec_nh=512, device='cuda', embedding_dim=512, enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=512, epochs=300, fig_path='evaluation/probing/polarity/results/training/vqvae_16_1_probe/3487_instances/300epochs.png', log_path='evaluation/probing/polarity/results/training/vqvae_16_1_probe/3487_instances/300epochs.log', logger=<common.utils.Logger object at 0x7f6a5e014f90>, lr=0.01, maxtrnsize=57769, maxtstsize=10000, maxvalsize=10000, mname='vqvae_16_1_probe', model=VQVAE_Probe(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (linear_root): Linear(in_features=512, out_features=32, bias=True)
+  (vq_layer_root): VectorQuantizer(
+    (embedding): Embedding(100, 32)
+  )
+  (ord_linears): ModuleList(
+    (0): Linear(in_features=512, out_features=32, bias=True)
+    (1): Linear(in_features=512, out_features=32, bias=True)
+    (2): Linear(in_features=512, out_features=32, bias=True)
+    (3): Linear(in_features=512, out_features=32, bias=True)
+    (4): Linear(in_features=512, out_features=32, bias=True)
+    (5): Linear(in_features=512, out_features=32, bias=True)
+    (6): Linear(in_features=512, out_features=32, bias=True)
+    (7): Linear(in_features=512, out_features=32, bias=True)
+    (8): Linear(in_features=512, out_features=32, bias=True)
+    (9): Linear(in_features=512, out_features=32, bias=True)
+    (10): Linear(in_features=512, out_features=32, bias=True)
+    (11): Linear(in_features=512, out_features=32, bias=True)
+    (12): Linear(in_features=512, out_features=32, bias=True)
+    (13): Linear(in_features=512, out_features=32, bias=True)
+    (14): Linear(in_features=512, out_features=32, bias=True)
+  )
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (6): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (7): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (8): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (9): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (10): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (11): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (12): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (13): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (14): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+  )
+  (linear): Linear(in_features=32, out_features=3, bias=True)
+  (loss): CrossEntropyLoss()
+), modelname='evaluation/probing/polarity/results/training/vqvae_16_1_probe/3487_instances/', nh=512, ni=256, num_dicts=16, nz=512, opt='Adam', orddict_emb_num=100, pretrained_model=VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (linear_root): Linear(in_features=512, out_features=32, bias=True)
+  (vq_layer_root): VectorQuantizer(
+    (embedding): Embedding(100, 32)
+  )
+  (ord_linears): ModuleList(
+    (0): Linear(in_features=512, out_features=32, bias=True)
+    (1): Linear(in_features=512, out_features=32, bias=True)
+    (2): Linear(in_features=512, out_features=32, bias=True)
+    (3): Linear(in_features=512, out_features=32, bias=True)
+    (4): Linear(in_features=512, out_features=32, bias=True)
+    (5): Linear(in_features=512, out_features=32, bias=True)
+    (6): Linear(in_features=512, out_features=32, bias=True)
+    (7): Linear(in_features=512, out_features=32, bias=True)
+    (8): Linear(in_features=512, out_features=32, bias=True)
+    (9): Linear(in_features=512, out_features=32, bias=True)
+    (10): Linear(in_features=512, out_features=32, bias=True)
+    (11): Linear(in_features=512, out_features=32, bias=True)
+    (12): Linear(in_features=512, out_features=32, bias=True)
+    (13): Linear(in_features=512, out_features=32, bias=True)
+    (14): Linear(in_features=512, out_features=32, bias=True)
+  )
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (6): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (7): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (8): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (9): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (10): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (11): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (12): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (13): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (14): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(32, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (lstm): LSTM(768, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=32, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), rootdict_emb_dim=32, rootdict_emb_num=100, save_path='evaluation/probing/polarity/results/training/vqvae_16_1_probe/3487_instances/300epochs.pt', seq_to_no_pad='surface', task='surf2polar', trndata='evaluation/probing/polarity/data/sosimple.new.trn.combined.txt', trnsize=3487, tstdata='evaluation/probing/polarity/data/sosimple.new.seenroots.val.txt', tstsize=209, valdata='evaluation/probing/polarity/data/sosimple.new.seenroots.val.txt', valsize=209)
+
+encoder.embed.weight, torch.Size([32, 256]): False
+encoder.lstm.weight_ih_l0, torch.Size([2048, 256]): False
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): False
+encoder.lstm.bias_ih_l0, torch.Size([2048]): False
+encoder.lstm.bias_hh_l0, torch.Size([2048]): False
+linear_root.weight, torch.Size([32, 512]): False
+linear_root.bias, torch.Size([32]): False
+vq_layer_root.embedding.weight, torch.Size([100, 32]): False
+ord_linears.0.weight, torch.Size([32, 512]): False
+ord_linears.0.bias, torch.Size([32]): False
+ord_linears.1.weight, torch.Size([32, 512]): False
+ord_linears.1.bias, torch.Size([32]): False
+ord_linears.2.weight, torch.Size([32, 512]): False
+ord_linears.2.bias, torch.Size([32]): False
+ord_linears.3.weight, torch.Size([32, 512]): False
+ord_linears.3.bias, torch.Size([32]): False
+ord_linears.4.weight, torch.Size([32, 512]): False
+ord_linears.4.bias, torch.Size([32]): False
+ord_linears.5.weight, torch.Size([32, 512]): False
+ord_linears.5.bias, torch.Size([32]): False
+ord_linears.6.weight, torch.Size([32, 512]): False
+ord_linears.6.bias, torch.Size([32]): False
+ord_linears.7.weight, torch.Size([32, 512]): False
+ord_linears.7.bias, torch.Size([32]): False
+ord_linears.8.weight, torch.Size([32, 512]): False
+ord_linears.8.bias, torch.Size([32]): False
+ord_linears.9.weight, torch.Size([32, 512]): False
+ord_linears.9.bias, torch.Size([32]): False
+ord_linears.10.weight, torch.Size([32, 512]): False
+ord_linears.10.bias, torch.Size([32]): False
+ord_linears.11.weight, torch.Size([32, 512]): False
+ord_linears.11.bias, torch.Size([32]): False
+ord_linears.12.weight, torch.Size([32, 512]): False
+ord_linears.12.bias, torch.Size([32]): False
+ord_linears.13.weight, torch.Size([32, 512]): False
+ord_linears.13.bias, torch.Size([32]): False
+ord_linears.14.weight, torch.Size([32, 512]): False
+ord_linears.14.bias, torch.Size([32]): False
+ord_vq_layers.0.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.1.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.2.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.3.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.4.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.5.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.6.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.7.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.8.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.9.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.10.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.11.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.12.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.13.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.14.embedding.weight, torch.Size([100, 32]): False
+linear.weight, torch.Size([3, 32]): True
+linear.bias, torch.Size([3]): True

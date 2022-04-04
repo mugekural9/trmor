@@ -9,7 +9,7 @@ def read_data(maxdsize, file, surface_vocab, mode):
     all_surfs = dict()
     count = 0
 
-    if 'surf.uniquesurfs' in file:
+    if True:#'unique' in file:
         with open(file, 'r') as reader:
             for line in reader: 
                 count += 1
@@ -31,7 +31,7 @@ def read_data(maxdsize, file, surface_vocab, mode):
         data.append([surf])
     return data
     
-def build_data(args):
+def build_data(args, surface_vocab=None):
     # Read data and get batches...
     surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
     trndata = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
@@ -79,7 +79,7 @@ class MonoTextData(object):
             vocab['</s>'] = 2
             vocab['<unk>'] = 3
 
-        if 'surf.uniquesurfs' in fname:
+        if True:#'unique' in fname:
             with open(fname) as fin:
                 for line in fin:
                     split_line = line.split('\t') #line.split()

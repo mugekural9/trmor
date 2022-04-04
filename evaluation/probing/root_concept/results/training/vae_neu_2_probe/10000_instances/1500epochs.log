@@ -1,0 +1,2116 @@
+
+number of params: 1027072 
+
+epoch: 0 avg_loss: 7.4318, acc: 0.0134 
+val --- avg_loss: 7.2157, acc: 0.0153  
+update best loss 
+
+epoch: 1 avg_loss: 7.0636, acc: 0.0109 
+val --- avg_loss: 6.9306, acc: 0.0083  
+update best loss 
+
+epoch: 2 avg_loss: 6.7983, acc: 0.0143 
+val --- avg_loss: 6.7465, acc: 0.0150  
+update best loss 
+
+epoch: 3 avg_loss: 6.6167, acc: 0.0170 
+val --- avg_loss: 6.6277, acc: 0.0180  
+update best loss 
+
+epoch: 4 avg_loss: 6.4895, acc: 0.0191 
+val --- avg_loss: 6.5558, acc: 0.0193  
+update best loss 
+
+epoch: 5 avg_loss: 6.4032, acc: 0.0188 
+val --- avg_loss: 6.5052, acc: 0.0097  
+update best loss 
+
+epoch: 6 avg_loss: 6.3375, acc: 0.0175 
+val --- avg_loss: 6.4643, acc: 0.0097  
+update best loss 
+
+epoch: 7 avg_loss: 6.2894, acc: 0.0175 
+val --- avg_loss: 6.4449, acc: 0.0097  
+update best loss 
+
+epoch: 8 avg_loss: 6.2549, acc: 0.0175 
+val --- avg_loss: 6.4230, acc: 0.0097  
+update best loss 
+
+epoch: 9 avg_loss: 6.2232, acc: 0.0175 
+val --- avg_loss: 6.4074, acc: 0.0097  
+update best loss 
+
+epoch: 10 avg_loss: 6.1972, acc: 0.0175 
+val --- avg_loss: 6.3951, acc: 0.0097  
+update best loss 
+
+epoch: 11 avg_loss: 6.1797, acc: 0.0175 
+val --- avg_loss: 6.3792, acc: 0.0097  
+update best loss 
+
+epoch: 12 avg_loss: 6.1621, acc: 0.0175 
+val --- avg_loss: 6.3707, acc: 0.0097  
+update best loss 
+
+epoch: 13 avg_loss: 6.1451, acc: 0.0175 
+val --- avg_loss: 6.3632, acc: 0.0097  
+update best loss 
+
+epoch: 14 avg_loss: 6.1313, acc: 0.0175 
+val --- avg_loss: 6.3610, acc: 0.0097  
+update best loss 
+
+epoch: 15 avg_loss: 6.1183, acc: 0.0175 
+val --- avg_loss: 6.3555, acc: 0.0097  
+update best loss 
+
+epoch: 16 avg_loss: 6.1074, acc: 0.0160 
+val --- avg_loss: 6.3514, acc: 0.0057  
+update best loss 
+
+epoch: 17 avg_loss: 6.0987, acc: 0.0041 
+val --- avg_loss: 6.3479, acc: 0.0003  
+update best loss 
+
+epoch: 18 avg_loss: 6.0885, acc: 0.0038 
+val --- avg_loss: 6.3429, acc: 0.0003  
+update best loss 
+
+epoch: 19 avg_loss: 6.0809, acc: 0.0038 
+val --- avg_loss: 6.3452, acc: 0.0003  
+
+epoch: 20 avg_loss: 6.0747, acc: 0.0039 
+val --- avg_loss: 6.3431, acc: 0.0003  
+
+epoch: 21 avg_loss: 6.0669, acc: 0.0038 
+val --- avg_loss: 6.3438, acc: 0.0003  
+
+epoch: 22 avg_loss: 6.0582, acc: 0.0038 
+val --- avg_loss: 6.3448, acc: 0.0003  
+
+epoch: 23 avg_loss: 6.0514, acc: 0.0038 
+val --- avg_loss: 6.3389, acc: 0.0003  
+update best loss 
+
+epoch: 24 avg_loss: 6.0465, acc: 0.0038 
+val --- avg_loss: 6.3406, acc: 0.0003  
+
+epoch: 25 avg_loss: 6.0403, acc: 0.0038 
+val --- avg_loss: 6.3371, acc: 0.0003  
+update best loss 
+
+epoch: 26 avg_loss: 6.0338, acc: 0.0038 
+val --- avg_loss: 6.3415, acc: 0.0003  
+
+epoch: 27 avg_loss: 6.0293, acc: 0.0038 
+val --- avg_loss: 6.3386, acc: 0.0003  
+
+epoch: 28 avg_loss: 6.0221, acc: 0.0038 
+val --- avg_loss: 6.3348, acc: 0.0003  
+update best loss 
+
+epoch: 29 avg_loss: 6.0160, acc: 0.0038 
+val --- avg_loss: 6.3348, acc: 0.0003  
+
+epoch: 30 avg_loss: 6.0108, acc: 0.0038 
+val --- avg_loss: 6.3353, acc: 0.0003  
+
+epoch: 31 avg_loss: 6.0059, acc: 0.0038 
+val --- avg_loss: 6.3322, acc: 0.0003  
+update best loss 
+
+epoch: 32 avg_loss: 6.0003, acc: 0.0038 
+val --- avg_loss: 6.3317, acc: 0.0003  
+update best loss 
+
+epoch: 33 avg_loss: 5.9958, acc: 0.0038 
+val --- avg_loss: 6.3326, acc: 0.0003  
+
+epoch: 34 avg_loss: 5.9896, acc: 0.0038 
+val --- avg_loss: 6.3347, acc: 0.0003  
+
+epoch: 35 avg_loss: 5.9845, acc: 0.0038 
+val --- avg_loss: 6.3336, acc: 0.0003  
+
+epoch: 36 avg_loss: 5.9799, acc: 0.0038 
+val --- avg_loss: 6.3290, acc: 0.0003  
+update best loss 
+
+epoch: 37 avg_loss: 5.9750, acc: 0.0038 
+val --- avg_loss: 6.3282, acc: 0.0003  
+update best loss 
+
+epoch: 38 avg_loss: 5.9685, acc: 0.0038 
+val --- avg_loss: 6.3263, acc: 0.0003  
+update best loss 
+
+epoch: 39 avg_loss: 5.9635, acc: 0.0038 
+val --- avg_loss: 6.3286, acc: 0.0003  
+
+epoch: 40 avg_loss: 5.9607, acc: 0.0038 
+val --- avg_loss: 6.3260, acc: 0.0003  
+update best loss 
+
+epoch: 41 avg_loss: 5.9541, acc: 0.0038 
+val --- avg_loss: 6.3270, acc: 0.0003  
+
+epoch: 42 avg_loss: 5.9484, acc: 0.0038 
+val --- avg_loss: 6.3236, acc: 0.0003  
+update best loss 
+
+epoch: 43 avg_loss: 5.9459, acc: 0.0038 
+val --- avg_loss: 6.3198, acc: 0.0007  
+update best loss 
+
+epoch: 44 avg_loss: 5.9376, acc: 0.0038 
+val --- avg_loss: 6.3223, acc: 0.0003  
+
+epoch: 45 avg_loss: 5.9343, acc: 0.0038 
+val --- avg_loss: 6.3219, acc: 0.0003  
+
+epoch: 46 avg_loss: 5.9300, acc: 0.0038 
+val --- avg_loss: 6.3179, acc: 0.0003  
+update best loss 
+
+epoch: 47 avg_loss: 5.9240, acc: 0.0039 
+val --- avg_loss: 6.3173, acc: 0.0003  
+update best loss 
+
+epoch: 48 avg_loss: 5.9196, acc: 0.0038 
+val --- avg_loss: 6.3171, acc: 0.0003  
+update best loss 
+
+epoch: 49 avg_loss: 5.9153, acc: 0.0042 
+val --- avg_loss: 6.3125, acc: 0.0007  
+update best loss 
+
+epoch: 50 avg_loss: 5.9116, acc: 0.0039 
+val --- avg_loss: 6.3170, acc: 0.0007  
+
+epoch: 51 avg_loss: 5.9061, acc: 0.0039 
+val --- avg_loss: 6.3149, acc: 0.0007  
+
+epoch: 52 avg_loss: 5.9002, acc: 0.0042 
+val --- avg_loss: 6.3170, acc: 0.0007  
+
+epoch: 53 avg_loss: 5.8954, acc: 0.0044 
+val --- avg_loss: 6.3108, acc: 0.0007  
+update best loss 
+
+epoch: 54 avg_loss: 5.8909, acc: 0.0043 
+val --- avg_loss: 6.3119, acc: 0.0007  
+
+epoch: 55 avg_loss: 5.8875, acc: 0.0043 
+val --- avg_loss: 6.3068, acc: 0.0007  
+update best loss 
+
+epoch: 56 avg_loss: 5.8814, acc: 0.0046 
+val --- avg_loss: 6.3062, acc: 0.0007  
+update best loss 
+
+epoch: 57 avg_loss: 5.8764, acc: 0.0045 
+val --- avg_loss: 6.3073, acc: 0.0007  
+
+epoch: 58 avg_loss: 5.8721, acc: 0.0045 
+val --- avg_loss: 6.3082, acc: 0.0007  
+
+epoch: 59 avg_loss: 5.8672, acc: 0.0047 
+val --- avg_loss: 6.3057, acc: 0.0007  
+update best loss 
+
+epoch: 60 avg_loss: 5.8635, acc: 0.0046 
+val --- avg_loss: 6.3041, acc: 0.0007  
+update best loss 
+
+epoch: 61 avg_loss: 5.8613, acc: 0.0045 
+val --- avg_loss: 6.3021, acc: 0.0007  
+update best loss 
+
+epoch: 62 avg_loss: 5.8563, acc: 0.0044 
+val --- avg_loss: 6.3012, acc: 0.0007  
+update best loss 
+
+epoch: 63 avg_loss: 5.8497, acc: 0.0047 
+val --- avg_loss: 6.2991, acc: 0.0007  
+update best loss 
+
+epoch: 64 avg_loss: 5.8454, acc: 0.0047 
+val --- avg_loss: 6.2974, acc: 0.0007  
+update best loss 
+
+epoch: 65 avg_loss: 5.8407, acc: 0.0046 
+val --- avg_loss: 6.2946, acc: 0.0007  
+update best loss 
+
+epoch: 66 avg_loss: 5.8370, acc: 0.0046 
+val --- avg_loss: 6.2963, acc: 0.0017  
+
+epoch: 67 avg_loss: 5.8332, acc: 0.0048 
+val --- avg_loss: 6.2995, acc: 0.0007  
+
+epoch: 68 avg_loss: 5.8282, acc: 0.0046 
+val --- avg_loss: 6.2984, acc: 0.0007  
+
+epoch: 69 avg_loss: 5.8231, acc: 0.0046 
+val --- avg_loss: 6.2957, acc: 0.0007  
+
+epoch: 70 avg_loss: 5.8190, acc: 0.0047 
+val --- avg_loss: 6.2933, acc: 0.0007  
+update best loss 
+
+epoch: 71 avg_loss: 5.8146, acc: 0.0045 
+val --- avg_loss: 6.2892, acc: 0.0020  
+update best loss 
+
+epoch: 72 avg_loss: 5.8111, acc: 0.0045 
+val --- avg_loss: 6.2943, acc: 0.0007  
+
+epoch: 73 avg_loss: 5.8066, acc: 0.0047 
+val --- avg_loss: 6.2904, acc: 0.0017  
+
+epoch: 74 avg_loss: 5.8026, acc: 0.0047 
+val --- avg_loss: 6.2875, acc: 0.0007  
+update best loss 
+
+epoch: 75 avg_loss: 5.7990, acc: 0.0054 
+val --- avg_loss: 6.2878, acc: 0.0033  
+
+epoch: 76 avg_loss: 5.7952, acc: 0.0047 
+val --- avg_loss: 6.2855, acc: 0.0007  
+update best loss 
+
+epoch: 77 avg_loss: 5.7900, acc: 0.0055 
+val --- avg_loss: 6.2876, acc: 0.0037  
+
+epoch: 78 avg_loss: 5.7843, acc: 0.0057 
+val --- avg_loss: 6.2903, acc: 0.0023  
+
+epoch: 79 avg_loss: 5.7804, acc: 0.0052 
+val --- avg_loss: 6.2876, acc: 0.0027  
+
+epoch: 80 avg_loss: 5.7768, acc: 0.0051 
+val --- avg_loss: 6.2870, acc: 0.0027  
+
+epoch: 81 avg_loss: 5.7727, acc: 0.0050 
+val --- avg_loss: 6.2841, acc: 0.0030  
+update best loss 
+
+epoch: 82 avg_loss: 5.7693, acc: 0.0051 
+val --- avg_loss: 6.2816, acc: 0.0023  
+update best loss 
+
+epoch: 83 avg_loss: 5.7675, acc: 0.0056 
+val --- avg_loss: 6.2812, acc: 0.0047  
+update best loss 
+
+epoch: 84 avg_loss: 5.7604, acc: 0.0053 
+val --- avg_loss: 6.2799, acc: 0.0037  
+update best loss 
+
+epoch: 85 avg_loss: 5.7570, acc: 0.0061 
+val --- avg_loss: 6.2779, acc: 0.0050  
+update best loss 
+
+epoch: 86 avg_loss: 5.7537, acc: 0.0060 
+val --- avg_loss: 6.2774, acc: 0.0040  
+update best loss 
+
+epoch: 87 avg_loss: 5.7489, acc: 0.0055 
+val --- avg_loss: 6.2795, acc: 0.0033  
+
+epoch: 88 avg_loss: 5.7440, acc: 0.0061 
+val --- avg_loss: 6.2759, acc: 0.0030  
+update best loss 
+
+epoch: 89 avg_loss: 5.7405, acc: 0.0062 
+val --- avg_loss: 6.2799, acc: 0.0040  
+
+epoch: 90 avg_loss: 5.7376, acc: 0.0066 
+val --- avg_loss: 6.2776, acc: 0.0053  
+
+epoch: 91 avg_loss: 5.7331, acc: 0.0075 
+val --- avg_loss: 6.2744, acc: 0.0063  
+update best loss 
+
+epoch: 92 avg_loss: 5.7316, acc: 0.0064 
+val --- avg_loss: 6.2767, acc: 0.0053  
+
+epoch: 93 avg_loss: 5.7242, acc: 0.0084 
+val --- avg_loss: 6.2737, acc: 0.0060  
+update best loss 
+
+epoch: 94 avg_loss: 5.7227, acc: 0.0084 
+val --- avg_loss: 6.2719, acc: 0.0080  
+update best loss 
+
+epoch: 95 avg_loss: 5.7180, acc: 0.0083 
+val --- avg_loss: 6.2720, acc: 0.0067  
+
+epoch: 96 avg_loss: 5.7141, acc: 0.0099 
+val --- avg_loss: 6.2690, acc: 0.0093  
+update best loss 
+
+epoch: 97 avg_loss: 5.7106, acc: 0.0100 
+val --- avg_loss: 6.2707, acc: 0.0083  
+
+epoch: 98 avg_loss: 5.7061, acc: 0.0090 
+val --- avg_loss: 6.2688, acc: 0.0070  
+update best loss 
+
+epoch: 99 avg_loss: 5.7044, acc: 0.0092 
+val --- avg_loss: 6.2686, acc: 0.0080  
+update best loss 
+
+epoch: 100 avg_loss: 5.6981, acc: 0.0106 
+val --- avg_loss: 6.2680, acc: 0.0093  
+update best loss 
+
+epoch: 101 avg_loss: 5.6959, acc: 0.0098 
+val --- avg_loss: 6.2684, acc: 0.0090  
+
+epoch: 102 avg_loss: 5.6909, acc: 0.0114 
+val --- avg_loss: 6.2682, acc: 0.0097  
+
+epoch: 103 avg_loss: 5.6869, acc: 0.0101 
+val --- avg_loss: 6.2669, acc: 0.0093  
+update best loss 
+
+epoch: 104 avg_loss: 5.6855, acc: 0.0126 
+val --- avg_loss: 6.2677, acc: 0.0103  
+
+epoch: 105 avg_loss: 5.6797, acc: 0.0115 
+val --- avg_loss: 6.2636, acc: 0.0100  
+update best loss 
+
+epoch: 106 avg_loss: 5.6764, acc: 0.0116 
+val --- avg_loss: 6.2656, acc: 0.0100  
+
+epoch: 107 avg_loss: 5.6723, acc: 0.0102 
+val --- avg_loss: 6.2630, acc: 0.0107  
+update best loss 
+
+epoch: 108 avg_loss: 5.6699, acc: 0.0119 
+val --- avg_loss: 6.2600, acc: 0.0113  
+update best loss 
+
+epoch: 109 avg_loss: 5.6646, acc: 0.0114 
+val --- avg_loss: 6.2594, acc: 0.0110  
+update best loss 
+
+epoch: 110 avg_loss: 5.6630, acc: 0.0118 
+val --- avg_loss: 6.2607, acc: 0.0100  
+
+epoch: 111 avg_loss: 5.6587, acc: 0.0134 
+val --- avg_loss: 6.2620, acc: 0.0103  
+
+epoch: 112 avg_loss: 5.6541, acc: 0.0124 
+val --- avg_loss: 6.2603, acc: 0.0103  
+
+epoch: 113 avg_loss: 5.6520, acc: 0.0116 
+val --- avg_loss: 6.2528, acc: 0.0113  
+update best loss 
+
+epoch: 114 avg_loss: 5.6495, acc: 0.0116 
+val --- avg_loss: 6.2623, acc: 0.0110  
+
+epoch: 115 avg_loss: 5.6429, acc: 0.0128 
+val --- avg_loss: 6.2613, acc: 0.0113  
+
+epoch: 116 avg_loss: 5.6427, acc: 0.0112 
+val --- avg_loss: 6.2586, acc: 0.0110  
+
+epoch: 117 avg_loss: 5.6379, acc: 0.0117 
+val --- avg_loss: 6.2544, acc: 0.0117  
+
+epoch: 118 avg_loss: 5.6344, acc: 0.0133 
+val --- avg_loss: 6.2571, acc: 0.0117  
+
+epoch: 119 avg_loss: 5.6309, acc: 0.0160 
+val --- avg_loss: 6.2537, acc: 0.0127  
+
+epoch: 120 avg_loss: 5.6281, acc: 0.0150 
+val --- avg_loss: 6.2579, acc: 0.0127  
+
+epoch: 121 avg_loss: 5.6240, acc: 0.0152 
+val --- avg_loss: 6.2558, acc: 0.0120  
+
+epoch: 122 avg_loss: 5.6209, acc: 0.0147 
+val --- avg_loss: 6.2526, acc: 0.0123  
+update best loss 
+
+epoch: 123 avg_loss: 5.6166, acc: 0.0136 
+val --- avg_loss: 6.2481, acc: 0.0117  
+update best loss 
+
+epoch: 124 avg_loss: 5.6147, acc: 0.0126 
+val --- avg_loss: 6.2519, acc: 0.0120  
+
+epoch: 125 avg_loss: 5.6093, acc: 0.0134 
+val --- avg_loss: 6.2521, acc: 0.0127  
+
+epoch: 126 avg_loss: 5.6081, acc: 0.0158 
+val --- avg_loss: 6.2551, acc: 0.0130  
+
+epoch: 127 avg_loss: 5.6067, acc: 0.0150 
+val --- avg_loss: 6.2522, acc: 0.0120  
+
+epoch: 128 avg_loss: 5.5998, acc: 0.0148 
+val --- avg_loss: 6.2540, acc: 0.0127  
+
+epoch: 129 avg_loss: 5.5986, acc: 0.0159 
+val --- avg_loss: 6.2504, acc: 0.0127  
+
+epoch: 130 avg_loss: 5.5946, acc: 0.0174 
+val --- avg_loss: 6.2476, acc: 0.0130  
+update best loss 
+
+epoch: 131 avg_loss: 5.5918, acc: 0.0168 
+val --- avg_loss: 6.2524, acc: 0.0127  
+
+epoch: 132 avg_loss: 5.5879, acc: 0.0160 
+val --- avg_loss: 6.2506, acc: 0.0120  
+
+epoch: 133 avg_loss: 5.5854, acc: 0.0160 
+val --- avg_loss: 6.2466, acc: 0.0123  
+update best loss 
+
+epoch: 134 avg_loss: 5.5834, acc: 0.0136 
+val --- avg_loss: 6.2475, acc: 0.0127  
+
+epoch: 135 avg_loss: 5.5779, acc: 0.0184 
+val --- avg_loss: 6.2481, acc: 0.0137  
+
+epoch: 136 avg_loss: 5.5772, acc: 0.0152 
+val --- avg_loss: 6.2492, acc: 0.0130  
+
+epoch: 137 avg_loss: 5.5700, acc: 0.0169 
+val --- avg_loss: 6.2477, acc: 0.0130  
+
+epoch: 138 avg_loss: 5.5690, acc: 0.0173 
+val --- avg_loss: 6.2460, acc: 0.0130  
+update best loss 
+
+epoch: 139 avg_loss: 5.5656, acc: 0.0154 
+val --- avg_loss: 6.2461, acc: 0.0123  
+
+epoch: 140 avg_loss: 5.5636, acc: 0.0175 
+val --- avg_loss: 6.2468, acc: 0.0130  
+
+epoch: 141 avg_loss: 5.5604, acc: 0.0162 
+val --- avg_loss: 6.2450, acc: 0.0120  
+update best loss 
+
+epoch: 142 avg_loss: 5.5577, acc: 0.0171 
+val --- avg_loss: 6.2406, acc: 0.0123  
+update best loss 
+
+epoch: 143 avg_loss: 5.5528, acc: 0.0187 
+val --- avg_loss: 6.2411, acc: 0.0137  
+
+epoch: 144 avg_loss: 5.5505, acc: 0.0181 
+val --- avg_loss: 6.2405, acc: 0.0133  
+update best loss 
+
+epoch: 145 avg_loss: 5.5465, acc: 0.0184 
+val --- avg_loss: 6.2406, acc: 0.0137  
+
+epoch: 146 avg_loss: 5.5436, acc: 0.0173 
+val --- avg_loss: 6.2417, acc: 0.0133  
+
+epoch: 147 avg_loss: 5.5401, acc: 0.0179 
+val --- avg_loss: 6.2480, acc: 0.0130  
+
+epoch: 148 avg_loss: 5.5378, acc: 0.0170 
+val --- avg_loss: 6.2419, acc: 0.0130  
+
+epoch: 149 avg_loss: 5.5355, acc: 0.0166 
+val --- avg_loss: 6.2442, acc: 0.0140  
+
+epoch: 150 avg_loss: 5.5314, acc: 0.0198 
+val --- avg_loss: 6.2416, acc: 0.0130  
+
+epoch: 151 avg_loss: 5.5294, acc: 0.0202 
+val --- avg_loss: 6.2411, acc: 0.0143  
+
+epoch: 152 avg_loss: 5.5258, acc: 0.0194 
+val --- avg_loss: 6.2433, acc: 0.0140  
+
+epoch: 153 avg_loss: 5.5267, acc: 0.0179 
+val --- avg_loss: 6.2436, acc: 0.0137  
+
+epoch: 154 avg_loss: 5.5216, acc: 0.0174 
+val --- avg_loss: 6.2402, acc: 0.0137  
+update best loss 
+
+epoch: 155 avg_loss: 5.5188, acc: 0.0180 
+val --- avg_loss: 6.2352, acc: 0.0133  
+update best loss 
+
+epoch: 156 avg_loss: 5.5142, acc: 0.0185 
+val --- avg_loss: 6.2372, acc: 0.0140  
+
+epoch: 157 avg_loss: 5.5132, acc: 0.0199 
+val --- avg_loss: 6.2409, acc: 0.0143  
+
+epoch: 158 avg_loss: 5.5087, acc: 0.0202 
+val --- avg_loss: 6.2367, acc: 0.0147  
+
+epoch: 159 avg_loss: 5.5071, acc: 0.0191 
+val --- avg_loss: 6.2353, acc: 0.0130  
+
+epoch: 160 avg_loss: 5.5032, acc: 0.0186 
+val --- avg_loss: 6.2350, acc: 0.0147  
+update best loss 
+
+epoch: 161 avg_loss: 5.4991, acc: 0.0195 
+val --- avg_loss: 6.2392, acc: 0.0133  
+
+epoch: 162 avg_loss: 5.4971, acc: 0.0191 
+val --- avg_loss: 6.2335, acc: 0.0143  
+update best loss 
+
+epoch: 163 avg_loss: 5.4936, acc: 0.0223 
+val --- avg_loss: 6.2374, acc: 0.0150  
+
+epoch: 164 avg_loss: 5.4915, acc: 0.0200 
+val --- avg_loss: 6.2342, acc: 0.0150  
+
+epoch: 165 avg_loss: 5.4882, acc: 0.0195 
+val --- avg_loss: 6.2380, acc: 0.0133  
+
+epoch: 166 avg_loss: 5.4864, acc: 0.0201 
+val --- avg_loss: 6.2313, acc: 0.0143  
+update best loss 
+
+epoch: 167 avg_loss: 5.4828, acc: 0.0193 
+val --- avg_loss: 6.2349, acc: 0.0147  
+
+epoch: 168 avg_loss: 5.4802, acc: 0.0203 
+val --- avg_loss: 6.2364, acc: 0.0147  
+
+epoch: 169 avg_loss: 5.4786, acc: 0.0206 
+val --- avg_loss: 6.2293, acc: 0.0140  
+update best loss 
+
+epoch: 170 avg_loss: 5.4757, acc: 0.0193 
+val --- avg_loss: 6.2371, acc: 0.0140  
+
+epoch: 171 avg_loss: 5.4715, acc: 0.0207 
+val --- avg_loss: 6.2338, acc: 0.0143  
+
+epoch: 172 avg_loss: 5.4710, acc: 0.0203 
+val --- avg_loss: 6.2327, acc: 0.0137  
+
+epoch: 173 avg_loss: 5.4668, acc: 0.0189 
+val --- avg_loss: 6.2364, acc: 0.0150  
+
+epoch: 174 avg_loss: 5.4647, acc: 0.0210 
+val --- avg_loss: 6.2359, acc: 0.0147  
+
+epoch: 175 avg_loss: 5.4617, acc: 0.0193 
+val --- avg_loss: 6.2348, acc: 0.0140  
+
+epoch: 176 avg_loss: 5.4598, acc: 0.0219 
+val --- avg_loss: 6.2299, acc: 0.0150  
+
+epoch: 177 avg_loss: 5.4569, acc: 0.0199 
+val --- avg_loss: 6.2287, acc: 0.0143  
+update best loss 
+
+epoch: 178 avg_loss: 5.4540, acc: 0.0193 
+val --- avg_loss: 6.2298, acc: 0.0140  
+
+epoch: 179 avg_loss: 5.4512, acc: 0.0203 
+val --- avg_loss: 6.2318, acc: 0.0140  
+
+epoch: 180 avg_loss: 5.4497, acc: 0.0203 
+val --- avg_loss: 6.2329, acc: 0.0140  
+
+epoch: 181 avg_loss: 5.4470, acc: 0.0228 
+val --- avg_loss: 6.2312, acc: 0.0147  
+
+epoch: 182 avg_loss: 5.4423, acc: 0.0207 
+val --- avg_loss: 6.2335, acc: 0.0147  
+
+epoch: 183 avg_loss: 5.4398, acc: 0.0208 
+val --- avg_loss: 6.2295, acc: 0.0143  
+
+epoch: 184 avg_loss: 5.4368, acc: 0.0198 
+val --- avg_loss: 6.2337, acc: 0.0130  
+
+epoch: 185 avg_loss: 5.4352, acc: 0.0206 
+val --- avg_loss: 6.2290, acc: 0.0150  
+
+epoch: 186 avg_loss: 5.4330, acc: 0.0210 
+val --- avg_loss: 6.2328, acc: 0.0147  
+
+epoch: 187 avg_loss: 5.4310, acc: 0.0214 
+val --- avg_loss: 6.2280, acc: 0.0157  
+update best loss 
+
+epoch: 188 avg_loss: 5.4282, acc: 0.0226 
+val --- avg_loss: 6.2292, acc: 0.0140  
+
+epoch: 189 avg_loss: 5.4254, acc: 0.0211 
+val --- avg_loss: 6.2301, acc: 0.0133  
+
+epoch: 190 avg_loss: 5.4228, acc: 0.0202 
+val --- avg_loss: 6.2289, acc: 0.0143  
+
+epoch: 191 avg_loss: 5.4202, acc: 0.0211 
+val --- avg_loss: 6.2264, acc: 0.0147  
+update best loss 
+
+epoch: 192 avg_loss: 5.4177, acc: 0.0213 
+val --- avg_loss: 6.2303, acc: 0.0143  
+
+epoch: 193 avg_loss: 5.4142, acc: 0.0212 
+val --- avg_loss: 6.2286, acc: 0.0137  
+
+epoch: 194 avg_loss: 5.4133, acc: 0.0205 
+val --- avg_loss: 6.2308, acc: 0.0143  
+
+epoch: 195 avg_loss: 5.4104, acc: 0.0207 
+val --- avg_loss: 6.2264, acc: 0.0147  
+update best loss 
+
+epoch: 196 avg_loss: 5.4085, acc: 0.0215 
+val --- avg_loss: 6.2298, acc: 0.0137  
+
+epoch: 197 avg_loss: 5.4061, acc: 0.0226 
+val --- avg_loss: 6.2314, acc: 0.0157  
+
+epoch: 198 avg_loss: 5.4033, acc: 0.0210 
+val --- avg_loss: 6.2280, acc: 0.0147  
+
+epoch: 199 avg_loss: 5.4014, acc: 0.0209 
+val --- avg_loss: 6.2307, acc: 0.0140  
+
+epoch: 200 avg_loss: 5.3989, acc: 0.0217 
+val --- avg_loss: 6.2235, acc: 0.0140  
+update best loss 
+
+epoch: 201 avg_loss: 5.3964, acc: 0.0215 
+val --- avg_loss: 6.2245, acc: 0.0140  
+
+epoch: 202 avg_loss: 5.3964, acc: 0.0205 
+val --- avg_loss: 6.2246, acc: 0.0137  
+
+epoch: 203 avg_loss: 5.3905, acc: 0.0211 
+val --- avg_loss: 6.2294, acc: 0.0150  
+
+epoch: 204 avg_loss: 5.3891, acc: 0.0218 
+val --- avg_loss: 6.2285, acc: 0.0160  
+
+epoch: 205 avg_loss: 5.3863, acc: 0.0234 
+val --- avg_loss: 6.2268, acc: 0.0143  
+
+epoch: 206 avg_loss: 5.3836, acc: 0.0234 
+val --- avg_loss: 6.2288, acc: 0.0140  
+
+epoch: 207 avg_loss: 5.3821, acc: 0.0215 
+val --- avg_loss: 6.2245, acc: 0.0153  
+
+epoch: 208 avg_loss: 5.3790, acc: 0.0206 
+val --- avg_loss: 6.2267, acc: 0.0147  
+
+epoch: 209 avg_loss: 5.3778, acc: 0.0226 
+val --- avg_loss: 6.2263, acc: 0.0147  
+
+epoch: 210 avg_loss: 5.3744, acc: 0.0211 
+val --- avg_loss: 6.2252, acc: 0.0140  
+
+epoch: 211 avg_loss: 5.3725, acc: 0.0212 
+val --- avg_loss: 6.2270, acc: 0.0150  
+
+epoch: 212 avg_loss: 5.3688, acc: 0.0224 
+val --- avg_loss: 6.2279, acc: 0.0140  
+
+epoch: 213 avg_loss: 5.3689, acc: 0.0219 
+val --- avg_loss: 6.2214, acc: 0.0140  
+update best loss 
+
+epoch: 214 avg_loss: 5.3661, acc: 0.0211 
+val --- avg_loss: 6.2262, acc: 0.0140  
+
+epoch: 215 avg_loss: 5.3641, acc: 0.0216 
+val --- avg_loss: 6.2229, acc: 0.0143  
+
+epoch: 216 avg_loss: 5.3611, acc: 0.0210 
+val --- avg_loss: 6.2281, acc: 0.0143  
+
+epoch: 217 avg_loss: 5.3591, acc: 0.0217 
+val --- avg_loss: 6.2196, acc: 0.0133  
+update best loss 
+
+epoch: 218 avg_loss: 5.3567, acc: 0.0225 
+val --- avg_loss: 6.2225, acc: 0.0147  
+
+epoch: 219 avg_loss: 5.3539, acc: 0.0222 
+val --- avg_loss: 6.2251, acc: 0.0150  
+
+epoch: 220 avg_loss: 5.3529, acc: 0.0225 
+val --- avg_loss: 6.2216, acc: 0.0137  
+
+epoch: 221 avg_loss: 5.3508, acc: 0.0226 
+val --- avg_loss: 6.2223, acc: 0.0137  
+
+epoch: 222 avg_loss: 5.3492, acc: 0.0213 
+val --- avg_loss: 6.2222, acc: 0.0153  
+
+epoch: 223 avg_loss: 5.3449, acc: 0.0227 
+val --- avg_loss: 6.2251, acc: 0.0150  
+
+epoch: 224 avg_loss: 5.3455, acc: 0.0227 
+val --- avg_loss: 6.2273, acc: 0.0140  
+
+epoch: 225 avg_loss: 5.3422, acc: 0.0225 
+val --- avg_loss: 6.2239, acc: 0.0140  
+
+epoch: 226 avg_loss: 5.3386, acc: 0.0226 
+val --- avg_loss: 6.2249, acc: 0.0153  
+
+epoch: 227 avg_loss: 5.3358, acc: 0.0232 
+val --- avg_loss: 6.2254, acc: 0.0147  
+
+epoch: 228 avg_loss: 5.3360, acc: 0.0229 
+val --- avg_loss: 6.2198, acc: 0.0150  
+
+epoch: 229 avg_loss: 5.3334, acc: 0.0228 
+val --- avg_loss: 6.2227, acc: 0.0153  
+
+epoch: 230 avg_loss: 5.3317, acc: 0.0225 
+val --- avg_loss: 6.2210, acc: 0.0140  
+
+epoch: 231 avg_loss: 5.3289, acc: 0.0242 
+val --- avg_loss: 6.2282, acc: 0.0150  
+
+epoch: 232 avg_loss: 5.3264, acc: 0.0232 
+val --- avg_loss: 6.2253, acc: 0.0147  
+
+epoch: 233 avg_loss: 5.3245, acc: 0.0222 
+val --- avg_loss: 6.2201, acc: 0.0140  
+
+epoch: 234 avg_loss: 5.3223, acc: 0.0216 
+val --- avg_loss: 6.2239, acc: 0.0147  
+
+epoch: 235 avg_loss: 5.3193, acc: 0.0228 
+val --- avg_loss: 6.2225, acc: 0.0150  
+
+epoch: 236 avg_loss: 5.3176, acc: 0.0231 
+val --- avg_loss: 6.2244, acc: 0.0143  
+
+epoch: 237 avg_loss: 5.3155, acc: 0.0235 
+val --- avg_loss: 6.2267, acc: 0.0147  
+
+epoch: 238 avg_loss: 5.3155, acc: 0.0226 
+val --- avg_loss: 6.2238, acc: 0.0147  
+
+epoch: 239 avg_loss: 5.3127, acc: 0.0233 
+val --- avg_loss: 6.2218, acc: 0.0143  
+
+epoch: 240 avg_loss: 5.3112, acc: 0.0235 
+val --- avg_loss: 6.2209, acc: 0.0153  
+
+epoch: 241 avg_loss: 5.3085, acc: 0.0236 
+val --- avg_loss: 6.2255, acc: 0.0147  
+
+epoch: 242 avg_loss: 5.3057, acc: 0.0235 
+val --- avg_loss: 6.2233, acc: 0.0137  
+
+epoch: 243 avg_loss: 5.3047, acc: 0.0224 
+val --- avg_loss: 6.2186, acc: 0.0143  
+update best loss 
+
+epoch: 244 avg_loss: 5.3051, acc: 0.0235 
+val --- avg_loss: 6.2246, acc: 0.0167  
+
+epoch: 245 avg_loss: 5.2994, acc: 0.0236 
+val --- avg_loss: 6.2237, acc: 0.0153  
+
+epoch: 246 avg_loss: 5.2978, acc: 0.0242 
+val --- avg_loss: 6.2230, acc: 0.0160  
+
+epoch: 247 avg_loss: 5.2964, acc: 0.0233 
+val --- avg_loss: 6.2217, acc: 0.0147  
+
+epoch: 248 avg_loss: 5.2957, acc: 0.0225 
+val --- avg_loss: 6.2241, acc: 0.0153  
+
+epoch: 249 avg_loss: 5.2929, acc: 0.0235 
+val --- avg_loss: 6.2208, acc: 0.0150  
+
+epoch: 250 avg_loss: 5.2900, acc: 0.0233 
+val --- avg_loss: 6.2246, acc: 0.0157  
+
+epoch: 251 avg_loss: 5.2888, acc: 0.0223 
+val --- avg_loss: 6.2179, acc: 0.0137  
+update best loss 
+
+epoch: 252 avg_loss: 5.2870, acc: 0.0232 
+val --- avg_loss: 6.2209, acc: 0.0143  
+
+epoch: 253 avg_loss: 5.2838, acc: 0.0238 
+val --- avg_loss: 6.2238, acc: 0.0160  
+
+epoch: 254 avg_loss: 5.2834, acc: 0.0230 
+val --- avg_loss: 6.2215, acc: 0.0150  
+
+epoch: 255 avg_loss: 5.2822, acc: 0.0224 
+val --- avg_loss: 6.2217, acc: 0.0123  
+
+epoch: 256 avg_loss: 5.2790, acc: 0.0233 
+val --- avg_loss: 6.2234, acc: 0.0143  
+
+epoch: 257 avg_loss: 5.2767, acc: 0.0222 
+val --- avg_loss: 6.2214, acc: 0.0140  
+
+epoch: 258 avg_loss: 5.2756, acc: 0.0230 
+val --- avg_loss: 6.2252, acc: 0.0163  
+
+epoch: 259 avg_loss: 5.2734, acc: 0.0231 
+val --- avg_loss: 6.2202, acc: 0.0127  
+
+epoch: 260 avg_loss: 5.2710, acc: 0.0226 
+val --- avg_loss: 6.2219, acc: 0.0143  
+
+epoch: 261 avg_loss: 5.2697, acc: 0.0227 
+val --- avg_loss: 6.2168, acc: 0.0153  
+update best loss 
+
+epoch: 262 avg_loss: 5.2671, acc: 0.0228 
+val --- avg_loss: 6.2262, acc: 0.0147  
+
+epoch: 263 avg_loss: 5.2653, acc: 0.0235 
+val --- avg_loss: 6.2229, acc: 0.0143  
+
+epoch: 264 avg_loss: 5.2644, acc: 0.0239 
+val --- avg_loss: 6.2260, acc: 0.0150  
+
+epoch: 265 avg_loss: 5.2608, acc: 0.0232 
+val --- avg_loss: 6.2215, acc: 0.0137  
+
+epoch: 266 avg_loss: 5.2585, acc: 0.0238 
+val --- avg_loss: 6.2228, acc: 0.0153  
+
+epoch: 267 avg_loss: 5.2578, acc: 0.0245 
+val --- avg_loss: 6.2249, acc: 0.0133  
+
+epoch: 268 avg_loss: 5.2551, acc: 0.0245 
+val --- avg_loss: 6.2238, acc: 0.0147  
+
+epoch: 269 avg_loss: 5.2539, acc: 0.0246 
+val --- avg_loss: 6.2204, acc: 0.0143  
+
+epoch: 270 avg_loss: 5.2538, acc: 0.0237 
+val --- avg_loss: 6.2179, acc: 0.0150  
+
+epoch: 271 avg_loss: 5.2506, acc: 0.0232 
+val --- avg_loss: 6.2218, acc: 0.0130  
+
+epoch: 272 avg_loss: 5.2507, acc: 0.0244 
+val --- avg_loss: 6.2253, acc: 0.0140  
+
+epoch: 273 avg_loss: 5.2466, acc: 0.0237 
+val --- avg_loss: 6.2177, acc: 0.0137  
+
+epoch: 274 avg_loss: 5.2445, acc: 0.0223 
+val --- avg_loss: 6.2206, acc: 0.0133  
+
+epoch: 275 avg_loss: 5.2421, acc: 0.0227 
+val --- avg_loss: 6.2228, acc: 0.0140  
+
+epoch: 276 avg_loss: 5.2410, acc: 0.0228 
+val --- avg_loss: 6.2225, acc: 0.0123  
+
+epoch: 277 avg_loss: 5.2403, acc: 0.0234 
+val --- avg_loss: 6.2176, acc: 0.0133  
+
+epoch: 278 avg_loss: 5.2383, acc: 0.0237 
+val --- avg_loss: 6.2212, acc: 0.0137  
+
+epoch: 279 avg_loss: 5.2365, acc: 0.0243 
+val --- avg_loss: 6.2210, acc: 0.0140  
+
+epoch: 280 avg_loss: 5.2349, acc: 0.0242 
+val --- avg_loss: 6.2248, acc: 0.0143  
+
+epoch: 281 avg_loss: 5.2315, acc: 0.0241 
+val --- avg_loss: 6.2221, acc: 0.0140  
+
+epoch: 282 avg_loss: 5.2314, acc: 0.0231 
+val --- avg_loss: 6.2190, acc: 0.0127  
+
+epoch: 283 avg_loss: 5.2289, acc: 0.0228 
+val --- avg_loss: 6.2216, acc: 0.0137  
+
+epoch: 284 avg_loss: 5.2286, acc: 0.0231 
+val --- avg_loss: 6.2255, acc: 0.0143  
+
+epoch: 285 avg_loss: 5.2281, acc: 0.0235 
+val --- avg_loss: 6.2229, acc: 0.0140  
+
+epoch: 286 avg_loss: 5.2245, acc: 0.0228 
+val --- avg_loss: 6.2220, acc: 0.0143  
+
+epoch: 287 avg_loss: 5.2231, acc: 0.0229 
+val --- avg_loss: 6.2211, acc: 0.0150  
+
+epoch: 288 avg_loss: 5.2209, acc: 0.0247 
+val --- avg_loss: 6.2239, acc: 0.0140  
+
+epoch: 289 avg_loss: 5.2207, acc: 0.0229 
+val --- avg_loss: 6.2210, acc: 0.0140  
+
+epoch: 290 avg_loss: 5.2168, acc: 0.0241 
+val --- avg_loss: 6.2226, acc: 0.0140  
+
+epoch: 291 avg_loss: 5.2165, acc: 0.0244 
+val --- avg_loss: 6.2194, acc: 0.0147  
+
+epoch: 292 avg_loss: 5.2147, acc: 0.0233 
+val --- avg_loss: 6.2226, acc: 0.0127  
+
+epoch: 293 avg_loss: 5.2132, acc: 0.0244 
+val --- avg_loss: 6.2252, acc: 0.0133  
+
+epoch: 294 avg_loss: 5.2107, acc: 0.0232 
+val --- avg_loss: 6.2217, acc: 0.0130  
+
+epoch: 295 avg_loss: 5.2088, acc: 0.0253 
+val --- avg_loss: 6.2231, acc: 0.0133  
+
+epoch: 296 avg_loss: 5.2067, acc: 0.0242 
+val --- avg_loss: 6.2246, acc: 0.0137  
+
+epoch: 297 avg_loss: 5.2065, acc: 0.0236 
+val --- avg_loss: 6.2200, acc: 0.0130  
+
+epoch: 298 avg_loss: 5.2031, acc: 0.0236 
+val --- avg_loss: 6.2202, acc: 0.0133  
+
+epoch: 299 avg_loss: 5.2041, acc: 0.0246 
+val --- avg_loss: 6.2230, acc: 0.0137  
+
+epoch: 300 avg_loss: 5.2011, acc: 0.0235 
+val --- avg_loss: 6.2215, acc: 0.0133  
+
+epoch: 301 avg_loss: 5.1998, acc: 0.0227 
+val --- avg_loss: 6.2259, acc: 0.0130  
+
+epoch: 302 avg_loss: 5.1975, acc: 0.0230 
+val --- avg_loss: 6.2255, acc: 0.0137  
+
+epoch: 303 avg_loss: 5.1948, acc: 0.0235 
+val --- avg_loss: 6.2223, acc: 0.0137  
+
+epoch: 304 avg_loss: 5.1942, acc: 0.0246 
+val --- avg_loss: 6.2250, acc: 0.0133  
+
+epoch: 305 avg_loss: 5.1933, acc: 0.0241 
+val --- avg_loss: 6.2225, acc: 0.0133  
+
+epoch: 306 avg_loss: 5.1909, acc: 0.0233 
+val --- avg_loss: 6.2207, acc: 0.0133  
+
+epoch: 307 avg_loss: 5.1890, acc: 0.0233 
+val --- avg_loss: 6.2203, acc: 0.0120  
+
+epoch: 308 avg_loss: 5.1889, acc: 0.0256 
+val --- avg_loss: 6.2271, acc: 0.0140  
+
+epoch: 309 avg_loss: 5.1862, acc: 0.0242 
+val --- avg_loss: 6.2258, acc: 0.0130  
+
+epoch: 310 avg_loss: 5.1861, acc: 0.0233 
+val --- avg_loss: 6.2191, acc: 0.0130  
+
+epoch: 311 avg_loss: 5.1833, acc: 0.0248 
+val --- avg_loss: 6.2279, acc: 0.0137  
+
+epoch: 312 avg_loss: 5.1819, acc: 0.0242 
+val --- avg_loss: 6.2295, acc: 0.0140  
+
+epoch: 313 avg_loss: 5.1812, acc: 0.0233 
+val --- avg_loss: 6.2218, acc: 0.0137  
+
+epoch: 314 avg_loss: 5.1780, acc: 0.0242 
+val --- avg_loss: 6.2238, acc: 0.0137  
+
+epoch: 315 avg_loss: 5.1763, acc: 0.0237 
+val --- avg_loss: 6.2280, acc: 0.0143  
+
+epoch: 316 avg_loss: 5.1757, acc: 0.0246 
+val --- avg_loss: 6.2218, acc: 0.0137  
+
+epoch: 317 avg_loss: 5.1752, acc: 0.0242 
+val --- avg_loss: 6.2224, acc: 0.0133  
+
+epoch: 318 avg_loss: 5.1728, acc: 0.0240 
+val --- avg_loss: 6.2234, acc: 0.0133  
+
+epoch: 319 avg_loss: 5.1707, acc: 0.0233 
+val --- avg_loss: 6.2239, acc: 0.0123  
+
+epoch: 320 avg_loss: 5.1698, acc: 0.0245 
+val --- avg_loss: 6.2236, acc: 0.0150  
+
+epoch: 321 avg_loss: 5.1694, acc: 0.0247 
+val --- avg_loss: 6.2256, acc: 0.0137  
+
+epoch: 322 avg_loss: 5.1656, acc: 0.0257 
+val --- avg_loss: 6.2292, acc: 0.0133  
+
+epoch: 323 avg_loss: 5.1655, acc: 0.0234 
+val --- avg_loss: 6.2244, acc: 0.0130  
+
+epoch: 324 avg_loss: 5.1645, acc: 0.0253 
+val --- avg_loss: 6.2266, acc: 0.0133  
+
+epoch: 325 avg_loss: 5.1615, acc: 0.0239 
+val --- avg_loss: 6.2249, acc: 0.0130  
+
+epoch: 326 avg_loss: 5.1594, acc: 0.0254 
+val --- avg_loss: 6.2221, acc: 0.0133  
+
+epoch: 327 avg_loss: 5.1625, acc: 0.0215 
+val --- avg_loss: 6.2244, acc: 0.0137  
+
+epoch: 328 avg_loss: 5.1584, acc: 0.0234 
+val --- avg_loss: 6.2257, acc: 0.0133  
+
+epoch: 329 avg_loss: 5.1586, acc: 0.0239 
+val --- avg_loss: 6.2245, acc: 0.0140  
+
+epoch: 330 avg_loss: 5.1547, acc: 0.0259 
+val --- avg_loss: 6.2246, acc: 0.0133  
+
+epoch: 331 avg_loss: 5.1545, acc: 0.0248 
+val --- avg_loss: 6.2266, acc: 0.0133  
+
+epoch: 332 avg_loss: 5.1516, acc: 0.0234 
+val --- avg_loss: 6.2260, acc: 0.0123  
+
+epoch: 333 avg_loss: 5.1520, acc: 0.0254 
+val --- avg_loss: 6.2255, acc: 0.0137  
+
+epoch: 334 avg_loss: 5.1497, acc: 0.0238 
+val --- avg_loss: 6.2245, acc: 0.0123  
+
+epoch: 335 avg_loss: 5.1493, acc: 0.0237 
+val --- avg_loss: 6.2262, acc: 0.0137  
+
+epoch: 336 avg_loss: 5.1453, acc: 0.0240 
+val --- avg_loss: 6.2263, acc: 0.0130  
+
+epoch: 337 avg_loss: 5.1439, acc: 0.0247 
+val --- avg_loss: 6.2261, acc: 0.0137  
+
+epoch: 338 avg_loss: 5.1426, acc: 0.0250 
+val --- avg_loss: 6.2250, acc: 0.0130  
+
+epoch: 339 avg_loss: 5.1439, acc: 0.0231 
+val --- avg_loss: 6.2256, acc: 0.0127  
+
+epoch: 340 avg_loss: 5.1425, acc: 0.0241 
+val --- avg_loss: 6.2258, acc: 0.0127  
+
+epoch: 341 avg_loss: 5.1392, acc: 0.0242 
+val --- avg_loss: 6.2306, acc: 0.0137  
+
+epoch: 342 avg_loss: 5.1394, acc: 0.0244 
+val --- avg_loss: 6.2269, acc: 0.0130  
+
+epoch: 343 avg_loss: 5.1364, acc: 0.0236 
+val --- avg_loss: 6.2253, acc: 0.0123  
+
+epoch: 344 avg_loss: 5.1369, acc: 0.0225 
+val --- avg_loss: 6.2296, acc: 0.0137  
+
+epoch: 345 avg_loss: 5.1336, acc: 0.0243 
+val --- avg_loss: 6.2242, acc: 0.0137  
+
+epoch: 346 avg_loss: 5.1320, acc: 0.0257 
+val --- avg_loss: 6.2236, acc: 0.0140  
+
+epoch: 347 avg_loss: 5.1327, acc: 0.0251 
+val --- avg_loss: 6.2256, acc: 0.0133  
+
+epoch: 348 avg_loss: 5.1283, acc: 0.0244 
+val --- avg_loss: 6.2289, acc: 0.0143  
+
+epoch: 349 avg_loss: 5.1297, acc: 0.0244 
+val --- avg_loss: 6.2251, acc: 0.0127  
+
+epoch: 350 avg_loss: 5.1262, acc: 0.0241 
+val --- avg_loss: 6.2245, acc: 0.0127  
+
+epoch: 351 avg_loss: 5.1258, acc: 0.0242 
+val --- avg_loss: 6.2250, acc: 0.0133  
+
+epoch: 352 avg_loss: 5.1254, acc: 0.0238 
+val --- avg_loss: 6.2284, acc: 0.0127  
+
+epoch: 353 avg_loss: 5.1233, acc: 0.0244 
+val --- avg_loss: 6.2271, acc: 0.0130  
+
+epoch: 354 avg_loss: 5.1208, acc: 0.0238 
+val --- avg_loss: 6.2263, acc: 0.0133  
+
+epoch: 355 avg_loss: 5.1199, acc: 0.0247 
+val --- avg_loss: 6.2286, acc: 0.0127  
+
+epoch: 356 avg_loss: 5.1194, acc: 0.0243 
+val --- avg_loss: 6.2245, acc: 0.0130  
+
+epoch: 357 avg_loss: 5.1186, acc: 0.0234 
+val --- avg_loss: 6.2303, acc: 0.0120  
+
+epoch: 358 avg_loss: 5.1163, acc: 0.0249 
+val --- avg_loss: 6.2287, acc: 0.0123  
+
+epoch: 359 avg_loss: 5.1135, acc: 0.0249 
+val --- avg_loss: 6.2267, acc: 0.0127  
+
+epoch: 360 avg_loss: 5.1136, acc: 0.0244 
+val --- avg_loss: 6.2254, acc: 0.0130  
+
+epoch: 361 avg_loss: 5.1117, acc: 0.0233 
+val --- avg_loss: 6.2312, acc: 0.0120  
+
+epoch: 362 avg_loss: 5.1118, acc: 0.0238 
+val --- avg_loss: 6.2258, acc: 0.0140  
+
+epoch: 363 avg_loss: 5.1122, acc: 0.0228 
+val --- avg_loss: 6.2293, acc: 0.0127  
+
+epoch: 364 avg_loss: 5.1093, acc: 0.0243 
+val --- avg_loss: 6.2312, acc: 0.0133  
+
+epoch: 365 avg_loss: 5.1087, acc: 0.0240 
+val --- avg_loss: 6.2282, acc: 0.0127  
+
+epoch: 366 avg_loss: 5.1056, acc: 0.0225 
+val --- avg_loss: 6.2294, acc: 0.0120  
+
+epoch: 367 avg_loss: 5.1041, acc: 0.0237 
+val --- avg_loss: 6.2292, acc: 0.0127  
+
+epoch: 368 avg_loss: 5.1044, acc: 0.0255 
+val --- avg_loss: 6.2337, acc: 0.0143  
+
+epoch: 369 avg_loss: 5.1010, acc: 0.0238 
+val --- avg_loss: 6.2250, acc: 0.0123  
+
+epoch: 370 avg_loss: 5.1018, acc: 0.0240 
+val --- avg_loss: 6.2262, acc: 0.0127  
+
+epoch: 371 avg_loss: 5.0998, acc: 0.0253 
+val --- avg_loss: 6.2288, acc: 0.0137  
+
+epoch: 372 avg_loss: 5.0995, acc: 0.0238 
+val --- avg_loss: 6.2268, acc: 0.0120  
+
+epoch: 373 avg_loss: 5.0970, acc: 0.0241 
+val --- avg_loss: 6.2307, acc: 0.0133  
+
+epoch: 374 avg_loss: 5.0973, acc: 0.0244 
+val --- avg_loss: 6.2304, acc: 0.0133  
+
+epoch: 375 avg_loss: 5.0942, acc: 0.0253 
+val --- avg_loss: 6.2342, acc: 0.0130  
+
+epoch: 376 avg_loss: 5.0934, acc: 0.0237 
+val --- avg_loss: 6.2294, acc: 0.0123  
+
+epoch: 377 avg_loss: 5.0918, acc: 0.0241 
+val --- avg_loss: 6.2315, acc: 0.0127  
+
+epoch: 378 avg_loss: 5.0913, acc: 0.0241 
+val --- avg_loss: 6.2284, acc: 0.0133  
+
+epoch: 379 avg_loss: 5.0907, acc: 0.0231 
+val --- avg_loss: 6.2295, acc: 0.0120  
+
+epoch: 380 avg_loss: 5.0875, acc: 0.0233 
+val --- avg_loss: 6.2341, acc: 0.0120  
+
+epoch: 381 avg_loss: 5.0883, acc: 0.0250 
+val --- avg_loss: 6.2293, acc: 0.0137  
+
+epoch: 382 avg_loss: 5.0851, acc: 0.0255 
+val --- avg_loss: 6.2324, acc: 0.0143  
+
+epoch: 383 avg_loss: 5.0856, acc: 0.0237 
+val --- avg_loss: 6.2311, acc: 0.0127  
+
+epoch: 384 avg_loss: 5.0864, acc: 0.0248 
+val --- avg_loss: 6.2339, acc: 0.0123  
+
+epoch: 385 avg_loss: 5.0833, acc: 0.0239 
+val --- avg_loss: 6.2316, acc: 0.0120  
+
+epoch: 386 avg_loss: 5.0823, acc: 0.0247 
+val --- avg_loss: 6.2333, acc: 0.0143  
+
+epoch: 387 avg_loss: 5.0808, acc: 0.0246 
+val --- avg_loss: 6.2340, acc: 0.0123  
+
+epoch: 388 avg_loss: 5.0783, acc: 0.0236 
+val --- avg_loss: 6.2295, acc: 0.0117  
+
+epoch: 389 avg_loss: 5.0774, acc: 0.0246 
+val --- avg_loss: 6.2338, acc: 0.0130  
+
+epoch: 390 avg_loss: 5.0778, acc: 0.0249 
+val --- avg_loss: 6.2309, acc: 0.0140  
+
+epoch: 391 avg_loss: 5.0756, acc: 0.0243 
+val --- avg_loss: 6.2302, acc: 0.0123  
+
+epoch: 392 avg_loss: 5.0755, acc: 0.0238 
+val --- avg_loss: 6.2332, acc: 0.0133  
+
+epoch: 393 avg_loss: 5.0735, acc: 0.0237 
+val --- avg_loss: 6.2305, acc: 0.0120  
+
+epoch: 394 avg_loss: 5.0714, acc: 0.0233 
+val --- avg_loss: 6.2338, acc: 0.0130  
+
+epoch: 395 avg_loss: 5.0702, acc: 0.0236 
+val --- avg_loss: 6.2336, acc: 0.0123  
+
+epoch: 396 avg_loss: 5.0705, acc: 0.0239 
+val --- avg_loss: 6.2333, acc: 0.0127  
+
+epoch: 397 avg_loss: 5.0680, acc: 0.0240 
+val --- avg_loss: 6.2280, acc: 0.0123  
+
+epoch: 398 avg_loss: 5.0673, acc: 0.0233 
+val --- avg_loss: 6.2348, acc: 0.0123  
+
+epoch: 399 avg_loss: 5.0663, acc: 0.0241 
+val --- avg_loss: 6.2356, acc: 0.0123  
+
+epoch: 400 avg_loss: 5.0645, acc: 0.0244 
+val --- avg_loss: 6.2352, acc: 0.0120  
+
+epoch: 401 avg_loss: 5.0643, acc: 0.0249 
+val --- avg_loss: 6.2321, acc: 0.0127  
+
+epoch: 402 avg_loss: 5.0627, acc: 0.0239 
+val --- avg_loss: 6.2314, acc: 0.0127  
+
+epoch: 403 avg_loss: 5.0615, acc: 0.0244 
+val --- avg_loss: 6.2327, acc: 0.0130  
+
+epoch: 404 avg_loss: 5.0597, acc: 0.0248 
+val --- avg_loss: 6.2335, acc: 0.0123  
+
+epoch: 405 avg_loss: 5.0587, acc: 0.0237 
+val --- avg_loss: 6.2349, acc: 0.0120  
+
+epoch: 406 avg_loss: 5.0593, acc: 0.0246 
+val --- avg_loss: 6.2337, acc: 0.0123  
+
+epoch: 407 avg_loss: 5.0582, acc: 0.0235 
+val --- avg_loss: 6.2325, acc: 0.0123  
+
+epoch: 408 avg_loss: 5.0565, acc: 0.0240 
+val --- avg_loss: 6.2318, acc: 0.0123  
+
+epoch: 409 avg_loss: 5.0541, acc: 0.0239 
+val --- avg_loss: 6.2312, acc: 0.0120  
+
+epoch: 410 avg_loss: 5.0549, acc: 0.0242 
+val --- avg_loss: 6.2342, acc: 0.0123  
+
+epoch: 411 avg_loss: 5.0525, acc: 0.0243 
+val --- avg_loss: 6.2338, acc: 0.0133  
+
+epoch: 412 avg_loss: 5.0512, acc: 0.0244 
+val --- avg_loss: 6.2338, acc: 0.0127  
+
+epoch: 413 avg_loss: 5.0497, acc: 0.0242 
+val --- avg_loss: 6.2382, acc: 0.0123  
+
+epoch: 414 avg_loss: 5.0484, acc: 0.0242 
+val --- avg_loss: 6.2325, acc: 0.0117  
+
+epoch: 415 avg_loss: 5.0503, acc: 0.0242 
+val --- avg_loss: 6.2412, acc: 0.0123  
+
+epoch: 416 avg_loss: 5.0484, acc: 0.0240 
+val --- avg_loss: 6.2353, acc: 0.0130  
+
+epoch: 417 avg_loss: 5.0456, acc: 0.0239 
+val --- avg_loss: 6.2318, acc: 0.0127  
+
+epoch: 418 avg_loss: 5.0444, acc: 0.0240 
+val --- avg_loss: 6.2371, acc: 0.0130  
+
+epoch: 419 avg_loss: 5.0448, acc: 0.0241 
+val --- avg_loss: 6.2334, acc: 0.0120  
+
+epoch: 420 avg_loss: 5.0446, acc: 0.0242 
+val --- avg_loss: 6.2374, acc: 0.0127  
+
+epoch: 421 avg_loss: 5.0414, acc: 0.0238 
+val --- avg_loss: 6.2365, acc: 0.0123  
+
+epoch: 422 avg_loss: 5.0403, acc: 0.0247 
+val --- avg_loss: 6.2411, acc: 0.0130  
+
+epoch: 423 avg_loss: 5.0397, acc: 0.0248 
+val --- avg_loss: 6.2351, acc: 0.0123  
+
+epoch: 424 avg_loss: 5.0405, acc: 0.0237 
+val --- avg_loss: 6.2343, acc: 0.0127  
+
+epoch: 425 avg_loss: 5.0367, acc: 0.0243 
+val --- avg_loss: 6.2351, acc: 0.0123  
+
+epoch: 426 avg_loss: 5.0350, acc: 0.0237 
+val --- avg_loss: 6.2364, acc: 0.0123  
+
+epoch: 427 avg_loss: 5.0357, acc: 0.0238 
+val --- avg_loss: 6.2360, acc: 0.0133  
+
+epoch: 428 avg_loss: 5.0359, acc: 0.0244 
+val --- avg_loss: 6.2375, acc: 0.0123  
+
+epoch: 429 avg_loss: 5.0338, acc: 0.0248 
+val --- avg_loss: 6.2390, acc: 0.0130  
+
+epoch: 430 avg_loss: 5.0314, acc: 0.0257 
+val --- avg_loss: 6.2369, acc: 0.0123  
+
+epoch: 431 avg_loss: 5.0316, acc: 0.0246 
+val --- avg_loss: 6.2413, acc: 0.0127  
+
+epoch: 432 avg_loss: 5.0309, acc: 0.0245 
+val --- avg_loss: 6.2387, acc: 0.0120  
+
+epoch: 433 avg_loss: 5.0289, acc: 0.0242 
+val --- avg_loss: 6.2403, acc: 0.0130  
+
+epoch: 434 avg_loss: 5.0266, acc: 0.0242 
+val --- avg_loss: 6.2408, acc: 0.0127  
+
+epoch: 435 avg_loss: 5.0259, acc: 0.0239 
+val --- avg_loss: 6.2377, acc: 0.0127  
+
+epoch: 436 avg_loss: 5.0263, acc: 0.0243 
+val --- avg_loss: 6.2360, acc: 0.0123  
+
+epoch: 437 avg_loss: 5.0256, acc: 0.0243 
+val --- avg_loss: 6.2405, acc: 0.0127  
+
+epoch: 438 avg_loss: 5.0239, acc: 0.0235 
+val --- avg_loss: 6.2350, acc: 0.0123  
+
+epoch: 439 avg_loss: 5.0229, acc: 0.0251 
+val --- avg_loss: 6.2371, acc: 0.0120  
+
+epoch: 440 avg_loss: 5.0213, acc: 0.0238 
+val --- avg_loss: 6.2406, acc: 0.0123  
+
+epoch: 441 avg_loss: 5.0213, acc: 0.0235 
+val --- avg_loss: 6.2396, acc: 0.0123  
+
+epoch: 442 avg_loss: 5.0205, acc: 0.0256 
+val --- avg_loss: 6.2382, acc: 0.0117  
+
+epoch: 443 avg_loss: 5.0176, acc: 0.0244 
+val --- avg_loss: 6.2418, acc: 0.0127  
+
+epoch: 444 avg_loss: 5.0173, acc: 0.0240 
+val --- avg_loss: 6.2376, acc: 0.0120  
+
+epoch: 445 avg_loss: 5.0157, acc: 0.0238 
+val --- avg_loss: 6.2393, acc: 0.0120  
+
+epoch: 446 avg_loss: 5.0160, acc: 0.0240 
+val --- avg_loss: 6.2427, acc: 0.0120  
+
+epoch: 447 avg_loss: 5.0148, acc: 0.0247 
+val --- avg_loss: 6.2389, acc: 0.0120  
+
+epoch: 448 avg_loss: 5.0123, acc: 0.0241 
+val --- avg_loss: 6.2403, acc: 0.0127  
+
+epoch: 449 avg_loss: 5.0127, acc: 0.0242 
+val --- avg_loss: 6.2402, acc: 0.0117  
+
+epoch: 450 avg_loss: 5.0111, acc: 0.0251 
+val --- avg_loss: 6.2412, acc: 0.0130  
+
+epoch: 451 avg_loss: 5.0111, acc: 0.0253 
+val --- avg_loss: 6.2375, acc: 0.0123  
+
+epoch: 452 avg_loss: 5.0102, acc: 0.0244 
+val --- avg_loss: 6.2418, acc: 0.0123  
+
+epoch: 453 avg_loss: 5.0094, acc: 0.0248 
+val --- avg_loss: 6.2396, acc: 0.0117  
+
+epoch: 454 avg_loss: 5.0088, acc: 0.0247 
+val --- avg_loss: 6.2430, acc: 0.0123  
+
+epoch: 455 avg_loss: 5.0068, acc: 0.0236 
+val --- avg_loss: 6.2421, acc: 0.0123  
+
+epoch: 456 avg_loss: 5.0049, acc: 0.0236 
+val --- avg_loss: 6.2392, acc: 0.0120  
+
+epoch: 457 avg_loss: 5.0054, acc: 0.0236 
+val --- avg_loss: 6.2433, acc: 0.0123  
+
+epoch: 458 avg_loss: 5.0046, acc: 0.0243 
+val --- avg_loss: 6.2395, acc: 0.0130  
+
+epoch: 459 avg_loss: 5.0030, acc: 0.0250 
+val --- avg_loss: 6.2431, acc: 0.0130  
+
+epoch: 460 avg_loss: 5.0037, acc: 0.0235 
+val --- avg_loss: 6.2388, acc: 0.0120  
+
+epoch: 461 avg_loss: 5.0010, acc: 0.0246 
+val --- avg_loss: 6.2424, acc: 0.0127  
+
+epoch: 462 avg_loss: 4.9998, acc: 0.0244 
+val --- avg_loss: 6.2454, acc: 0.0127  
+
+epoch: 463 avg_loss: 4.9992, acc: 0.0245 
+val --- avg_loss: 6.2426, acc: 0.0127  
+
+epoch: 464 avg_loss: 4.9997, acc: 0.0246 
+val --- avg_loss: 6.2382, acc: 0.0117  
+
+epoch: 465 avg_loss: 4.9965, acc: 0.0241 
+val --- avg_loss: 6.2400, acc: 0.0123  
+
+epoch: 466 avg_loss: 4.9969, acc: 0.0241 
+val --- avg_loss: 6.2469, acc: 0.0123  
+
+epoch: 467 avg_loss: 4.9957, acc: 0.0246 
+val --- avg_loss: 6.2438, acc: 0.0123  
+
+epoch: 468 avg_loss: 4.9945, acc: 0.0240 
+val --- avg_loss: 6.2404, acc: 0.0123  
+
+epoch: 469 avg_loss: 4.9957, acc: 0.0251 
+val --- avg_loss: 6.2463, acc: 0.0127  
+
+epoch: 470 avg_loss: 4.9929, acc: 0.0246 
+val --- avg_loss: 6.2413, acc: 0.0123  
+
+epoch: 471 avg_loss: 4.9908, acc: 0.0243 
+val --- avg_loss: 6.2424, acc: 0.0120  
+
+epoch: 472 avg_loss: 4.9908, acc: 0.0241 
+val --- avg_loss: 6.2433, acc: 0.0130  
+
+epoch: 473 avg_loss: 4.9890, acc: 0.0246 
+val --- avg_loss: 6.2443, acc: 0.0123  
+
+epoch: 474 avg_loss: 4.9885, acc: 0.0244 
+val --- avg_loss: 6.2436, acc: 0.0123  
+
+epoch: 475 avg_loss: 4.9891, acc: 0.0247 
+val --- avg_loss: 6.2448, acc: 0.0127  
+
+epoch: 476 avg_loss: 4.9859, acc: 0.0243 
+val --- avg_loss: 6.2420, acc: 0.0123  
+
+epoch: 477 avg_loss: 4.9848, acc: 0.0242 
+val --- avg_loss: 6.2475, acc: 0.0130  
+
+epoch: 478 avg_loss: 4.9843, acc: 0.0241 
+val --- avg_loss: 6.2480, acc: 0.0127  
+
+epoch: 479 avg_loss: 4.9869, acc: 0.0236 
+val --- avg_loss: 6.2424, acc: 0.0120  
+
+epoch: 480 avg_loss: 4.9849, acc: 0.0245 
+val --- avg_loss: 6.2460, acc: 0.0127  
+
+epoch: 481 avg_loss: 4.9827, acc: 0.0245 
+val --- avg_loss: 6.2442, acc: 0.0133  
+
+epoch: 482 avg_loss: 4.9809, acc: 0.0248 
+val --- avg_loss: 6.2468, acc: 0.0133  
+
+epoch: 483 avg_loss: 4.9824, acc: 0.0239 
+val --- avg_loss: 6.2417, acc: 0.0120  
+
+epoch: 484 avg_loss: 4.9814, acc: 0.0243 
+val --- avg_loss: 6.2438, acc: 0.0123  
+
+epoch: 485 avg_loss: 4.9788, acc: 0.0245 
+val --- avg_loss: 6.2479, acc: 0.0127  
+
+epoch: 486 avg_loss: 4.9787, acc: 0.0247 
+val --- avg_loss: 6.2474, acc: 0.0127  
+
+epoch: 487 avg_loss: 4.9772, acc: 0.0242 
+val --- avg_loss: 6.2484, acc: 0.0133  
+
+epoch: 488 avg_loss: 4.9770, acc: 0.0242 
+val --- avg_loss: 6.2451, acc: 0.0127  
+
+epoch: 489 avg_loss: 4.9759, acc: 0.0246 
+val --- avg_loss: 6.2433, acc: 0.0123  
+
+epoch: 490 avg_loss: 4.9737, acc: 0.0248 
+val --- avg_loss: 6.2476, acc: 0.0123  
+
+epoch: 491 avg_loss: 4.9739, acc: 0.0240 
+val --- avg_loss: 6.2494, acc: 0.0127  
+
+epoch: 492 avg_loss: 4.9746, acc: 0.0245 
+val --- avg_loss: 6.2426, acc: 0.0123  
+
+epoch: 493 avg_loss: 4.9722, acc: 0.0245 
+val --- avg_loss: 6.2496, acc: 0.0123  
+
+epoch: 494 avg_loss: 4.9726, acc: 0.0248 
+val --- avg_loss: 6.2483, acc: 0.0123  
+
+epoch: 495 avg_loss: 4.9721, acc: 0.0231 
+val --- avg_loss: 6.2474, acc: 0.0127  
+
+epoch: 496 avg_loss: 4.9692, acc: 0.0253 
+val --- avg_loss: 6.2427, acc: 0.0123  
+
+epoch: 497 avg_loss: 4.9698, acc: 0.0244 
+val --- avg_loss: 6.2477, acc: 0.0127  
+
+epoch: 498 avg_loss: 4.9673, acc: 0.0247 
+val --- avg_loss: 6.2476, acc: 0.0123  
+
+epoch: 499 avg_loss: 4.9676, acc: 0.0248 
+val --- avg_loss: 6.2469, acc: 0.0127  
+
+epoch: 500 avg_loss: 4.9668, acc: 0.0250 
+val --- avg_loss: 6.2494, acc: 0.0127  
+
+epoch: 501 avg_loss: 4.9640, acc: 0.0249 
+val --- avg_loss: 6.2505, acc: 0.0123  
+
+epoch: 502 avg_loss: 4.9664, acc: 0.0249 
+val --- avg_loss: 6.2502, acc: 0.0130  
+
+epoch: 503 avg_loss: 4.9639, acc: 0.0246 
+val --- avg_loss: 6.2514, acc: 0.0120  
+
+epoch: 504 avg_loss: 4.9632, acc: 0.0249 
+val --- avg_loss: 6.2497, acc: 0.0123  
+
+epoch: 505 avg_loss: 4.9636, acc: 0.0247 
+val --- avg_loss: 6.2523, acc: 0.0123  
+
+epoch: 506 avg_loss: 4.9602, acc: 0.0248 
+val --- avg_loss: 6.2520, acc: 0.0130  
+
+epoch: 507 avg_loss: 4.9607, acc: 0.0250 
+val --- avg_loss: 6.2539, acc: 0.0123  
+
+epoch: 508 avg_loss: 4.9601, acc: 0.0247 
+val --- avg_loss: 6.2443, acc: 0.0123  
+
+epoch: 509 avg_loss: 4.9568, acc: 0.0245 
+val --- avg_loss: 6.2495, acc: 0.0123  
+
+epoch: 510 avg_loss: 4.9588, acc: 0.0245 
+val --- avg_loss: 6.2490, acc: 0.0130  
+
+epoch: 511 avg_loss: 4.9572, acc: 0.0247 
+val --- avg_loss: 6.2508, acc: 0.0133  
+
+epoch: 512 avg_loss: 4.9559, acc: 0.0250 
+val --- avg_loss: 6.2488, acc: 0.0123  
+
+epoch: 513 avg_loss: 4.9554, acc: 0.0244 
+val --- avg_loss: 6.2551, acc: 0.0123  
+
+epoch: 514 avg_loss: 4.9548, acc: 0.0239 
+val --- avg_loss: 6.2490, acc: 0.0130  
+
+epoch: 515 avg_loss: 4.9537, acc: 0.0248 
+val --- avg_loss: 6.2514, acc: 0.0123  
+
+epoch: 516 avg_loss: 4.9525, acc: 0.0246 
+val --- avg_loss: 6.2511, acc: 0.0127  
+
+epoch: 517 avg_loss: 4.9536, acc: 0.0242 
+val --- avg_loss: 6.2510, acc: 0.0127  
+
+epoch: 518 avg_loss: 4.9525, acc: 0.0243 
+val --- avg_loss: 6.2474, acc: 0.0130  
+
+epoch: 519 avg_loss: 4.9513, acc: 0.0241 
+val --- avg_loss: 6.2518, acc: 0.0127  
+
+epoch: 520 avg_loss: 4.9508, acc: 0.0251 
+val --- avg_loss: 6.2552, acc: 0.0120  
+
+epoch: 521 avg_loss: 4.9478, acc: 0.0251 
+val --- avg_loss: 6.2528, acc: 0.0123  
+
+epoch: 522 avg_loss: 4.9480, acc: 0.0247 
+val --- avg_loss: 6.2487, acc: 0.0123  
+
+epoch: 523 avg_loss: 4.9472, acc: 0.0240 
+val --- avg_loss: 6.2535, acc: 0.0123  
+
+epoch: 524 avg_loss: 4.9464, acc: 0.0249 
+val --- avg_loss: 6.2549, acc: 0.0123  
+
+epoch: 525 avg_loss: 4.9452, acc: 0.0248 
+val --- avg_loss: 6.2495, acc: 0.0130  
+
+epoch: 526 avg_loss: 4.9455, acc: 0.0248 
+val --- avg_loss: 6.2527, acc: 0.0120  
+
+epoch: 527 avg_loss: 4.9440, acc: 0.0247 
+val --- avg_loss: 6.2534, acc: 0.0123  
+
+epoch: 528 avg_loss: 4.9441, acc: 0.0252 
+val --- avg_loss: 6.2525, acc: 0.0120  
+
+epoch: 529 avg_loss: 4.9434, acc: 0.0248 
+val --- avg_loss: 6.2538, acc: 0.0123  
+
+epoch: 530 avg_loss: 4.9429, acc: 0.0242 
+val --- avg_loss: 6.2489, acc: 0.0117  
+
+epoch: 531 avg_loss: 4.9399, acc: 0.0247 
+val --- avg_loss: 6.2541, acc: 0.0127  
+
+epoch: 532 avg_loss: 4.9415, acc: 0.0245 
+val --- avg_loss: 6.2530, acc: 0.0120  
+
+epoch: 533 avg_loss: 4.9405, acc: 0.0244 
+val --- avg_loss: 6.2556, acc: 0.0117  
+
+epoch: 534 avg_loss: 4.9398, acc: 0.0248 
+val --- avg_loss: 6.2550, acc: 0.0123  
+
+epoch: 535 avg_loss: 4.9382, acc: 0.0243 
+val --- avg_loss: 6.2555, acc: 0.0123  
+
+epoch: 536 avg_loss: 4.9377, acc: 0.0245 
+val --- avg_loss: 6.2534, acc: 0.0120  
+
+epoch: 537 avg_loss: 4.9363, acc: 0.0242 
+val --- avg_loss: 6.2523, acc: 0.0120  
+
+epoch: 538 avg_loss: 4.9383, acc: 0.0243 
+val --- avg_loss: 6.2546, acc: 0.0130  
+
+epoch: 539 avg_loss: 4.9374, acc: 0.0246 
+val --- avg_loss: 6.2532, acc: 0.0127  
+
+epoch: 540 avg_loss: 4.9325, acc: 0.0245 
+val --- avg_loss: 6.2542, acc: 0.0123  
+
+epoch: 541 avg_loss: 4.9345, acc: 0.0249 
+val --- avg_loss: 6.2540, acc: 0.0120  
+
+epoch: 542 avg_loss: 4.9315, acc: 0.0247 
+val --- avg_loss: 6.2602, acc: 0.0123  
+
+epoch: 543 avg_loss: 4.9316, acc: 0.0245 
+val --- avg_loss: 6.2560, acc: 0.0120  
+
+epoch: 544 avg_loss: 4.9304, acc: 0.0249 
+val --- avg_loss: 6.2523, acc: 0.0117  
+
+epoch: 545 avg_loss: 4.9293, acc: 0.0245 
+val --- avg_loss: 6.2526, acc: 0.0117  
+
+epoch: 546 avg_loss: 4.9301, acc: 0.0247 
+val --- avg_loss: 6.2536, acc: 0.0123  
+
+epoch: 547 avg_loss: 4.9274, acc: 0.0242 
+val --- avg_loss: 6.2547, acc: 0.0120  
+
+epoch: 548 avg_loss: 4.9283, acc: 0.0243 
+val --- avg_loss: 6.2549, acc: 0.0117  
+
+epoch: 549 avg_loss: 4.9285, acc: 0.0254 
+val --- avg_loss: 6.2589, acc: 0.0123  
+
+epoch: 550 avg_loss: 4.9277, acc: 0.0255 
+val --- avg_loss: 6.2538, acc: 0.0113  
+
+epoch: 551 avg_loss: 4.9252, acc: 0.0250 
+val --- avg_loss: 6.2567, acc: 0.0120  
+
+epoch: 552 avg_loss: 4.9257, acc: 0.0245 
+val --- avg_loss: 6.2547, acc: 0.0120  
+
+epoch: 553 avg_loss: 4.9255, acc: 0.0243 
+val --- avg_loss: 6.2582, acc: 0.0117  
+
+epoch: 554 avg_loss: 4.9242, acc: 0.0244 
+val --- avg_loss: 6.2561, acc: 0.0120  
+
+epoch: 555 avg_loss: 4.9235, acc: 0.0242 
+val --- avg_loss: 6.2555, acc: 0.0117  
+
+epoch: 556 avg_loss: 4.9221, acc: 0.0248 
+val --- avg_loss: 6.2555, acc: 0.0127  
+
+epoch: 557 avg_loss: 4.9207, acc: 0.0252 
+val --- avg_loss: 6.2546, acc: 0.0120  
+
+epoch: 558 avg_loss: 4.9221, acc: 0.0238 
+val --- avg_loss: 6.2554, acc: 0.0123  
+
+epoch: 559 avg_loss: 4.9193, acc: 0.0247 
+val --- avg_loss: 6.2567, acc: 0.0120  
+
+epoch: 560 avg_loss: 4.9196, acc: 0.0249 
+val --- avg_loss: 6.2572, acc: 0.0117  
+
+epoch: 561 avg_loss: 4.9195, acc: 0.0247 
+val --- avg_loss: 6.2587, acc: 0.0137  
+
+epoch: 562 avg_loss: 4.9190, acc: 0.0253 
+val --- avg_loss: 6.2609, acc: 0.0117  
+
+epoch: 563 avg_loss: 4.9168, acc: 0.0242 
+val --- avg_loss: 6.2583, acc: 0.0120  
+
+epoch: 564 avg_loss: 4.9173, acc: 0.0245 
+val --- avg_loss: 6.2609, acc: 0.0123  
+
+epoch: 565 avg_loss: 4.9152, acc: 0.0240 
+val --- avg_loss: 6.2569, acc: 0.0120  
+
+epoch: 566 avg_loss: 4.9144, acc: 0.0241 
+val --- avg_loss: 6.2557, acc: 0.0113  
+
+epoch: 567 avg_loss: 4.9149, acc: 0.0241 
+val --- avg_loss: 6.2587, acc: 0.0123  
+
+epoch: 568 avg_loss: 4.9128, acc: 0.0244 
+val --- avg_loss: 6.2605, acc: 0.0127  
+
+epoch: 569 avg_loss: 4.9122, acc: 0.0246 
+val --- avg_loss: 6.2577, acc: 0.0117  
+
+epoch: 570 avg_loss: 4.9114, acc: 0.0247 
+val --- avg_loss: 6.2599, acc: 0.0120  
+
+epoch: 571 avg_loss: 4.9108, acc: 0.0245 
+val --- avg_loss: 6.2610, acc: 0.0117  
+
+epoch: 572 avg_loss: 4.9106, acc: 0.0244 
+val --- avg_loss: 6.2593, acc: 0.0120  
+
+epoch: 573 avg_loss: 4.9096, acc: 0.0249 
+val --- avg_loss: 6.2597, acc: 0.0120  
+
+epoch: 574 avg_loss: 4.9093, acc: 0.0240 
+val --- avg_loss: 6.2602, acc: 0.0113  
+
+epoch: 575 avg_loss: 4.9087, acc: 0.0244 
+val --- avg_loss: 6.2583, acc: 0.0117  
+
+epoch: 576 avg_loss: 4.9080, acc: 0.0240 
+val --- avg_loss: 6.2640, acc: 0.0123  
+
+epoch: 577 avg_loss: 4.9074, acc: 0.0242 
+val --- avg_loss: 6.2640, acc: 0.0127  
+
+epoch: 578 avg_loss: 4.9073, acc: 0.0244 
+val --- avg_loss: 6.2622, acc: 0.0113  
+
+epoch: 579 avg_loss: 4.9048, acc: 0.0253 
+val --- avg_loss: 6.2629, acc: 0.0123  
+
+epoch: 580 avg_loss: 4.9057, acc: 0.0248 
+val --- avg_loss: 6.2601, acc: 0.0120  
+
+epoch: 581 avg_loss: 4.9041, acc: 0.0239 
+val --- avg_loss: 6.2578, acc: 0.0120  
+
+epoch: 582 avg_loss: 4.9025, acc: 0.0243 
+val --- avg_loss: 6.2595, acc: 0.0117  
+
+epoch: 583 avg_loss: 4.9030, acc: 0.0246 
+val --- avg_loss: 6.2608, acc: 0.0117  
+
+epoch: 584 avg_loss: 4.9017, acc: 0.0249 
+val --- avg_loss: 6.2626, acc: 0.0120  
+
+epoch: 585 avg_loss: 4.9017, acc: 0.0244 
+val --- avg_loss: 6.2605, acc: 0.0120  
+
+epoch: 586 avg_loss: 4.9007, acc: 0.0240 
+val --- avg_loss: 6.2649, acc: 0.0123  
+
+epoch: 587 avg_loss: 4.9005, acc: 0.0246 
+val --- avg_loss: 6.2641, acc: 0.0130  
+
+epoch: 588 avg_loss: 4.8990, acc: 0.0244 
+val --- avg_loss: 6.2616, acc: 0.0120  
+
+epoch: 589 avg_loss: 4.8990, acc: 0.0238 
+val --- avg_loss: 6.2582, acc: 0.0117  
+
+epoch: 590 avg_loss: 4.8979, acc: 0.0251 
+val --- avg_loss: 6.2645, acc: 0.0113  
+
+epoch: 591 avg_loss: 4.8962, acc: 0.0242 
+val --- avg_loss: 6.2584, acc: 0.0120  
+
+epoch: 592 avg_loss: 4.8984, acc: 0.0242 
+val --- avg_loss: 6.2647, acc: 0.0113  
+
+epoch: 593 avg_loss: 4.8961, acc: 0.0244 
+val --- avg_loss: 6.2632, acc: 0.0113  
+
+epoch: 594 avg_loss: 4.8963, acc: 0.0245 
+val --- avg_loss: 6.2633, acc: 0.0127  
+
+epoch: 595 avg_loss: 4.8940, acc: 0.0240 
+val --- avg_loss: 6.2625, acc: 0.0120  
+
+epoch: 596 avg_loss: 4.8933, acc: 0.0245 
+val --- avg_loss: 6.2651, acc: 0.0120  
+
+epoch: 597 avg_loss: 4.8942, acc: 0.0243 
+val --- avg_loss: 6.2662, acc: 0.0127  
+
+epoch: 598 avg_loss: 4.8926, acc: 0.0250 
+val --- avg_loss: 6.2637, acc: 0.0123  
+
+epoch: 599 avg_loss: 4.8924, acc: 0.0248 
+val --- avg_loss: 6.2611, acc: 0.0113  
+
+epoch: 600 avg_loss: 4.8919, acc: 0.0250 
+val --- avg_loss: 6.2582, acc: 0.0117  
+
+epoch: 601 avg_loss: 4.8910, acc: 0.0244 
+val --- avg_loss: 6.2640, acc: 0.0120  
+
+epoch: 602 avg_loss: 4.8897, acc: 0.0244 
+val --- avg_loss: 6.2643, acc: 0.0120  
+
+epoch: 603 avg_loss: 4.8908, acc: 0.0246 
+val --- avg_loss: 6.2649, acc: 0.0117  
+
+epoch: 604 avg_loss: 4.8881, acc: 0.0248 
+val --- avg_loss: 6.2666, acc: 0.0123  
+
+epoch: 605 avg_loss: 4.8891, acc: 0.0243 
+val --- avg_loss: 6.2667, acc: 0.0117  
+
+epoch: 606 avg_loss: 4.8898, acc: 0.0239 
+val --- avg_loss: 6.2645, acc: 0.0120  
+
+epoch: 607 avg_loss: 4.8862, acc: 0.0242 
+val --- avg_loss: 6.2615, acc: 0.0117  
+
+epoch: 608 avg_loss: 4.8870, acc: 0.0250 
+val --- avg_loss: 6.2738, acc: 0.0130  
+
+epoch: 609 avg_loss: 4.8854, acc: 0.0254 
+val --- avg_loss: 6.2664, acc: 0.0120  
+
+epoch: 610 avg_loss: 4.8844, acc: 0.0249 
+val --- avg_loss: 6.2625, acc: 0.0110  
+
+epoch: 611 avg_loss: 4.8846, acc: 0.0249 
+val --- avg_loss: 6.2668, acc: 0.0130  
+
+epoch: 612 avg_loss: 4.8834, acc: 0.0242 
+val --- avg_loss: 6.2659, acc: 0.0117  
+
+epoch: 613 avg_loss: 4.8824, acc: 0.0247 
+val --- avg_loss: 6.2658, acc: 0.0113  
+
+epoch: 614 avg_loss: 4.8819, acc: 0.0253 
+val --- avg_loss: 6.2688, acc: 0.0120  
+
+epoch: 615 avg_loss: 4.8811, acc: 0.0245 
+val --- avg_loss: 6.2685, acc: 0.0123  
+
+epoch: 616 avg_loss: 4.8814, acc: 0.0251 
+val --- avg_loss: 6.2661, acc: 0.0120  
+
+epoch: 617 avg_loss: 4.8804, acc: 0.0245 
+val --- avg_loss: 6.2635, acc: 0.0117  
+
+epoch: 618 avg_loss: 4.8790, acc: 0.0245 
+val --- avg_loss: 6.2713, acc: 0.0117  
+
+epoch: 619 avg_loss: 4.8805, acc: 0.0241 
+val --- avg_loss: 6.2653, acc: 0.0123  
+
+epoch: 620 avg_loss: 4.8788, acc: 0.0244 
+val --- avg_loss: 6.2640, acc: 0.0120  
+
+epoch: 621 avg_loss: 4.8773, acc: 0.0248 
+val --- avg_loss: 6.2651, acc: 0.0120  
+
+epoch: 622 avg_loss: 4.8778, acc: 0.0245 
+val --- avg_loss: 6.2685, acc: 0.0110  
+
+epoch: 623 avg_loss: 4.8756, acc: 0.0249 
+val --- avg_loss: 6.2708, acc: 0.0120  
+
+epoch: 624 avg_loss: 4.8758, acc: 0.0253 
+val --- avg_loss: 6.2670, acc: 0.0113  
+
+epoch: 625 avg_loss: 4.8764, acc: 0.0247 
+val --- avg_loss: 6.2686, acc: 0.0113  
+
+epoch: 626 avg_loss: 4.8740, acc: 0.0251 
+val --- avg_loss: 6.2649, acc: 0.0120  
+
+epoch: 627 avg_loss: 4.8746, acc: 0.0248 
+val --- avg_loss: 6.2702, acc: 0.0123  
+
+epoch: 628 avg_loss: 4.8727, acc: 0.0246 
+val --- avg_loss: 6.2676, acc: 0.0110  
+
+epoch: 629 avg_loss: 4.8712, acc: 0.0249 
+val --- avg_loss: 6.2683, acc: 0.0120  
+
+epoch: 630 avg_loss: 4.8718, acc: 0.0252 
+val --- avg_loss: 6.2690, acc: 0.0113  
+
+epoch: 631 avg_loss: 4.8712, acc: 0.0249 
+val --- avg_loss: 6.2686, acc: 0.0117  
+
+epoch: 632 avg_loss: 4.8704, acc: 0.0242 
+val --- avg_loss: 6.2678, acc: 0.0117  
+
+epoch: 633 avg_loss: 4.8708, acc: 0.0251 
+val --- avg_loss: 6.2679, acc: 0.0123  
+
+epoch: 634 avg_loss: 4.8696, acc: 0.0248 
+val --- avg_loss: 6.2696, acc: 0.0113  
+
+epoch: 635 avg_loss: 4.8677, acc: 0.0242 
+val --- avg_loss: 6.2713, acc: 0.0120  
+
+epoch: 636 avg_loss: 4.8691, acc: 0.0248 
+val --- avg_loss: 6.2699, acc: 0.0117  
+
+epoch: 637 avg_loss: 4.8683, acc: 0.0246 
+val --- avg_loss: 6.2711, acc: 0.0120  
+
+epoch: 638 avg_loss: 4.8679, acc: 0.0245 
+val --- avg_loss: 6.2682, acc: 0.0117  
+
+epoch: 639 avg_loss: 4.8671, acc: 0.0246 
+val --- avg_loss: 6.2688, acc: 0.0117  
+
+epoch: 640 avg_loss: 4.8656, acc: 0.0247 
+val --- avg_loss: 6.2706, acc: 0.0123  
+
+epoch: 641 avg_loss: 4.8650, acc: 0.0253 
+val --- avg_loss: 6.2700, acc: 0.0117  
+
+epoch: 642 avg_loss: 4.8638, acc: 0.0250 
+val --- avg_loss: 6.2699, acc: 0.0127  
+
+epoch: 643 avg_loss: 4.8638, acc: 0.0244 
+val --- avg_loss: 6.2700, acc: 0.0113  
+
+epoch: 644 avg_loss: 4.8644, acc: 0.0244 
+val --- avg_loss: 6.2676, acc: 0.0120  
+
+epoch: 645 avg_loss: 4.8643, acc: 0.0248 
+val --- avg_loss: 6.2714, acc: 0.0120  
+
+epoch: 646 avg_loss: 4.8631, acc: 0.0251 
+val --- avg_loss: 6.2749, acc: 0.0123  
+
+epoch: 647 avg_loss: 4.8628, acc: 0.0250 
+val --- avg_loss: 6.2722, acc: 0.0117  
+
+epoch: 648 avg_loss: 4.8612, acc: 0.0247 
+val --- avg_loss: 6.2736, acc: 0.0120  
+
+epoch: 649 avg_loss: 4.8604, acc: 0.0247 
+val --- avg_loss: 6.2688, acc: 0.0120  
+
+epoch: 650 avg_loss: 4.8594, acc: 0.0244 
+val --- avg_loss: 6.2770, acc: 0.0120  
+
+epoch: 651 avg_loss: 4.8597, acc: 0.0253 
+val --- avg_loss: 6.2723, acc: 0.0120  
+
+epoch: 652 avg_loss: 4.8586, acc: 0.0249 
+val --- avg_loss: 6.2731, acc: 0.0120  
+
+epoch: 653 avg_loss: 4.8582, acc: 0.0255 
+val --- avg_loss: 6.2728, acc: 0.0120  
+
+epoch: 654 avg_loss: 4.8584, acc: 0.0252 
+val --- avg_loss: 6.2703, acc: 0.0123  
+
+epoch: 655 avg_loss: 4.8556, acc: 0.0255 
+val --- avg_loss: 6.2718, acc: 0.0123  
+
+epoch: 656 avg_loss: 4.8570, acc: 0.0252 
+val --- avg_loss: 6.2717, acc: 0.0117  
+
+epoch: 657 avg_loss: 4.8551, acc: 0.0253 
+val --- avg_loss: 6.2719, acc: 0.0117  
+
+epoch: 658 avg_loss: 4.8544, acc: 0.0249 
+val --- avg_loss: 6.2695, acc: 0.0120  
+
+epoch: 659 avg_loss: 4.8539, acc: 0.0244 
+val --- avg_loss: 6.2725, acc: 0.0107  
+
+epoch: 660 avg_loss: 4.8538, acc: 0.0250 
+val --- avg_loss: 6.2724, acc: 0.0113  
+
+epoch: 661 avg_loss: 4.8529, acc: 0.0254 
+val --- avg_loss: 6.2695, acc: 0.0113  
+
+epoch: 662 avg_loss: 4.8524, acc: 0.0246 
+val --- avg_loss: 6.2741, acc: 0.0120  
+
+epoch: 663 avg_loss: 4.8530, acc: 0.0247 
+val --- avg_loss: 6.2757, acc: 0.0120  
+
+epoch: 664 avg_loss: 4.8524, acc: 0.0251 
+val --- avg_loss: 6.2786, acc: 0.0120  
+
+epoch: 665 avg_loss: 4.8512, acc: 0.0257 
+val --- avg_loss: 6.2771, acc: 0.0113  
+
+epoch: 666 avg_loss: 4.8525, acc: 0.0244 
+val --- avg_loss: 6.2731, acc: 0.0113  
+
+epoch: 667 avg_loss: 4.8498, acc: 0.0253 
+val --- avg_loss: 6.2760, acc: 0.0117  
+
+epoch: 668 avg_loss: 4.8490, acc: 0.0251 
+val --- avg_loss: 6.2723, acc: 0.0117  
+
+epoch: 669 avg_loss: 4.8483, acc: 0.0253 
+val --- avg_loss: 6.2726, acc: 0.0117  
+
+epoch: 670 avg_loss: 4.8481, acc: 0.0248 
+val --- avg_loss: 6.2741, acc: 0.0113  
+
+epoch: 671 avg_loss: 4.8467, acc: 0.0252 
+val --- avg_loss: 6.2738, acc: 0.0123  
+
+epoch: 672 avg_loss: 4.8471, acc: 0.0245 
+val --- avg_loss: 6.2767, acc: 0.0117  
+
+epoch: 673 avg_loss: 4.8465, acc: 0.0256 
+val --- avg_loss: 6.2751, acc: 0.0117  

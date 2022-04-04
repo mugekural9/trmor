@@ -20,7 +20,7 @@ def read_trndata_makevocab(args, surf_vocab):
             tags     = split_line[1].replace('^','+').split('+')[1:]
             surf_data.append([surf_vocab[char] for char in split_line[0]])
             # fill tense vocab and data
-            tenses = ['Aor', 'Past', 'Narr', 'Prog1']
+            tenses = ['Aor', 'Past', 'Narr', 'Prog1', 'Fut']
             tense_info_exists = False
             for tag in reversed(tags):
                 if tag in tenses:
@@ -28,12 +28,13 @@ def read_trndata_makevocab(args, surf_vocab):
                     tense_info_exists = True
                     break
             if not tense_info_exists:
-                tense_data.append(tense_vocab['<unk>'])
+                surf_data = surf_data[:-1]
+            #    tense_data.append(tense_vocab['<unk>'])
     print('TRN:')
     print('surf_data:',  len(surf_data))
     print('tense_data:', len(tense_data))
 
-    assert len(surf_data) == len(tense_data)
+    #assert len(surf_data) == len(tense_data)
     for (surf, tense) in zip(surf_data,  tense_data):
         data.append([surf, [tense]])
     return  data, VocabEntry(tense_vocab)
@@ -51,7 +52,7 @@ def read_valdata(maxdsize, file, vocab, mode):
             tags     = split_line[1].replace('^','+').split('+')[1:]
             surf_data.append([surf_vocab[char] for char in split_line[0]])
             # fill tense data
-            tenses = ['Aor', 'Past', 'Narr', 'Prog1']
+            tenses = ['Aor', 'Past', 'Narr', 'Prog1', 'Fut']
             tense_info_exists = False
             for tag in reversed(tags):
                 if tag in tenses:
@@ -59,11 +60,12 @@ def read_valdata(maxdsize, file, vocab, mode):
                     tense_info_exists = True
                     break
             if not tense_info_exists:
-                tense_data.append(tense_vocab['<unk>'])
+                surf_data = surf_data[:-1]
+            #    tense_data.append(tense_vocab['<unk>'])
     print(mode,':')
     print('surf_data:',  len(surf_data))
     print('tense_data:', len(tense_data))
-    assert len(surf_data) == len(tense_data) 
+    #assert len(surf_data) == len(tense_data) 
     for (surf, tense) in zip(surf_data, tense_data):
         data.append([surf, [tense]])
     return data
@@ -85,7 +87,7 @@ def get_batch(x, vocab):
 
 def get_batches(data, vocab, batchsize=64, seq_to_no_pad=''):
     continuity = (seq_to_no_pad == '')
-    print('seq not to pad: %s, continuity: %s' % (seq_to_no_pad,continuity))
+    #print('seq not to pad: %s, continuity: %s' % (seq_to_no_pad,continuity))
     # reset dataset statistics
     global  number_of_surf_tokens, number_of_tense_tokens, number_of_surf_unks, number_of_tense_unks
     number_of_surf_tokens = 0
@@ -123,8 +125,8 @@ def get_batches(data, vocab, batchsize=64, seq_to_no_pad=''):
         else:
             batches.append(get_batch(data[i: i+batchsize], vocab))
             i += batchsize
-    print('# of surf tokens: ', number_of_surf_tokens, ', # of surf unks: ', number_of_surf_unks)
-    print('# of tense tokens: ', number_of_tense_tokens, ', # of tense unks: ', number_of_tense_unks)
+    #print('# of surf tokens: ', number_of_surf_tokens, ', # of surf unks: ', number_of_surf_unks)
+    #print('# of tense tokens: ', number_of_tense_tokens, ', # of tense unks: ', number_of_tense_unks)
     
     return batches, order    
 

@@ -1,0 +1,6 @@
+
+number of params: 3072 
+
+epoch: 0 avg_loss: 1.7754, acc: 0.3661 
+val --- avg_loss: 1.7702, acc: 0.3756  
+update best loss 

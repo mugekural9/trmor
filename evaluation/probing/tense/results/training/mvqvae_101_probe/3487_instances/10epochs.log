@@ -1,0 +1,157 @@
+
+number of params: 3072 
+Namespace(batchsize=128, beta=0.25, dec_dropout_in=0.0, dec_dropout_out=0.0, dec_nh=512, device='cuda', embedding_dim=512, enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=512, epochs=10, fig_path='evaluation/probing/tense/results/training/mvqvae_101_probe/3487_instances/10epochs.png', log_path='evaluation/probing/tense/results/training/mvqvae_101_probe/3487_instances/10epochs.log', logger=<common.utils.Logger object at 0x7f4d1ecfe2d0>, lr=0.001, maxtrnsize=57769, maxtstsize=10000, maxvalsize=10000, mname='mvqvae_101_probe', model=VQVAE_Probe(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (linear_2): Linear(in_features=512, out_features=512, bias=True)
+  (linear_3): Linear(in_features=512, out_features=512, bias=True)
+  (linear_4): Linear(in_features=512, out_features=512, bias=True)
+  (linear_5): Linear(in_features=512, out_features=512, bias=True)
+  (linear_6): Linear(in_features=512, out_features=512, bias=True)
+  (linear_7): Linear(in_features=512, out_features=512, bias=True)
+  (linear_8): Linear(in_features=512, out_features=512, bias=True)
+  (linear_9): Linear(in_features=512, out_features=512, bias=True)
+  (linear_10): Linear(in_features=512, out_features=512, bias=True)
+  (vq_layer): VectorQuantizer(
+    (embedding): Embedding(704, 512)
+  )
+  (vq_layer_2): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_3): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_4): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_5): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_6): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_7): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_8): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_9): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_10): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (linear): Linear(in_features=512, out_features=6, bias=False)
+  (loss): CrossEntropyLoss()
+), modelname='evaluation/probing/tense/results/training/mvqvae_101_probe/3487_instances/', nh=512, ni=256, num_embeddings=704, nz=512, opt='Adam', pretrained_model=VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (vq_layer): VectorQuantizer(
+    (embedding): Embedding(704, 512)
+  )
+  (linear_2): Linear(in_features=512, out_features=512, bias=True)
+  (linear_3): Linear(in_features=512, out_features=512, bias=True)
+  (linear_4): Linear(in_features=512, out_features=512, bias=True)
+  (linear_5): Linear(in_features=512, out_features=512, bias=True)
+  (linear_6): Linear(in_features=512, out_features=512, bias=True)
+  (linear_7): Linear(in_features=512, out_features=512, bias=True)
+  (linear_8): Linear(in_features=512, out_features=512, bias=True)
+  (linear_9): Linear(in_features=512, out_features=512, bias=True)
+  (linear_10): Linear(in_features=512, out_features=512, bias=True)
+  (vq_layer_2): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_3): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_4): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_5): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_6): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_7): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_8): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_9): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (vq_layer_10): VectorQuantizer(
+    (embedding): Embedding(16, 512)
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(32, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (lstm): LSTM(768, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=32, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), save_path='evaluation/probing/tense/results/training/mvqvae_101_probe/3487_instances/10epochs.pt', seq_to_no_pad='surface', task='surf2tense', trndata='evaluation/probing/tense/data/sosimple.new.trn.combined.txt', trnsize=3487, tstdata='evaluation/probing/tense/data/sosimple.new.seenroots.val.txt', tstsize=209, valdata='evaluation/probing/tense/data/sosimple.new.seenroots.val.txt', valsize=209)
+
+encoder.embed.weight, torch.Size([32, 256]): False
+encoder.lstm.weight_ih_l0, torch.Size([2048, 256]): False
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): False
+encoder.lstm.bias_ih_l0, torch.Size([2048]): False
+encoder.lstm.bias_hh_l0, torch.Size([2048]): False
+linear_2.weight, torch.Size([512, 512]): False
+linear_2.bias, torch.Size([512]): False
+linear_3.weight, torch.Size([512, 512]): False
+linear_3.bias, torch.Size([512]): False
+linear_4.weight, torch.Size([512, 512]): False
+linear_4.bias, torch.Size([512]): False
+linear_5.weight, torch.Size([512, 512]): False
+linear_5.bias, torch.Size([512]): False
+linear_6.weight, torch.Size([512, 512]): False
+linear_6.bias, torch.Size([512]): False
+linear_7.weight, torch.Size([512, 512]): False
+linear_7.bias, torch.Size([512]): False
+linear_8.weight, torch.Size([512, 512]): False
+linear_8.bias, torch.Size([512]): False
+linear_9.weight, torch.Size([512, 512]): False
+linear_9.bias, torch.Size([512]): False
+linear_10.weight, torch.Size([512, 512]): False
+linear_10.bias, torch.Size([512]): False
+vq_layer.embedding.weight, torch.Size([704, 512]): False
+vq_layer_2.embedding.weight, torch.Size([16, 512]): False
+vq_layer_3.embedding.weight, torch.Size([16, 512]): False
+vq_layer_4.embedding.weight, torch.Size([16, 512]): False
+vq_layer_5.embedding.weight, torch.Size([16, 512]): False
+vq_layer_6.embedding.weight, torch.Size([16, 512]): False
+vq_layer_7.embedding.weight, torch.Size([16, 512]): False
+vq_layer_8.embedding.weight, torch.Size([16, 512]): False
+vq_layer_9.embedding.weight, torch.Size([16, 512]): False
+vq_layer_10.embedding.weight, torch.Size([16, 512]): False
+linear.weight, torch.Size([6, 512]): True
+epoch: 0 avg_loss: 1.7718, acc: 0.2197 
+
+epoch: 1 avg_loss: 1.5443, acc: 0.2937 
+
+epoch: 2 avg_loss: 1.5285, acc: 0.3590 
+
+epoch: 3 avg_loss: 1.5206, acc: 0.3091 
+
+epoch: 4 avg_loss: 1.5302, acc: 0.3533 
+
+epoch: 5 avg_loss: 1.5045, acc: 0.3048 
+
+epoch: 6 avg_loss: 1.4878, acc: 0.3427 
+
+epoch: 7 avg_loss: 1.5157, acc: 0.3338 
+
+epoch: 8 avg_loss: 1.5025, acc: 0.3413 
+
+epoch: 9 avg_loss: 1.5038, acc: 0.3206 

@@ -9,7 +9,7 @@ def read_data(maxdsize, file, surface_vocab, mode):
     all_surfs = dict()
     count = 0
 
-    if 'surf.uniquesurfs' in file:
+    if True: #
         with open(file, 'r') as reader:
             for line in reader: 
                 count += 1
@@ -79,7 +79,7 @@ class MonoTextData(object):
             vocab['</s>'] = 2
             vocab['<unk>'] = 3
 
-        if 'surf.uniquesurfs' in fname:
+        if True:#'surf.uniquesurfs' in fname:
             with open(fname) as fin:
                 for line in fin:
                     split_line = line.split('\t') #line.split()

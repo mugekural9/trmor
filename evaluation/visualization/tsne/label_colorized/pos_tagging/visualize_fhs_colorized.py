@@ -20,6 +20,7 @@ from torch import optim
 from common.utils import *
 from data.data import build_data
 from model.charlm.charlm import CharLM
+from model.ae.ae import AE
 from common.vocab import VocabEntry
 #matplotlib.use('Agg')
 
@@ -51,9 +52,9 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'charlm_4'
+    model_id = 'ae_1'
     model_path, model_vocab  = get_model_info(model_id)
-    probe_id = 'charlm_4_probe_pos_tagging'
+    probe_id = 'ae_1_probe_pos_tagging'
     _, (_, surfpos_vocab)  = get_model_info(probe_id) 
 
     # logging
@@ -87,13 +88,14 @@ def config():
     args.nh = 1024 #for ae,vae,charlm
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0 #for ae,vae,charlm
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 #for ae,vae
-    args.model = CharLM(args, args.surf_vocab, model_init, emb_init)
+    args.model = AE(args, args.surf_vocab, model_init, emb_init)
     # load model weights
     args.model.load_state_dict(torch.load(model_path))
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/visualization/tsne/label_colorized/pos_tagging/data/surf.uniquesurfs.trn.txt'
+    #args.tstdata = 'evaluation/visualization/tsne/label_colorized/pos_tagging/data/surf.uniquesurfs.trn.txt'
+    args.tstdata = 'evaluation/visualization/tsne/data/pos(root)_verb.uniqueroots.trn.100.txt'
     args.maxtstsize = 10000
     args.batch_size = 1
     return args
@@ -108,7 +110,8 @@ def main():
         for data in batches:
             surf, surfpos = data
             # fhs: (1,1,nh)
-            fhs, _ = args.model(surf)
+            #fhs, _ = args.model(surf) #charlm
+            _, fhs = args.model.encoder(surf) #ae
             fhs_vectors.append(fhs)
             word =''.join(args.surf_vocab.decode_sentence(surf[0][1:-1]))
             words.append(word)

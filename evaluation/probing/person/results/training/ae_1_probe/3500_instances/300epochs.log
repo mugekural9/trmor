@@ -1,0 +1,171 @@
+
+number of params: 7168 
+Namespace(batchsize=128, dec_dropout_in=0.0, dec_dropout_out=0.0, dec_nh=1024, device='cuda', enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=1024, epochs=300, fig_path='evaluation/probing/person/results/training/ae_1_probe/3500_instances/300epochs.png', log_path='evaluation/probing/person/results/training/ae_1_probe/3500_instances/300epochs.log', logger=<common.utils.Logger object at 0x7f6ef580c0d0>, lr=0.01, maxtrnsize=57769, maxtstsize=10000, maxvalsize=10000, mname='ae_1_probe', model=AE_Probe(
+  (encoder): AE_Encoder(
+    (embed): Embedding(39, 512)
+    (lstm): LSTM(512, 1024, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=1024, out_features=32, bias=False)
+  )
+  (linear): Linear(in_features=1024, out_features=7, bias=False)
+  (loss): CrossEntropyLoss()
+), modelname='evaluation/probing/person/results/training/ae_1_probe/3500_instances/', nh=1024, ni=512, nz=32, opt='Adam', pretrained_model=AE(
+  (encoder): AE_Encoder(
+    (embed): Embedding(39, 512)
+    (lstm): LSTM(512, 1024, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=1024, out_features=32, bias=False)
+  )
+  (decoder): AE_Decoder(
+    (embed): Embedding(39, 512, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (trans_linear): Linear(in_features=32, out_features=1024, bias=False)
+    (lstm): LSTM(544, 1024, batch_first=True)
+    (pred_linear): Linear(in_features=1024, out_features=39, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), save_path='evaluation/probing/person/results/training/ae_1_probe/3500_instances/300epochs.pt', seq_to_no_pad='surface', task='surf2person', trndata='evaluation/probing/person/data/sosimple.new.trn.txt', trnsize=3500, tstdata='evaluation/probing/person/data/sosimple.new.val.txt', tstsize=232, valdata='evaluation/probing/person/data/sosimple.new.val.txt', valsize=232)
+
+encoder.embed.weight, torch.Size([39, 512]): False
+encoder.lstm.weight_ih_l0, torch.Size([4096, 512]): False
+encoder.lstm.weight_hh_l0, torch.Size([4096, 1024]): False
+encoder.lstm.bias_ih_l0, torch.Size([4096]): False
+encoder.lstm.bias_hh_l0, torch.Size([4096]): False
+encoder.linear.weight, torch.Size([32, 1024]): False
+linear.weight, torch.Size([7, 1024]): True
+epoch: 0 avg_loss: 1.3361, acc: 0.6829 
+val --- avg_loss: 0.8574, acc: 0.8233  
+update best loss 
+
+epoch: 1 avg_loss: 0.6336, acc: 0.8657 
+val --- avg_loss: 0.4472, acc: 0.8966  
+update best loss 
+
+epoch: 2 avg_loss: 0.4080, acc: 0.9086 
+val --- avg_loss: 0.3244, acc: 0.9612  
+update best loss 
+
+epoch: 3 avg_loss: 0.3024, acc: 0.9460 
+val --- avg_loss: 0.2261, acc: 0.9957  
+update best loss 
+
+epoch: 4 avg_loss: 0.2402, acc: 0.9580 
+val --- avg_loss: 0.1812, acc: 0.9957  
+update best loss 
+
+epoch: 5 avg_loss: 0.1994, acc: 0.9729 
+val --- avg_loss: 0.1467, acc: 0.9957  
+update best loss 
+
+epoch: 6 avg_loss: 0.1688, acc: 0.9757 
+val --- avg_loss: 0.1280, acc: 1.0000  
+update best loss 
+
+epoch: 7 avg_loss: 0.1474, acc: 0.9814 
+val --- avg_loss: 0.1099, acc: 1.0000  
+update best loss 
+
+epoch: 8 avg_loss: 0.1304, acc: 0.9837 
+val --- avg_loss: 0.0918, acc: 1.0000  
+update best loss 
+
+epoch: 9 avg_loss: 0.1175, acc: 0.9851 
+val --- avg_loss: 0.0842, acc: 1.0000  
+update best loss 
+
+epoch: 10 avg_loss: 0.1053, acc: 0.9863 
+val --- avg_loss: 0.0745, acc: 1.0000  
+update best loss 
+
+epoch: 11 avg_loss: 0.0967, acc: 0.9894 
+val --- avg_loss: 0.0697, acc: 1.0000  
+update best loss 
+
+epoch: 12 avg_loss: 0.0894, acc: 0.9886 
+val --- avg_loss: 0.0602, acc: 1.0000  
+update best loss 
+
+epoch: 13 avg_loss: 0.0823, acc: 0.9897 
+val --- avg_loss: 0.0562, acc: 1.0000  
+update best loss 
+
+epoch: 14 avg_loss: 0.0775, acc: 0.9903 
+val --- avg_loss: 0.0524, acc: 1.0000  
+update best loss 
+
+epoch: 15 avg_loss: 0.0718, acc: 0.9900 
+val --- avg_loss: 0.0466, acc: 1.0000  
+update best loss 
+
+epoch: 16 avg_loss: 0.0678, acc: 0.9903 
+val --- avg_loss: 0.0436, acc: 1.0000  
+update best loss 
+
+epoch: 17 avg_loss: 0.0642, acc: 0.9911 
+val --- avg_loss: 0.0405, acc: 1.0000  
+update best loss 
+
+epoch: 18 avg_loss: 0.0607, acc: 0.9911 
+val --- avg_loss: 0.0381, acc: 1.0000  
+update best loss 
+
+epoch: 19 avg_loss: 0.0574, acc: 0.9917 
+val --- avg_loss: 0.0362, acc: 1.0000  
+update best loss 
+
+epoch: 20 avg_loss: 0.0548, acc: 0.9914 
+val --- avg_loss: 0.0339, acc: 1.0000  
+update best loss 
+
+epoch: 21 avg_loss: 0.0524, acc: 0.9917 
+val --- avg_loss: 0.0319, acc: 1.0000  
+update best loss 
+
+epoch: 22 avg_loss: 0.0502, acc: 0.9920 
+val --- avg_loss: 0.0300, acc: 1.0000  
+update best loss 
+
+epoch: 23 avg_loss: 0.0482, acc: 0.9923 
+val --- avg_loss: 0.0289, acc: 1.0000  
+update best loss 
+
+epoch: 24 avg_loss: 0.0462, acc: 0.9920 
+val --- avg_loss: 0.0271, acc: 1.0000  
+update best loss 
+
+epoch: 25 avg_loss: 0.0448, acc: 0.9926 
+val --- avg_loss: 0.0250, acc: 1.0000  
+update best loss 
+
+epoch: 26 avg_loss: 0.0433, acc: 0.9917 
+val --- avg_loss: 0.0247, acc: 1.0000  
+update best loss 
+
+epoch: 27 avg_loss: 0.0415, acc: 0.9929 
+val --- avg_loss: 0.0234, acc: 1.0000  
+update best loss 
+
+epoch: 28 avg_loss: 0.0402, acc: 0.9929 
+val --- avg_loss: 0.0223, acc: 1.0000  
+update best loss 
+
+epoch: 29 avg_loss: 0.0389, acc: 0.9934 
+val --- avg_loss: 0.0209, acc: 1.0000  
+update best loss 
+
+epoch: 30 avg_loss: 0.0375, acc: 0.9934 
+val --- avg_loss: 0.0202, acc: 1.0000  
+update best loss 
+
+epoch: 31 avg_loss: 0.0365, acc: 0.9934 
+val --- avg_loss: 0.0196, acc: 1.0000  
+update best loss 
+
+epoch: 32 avg_loss: 0.0356, acc: 0.9934 
+val --- avg_loss: 0.0185, acc: 1.0000  
+update best loss 
+
+epoch: 33 avg_loss: 0.0345, acc: 0.9937 
+val --- avg_loss: 0.0178, acc: 1.0000  
+update best loss 

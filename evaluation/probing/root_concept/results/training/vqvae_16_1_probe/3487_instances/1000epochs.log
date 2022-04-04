@@ -1,0 +1,396 @@
+
+number of params: 361152 
+Namespace(batchsize=128, beta=0.25, dec_dropout_in=0.0, dec_dropout_out=0.0, dec_nh=512, device='cuda', embedding_dim=512, enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=512, epochs=1000, fig_path='evaluation/probing/root_concept/results/training/vqvae_16_1_probe/3487_instances/1000epochs.png', log_path='evaluation/probing/root_concept/results/training/vqvae_16_1_probe/3487_instances/1000epochs.log', logger=<common.utils.Logger object at 0x7efe5ea62050>, lr=0.01, maxtrnsize=57769, maxtstsize=10000, maxvalsize=10000, mname='vqvae_16_1_probe', model=VQVAE_Probe(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (linear_root): Linear(in_features=512, out_features=32, bias=True)
+  (vq_layer_root): VectorQuantizer(
+    (embedding): Embedding(100, 32)
+  )
+  (ord_linears): ModuleList(
+    (0): Linear(in_features=512, out_features=32, bias=True)
+    (1): Linear(in_features=512, out_features=32, bias=True)
+    (2): Linear(in_features=512, out_features=32, bias=True)
+    (3): Linear(in_features=512, out_features=32, bias=True)
+    (4): Linear(in_features=512, out_features=32, bias=True)
+    (5): Linear(in_features=512, out_features=32, bias=True)
+    (6): Linear(in_features=512, out_features=32, bias=True)
+    (7): Linear(in_features=512, out_features=32, bias=True)
+    (8): Linear(in_features=512, out_features=32, bias=True)
+    (9): Linear(in_features=512, out_features=32, bias=True)
+    (10): Linear(in_features=512, out_features=32, bias=True)
+    (11): Linear(in_features=512, out_features=32, bias=True)
+    (12): Linear(in_features=512, out_features=32, bias=True)
+    (13): Linear(in_features=512, out_features=32, bias=True)
+    (14): Linear(in_features=512, out_features=32, bias=True)
+  )
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (6): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (7): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (8): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (9): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (10): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (11): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (12): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (13): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (14): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+  )
+  (linear): Linear(in_features=512, out_features=704, bias=True)
+  (loss): CrossEntropyLoss()
+), modelname='evaluation/probing/root_concept/results/training/vqvae_16_1_probe/3487_instances/', nh=512, ni=256, num_dicts=16, nz=512, opt='Adam', orddict_emb_num=100, pretrained_model=VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (linear_root): Linear(in_features=512, out_features=32, bias=True)
+  (vq_layer_root): VectorQuantizer(
+    (embedding): Embedding(100, 32)
+  )
+  (ord_linears): ModuleList(
+    (0): Linear(in_features=512, out_features=32, bias=True)
+    (1): Linear(in_features=512, out_features=32, bias=True)
+    (2): Linear(in_features=512, out_features=32, bias=True)
+    (3): Linear(in_features=512, out_features=32, bias=True)
+    (4): Linear(in_features=512, out_features=32, bias=True)
+    (5): Linear(in_features=512, out_features=32, bias=True)
+    (6): Linear(in_features=512, out_features=32, bias=True)
+    (7): Linear(in_features=512, out_features=32, bias=True)
+    (8): Linear(in_features=512, out_features=32, bias=True)
+    (9): Linear(in_features=512, out_features=32, bias=True)
+    (10): Linear(in_features=512, out_features=32, bias=True)
+    (11): Linear(in_features=512, out_features=32, bias=True)
+    (12): Linear(in_features=512, out_features=32, bias=True)
+    (13): Linear(in_features=512, out_features=32, bias=True)
+    (14): Linear(in_features=512, out_features=32, bias=True)
+  )
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (6): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (7): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (8): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (9): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (10): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (11): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (12): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (13): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+    (14): VectorQuantizer(
+      (embedding): Embedding(100, 32)
+    )
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(32, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (lstm): LSTM(768, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=32, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), rootdict_emb_dim=32, rootdict_emb_num=100, save_path='evaluation/probing/root_concept/results/training/vqvae_16_1_probe/3487_instances/1000epochs.pt', seq_to_no_pad='surface', task='surf2root_concept', trndata='evaluation/probing/root_concept/data/sosimple.new.trn.combined.txt', trnsize=3487, tstdata='evaluation/probing/root_concept/data/sosimple.new.seenroots.val.txt', tstsize=209, valdata='evaluation/probing/root_concept/data/sosimple.new.seenroots.val.txt', valsize=209)
+
+encoder.embed.weight, torch.Size([32, 256]): False
+encoder.lstm.weight_ih_l0, torch.Size([2048, 256]): False
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): False
+encoder.lstm.bias_ih_l0, torch.Size([2048]): False
+encoder.lstm.bias_hh_l0, torch.Size([2048]): False
+linear_root.weight, torch.Size([32, 512]): False
+linear_root.bias, torch.Size([32]): False
+vq_layer_root.embedding.weight, torch.Size([100, 32]): False
+ord_linears.0.weight, torch.Size([32, 512]): False
+ord_linears.0.bias, torch.Size([32]): False
+ord_linears.1.weight, torch.Size([32, 512]): False
+ord_linears.1.bias, torch.Size([32]): False
+ord_linears.2.weight, torch.Size([32, 512]): False
+ord_linears.2.bias, torch.Size([32]): False
+ord_linears.3.weight, torch.Size([32, 512]): False
+ord_linears.3.bias, torch.Size([32]): False
+ord_linears.4.weight, torch.Size([32, 512]): False
+ord_linears.4.bias, torch.Size([32]): False
+ord_linears.5.weight, torch.Size([32, 512]): False
+ord_linears.5.bias, torch.Size([32]): False
+ord_linears.6.weight, torch.Size([32, 512]): False
+ord_linears.6.bias, torch.Size([32]): False
+ord_linears.7.weight, torch.Size([32, 512]): False
+ord_linears.7.bias, torch.Size([32]): False
+ord_linears.8.weight, torch.Size([32, 512]): False
+ord_linears.8.bias, torch.Size([32]): False
+ord_linears.9.weight, torch.Size([32, 512]): False
+ord_linears.9.bias, torch.Size([32]): False
+ord_linears.10.weight, torch.Size([32, 512]): False
+ord_linears.10.bias, torch.Size([32]): False
+ord_linears.11.weight, torch.Size([32, 512]): False
+ord_linears.11.bias, torch.Size([32]): False
+ord_linears.12.weight, torch.Size([32, 512]): False
+ord_linears.12.bias, torch.Size([32]): False
+ord_linears.13.weight, torch.Size([32, 512]): False
+ord_linears.13.bias, torch.Size([32]): False
+ord_linears.14.weight, torch.Size([32, 512]): False
+ord_linears.14.bias, torch.Size([32]): False
+ord_vq_layers.0.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.1.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.2.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.3.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.4.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.5.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.6.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.7.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.8.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.9.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.10.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.11.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.12.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.13.embedding.weight, torch.Size([100, 32]): False
+ord_vq_layers.14.embedding.weight, torch.Size([100, 32]): False
+linear.weight, torch.Size([704, 512]): True
+linear.bias, torch.Size([704]): True
+epoch: 0 avg_loss: 4.6830, acc: 0.3679 
+val --- avg_loss: 3.6776, acc: 0.4641  
+update best loss 
+
+epoch: 1 avg_loss: 1.4839, acc: 0.7809 
+val --- avg_loss: 1.7702, acc: 0.7129  
+update best loss 
+
+epoch: 2 avg_loss: 0.5418, acc: 0.9249 
+val --- avg_loss: 1.2105, acc: 0.7895  
+update best loss 
+
+epoch: 3 avg_loss: 0.2616, acc: 0.9762 
+val --- avg_loss: 0.9717, acc: 0.8134  
+update best loss 
+
+epoch: 4 avg_loss: 0.1452, acc: 0.9957 
+val --- avg_loss: 0.8477, acc: 0.8278  
+update best loss 
+
+epoch: 5 avg_loss: 0.1041, acc: 0.9954 
+val --- avg_loss: 0.8123, acc: 0.8278  
+update best loss 
+
+epoch: 6 avg_loss: 0.0775, acc: 0.9983 
+val --- avg_loss: 0.7838, acc: 0.8469  
+update best loss 
+
+epoch: 7 avg_loss: 0.0612, acc: 0.9989 
+val --- avg_loss: 0.7481, acc: 0.8469  
+update best loss 
+
+epoch: 8 avg_loss: 0.0501, acc: 0.9991 
+val --- avg_loss: 0.7029, acc: 0.8421  
+update best loss 
+
+epoch: 9 avg_loss: 0.0424, acc: 0.9991 
+val --- avg_loss: 0.6850, acc: 0.8517  
+update best loss 
+
+epoch: 10 avg_loss: 0.0372, acc: 0.9989 
+val --- avg_loss: 0.6728, acc: 0.8517  
+update best loss 
+
+epoch: 11 avg_loss: 0.0323, acc: 0.9994 
+val --- avg_loss: 0.6786, acc: 0.8469  
+
+epoch: 12 avg_loss: 0.0286, acc: 0.9997 
+val --- avg_loss: 0.6337, acc: 0.8565  
+update best loss 
+
+epoch: 13 avg_loss: 0.0258, acc: 0.9994 
+val --- avg_loss: 0.6304, acc: 0.8565  
+update best loss 
+
+epoch: 14 avg_loss: 0.0231, acc: 0.9994 
+val --- avg_loss: 0.6206, acc: 0.8565  
+update best loss 
+
+epoch: 15 avg_loss: 0.0209, acc: 0.9997 
+val --- avg_loss: 0.6213, acc: 0.8517  
+
+epoch: 16 avg_loss: 0.0190, acc: 0.9997 
+val --- avg_loss: 0.5993, acc: 0.8517  
+update best loss 
+
+epoch: 17 avg_loss: 0.0174, acc: 0.9997 
+val --- avg_loss: 0.6098, acc: 0.8660  
+
+epoch: 18 avg_loss: 0.0161, acc: 0.9997 
+val --- avg_loss: 0.5915, acc: 0.8517  
+update best loss 
+
+epoch: 19 avg_loss: 0.0149, acc: 0.9997 
+val --- avg_loss: 0.5902, acc: 0.8612  
+update best loss 
+
+epoch: 20 avg_loss: 0.0138, acc: 0.9997 
+val --- avg_loss: 0.5880, acc: 0.8660  
+update best loss 
+
+epoch: 21 avg_loss: 0.0129, acc: 1.0000 
+val --- avg_loss: 0.5692, acc: 0.8708  
+update best loss 
+
+epoch: 22 avg_loss: 0.0121, acc: 0.9997 
+val --- avg_loss: 0.5695, acc: 0.8708  
+
+epoch: 23 avg_loss: 0.0113, acc: 1.0000 
+val --- avg_loss: 0.5643, acc: 0.8612  
+update best loss 
+
+epoch: 24 avg_loss: 0.0106, acc: 1.0000 
+val --- avg_loss: 0.5604, acc: 0.8612  
+update best loss 
+
+epoch: 25 avg_loss: 0.0099, acc: 1.0000 
+val --- avg_loss: 0.5658, acc: 0.8708  
+
+epoch: 26 avg_loss: 0.0094, acc: 1.0000 
+val --- avg_loss: 0.5501, acc: 0.8612  
+update best loss 
+
+epoch: 27 avg_loss: 0.0088, acc: 1.0000 
+val --- avg_loss: 0.5528, acc: 0.8708  
+
+epoch: 28 avg_loss: 0.0084, acc: 1.0000 
+val --- avg_loss: 0.5417, acc: 0.8756  
+update best loss 
+
+epoch: 29 avg_loss: 0.0079, acc: 1.0000 
+val --- avg_loss: 0.5388, acc: 0.8660  
+update best loss 
+
+epoch: 30 avg_loss: 0.0075, acc: 1.0000 
+val --- avg_loss: 0.5396, acc: 0.8708  
+
+epoch: 31 avg_loss: 0.0072, acc: 1.0000 
+val --- avg_loss: 0.5373, acc: 0.8708  
+update best loss 
+
+epoch: 32 avg_loss: 0.0068, acc: 1.0000 
+val --- avg_loss: 0.5333, acc: 0.8756  
+update best loss 
+
+epoch: 33 avg_loss: 0.0065, acc: 1.0000 
+val --- avg_loss: 0.5301, acc: 0.8708  
+update best loss 
+
+epoch: 34 avg_loss: 0.0062, acc: 1.0000 
+val --- avg_loss: 0.5293, acc: 0.8756  
+update best loss 
+
+epoch: 35 avg_loss: 0.0059, acc: 1.0000 
+val --- avg_loss: 0.5200, acc: 0.8756  
+update best loss 
+
+epoch: 36 avg_loss: 0.0056, acc: 1.0000 
+val --- avg_loss: 0.5152, acc: 0.8756  
+update best loss 
+
+epoch: 37 avg_loss: 0.0054, acc: 1.0000 
+val --- avg_loss: 0.5194, acc: 0.8756  
+
+epoch: 38 avg_loss: 0.0052, acc: 1.0000 
+val --- avg_loss: 0.5215, acc: 0.8708  
+
+epoch: 39 avg_loss: 0.0050, acc: 1.0000 
+val --- avg_loss: 0.5124, acc: 0.8804  
+update best loss 
+
+epoch: 40 avg_loss: 0.0048, acc: 1.0000 
+val --- avg_loss: 0.5121, acc: 0.8804  
+update best loss 
+
+epoch: 41 avg_loss: 0.0046, acc: 1.0000 
+val --- avg_loss: 0.5083, acc: 0.8756  
+update best loss 
+
+epoch: 42 avg_loss: 0.0044, acc: 1.0000 
+val --- avg_loss: 0.5045, acc: 0.8804  
+update best loss 
+
+epoch: 43 avg_loss: 0.0042, acc: 1.0000 
+val --- avg_loss: 0.5030, acc: 0.8804  
+update best loss 
+
+epoch: 44 avg_loss: 0.0041, acc: 1.0000 
+val --- avg_loss: 0.5021, acc: 0.8756  
+update best loss 
+
+epoch: 45 avg_loss: 0.0039, acc: 1.0000 
+val --- avg_loss: 0.4997, acc: 0.8804  
+update best loss 
+
+epoch: 46 avg_loss: 0.0038, acc: 1.0000 
+val --- avg_loss: 0.5007, acc: 0.8804  
+
+epoch: 47 avg_loss: 0.0036, acc: 1.0000 

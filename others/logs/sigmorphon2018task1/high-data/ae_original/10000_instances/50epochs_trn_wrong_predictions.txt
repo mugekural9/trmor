@@ -1,2 +1,0 @@
-target: güdümlere</s> pred: lüdümlere</s>
-target: yönetim kurulu başkanları</s> pred: yönetim kurulu aaşkanları</s>

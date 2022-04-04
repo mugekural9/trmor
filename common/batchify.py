@@ -28,6 +28,7 @@ def get_batches(data, vocab, batchsize=64, seq_to_no_pad='', device=device):
         # 0:sort according to surfaceform, 1: featureform, 3: rootform 
         if seq_to_no_pad == 'surface':
             z = sorted(zip(order, data), key=lambda i: len(i[1][0]))
+    z = sorted(zip(order, data), key=lambda i: len(i[1][0]))
     order, data = zip(*z)
     batches = []
     i = 0

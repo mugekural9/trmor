@@ -1,0 +1,3023 @@
+
+number of params: 4819840 
+Namespace(batchsize=128, beta=0.25, dec_dropout_in=0.2, dec_dropout_out=0.3, dec_nh=512, device='cuda', embedding_dim=512, enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=512, epochs=120, fig_path='model/vqvae/results/training/3487_instances/120epochs.png', log_path='model/vqvae/results/training/3487_instances/120epochs.log', logger=<common.utils.Logger object at 0x7f2e2ceb0cd0>, lr=0.001, maxtrnsize=100000, maxtstsize=10000, maxvalsize=10000, mname='vqvae', model=VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (linear_root): Linear(in_features=512, out_features=320, bias=True)
+  (vq_layer_root): VectorQuantizer(
+    (embedding): Embedding(1000, 320)
+  )
+  (ord_linears): ModuleList(
+    (0): Linear(in_features=512, out_features=32, bias=True)
+    (1): Linear(in_features=512, out_features=32, bias=True)
+    (2): Linear(in_features=512, out_features=32, bias=True)
+    (3): Linear(in_features=512, out_features=32, bias=True)
+    (4): Linear(in_features=512, out_features=32, bias=True)
+    (5): Linear(in_features=512, out_features=32, bias=True)
+  )
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(32, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.2, inplace=False)
+    (dropout_out): Dropout(p=0.3, inplace=False)
+    (lstm): LSTM(768, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=32, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), modelname='model/vqvae/results/training/3487_instances/', ni=256, num_dicts=7, nz=512, opt='Adam', orddict_emb_num=10, pretrained_model=VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(32, 256)
+    (lstm): LSTM(256, 512, batch_first=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (linear_root): Linear(in_features=512, out_features=320, bias=True)
+  (vq_layer_root): VectorQuantizer(
+    (embedding): Embedding(1000, 320)
+  )
+  (ord_linears): ModuleList(
+    (0): Linear(in_features=512, out_features=32, bias=True)
+    (1): Linear(in_features=512, out_features=32, bias=True)
+    (2): Linear(in_features=512, out_features=32, bias=True)
+    (3): Linear(in_features=512, out_features=32, bias=True)
+    (4): Linear(in_features=512, out_features=32, bias=True)
+    (5): Linear(in_features=512, out_features=32, bias=True)
+  )
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(10, 32)
+    )
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(32, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.2, inplace=False)
+    (dropout_out): Dropout(p=0.3, inplace=False)
+    (lstm): LSTM(768, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=32, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), rootdict_emb_dim=320, rootdict_emb_num=1000, save_path='model/vqvae/results/training/3487_instances/120epochs.pt', seq_to_no_pad='surface', surf_vocab=<common.vocab.VocabEntry object at 0x7f2e239d1610>, surface_vocab_file='model/vqvae/data/sosimple.new.trn.combined.txt', task='vqvae', trndata='model/vqvae/data/sosimple.new.trn.combined.txt', trnsize=3487, tstdata='model/vqvae/data/sosimple.new.seenroots.val.txt', tstsize=3487, valdata='model/vqvae/data/sosimple.new.seenroots.val.txt', valsize=209)
+
+encoder.embed.weight, torch.Size([32, 256]): True
+encoder.lstm.weight_ih_l0, torch.Size([2048, 256]): True
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+encoder.lstm.bias_ih_l0, torch.Size([2048]): True
+encoder.lstm.bias_hh_l0, torch.Size([2048]): True
+linear_root.weight, torch.Size([320, 512]): True
+linear_root.bias, torch.Size([320]): True
+vq_layer_root.embedding.weight, torch.Size([1000, 320]): True
+ord_linears.0.weight, torch.Size([32, 512]): True
+ord_linears.0.bias, torch.Size([32]): True
+ord_linears.1.weight, torch.Size([32, 512]): True
+ord_linears.1.bias, torch.Size([32]): True
+ord_linears.2.weight, torch.Size([32, 512]): True
+ord_linears.2.bias, torch.Size([32]): True
+ord_linears.3.weight, torch.Size([32, 512]): True
+ord_linears.3.bias, torch.Size([32]): True
+ord_linears.4.weight, torch.Size([32, 512]): True
+ord_linears.4.bias, torch.Size([32]): True
+ord_linears.5.weight, torch.Size([32, 512]): True
+ord_linears.5.bias, torch.Size([32]): True
+ord_vq_layers.0.embedding.weight, torch.Size([10, 32]): True
+ord_vq_layers.1.embedding.weight, torch.Size([10, 32]): True
+ord_vq_layers.2.embedding.weight, torch.Size([10, 32]): True
+ord_vq_layers.3.embedding.weight, torch.Size([10, 32]): True
+ord_vq_layers.4.embedding.weight, torch.Size([10, 32]): True
+ord_vq_layers.5.embedding.weight, torch.Size([10, 32]): True
+decoder.embed.weight, torch.Size([32, 256]): True
+decoder.lstm.weight_ih_l0, torch.Size([2048, 768]): True
+decoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+decoder.lstm.bias_ih_l0, torch.Size([2048]): True
+decoder.lstm.bias_hh_l0, torch.Size([2048]): True
+decoder.pred_linear.weight, torch.Size([32, 512]): True
+epoch: 0,  avg_loss: 2.7575, avg_recon_loss: 2.5310, avg_vq_loss: 0.2264, acc: 0.2877, vq_inds: [61, 3, 6, 3, 5, 5, 5] 
+<s>esiyor</s>----->areror</s>
+<s>övüyor</s>----->greror</s>
+<s>atlıyor</s>----->arıayor</s>
+<s>ekliyor</s>----->arlaror</s>
+<s>kaçıyor</s>----->kalıror</s>
+<s>yürüyor</s>----->karuror</s>
+<s>yumuyor</s>----->karuyor</s>
+<s>uğruyor</s>----->aruuror</s>
+<s>çözüyor</s>----->gür</s>ror</s>
+<s>kınıyor</s>----->gararor</s>
+<s>kayıyor</s>----->kararor</s>
+<s>çöküyor</s>----->gür</s>ror</s>
+<s>sokuyor</s>----->aeruror</s>
+<s>özlüyor</s>----->grleror</s>
+<s>diliyor</s>----->aeraror</s>
+<s>sayıyor</s>----->kararor</s>
+<s>takıyor</s>----->aarlror</s>
+<s>bıkıyor</s>----->garlror</s>
+<s>eğitiyor</s>----->arırıror</s>
+<s>umuyoruz</s>----->araror</s>z</s>
+<s>kutluyor</s>----->karlaror</s>
+<s>süslüyor</s>----->kereeror</s>
+<s>açıyoruz</s>----->alıror</s>z</s>
+<s>ödüyorum</s>----->gkeror</s>z</s>
+<s>düşlüyor</s>----->kerueror</s>
+<s>aramıyor</s>----->arlr</s>yor</s>
+<s>çatmıyor</s>----->aarııyor</s>
+<s>yatmıyor</s>----->aarııyor</s>
+<s>iletiyor</s>----->alarıyor</s>
+<s>arıyoruz</s>----->arlyor</s>z</s>
+<s>yansıyor</s>----->karıınor</s>
+<s>alışıyor</s>----->arırıror</s>
+<s>oluyoruz</s>----->araror</s>z</s>
+<s>yanmıyor</s>----->karııyor</s>
+<s>çalıyorum</s>----->aararor</s>z</s>
+<s>çalıyoruz</s>----->kararor</s>z</s>
+<s>olmuyoruz</s>----->arauyor</s>z</s>
+<s>coşuyoruz</s>----->karuror</s>z</s>
+<s>amaçlıyor</s>----->arırıaror</s>
+<s>değiniyor</s>----->aerir</s>ror</s>
+<s>çabalıyor</s>----->garıraror</s>
+<s>kınıyoruz</s>----->kararor</s>z</s>
+<s>yazıyoruz</s>----->karıyor</s>z</s>
+<s>duyuyoruz</s>----->aeroror</s>z</s>
+<s>almıyorum</s>----->araayor</s>z</s>
+<s>geziniyor</s>----->gereyuror</s>
+<s>yöneliyor</s>----->gerereror</s>
+<s>evleniyor</s>----->areeriyor</s>
+<s>küçülüyor</s>----->garereror</s>
+<s>beğeniyor</s>----->gerereror</s>
+<s>yarışıyor</s>----->aarlyıror</s>
+<s>yakınıyor</s>----->karlr</s>ror</s>
+<s>birikiyor</s>----->berlr</s>ror</s>
+<s>yemiyorum</s>----->kareyor</s>z</s>
+<s>izliyoruz</s>----->eruuror</s>z</s>
+<s>planlıyor</s>----->kaerıaror</s>
+<s>kılıyorum</s>----->aalaror</s>z</s>
+<s>demiyorum</s>----->aerayor</s>z</s>
+<s>geçiyorum</s>----->bereror</s>z</s>
+<s>anlıyoruz</s>----->araayor</s>z</s>
+<s>gelişiyor</s>----->bereriror</s>
+<s>uçmuyorum</s>----->aruuror</s>z</s>
+<s>uyuşmuyor</s>----->araruuyor</s>
+<s>unutmuyor</s>----->araruuyor</s>
+<s>satıyoruz</s>----->aarıror</s>z</s>
+<s>konuyoruz</s>----->koruror</s>z</s>
+<s>soğuyorum</s>----->koruror</s>z</s>
+<s>sıralıyor</s>----->aarlraror</s>
+<s>giriyorum</s>----->berlror</s>z</s>
+<s>özlüyorum</s>----->gkleror</s>z</s>
+<s>azarlıyor</s>----->arlr</s>aror</s>
+<s>okşuyorum</s>----->krluror</s>z</s>
+<s>sömürüyor</s>----->gerey</s>ror</s>
+<s>kızıyorum</s>----->gararor</s>z</s>
+<s>sunuyorum</s>----->aeruror</s>z</s>
+<s>koşuyoruz</s>----->koruror</s>z</s>
+<s>kalıyoruz</s>----->aalaror</s>z</s>
+<s>demiyoruz</s>----->aerayor</s>z</s>
+<s>sokuyoruz</s>----->korlror</s>z</s>
+<s>korkmuyor</s>----->korluuyor</s>
+<s>üstleniyor</s>----->bkeeeriror</s>
+<s>görüyorlar</s>----->gereror</s>er</s>
+<s>çalmıyorum</s>----->aaraayor</s>z</s>
+<s>harcıyorum</s>----->berleror</s>z</s>
+<s>gerekmiyor</s>----->bererleyor</s>
+<s>kaydediyor</s>----->kalaırınor</s>
+<s>kurtarıyor</s>----->karlar</s>zor</s>
+<s>fırlamıyor</s>----->aallarıyor</s>
+<s>yapıyorsun</s>----->karıror</s>un</s>
+<s>dönüşmüyor</s>----->gereruuror</s>
+<s>birleşiyor</s>----->berleriror</s>
+<s>bulmuyoruz</s>----->karaeyor</s>z</s>
+<s>katıyorlar</s>----->aalıror</s>ar</s>
+<s>tanıyorlar</s>----->aarıror</s>ar</s>
+<s>sağlıyoruz</s>----->karıayor</s>z</s>
+<s>duyuyorlar</s>----->aeroror</s>ur</s>
+<s>koyuyorlar</s>----->kororor</s>ur</s>
+<s>genişliyor</s>----->gererueror</s>
+<s>dönüyorlar</s>----->gereror</s>er</s>
+<s>görüyorsun</s>----->gereror</s>un</s>
+<s>çağrılıyor</s>----->berteyaror</s>
+<s>siliyorlar</s>----->aarayor</s>ar</s>
+<s>değinmiyor</s>----->aerir</s></s>zor</s>
+<s>kızmıyorum</s>----->karlayor</s>z</s>
+<s>tamamlıyor</s>----->aarırıayor</s>
+<s>yerleşiyor</s>----->aarlarıror</s>
+<s>uyarıyorum</s>----->aror</s>zor</s>z</s>
+<s>suçlamıyor</s>----->kallarıyor</s>
+<s>sanıyorlar</s>----->karlror</s>ar</s>
+<s>dışlamıyor</s>----->aaraarıyor</s>
+<s>satmıyorum</s>----->aarııyor</s>z</s>
+<s>sığmıyorum</s>----->gareeyor</s>z</s>
+<s>kovuyorlar</s>----->koraror</s>ar</s>
+<s>özlüyorlar</s>----->gkeeror</s>er</s>
+<s>soruyorlar</s>----->koruror</s>ur</s>
+<s>kazanmıyor</s>----->karlrıayor</s>
+<s>haykırıyor</s>----->bartarlror</s>
+<s>saymıyorum</s>----->karaayor</s>z</s>
+<s>korkuyoruz</s>----->auruuror</s>z</s>
+<s>zayıflıyor</s>----->gartrlaror</s>
+<s>başlıyoruz</s>----->karıaror</s>z</s>
+<s>patlamıyor</s>----->karıarıyor</s>
+<s>girmiyoruz</s>----->berleyor</s>z</s>
+<s>sanmıyoruz</s>----->karleyor</s>z</s>
+<s>beklemiyor</s>----->berleriyor</s>
+<s>taşıyorlar</s>----->aarıror</s>ar</s>
+<s>aktarıyoruz</s>----->allır</s>zor</s>z</s>
+<s>yırtıyorlar</s>----->aallıyor</s>ar</s>
+<s>görüşüyoruz</s>----->gereruror</s>z</s>
+<s>hoşlanmıyor</s>----->garlarııyor</s>
+<s>ödüyorsunuz</s>----->gkeror</s>un</s>z</s>
+<s>başlıyorlar</s>----->garıayor</s>ar</s>
+<s>yolluyorlar</s>----->karaeror</s>er</s>
+<s>çeviriyorum</s>----->berer</s>ror</s>z</s>
+<s>açıklıyoruz</s>----->alır</s>aror</s>z</s>
+<s>özetliyorum</s>----->bklrieror</s>z</s>
+<s>uçuyorsunuz</s>----->kyuror</s>un</s>z</s>
+<s>davranmıyor</s>----->aaraerıayor</s>
+<s>savunuyorum</s>----->aerar</s>ror</s>z</s>
+<s>onaylamıyor</s>----->kraraarıyor</s>
+<s>tekrarlıyor</s>----->aarler</s>aror</s>
+<s>eleştiriyor</s>----->ararıen</s>zor</s>
+<s>ilerliyorum</s>----->alar</s>aror</s>z</s>
+<s>inanıyorlar</s>----->arar</s>ror</s>ar</s>
+<s>geçiniyorum</s>----->bereriror</s>z</s>
+<s>arzuluyorum</s>----->arlayaror</s>z</s>
+<s>yaşamıyorum</s>----->aarırıyor</s>z</s>
+<s>uyguluyoruz</s>----->kyoeraror</s>z</s>
+<s>zorluyorlar</s>----->karlaror</s>er</s>
+<s>bulunuyoruz</s>----->kararuror</s>z</s>
+<s>açıklamıyor</s>----->alır</s>ar</s>zor</s>
+<s>hastalanıyor</s>----->galtırarıror</s>
+<s>hazırlıyoruz</s>----->barlrlaror</s>z</s>
+<s>kullanıyoruz</s>----->kalaarıror</s>z</s>
+<s>beklemiyoruz</s>----->berleriyor</s>z</s>
+<s>öğreniyorlar</s>----->gkeereyor</s>er</s>
+<s>kalıyorsunuz</s>----->aalaror</s>ın</s>z</s>
+<s>etmiyorsunuz</s>----->araayor</s>un</s>z</s>
+<s>yıpratıyorum</s>----->kalaarıror</s>z</s>
+<s>gönderiyorum</s>----->gereer</s>zor</s>z</s>
+<s>yakınıyorlar</s>----->aarlrıror</s>ar</s>
+<s>hedefliyoruz</s>----->berereeror</s>z</s>
+<s>yayınlıyoruz</s>----->kararıaror</s>z</s>
+<s>getirmiyorum</s>----->berer</s>enor</s>z</s>
+<s>yorumluyorum</s>----->karur</s>aror</s>z</s>
+<s>engellemiyor</s>----->araeraeriyor</s>
+<s>yönetiyorlar</s>----->bereriror</s>er</s>
+<s>yerleşiyoruz</s>----->aarlarıror</s>z</s>
+<s>evleniyorlar</s>----->araarıyor</s>ar</s>
+<s>kastediyorum</s>----->kalıırı</s>or</s>z</s>
+<s>tiksiniyorum</s>----->karler</s>ror</s>z</s>
+<s>seçiyorsunuz</s>----->bereror</s>un</s>z</s>
+<s>kızıyorsunuz</s>----->barlror</s>un</s>z</s>
+<s>dolaşmıyorum</s>----->aerer</s>uror</s>z</s>
+<s>seyrediyoruz</s>----->aaraarınor</s>z</s>
+<s>karşılaşıyor</s>----->aallıyarıror</s>
+<s>karşılıyoruz</s>----->aallıyaror</s>z</s>
+<s>bayılıyorlar</s>----->garıraror</s>ar</s>
+<s>yaklaşıyorum</s>----->aarlarıror</s>z</s>
+<s>söylemiyorlar</s>----->keraerayor</s>er</s>
+<s>tanımlıyorlar</s>----->aarırıaror</s>ar</s>
+<s>düşünmüyorlar</s>----->keruruuror</s>ur</s>
+<s>harcıyorsunuz</s>----->berleror</s>un</s>z</s>
+<s>topluyorsunuz</s>----->bereeror</s>un</s>z</s>
+<s>hoşlanmıyorum</s>----->garlarııyor</s>z</s>
+<s>saçmalıyorlar</s>----->kalıararor</s>ar</s>
+<s>hazırlıyorlar</s>----->barlrlaror</s>ar</s>
+<s>vazgeçmiyoruz</s>----->berlerieyor</s>z</s>
+<s>araştırıyorum</s>----->arlrıın</s>zor</s>z</s>
+<s>gönderiyorlar</s>----->gereer</s>zor</s>er</s>
+<s>kaybediyorlar</s>----->baltarinor</s>er</s>
+<s>bahsediyorlar</s>----->berterinor</s>er</s>
+<s>seyrediyorlar</s>----->aaraarınor</s>ar</s>
+<s>yayınlıyorlar</s>----->kararıaror</s>ar</s>
+<s>tırmanıyorlar</s>----->aarlarıror</s>ar</s>
+<s>zannetmiyorum</s>----->bellarıinor</s>z</s>
+<s>parçalıyorlar</s>----->karlıraror</s>ar</s>
+<s>uygulamıyoruz</s>----->klaararıyor</s>z</s>
+<s>göstermiyorlar</s>----->bereer</s>inor</s>er</s>
+<s>planlıyorsunuz</s>----->beereeror</s>un</s>z</s>
+<s>karşılaşıyoruz</s>----->aallıyarıror</s>z</s>
+<s>eleştirmiyorum</s>----->ararıın</s></s>zor</s>z</s>
+<s>bırakıyorsunuz</s>----->berlrlror</s>un</s>z</s>
+<s>getiriyorsunuz</s>----->kerer</s>ror</s>un</s>z</s>
+<s>uyguluyorsunuz</s>----->kyaararor</s>un</s>z</s>
+<s>kastediyorsunuz</s>----->kalıırı</s>or</s>un</s>z</s>
+<s>gösteriyorsunuz</s>----->gereer</s>zor</s>un</s>z</s>
+<s>engelliyorsunuz</s>----->gkeereeror</s>un</s>z</s>
+<s>karşılaşıyorlar</s>----->aallıyarıror</s>ar</s>
+val ---  avg_loss: 2.0315, avg_recon_loss: 1.7401, avg_vq_loss: 0.2914, acc: 0.4845, vq_inds: [34, 2, 4, 3, 3, 3, 3] 
+update best loss 
+
+epoch: 1,  avg_loss: 2.3450, avg_recon_loss: 1.7690, avg_vq_loss: 0.5761, acc: 0.4648, vq_inds: [139, 8, 8, 6, 7, 7, 6] 
+val ---  avg_loss: 2.3996, avg_recon_loss: 1.3781, avg_vq_loss: 1.0215, acc: 0.5406, vq_inds: [60, 7, 5, 4, 6, 5, 3] 
+
+epoch: 2,  avg_loss: 2.5646, avg_recon_loss: 1.4312, avg_vq_loss: 1.1333, acc: 0.5423, vq_inds: [171, 8, 9, 8, 9, 10, 7] 
+val ---  avg_loss: 2.6449, avg_recon_loss: 1.1938, avg_vq_loss: 1.4510, acc: 0.5891, vq_inds: [74, 8, 5, 8, 6, 7, 7] 
+
+epoch: 3,  avg_loss: 2.7532, avg_recon_loss: 1.2551, avg_vq_loss: 1.4981, acc: 0.5935, vq_inds: [195, 9, 10, 10, 10, 10, 9] 
+val ---  avg_loss: 3.0988, avg_recon_loss: 1.0336, avg_vq_loss: 2.0652, acc: 0.6499, vq_inds: [78, 8, 8, 8, 7, 8, 7] 
+
+epoch: 4,  avg_loss: 3.5650, avg_recon_loss: 1.0806, avg_vq_loss: 2.4844, acc: 0.6298, vq_inds: [195, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.4912, avg_recon_loss: 0.8688, avg_vq_loss: 2.6224, acc: 0.6989, vq_inds: [87, 9, 7, 8, 8, 10, 7] 
+
+epoch: 5,  avg_loss: 4.1657, avg_recon_loss: 0.9700, avg_vq_loss: 3.1958, acc: 0.6631, vq_inds: [201, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.6849, avg_recon_loss: 0.8423, avg_vq_loss: 3.8425, acc: 0.6886, vq_inds: [87, 10, 9, 10, 9, 9, 9] 
+
+epoch: 6,  avg_loss: 4.9291, avg_recon_loss: 0.8668, avg_vq_loss: 4.0623, acc: 0.6982, vq_inds: [207, 10, 9, 10, 10, 10, 10] 
+val ---  avg_loss: 5.5995, avg_recon_loss: 0.7770, avg_vq_loss: 4.8225, acc: 0.7176, vq_inds: [82, 10, 8, 10, 10, 9, 8] 
+
+epoch: 7,  avg_loss: 5.5336, avg_recon_loss: 0.7870, avg_vq_loss: 4.7466, acc: 0.7200, vq_inds: [208, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 5.7549, avg_recon_loss: 0.7300, avg_vq_loss: 5.0250, acc: 0.7452, vq_inds: [83, 9, 8, 10, 9, 10, 9] 
+
+epoch: 8,  avg_loss: 6.0975, avg_recon_loss: 0.7314, avg_vq_loss: 5.3660, acc: 0.7408, vq_inds: [204, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 6.4229, avg_recon_loss: 0.6965, avg_vq_loss: 5.7264, acc: 0.7656, vq_inds: [81, 9, 9, 10, 10, 10, 9] 
+
+epoch: 9,  avg_loss: 6.5254, avg_recon_loss: 0.6633, avg_vq_loss: 5.8621, acc: 0.7592, vq_inds: [206, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 6.9214, avg_recon_loss: 0.6157, avg_vq_loss: 6.3057, acc: 0.7869, vq_inds: [90, 10, 9, 10, 10, 10, 9] 
+
+epoch: 10,  avg_loss: 6.9837, avg_recon_loss: 0.5981, avg_vq_loss: 6.3856, acc: 0.7812, vq_inds: [217, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->içiyor</s>
+<s>övüyor</s>----->özeror</s>
+<s>atlıyor</s>----->allıyor</s>
+<s>ekliyor</s>----->elleyor</s>
+<s>kaçıyor</s>----->kaçıyor</s>
+<s>yürüyor</s>----->yürüyoru
+<s>yumuyor</s>----->duyuyor</s>
+<s>uğruyor</s>----->uğuuyor</s>
+<s>çözüyor</s>----->bözünor</s>
+<s>kınıyor</s>----->sunayor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->böküror</s>
+<s>sokuyor</s>----->sukuyor</s>
+<s>özlüyor</s>----->öllüyor</s>
+<s>diliyor</s>----->iiliyor</s>
+<s>sayıyor</s>----->sanıyor</s>
+<s>takıyor</s>----->takıyoru
+<s>bıkıyor</s>----->bıyıyor</s>
+<s>eğitiyor</s>----->ikiriror</s>
+<s>umuyoruz</s>----->uzuyorum</s>
+<s>kutluyor</s>----->kutuayoru
+<s>süslüyor</s>----->söllüyor</s>
+<s>açıyoruz</s>----->açıyoruz</s>
+<s>ödüyorum</s>----->ödüyor</s>z</s>
+<s>düşlüyor</s>----->düşüeyor</s>
+<s>aramıyor</s>----->aradışor</s>
+<s>çatmıyor</s>----->talmışor</s>
+<s>yatmıyor</s>----->yatmışoru
+<s>iletiyor</s>----->ilitiyorl
+<s>arıyoruz</s>----->drıyoruz</s>
+<s>yansıyor</s>----->kunııyor</s>
+<s>alışıyor</s>----->açıyıror</s>
+<s>oluyoruz</s>----->oluyoruz</s>
+<s>yanmıyor</s>----->yapıışor</s>
+<s>çalıyorum</s>----->balışorum</s>
+<s>çalıyoruz</s>----->çalıyoruz</s>
+<s>olmuyoruz</s>----->uluuyoruz</s>
+<s>coşuyoruz</s>----->yoşuyorum</s>
+<s>amaçlıyor</s>----->alallayor</s>
+<s>değiniyor</s>----->diğiniyor</s>
+<s>çabalıyor</s>----->çapalıyor</s>
+<s>kınıyoruz</s>----->sısıyoruz</s>
+<s>yazıyoruz</s>----->yazıyor</s>z</s>
+<s>duyuyoruz</s>----->duyuyor</s>z</s>
+<s>almıyorum</s>----->almıyor</s>m</s>
+<s>geziniyor</s>----->göziyiyor</s>
+<s>yöneliyor</s>----->göneniyor</s>
+<s>evleniyor</s>----->enleniyor</s>
+<s>küçülüyor</s>----->büsüldyor</s>
+<s>beğeniyor</s>----->beneniyoru
+<s>yarışıyor</s>----->yarıyıror</s>
+<s>yakınıyor</s>----->yakıyıyor</s>
+<s>birikiyor</s>----->kiriylyoru
+<s>yemiyorum</s>----->yidiyoruz</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->paaşlıyor</s>
+<s>kılıyorum</s>----->kılıyorum</s>
+<s>demiyorum</s>----->dimişorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->allıyor</s>z</s>
+<s>gelişiyor</s>----->gelişiror</s>
+<s>uçmuyorum</s>----->unuuyoruz</s>
+<s>uyuşmuyor</s>----->uyummuşor</s>
+<s>unutmuyor</s>----->unutmuşor</s>
+<s>satıyoruz</s>----->tatıyoruz</s>
+<s>konuyoruz</s>----->konuyorum</s>
+<s>soğuyorum</s>----->kukuyorum</s>
+<s>sıralıyor</s>----->kırırıyor</s>
+<s>giriyorum</s>----->giriyoruz</s>
+<s>özlüyorum</s>----->glüüyorum</s>
+<s>azarlıyor</s>----->azarııyor</s>
+<s>okşuyorum</s>----->oyuuyorum</s>
+<s>sömürüyor</s>----->kürüy</s>mor</s>
+<s>kızıyorum</s>----->kızıyorum</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->konuyorum</s>
+<s>kalıyoruz</s>----->kalıyorum</s>
+<s>demiyoruz</s>----->dedişoruz</s>
+<s>sokuyoruz</s>----->sukuyoruz</s>
+<s>korkmuyor</s>----->kormmuşor</s>
+<s>üstleniyor</s>----->sslüüriyor</s>
+<s>görüyorlar</s>----->görüyoruar</s>
+<s>çalmıyorum</s>----->çalııyorum</s>
+<s>harcıyorum</s>----->garııyoruz</s>
+<s>gerekmiyor</s>----->gererliyor</s>
+<s>kaydediyor</s>----->kaybediyor</s>
+<s>kurtarıyor</s>----->kuraarıyoru
+<s>fırlamıyor</s>----->gallamıyor</s>
+<s>yapıyorsun</s>----->yaşıyoruun</s>
+<s>dönüşmüyor</s>----->dünüşmüşor</s>
+<s>birleşiyor</s>----->kilgiyiyorl
+<s>bulmuyoruz</s>----->suluuyorum</s>
+<s>katıyorlar</s>----->kalıyor</s>ar</s>
+<s>tanıyorlar</s>----->tanıyor</s>ar</s>
+<s>sağlıyoruz</s>----->sanııyoruz</s>
+<s>duyuyorlar</s>----->duyuyoruar</s>
+<s>koyuyorlar</s>----->konuyoruar</s>
+<s>genişliyor</s>----->giçişleyor</s>
+<s>dönüyorlar</s>----->dünüyorlar</s>
+<s>görüyorsun</s>----->görüyoruunu
+<s>çağrılıyor</s>----->bakıılayor</s>
+<s>siliyorlar</s>----->siliyoruar</s>
+<s>değinmiyor</s>----->değinmişor</s>
+<s>kızmıyorum</s>----->kızııyorum</s>
+<s>tamamlıyor</s>----->tanımlayor</s>
+<s>yerleşiyor</s>----->yerleriyor</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->sulladışor</s>
+<s>sanıyorlar</s>----->sanıyor</s>ar</s>
+<s>dışlamıyor</s>----->iillemiyor</s>
+<s>satmıyorum</s>----->satmıyorum</s>
+<s>sığmıyorum</s>----->kınııyoruz</s>
+<s>kovuyorlar</s>----->konayorlar</s>
+<s>özlüyorlar</s>----->gllüyor</s>ar</s>
+<s>soruyorlar</s>----->soruyoruar</s>
+<s>kazanmıyor</s>----->bazınıışor</s>
+<s>haykırıyor</s>----->bazıırıyor</s>
+<s>saymıyorum</s>----->kalmışor</s>m</s>
+<s>korkuyoruz</s>----->koruuyoruz</s>
+<s>zayıflıyor</s>----->kazıylıyor</s>
+<s>başlıyoruz</s>----->başııyorum</s>
+<s>patlamıyor</s>----->pallaşıyor</s>
+<s>girmiyoruz</s>----->giriiyoruz</s>
+<s>sanmıyoruz</s>----->sanııyorum</s>
+<s>beklemiyor</s>----->kekledişor</s>
+<s>taşıyorlar</s>----->yaşıyor</s>ar</s>
+<s>aktarıyoruz</s>----->eçtersyoruz</s>
+<s>yırtıyorlar</s>----->yüraeloruar</s>
+<s>görüşüyoruz</s>----->görünüyoruz</s>
+<s>hoşlanmıyor</s>----->boplanıışor</s>
+<s>ödüyorsunuz</s>----->ddüyoruun</s>z</s>
+<s>başlıyorlar</s>----->başlıyoruar</s>
+<s>yolluyorlar</s>----->yollayoruar</s>
+<s>çeviriyorum</s>----->öevirirorum</s>
+<s>açıklıyoruz</s>----->açıklayor</s>z</s>
+<s>özetliyorum</s>----->özelleyor</s>m</s>
+<s>uçuyorsunuz</s>----->unuyoruunuz</s>
+<s>davranmıyor</s>----->davranmışor</s>
+<s>savunuyorum</s>----->suvunuyor</s>m</s>
+<s>onaylamıyor</s>----->anlllamaşor</s>
+<s>tekrarlıyor</s>----->taktallayor</s>
+<s>eleştiriyor</s>----->eyertir</s>yor</s>
+<s>ilerliyorum</s>----->ilirliyoruz</s>
+<s>inanıyorlar</s>----->inanıyor</s>ar</s>
+<s>geçiniyorum</s>----->giçiyiyoruz</s>
+<s>arzuluyorum</s>----->uvşllayor</s>m</s>
+<s>yaşamıyorum</s>----->yaşamayorum</s>
+<s>uyguluyoruz</s>----->oyuuluyorum</s>
+<s>zorluyorlar</s>----->yoruayor</s>ar</s>
+<s>bulunuyoruz</s>----->kuluyuyorum</s>
+<s>açıklamıyor</s>----->açıkladaşor</s>
+<s>hastalanıyor</s>----->baslalamımor</s>
+<s>hazırlıyoruz</s>----->bazırııyor</s>m</s>
+<s>kullanıyoruz</s>----->kullanıyorsm</s>
+<s>beklemiyoruz</s>----->bekledeyorum</s>
+<s>öğreniyorlar</s>----->öğreneyoruar</s>
+<s>kalıyorsunuz</s>----->kalıyoruunuz</s>
+<s>etmiyorsunuz</s>----->etmeyoruun</s>z</s>
+<s>yıpratıyorum</s>----->gırralıyorum</s>
+<s>gönderiyorum</s>----->gönderiyoruz</s>
+<s>yakınıyorlar</s>----->kazıyıyor</s>ar</s>
+<s>hedefliyoruz</s>----->gesecleyorsz</s>
+<s>yayınlıyoruz</s>----->yüşbnlayoruz</s>
+<s>getirmiyorum</s>----->getirieyorum</s>
+<s>yorumluyorum</s>----->yüruşluyor</s>m</s>
+<s>engellemiyor</s>----->engellemişoru
+<s>yönetiyorlar</s>----->yökeliyorlar</s>
+<s>yerleşiyoruz</s>----->yürgeyiyoruz</s>
+<s>evleniyorlar</s>----->allerlyor</s>ar</s>
+<s>kastediyorum</s>----->kastetikoruz</s>
+<s>tiksiniyorum</s>----->dikliyiyoruz</s>
+<s>seçiyorsunuz</s>----->sesiyoruunuz</s>
+<s>kızıyorsunuz</s>----->kızıyoruunuz</s>
+<s>dolaşmıyorum</s>----->doluşııyorum</s>
+<s>seyrediyoruz</s>----->serrediyoruz</s>
+<s>karşılaşıyor</s>----->karşılaştror</s>
+<s>karşılıyoruz</s>----->karşılayorum</s>
+<s>bayılıyorlar</s>----->başılıyoruar</s>
+<s>yaklaşıyorum</s>----->kaklaştyorum</s>
+<s>söylemiyorlar</s>----->söylemiyoruar</s>
+<s>tanımlıyorlar</s>----->tanımlayoruar</s>
+<s>düşünmüyorlar</s>----->düşünmüşoruar</s>
+<s>harcıyorsunuz</s>----->gargıyoruunuz</s>
+<s>topluyorsunuz</s>----->tunlayoruunuz</s>
+<s>hoşlanmıyorum</s>----->bollanmışor</s>m</s>
+<s>saçmalıyorlar</s>----->kalladayoruar</s>
+<s>hazırlıyorlar</s>----->hazırlayor</s>ar</s>
+<s>vazgeçmiyoruz</s>----->bazgedmiyorum</s>
+<s>araştırıyorum</s>----->araştırızoruz</s>
+<s>gönderiyorlar</s>----->gönderiyor</s>ar</s>
+<s>kaybediyorlar</s>----->kaybadiyor</s>ar</s>
+<s>bahsediyorlar</s>----->bassetiyoruar</s>
+<s>seyrediyorlar</s>----->sevretiyorlar</s>
+<s>yayınlıyorlar</s>----->kanınlıyor</s>ar</s>
+<s>tırmanıyorlar</s>----->taraayıyoruar</s>
+<s>zannetmiyorum</s>----->bangımmişorum</s>
+<s>parçalıyorlar</s>----->paylllayor</s>ar</s>
+<s>uygulamıyoruz</s>----->knuuladıyorum</s>
+<s>göstermiyorlar</s>----->gösteriiyor</s>ar</s>
+<s>planlıyorsunuz</s>----->aaanııyoruunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaştyorum</s>
+<s>eleştirmiyorum</s>----->elirtir</s>işor</s>m</s>
+<s>bırakıyorsunuz</s>----->kırakıyoruun</s>z</s>
+<s>getiriyorsunuz</s>----->getireyoruunuz</s>
+<s>uyguluyorsunuz</s>----->unuuluyorsunuz</s>
+<s>kastediyorsunuz</s>----->sastirikorsunuz</s>
+<s>gösteriyorsunuz</s>----->gösteriyoruunuz</s>
+<s>engelliyorsunuz</s>----->iniiliiyorsun</s>z</s>
+<s>karşılaşıyorlar</s>----->karşılaştror</s>ar</s>
+val ---  avg_loss: 7.0531, avg_recon_loss: 0.6335, avg_vq_loss: 6.4196, acc: 0.7980, vq_inds: [90, 10, 8, 10, 10, 10, 9] 
+
+epoch: 11,  avg_loss: 7.2286, avg_recon_loss: 0.5398, avg_vq_loss: 6.6888, acc: 0.8050, vq_inds: [213, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 7.5552, avg_recon_loss: 0.5420, avg_vq_loss: 7.0133, acc: 0.8171, vq_inds: [84, 9, 10, 10, 10, 9, 9] 
+
+epoch: 12,  avg_loss: 7.3351, avg_recon_loss: 0.5147, avg_vq_loss: 6.8203, acc: 0.8107, vq_inds: [207, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 7.5631, avg_recon_loss: 0.5246, avg_vq_loss: 7.0385, acc: 0.8184, vq_inds: [81, 10, 10, 10, 10, 10, 9] 
+
+epoch: 13,  avg_loss: 7.7854, avg_recon_loss: 0.4787, avg_vq_loss: 7.3067, acc: 0.8246, vq_inds: [202, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 7.8963, avg_recon_loss: 0.5080, avg_vq_loss: 7.3883, acc: 0.8231, vq_inds: [78, 10, 10, 10, 10, 10, 9] 
+
+epoch: 14,  avg_loss: 8.1221, avg_recon_loss: 0.4541, avg_vq_loss: 7.6680, acc: 0.8320, vq_inds: [206, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 8.5780, avg_recon_loss: 0.4629, avg_vq_loss: 8.1150, acc: 0.8375, vq_inds: [79, 10, 10, 10, 9, 10, 9] 
+
+epoch: 15,  avg_loss: 8.1359, avg_recon_loss: 0.4092, avg_vq_loss: 7.7267, acc: 0.8514, vq_inds: [205, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 8.0755, avg_recon_loss: 0.4539, avg_vq_loss: 7.6216, acc: 0.8430, vq_inds: [81, 10, 10, 10, 10, 10, 9] 
+
+epoch: 16,  avg_loss: 8.0547, avg_recon_loss: 0.4048, avg_vq_loss: 7.6499, acc: 0.8499, vq_inds: [205, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 8.0114, avg_recon_loss: 0.4619, avg_vq_loss: 7.5495, acc: 0.8307, vq_inds: [74, 10, 10, 10, 9, 10, 9] 
+
+epoch: 17,  avg_loss: 8.1387, avg_recon_loss: 0.3795, avg_vq_loss: 7.7592, acc: 0.8588, vq_inds: [197, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 8.0346, avg_recon_loss: 0.4484, avg_vq_loss: 7.5863, acc: 0.8379, vq_inds: [77, 10, 10, 10, 10, 10, 10] 
+
+epoch: 18,  avg_loss: 8.2759, avg_recon_loss: 0.3731, avg_vq_loss: 7.9028, acc: 0.8624, vq_inds: [194, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 8.0089, avg_recon_loss: 0.4253, avg_vq_loss: 7.5836, acc: 0.8554, vq_inds: [73, 10, 10, 10, 10, 10, 9] 
+
+epoch: 19,  avg_loss: 8.6661, avg_recon_loss: 0.4432, avg_vq_loss: 8.2230, acc: 0.8516, vq_inds: [188, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 8.0498, avg_recon_loss: 0.4550, avg_vq_loss: 7.5948, acc: 0.8345, vq_inds: [75, 10, 9, 10, 10, 10, 10] 
+
+epoch: 20,  avg_loss: 8.3553, avg_recon_loss: 0.3409, avg_vq_loss: 8.0144, acc: 0.8742, vq_inds: [186, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->ekiyor</s>
+<s>övüyor</s>----->öpüyor</s>
+<s>atlıyor</s>----->allıyor</s>
+<s>ekliyor</s>----->ekiiyor</s>
+<s>kaçıyor</s>----->kaçıyor</s>
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->dumuyoru
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çözüyor</s>
+<s>kınıyor</s>----->kızıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->çöküyor</s>
+<s>sokuyor</s>----->sukuyor</s>
+<s>özlüyor</s>----->öllüyor</s>
+<s>diliyor</s>----->dileyor</s>
+<s>sayıyor</s>----->sayıyor</s>
+<s>takıyor</s>----->takıyor</s>
+<s>bıkıyor</s>----->bakayor</s>
+<s>eğitiyor</s>----->iğitiyor</s>
+<s>umuyoruz</s>----->umuyoruz</s>
+<s>kutluyor</s>----->kulluyor</s>
+<s>süslüyor</s>----->söylüyor</s>
+<s>açıyoruz</s>----->açıyoruz</s>
+<s>ödüyorum</s>----->ödüyorum</s>
+<s>düşlüyor</s>----->düşüüyor</s>
+<s>aramıyor</s>----->arımıyor</s>
+<s>çatmıyor</s>----->tammıyor</s>
+<s>yatmıyor</s>----->yatııyor</s>
+<s>iletiyor</s>----->itettyorl
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->sansıyor</s>
+<s>alışıyor</s>----->alıştror</s>
+<s>oluyoruz</s>----->oluyoruz</s>
+<s>yanmıyor</s>----->yazııyorl
+<s>çalıyorum</s>----->çalışorum</s>
+<s>çalıyoruz</s>----->çalışorsz</s>
+<s>olmuyoruz</s>----->oluuyorsz</s>
+<s>coşuyoruz</s>----->ooşuyoruz</s>
+<s>amaçlıyor</s>----->açaçlayor</s>
+<s>değiniyor</s>----->değiniyor</s>
+<s>çabalıyor</s>----->hakalıyorl
+<s>kınıyoruz</s>----->kınıyoruz</s>
+<s>yazıyoruz</s>----->yazıyoruz</s>
+<s>duyuyoruz</s>----->duyuyor</s>z</s>
+<s>almıyorum</s>----->almışorum</s>
+<s>geziniyor</s>----->çiziyiyor</s>
+<s>yöneliyor</s>----->yüneliyorl
+<s>evleniyor</s>----->enleniyor</s>
+<s>küçülüyor</s>----->küçümmyor</s>
+<s>beğeniyor</s>----->beğeniyoru
+<s>yarışıyor</s>----->yarıyıror</s>
+<s>yakınıyor</s>----->yakışıyor</s>
+<s>birikiyor</s>----->bıraktyor</s>
+<s>yemiyorum</s>----->demiyorum</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->daanııyor</s>
+<s>kılıyorum</s>----->kılışorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçirorum</s>
+<s>anlıyoruz</s>----->allıyoruz</s>
+<s>gelişiyor</s>----->geliştror</s>
+<s>uçmuyorum</s>----->uğmuyorum</s>
+<s>uyuşmuyor</s>----->oyuşmuyor</s>
+<s>unutmuyor</s>----->unutmuyorl
+<s>satıyoruz</s>----->tatıyoruz</s>
+<s>konuyoruz</s>----->konuyor</s>z</s>
+<s>soğuyorum</s>----->savuyorum</s>
+<s>sıralıyor</s>----->kıratıyor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->öllüyor</s>z</s>
+<s>azarlıyor</s>----->azarlıyor</s>
+<s>okşuyorum</s>----->oyuuyorum</s>
+<s>sömürüyor</s>----->sürüy</s>mor</s>
+<s>kızıyorum</s>----->kızayorum</s>
+<s>sunuyorum</s>----->senlyorum</s>
+<s>koşuyoruz</s>----->ooşuyoruz</s>
+<s>kalıyoruz</s>----->kalışorsz</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sekuyor</s>z</s>
+<s>korkmuyor</s>----->korkmuşor</s>
+<s>üstleniyor</s>----->dsteeniyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalııyorum</s>
+<s>harcıyorum</s>----->garııyorum</s>
+<s>gerekmiyor</s>----->gerikiiyor</s>
+<s>kaydediyor</s>----->kaydediyoru
+<s>kurtarıyor</s>----->kıraırıyor</s>
+<s>fırlamıyor</s>----->gırlmmıyor</s>
+<s>yapıyorsun</s>----->yapıyorsunu
+<s>dönüşmüyor</s>----->düşmşmüyor</s>
+<s>birleşiyor</s>----->billiyiyor</s>
+<s>bulmuyoruz</s>----->bulmuyorsm</s>
+<s>katıyorlar</s>----->katıyorlar</s>
+<s>tanıyorlar</s>----->tanıyorlar</s>
+<s>sağlıyoruz</s>----->savlıyorsz</s>
+<s>duyuyorlar</s>----->duyuyorlar</s>
+<s>koyuyorlar</s>----->koyuyorlay</s>
+<s>genişliyor</s>----->geçişiiyor</s>
+<s>dönüyorlar</s>----->dönüşorlar</s>
+<s>görüyorsun</s>----->görüyorsun</s>
+<s>çağrılıyor</s>----->çavııyıyor</s>
+<s>siliyorlar</s>----->sellyorlar</s>
+<s>değinmiyor</s>----->dövinmiyor</s>
+<s>kızmıyorum</s>----->kızmıyorsm</s>
+<s>tamamlıyor</s>----->tamamlayor</s>
+<s>yerleşiyor</s>----->yerleyiyor</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->suçlamışors
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->gimlemiyorl
+<s>satmıyorum</s>----->sattıyorum</s>
+<s>sığmıyorum</s>----->saçlıyorum</s>
+<s>kovuyorlar</s>----->kovuyorlar</s>
+<s>özlüyorlar</s>----->öllüyor</s>ar</s>
+<s>soruyorlar</s>----->uuyuyorlar</s>
+<s>kazanmıyor</s>----->kazanmışor</s>
+<s>haykırıyor</s>----->çaçııyıyor</s>
+<s>saymıyorum</s>----->savııyorum</s>
+<s>korkuyoruz</s>----->yoruuyoruz</s>
+<s>zayıflıyor</s>----->hazınlıyor</s>
+<s>başlıyoruz</s>----->başlıyorum</s>
+<s>patlamıyor</s>----->patlamıyor</s>
+<s>girmiyoruz</s>----->girmiyoruz</s>
+<s>sanmıyoruz</s>----->sanmıyoruz</s>
+<s>beklemiyor</s>----->beklemişor</s>
+<s>taşıyorlar</s>----->aaşıyorlar</s>
+<s>aktarıyoruz</s>----->aktarıyorum</s>
+<s>yırtıyorlar</s>----->gırpıyorlar</s>
+<s>görüşüyoruz</s>----->görüşüyoruz</s>
+<s>hoşlanmıyor</s>----->bollanmıyor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->saklıyorlar</s>
+<s>yolluyorlar</s>----->dolluyor</s>ar</s>
+<s>çeviriyorum</s>----->çevirirorum</s>
+<s>açıklıyoruz</s>----->açıklıyorum</s>
+<s>özetliyorum</s>----->özltliyorum</s>
+<s>uçuyorsunuz</s>----->ununorsunuz</s>
+<s>davranmıyor</s>----->devranııyor</s>
+<s>savunuyorum</s>----->savlnayorum</s>
+<s>onaylamıyor</s>----->anallamayor</s>
+<s>tekrarlıyor</s>----->değiinliyor</s>
+<s>eleştiriyor</s>----->eliştirdyor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorsars
+<s>geçiniyorum</s>----->geçiniyor</s>m</s>
+<s>arzuluyorum</s>----->ağıılayorum</s>
+<s>yaşamıyorum</s>----->yaşımıyorum</s>
+<s>uyguluyoruz</s>----->oymuluyorum</s>
+<s>zorluyorlar</s>----->vorluyorlar</s>
+<s>bulunuyoruz</s>----->bulunuyorsz</s>
+<s>açıklamıyor</s>----->açıklamışor</s>
+<s>hastalanıyor</s>----->hapıalıdıyorl
+<s>hazırlıyoruz</s>----->hazırlıyoruz</s>
+<s>kullanıyoruz</s>----->kullanıyorsz</s>
+<s>beklemiyoruz</s>----->beklemiyor</s>m</s>
+<s>öğreniyorlar</s>----->öğreniyorlar</s>
+<s>kalıyorsunuz</s>----->kalışorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->bıpıarırorum</s>
+<s>gönderiyorum</s>----->göneeriyorum</s>
+<s>yakınıyorlar</s>----->yakıylyorlar</s>
+<s>hedefliyoruz</s>----->çaçekleyorsz</s>
+<s>yayınlıyoruz</s>----->yayıkııyorum</s>
+<s>getirmiyorum</s>----->getirmeyorum</s>
+<s>yorumluyorum</s>----->yorumlayor</s>m</s>
+<s>engellemiyor</s>----->öngelledişor</s>
+<s>yönetiyorlar</s>----->yinellyorlar</s>
+<s>yerleşiyoruz</s>----->yürleyiyor</s>z</s>
+<s>evleniyorlar</s>----->evleniyor</s>ar</s>
+<s>kastediyorum</s>----->kestediyorum</s>
+<s>tiksiniyorum</s>----->dikliniyorum</s>
+<s>seçiyorsunuz</s>----->çeçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->kızayorsunuz</s>
+<s>dolaşmıyorum</s>----->daşımmıyorum</s>
+<s>seyrediyoruz</s>----->seyrediyoruz</s>
+<s>karşılaşıyor</s>----->karşılaştror</s>
+<s>karşılıyoruz</s>----->karşılayorsz</s>
+<s>bayılıyorlar</s>----->yakındyorlar</s>
+<s>yaklaşıyorum</s>----->yaşlışıyorum</s>
+<s>söylemiyorlar</s>----->söylümiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyor</s>ar</s>
+<s>düşünmüyorlar</s>----->düşünüüyorlar</s>
+<s>harcıyorsunuz</s>----->garcıyorsunuz</s>
+<s>topluyorsunuz</s>----->dülluyorsunuz</s>
+<s>hoşlanmıyorum</s>----->boylayııyorum</s>
+<s>saçmalıyorlar</s>----->aaçmalayorlar</s>
+<s>hazırlıyorlar</s>----->hazırlıyoruar</s>
+<s>vazgeçmiyoruz</s>----->gazgemmiyorsz</s>
+<s>araştırıyorum</s>----->attştırıyorum</s>
+<s>gönderiyorlar</s>----->göndüriyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyoruar</s>
+<s>bahsediyorlar</s>----->gassediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyorlar</s>
+<s>yayınlıyorlar</s>----->yayınlayorlar</s>
+<s>tırmanıyorlar</s>----->gırmayıyoruar</s>
+<s>zannetmiyorum</s>----->zannetmiyorum</s>
+<s>parçalıyorlar</s>----->gavpılıyor</s>ar</s>
+<s>uygulamıyoruz</s>----->uyuuladaşorum</s>
+<s>göstermiyorlar</s>----->gösterdiyor</s>ar</s>
+<s>planlıyorsunuz</s>----->aaanlıyorsunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyorsz</s>
+<s>eleştirmiyorum</s>----->etittimmişorum</s>
+<s>bırakıyorsunuz</s>----->bırakıyorsunuz</s>
+<s>getiriyorsunuz</s>----->getireyorsunuz</s>
+<s>uyguluyorsunuz</s>----->ungulayorsunuz</s>
+<s>kastediyorsunuz</s>----->kastediyorsunuz</s>
+<s>gösteriyorsunuz</s>----->gösteriyoruunuz</s>
+<s>engelliyorsunuz</s>----->önlelliyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karşılaştyorlar</s>
+val ---  avg_loss: 7.9270, avg_recon_loss: 0.3945, avg_vq_loss: 7.5325, acc: 0.8643, vq_inds: [68, 10, 9, 10, 10, 10, 10] 
+
+epoch: 21,  avg_loss: 8.1862, avg_recon_loss: 0.3470, avg_vq_loss: 7.8393, acc: 0.8763, vq_inds: [185, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 7.8690, avg_recon_loss: 0.4608, avg_vq_loss: 7.4082, acc: 0.8486, vq_inds: [75, 9, 9, 10, 10, 10, 10] 
+
+epoch: 22,  avg_loss: 8.0438, avg_recon_loss: 0.3273, avg_vq_loss: 7.7165, acc: 0.8781, vq_inds: [181, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 7.3809, avg_recon_loss: 0.3891, avg_vq_loss: 6.9918, acc: 0.8579, vq_inds: [68, 9, 10, 10, 10, 10, 10] 
+
+epoch: 23,  avg_loss: 7.6830, avg_recon_loss: 0.2857, avg_vq_loss: 7.3973, acc: 0.8957, vq_inds: [182, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 7.0222, avg_recon_loss: 0.4057, avg_vq_loss: 6.6165, acc: 0.8635, vq_inds: [70, 9, 10, 10, 10, 10, 10] 
+
+epoch: 24,  avg_loss: 7.2159, avg_recon_loss: 0.2691, avg_vq_loss: 6.9468, acc: 0.9014, vq_inds: [182, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 6.6067, avg_recon_loss: 0.3749, avg_vq_loss: 6.2318, acc: 0.8626, vq_inds: [74, 9, 10, 10, 10, 10, 10] 
+
+epoch: 25,  avg_loss: 6.8850, avg_recon_loss: 0.2468, avg_vq_loss: 6.6382, acc: 0.9114, vq_inds: [180, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 6.3191, avg_recon_loss: 0.3996, avg_vq_loss: 5.9195, acc: 0.8707, vq_inds: [70, 10, 10, 10, 10, 10, 10] 
+
+epoch: 26,  avg_loss: 6.5109, avg_recon_loss: 0.2308, avg_vq_loss: 6.2801, acc: 0.9172, vq_inds: [179, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 6.1379, avg_recon_loss: 0.4006, avg_vq_loss: 5.7373, acc: 0.8715, vq_inds: [76, 9, 10, 10, 10, 10, 10] 
+
+epoch: 27,  avg_loss: 6.2038, avg_recon_loss: 0.2214, avg_vq_loss: 5.9824, acc: 0.9215, vq_inds: [179, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 5.7548, avg_recon_loss: 0.3657, avg_vq_loss: 5.3891, acc: 0.8826, vq_inds: [69, 9, 10, 10, 10, 10, 10] 
+
+epoch: 28,  avg_loss: 6.0734, avg_recon_loss: 0.2114, avg_vq_loss: 5.8620, acc: 0.9232, vq_inds: [176, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 5.9323, avg_recon_loss: 0.3572, avg_vq_loss: 5.5751, acc: 0.8796, vq_inds: [72, 9, 10, 10, 10, 10, 10] 
+
+epoch: 29,  avg_loss: 5.7369, avg_recon_loss: 0.2044, avg_vq_loss: 5.5325, acc: 0.9274, vq_inds: [176, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 5.2562, avg_recon_loss: 0.3883, avg_vq_loss: 4.8679, acc: 0.8775, vq_inds: [72, 9, 10, 10, 10, 10, 10] 
+
+epoch: 30,  avg_loss: 5.5745, avg_recon_loss: 0.1881, avg_vq_loss: 5.3864, acc: 0.9318, vq_inds: [176, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->ediyor</s>
+<s>övüyor</s>----->öpüyor</s>
+<s>atlıyor</s>----->allıyor</s>
+<s>ekliyor</s>----->ekliyor</s>
+<s>kaçıyor</s>----->kazıyor</s>
+<s>yürüyor</s>----->yürüyors
+<s>yumuyor</s>----->duyuyor</s>
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çözüyor</s>
+<s>kınıyor</s>----->kızıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->göküyor</s>
+<s>sokuyor</s>----->sokuyor</s>
+<s>özlüyor</s>----->üylüyor</s>
+<s>diliyor</s>----->dileyor</s>
+<s>sayıyor</s>----->sazıyor</s>
+<s>takıyor</s>----->takıyor</s>
+<s>bıkıyor</s>----->kıkıyor</s>
+<s>eğitiyor</s>----->uğişmyor</s>
+<s>umuyoruz</s>----->umuyoruz</s>
+<s>kutluyor</s>----->kulluyor</s>
+<s>süslüyor</s>----->söylüyor</s>
+<s>açıyoruz</s>----->ççayarsz</s>
+<s>ödüyorum</s>----->ödüyorum</s>
+<s>düşlüyor</s>----->düşleyor</s>
+<s>aramıyor</s>----->aramışor</s>
+<s>çatmıyor</s>----->tatmayor</s>
+<s>yatmıyor</s>----->yatmıyor</s>
+<s>iletiyor</s>----->ilerllor</s>
+<s>arıyoruz</s>----->ayayorsz</s>
+<s>yansıyor</s>----->yansıyor</s>
+<s>alışıyor</s>----->alışıyor</s>
+<s>oluyoruz</s>----->oluyoruz</s>
+<s>yanmıyor</s>----->yanııyor</s>
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalıyoruz</s>
+<s>olmuyoruz</s>----->olmuşorsz</s>
+<s>coşuyoruz</s>----->yoşuyorum</s>
+<s>amaçlıyor</s>----->amaçlıyor</s>
+<s>değiniyor</s>----->değiniyor</s>
+<s>çabalıyor</s>----->hapalıyorl
+<s>kınıyoruz</s>----->kızıyor</s>z</s>
+<s>yazıyoruz</s>----->yazıyoruz</s>
+<s>duyuyoruz</s>----->duyuyoruz</s>
+<s>almıyorum</s>----->almışorum</s>
+<s>geziniyor</s>----->giziriyor</s>
+<s>yöneliyor</s>----->yöneliyor</s>
+<s>evleniyor</s>----->evleniror</s>
+<s>küçülüyor</s>----->küçümdyor</s>
+<s>beğeniyor</s>----->beğeniyoru
+<s>yarışıyor</s>----->yarışayor</s>
+<s>yakınıyor</s>----->yikınıyor</s>
+<s>birikiyor</s>----->bırıkıyor</s>
+<s>yemiyorum</s>----->yemiyorum</s>
+<s>izliyoruz</s>----->izliyorsz</s>
+<s>planlıyor</s>----->maanlıyor</s>
+<s>kılıyorum</s>----->kılıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçirorum</s>
+<s>anlıyoruz</s>----->allayorsz</s>
+<s>gelişiyor</s>----->gelişiyor</s>
+<s>uçmuyorum</s>----->ummuyorum</s>
+<s>uyuşmuyor</s>----->uyuşuuşor</s>
+<s>unutmuyor</s>----->uğutmuyor</s>
+<s>satıyoruz</s>----->tatıyoruz</s>
+<s>konuyoruz</s>----->kunuyoruz</s>
+<s>soğuyorum</s>----->soğuyorum</s>
+<s>sıralıyor</s>----->sıraldyor</s>
+<s>giriyorum</s>----->giyiyorum</s>
+<s>özlüyorum</s>----->önlüyorsz</s>
+<s>azarlıyor</s>----->azallayor</s>
+<s>okşuyorum</s>----->okuuyorum</s>
+<s>sömürüyor</s>----->sörüyüzor</s>
+<s>kızıyorum</s>----->kızayor</s>m</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->koşuyoruz</s>
+<s>kalıyoruz</s>----->kalıyoruz</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->korkmuyor</s>
+<s>üstleniyor</s>----->dstleniyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalıışorum</s>
+<s>harcıyorum</s>----->yarcıyorum</s>
+<s>gerekmiyor</s>----->gerekliyor</s>
+<s>kaydediyor</s>----->kaydedi</s>or</s>
+<s>kurtarıyor</s>----->kurtalıyor</s>
+<s>fırlamıyor</s>----->gırlmmıyor</s>
+<s>yapıyorsun</s>----->yapıyorsun</s>
+<s>dönüşmüyor</s>----->düşmşmüyor</s>
+<s>birleşiyor</s>----->bellişiyor</s>
+<s>bulmuyoruz</s>----->bulmuyorsz</s>
+<s>katıyorlar</s>----->karıyorlar</s>
+<s>tanıyorlar</s>----->tanımorlar</s>
+<s>sağlıyoruz</s>----->savlıyorsz</s>
+<s>duyuyorlar</s>----->doyuyorlar</s>
+<s>koyuyorlar</s>----->koyuyorlar</s>
+<s>genişliyor</s>----->genirleyor</s>
+<s>dönüyorlar</s>----->dönünorlar</s>
+<s>görüyorsun</s>----->görüyorsun</s>
+<s>çağrılıyor</s>----->çövııyiyor</s>
+<s>siliyorlar</s>----->siliyor</s>ar</s>
+<s>değinmiyor</s>----->değinmiyor</s>
+<s>kızmıyorum</s>----->kırmayorum</s>
+<s>tamamlıyor</s>----->tamamlayor</s>
+<s>yerleşiyor</s>----->yürleyiyor</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->buçlanışors
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->daşlamışor</s>
+<s>satmıyorum</s>----->salmıyorum</s>
+<s>sığmıyorum</s>----->sullayorum</s>
+<s>kovuyorlar</s>----->kovayorlar</s>
+<s>özlüyorlar</s>----->önlüyor</s>ar</s>
+<s>soruyorlar</s>----->soruyor</s>ar</s>
+<s>kazanmıyor</s>----->kazanııyor</s>
+<s>haykırıyor</s>----->yayııllyor</s>
+<s>saymıyorum</s>----->suymıyor</s>m</s>
+<s>korkuyoruz</s>----->korkuyorsz</s>
+<s>zayıflıyor</s>----->hazıflıyor</s>
+<s>başlıyoruz</s>----->başlıyoruz</s>
+<s>patlamıyor</s>----->patlamıyor</s>
+<s>girmiyoruz</s>----->girmiyoruz</s>
+<s>sanmıyoruz</s>----->sanııyoruz</s>
+<s>beklemiyor</s>----->beklemişor</s>
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->aktarıyorum</s>
+<s>yırtıyorlar</s>----->yürlülor</s>ar</s>
+<s>görüşüyoruz</s>----->görüşüyorsz</s>
+<s>hoşlanmıyor</s>----->zoşlanmıyor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyorlar</s>
+<s>yolluyorlar</s>----->dollayorlar</s>
+<s>çeviriyorum</s>----->çekiriyorum</s>
+<s>açıklıyoruz</s>----->açıklıyorsz</s>
+<s>özetliyorum</s>----->özltliyorum</s>
+<s>uçuyorsunuz</s>----->ununorsunuz</s>
+<s>davranmıyor</s>----->devranııyor</s>
+<s>savunuyorum</s>----->savunayorum</s>
+<s>onaylamıyor</s>----->onlllanıyor</s>
+<s>tekrarlıyor</s>----->tekiirlıyor</s>
+<s>eleştiriyor</s>----->eliştiriyor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorsars
+<s>geçiniyorum</s>----->geçiniyoruz</s>
+<s>arzuluyorum</s>----->orluluyorum</s>
+<s>yaşamıyorum</s>----->yaşamıyorum</s>
+<s>uyguluyoruz</s>----->ulguluyorsz</s>
+<s>zorluyorlar</s>----->vorluyor</s>ar</s>
+<s>bulunuyoruz</s>----->buluyuyorsz</s>
+<s>açıklamıyor</s>----->açıklamışor</s>
+<s>hastalanıyor</s>----->hapaalırıyor</s>
+<s>hazırlıyoruz</s>----->hazırlayorsz</s>
+<s>kullanıyoruz</s>----->kullanıyorsz</s>
+<s>beklemiyoruz</s>----->bekleyeyorsz</s>
+<s>öğreniyorlar</s>----->öğreniyorlar</s>
+<s>kalıyorsunuz</s>----->kalkyorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->hıpıalıyoruz</s>
+<s>gönderiyorum</s>----->gönderiyorum</s>
+<s>yakınıyorlar</s>----->yakıllyorlar</s>
+<s>hedefliyoruz</s>----->haseyleyorsz</s>
+<s>yayınlıyoruz</s>----->yannndayorsz</s>
+<s>getirmiyorum</s>----->tetirmeyorum</s>
+<s>yorumluyorum</s>----->yoruşluyorum</s>
+<s>engellemiyor</s>----->engellediyor</s>
+<s>yönetiyorlar</s>----->yenetllorlar</s>
+<s>yerleşiyoruz</s>----->yerleyiroruz</s>
+<s>evleniyorlar</s>----->onluniyorlar</s>
+<s>kastediyorum</s>----->kastediyoruz</s>
+<s>tiksiniyorum</s>----->tiksiniyorum</s>
+<s>seçiyorsunuz</s>----->siçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->sızayorsunuz</s>
+<s>dolaşmıyorum</s>----->doşummışorum</s>
+<s>seyrediyoruz</s>----->seyrediyorsz</s>
+<s>karşılaşıyor</s>----->karşılaştror</s>
+<s>karşılıyoruz</s>----->karşılayorsz</s>
+<s>bayılıyorlar</s>----->bayılıyorlar</s>
+<s>yaklaşıyorum</s>----->yakaaşıyorum</s>
+<s>söylemiyorlar</s>----->söylümiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlayor</s>ar</s>
+<s>düşünmüyorlar</s>----->düşünmeyorlar</s>
+<s>harcıyorsunuz</s>----->yarcayorsun</s>z</s>
+<s>topluyorsunuz</s>----->doplayorsunuz</s>
+<s>hoşlanmıyorum</s>----->hollanmayor</s>m</s>
+<s>saçmalıyorlar</s>----->aaçıalayorlar</s>
+<s>hazırlıyorlar</s>----->hazırlayorlar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçmeyorsz</s>
+<s>araştırıyorum</s>----->araştırıyorum</s>
+<s>gönderiyorlar</s>----->gönderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybedeyorsar</s>
+<s>bahsediyorlar</s>----->baysediyor</s>ar</s>
+<s>seyrediyorlar</s>----->seyrediyor</s>ar</s>
+<s>yayınlıyorlar</s>----->yayınlayorlar</s>
+<s>tırmanıyorlar</s>----->gırmanıyor</s>ar</s>
+<s>zannetmiyorum</s>----->zannetmiyorum</s>
+<s>parçalıyorlar</s>----->parpelıyor</s>ar</s>
+<s>uygulamıyoruz</s>----->uyuulaşıyorsm</s>
+<s>göstermiyorlar</s>----->göntülmiyorlar</s>
+<s>planlıyorsunuz</s>----->yaanlıyorsun</s>z</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyorsz</s>
+<s>eleştirmiyorum</s>----->elirtiriişor</s>m</s>
+<s>bırakıyorsunuz</s>----->kırakıyorsun</s>z</s>
+<s>getiriyorsunuz</s>----->getireyorsunuz</s>
+<s>uyguluyorsunuz</s>----->ulgulayorsunuz</s>
+<s>kastediyorsunuz</s>----->kastediyorsunuz</s>
+<s>gösteriyorsunuz</s>----->hösteriyorsunuz</s>
+<s>engelliyorsunuz</s>----->enlelleyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karıılaştyorlar</s>
+val ---  avg_loss: 5.2830, avg_recon_loss: 0.3646, avg_vq_loss: 4.9185, acc: 0.8771, vq_inds: [74, 10, 10, 10, 10, 10, 10] 
+
+epoch: 31,  avg_loss: 5.3745, avg_recon_loss: 0.1962, avg_vq_loss: 5.1783, acc: 0.9290, vq_inds: [173, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 5.2715, avg_recon_loss: 0.3733, avg_vq_loss: 4.8982, acc: 0.8758, vq_inds: [74, 10, 10, 10, 10, 10, 10] 
+
+epoch: 32,  avg_loss: 5.2244, avg_recon_loss: 0.1833, avg_vq_loss: 5.0410, acc: 0.9343, vq_inds: [174, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.9589, avg_recon_loss: 0.3589, avg_vq_loss: 4.6000, acc: 0.8894, vq_inds: [74, 9, 10, 10, 10, 10, 10] 
+
+epoch: 33,  avg_loss: 5.0262, avg_recon_loss: 0.1789, avg_vq_loss: 4.8474, acc: 0.9352, vq_inds: [173, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.8970, avg_recon_loss: 0.3339, avg_vq_loss: 4.5631, acc: 0.8877, vq_inds: [72, 10, 10, 10, 10, 10, 10] 
+
+epoch: 34,  avg_loss: 4.8427, avg_recon_loss: 0.1719, avg_vq_loss: 4.6708, acc: 0.9379, vq_inds: [173, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.7139, avg_recon_loss: 0.3104, avg_vq_loss: 4.4035, acc: 0.8945, vq_inds: [75, 9, 10, 10, 10, 10, 10] 
+
+epoch: 35,  avg_loss: 4.7417, avg_recon_loss: 0.1636, avg_vq_loss: 4.5781, acc: 0.9413, vq_inds: [172, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.6551, avg_recon_loss: 0.3311, avg_vq_loss: 4.3240, acc: 0.8864, vq_inds: [70, 9, 10, 10, 10, 10, 10] 
+
+epoch: 36,  avg_loss: 4.5411, avg_recon_loss: 0.1554, avg_vq_loss: 4.3857, acc: 0.9436, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.3425, avg_recon_loss: 0.3312, avg_vq_loss: 4.0113, acc: 0.8847, vq_inds: [70, 10, 10, 10, 10, 10, 10] 
+
+epoch: 37,  avg_loss: 4.3905, avg_recon_loss: 0.1556, avg_vq_loss: 4.2349, acc: 0.9435, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.4436, avg_recon_loss: 0.3110, avg_vq_loss: 4.1326, acc: 0.8852, vq_inds: [77, 10, 10, 10, 10, 10, 10] 
+
+epoch: 38,  avg_loss: 4.2281, avg_recon_loss: 0.1490, avg_vq_loss: 4.0790, acc: 0.9477, vq_inds: [169, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.1183, avg_recon_loss: 0.3102, avg_vq_loss: 3.8081, acc: 0.8979, vq_inds: [70, 10, 10, 10, 10, 10, 10] 
+
+epoch: 39,  avg_loss: 4.1161, avg_recon_loss: 0.1477, avg_vq_loss: 3.9684, acc: 0.9477, vq_inds: [169, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 4.0264, avg_recon_loss: 0.3384, avg_vq_loss: 3.6880, acc: 0.8805, vq_inds: [76, 10, 10, 10, 10, 10, 10] 
+
+epoch: 40,  avg_loss: 4.0488, avg_recon_loss: 0.1472, avg_vq_loss: 3.9017, acc: 0.9459, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->ekiyors
+<s>övüyor</s>----->öpüyor</s>
+<s>atlıyor</s>----->atlıyor</s>
+<s>ekliyor</s>----->esliyor</s>
+<s>kaçıyor</s>----->kaçınoru
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->dumuyorl
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çözüyor</s>
+<s>kınıyor</s>----->kınıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->çöküyor</s>
+<s>sokuyor</s>----->sokuyor</s>
+<s>özlüyor</s>----->üllüyor</s>
+<s>diliyor</s>----->diyeyor</s>
+<s>sayıyor</s>----->sazıyor</s>
+<s>takıyor</s>----->takıyoru
+<s>bıkıyor</s>----->bıkıyor</s>
+<s>eğitiyor</s>----->iğitmyor</s>
+<s>umuyoruz</s>----->uğuyoruz</s>
+<s>kutluyor</s>----->kulluyorl
+<s>süslüyor</s>----->söylüyor</s>
+<s>açıyoruz</s>----->alıyoruz</s>
+<s>ödüyorum</s>----->ödüyorum</s>
+<s>düşlüyor</s>----->düşmüyor</s>
+<s>aramıyor</s>----->armmışor</s>
+<s>çatmıyor</s>----->çatmıyor</s>
+<s>yatmıyor</s>----->yatııyor</s>
+<s>iletiyor</s>----->ilerlror</s>
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->yansıyor</s>
+<s>alışıyor</s>----->atıyıyor</s>
+<s>oluyoruz</s>----->oluyoruz</s>
+<s>yanmıyor</s>----->kılmıyorl
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalıyoruz</s>
+<s>olmuyoruz</s>----->olmuyorsz</s>
+<s>coşuyoruz</s>----->doşumoruz</s>
+<s>amaçlıyor</s>----->amamlıyor</s>
+<s>değiniyor</s>----->değiniyorl
+<s>çabalıyor</s>----->çapalıyor</s>
+<s>kınıyoruz</s>----->kınıyoruz</s>
+<s>yazıyoruz</s>----->yazıyorsz</s>
+<s>duyuyoruz</s>----->duyuyoruz</s>
+<s>almıyorum</s>----->almışorum</s>
+<s>geziniyor</s>----->geğiyiyor</s>
+<s>yöneliyor</s>----->yönelmyor</s>
+<s>evleniyor</s>----->evleniyor</s>
+<s>küçülüyor</s>----->küçümmyor</s>
+<s>beğeniyor</s>----->beğeniyor</s>
+<s>yarışıyor</s>----->yarıştyor</s>
+<s>yakınıyor</s>----->yakışıyor</s>
+<s>birikiyor</s>----->biriylyor</s>
+<s>yemiyorum</s>----->demiyorum</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->baallıyor</s>
+<s>kılıyorum</s>----->kınıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->allıyorsz</s>
+<s>gelişiyor</s>----->gelişiyor</s>
+<s>uçmuyorum</s>----->uçmuyorum</s>
+<s>uyuşmuyor</s>----->uygşluyor</s>
+<s>unutmuyor</s>----->uğutmuşorl
+<s>satıyoruz</s>----->satıyorsz</s>
+<s>konuyoruz</s>----->kunuyoruz</s>
+<s>soğuyorum</s>----->sağuyor</s>m</s>
+<s>sıralıyor</s>----->sararayor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->öllüyorum</s>
+<s>azarlıyor</s>----->azallıyor</s>
+<s>okşuyorum</s>----->okuuyor</s>m</s>
+<s>sömürüyor</s>----->sömür</s>zor</s>
+<s>kızıyorum</s>----->kızayorum</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->koşuyorum</s>
+<s>kalıyoruz</s>----->kalıyorum</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->kormmuyor</s>
+<s>üstleniyor</s>----->üstleniyor</s>
+<s>görüyorlar</s>----->görünorlar</s>
+<s>çalmıyorum</s>----->çalıışorum</s>
+<s>harcıyorum</s>----->harcıyorum</s>
+<s>gerekmiyor</s>----->çerekiiyor</s>
+<s>kaydediyor</s>----->kaydediyor</s>
+<s>kurtarıyor</s>----->kurtarıyorl
+<s>fırlamıyor</s>----->hırlamıyor</s>
+<s>yapıyorsun</s>----->yapıyorsun</s>
+<s>dönüşmüyor</s>----->dönmşmüyor</s>
+<s>birleşiyor</s>----->billeyiyor</s>
+<s>bulmuyoruz</s>----->bulmuyorum</s>
+<s>katıyorlar</s>----->kılıyor</s>ar</s>
+<s>tanıyorlar</s>----->tanımorlar</s>
+<s>sağlıyoruz</s>----->aağııyoruz</s>
+<s>duyuyorlar</s>----->duyuyorlar</s>
+<s>koyuyorlar</s>----->koyuyoruar</s>
+<s>genişliyor</s>----->geçiçiiyor</s>
+<s>dönüyorlar</s>----->dönüyor</s>ar</s>
+<s>görüyorsun</s>----->görüyorsunu
+<s>çağrılıyor</s>----->çavrılıyor</s>
+<s>siliyorlar</s>----->iiliyorlar</s>
+<s>değinmiyor</s>----->değinmiyor</s>
+<s>kızmıyorum</s>----->bızmayor</s>m</s>
+<s>tamamlıyor</s>----->tamımııyor</s>
+<s>yerleşiyor</s>----->yerleşiror</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->suçmamıyor</s>
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->dıylamışor</s>
+<s>satmıyorum</s>----->satmıyorum</s>
+<s>sığmıyorum</s>----->kiçmeyorum</s>
+<s>kovuyorlar</s>----->kovuyorlar</s>
+<s>özlüyorlar</s>----->üllüyor</s>ar</s>
+<s>soruyorlar</s>----->soruyorlar</s>
+<s>kazanmıyor</s>----->kazmmmıyor</s>
+<s>haykırıyor</s>----->yayıırlyor</s>
+<s>saymıyorum</s>----->suyııyorum</s>
+<s>korkuyoruz</s>----->korkayoruz</s>
+<s>zayıflıyor</s>----->hayıflıyor</s>
+<s>başlıyoruz</s>----->başlıyorsz</s>
+<s>patlamıyor</s>----->patlamışor</s>
+<s>girmiyoruz</s>----->girmiyoruz</s>
+<s>sanmıyoruz</s>----->aalmıyorsz</s>
+<s>beklemiyor</s>----->beklemiyor</s>
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->artarıyoruz</s>
+<s>yırtıyorlar</s>----->yüydilor</s>ar</s>
+<s>görüşüyoruz</s>----->görüşüyorsz</s>
+<s>hoşlanmıyor</s>----->hoşlanmıyor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyorlar</s>
+<s>yolluyorlar</s>----->yoluuyor</s>ar</s>
+<s>çeviriyorum</s>----->çekiriyoruz</s>
+<s>açıklıyoruz</s>----->açıklıyorsz</s>
+<s>özetliyorum</s>----->özetliyorum</s>
+<s>uçuyorsunuz</s>----->ununorsunuz</s>
+<s>davranmıyor</s>----->davranıışor</s>
+<s>savunuyorum</s>----->sağunuyorum</s>
+<s>onaylamıyor</s>----->anlllamışor</s>
+<s>tekrarlıyor</s>----->takranlıyor</s>
+<s>eleştiriyor</s>----->elişiiriyoru
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorlar</s>
+<s>geçiniyorum</s>----->çeğiniyoruz</s>
+<s>arzuluyorum</s>----->urlllmyorum</s>
+<s>yaşamıyorum</s>----->yaşamışorum</s>
+<s>uyguluyoruz</s>----->ulguluyorum</s>
+<s>zorluyorlar</s>----->yorluyorsar</s>
+<s>bulunuyoruz</s>----->buluyuyorsz</s>
+<s>açıklamıyor</s>----->açıklamışor</s>
+<s>hastalanıyor</s>----->taslanınıyor</s>
+<s>hazırlıyoruz</s>----->hayırlıyorsz</s>
+<s>kullanıyoruz</s>----->kullanıyorsz</s>
+<s>beklemiyoruz</s>----->beklemeyor</s>m</s>
+<s>öğreniyorlar</s>----->öğreniyoruar</s>
+<s>kalıyorsunuz</s>----->kalkyorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->hıprınıyorum</s>
+<s>gönderiyorum</s>----->gösderiyorum</s>
+<s>yakınıyorlar</s>----->yıkınlyorlar</s>
+<s>hedefliyoruz</s>----->basefliyorsz</s>
+<s>yayınlıyoruz</s>----->yayınlıyoruz</s>
+<s>getirmiyorum</s>----->tetirmiyoruz</s>
+<s>yorumluyorum</s>----->yorumlayorum</s>
+<s>engellemiyor</s>----->engellemişor</s>
+<s>yönetiyorlar</s>----->yönellyorlar</s>
+<s>yerleşiyoruz</s>----->yerieyiyoruz</s>
+<s>evleniyorlar</s>----->onleniyorlar</s>
+<s>kastediyorum</s>----->kasdediyoruz</s>
+<s>tiksiniyorum</s>----->tinlilmmorum</s>
+<s>seçiyorsunuz</s>----->seçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->kızıyorsunuz</s>
+<s>dolaşmıyorum</s>----->doluşııyorum</s>
+<s>seyrediyoruz</s>----->seyrediyorsz</s>
+<s>karşılaşıyor</s>----->karşılaştyor</s>
+<s>karşılıyoruz</s>----->karşılıyoruz</s>
+<s>bayılıyorlar</s>----->bayılıyorlar</s>
+<s>yaklaşıyorum</s>----->yaplaşıyorum</s>
+<s>söylemiyorlar</s>----->söylemiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyor</s>ar</s>
+<s>düşünmüyorlar</s>----->düşünmeyorlar</s>
+<s>harcıyorsunuz</s>----->harcıyorsunuz</s>
+<s>topluyorsunuz</s>----->dollayorsunuz</s>
+<s>hoşlanmıyorum</s>----->hollanmayor</s>m</s>
+<s>saçmalıyorlar</s>----->saçmalayorsar</s>
+<s>hazırlıyorlar</s>----->hazırlıyorlar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçmiyoruz</s>
+<s>araştırıyorum</s>----->araştırdyorum</s>
+<s>gönderiyorlar</s>----->gönderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyorsar</s>
+<s>bahsediyorlar</s>----->bağlediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyor</s>ar</s>
+<s>yayınlıyorlar</s>----->yayınlıyorlar</s>
+<s>tırmanıyorlar</s>----->hırmanıyorlar</s>
+<s>zannetmiyorum</s>----->zannetmiyorum</s>
+<s>parçalıyorlar</s>----->parpelıyor</s>ar</s>
+<s>uygulamıyoruz</s>----->ulgulanayorsm</s>
+<s>göstermiyorlar</s>----->göstermiyorlar</s>
+<s>planlıyorsunuz</s>----->baaşlıyorsun</s>z</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyorsz</s>
+<s>eleştirmiyorum</s>----->eliştirdiyorum</s>
+<s>bırakıyorsunuz</s>----->bırakayorsunuz</s>
+<s>getiriyorsunuz</s>----->getiriyorsunuz</s>
+<s>uyguluyorsunuz</s>----->uygulayorsunuz</s>
+<s>kastediyorsunuz</s>----->kaçtedinorsunuz</s>
+<s>gösteriyorsunuz</s>----->gösteriyorsunuz</s>
+<s>engelliyorsunuz</s>----->enlelmiyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karşılaştyorlar</s>
+val ---  avg_loss: 4.1358, avg_recon_loss: 0.3188, avg_vq_loss: 3.8170, acc: 0.8890, vq_inds: [76, 9, 10, 10, 10, 10, 10] 
+
+epoch: 41,  avg_loss: 3.9186, avg_recon_loss: 0.1322, avg_vq_loss: 3.7864, acc: 0.9527, vq_inds: [169, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.7486, avg_recon_loss: 0.2914, avg_vq_loss: 3.4572, acc: 0.8898, vq_inds: [78, 9, 10, 10, 10, 10, 10] 
+
+epoch: 42,  avg_loss: 3.7096, avg_recon_loss: 0.1353, avg_vq_loss: 3.5743, acc: 0.9513, vq_inds: [167, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.7429, avg_recon_loss: 0.2921, avg_vq_loss: 3.4508, acc: 0.8958, vq_inds: [73, 10, 10, 10, 10, 10, 10] 
+
+epoch: 43,  avg_loss: 3.6960, avg_recon_loss: 0.1324, avg_vq_loss: 3.5636, acc: 0.9529, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.6268, avg_recon_loss: 0.2931, avg_vq_loss: 3.3337, acc: 0.9013, vq_inds: [77, 10, 10, 10, 10, 10, 10] 
+
+epoch: 44,  avg_loss: 3.5646, avg_recon_loss: 0.1225, avg_vq_loss: 3.4421, acc: 0.9576, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.4666, avg_recon_loss: 0.3064, avg_vq_loss: 3.1602, acc: 0.8966, vq_inds: [75, 10, 10, 10, 10, 10, 10] 
+
+epoch: 45,  avg_loss: 3.4741, avg_recon_loss: 0.1217, avg_vq_loss: 3.3524, acc: 0.9569, vq_inds: [169, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.5072, avg_recon_loss: 0.3107, avg_vq_loss: 3.1965, acc: 0.9064, vq_inds: [74, 10, 10, 10, 10, 10, 10] 
+
+epoch: 46,  avg_loss: 3.3965, avg_recon_loss: 0.1186, avg_vq_loss: 3.2779, acc: 0.9571, vq_inds: [172, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.3739, avg_recon_loss: 0.2740, avg_vq_loss: 3.1000, acc: 0.9056, vq_inds: [72, 10, 10, 10, 10, 10, 10] 
+
+epoch: 47,  avg_loss: 3.2604, avg_recon_loss: 0.1178, avg_vq_loss: 3.1427, acc: 0.9553, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.3808, avg_recon_loss: 0.2636, avg_vq_loss: 3.1172, acc: 0.9115, vq_inds: [72, 10, 10, 10, 10, 10, 10] 
+
+epoch: 48,  avg_loss: 3.1659, avg_recon_loss: 0.1126, avg_vq_loss: 3.0533, acc: 0.9600, vq_inds: [172, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.2147, avg_recon_loss: 0.3020, avg_vq_loss: 2.9128, acc: 0.9090, vq_inds: [76, 10, 10, 10, 10, 10, 10] 
+
+epoch: 49,  avg_loss: 3.1050, avg_recon_loss: 0.1144, avg_vq_loss: 2.9906, acc: 0.9581, vq_inds: [169, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.2269, avg_recon_loss: 0.2814, avg_vq_loss: 2.9455, acc: 0.9051, vq_inds: [74, 10, 10, 10, 10, 10, 10] 
+
+epoch: 50,  avg_loss: 3.0450, avg_recon_loss: 0.1139, avg_vq_loss: 2.9311, acc: 0.9606, vq_inds: [168, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->ediyor</s>
+<s>övüyor</s>----->öpüyor</s>
+<s>atlıyor</s>----->atııyor</s>
+<s>ekliyor</s>----->ekliyor</s>
+<s>kaçıyor</s>----->kasıyor</s>
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->dumuyorl
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çözüyor</s>
+<s>kınıyor</s>----->kınıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->çöküyor</s>
+<s>sokuyor</s>----->sokuyor</s>
+<s>özlüyor</s>----->üzlüyor</s>
+<s>diliyor</s>----->dileyor</s>
+<s>sayıyor</s>----->sayıyor</s>
+<s>takıyor</s>----->takıyor</s>
+<s>bıkıyor</s>----->bıkıyor</s>
+<s>eğitiyor</s>----->iğişiyor</s>
+<s>umuyoruz</s>----->uğuyoruz</s>
+<s>kutluyor</s>----->kulluyorl
+<s>süslüyor</s>----->söylüyor</s>
+<s>açıyoruz</s>----->açıyoruz</s>
+<s>ödüyorum</s>----->ödüyorum</s>
+<s>düşlüyor</s>----->düşmüyor</s>
+<s>aramıyor</s>----->armmıyor</s>
+<s>çatmıyor</s>----->çatmıyor</s>
+<s>yatmıyor</s>----->yatmıyor</s>
+<s>iletiyor</s>----->ileriror</s>
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->yanııyor</s>
+<s>alışıyor</s>----->alışıror</s>
+<s>oluyoruz</s>----->oluyoruz</s>
+<s>yanmıyor</s>----->kanmıyor</s>
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalıyoruz</s>
+<s>olmuyoruz</s>----->olmuşoruz</s>
+<s>coşuyoruz</s>----->doşuyoruz</s>
+<s>amaçlıyor</s>----->açaçlıyor</s>
+<s>değiniyor</s>----->değişiyorl
+<s>çabalıyor</s>----->çapalıyor</s>
+<s>kınıyoruz</s>----->kınıyorum</s>
+<s>yazıyoruz</s>----->yazıyoruz</s>
+<s>duyuyoruz</s>----->duyuroruz</s>
+<s>almıyorum</s>----->almışorum</s>
+<s>geziniyor</s>----->geziniyor</s>
+<s>yöneliyor</s>----->yöneliyor</s>
+<s>evleniyor</s>----->evleniyor</s>
+<s>küçülüyor</s>----->küçümüyor</s>
+<s>beğeniyor</s>----->beğeniyor</s>
+<s>yarışıyor</s>----->yarışıyor</s>
+<s>yakınıyor</s>----->yakıyıyor</s>
+<s>birikiyor</s>----->biraklyor</s>
+<s>yemiyorum</s>----->demişorum</s>
+<s>izliyoruz</s>----->gziiyorsz</s>
+<s>planlıyor</s>----->paallıyor</s>
+<s>kılıyorum</s>----->çılıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->anlıyorsz</s>
+<s>gelişiyor</s>----->gelişiyor</s>
+<s>uçmuyorum</s>----->umuuşorum</s>
+<s>uyuşmuyor</s>----->uyuşmuşor</s>
+<s>unutmuyor</s>----->uğutmuyor</s>
+<s>satıyoruz</s>----->satıyoruz</s>
+<s>konuyoruz</s>----->koluyoruz</s>
+<s>soğuyorum</s>----->savuyorlm</s>
+<s>sıralıyor</s>----->sıratıyor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->öplüyorum</s>
+<s>azarlıyor</s>----->azallayor</s>
+<s>okşuyorum</s>----->okuuyorum</s>
+<s>sömürüyor</s>----->kömürüyor</s>
+<s>kızıyorum</s>----->kızayorum</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->koşuyoruz</s>
+<s>kalıyoruz</s>----->kalıyoruz</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->kormmuyor</s>
+<s>üstleniyor</s>----->dslleniyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalıışorum</s>
+<s>harcıyorum</s>----->harcılorum</s>
+<s>gerekmiyor</s>----->eerkkmiyor</s>
+<s>kaydediyor</s>----->kaydedeyor</s>
+<s>kurtarıyor</s>----->kurtarıror</s>
+<s>fırlamıyor</s>----->hırlamıyor</s>
+<s>yapıyorsun</s>----->yapıyorsun</s>
+<s>dönüşmüyor</s>----->dönüşmüyor</s>
+<s>birleşiyor</s>----->billeyiyor</s>
+<s>bulmuyoruz</s>----->bulmuyorum</s>
+<s>katıyorlar</s>----->kayıyorlar</s>
+<s>tanıyorlar</s>----->tanımorlar</s>
+<s>sağlıyoruz</s>----->savlıyoruz</s>
+<s>duyuyorlar</s>----->duymyorlar</s>
+<s>koyuyorlar</s>----->koyuyorlar</s>
+<s>genişliyor</s>----->çeçiniiyor</s>
+<s>dönüyorlar</s>----->dönüyorlar</s>
+<s>görüyorsun</s>----->görüyorsun</s>
+<s>çağrılıyor</s>----->çavıılıyor</s>
+<s>siliyorlar</s>----->siliyorlar</s>
+<s>değinmiyor</s>----->değinmiyor</s>
+<s>kızmıyorum</s>----->kızmayorum</s>
+<s>tamamlıyor</s>----->tamamıışor</s>
+<s>yerleşiyor</s>----->yerleşiror</s>
+<s>uyarıyorum</s>----->ayarıyorum</s>
+<s>suçlamıyor</s>----->suçlamıyor</s>
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->dıylamışor</s>
+<s>satmıyorum</s>----->satmışorum</s>
+<s>sığmıyorum</s>----->aağlayorum</s>
+<s>kovuyorlar</s>----->koyuyorlar</s>
+<s>özlüyorlar</s>----->öllüyorlar</s>
+<s>soruyorlar</s>----->soruyorlar</s>
+<s>kazanmıyor</s>----->kazmlmıyor</s>
+<s>haykırıyor</s>----->yayıırıyor</s>
+<s>saymıyorum</s>----->seymıyorum</s>
+<s>korkuyoruz</s>----->koruuyorsz</s>
+<s>zayıflıyor</s>----->hayıllıyor</s>
+<s>başlıyoruz</s>----->başlıyoruz</s>
+<s>patlamıyor</s>----->patlamışor</s>
+<s>girmiyoruz</s>----->girmiyoruz</s>
+<s>sanmıyoruz</s>----->sanııyoruz</s>
+<s>beklemiyor</s>----->beklemişor</s>
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->aktarıyoruz</s>
+<s>yırtıyorlar</s>----->yartılorlar</s>
+<s>görüşüyoruz</s>----->görüşüyorum</s>
+<s>hoşlanmıyor</s>----->hullanııyor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyorlar</s>
+<s>yolluyorlar</s>----->yolluyorlar</s>
+<s>çeviriyorum</s>----->çeviriyorum</s>
+<s>açıklıyoruz</s>----->açıklıyorsz</s>
+<s>özetliyorum</s>----->özetliyorum</s>
+<s>uçuyorsunuz</s>----->uğuyorsunuz</s>
+<s>davranmıyor</s>----->davranmışors
+<s>savunuyorum</s>----->savuruyorum</s>
+<s>onaylamıyor</s>----->anlllanıyor</s>
+<s>tekrarlıyor</s>----->tekrarlayor</s>
+<s>eleştiriyor</s>----->eleştiriyor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorlar</s>
+<s>geçiniyorum</s>----->çeçiniyorum</s>
+<s>arzuluyorum</s>----->orgllmyorum</s>
+<s>yaşamıyorum</s>----->yakımıyorum</s>
+<s>uyguluyoruz</s>----->uyguluyorum</s>
+<s>zorluyorlar</s>----->yorluyorlar</s>
+<s>bulunuyoruz</s>----->bulunuyoruz</s>
+<s>açıklamıyor</s>----->açıklamışor</s>
+<s>hastalanıyor</s>----->tattalınıyor</s>
+<s>hazırlıyoruz</s>----->hazırlıyoruz</s>
+<s>kullanıyoruz</s>----->bullanıyoruz</s>
+<s>beklemiyoruz</s>----->beklemiyorum</s>
+<s>öğreniyorlar</s>----->öğreniyoruar</s>
+<s>kalıyorsunuz</s>----->kalkşorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->yıkradıyorum</s>
+<s>gönderiyorum</s>----->gösderiyorum</s>
+<s>yakınıyorlar</s>----->yikınlyorlar</s>
+<s>hedefliyoruz</s>----->çeseiiiyoruz</s>
+<s>yayınlıyoruz</s>----->yayınlıyoruz</s>
+<s>getirmiyorum</s>----->tetirmişorum</s>
+<s>yorumluyorum</s>----->yurumluyorum</s>
+<s>engellemiyor</s>----->engellemişor</s>
+<s>yönetiyorlar</s>----->yönellyorlar</s>
+<s>yerleşiyoruz</s>----->perleşiyorum</s>
+<s>evleniyorlar</s>----->önleniyorlar</s>
+<s>kastediyorum</s>----->keytediyorum</s>
+<s>tiksiniyorum</s>----->tiklinlyorum</s>
+<s>seçiyorsunuz</s>----->çeçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->kızayorsunuz</s>
+<s>dolaşmıyorum</s>----->tolaşlışorum</s>
+<s>seyrediyoruz</s>----->seyrediyorsz</s>
+<s>karşılaşıyor</s>----->karşılışıyor</s>
+<s>karşılıyoruz</s>----->karşılıyoruz</s>
+<s>bayılıyorlar</s>----->bazılıyorlar</s>
+<s>yaklaşıyorum</s>----->yiklaşıyorum</s>
+<s>söylemiyorlar</s>----->söylemiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyorlar</s>
+<s>düşünmüyorlar</s>----->düşünmüyorlar</s>
+<s>harcıyorsunuz</s>----->harcıyorsunuz</s>
+<s>topluyorsunuz</s>----->toplayorsunuz</s>
+<s>hoşlanmıyorum</s>----->hallanmıyorum</s>
+<s>saçmalıyorlar</s>----->saçmadıyor</s>ar</s>
+<s>hazırlıyorlar</s>----->hazırlıyor</s>ar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçiiyoruz</s>
+<s>araştırıyorum</s>----->araştırdyorum</s>
+<s>gönderiyorlar</s>----->genderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyorlar</s>
+<s>bahsediyorlar</s>----->bahvediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyor</s>ar</s>
+<s>yayınlıyorlar</s>----->yanınlıyorlar</s>
+<s>tırmanıyorlar</s>----->hırmınlyorlar</s>
+<s>zannetmiyorum</s>----->zannetmiyorum</s>
+<s>parçalıyorlar</s>----->çavpalayor</s>ar</s>
+<s>uygulamıyoruz</s>----->uygulamıyorsm</s>
+<s>göstermiyorlar</s>----->höstermiyorlar</s>
+<s>planlıyorsunuz</s>----->saanlayorsunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyoruz</s>
+<s>eleştirmiyorum</s>----->eliştirdiyorum</s>
+<s>bırakıyorsunuz</s>----->bırakıyorsunuz</s>
+<s>getiriyorsunuz</s>----->getireyorsunuz</s>
+<s>uyguluyorsunuz</s>----->uyuuluyorsunuz</s>
+<s>kastediyorsunuz</s>----->kastediyorsunuz</s>
+<s>gösteriyorsunuz</s>----->göstersyorsunuz</s>
+<s>engelliyorsunuz</s>----->engelleyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karşılıyıyorlar</s>
+val ---  avg_loss: 3.1498, avg_recon_loss: 0.2691, avg_vq_loss: 2.8807, acc: 0.9103, vq_inds: [75, 10, 10, 10, 10, 10, 10] 
+
+epoch: 51,  avg_loss: 2.9784, avg_recon_loss: 0.1106, avg_vq_loss: 2.8678, acc: 0.9590, vq_inds: [168, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 3.1223, avg_recon_loss: 0.2666, avg_vq_loss: 2.8558, acc: 0.9128, vq_inds: [76, 10, 10, 10, 10, 10, 10] 
+
+epoch: 52,  avg_loss: 2.8663, avg_recon_loss: 0.1038, avg_vq_loss: 2.7625, acc: 0.9624, vq_inds: [171, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.8364, avg_recon_loss: 0.2765, avg_vq_loss: 2.5599, acc: 0.9094, vq_inds: [80, 10, 10, 10, 10, 10, 10] 
+
+epoch: 53,  avg_loss: 2.7646, avg_recon_loss: 0.0959, avg_vq_loss: 2.6687, acc: 0.9658, vq_inds: [173, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.7789, avg_recon_loss: 0.3265, avg_vq_loss: 2.4525, acc: 0.9081, vq_inds: [74, 10, 10, 10, 10, 10, 10] 
+
+epoch: 54,  avg_loss: 2.6046, avg_recon_loss: 0.0968, avg_vq_loss: 2.5078, acc: 0.9656, vq_inds: [172, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.7702, avg_recon_loss: 0.2643, avg_vq_loss: 2.5059, acc: 0.9098, vq_inds: [81, 10, 10, 10, 10, 10, 10] 
+
+epoch: 55,  avg_loss: 2.5147, avg_recon_loss: 0.0883, avg_vq_loss: 2.4264, acc: 0.9693, vq_inds: [169, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.6456, avg_recon_loss: 0.3043, avg_vq_loss: 2.3413, acc: 0.9132, vq_inds: [76, 10, 10, 10, 10, 10, 10] 
+
+epoch: 56,  avg_loss: 2.3821, avg_recon_loss: 0.0835, avg_vq_loss: 2.2986, acc: 0.9708, vq_inds: [172, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.5143, avg_recon_loss: 0.2697, avg_vq_loss: 2.2447, acc: 0.9162, vq_inds: [81, 10, 10, 10, 10, 10, 10] 
+
+epoch: 57,  avg_loss: 2.3235, avg_recon_loss: 0.0799, avg_vq_loss: 2.2436, acc: 0.9726, vq_inds: [171, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.4801, avg_recon_loss: 0.2713, avg_vq_loss: 2.2088, acc: 0.9141, vq_inds: [78, 10, 10, 10, 10, 10, 10] 
+
+epoch: 58,  avg_loss: 2.2249, avg_recon_loss: 0.0803, avg_vq_loss: 2.1445, acc: 0.9714, vq_inds: [171, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.2633, avg_recon_loss: 0.2621, avg_vq_loss: 2.0012, acc: 0.9115, vq_inds: [78, 10, 10, 10, 10, 10, 10] 
+
+epoch: 59,  avg_loss: 2.1574, avg_recon_loss: 0.0794, avg_vq_loss: 2.0780, acc: 0.9719, vq_inds: [169, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.2990, avg_recon_loss: 0.2848, avg_vq_loss: 2.0142, acc: 0.9081, vq_inds: [79, 10, 10, 10, 10, 10, 10] 
+
+epoch: 60,  avg_loss: 2.1475, avg_recon_loss: 0.0885, avg_vq_loss: 2.0589, acc: 0.9703, vq_inds: [171, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->ediyor</s>
+<s>övüyor</s>----->öpüyor</s>
+<s>atlıyor</s>----->ptlıyor</s>
+<s>ekliyor</s>----->ekliyor</s>
+<s>kaçıyor</s>----->kızıyor</s>
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->dummyorl
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çözüyor</s>
+<s>kınıyor</s>----->kınıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->çöküyor</s>
+<s>sokuyor</s>----->sokuyor</s>
+<s>özlüyor</s>----->üzlüyor</s>
+<s>diliyor</s>----->diliyor</s>
+<s>sayıyor</s>----->sayıyors
+<s>takıyor</s>----->takıyor</s>
+<s>bıkıyor</s>----->bıkıyor</s>
+<s>eğitiyor</s>----->ikitiyor</s>
+<s>umuyoruz</s>----->uğuyoruz</s>
+<s>kutluyor</s>----->butluyor</s>
+<s>süslüyor</s>----->söslüyor</s>
+<s>açıyoruz</s>----->ççayoruz</s>
+<s>ödüyorum</s>----->ödüyorum</s>
+<s>düşlüyor</s>----->düşlüyor</s>
+<s>aramıyor</s>----->aramışor</s>
+<s>çatmıyor</s>----->çalmıyor</s>
+<s>yatmıyor</s>----->yatmıyor</s>
+<s>iletiyor</s>----->ilerlror</s>
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->yanııyor</s>
+<s>alışıyor</s>----->alışıyor</s>
+<s>oluyoruz</s>----->oluyoruz</s>
+<s>yanmıyor</s>----->yanmıyor</s>
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalışoruz</s>
+<s>olmuyoruz</s>----->olmuyorsz</s>
+<s>coşuyoruz</s>----->ooşuyoruz</s>
+<s>amaçlıyor</s>----->açaçlıyor</s>
+<s>değiniyor</s>----->değişiyor</s>
+<s>çabalıyor</s>----->çabalıyor</s>
+<s>kınıyoruz</s>----->kanıyoruz</s>
+<s>yazıyoruz</s>----->yazıyorsz</s>
+<s>duyuyoruz</s>----->duyuyoruz</s>
+<s>almıyorum</s>----->almışorum</s>
+<s>geziniyor</s>----->geziniyors
+<s>yöneliyor</s>----->yöneliyor</s>
+<s>evleniyor</s>----->enleniror</s>
+<s>küçülüyor</s>----->küçümdyoru
+<s>beğeniyor</s>----->beğeniyor</s>
+<s>yarışıyor</s>----->yarışıyor</s>
+<s>yakınıyor</s>----->yakınıyor</s>
+<s>birikiyor</s>----->birinlyor</s>
+<s>yemiyorum</s>----->demişorum</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->plallıyor</s>
+<s>kılıyorum</s>----->çılıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->anlıyoruz</s>
+<s>gelişiyor</s>----->geliştyor</s>
+<s>uçmuyorum</s>----->ummuyorum</s>
+<s>uyuşmuyor</s>----->uyuşmuşor</s>
+<s>unutmuyor</s>----->uğutmuyoru
+<s>satıyoruz</s>----->satıyoruz</s>
+<s>konuyoruz</s>----->koyuyoruz</s>
+<s>soğuyorum</s>----->savuyorum</s>
+<s>sıralıyor</s>----->sıralayor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->öllüyorum</s>
+<s>azarlıyor</s>----->azarlıyor</s>
+<s>okşuyorum</s>----->kkuuyor</s>m</s>
+<s>sömürüyor</s>----->kömürüyor</s>
+<s>kızıyorum</s>----->kızıyorum</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->koşuyoruz</s>
+<s>kalıyoruz</s>----->kalıyoruz</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->kormmuyor</s>
+<s>üstleniyor</s>----->öfplüniyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalmışoruz</s>
+<s>harcıyorum</s>----->harcıyorum</s>
+<s>gerekmiyor</s>----->eerikliyor</s>
+<s>kaydediyor</s>----->kaybediyor</s>
+<s>kurtarıyor</s>----->kurturıyor</s>
+<s>fırlamıyor</s>----->fırlamıyor</s>
+<s>yapıyorsun</s>----->yapayorsun</s>
+<s>dönüşmüyor</s>----->dönmşmüyor</s>
+<s>birleşiyor</s>----->birlişiyor</s>
+<s>bulmuyoruz</s>----->bulmuyorum</s>
+<s>katıyorlar</s>----->kıtıyorlar</s>
+<s>tanıyorlar</s>----->tanımorlar</s>
+<s>sağlıyoruz</s>----->aağlıyoruz</s>
+<s>duyuyorlar</s>----->duyuyoruar</s>
+<s>koyuyorlar</s>----->koyuyorlar</s>
+<s>genişliyor</s>----->eeğişieyor</s>
+<s>dönüyorlar</s>----->dönüyorlar</s>
+<s>görüyorsun</s>----->görüyorsun</s>
+<s>çağrılıyor</s>----->çağrıldror</s>
+<s>siliyorlar</s>----->siliyorlar</s>
+<s>değinmiyor</s>----->değinmiyor</s>
+<s>kızmıyorum</s>----->kıllayorum</s>
+<s>tamamlıyor</s>----->talamııyor</s>
+<s>yerleşiyor</s>----->yerleşiyor</s>
+<s>uyarıyorum</s>----->uyarıyoruz</s>
+<s>suçlamıyor</s>----->suçmamıyor</s>
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->düşlarıyor</s>
+<s>satmıyorum</s>----->satmıyorum</s>
+<s>sığmıyorum</s>----->aağlayorum</s>
+<s>kovuyorlar</s>----->ooruyorlar</s>
+<s>özlüyorlar</s>----->önlüyorlar</s>
+<s>soruyorlar</s>----->ooruyorlar</s>
+<s>kazanmıyor</s>----->kavmlmayor</s>
+<s>haykırıyor</s>----->yıyıırıyor</s>
+<s>saymıyorum</s>----->suzmıyorum</s>
+<s>korkuyoruz</s>----->korkuyorsz</s>
+<s>zayıflıyor</s>----->hayıllıyor</s>
+<s>başlıyoruz</s>----->başlıyoruz</s>
+<s>patlamıyor</s>----->patlamıyor</s>
+<s>girmiyoruz</s>----->girmiyoruz</s>
+<s>sanmıyoruz</s>----->aalmıyoruz</s>
+<s>beklemiyor</s>----->beklemiyor</s>
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->aktırıyoruz</s>
+<s>yırtıyorlar</s>----->yarıılorlar</s>
+<s>görüşüyoruz</s>----->görüyüroruz</s>
+<s>hoşlanmıyor</s>----->hullanıayor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyor</s>ar</s>
+<s>yolluyorlar</s>----->yoluuyorlar</s>
+<s>çeviriyorum</s>----->veviriyoruz</s>
+<s>açıklıyoruz</s>----->açıklıyorsz</s>
+<s>özetliyorum</s>----->özetliyorum</s>
+<s>uçuyorsunuz</s>----->uğuyorsunuz</s>
+<s>davranmıyor</s>----->davranııyor</s>
+<s>savunuyorum</s>----->savunuyorlm</s>
+<s>onaylamıyor</s>----->oyaylamıyor</s>
+<s>tekrarlıyor</s>----->tekrarlayor</s>
+<s>eleştiriyor</s>----->eliştirdyor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorlar</s>
+<s>geçiniyorum</s>----->geçiniyoruz</s>
+<s>arzuluyorum</s>----->orgllayorum</s>
+<s>yaşamıyorum</s>----->yaşamıyorum</s>
+<s>uyguluyoruz</s>----->uyuuluyoruz</s>
+<s>zorluyorlar</s>----->yorluyorlar</s>
+<s>bulunuyoruz</s>----->bulunuyoruz</s>
+<s>açıklamıyor</s>----->açıklamışor</s>
+<s>hastalanıyor</s>----->tastalırıyor</s>
+<s>hazırlıyoruz</s>----->hazırlıyorsz</s>
+<s>kullanıyoruz</s>----->kullanıyoruz</s>
+<s>beklemiyoruz</s>----->beklemiyorum</s>
+<s>öğreniyorlar</s>----->öğreniyorlar</s>
+<s>kalıyorsunuz</s>----->kalıyorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->yıkratıyorum</s>
+<s>gönderiyorum</s>----->gönderiyoruz</s>
+<s>yakınıyorlar</s>----->yakındyorlar</s>
+<s>hedefliyoruz</s>----->hedefliyoruz</s>
+<s>yayınlıyoruz</s>----->yayındıyoruz</s>
+<s>getirmiyorum</s>----->getiriiyorum</s>
+<s>yorumluyorum</s>----->yoruyluyorum</s>
+<s>engellemiyor</s>----->engellidiyor</s>
+<s>yönetiyorlar</s>----->yeneriyor</s>ar</s>
+<s>yerleşiyoruz</s>----->yerieriroruz</s>
+<s>evleniyorlar</s>----->övleniyorlar</s>
+<s>kastediyorum</s>----->kaydediyoruz</s>
+<s>tiksiniyorum</s>----->iikliyiyorum</s>
+<s>seçiyorsunuz</s>----->çeçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->kızayorsunuz</s>
+<s>dolaşmıyorum</s>----->dolaşııyorum</s>
+<s>seyrediyoruz</s>----->seyrediyorsz</s>
+<s>karşılaşıyor</s>----->karşılıştror</s>
+<s>karşılıyoruz</s>----->karşılayorsz</s>
+<s>bayılıyorlar</s>----->bayılıyorlar</s>
+<s>yaklaşıyorum</s>----->yakıaşıyorum</s>
+<s>söylemiyorlar</s>----->söylemiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyor</s>ar</s>
+<s>düşünmüyorlar</s>----->düşünüeyorlar</s>
+<s>harcıyorsunuz</s>----->harcıyorsunuz</s>
+<s>topluyorsunuz</s>----->topluyorsunuz</s>
+<s>hoşlanmıyorum</s>----->hullanmıyorum</s>
+<s>saçmalıyorlar</s>----->saçmalıyor</s>ar</s>
+<s>hazırlıyorlar</s>----->hazırlıyor</s>ar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçiiyoruz</s>
+<s>araştırıyorum</s>----->araştırıyoruz</s>
+<s>gönderiyorlar</s>----->gönderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyorlar</s>
+<s>bahsediyorlar</s>----->bahsediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyor</s>ar</s>
+<s>yayınlıyorlar</s>----->yayınlıyorlar</s>
+<s>tırmanıyorlar</s>----->tartıyıyorlar</s>
+<s>zannetmiyorum</s>----->vannemmiyorum</s>
+<s>parçalıyorlar</s>----->parçalayor</s>ar</s>
+<s>uygulamıyoruz</s>----->ulgulamıyorum</s>
+<s>göstermiyorlar</s>----->göstermiyorlar</s>
+<s>planlıyorsunuz</s>----->öeenleyorsunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaşırorsz</s>
+<s>eleştirmiyorum</s>----->eleştirdişorum</s>
+<s>bırakıyorsunuz</s>----->bırakıyorsunuz</s>
+<s>getiriyorsunuz</s>----->getiriyorsunuz</s>
+<s>uyguluyorsunuz</s>----->uyuuluyorsunuz</s>
+<s>kastediyorsunuz</s>----->kastediyorsunuz</s>
+<s>gösteriyorsunuz</s>----->gösteriyorsunuz</s>
+<s>engelliyorsunuz</s>----->engelleyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karşılışıror</s>ar</s>
+val ---  avg_loss: 2.3512, avg_recon_loss: 0.2833, avg_vq_loss: 2.0679, acc: 0.9090, vq_inds: [79, 10, 10, 10, 10, 10, 10] 
+
+epoch: 61,  avg_loss: 2.1282, avg_recon_loss: 0.0799, avg_vq_loss: 2.0483, acc: 0.9718, vq_inds: [171, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.3024, avg_recon_loss: 0.3081, avg_vq_loss: 1.9943, acc: 0.9115, vq_inds: [83, 10, 10, 10, 10, 10, 10] 
+
+epoch: 62,  avg_loss: 2.0820, avg_recon_loss: 0.0751, avg_vq_loss: 2.0069, acc: 0.9722, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.3227, avg_recon_loss: 0.3249, avg_vq_loss: 1.9978, acc: 0.9120, vq_inds: [77, 10, 10, 10, 10, 10, 10] 
+
+epoch: 63,  avg_loss: 2.0053, avg_recon_loss: 0.0773, avg_vq_loss: 1.9280, acc: 0.9740, vq_inds: [171, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.1874, avg_recon_loss: 0.2777, avg_vq_loss: 1.9097, acc: 0.9154, vq_inds: [81, 10, 10, 10, 10, 10, 10] 
+
+epoch: 64,  avg_loss: 1.9485, avg_recon_loss: 0.0750, avg_vq_loss: 1.8735, acc: 0.9739, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.2086, avg_recon_loss: 0.2919, avg_vq_loss: 1.9167, acc: 0.9175, vq_inds: [78, 10, 10, 10, 9, 10, 10] 
+
+epoch: 65,  avg_loss: 1.9254, avg_recon_loss: 0.0712, avg_vq_loss: 1.8542, acc: 0.9752, vq_inds: [170, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.1216, avg_recon_loss: 0.2922, avg_vq_loss: 1.8294, acc: 0.9120, vq_inds: [86, 10, 10, 10, 9, 10, 10] 
+
+epoch: 66,  avg_loss: 1.8351, avg_recon_loss: 0.0710, avg_vq_loss: 1.7642, acc: 0.9757, vq_inds: [172, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 2.0229, avg_recon_loss: 0.2611, avg_vq_loss: 1.7618, acc: 0.9217, vq_inds: [84, 10, 10, 10, 10, 10, 10] 
+update best loss 
+
+epoch: 67,  avg_loss: 1.7697, avg_recon_loss: 0.0633, avg_vq_loss: 1.7063, acc: 0.9793, vq_inds: [173, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.9510, avg_recon_loss: 0.3023, avg_vq_loss: 1.6487, acc: 0.9175, vq_inds: [81, 10, 10, 10, 10, 10, 10] 
+update best loss 
+
+epoch: 68,  avg_loss: 1.6592, avg_recon_loss: 0.0611, avg_vq_loss: 1.5980, acc: 0.9794, vq_inds: [175, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.8907, avg_recon_loss: 0.2776, avg_vq_loss: 1.6131, acc: 0.9234, vq_inds: [90, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 69,  avg_loss: 1.5947, avg_recon_loss: 0.0592, avg_vq_loss: 1.5355, acc: 0.9795, vq_inds: [178, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.8653, avg_recon_loss: 0.3451, avg_vq_loss: 1.5203, acc: 0.9188, vq_inds: [87, 10, 10, 10, 10, 10, 10] 
+update best loss 
+
+epoch: 70,  avg_loss: 1.5641, avg_recon_loss: 0.0640, avg_vq_loss: 1.5002, acc: 0.9775, vq_inds: [180, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->edmyor</s>
+<s>övüyor</s>----->öpüyoru
+<s>atlıyor</s>----->atııyor</s>
+<s>ekliyor</s>----->ekliyor</s>
+<s>kaçıyor</s>----->kalıyor</s>
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->dumuyor</s>
+<s>uğruyor</s>----->urruyor</s>
+<s>çözüyor</s>----->çüzüyor</s>
+<s>kınıyor</s>----->kınıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->çöküyor</s>
+<s>sokuyor</s>----->soğuyor</s>
+<s>özlüyor</s>----->özlüyor</s>
+<s>diliyor</s>----->diliyor</s>
+<s>sayıyor</s>----->sanıyor</s>
+<s>takıyor</s>----->tanıyor</s>
+<s>bıkıyor</s>----->bıkayor</s>
+<s>eğitiyor</s>----->eğitiyor</s>
+<s>umuyoruz</s>----->uğuyoruz</s>
+<s>kutluyor</s>----->bulluyors
+<s>süslüyor</s>----->süllüyor</s>
+<s>açıyoruz</s>----->ççıyoruz</s>
+<s>ödüyorum</s>----->ödeyorum</s>
+<s>düşlüyor</s>----->düşlüyor</s>
+<s>aramıyor</s>----->aramıyor</s>
+<s>çatmıyor</s>----->çatmıyor</s>
+<s>yatmıyor</s>----->yatmıyor</s>
+<s>iletiyor</s>----->ilerlyor</s>
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->yanııyor</s>
+<s>alışıyor</s>----->alışıyor</s>
+<s>oluyoruz</s>----->sluyoruz</s>
+<s>yanmıyor</s>----->kanmıyor</s>
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalışoruz</s>
+<s>olmuyoruz</s>----->olmuyoruz</s>
+<s>coşuyoruz</s>----->koğuyoruz</s>
+<s>amaçlıyor</s>----->amaçlıyoru
+<s>değiniyor</s>----->değişiyor</s>
+<s>çabalıyor</s>----->çabalıyor</s>
+<s>kınıyoruz</s>----->kanıyoruz</s>
+<s>yazıyoruz</s>----->yazıyor</s>z</s>
+<s>duyuyoruz</s>----->duyuyoruz</s>
+<s>almıyorum</s>----->almıyorum</s>
+<s>geziniyor</s>----->geziniyor</s>
+<s>yöneliyor</s>----->yöneliyor</s>
+<s>evleniyor</s>----->evleniyor</s>
+<s>küçülüyor</s>----->küçlldyor</s>
+<s>beğeniyor</s>----->beğeniyor</s>
+<s>yarışıyor</s>----->yarışıyor</s>
+<s>yakınıyor</s>----->yakıyıyor</s>
+<s>birikiyor</s>----->biriylyor</s>
+<s>yemiyorum</s>----->yemiyorum</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->maanlıyor</s>
+<s>kılıyorum</s>----->kılıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->anlıyoruz</s>
+<s>gelişiyor</s>----->gelişiyor</s>
+<s>uçmuyorum</s>----->ummuyorum</s>
+<s>uyuşmuyor</s>----->uyuşmuyor</s>
+<s>unutmuyor</s>----->uğutmuyor</s>
+<s>satıyoruz</s>----->satıyoruz</s>
+<s>konuyoruz</s>----->koyuyoruz</s>
+<s>soğuyorum</s>----->soğuyorum</s>
+<s>sıralıyor</s>----->sıralıyor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->ölüüyorum</s>
+<s>azarlıyor</s>----->azallıyor</s>
+<s>okşuyorum</s>----->kkuuyorum</s>
+<s>sömürüyor</s>----->kömürüyor</s>
+<s>kızıyorum</s>----->kızıyorum</s>
+<s>sunuyorum</s>----->suluyorum</s>
+<s>koşuyoruz</s>----->koşuyoruz</s>
+<s>kalıyoruz</s>----->kalıyoruz</s>
+<s>demiyoruz</s>----->demiyorsz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->korkmuyor</s>
+<s>üstleniyor</s>----->dstleniyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalııyorum</s>
+<s>harcıyorum</s>----->harcıyorum</s>
+<s>gerekmiyor</s>----->gerekmiyor</s>
+<s>kaydediyor</s>----->kaybediyor</s>
+<s>kurtarıyor</s>----->kurturıyor</s>
+<s>fırlamıyor</s>----->harlamıyorl
+<s>yapıyorsun</s>----->yapıyorlun</s>
+<s>dönüşmüyor</s>----->dönüşmüyor</s>
+<s>birleşiyor</s>----->birgiştyor</s>
+<s>bulmuyoruz</s>----->bulmuyoruz</s>
+<s>katıyorlar</s>----->kalıyorlar</s>
+<s>tanıyorlar</s>----->tanımlrlar</s>
+<s>sağlıyoruz</s>----->sağlıyorsz</s>
+<s>duyuyorlar</s>----->duyuyorlar</s>
+<s>koyuyorlar</s>----->ooyuyorlay</s>
+<s>genişliyor</s>----->değişiiyor</s>
+<s>dönüyorlar</s>----->dönüyorlar</s>
+<s>görüyorsun</s>----->görüyorsun</s>
+<s>çağrılıyor</s>----->çağıılıyor</s>
+<s>siliyorlar</s>----->siliyorlar</s>
+<s>değinmiyor</s>----->değişmiyorl
+<s>kızmıyorum</s>----->kismiyorum</s>
+<s>tamamlıyor</s>----->tamımlayor</s>
+<s>yerleşiyor</s>----->yerleyiyor</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->suçmamıyor</s>
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->daşlamışor</s>
+<s>satmıyorum</s>----->oalmıyorum</s>
+<s>sığmıyorum</s>----->aağlayorum</s>
+<s>kovuyorlar</s>----->koyuyoruar</s>
+<s>özlüyorlar</s>----->gzleyorlar</s>
+<s>soruyorlar</s>----->soruyorlar</s>
+<s>kazanmıyor</s>----->kazanııyor</s>
+<s>haykırıyor</s>----->yayıırıyor</s>
+<s>saymıyorum</s>----->sanııyorum</s>
+<s>korkuyoruz</s>----->korkuyorsz</s>
+<s>zayıflıyor</s>----->hayıflıyor</s>
+<s>başlıyoruz</s>----->başlıyoruz</s>
+<s>patlamıyor</s>----->patlamıyor</s>
+<s>girmiyoruz</s>----->girmiyorum</s>
+<s>sanmıyoruz</s>----->allmıyoruz</s>
+<s>beklemiyor</s>----->beklemiyoru
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->aktarıyorum</s>
+<s>yırtıyorlar</s>----->yaraılorlar</s>
+<s>görüşüyoruz</s>----->pöyüyüyorum</s>
+<s>hoşlanmıyor</s>----->hoşlanmayor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyorlar</s>
+<s>yolluyorlar</s>----->yoluuyoruar</s>
+<s>çeviriyorum</s>----->çeviriyorum</s>
+<s>açıklıyoruz</s>----->açıklıyorsz</s>
+<s>özetliyorum</s>----->özetliyorum</s>
+<s>uçuyorsunuz</s>----->uçuyorsunuz</s>
+<s>davranmıyor</s>----->davranmışor</s>
+<s>savunuyorum</s>----->savunuyorum</s>
+<s>onaylamıyor</s>----->onaylanıyorl
+<s>tekrarlıyor</s>----->tekrarlayor</s>
+<s>eleştiriyor</s>----->elişiiyiyor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorlar</s>
+<s>geçiniyorum</s>----->geçiniyorum</s>
+<s>arzuluyorum</s>----->öğzelayorum</s>
+<s>yaşamıyorum</s>----->yaşayıyorum</s>
+<s>uyguluyoruz</s>----->uyuuluyorum</s>
+<s>zorluyorlar</s>----->yorluyorlar</s>
+<s>bulunuyoruz</s>----->buluyuyorsz</s>
+<s>açıklamıyor</s>----->açıklamıyor</s>
+<s>hastalanıyor</s>----->tatlalanıyor</s>
+<s>hazırlıyoruz</s>----->hazırlıyoruz</s>
+<s>kullanıyoruz</s>----->kullanıyorsz</s>
+<s>beklemiyoruz</s>----->beklemiyoruz</s>
+<s>öğreniyorlar</s>----->öğreniyoruar</s>
+<s>kalıyorsunuz</s>----->kalıyorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->yarrayıyorum</s>
+<s>gönderiyorum</s>----->gönderirorum</s>
+<s>yakınıyorlar</s>----->yakındyorlar</s>
+<s>hedefliyoruz</s>----->hesefliyoruz</s>
+<s>yayınlıyoruz</s>----->yayınlıyorsz</s>
+<s>getirmiyorum</s>----->getiriiyorum</s>
+<s>yorumluyorum</s>----->yorumluyorum</s>
+<s>engellemiyor</s>----->engelliyiyor</s>
+<s>yönetiyorlar</s>----->yaneyiyorlar</s>
+<s>yerleşiyoruz</s>----->yürüirirorum</s>
+<s>evleniyorlar</s>----->enleniyorlar</s>
+<s>kastediyorum</s>----->keytediyorum</s>
+<s>tiksiniyorum</s>----->tiksiniyor</s>m</s>
+<s>seçiyorsunuz</s>----->çeçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->çızıyorsunuz</s>
+<s>dolaşmıyorum</s>----->doluşııyorum</s>
+<s>seyrediyoruz</s>----->seyrediyorsz</s>
+<s>karşılaşıyor</s>----->karşılaşıyor</s>
+<s>karşılıyoruz</s>----->karşıyıyoruz</s>
+<s>bayılıyorlar</s>----->bayılıyorlar</s>
+<s>yaklaşıyorum</s>----->yakıayıyorum</s>
+<s>söylemiyorlar</s>----->söylemiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyor</s>ar</s>
+<s>düşünmüyorlar</s>----->düşünmüyorlar</s>
+<s>harcıyorsunuz</s>----->harcıyoruunuz</s>
+<s>topluyorsunuz</s>----->topluyorsunuz</s>
+<s>hoşlanmıyorum</s>----->hallanmıyorum</s>
+<s>saçmalıyorlar</s>----->saçmalıyor</s>ar</s>
+<s>hazırlıyorlar</s>----->hazırlıyor</s>ar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçiiyoruz</s>
+<s>araştırıyorum</s>----->araştırıyorum</s>
+<s>gönderiyorlar</s>----->gönderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyorlar</s>
+<s>bahsediyorlar</s>----->bapsediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyorlar</s>
+<s>yayınlıyorlar</s>----->yayınııyorlar</s>
+<s>tırmanıyorlar</s>----->tartıyıyorlar</s>
+<s>zannetmiyorum</s>----->öannetmiyorum</s>
+<s>parçalıyorlar</s>----->parçalayor</s>ar</s>
+<s>uygulamıyoruz</s>----->uygulamıyorsz</s>
+<s>göstermiyorlar</s>----->göstermiyorlar</s>
+<s>planlıyorsunuz</s>----->baünlüyorsunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyorsz</s>
+<s>eleştirmiyorum</s>----->eliştiriiyorum</s>
+<s>bırakıyorsunuz</s>----->bırakıyorsunuz</s>
+<s>getiriyorsunuz</s>----->getiriyorsunuz</s>
+<s>uyguluyorsunuz</s>----->uyguluyorsunuz</s>
+<s>kastediyorsunuz</s>----->kestediyoruunuz</s>
+<s>gösteriyorsunuz</s>----->gösteriyoruunuz</s>
+<s>engelliyorsunuz</s>----->engelleyorsunuz</s>
+<s>karşılaşıyorlar</s>----->sarşılayayorlar</s>
+val ---  avg_loss: 1.8462, avg_recon_loss: 0.3420, avg_vq_loss: 1.5042, acc: 0.9149, vq_inds: [84, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 71,  avg_loss: 1.5403, avg_recon_loss: 0.0685, avg_vq_loss: 1.4718, acc: 0.9773, vq_inds: [177, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.7652, avg_recon_loss: 0.2855, avg_vq_loss: 1.4797, acc: 0.9205, vq_inds: [90, 10, 10, 10, 10, 10, 10] 
+update best loss 
+
+epoch: 72,  avg_loss: 1.5965, avg_recon_loss: 0.0718, avg_vq_loss: 1.5246, acc: 0.9748, vq_inds: [177, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.8276, avg_recon_loss: 0.2501, avg_vq_loss: 1.5775, acc: 0.9192, vq_inds: [90, 10, 10, 10, 9, 10, 10] 
+
+epoch: 73,  avg_loss: 1.6221, avg_recon_loss: 0.0650, avg_vq_loss: 1.5571, acc: 0.9773, vq_inds: [176, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.7973, avg_recon_loss: 0.2910, avg_vq_loss: 1.5063, acc: 0.9251, vq_inds: [86, 10, 10, 10, 9, 10, 10] 
+
+epoch: 74,  avg_loss: 1.5097, avg_recon_loss: 0.0581, avg_vq_loss: 1.4516, acc: 0.9804, vq_inds: [178, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.6974, avg_recon_loss: 0.2216, avg_vq_loss: 1.4757, acc: 0.9307, vq_inds: [85, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 75,  avg_loss: 1.4995, avg_recon_loss: 0.0566, avg_vq_loss: 1.4429, acc: 0.9814, vq_inds: [178, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.7540, avg_recon_loss: 0.2971, avg_vq_loss: 1.4568, acc: 0.9171, vq_inds: [84, 10, 10, 10, 9, 10, 10] 
+
+epoch: 76,  avg_loss: 1.3976, avg_recon_loss: 0.0552, avg_vq_loss: 1.3425, acc: 0.9809, vq_inds: [178, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.6114, avg_recon_loss: 0.2351, avg_vq_loss: 1.3763, acc: 0.9281, vq_inds: [85, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 77,  avg_loss: 1.4010, avg_recon_loss: 0.0577, avg_vq_loss: 1.3432, acc: 0.9797, vq_inds: [181, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.6593, avg_recon_loss: 0.2521, avg_vq_loss: 1.4072, acc: 0.9243, vq_inds: [90, 10, 10, 10, 9, 10, 10] 
+
+epoch: 78,  avg_loss: 1.3634, avg_recon_loss: 0.0522, avg_vq_loss: 1.3111, acc: 0.9817, vq_inds: [178, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.5577, avg_recon_loss: 0.2564, avg_vq_loss: 1.3013, acc: 0.9230, vq_inds: [95, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 79,  avg_loss: 1.3137, avg_recon_loss: 0.0519, avg_vq_loss: 1.2619, acc: 0.9827, vq_inds: [181, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.5205, avg_recon_loss: 0.2712, avg_vq_loss: 1.2493, acc: 0.9230, vq_inds: [98, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 80,  avg_loss: 1.2621, avg_recon_loss: 0.0498, avg_vq_loss: 1.2122, acc: 0.9835, vq_inds: [181, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->ekiyor</s>
+<s>övüyor</s>----->özüyor</s>
+<s>atlıyor</s>----->atııyor</s>
+<s>ekliyor</s>----->ekiiyor</s>
+<s>kaçıyor</s>----->kaçıyor</s>
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->dummyor</s>
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çüzüyor</s>
+<s>kınıyor</s>----->kınıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->çöküyor</s>
+<s>sokuyor</s>----->soğuyor</s>
+<s>özlüyor</s>----->özlüyor</s>
+<s>diliyor</s>----->diliyor</s>
+<s>sayıyor</s>----->sanıyor</s>
+<s>takıyor</s>----->takıyor</s>
+<s>bıkıyor</s>----->bıkayor</s>
+<s>eğitiyor</s>----->eğiyiyor</s>
+<s>umuyoruz</s>----->umuyorum</s>
+<s>kutluyor</s>----->butluyor</s>
+<s>süslüyor</s>----->süsleyor</s>
+<s>açıyoruz</s>----->ağıyoruz</s>
+<s>ödüyorum</s>----->ödeyorum</s>
+<s>düşlüyor</s>----->düşleyor</s>
+<s>aramıyor</s>----->aramıyor</s>
+<s>çatmıyor</s>----->çatlıyor</s>
+<s>yatmıyor</s>----->yatmıyor</s>
+<s>iletiyor</s>----->ileriyor</s>
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->yansıyor</s>
+<s>alışıyor</s>----->çtıyıyor</s>
+<s>oluyoruz</s>----->oluyoruz</s>
+<s>yanmıyor</s>----->kanmıyor</s>
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalıyoruz</s>
+<s>olmuyoruz</s>----->olmuyoruz</s>
+<s>coşuyoruz</s>----->ooşuyoruz</s>
+<s>amaçlıyor</s>----->amaçlıyoru
+<s>değiniyor</s>----->değişiyorl
+<s>çabalıyor</s>----->çabalıyor</s>
+<s>kınıyoruz</s>----->kınıyoruz</s>
+<s>yazıyoruz</s>----->yazıyorsz</s>
+<s>duyuyoruz</s>----->duyuroruz</s>
+<s>almıyorum</s>----->almıyorum</s>
+<s>geziniyor</s>----->geziniyor</s>
+<s>yöneliyor</s>----->yöneliyor</s>
+<s>evleniyor</s>----->evleniror</s>
+<s>küçülüyor</s>----->küçümdyor</s>
+<s>beğeniyor</s>----->beğeniyor</s>
+<s>yarışıyor</s>----->yarışıyor</s>
+<s>yakınıyor</s>----->yakındyor</s>
+<s>birikiyor</s>----->girişiyor</s>
+<s>yemiyorum</s>----->yimiyorum</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->taanlıyor</s>
+<s>kılıyorum</s>----->kınıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->anlıyoruz</s>
+<s>gelişiyor</s>----->gelişiyor</s>
+<s>uçmuyorum</s>----->uçmuyorum</s>
+<s>uyuşmuyor</s>----->uyuşluyor</s>
+<s>unutmuyor</s>----->unutmuyoru
+<s>satıyoruz</s>----->satıyoruz</s>
+<s>konuyoruz</s>----->koluyoruz</s>
+<s>soğuyorum</s>----->soğuyorum</s>
+<s>sıralıyor</s>----->sıralayor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->özlüyorum</s>
+<s>azarlıyor</s>----->azallıyor</s>
+<s>okşuyorum</s>----->kkuumorum</s>
+<s>sömürüyor</s>----->sömürüyor</s>
+<s>kızıyorum</s>----->kızayorum</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->koşuyoruz</s>
+<s>kalıyoruz</s>----->kalıyoruz</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->kormmuyor</s>
+<s>üstleniyor</s>----->dsteeniyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalııyorum</s>
+<s>harcıyorum</s>----->harcıyorum</s>
+<s>gerekmiyor</s>----->gerikmiyor</s>
+<s>kaydediyor</s>----->daydediyor</s>
+<s>kurtarıyor</s>----->kurtarıyor</s>
+<s>fırlamıyor</s>----->hırlamıyor</s>
+<s>yapıyorsun</s>----->yapıyorlun</s>
+<s>dönüşmüyor</s>----->dönüşüüyor</s>
+<s>birleşiyor</s>----->birlişiyor</s>
+<s>bulmuyoruz</s>----->bulmuyorum</s>
+<s>katıyorlar</s>----->katıyorlar</s>
+<s>tanıyorlar</s>----->tanımorlar</s>
+<s>sağlıyoruz</s>----->sağlıyorsz</s>
+<s>duyuyorlar</s>----->duyuyorlar</s>
+<s>koyuyorlar</s>----->koyuyorlar</s>
+<s>genişliyor</s>----->değişieyor</s>
+<s>dönüyorlar</s>----->dönüyor</s>ar</s>
+<s>görüyorsun</s>----->görüyor</s>un</s>
+<s>çağrılıyor</s>----->çağıılıyor</s>
+<s>siliyorlar</s>----->siliyorlar</s>
+<s>değinmiyor</s>----->değişmiyor</s>
+<s>kızmıyorum</s>----->kızmıyorsm</s>
+<s>tamamlıyor</s>----->tamamlayor</s>
+<s>yerleşiyor</s>----->yerleyiyor</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->sutaamışor</s>
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->mışlamıyor</s>
+<s>satmıyorum</s>----->aatmışorum</s>
+<s>sığmıyorum</s>----->kaçmayorum</s>
+<s>kovuyorlar</s>----->kopuyor</s>ar</s>
+<s>özlüyorlar</s>----->gzlüyorlar</s>
+<s>soruyorlar</s>----->soruyorlar</s>
+<s>kazanmıyor</s>----->kazanııyor</s>
+<s>haykırıyor</s>----->hazıırlyor</s>
+<s>saymıyorum</s>----->sanııyorum</s>
+<s>korkuyoruz</s>----->korkuyorsz</s>
+<s>zayıflıyor</s>----->hayıflıyor</s>
+<s>başlıyoruz</s>----->başlıyoruz</s>
+<s>patlamıyor</s>----->patlamıyor</s>
+<s>girmiyoruz</s>----->girmiyorum</s>
+<s>sanmıyoruz</s>----->aalmıyorsz</s>
+<s>beklemiyor</s>----->beklemişor</s>
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->kktırıyoruz</s>
+<s>yırtıyorlar</s>----->yaraılorlar</s>
+<s>görüşüyoruz</s>----->görüşüyorum</s>
+<s>hoşlanmıyor</s>----->hoşlanmayor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyorlar</s>
+<s>yolluyorlar</s>----->yolluyorlar</s>
+<s>çeviriyorum</s>----->çeviriyorum</s>
+<s>açıklıyoruz</s>----->açıklıyorsz</s>
+<s>özetliyorum</s>----->özetliyorum</s>
+<s>uçuyorsunuz</s>----->uçuyorsunuz</s>
+<s>davranmıyor</s>----->davranmıyor</s>
+<s>savunuyorum</s>----->savunuyor</s>m</s>
+<s>onaylamıyor</s>----->yyaylamayor</s>
+<s>tekrarlıyor</s>----->tekrarlayor</s>
+<s>eleştiriyor</s>----->eleşiiriyor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorlar</s>
+<s>geçiniyorum</s>----->çeçinirorum</s>
+<s>arzuluyorum</s>----->uruuluyorum</s>
+<s>yaşamıyorum</s>----->yaşamıyorum</s>
+<s>uyguluyoruz</s>----->uyuuluyorum</s>
+<s>zorluyorlar</s>----->yorluyorlar</s>
+<s>bulunuyoruz</s>----->buluyuyoruz</s>
+<s>açıklamıyor</s>----->açıklıyıyor</s>
+<s>hastalanıyor</s>----->tattalıkıyor</s>
+<s>hazırlıyoruz</s>----->hazırlıyoruz</s>
+<s>kullanıyoruz</s>----->kullanıyoruz</s>
+<s>beklemiyoruz</s>----->beklemiyoruz</s>
+<s>öğreniyorlar</s>----->öğreniyorlar</s>
+<s>kalıyorsunuz</s>----->kalıyorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->yapaanıyorum</s>
+<s>gönderiyorum</s>----->gönderiyorum</s>
+<s>yakınıyorlar</s>----->yakındyorlar</s>
+<s>hedefliyoruz</s>----->gadefliyorsz</s>
+<s>yayınlıyoruz</s>----->yayınlıyorsz</s>
+<s>getirmiyorum</s>----->getirmiyorum</s>
+<s>yorumluyorum</s>----->yoruyluyorum</s>
+<s>engellemiyor</s>----->esgelliyiyor</s>
+<s>yönetiyorlar</s>----->yöneliyorlar</s>
+<s>yerleşiyoruz</s>----->yerieyiyorum</s>
+<s>evleniyorlar</s>----->enleniyorlar</s>
+<s>kastediyorum</s>----->kaydediyorum</s>
+<s>tiksiniyorum</s>----->tiksiniyor</s>z</s>
+<s>seçiyorsunuz</s>----->çeçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->kızıyorsunuz</s>
+<s>dolaşmıyorum</s>----->dolaşııyorum</s>
+<s>seyrediyoruz</s>----->seyrediyor</s>m</s>
+<s>karşılaşıyor</s>----->karşılaşıyor</s>
+<s>karşılıyoruz</s>----->karşılıyoruz</s>
+<s>bayılıyorlar</s>----->bayılıyorlar</s>
+<s>yaklaşıyorum</s>----->yakaanayorum</s>
+<s>söylemiyorlar</s>----->söylemiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyor</s>ar</s>
+<s>düşünmüyorlar</s>----->düşünmüyorlar</s>
+<s>harcıyorsunuz</s>----->harcıyoruunuz</s>
+<s>topluyorsunuz</s>----->topluyorsunuz</s>
+<s>hoşlanmıyorum</s>----->hoşlanmışorum</s>
+<s>saçmalıyorlar</s>----->saçmalıyor</s>ar</s>
+<s>hazırlıyorlar</s>----->hazırlıyorlar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçmişorum</s>
+<s>araştırıyorum</s>----->araştırıyorum</s>
+<s>gönderiyorlar</s>----->gönderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyorlar</s>
+<s>bahsediyorlar</s>----->bahsediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyor</s>ar</s>
+<s>yayınlıyorlar</s>----->yayılııyorlar</s>
+<s>tırmanıyorlar</s>----->tartıyıyorlar</s>
+<s>zannetmiyorum</s>----->vannetmiyorum</s>
+<s>parçalıyorlar</s>----->çarpılayorlar</s>
+<s>uygulamıyoruz</s>----->uymalamıyorsm</s>
+<s>göstermiyorlar</s>----->göstermiyorlar</s>
+<s>planlıyorsunuz</s>----->ölenleyoruunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyoruz</s>
+<s>eleştirmiyorum</s>----->eliştiriiyorum</s>
+<s>bırakıyorsunuz</s>----->bırakıyorsunuz</s>
+<s>getiriyorsunuz</s>----->getiriyorsunuz</s>
+<s>uyguluyorsunuz</s>----->uyguluyorsunuz</s>
+<s>kastediyorsunuz</s>----->kastediyorsun</s>z</s>
+<s>gösteriyorsunuz</s>----->gösteriyoruunuz</s>
+<s>engelliyorsunuz</s>----->eğgelleyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karşılaştrorlar</s>
+val ---  avg_loss: 1.5217, avg_recon_loss: 0.2743, avg_vq_loss: 1.2475, acc: 0.9196, vq_inds: [84, 10, 10, 10, 9, 10, 10] 
+
+epoch: 81,  avg_loss: 1.2112, avg_recon_loss: 0.0488, avg_vq_loss: 1.1624, acc: 0.9827, vq_inds: [187, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.4176, avg_recon_loss: 0.2681, avg_vq_loss: 1.1496, acc: 0.9209, vq_inds: [90, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 82,  avg_loss: 1.2213, avg_recon_loss: 0.0484, avg_vq_loss: 1.1729, acc: 0.9832, vq_inds: [181, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.4836, avg_recon_loss: 0.2565, avg_vq_loss: 1.2271, acc: 0.9311, vq_inds: [94, 10, 10, 10, 10, 10, 10] 
+
+epoch: 83,  avg_loss: 1.1972, avg_recon_loss: 0.0495, avg_vq_loss: 1.1477, acc: 0.9836, vq_inds: [182, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.4539, avg_recon_loss: 0.2956, avg_vq_loss: 1.1583, acc: 0.9264, vq_inds: [92, 10, 10, 10, 9, 10, 10] 
+
+epoch: 84,  avg_loss: 1.1573, avg_recon_loss: 0.0463, avg_vq_loss: 1.1110, acc: 0.9862, vq_inds: [183, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.3246, avg_recon_loss: 0.2240, avg_vq_loss: 1.1007, acc: 0.9302, vq_inds: [94, 10, 10, 10, 8, 10, 10] 
+update best loss 
+
+epoch: 85,  avg_loss: 1.1352, avg_recon_loss: 0.0480, avg_vq_loss: 1.0872, acc: 0.9829, vq_inds: [184, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.3938, avg_recon_loss: 0.2414, avg_vq_loss: 1.1523, acc: 0.9285, vq_inds: [94, 10, 10, 10, 9, 10, 10] 
+
+epoch: 86,  avg_loss: 1.1511, avg_recon_loss: 0.0439, avg_vq_loss: 1.1072, acc: 0.9845, vq_inds: [185, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.3444, avg_recon_loss: 0.2616, avg_vq_loss: 1.0828, acc: 0.9298, vq_inds: [95, 10, 10, 10, 9, 10, 10] 
+
+epoch: 87,  avg_loss: 1.0919, avg_recon_loss: 0.0431, avg_vq_loss: 1.0488, acc: 0.9854, vq_inds: [188, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.3696, avg_recon_loss: 0.2711, avg_vq_loss: 1.0985, acc: 0.9302, vq_inds: [94, 10, 10, 10, 8, 10, 10] 
+
+epoch: 88,  avg_loss: 1.0518, avg_recon_loss: 0.0399, avg_vq_loss: 1.0119, acc: 0.9874, vq_inds: [193, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.2524, avg_recon_loss: 0.2274, avg_vq_loss: 1.0250, acc: 0.9307, vq_inds: [95, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 89,  avg_loss: 1.0071, avg_recon_loss: 0.0372, avg_vq_loss: 0.9699, acc: 0.9879, vq_inds: [184, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.1865, avg_recon_loss: 0.2162, avg_vq_loss: 0.9704, acc: 0.9345, vq_inds: [94, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 90,  avg_loss: 0.9443, avg_recon_loss: 0.0399, avg_vq_loss: 0.9045, acc: 0.9870, vq_inds: [194, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->ediyor</s>
+<s>övüyor</s>----->öpüyor</s>
+<s>atlıyor</s>----->allıyor</s>
+<s>ekliyor</s>----->ekiiyor</s>
+<s>kaçıyor</s>----->kaçıyor</s>
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->dummyor</s>
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çözeyor</s>
+<s>kınıyor</s>----->kınıyor</s>
+<s>kayıyor</s>----->kaynnor</s>
+<s>çöküyor</s>----->çöküyor</s>
+<s>sokuyor</s>----->sağuyor</s>
+<s>özlüyor</s>----->üzlüyor</s>
+<s>diliyor</s>----->diliyor</s>
+<s>sayıyor</s>----->sanıyor</s>
+<s>takıyor</s>----->takıyor</s>
+<s>bıkıyor</s>----->bıkıyor</s>
+<s>eğitiyor</s>----->eğidiyor</s>
+<s>umuyoruz</s>----->umuyorum</s>
+<s>kutluyor</s>----->kutluyor</s>
+<s>süslüyor</s>----->süslüyor</s>
+<s>açıyoruz</s>----->ççmyoruz</s>
+<s>ödüyorum</s>----->ödüyorum</s>
+<s>düşlüyor</s>----->düşlüyor</s>
+<s>aramıyor</s>----->aranıyor</s>
+<s>çatmıyor</s>----->katmıyor</s>
+<s>yatmıyor</s>----->yatmayor</s>
+<s>iletiyor</s>----->ileriror</s>
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->yansıyor</s>
+<s>alışıyor</s>----->alışıyor</s>
+<s>oluyoruz</s>----->oluroruz</s>
+<s>yanmıyor</s>----->yanmayor</s>
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalıyoruz</s>
+<s>olmuyoruz</s>----->olmuyoruz</s>
+<s>coşuyoruz</s>----->doşuyoruz</s>
+<s>amaçlıyor</s>----->dnallıyor</s>
+<s>değiniyor</s>----->değiniyor</s>
+<s>çabalıyor</s>----->çabalıyor</s>
+<s>kınıyoruz</s>----->kınıyoruz</s>
+<s>yazıyoruz</s>----->yazıyoruz</s>
+<s>duyuyoruz</s>----->duyuroruz</s>
+<s>almıyorum</s>----->almışoruz</s>
+<s>geziniyor</s>----->geziniyors
+<s>yöneliyor</s>----->yöneliyor</s>
+<s>evleniyor</s>----->evleniyor</s>
+<s>küçülüyor</s>----->küsüldyor</s>
+<s>beğeniyor</s>----->beğeniyor</s>
+<s>yarışıyor</s>----->yarıştyor</s>
+<s>yakınıyor</s>----->yakındyor</s>
+<s>birikiyor</s>----->birik</s>yor</s>
+<s>yemiyorum</s>----->demiyorum</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->paallıyor</s>
+<s>kılıyorum</s>----->kılıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->anlıyoruz</s>
+<s>gelişiyor</s>----->gelişiyor</s>
+<s>uçmuyorum</s>----->umuuyorum</s>
+<s>uyuşmuyor</s>----->uyuşluyor</s>
+<s>unutmuyor</s>----->unutmuyor</s>
+<s>satıyoruz</s>----->satıyoruz</s>
+<s>konuyoruz</s>----->kozuyoruz</s>
+<s>soğuyorum</s>----->soğuyorum</s>
+<s>sıralıyor</s>----->sıralayor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->öllüyorum</s>
+<s>azarlıyor</s>----->azallıyor</s>
+<s>okşuyorum</s>----->okuuyor</s>z</s>
+<s>sömürüyor</s>----->kömürüyor</s>
+<s>kızıyorum</s>----->kızayorum</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->koşuyorum</s>
+<s>kalıyoruz</s>----->kalıyoruz</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->korkmuyor</s>
+<s>üstleniyor</s>----->dsteeniyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalmıyorum</s>
+<s>harcıyorum</s>----->harcıyorum</s>
+<s>gerekmiyor</s>----->çerekmiyor</s>
+<s>kaydediyor</s>----->deydediyor</s>
+<s>kurtarıyor</s>----->kurtarıyor</s>
+<s>fırlamıyor</s>----->hırlamıyors
+<s>yapıyorsun</s>----->yapıyorsun</s>
+<s>dönüşmüyor</s>----->dönüştüyor</s>
+<s>birleşiyor</s>----->birlişiyor</s>
+<s>bulmuyoruz</s>----->bulmuyorum</s>
+<s>katıyorlar</s>----->kırırorlar</s>
+<s>tanıyorlar</s>----->tanımlrlar</s>
+<s>sağlıyoruz</s>----->sağlıyoruz</s>
+<s>duyuyorlar</s>----->duyuyorlar</s>
+<s>koyuyorlar</s>----->koyuyorlar</s>
+<s>genişliyor</s>----->genişliyor</s>
+<s>dönüyorlar</s>----->dönüyorlar</s>
+<s>görüyorsun</s>----->görüyorsun</s>
+<s>çağrılıyor</s>----->çağıışıyor</s>
+<s>siliyorlar</s>----->siniyorlar</s>
+<s>değinmiyor</s>----->değişmiyorl
+<s>kızmıyorum</s>----->kızmayorsm</s>
+<s>tamamlıyor</s>----->tamamlayor</s>
+<s>yerleşiyor</s>----->yerleyiyor</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->uuçlamaşorl
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->dışlamışor</s>
+<s>satmıyorum</s>----->tatmıyorum</s>
+<s>sığmıyorum</s>----->kovmayorum</s>
+<s>kovuyorlar</s>----->kopuyorlar</s>
+<s>özlüyorlar</s>----->özüüyorlar</s>
+<s>soruyorlar</s>----->soruyorlar</s>
+<s>kazanmıyor</s>----->kazanmıyor</s>
+<s>haykırıyor</s>----->yıyıırlyor</s>
+<s>saymıyorum</s>----->sanmıyorum</s>
+<s>korkuyoruz</s>----->korkuyorsz</s>
+<s>zayıflıyor</s>----->hayıflıyor</s>
+<s>başlıyoruz</s>----->başlıyoruz</s>
+<s>patlamıyor</s>----->patlamışor</s>
+<s>girmiyoruz</s>----->girmiyorum</s>
+<s>sanmıyoruz</s>----->sanmıyoruz</s>
+<s>beklemiyor</s>----->beklemişor</s>
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->aktarıyoruz</s>
+<s>yırtıyorlar</s>----->yırııyorlar</s>
+<s>görüşüyoruz</s>----->görüyüyoruz</s>
+<s>hoşlanmıyor</s>----->huşlanmayor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyorlar</s>
+<s>yolluyorlar</s>----->yolmuyorlar</s>
+<s>çeviriyorum</s>----->çeviriyorum</s>
+<s>açıklıyoruz</s>----->ççıklıyoruz</s>
+<s>özetliyorum</s>----->özetliyorum</s>
+<s>uçuyorsunuz</s>----->uçuyorsunuz</s>
+<s>davranmıyor</s>----->davranmıyor</s>
+<s>savunuyorum</s>----->savunuyor</s>m</s>
+<s>onaylamıyor</s>----->onaylımıyor</s>
+<s>tekrarlıyor</s>----->tekrarlayor</s>
+<s>eleştiriyor</s>----->eleştirizor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorlar</s>
+<s>geçiniyorum</s>----->çeğiniyorum</s>
+<s>arzuluyorum</s>----->oruuluyorum</s>
+<s>yaşamıyorum</s>----->yaşamıyorum</s>
+<s>uyguluyoruz</s>----->uyuuluyoruz</s>
+<s>zorluyorlar</s>----->yorluyorlar</s>
+<s>bulunuyoruz</s>----->bulunuyoruz</s>
+<s>açıklamıyor</s>----->açıklamayoru
+<s>hastalanıyor</s>----->tatlalırıyor</s>
+<s>hazırlıyoruz</s>----->hazırlıyoruz</s>
+<s>kullanıyoruz</s>----->kulaanıyoruz</s>
+<s>beklemiyoruz</s>----->beklemiyorum</s>
+<s>öğreniyorlar</s>----->öğreniyorlar</s>
+<s>kalıyorsunuz</s>----->kalıyorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->yarrayıyorum</s>
+<s>gönderiyorum</s>----->bönderiyorum</s>
+<s>yakınıyorlar</s>----->yakındyorlar</s>
+<s>hedefliyoruz</s>----->hadeyliyoruz</s>
+<s>yayınlıyoruz</s>----->yayınlıyorsz</s>
+<s>getirmiyorum</s>----->getirmiyorum</s>
+<s>yorumluyorum</s>----->yorumluyor</s>m</s>
+<s>engellemiyor</s>----->engelleyiyor</s>
+<s>yönetiyorlar</s>----->yöneriyorlar</s>
+<s>yerleşiyoruz</s>----->yerseyiyor</s>m</s>
+<s>evleniyorlar</s>----->enleniyorlar</s>
+<s>kastediyorum</s>----->kesdediyorum</s>
+<s>tiksiniyorum</s>----->tikliniyor</s>z</s>
+<s>seçiyorsunuz</s>----->çeçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->kızıyorsunuz</s>
+<s>dolaşmıyorum</s>----->dolaşııyorum</s>
+<s>seyrediyoruz</s>----->seyrediyorsz</s>
+<s>karşılaşıyor</s>----->karşılaşıyor</s>
+<s>karşılıyoruz</s>----->karşılayorsz</s>
+<s>bayılıyorlar</s>----->bayılıyorlar</s>
+<s>yaklaşıyorum</s>----->yaklaşayorum</s>
+<s>söylemiyorlar</s>----->söylemiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyor</s>ar</s>
+<s>düşünmüyorlar</s>----->düşünmüyorlar</s>
+<s>harcıyorsunuz</s>----->harcıyoruunuz</s>
+<s>topluyorsunuz</s>----->topluyorsunuz</s>
+<s>hoşlanmıyorum</s>----->hullanııyorum</s>
+<s>saçmalıyorlar</s>----->saçmalıyor</s>ar</s>
+<s>hazırlıyorlar</s>----->hazırlıyor</s>ar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçmiyorum</s>
+<s>araştırıyorum</s>----->araştırıyorum</s>
+<s>gönderiyorlar</s>----->gönderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyorlar</s>
+<s>bahsediyorlar</s>----->bahsediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyorlar</s>
+<s>yayınlıyorlar</s>----->yayınlayorlar</s>
+<s>tırmanıyorlar</s>----->tartayıyorlar</s>
+<s>zannetmiyorum</s>----->zannetmiyorum</s>
+<s>parçalıyorlar</s>----->parçalayor</s>ar</s>
+<s>uygulamıyoruz</s>----->ulmulamıyorum</s>
+<s>göstermiyorlar</s>----->göstermiyorlar</s>
+<s>planlıyorsunuz</s>----->aaanlıyorsunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyoruz</s>
+<s>eleştirmiyorum</s>----->eliştiriiyorum</s>
+<s>bırakıyorsunuz</s>----->bırakıyorsunuz</s>
+<s>getiriyorsunuz</s>----->getireyorsunuz</s>
+<s>uyguluyorsunuz</s>----->uyguluyorsunuz</s>
+<s>kastediyorsunuz</s>----->kastediyorsun</s>z</s>
+<s>gösteriyorsunuz</s>----->gösteriyoruunuz</s>
+<s>engelliyorsunuz</s>----->evgelleyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karşılaşırorlar</s>
+val ---  avg_loss: 1.2135, avg_recon_loss: 0.2600, avg_vq_loss: 0.9535, acc: 0.9239, vq_inds: [96, 10, 10, 9, 9, 10, 10] 
+
+epoch: 91,  avg_loss: 0.9663, avg_recon_loss: 0.0390, avg_vq_loss: 0.9273, acc: 0.9877, vq_inds: [188, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.2152, avg_recon_loss: 0.2446, avg_vq_loss: 0.9706, acc: 0.9307, vq_inds: [94, 10, 10, 10, 9, 10, 10] 
+
+epoch: 92,  avg_loss: 0.9645, avg_recon_loss: 0.0420, avg_vq_loss: 0.9225, acc: 0.9866, vq_inds: [195, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.2450, avg_recon_loss: 0.2291, avg_vq_loss: 1.0159, acc: 0.9285, vq_inds: [91, 10, 10, 10, 9, 10, 10] 
+
+epoch: 93,  avg_loss: 1.0104, avg_recon_loss: 0.0430, avg_vq_loss: 0.9674, acc: 0.9857, vq_inds: [194, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.1650, avg_recon_loss: 0.2211, avg_vq_loss: 0.9440, acc: 0.9370, vq_inds: [92, 10, 10, 9, 10, 10, 10] 
+update best loss 
+
+epoch: 94,  avg_loss: 0.9802, avg_recon_loss: 0.0408, avg_vq_loss: 0.9394, acc: 0.9857, vq_inds: [195, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.1607, avg_recon_loss: 0.2279, avg_vq_loss: 0.9327, acc: 0.9345, vq_inds: [97, 10, 10, 10, 9, 10, 10] 
+update best loss 
+
+epoch: 95,  avg_loss: 0.9525, avg_recon_loss: 0.0416, avg_vq_loss: 0.9109, acc: 0.9867, vq_inds: [197, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.1593, avg_recon_loss: 0.2410, avg_vq_loss: 0.9183, acc: 0.9311, vq_inds: [91, 10, 10, 9, 8, 10, 10] 
+update best loss 
+
+epoch: 96,  avg_loss: 0.9830, avg_recon_loss: 0.0450, avg_vq_loss: 0.9380, acc: 0.9856, vq_inds: [197, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.2368, avg_recon_loss: 0.2596, avg_vq_loss: 0.9771, acc: 0.9358, vq_inds: [97, 10, 10, 9, 9, 10, 10] 
+
+epoch: 97,  avg_loss: 0.9697, avg_recon_loss: 0.0411, avg_vq_loss: 0.9286, acc: 0.9864, vq_inds: [199, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.1705, avg_recon_loss: 0.2590, avg_vq_loss: 0.9115, acc: 0.9345, vq_inds: [97, 10, 10, 10, 8, 10, 10] 
+
+epoch: 98,  avg_loss: 0.9018, avg_recon_loss: 0.0367, avg_vq_loss: 0.8651, acc: 0.9879, vq_inds: [199, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.1198, avg_recon_loss: 0.2510, avg_vq_loss: 0.8688, acc: 0.9290, vq_inds: [96, 10, 10, 9, 9, 10, 10] 
+update best loss 
+
+epoch: 99,  avg_loss: 0.8847, avg_recon_loss: 0.0381, avg_vq_loss: 0.8466, acc: 0.9871, vq_inds: [201, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 1.1269, avg_recon_loss: 0.2945, avg_vq_loss: 0.8324, acc: 0.9353, vq_inds: [99, 10, 10, 10, 8, 10, 10] 
+
+epoch: 100,  avg_loss: 0.8542, avg_recon_loss: 0.0315, avg_vq_loss: 0.8228, acc: 0.9900, vq_inds: [202, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->ediyor</s>
+<s>övüyor</s>----->öpüyor</s>
+<s>atlıyor</s>----->allıyor</s>
+<s>ekliyor</s>----->ekliyor</s>
+<s>kaçıyor</s>----->kaçıyor</s>
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->dummyor</s>
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çözüyor</s>
+<s>kınıyor</s>----->kınıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->çüzüyor</s>
+<s>sokuyor</s>----->sakuyor</s>
+<s>özlüyor</s>----->üzüüyor</s>
+<s>diliyor</s>----->dineyor</s>
+<s>sayıyor</s>----->sanıyor</s>
+<s>takıyor</s>----->takıyor</s>
+<s>bıkıyor</s>----->bıkayor</s>
+<s>eğitiyor</s>----->eğiniyor</s>
+<s>umuyoruz</s>----->umuyoruz</s>
+<s>kutluyor</s>----->kutluyor</s>
+<s>süslüyor</s>----->süslüyor</s>
+<s>açıyoruz</s>----->ççlyoruz</s>
+<s>ödüyorum</s>----->ödüyorum</s>
+<s>düşlüyor</s>----->düşlüyor</s>
+<s>aramıyor</s>----->aramıyor</s>
+<s>çatmıyor</s>----->çatmıyor</s>
+<s>yatmıyor</s>----->yatmıyor</s>
+<s>iletiyor</s>----->ileriror</s>
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->yanııyor</s>
+<s>alışıyor</s>----->alışıyor</s>
+<s>oluyoruz</s>----->oluroruz</s>
+<s>yanmıyor</s>----->kanmıyor</s>
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalıyoruz</s>
+<s>olmuyoruz</s>----->olmuyoruz</s>
+<s>coşuyoruz</s>----->doşuyoruz</s>
+<s>amaçlıyor</s>----->amaçlıyorl
+<s>değiniyor</s>----->değiliyor</s>
+<s>çabalıyor</s>----->çaballyor</s>
+<s>kınıyoruz</s>----->kınıyoruz</s>
+<s>yazıyoruz</s>----->yazıyoruz</s>
+<s>duyuyoruz</s>----->duyuyoruz</s>
+<s>almıyorum</s>----->almıyorum</s>
+<s>geziniyor</s>----->geziniyor</s>
+<s>yöneliyor</s>----->yöneliyor</s>
+<s>evleniyor</s>----->evleniyor</s>
+<s>küçülüyor</s>----->kiçllüyor</s>
+<s>beğeniyor</s>----->beğeniyor</s>
+<s>yarışıyor</s>----->yarışıyor</s>
+<s>yakınıyor</s>----->yakışıyor</s>
+<s>birikiyor</s>----->bireksyor</s>
+<s>yemiyorum</s>----->yemiyorum</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->paallıyor</s>
+<s>kılıyorum</s>----->kılıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->anlıyoruz</s>
+<s>gelişiyor</s>----->gelişiyor</s>
+<s>uçmuyorum</s>----->ummuyorum</s>
+<s>uyuşmuyor</s>----->uyuşluyor</s>
+<s>unutmuyor</s>----->unutmuyor</s>
+<s>satıyoruz</s>----->satıyoruz</s>
+<s>konuyoruz</s>----->kunuyoruz</s>
+<s>soğuyorum</s>----->soğuyorum</s>
+<s>sıralıyor</s>----->sırllıyor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->üzüüyorum</s>
+<s>azarlıyor</s>----->azarııyor</s>
+<s>okşuyorum</s>----->okuuyorum</s>
+<s>sömürüyor</s>----->kötürdyor</s>
+<s>kızıyorum</s>----->kızıyorum</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->koşuyoruz</s>
+<s>kalıyoruz</s>----->kalıyoruz</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->korkuuyoru
+<s>üstleniyor</s>----->üstleniyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalmıyorum</s>
+<s>harcıyorum</s>----->harcıyorum</s>
+<s>gerekmiyor</s>----->eerikliyor</s>
+<s>kaydediyor</s>----->kaybediyor</s>
+<s>kurtarıyor</s>----->kurtarıyor</s>
+<s>fırlamıyor</s>----->hırlamıyor</s>
+<s>yapıyorsun</s>----->yapıyorsun</s>
+<s>dönüşmüyor</s>----->dönüşmüşor</s>
+<s>birleşiyor</s>----->birlişiyor</s>
+<s>bulmuyoruz</s>----->gulmuyorum</s>
+<s>katıyorlar</s>----->katıyor</s>ar</s>
+<s>tanıyorlar</s>----->tanıyorlar</s>
+<s>sağlıyoruz</s>----->sağlıyoruz</s>
+<s>duyuyorlar</s>----->duyuyorlar</s>
+<s>koyuyorlar</s>----->koyuyorlar</s>
+<s>genişliyor</s>----->genişliyor</s>
+<s>dönüyorlar</s>----->dönüyorlar</s>
+<s>görüyorsun</s>----->görünorsun</s>
+<s>çağrılıyor</s>----->çağrılıyor</s>
+<s>siliyorlar</s>----->siliyorlar</s>
+<s>değinmiyor</s>----->değilmiyorl
+<s>kızmıyorum</s>----->kızmıyorum</s>
+<s>tamamlıyor</s>----->tamamlayor</s>
+<s>yerleşiyor</s>----->yerleşiror</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->suçlamıyorl
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->dışlayıyor</s>
+<s>satmıyorum</s>----->tatmayorum</s>
+<s>sığmıyorum</s>----->kıvmayorsm</s>
+<s>kovuyorlar</s>----->kopuyor</s>ar</s>
+<s>özlüyorlar</s>----->özüüyorlar</s>
+<s>soruyorlar</s>----->soruyorlar</s>
+<s>kazanmıyor</s>----->kazanmıyor</s>
+<s>haykırıyor</s>----->giyııriyor</s>
+<s>saymıyorum</s>----->sanmıyorum</s>
+<s>korkuyoruz</s>----->korkuyorsz</s>
+<s>zayıflıyor</s>----->zayıflıyor</s>
+<s>başlıyoruz</s>----->başııyoruz</s>
+<s>patlamıyor</s>----->patlamışor</s>
+<s>girmiyoruz</s>----->girmiyorum</s>
+<s>sanmıyoruz</s>----->sanııyoruz</s>
+<s>beklemiyor</s>----->beklemiyor</s>
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->aktarıyoruz</s>
+<s>yırtıyorlar</s>----->yırııyorlar</s>
+<s>görüşüyoruz</s>----->görüşüroruz</s>
+<s>hoşlanmıyor</s>----->hoşlanmayor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyorlar</s>
+<s>yolluyorlar</s>----->yolluyorlar</s>
+<s>çeviriyorum</s>----->çeviriyorum</s>
+<s>açıklıyoruz</s>----->ççıllıyorsz</s>
+<s>özetliyorum</s>----->özetliyorum</s>
+<s>uçuyorsunuz</s>----->uçuyorsunuz</s>
+<s>davranmıyor</s>----->davranmıyor</s>
+<s>savunuyorum</s>----->savunuyorum</s>
+<s>onaylamıyor</s>----->ynaylamıyor</s>
+<s>tekrarlıyor</s>----->tekrarlayor</s>
+<s>eleştiriyor</s>----->eleştiriyor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorlar</s>
+<s>geçiniyorum</s>----->geçinirorum</s>
+<s>arzuluyorum</s>----->oruuluyorum</s>
+<s>yaşamıyorum</s>----->yaşamıyorum</s>
+<s>uyguluyoruz</s>----->kyuuluyoruz</s>
+<s>zorluyorlar</s>----->zorluyor</s>ar</s>
+<s>bulunuyoruz</s>----->buluyuzoruz</s>
+<s>açıklamıyor</s>----->açıklımıyor</s>
+<s>hastalanıyor</s>----->tattanınıyor</s>
+<s>hazırlıyoruz</s>----->hazırlıyoruz</s>
+<s>kullanıyoruz</s>----->kullanıyoruz</s>
+<s>beklemiyoruz</s>----->beklemiyoruz</s>
+<s>öğreniyorlar</s>----->öğreniyorlar</s>
+<s>kalıyorsunuz</s>----->kalıyorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->yıpratıyor</s>z</s>
+<s>gönderiyorum</s>----->gönderiyorum</s>
+<s>yakınıyorlar</s>----->yakındyorlar</s>
+<s>hedefliyoruz</s>----->hedefliyorsz</s>
+<s>yayınlıyoruz</s>----->yayışııyoruz</s>
+<s>getirmiyorum</s>----->getiriiyorum</s>
+<s>yorumluyorum</s>----->yorumluyorum</s>
+<s>engellemiyor</s>----->esgilmimiyor</s>
+<s>yönetiyorlar</s>----->yöneliyorlar</s>
+<s>yerleşiyoruz</s>----->yerierizoruz</s>
+<s>evleniyorlar</s>----->ekleniyorlar</s>
+<s>kastediyorum</s>----->kestediyorum</s>
+<s>tiksiniyorum</s>----->tikliniyor</s>z</s>
+<s>seçiyorsunuz</s>----->çeçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->kızıyorsunuz</s>
+<s>dolaşmıyorum</s>----->dolaşııyorum</s>
+<s>seyrediyoruz</s>----->seyrediyorsz</s>
+<s>karşılaşıyor</s>----->karşılaşıyor</s>
+<s>karşılıyoruz</s>----->karşılıyorsz</s>
+<s>bayılıyorlar</s>----->yayılıyorlar</s>
+<s>yaklaşıyorum</s>----->yakıışıyorum</s>
+<s>söylemiyorlar</s>----->söylemiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyor</s>ar</s>
+<s>düşünmüyorlar</s>----->düşünmüyor</s>ar</s>
+<s>harcıyorsunuz</s>----->harcıyoruunuz</s>
+<s>topluyorsunuz</s>----->topluyorsunuz</s>
+<s>hoşlanmıyorum</s>----->hoşlanııyorum</s>
+<s>saçmalıyorlar</s>----->sanmalıyorlar</s>
+<s>hazırlıyorlar</s>----->hazırlıyorlar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçmişorum</s>
+<s>araştırıyorum</s>----->araştırıyorum</s>
+<s>gönderiyorlar</s>----->gönderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyorlar</s>
+<s>bahsediyorlar</s>----->bahsediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyorlar</s>
+<s>yayınlıyorlar</s>----->yayılııyorlar</s>
+<s>tırmanıyorlar</s>----->tartıyıyorlar</s>
+<s>zannetmiyorum</s>----->zannetmiyorum</s>
+<s>parçalıyorlar</s>----->harçılıyor</s>ar</s>
+<s>uygulamıyoruz</s>----->uymulmmıyorsm</s>
+<s>göstermiyorlar</s>----->göstermiyorlar</s>
+<s>planlıyorsunuz</s>----->saanlıyorsunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyorsz</s>
+<s>eleştirmiyorum</s>----->elişiiriişorum</s>
+<s>bırakıyorsunuz</s>----->bırakıyorsunuz</s>
+<s>getiriyorsunuz</s>----->getiriyorsunuz</s>
+<s>uyguluyorsunuz</s>----->uyuuluyorsunuz</s>
+<s>kastediyorsunuz</s>----->kastediyorsun</s>z</s>
+<s>gösteriyorsunuz</s>----->gösteriyorsunuz</s>
+<s>engelliyorsunuz</s>----->engelleyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karşılaşıyorlar</s>
+val ---  avg_loss: 1.0285, avg_recon_loss: 0.2630, avg_vq_loss: 0.7655, acc: 0.9315, vq_inds: [104, 10, 10, 8, 8, 10, 10] 
+update best loss 
+
+epoch: 101,  avg_loss: 0.7742, avg_recon_loss: 0.0281, avg_vq_loss: 0.7461, acc: 0.9912, vq_inds: [208, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.9756, avg_recon_loss: 0.2505, avg_vq_loss: 0.7251, acc: 0.9336, vq_inds: [99, 10, 10, 8, 9, 10, 10] 
+update best loss 
+
+epoch: 102,  avg_loss: 0.7469, avg_recon_loss: 0.0300, avg_vq_loss: 0.7169, acc: 0.9902, vq_inds: [206, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.9993, avg_recon_loss: 0.2587, avg_vq_loss: 0.7405, acc: 0.9362, vq_inds: [98, 10, 10, 7, 8, 10, 10] 
+
+epoch: 103,  avg_loss: 0.7334, avg_recon_loss: 0.0278, avg_vq_loss: 0.7056, acc: 0.9914, vq_inds: [207, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.9346, avg_recon_loss: 0.2607, avg_vq_loss: 0.6739, acc: 0.9332, vq_inds: [104, 10, 10, 8, 10, 10, 10] 
+update best loss 
+
+epoch: 104,  avg_loss: 0.7090, avg_recon_loss: 0.0291, avg_vq_loss: 0.6799, acc: 0.9905, vq_inds: [214, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.9806, avg_recon_loss: 0.2534, avg_vq_loss: 0.7272, acc: 0.9370, vq_inds: [103, 10, 10, 7, 9, 10, 10] 
+
+epoch: 105,  avg_loss: 0.7205, avg_recon_loss: 0.0294, avg_vq_loss: 0.6911, acc: 0.9905, vq_inds: [209, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.9975, avg_recon_loss: 0.2872, avg_vq_loss: 0.7103, acc: 0.9349, vq_inds: [104, 10, 10, 9, 8, 10, 10] 
+
+epoch: 106,  avg_loss: 0.7289, avg_recon_loss: 0.0331, avg_vq_loss: 0.6958, acc: 0.9895, vq_inds: [213, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.9704, avg_recon_loss: 0.2333, avg_vq_loss: 0.7371, acc: 0.9434, vq_inds: [107, 10, 10, 8, 9, 10, 10] 
+
+epoch: 107,  avg_loss: 0.7225, avg_recon_loss: 0.0300, avg_vq_loss: 0.6925, acc: 0.9905, vq_inds: [206, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.9508, avg_recon_loss: 0.2391, avg_vq_loss: 0.7117, acc: 0.9409, vq_inds: [101, 10, 10, 7, 9, 10, 10] 
+
+epoch: 108,  avg_loss: 0.6854, avg_recon_loss: 0.0281, avg_vq_loss: 0.6574, acc: 0.9910, vq_inds: [212, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8943, avg_recon_loss: 0.2255, avg_vq_loss: 0.6688, acc: 0.9456, vq_inds: [107, 10, 10, 8, 8, 10, 10] 
+update best loss 
+
+epoch: 109,  avg_loss: 0.6821, avg_recon_loss: 0.0261, avg_vq_loss: 0.6560, acc: 0.9918, vq_inds: [215, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8921, avg_recon_loss: 0.2245, avg_vq_loss: 0.6676, acc: 0.9439, vq_inds: [111, 10, 10, 7, 7, 10, 10] 
+update best loss 
+
+epoch: 110,  avg_loss: 0.6532, avg_recon_loss: 0.0276, avg_vq_loss: 0.6257, acc: 0.9905, vq_inds: [216, 10, 10, 10, 10, 10, 10] 
+<s>esiyor</s>----->eğiyor</s>
+<s>övüyor</s>----->övünor</s>
+<s>atlıyor</s>----->atlıyor</s>
+<s>ekliyor</s>----->ekiiyor</s>
+<s>kaçıyor</s>----->kaçıyor</s>
+<s>yürüyor</s>----->yürüyor</s>
+<s>yumuyor</s>----->yumuyor</s>
+<s>uğruyor</s>----->uğruyor</s>
+<s>çözüyor</s>----->çözeyor</s>
+<s>kınıyor</s>----->kızıyor</s>
+<s>kayıyor</s>----->kayıyor</s>
+<s>çöküyor</s>----->güküyor</s>
+<s>sokuyor</s>----->sokuyor</s>
+<s>özlüyor</s>----->öllüyor</s>
+<s>diliyor</s>----->dileyor</s>
+<s>sayıyor</s>----->sanıyor</s>
+<s>takıyor</s>----->takıyor</s>
+<s>bıkıyor</s>----->bıkıyor</s>
+<s>eğitiyor</s>----->eğiyiyor</s>
+<s>umuyoruz</s>----->umuyorum</s>
+<s>kutluyor</s>----->kutluyor</s>
+<s>süslüyor</s>----->süylüyor</s>
+<s>açıyoruz</s>----->açıyoruz</s>
+<s>ödüyorum</s>----->ödeyorum</s>
+<s>düşlüyor</s>----->düşlüyor</s>
+<s>aramıyor</s>----->aramıyor</s>
+<s>çatmıyor</s>----->çatmıyor</s>
+<s>yatmıyor</s>----->yatmıyor</s>
+<s>iletiyor</s>----->ileriror</s>
+<s>arıyoruz</s>----->arıyoruz</s>
+<s>yansıyor</s>----->yanııyor</s>
+<s>alışıyor</s>----->alışıyor</s>
+<s>oluyoruz</s>----->oluyoruz</s>
+<s>yanmıyor</s>----->banmıyor</s>
+<s>çalıyorum</s>----->çalıyorum</s>
+<s>çalıyoruz</s>----->çalıyoruz</s>
+<s>olmuyoruz</s>----->olmuşorum</s>
+<s>coşuyoruz</s>----->koşuyoruz</s>
+<s>amaçlıyor</s>----->amaçlıyor</s>
+<s>değiniyor</s>----->değiniyor</s>
+<s>çabalıyor</s>----->çabalıyor</s>
+<s>kınıyoruz</s>----->kızıyoruz</s>
+<s>yazıyoruz</s>----->yazıyoruz</s>
+<s>duyuyoruz</s>----->duyuroruz</s>
+<s>almıyorum</s>----->almıyorum</s>
+<s>geziniyor</s>----->geziniyor</s>
+<s>yöneliyor</s>----->yöneliyor</s>
+<s>evleniyor</s>----->evleniyor</s>
+<s>küçülüyor</s>----->kötülüyor</s>
+<s>beğeniyor</s>----->beğeniyor</s>
+<s>yarışıyor</s>----->yarışıyor</s>
+<s>yakınıyor</s>----->yakıyıyor</s>
+<s>birikiyor</s>----->biriksyor</s>
+<s>yemiyorum</s>----->yemiyorum</s>
+<s>izliyoruz</s>----->izliyoruz</s>
+<s>planlıyor</s>----->paallıyor</s>
+<s>kılıyorum</s>----->kılıyorum</s>
+<s>demiyorum</s>----->demiyorum</s>
+<s>geçiyorum</s>----->geçiyorum</s>
+<s>anlıyoruz</s>----->anlıyoruz</s>
+<s>gelişiyor</s>----->geliştyor</s>
+<s>uçmuyorum</s>----->ummuyorum</s>
+<s>uyuşmuyor</s>----->uyuşluyor</s>
+<s>unutmuyor</s>----->unutmuyor</s>
+<s>satıyoruz</s>----->satıyoruz</s>
+<s>konuyoruz</s>----->kuzuyoruz</s>
+<s>soğuyorum</s>----->soğuyorum</s>
+<s>sıralıyor</s>----->sırıtıyor</s>
+<s>giriyorum</s>----->giriyorum</s>
+<s>özlüyorum</s>----->öllüyorum</s>
+<s>azarlıyor</s>----->azarlıyor</s>
+<s>okşuyorum</s>----->kkuulorum</s>
+<s>sömürüyor</s>----->kötüysyor</s>
+<s>kızıyorum</s>----->kızıyorum</s>
+<s>sunuyorum</s>----->sunuyorum</s>
+<s>koşuyoruz</s>----->koşuyoruz</s>
+<s>kalıyoruz</s>----->kalıyoruz</s>
+<s>demiyoruz</s>----->demiyoruz</s>
+<s>sokuyoruz</s>----->sokuyorsz</s>
+<s>korkmuyor</s>----->korkmuyorl
+<s>üstleniyor</s>----->üstleyiyor</s>
+<s>görüyorlar</s>----->görüyorlar</s>
+<s>çalmıyorum</s>----->çalmıyorum</s>
+<s>harcıyorum</s>----->harcıyorum</s>
+<s>gerekmiyor</s>----->gerekmeyor</s>
+<s>kaydediyor</s>----->kaydediyor</s>
+<s>kurtarıyor</s>----->kurtarıyor</s>
+<s>fırlamıyor</s>----->hırçatıyorl
+<s>yapıyorsun</s>----->yapıyorsun</s>
+<s>dönüşmüyor</s>----->dönüşmüşor</s>
+<s>birleşiyor</s>----->birlişiyor</s>
+<s>bulmuyoruz</s>----->bulmuyorum</s>
+<s>katıyorlar</s>----->katlyorlar</s>
+<s>tanıyorlar</s>----->tanıyorlar</s>
+<s>sağlıyoruz</s>----->sağlıyoruz</s>
+<s>duyuyorlar</s>----->duyuyorlar</s>
+<s>koyuyorlar</s>----->koyuyorlar</s>
+<s>genişliyor</s>----->genişleyor</s>
+<s>dönüyorlar</s>----->dönüyorlar</s>
+<s>görüyorsun</s>----->görüyorsun</s>
+<s>çağrılıyor</s>----->çağıılıyor</s>
+<s>siliyorlar</s>----->siliyorlar</s>
+<s>değinmiyor</s>----->değinmiyorl
+<s>kızmıyorum</s>----->kızmıyorum</s>
+<s>tamamlıyor</s>----->tamamlayor</s>
+<s>yerleşiyor</s>----->yerleştror</s>
+<s>uyarıyorum</s>----->uyarıyorum</s>
+<s>suçlamıyor</s>----->suçlamışor</s>
+<s>sanıyorlar</s>----->sanıyorlar</s>
+<s>dışlamıyor</s>----->dışlamıyor</s>
+<s>satmıyorum</s>----->sallayorum</s>
+<s>sığmıyorum</s>----->kıkmayorum</s>
+<s>kovuyorlar</s>----->kopuyorlar</s>
+<s>özlüyorlar</s>----->övlüyorlar</s>
+<s>soruyorlar</s>----->soruyorlar</s>
+<s>kazanmıyor</s>----->kazanmıyor</s>
+<s>haykırıyor</s>----->şiykırdyor</s>
+<s>saymıyorum</s>----->saylayorum</s>
+<s>korkuyoruz</s>----->korkuyorsz</s>
+<s>zayıflıyor</s>----->zayıflıyor</s>
+<s>başlıyoruz</s>----->başlıyoruz</s>
+<s>patlamıyor</s>----->patlamışor</s>
+<s>girmiyoruz</s>----->girmiyorum</s>
+<s>sanmıyoruz</s>----->sanmıyoruz</s>
+<s>beklemiyor</s>----->beklemişor</s>
+<s>taşıyorlar</s>----->taşıyorlar</s>
+<s>aktarıyoruz</s>----->aktarıyoruz</s>
+<s>yırtıyorlar</s>----->yırııyorlar</s>
+<s>görüşüyoruz</s>----->görüşüroruz</s>
+<s>hoşlanmıyor</s>----->hoşlanmayor</s>
+<s>ödüyorsunuz</s>----->ödüyorsunuz</s>
+<s>başlıyorlar</s>----->başlıyorlar</s>
+<s>yolluyorlar</s>----->yolluyor</s>ar</s>
+<s>çeviriyorum</s>----->çeviriyorum</s>
+<s>açıklıyoruz</s>----->açıklıyorsz</s>
+<s>özetliyorum</s>----->özetliyorum</s>
+<s>uçuyorsunuz</s>----->uçuyorsunuz</s>
+<s>davranmıyor</s>----->davranmıyor</s>
+<s>savunuyorum</s>----->savunuyorum</s>
+<s>onaylamıyor</s>----->onaylamıyor</s>
+<s>tekrarlıyor</s>----->tekrarlayor</s>
+<s>eleştiriyor</s>----->eleştiriyor</s>
+<s>ilerliyorum</s>----->ilerliyorum</s>
+<s>inanıyorlar</s>----->inanıyorlar</s>
+<s>geçiniyorum</s>----->çeçiniyorum</s>
+<s>arzuluyorum</s>----->oruuldyorum</s>
+<s>yaşamıyorum</s>----->yaşamıyorum</s>
+<s>uyguluyoruz</s>----->kyuuluyoruz</s>
+<s>zorluyorlar</s>----->yorluyorlar</s>
+<s>bulunuyoruz</s>----->bulunuyoruz</s>
+<s>açıklamıyor</s>----->açıklamıyoru
+<s>hastalanıyor</s>----->hastalayıyor</s>
+<s>hazırlıyoruz</s>----->hazırlıyoruz</s>
+<s>kullanıyoruz</s>----->kullanıyoruz</s>
+<s>beklemiyoruz</s>----->beklemiyorum</s>
+<s>öğreniyorlar</s>----->öğreniyorlar</s>
+<s>kalıyorsunuz</s>----->kalıyorsunuz</s>
+<s>etmiyorsunuz</s>----->etmiyorsunuz</s>
+<s>yıpratıyorum</s>----->yıpranıyorum</s>
+<s>gönderiyorum</s>----->gönderiyorum</s>
+<s>yakınıyorlar</s>----->yakındyorlar</s>
+<s>hedefliyoruz</s>----->hedefliyorsz</s>
+<s>yayınlıyoruz</s>----->yayınııyoruz</s>
+<s>getirmiyorum</s>----->getiriiyorum</s>
+<s>yorumluyorum</s>----->yorumluyorum</s>
+<s>engellemiyor</s>----->engellemiyorl
+<s>yönetiyorlar</s>----->yöneyiyorlar</s>
+<s>yerleşiyoruz</s>----->yerserizoruz</s>
+<s>evleniyorlar</s>----->eğleniyorlar</s>
+<s>kastediyorum</s>----->kaytediyorum</s>
+<s>tiksiniyorum</s>----->tikliniyoruz</s>
+<s>seçiyorsunuz</s>----->seçiyorsunuz</s>
+<s>kızıyorsunuz</s>----->kızıyorsunuz</s>
+<s>dolaşmıyorum</s>----->dolaşııyorum</s>
+<s>seyrediyoruz</s>----->seyrediyoruz</s>
+<s>karşılaşıyor</s>----->karşılaşıyor</s>
+<s>karşılıyoruz</s>----->karşılıyoruz</s>
+<s>bayılıyorlar</s>----->bayıyıyorlar</s>
+<s>yaklaşıyorum</s>----->yaklaşıyorum</s>
+<s>söylemiyorlar</s>----->söylemiyorlar</s>
+<s>tanımlıyorlar</s>----->tanımlıyorlar</s>
+<s>düşünmüyorlar</s>----->düşünmüyorlar</s>
+<s>harcıyorsunuz</s>----->harcıyoruunuz</s>
+<s>topluyorsunuz</s>----->tolluyorsunuz</s>
+<s>hoşlanmıyorum</s>----->hoşlanmıyorum</s>
+<s>saçmalıyorlar</s>----->saçmalıyorlar</s>
+<s>hazırlıyorlar</s>----->hazırlıyorlar</s>
+<s>vazgeçmiyoruz</s>----->vazgeçmişorum</s>
+<s>araştırıyorum</s>----->araştırıyorum</s>
+<s>gönderiyorlar</s>----->gönderiyorlar</s>
+<s>kaybediyorlar</s>----->kaybediyorlar</s>
+<s>bahsediyorlar</s>----->bahsediyorlar</s>
+<s>seyrediyorlar</s>----->seyrediyorlar</s>
+<s>yayınlıyorlar</s>----->yanınlıyorlar</s>
+<s>tırmanıyorlar</s>----->tartanıyorlar</s>
+<s>zannetmiyorum</s>----->zannetmiyorum</s>
+<s>parçalıyorlar</s>----->harpılıyor</s>ar</s>
+<s>uygulamıyoruz</s>----->yylalmmıyorum</s>
+<s>göstermiyorlar</s>----->göstermiyorlar</s>
+<s>planlıyorsunuz</s>----->saanlıyorsunuz</s>
+<s>karşılaşıyoruz</s>----->karşılaşıyoruz</s>
+<s>eleştirmiyorum</s>----->eleştirmiyorum</s>
+<s>bırakıyorsunuz</s>----->bırakırorsunuz</s>
+<s>getiriyorsunuz</s>----->getiriyorsunuz</s>
+<s>uyguluyorsunuz</s>----->kyuuluyorsunuz</s>
+<s>kastediyorsunuz</s>----->kastediyorsunuz</s>
+<s>gösteriyorsunuz</s>----->gösteriyorsunuz</s>
+<s>engelliyorsunuz</s>----->engelliyorsunuz</s>
+<s>karşılaşıyorlar</s>----->karşılaşıyorlar</s>
+val ---  avg_loss: 0.8676, avg_recon_loss: 0.2042, avg_vq_loss: 0.6634, acc: 0.9434, vq_inds: [102, 10, 10, 7, 7, 10, 10] 
+update best loss 
+
+epoch: 111,  avg_loss: 0.6236, avg_recon_loss: 0.0261, avg_vq_loss: 0.5976, acc: 0.9923, vq_inds: [216, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.9447, avg_recon_loss: 0.2748, avg_vq_loss: 0.6699, acc: 0.9439, vq_inds: [112, 10, 10, 8, 8, 10, 10] 
+
+epoch: 112,  avg_loss: 0.6425, avg_recon_loss: 0.0256, avg_vq_loss: 0.6170, acc: 0.9923, vq_inds: [217, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8556, avg_recon_loss: 0.2305, avg_vq_loss: 0.6251, acc: 0.9473, vq_inds: [110, 10, 10, 7, 8, 10, 10] 
+update best loss 
+
+epoch: 113,  avg_loss: 0.6245, avg_recon_loss: 0.0238, avg_vq_loss: 0.6007, acc: 0.9923, vq_inds: [217, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8329, avg_recon_loss: 0.2522, avg_vq_loss: 0.5807, acc: 0.9396, vq_inds: [111, 10, 10, 8, 9, 10, 10] 
+update best loss 
+
+epoch: 114,  avg_loss: 0.6078, avg_recon_loss: 0.0256, avg_vq_loss: 0.5822, acc: 0.9918, vq_inds: [222, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8523, avg_recon_loss: 0.2496, avg_vq_loss: 0.6027, acc: 0.9430, vq_inds: [106, 10, 10, 7, 7, 10, 10] 
+
+epoch: 115,  avg_loss: 0.6088, avg_recon_loss: 0.0271, avg_vq_loss: 0.5817, acc: 0.9914, vq_inds: [219, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.7900, avg_recon_loss: 0.2109, avg_vq_loss: 0.5792, acc: 0.9439, vq_inds: [108, 10, 10, 7, 9, 10, 10] 
+update best loss 
+
+epoch: 116,  avg_loss: 0.6072, avg_recon_loss: 0.0274, avg_vq_loss: 0.5798, acc: 0.9908, vq_inds: [224, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8494, avg_recon_loss: 0.2146, avg_vq_loss: 0.6348, acc: 0.9468, vq_inds: [106, 10, 10, 7, 9, 10, 10] 
+
+epoch: 117,  avg_loss: 0.6056, avg_recon_loss: 0.0247, avg_vq_loss: 0.5809, acc: 0.9916, vq_inds: [219, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8557, avg_recon_loss: 0.2368, avg_vq_loss: 0.6189, acc: 0.9400, vq_inds: [105, 10, 10, 8, 9, 10, 10] 
+
+epoch: 118,  avg_loss: 0.6052, avg_recon_loss: 0.0288, avg_vq_loss: 0.5764, acc: 0.9907, vq_inds: [222, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8878, avg_recon_loss: 0.2551, avg_vq_loss: 0.6327, acc: 0.9451, vq_inds: [109, 10, 10, 8, 10, 10, 10] 
+
+epoch: 119,  avg_loss: 0.5921, avg_recon_loss: 0.0240, avg_vq_loss: 0.5681, acc: 0.9920, vq_inds: [225, 10, 10, 10, 10, 10, 10] 
+val ---  avg_loss: 0.8250, avg_recon_loss: 0.2244, avg_vq_loss: 0.6006, acc: 0.9430, vq_inds: [113, 10, 10, 8, 8, 10, 10] 
