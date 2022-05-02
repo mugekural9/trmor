@@ -66,21 +66,61 @@ def find_li_vectors(dim, R):
                 index[counter] = i #index is saved
                 j = i #j is refreshed
             #do not forget to refresh j: otherwise you would compute only the vectors li with the first column!!
-
     R_independent = zeros((r, dim))
-
     i = 0
     #now save everything in a new matrix
     while( i < dim ):
         #R_independent[i,:] = R[index[i],:] 
         R_independent[:,i] = R[:,index[i]] 
         i += 1
-
     return R_independent
 
 def get_model_info(id):
+
+    #PAPER
+    if id == 'vae_our_best':
+        model_path  = 'model/vae/results/training/10000_instances/best/120epochs.pt'
+        model_vocab = 'model/vae/results/training/10000_instances/surf_vocab.json'   
+    elif id == 'ae_best':
+        model_path  = 'model/ae/results/training/10000_instances/best/120epochs.pt'
+        model_vocab = 'model/ae/results/training/10000_instances/surf_vocab.json'   
+    elif id == 'charlm_best':
+        model_path  = 'model/charlm/results/training/10000_instances/best/120epochs.pt'
+        model_vocab = 'model/charlm/results/training/10000_instances/surf_vocab.json' 
+    elif id == 'minigpt_best_2':
+        model_path  = 'model/miniGPT/results/training/10000_instances/best_2/150epochs.pt'
+        model_vocab = 'model/miniGPT/results/training/10000_instances/surf_vocab.json' 
+    elif id == 'vqvae_best':
+        model_path  = 'model/vqvae/results/training/10000_instances/150epochs.pt'
+        model_vocab = 'model/vqvae/results/training/10000_instances/surf_vocab.json' 
+    elif id == 'vqvae_3x10':
+        model_path  = 'model/vqvae/results/training/50000_instances/morph-seg-exps/252epochs.pt'
+        model_vocab = 'model/vqvae/results/training/50000_instances/morph-seg-exps/surf_vocab.json' 
+
+    elif id == 'vqvae_3x10_10k':
+        model_path  = 'model/vqvae/results/training/10000_instances/252epochs.pt'
+        model_vocab = 'model/vqvae/results/training/10000_instances/surf_vocab.json' 
+
+
+    #segmentation
+    elif id == 'charlm_segm':
+        model_path  = 'model/charlm/results/training/617298_instances/for_segm/30epochs.pt'
+        model_vocab = 'model/charlm/results/training/617298_instances/for_segm/surf_vocab.json' 
+    elif id == 'minigpt_segm_50k':
+        model_path  = 'model/miniGPT/results/training/50000_instances/100epochs.pt'
+        model_vocab = 'model/miniGPT/results/training/50000_instances/surf_vocab.json' 
+    # vae_segm -> VAE_7
+    elif id == 'vae_segm': 
+        model_path  = 'model/vae/results/training/50000_instances/for_segm/50k_2/50epochs.pt_40'
+        model_vocab = 'model/vae/results/training/50000_instances/for_segm/50k/surf_vocab.json'
+    elif id == 'vqvae_segm': 
+        model_path  = 'model/vqvae/results/training/50000_instances/5/120epochs.pt'
+        model_vocab = 'model/vqvae/results/training/50000_instances/5/surf_vocab.json'
+
+
+    ###
     # ae
-    if id == 'ae_1':
+    elif id == 'ae_1':
         model_path  = 'model/ae/results/training/50000_instances/15epochs.pt'
         model_vocab = 'model/ae/results/training/50000_instances/surf_vocab.json'
     elif id == 'ae_2':
@@ -124,13 +164,21 @@ def get_model_info(id):
     elif id == 'vae_12': 
         model_path  = 'model/vae/results/training/3487_instances/100epochs.pt'
         model_vocab = 'model/vae/results/training/3487_instances/surf_vocab.json'
+    elif id == 'vae_13': 
+        model_path  = 'model/vae/results/training/3487_instances/50epochs.pt_49'
+        model_vocab = 'model/vae/results/training/3487_instances/surf_vocab.json'
     elif id == 'vae_neu_1': 
         model_path  = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/models/trmor/trmor_agg1_kls0.10_warm10_0_0.pt9'
         model_vocab = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/trmor_agg0_kls0.10_warm10_0_0_surf_vocab.json'
     elif id == 'vae_neu_2': 
         model_path  = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/models/trmor/trmor_agg1_kls0.10_warm10_0_0.pt9'
         model_vocab = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/trmor_agg1_kls0.10_warm10_0_0_surf_vocab.json'
-
+    elif id == 'vae_neu_3': 
+        model_path  = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/models/trmor/trmor_agg1_kls0.10_warm20_0_0.pt19'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/trmor_agg1_kls0.10_warm10_0_0_surf_vocab.json'
+    elif id == 'vae_neu_4': 
+        model_path  = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/models/trmor/trmor_agg1_kls0.10_warm30_0_0.pt29'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/trmor_agg1_kls0.10_warm10_0_0_surf_vocab.json'
  
  
 
@@ -245,14 +293,32 @@ def get_model_info(id):
         model_path  = 'model/vqvae/results/training/100_instances/50epochs.pt'
         model_vocab  = 'model/vqvae/results/training/100_instances/surf_vocab.json'
     elif id == 'ae_for_vqvae_001': 
-        model_path  = 'model/vqvae/results/training/3487_instances/ae_001.pt'
+        model_path  = 'model/vqvae/results/training/3487_instances/50epochs.pt'
         model_vocab  = 'model/vqvae/results/training/3487_instances/surf_vocab.json'
     elif id == 'ae_for_vqvae_003': 
         model_path  = 'model/vqvae/results/training/20000_instances/ae_003.pt'
         model_vocab  = 'model/vqvae/results/training/20000_instances/surf_vocab.json'
     elif id == 'ae_for_vqvae_004': 
-        model_path  = 'model/vqvae/results/training/10000_instances/ae_004.pt'
+        model_path  = 'model/vqvae/results/training/10000_instances/20epochs.pt'
         model_vocab  = 'model/vqvae/results/training/10000_instances/surf_vocab.json'
+
+
+
+    elif id == 'ae_for_vqvae_006': 
+        model_path  = 'model/vqvae/results/training/10000_instances/20epochs.pt'
+        model_vocab  = 'model/vqvae/results/training/10000_instances/surf_vocab.json'
+    elif id == 'ae_for_vqvae_007': 
+        model_path  = 'model/vqvae/results/training/50000_instances/20epochs.pt'
+        model_vocab  = 'model/vqvae/results/training/50000_instances/surf_vocab.json'
+    elif id == 'ae_for_vqvae_008': 
+        model_path  = 'model/vqvae/results/training/617298_instances/5epochs.pt'
+        model_vocab  = 'model/vqvae/results/training/617298_instances/surf_vocab.json'
+    elif id == 'ae_for_vqvae_009': 
+        model_path   = 'model/vqvae/results/training/1000_instances/50epochs.pt'
+        model_vocab  = 'model/vqvae/results/training/1000_instances/surf_vocab.json'
+
+
+
 
     elif id == 'vqvae_probes': 
         model_path  = 'model/vqvae/results/training/3487_instances/15epochs.pt'
@@ -274,6 +340,20 @@ def get_model_info(id):
         model_path  = 'model/vqvae/results/training/10000_instances/7_2.pt'
         model_vocab  = 'model/vqvae/results/training/10000_instances/surf_vocab.json'
 
+
+    elif id == 'vqvae_6x8': 
+        model_path   = 'model/vqvae/results/training/3487_instances/dict-exps/7dicts/hyperparam/8+8+8+8+8+8/252epochs.pt'
+        model_vocab  = 'model/vqvae/results/training/3487_instances/dict-exps/7dicts/hyperparam/8+8+8+8+8+8/surf_vocab.json'
+    elif id == 'vqvae_5+5+5': 
+        model_path   = 'model/vqvae/results/training/3487_instances/dict-exps/4dicts/hyperparam/5+5+5/252epochs.pt'
+        model_vocab  = 'model/vqvae/results/training/3487_instances/dict-exps/4dicts/hyperparam/5+5+5/surf_vocab.json'
+    elif id == 'vqvae_10+10+10': 
+        model_path   = 'model/vqvae/results/training/3487_instances/dict-exps/4dicts/hyperparam/10+10+10/252epochs.pt'
+        model_vocab  = 'model/vqvae/results/training/3487_instances/dict-exps/4dicts/hyperparam/10+10+10/surf_vocab.json'
+
+    elif id == 'vqvae_2_0': 
+        model_path  = 'model/vqvae/results/training/3487_instances/2_0.pt'
+        model_vocab  = 'model/vqvae/results/training/3487_instances/surf_vocab.json'
         
     elif id == 'vqvae_7d_2': 
         model_path  = 'model/vqvae/results/training/10000_instances/7_d2.pt'
