@@ -80,16 +80,16 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'charlm_3'
+    model_id = 'charlm_segm'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
-    args.heur_type = 'prev_mid_next'; args.eps = 0.0
+    args.heur_type = 'prev_mid_next_and_prevnext_exceed'; args.eps = 0.0
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
     args.recon_type = 'avg' 
     # logging
     args.logdir = 'evaluation/morph_segmentation/results/charlm/'+model_id+'/'+args.recon_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
-    args.fseg   = args.logdir +'40ksegments.txt'
-    args.fprob  = args.logdir +'40kprobs.json'
+    args.fseg   = args.logdir +'segments.txt'
+    args.fprob  = args.logdir +'probs.json'
     args.load_probs_from_file = False; args.save_probs_to_file = not args.load_probs_from_file
     try:
         os.makedirs(args.logdir)
@@ -103,7 +103,7 @@ def config():
         args.vocab = VocabEntry(word2id)
     
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 512; args.nh = 1024; 
+    args.ni = 256; args.nh = 512; 
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.model = CharLM(args, args.vocab, model_init, emb_init) 
 
@@ -112,7 +112,7 @@ def config():
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/morph_segmentation/data/top40k_wordlist.tur'
+    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
     args.maxtstsize = 40000
     args.batch_size = 1
     return args

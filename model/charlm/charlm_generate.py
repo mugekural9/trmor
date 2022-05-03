@@ -20,7 +20,7 @@ def generate(args):
     input = torch.tensor([bosid]).unsqueeze(0)
     word = []
     sft = nn.Softmax(dim=1)
-    i = 0; max_length = 20
+    i = 0; max_length = 30
     decoder_hidden = init_hidden(args.model,1)
     while i < max_length:
         i +=1
@@ -40,7 +40,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'charlm_5'
+    model_id = 'charlm_segm'
     model_path, model_vocab  = get_model_info(model_id)
     # logging
     args.logdir = 'model/charlm/results/generation/'+model_id+'/'
@@ -57,7 +57,7 @@ def config():
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
 
-    args.ni = 512; args.nh = 1024
+    args.ni = 256; args.nh = 512
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.model = CharLM(args, args.vocab, model_init, emb_init)
 

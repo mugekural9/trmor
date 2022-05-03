@@ -1,7 +1,7 @@
 # -----------------------------------------------------------
 # Date:        2021/12/19 
 # Author:      Muge Kural
-# Description: Trainer of surface form pos tagging probe, saves the results under ./results directory.
+# Description: Trainer of person probe, saves the results under ./results directory.
 # -----------------------------------------------------------
 
 import sys, argparse, random, torch, json, matplotlib, os
@@ -11,16 +11,18 @@ import matplotlib.pyplot as plt
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch import optim
 from common.utils import *
-from data.data import build_data
-from model.ae.ae import AE
-from model.vae.vae import VAE
-from model.vqvae.vqvae import VQVAE
-
-from model.charlm.charlm import CharLM
 from common.vocab import VocabEntry
-from evaluation.probing.ae_probe import AE_Probe
-from evaluation.probing.vae_probe import VAE_Probe
+from data.data import build_data
+from model.charlm.charlm import CharLM
+from model.miniGPT.gpt3 import GPT3
+
+from model.vae.vae import VAE
+from model.ae.ae import AE
+from model.vqvae.vqvae import VQVAE
 from evaluation.probing.charlm_lstm_probe import CharLM_Lstm_Probe
+from evaluation.probing.miniGPT_probe import MiniGPT_Probe, MiniGPT_Probe2
+from evaluation.probing.vae_probe import VAE_Probe
+from evaluation.probing.ae_probe import AE_Probe
 from evaluation.probing.vqvae_probe import VQVAE_Probe
 
 matplotlib.use('Agg')
@@ -36,7 +38,7 @@ def test(batches, mode, args):
         surf, person = batches[idx] 
         surfs.append(surf)
         persons.append(person)
-        loss, (acc,pred_tokens) = args.model.probe_loss(surf, person)
+        loss, (acc, pred_tokens) = args.model.probe_loss(surf, person)
         epoch_num_instances += surf.size(0)
         epoch_loss += loss.item()
         epoch_acc  += acc
@@ -53,34 +55,36 @@ def test(batches, mode, args):
 
 def train(data, args):
     trnbatches, valbatches, tstbatches = data
-    opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.parameters()), lr=args.lr)
+    opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.linear.parameters()), lr=args.lr)
     scheduler = ReduceLROnPlateau(opt, 'min', verbose=1, factor=0.5)
-    #for name, prm in args.model.named_parameters():
-    #    args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
+    for name, prm in args.model.named_parameters():
+        args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
     numbatches = len(trnbatches)
-    indices = list(range(numbatches))
+    indices = list(range(len(trnbatches)))
+    #random.seed(0)
     best_loss = 1e4
     trn_loss_values = []; trn_acc_values = []
     val_loss_values = []; val_acc_values = []
     for epc in range(args.epochs):
         rdict= []
-        for i in range(512):
-            rdict.append(0)
+        #for i in range(512):
+        #    rdict.append(0)
         surfs = []; preds = []; persons = []
         epoch_loss = 0; epoch_acc = 0; epoch_num_instances = 0
         random.shuffle(indices) # this breaks continuity if there is
         for i, idx in enumerate(indices):
-            args.model.zero_grad() 
+            args.model.linear.zero_grad() 
             # (batchsize, t)
             surf, person = trnbatches[idx]
             if epc==args.epochs -1:
-                loss, (acc,pred_tokens) = args.model.probe_loss(surf, person, plot= True, ratiodict=rdict)
+                loss, (acc,pred_tokens) = args.model.probe_loss(surf, person, plot= False, ratiodict=rdict)
                 if i==len(indices)-1:
-                    loss, (acc,pred_tokens) = args.model.probe_loss(surf, person, plot= True, ratiodict=rdict, last_iter=True)
+                    loss, (acc,pred_tokens) = args.model.probe_loss(surf, person, plot= False, ratiodict=rdict, last_iter=True)
             else:
                 loss, (acc,pred_tokens) = args.model.probe_loss(surf, person, plot= False, ratiodict=None)
             surfs.append(surf)
             persons.append(person)
+            preds.append(pred_tokens)
             loss.backward()
             opt.step()
             epoch_num_instances += surf.size(0) 
@@ -97,8 +101,14 @@ def train(data, args):
                 person_info = persons[k]
                 for j in range(surf.size(0)):
                     writer.write(''.join(surf_vocab.decode_sentence(surf[j]))+ '--->' + person_vocab.id2word(person_info[j].item()) +'\n')'''
+        '''with open(str(epc)+'_person_preds.txt', 'w') as writer:
+            for k in range(len(surfs)):
+                surf = surfs[k]
+                pred_tokens = preds[k]
+                for j in range(surf.size(0)):
+                    writer.write(''.join(surf_vocab.decode_sentence(surf[j]))+ '--->' + person_vocab.id2word(pred_tokens[j].item()) +'\n')'''
         # VAL
-        args.model.eval()
+        args.model.linear.eval()
         with torch.no_grad():
             nll, acc = test(valbatches, "val", args)
         val_loss_values.append(nll)
@@ -108,22 +118,22 @@ def train(data, args):
             args.logger.write('update best loss \n')
             best_loss = nll
             torch.save(args.model.state_dict(), args.save_path)
-        args.model.train()
-    plot_curves(args.task, args.mname, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
-    plot_curves(args.task, args.mname, args.fig, args.axs[1], trn_acc_values,  val_acc_values,  args.plt_style, 'acc')
+        args.model.linear.train()
+    #plot_curves(args.task, args.mname, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
+    #plot_curves(args.task, args.mname, args.fig, args.axs[1], trn_acc_values,  val_acc_values,  args.plt_style, 'acc')
     return trn_acc_values, val_acc_values
 
 # CONFIG
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-model_id = 'vae_neu_2'
+model_id = 'vqvae_3x10_10k'
 model_path, model_vocab  = get_model_info(model_id)
 args.mname  = model_id +'_probe' 
 
 # training
-args.batchsize = 512; args.epochs = 1000
-args.opt= 'Adam'; args.lr = 0.01
+args.batchsize = 128; args.epochs = 300
+args.opt= 'Adam'; args.lr = 0.001
 args.task = 'surf2person'
 args.seq_to_no_pad = 'surface'
 
@@ -132,50 +142,76 @@ with open(model_vocab) as f:
     word2id = json.load(f)
     surf_vocab = VocabEntry(word2id)
 
+#args.trndata =  'evaluation/probing/person/data/person.uniquesurfs.trn.txt' 
+#args.valdata =  'evaluation/probing/person/data/person.uniquesurfs.val.txt' 
 #args.trndata = 'evaluation/probing/person/data/sosimple.new.trn.combined.txt' 
-#args.valdata = 'evaluation/probing/person/data/sosimple.new.seenroots.val.txt'
+#args.valdata = 'evaluation/probing/person/data/sosimple.new.seenroots.val.txt' 
 args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
 args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
 args.tstdata = args.valdata
 
-args.maxtrnsize = 57769; args.maxvalsize = 10000; args.maxtstsize = 10000
+args.maxtrnsize = 700000; args.maxvalsize = 100000; args.maxtstsize = 100000
 rawdata, batches, vocab = build_data(args, surf_vocab)
 _, person_vocab  = vocab
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(tstdata)
 
-# model
+# pretrained-model
 model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-args.ni = 256; #for ae,vae,charlm
-args.enc_nh = 512; args.dec_nh = 512;  #for ae,vae
+args.enc_nh = 512; 
+args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0 
+args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 
+args.ni = 256; args.dec_nh = 512;
+
+'''## AE & VAE
+args.nz = 32; 
 args.nh = 512 #for ae,vae,charlm
-args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0 #for ae,vae,charlm
-args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 #for ae,vae
-args.embedding_dim = args.enc_nh #for vqvae
-args.beta = 0.25 #for vqvae
-args.num_dicts = 16
-args.rootdict_emb_dim = 512  #for vqvae
-args.rootdict_emb_num = 50 #for vqvae
-args.orddict_emb_num  = 50   #for vqvae
+args.pretrained_model = AE(args, surf_vocab, model_init, emb_init)'''
 
-#args.nz = 512   #for ae,vae
-#args.pretrained_model = VQVAE(args, surf_vocab, model_init, emb_init, dict_assemble_type='sum')
-#args.model = VQVAE_Probe(args, person_vocab, model_init, emb_init)
+'''## miniGPT
+num_layers=3
+embed_dim=128
+num_heads=16
+block_size=128
+embedding_dropout_rate=0.0; attention_dropout_rate=0.0; residual_dropout_rate=0.0
+expand_ratio = 4
+args.embed = embed_dim
+args.pretrained_model = GPT3(vocab=surf_vocab,
+                             num_layers=num_layers,
+                             embed_dim=embed_dim,
+                             num_heads=num_heads,
+                             block_size=block_size,
+                             embedding_dropout_rate=embedding_dropout_rate,
+                             attention_dropout_rate=attention_dropout_rate,
+                             residual_dropout_rate=residual_dropout_rate,
+                             expand_ratio=expand_ratio)'''
 
-args.nz = 32   #for ae,vae
-args.pretrained_model = VAE(args, surf_vocab, model_init, emb_init)
-args.model = VAE_Probe(args, person_vocab, model_init, emb_init)
+## VQVAE
+args.beta = 0.5
+args.embedding_dim = args.enc_nh
+args.rootdict_emb_dim = 512; args.num_dicts = 4; args.nz = 512; args.outcat=0; args.incat = 192
+args.rootdict_emb_num = 10000; args.orddict_emb_num  = 10
+args.pretrained_model = VQVAE(args, surf_vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
+
+## CharLM
+#args.pretrained_model = CharLM(args, surf_vocab, model_init, emb_init)
+
+#load pretrained model
 args.pretrained_model.load_state_dict(torch.load(model_path), strict=False)
+
+# model
+#args.model = CharLM_Lstm_Probe(args, person_vocab, model_init, emb_init)
+#args.model = AE_Probe(args, person_vocab, model_init, emb_init)
+args.model = VQVAE_Probe(args, person_vocab, model_init, emb_init)
+#args.model  = MiniGPT_Probe(args, person_vocab)
 
 for param in args.model.parameters():
     param.requires_grad = False
 for param in args.model.linear.parameters():
     param.requires_grad = True
 
-args.model.to(args.device)
-
 # logging
-args.modelname = 'evaluation/probing/person/results/training/'+args.mname+'/'+str(len(trndata))+'_instances/'
+args.modelname = 'evaluation/probing/person/results/training/'+args.mname+'/'+str(len(trndata))+'_instances/RANDOM'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 
@@ -189,18 +225,28 @@ with open(args.modelname+'/surf_vocab.json', 'w') as f:
     f.write(json.dumps(surf_vocab.word2id))
 with open(args.modelname+'/person_vocab.json', 'w') as f:
     f.write(json.dumps(person_vocab.word2id))
+
+args.model.eval()
+args.model.to(args.device)
 args.logger.write('\nnumber of params: %d \n' % count_parameters(args.model))
-#args.logger.write(args)
-#args.logger.write('\n')
+args.logger.write(args)
+args.logger.write('\n')
 
 # plotting
-args.fig, args.axs = plt.subplots(2, sharex=True)
-args.plt_style = pstyle = '-'
+#args.fig, args.axs = plt.subplots(2, sharex=True)
+#args.plt_style = pstyle = '-'
 
 # run
-trn_acc_values, val_acc_values = train(batches, args)
-plt.savefig(args.fig_path)
-
-print('\nBEST PERSON acc value: %.4f' % max(trn_acc_values))
-print('\nBEST PERSON val acc: %.4f' % val_acc_values[np.argmax(trn_acc_values)])
-print('\nBEST PERSON at epoch acc: %d' % np.argmax(trn_acc_values))
+best_trn = []; best_val = []; num_replicas = 5
+for i in range(num_replicas):
+    args.model.linear.reset_parameters()
+    trn_acc_values, val_acc_values = train(batches, args)
+    #plt.savefig(args.fig_path)
+    best_trn.append(max(trn_acc_values))
+    best_val.append(val_acc_values[np.argmax(trn_acc_values)])
+    args.logger.write('\n-------------------iter %d-------------------------------------\n' % i)
+args.logger.write('num_replicas: \n%d' % num_replicas)
+args.logger.write('trn:\n')
+args.logger.write('mean: %.4f, std: %.4f \n' % (np.mean(best_trn), np.std(best_trn)))
+args.logger.write('val:\n')
+args.logger.write('mean: %.4f, std: %.4f \n' % (np.mean(best_val), np.std(best_val)))

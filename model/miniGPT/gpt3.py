@@ -43,9 +43,9 @@ tensor([[1.0000, 0.0000, 0.0000, 0.0000, 0.0000],
 
 import torch
 import torch.nn as nn
+from model.miniGPT.multihead_attention import MultiHead_Masked_SelfAttention
 import torch.nn.functional as F
-from models.multihead_attention import MultiHead_Masked_SelfAttention
-
+import math
 
 class Decoder(nn.Module):
     def __init__(self, embed_dim=512, num_heads=8, block_size=128, attention_dropout_rate=0.1, residual_dropout_rate=0.1, expand_ratio=4):
@@ -78,6 +78,23 @@ class Decoder(nn.Module):
 
         return x
 
+class PositionalEncoding(nn.Module):
+
+    def __init__(self, d_model, dropout=0.1, max_len=5000):
+        super().__init__()
+        self.dropout = nn.Dropout(p=dropout)
+
+        position = torch.arange(max_len).unsqueeze(1)
+        div_term = torch.exp(torch.arange(0, d_model, 2) * (-math.log(10000.0) / d_model))
+        pe = torch.zeros(max_len, 1, d_model)
+        pe[:, 0, 0::2] = torch.sin(position * div_term)
+        pe[:, 0, 1::2] = torch.cos(position * div_term)
+        self.register_buffer('pe', pe)
+
+    def forward(self, x):
+
+        x = x + self.pe[:x.size(0)]
+        return self.dropout(x)
 
 class GPT3(nn.Module):
     def __init__(self, vocab, num_layers, embed_dim, num_heads=8, block_size=128, embedding_dropout_rate=0.1, attention_dropout_rate=0.1, residual_dropout_rate=0.1, expand_ratio=4):
@@ -85,6 +102,7 @@ class GPT3(nn.Module):
         self.vocab = vocab
         self.token_embedding = nn.Embedding(num_embeddings=len(vocab.word2id), embedding_dim=embed_dim)
         self.position_embedding = nn.Parameter(torch.zeros(1, block_size, embed_dim))
+        #self.position_embedding = PositionalEncoding(embed_dim)
         self.embedding_dropout = nn.Dropout(p=embedding_dropout_rate)
         self.decoder1 = Decoder(embed_dim=embed_dim, num_heads=num_heads, block_size=block_size, attention_dropout_rate=attention_dropout_rate, residual_dropout_rate=residual_dropout_rate, expand_ratio=expand_ratio)
         self.decoder2 = Decoder(embed_dim=embed_dim, num_heads=num_heads, block_size=block_size, attention_dropout_rate=attention_dropout_rate, residual_dropout_rate=residual_dropout_rate, expand_ratio=expand_ratio)
@@ -92,6 +110,8 @@ class GPT3(nn.Module):
         self.layer_norm = nn.LayerNorm(embed_dim)
         self.head = nn.Linear(embed_dim, len(vocab.word2id), bias=False)
         self.apply(self._init_weights)
+        vocab_mask = torch.ones(len(vocab.word2id))
+        self.loss = nn.CrossEntropyLoss(weight=vocab_mask, reduce=False, ignore_index=0)
 
     def _init_weights(self, module):
         if isinstance(module, (nn.Linear, nn.Embedding)):
@@ -109,15 +129,13 @@ class GPT3(nn.Module):
         #print(f"1) x: {x.shape}")
         src = x[:, :-1]  # remove end symbol
         tgt = x[:, 1:]  # remove start symbol
-        b, t = src.size()
-        #print(f"2) src: {src.shape} and tgt: {tgt.shape}")
-
+        batchsize, seq_len = src.size()
         # forward the GPT model
         token_embeddings = self.token_embedding(src)  # each index maps to a learnable vector
         #print(f"3) word_embed: {token_embeddings.shape}")
-        position_embeddings = self.position_embedding[:, :t, :]  # each position maps to a learnable vector
+        position_embeddings = self.position_embedding[:, :seq_len, :]  # each position maps to a learnable vector
         #print(f"4) position_embeddings: {position_embeddings.shape}")
-        x = self.embedding_dropout(token_embeddings + position_embeddings)
+        x = self.embedding_dropout(position_embeddings+token_embeddings)
         #print(f"5) embedding_dropout: {x.shape}")
         x = self.decoder1(x)
         x = self.decoder2(x)
@@ -133,9 +151,12 @@ class GPT3(nn.Module):
         _output_logits = logits.view(-1, logits.size(-1))
         #print(f"25) _output_logits: {_output_logits.shape}")
         # calculate the loss
-        loss = F.cross_entropy(_output_logits, _tgt)
-        #print(f"26) loss: {loss.shape}")
-
+        # (batchsize * seq_len)
+        loss = self.loss(_output_logits, _tgt)
+        # (batchsize, seq_len)
+        loss = loss.reshape(batchsize, seq_len)
+        # (batchsize)
+        loss = loss.sum(-1)
         return loss, self.accuracy(logits, tgt), logits
 
     def log_probability(self, x):
@@ -152,12 +173,12 @@ class GPT3(nn.Module):
         wrong_tokens = (pred_tokens != targets)
         wrong_predictions = []
         correct_predictions = []
-        for i in range(B):
+        '''for i in range(B):
             target  = ''.join(surface_vocab.decode_sentence(targets[i]))
             pred = ''.join(surface_vocab.decode_sentence(pred_tokens[i]))
             if target != pred:
                 wrong_predictions.append('target: %s pred: %s' % (target, pred))
             else:
-                correct_predictions.append('target: %s pred: %s' % (target, pred))
+                correct_predictions.append('target: %s pred: %s' % (target, pred))'''
         acc = correct_tokens.sum().item(), B*T, wrong_tokens.sum().item(), wrong_predictions, correct_predictions
         return  acc

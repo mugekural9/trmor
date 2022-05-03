@@ -6,6 +6,7 @@
 
 import sys, argparse, random, torch, json, matplotlib, os
 import matplotlib.pyplot as plt
+import numpy as np
 from ae import AE, AE_Encoder, AE_Decoder
 from common.utils import *
 from torch import optim
@@ -15,18 +16,19 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def test(batches, mode, args):
     epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
-    numbatches = len(batches)
-    indices = list(range(numbatches))
+    numwords = args.valsize if mode =='val'  else args.tstsize
+    indices = list(range(len(batches)))
     for i, idx in enumerate(indices):
         # (batchsize, t)
         surf = batches[idx] 
-        loss, acc = args.model.loss(surf)
+        loss, acc, _ = args.model.loss(surf)
         epoch_num_tokens += surf.size(0) * (surf.size(1)-1)
-        epoch_loss       += loss.item()
+        epoch_loss       += loss.sum().item()
         epoch_acc        += acc
-    nll = epoch_loss / numbatches 
+    nll = epoch_loss / numwords
+    ppl = np.exp(epoch_loss / epoch_num_tokens)
     acc = epoch_acc / epoch_num_tokens
-    args.logger.write('%s --- avg_loss: %.4f, acc: %.4f  \n' % (mode, nll, acc))
+    args.logger.write('%s --- nll: %.4f, ppl: %.4f, acc: %.4f  \n' % (mode, nll, ppl, acc))
     return nll
 
 def train(data, args):
@@ -40,28 +42,36 @@ def train(data, args):
     for name, prm in args.model.named_parameters():
         args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
     
-    numbatches = len(trnbatches); indices = list(range(numbatches))
+    indices = list(range(len(trnbatches)))
+    numwords = args.trnsize
     best_loss = 1e4; trn_loss_values = []; val_loss_values = []
-    random.seed(0)
+    #random.seed(0)
     for epc in range(args.epochs):
         epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
+        epoch_encoder_fhs = []
         random.shuffle(indices) # this breaks continuity if there is any
         for i, idx in enumerate(indices):
             args.model.zero_grad()
             # (batchsize, t)
             surf = trnbatches[idx] 
             # (batchsize)
-            loss, acc = args.model.loss(surf)
-            loss.backward()
-            #torch.nn.utils.clip_grad_norm_(args.model.parameters(), 5.0)
+            loss, acc, encoder_fhs = args.model.loss(surf)
+            epoch_encoder_fhs.append(encoder_fhs)
+            batch_loss = loss.mean()
+            batch_loss.backward()
             opt.step()
             epoch_num_tokens += surf.size(0) * (surf.size(1)-1)
-            epoch_loss       += loss.item()
+            epoch_loss       += loss.sum().item()
             epoch_acc        += acc
-        nll = epoch_loss / numbatches 
+        nll = epoch_loss / numwords
+        ppl = np.exp(epoch_loss / epoch_num_tokens)
         acc = epoch_acc / epoch_num_tokens
         trn_loss_values.append(nll)
-        args.logger.write('\nepoch: %.1d avg_loss: %.4f, acc: %.4f\n' % (epc, nll, acc))
+        args.logger.write('\nepoch: %.1d nll: %.4f, ppl: %.4f acc: %.4f\n' % (epc, nll, ppl, acc))
+        if epc == args.epochs -1:
+            epoch_encoder_fhs = torch.cat(epoch_encoder_fhs).squeeze(1)
+            torch.save(epoch_encoder_fhs, 'ae_fhs_10k_verbs.pt')
+
         # VAL
         args.model.eval()
         with torch.no_grad():
@@ -81,17 +91,19 @@ args = parser.parse_args()
 args.device = 'cuda'
 
 # training
-args.batchsize = 128; args.epochs = 150
+args.batchsize = 128; args.epochs = 120
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'ae'
 args.seq_to_no_pad = 'surface'
 
 # data
-#args.trndata = 'model/ae/data/wordlist.tur' 
+args.trndata = 'model/ae/data/top50k_wordlist.tur' 
+args.valdata = 'model/ae/data/wordlist.tur.val'
 #args.valdata = 'model/ae/data/wordlist.tur.val'
-args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
-args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
-
+#args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
+#args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
+args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
+args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
 args.maxtrnsize = 1000000; args.maxvalsize = 10000; args.maxtstsize = 10000
@@ -106,7 +118,7 @@ emb_init = uniform_initializer(0.1)
 args.ni = 256; args.nz = 32; 
 args.enc_nh = 512; args.dec_nh = 512
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
+args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.3
 args.model = AE(args, vocab, model_init, emb_init)
 args.model.to(args.device)
 

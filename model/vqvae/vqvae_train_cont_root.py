@@ -6,7 +6,7 @@
 
 import sys, argparse, random, torch, json, matplotlib, os
 import matplotlib.pyplot as plt
-from vqvae import VQVAE
+from vqvae_continuous_root import VQVAE
 from vqvae_ae import VQVAE_AE
 from model.vae.vae import VAE
 
@@ -193,7 +193,11 @@ def train(data, args):
         writer.add_scalar('loss/recon_loss/trn', recon, epc)
         writer.add_scalar('loss/vq_loss/trn', vq, epc)
         writer.add_scalar('accuracy/trn', acc, epc)
-      
+        if epc % 5 == 0:
+            for i in range(args.num_dicts +1):
+                with open(str(i)+'_cluster_continuousroot.json', 'w') as json_file:
+                    json_object = json.dumps(clusters_list[i], indent = 4, ensure_ascii=False)
+                    json_file.write(json_object)
         
         '''# Histograms
         # (numinst, hdim)
@@ -238,10 +242,6 @@ def train(data, args):
             args.logger.write('update best loss \n')
             best_loss = loss
             torch.save(args.model.state_dict(), args.save_path)
-            for i in range(args.num_dicts +1):
-                with open(str(i)+'_cluster.json', 'w') as json_file:
-                    json_object = json.dumps(clusters_list[i], indent = 4, ensure_ascii=False)
-                    json_file.write(json_object)
         args.model.train()
 
 # CONFIG
@@ -255,8 +255,8 @@ args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
-args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
+#args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
+#args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
 
 #args.trndata = 'model/vqvae/data/1000verbs.simple.trn.txt'
 #args.valdata = 'model/vqvae/data/1000verbs.simple.val.txt'
@@ -267,8 +267,8 @@ args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
 #args.trndata = 'model/miniGPT/data/wordlist.tur'
 #args.valdata = 'model/miniGPT/data/theval.indices.tur'
 
-#args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
-#args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
+args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
+args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
@@ -284,35 +284,39 @@ args.ni = 256;
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.1; args.dec_dropout_out = 0.1
 args.enc_nh = 512;
-args.dec_nh = args.enc_nh; 
+#args.dec_nh = args.enc_nh; 
+args.dec_nh = 64; 
+
 args.embedding_dim = args.enc_nh; #args.nz = args.enc_nh
 args.beta = 0.5
 args.rootdict_emb_dim = 512;  args.nz = 512; 
-args.num_dicts = 9; args.outcat=0; args.incat = 192
+args.num_dicts = 3; args.outcat=0; args.incat = 192
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat
 args.rootdict_emb_num = 10000
-args.orddict_emb_num = 6
+args.orddict_emb_num = 10
 args.model = VQVAE(args, vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
 # load pretrained ae weights
-ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_10k_verbs.pt').to('cpu')
 #ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_top50k.pt').to('cpu')
 #ae_fhs_vectors = torch.load('fhs_617k.pt').to('cpu')
-#ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_3487_verbs.pt').to('cpu')
+ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_3487_verbs.pt').to('cpu')
 #ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_1000_verbs.pt').to('cpu')
 
-args.model.vq_layer_root.embedding.weight.data = ae_fhs_vectors[:args.rootdict_emb_num, :args.rootdict_emb_dim]
-args.model.vq_layer_suffix.embedding.weight.data = ae_fhs_vectors[args.orddict_emb_num:args.orddict_emb_num*2, :args.model.orddict_emb_dim]
+#args.model.vq_layer_root.embedding.weight.data = ae_fhs_vectors[:args.rootdict_emb_num, :args.rootdict_emb_dim]
+#args.model.vq_layer_suffix.embedding.weight.data = ae_fhs_vectors[args.orddict_emb_num:args.orddict_emb_num*2, :args.model.orddict_emb_dim]
+
+#args.model.vq_layer_suffix.embedding.weight.data = ae_fhs_vectors[:2, :args.model.orddict_emb_dim]
+#args.model.ord_vq_layers[0].embedding.weight.data = ae_fhs_vectors[2:7, :args.model.orddict_emb_dim]
+#args.model.ord_vq_layers[1].embedding.weight.data = ae_fhs_vectors[7:13, :args.model.orddict_emb_dim]
 
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
     offset_start = (args.orddict_emb_num) + (i* args.orddict_emb_num) 
     offset_end   = offset_start + (args.orddict_emb_num)
     vq_layer.embedding.weight.data = ae_fhs_vectors[offset_start: offset_end, :args.model.orddict_emb_dim]
 
-_model_id  = 'ae_for_vqvae_004'
-#_model_id = 'ae_for_vqvae_001'
-#_model_id = 'ae_for_vqvae_006'
 #_model_id = 'ae_for_vqvae_007'
+#_model_id  = 'ae_for_vqvae_006'
+_model_id = 'ae_for_vqvae_001'
 #_model_id = 'ae_for_vqvae_009'
 #_model_id = 'vae_13'
 _model_path, surf_vocab  = get_model_info(_model_id) 
@@ -335,10 +339,10 @@ args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 #for ae,vae,vqvae
 args.pretrained_model = VAE(args, args.surf_vocab, model_init, emb_init)
 args.pretrained_model.load_state_dict(torch.load(_model_path), strict=False)'''
 
-args.num_dicts = 0; args.outcat=0; args.incat = 0
+args.num_dicts = 0; args.outcat=0; args.incat = 0; args.dec_nh = 512
 args.pretrained_model = VQVAE_AE(args, args.surf_vocab, model_init, emb_init)
 args.pretrained_model.load_state_dict(torch.load(_model_path), strict=False)
-args.num_dicts = args.num_dicts_tmp; args.outcat=args.outcat_tmp; args.incat = args.incat_tmp; 
+args.num_dicts = args.num_dicts_tmp; args.outcat=args.outcat_tmp; args.incat = args.incat_tmp; args.dec_nh = 64
 
 # CRITIC
 args.model.encoder.embed = args.pretrained_model.encoder.embed

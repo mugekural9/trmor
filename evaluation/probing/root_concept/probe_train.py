@@ -117,15 +117,15 @@ def train(data, args):
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-#model_id = 'vae_neu_2'
-model_id = 'vqvae_7d_2'
+model_id = 'vae_neu_4'
+#model_id = 'vqvae_7d_2'
 
 model_path, model_vocab  = get_model_info(model_id)
 args.mname  = model_id +'_probe' 
 
 # training
-args.batchsize = 512; args.epochs = 1500
-args.opt= 'Adam'; args.lr = 0.001
+args.batchsize = 512; args.epochs = 1000
+args.opt= 'Adam'; args.lr = 0.01
 args.task = 'surf2root_concept'
 args.seq_to_no_pad = 'surface'
 
@@ -159,15 +159,15 @@ args.rootdict_emb_dim = 320  #for vqvae
 args.rootdict_emb_num = 5000 #for vqvae
 args.orddict_emb_num  = 100   #for vqvae
 
-args.nz = 512   #for ae,vae
-args.pretrained_model = VQVAE(args, surf_vocab, model_init, emb_init, dict_assemble_type='concat')
-args.model = VQVAE_Probe(args, root_concept_vocab, model_init, emb_init)
+#args.nz = 512   #for ae,vae
+#args.pretrained_model = VQVAE(args, surf_vocab, model_init, emb_init, dict_assemble_type='concat')
+#args.model = VQVAE_Probe(args, root_concept_vocab, model_init, emb_init)
 
-#args.nz = 32
-#args.pretrained_model = VAE(args, surf_vocab, model_init, emb_init)
-#args.model = VAE_Probe(args, root_concept_vocab, model_init, emb_init)
+args.nz = 32
+args.pretrained_model = VAE(args, surf_vocab, model_init, emb_init)
+args.model = VAE_Probe(args, root_concept_vocab, model_init, emb_init)
 
-args.pretrained_model.load_state_dict(torch.load(model_path), strict=False)
+#args.pretrained_model.load_state_dict(torch.load(model_path), strict=False)
 
 for param in args.model.parameters():
     param.requires_grad = False
@@ -175,24 +175,11 @@ for param in args.model.linear.parameters():
     param.requires_grad = True
 
 
-
 args.model.to(args.device)
 
-'''# load combined probe
-model_id = 'ae_1_probe_combined'
-model_path, (_, combined_vocab)  = get_model_info(model_id) 
-# load vocab (to initialize the model with correct vocabsize)
-with open(combined_vocab) as f:
-    word2id = json.load(f)
-    args.combined_vocab = VocabEntry(word2id)
-args.vocab = (surf_vocab, combined_vocab)
-args.model_2 = AE_Probe(args, args.combined_vocab, model_init, emb_init)
-# load model weights
-args.model_2.load_state_dict(torch.load(model_path))
-args.model_2.to(device)'''
 
 # logging
-args.modelname = 'evaluation/probing/root_concept/results/training/'+args.mname+'/'+str(len(trndata))+'_instances/'
+args.modelname = 'evaluation/probing/root_concept/results/training/'+args.mname+'/'+str(len(trndata))+'_instances/RANDOM/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

@@ -43,7 +43,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'ae_1'
+    model_id = 'ae_best'
     model_path, model_vocab  = get_model_info(model_id)
     # logging
     args.logdir = 'model/ae/results/copying/'+model_id+'/'
@@ -60,8 +60,8 @@ def config():
         word2id = json.load(f)
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 512; args.nz = 32; 
-    args.enc_nh = 1024; args.dec_nh = 1024
+    args.ni = 256; args.nz = 32; 
+    args.enc_nh = 512; args.dec_nh = 512
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.model = AE(args, args.vocab, model_init, emb_init)
@@ -72,16 +72,16 @@ def config():
     
 def main():
     args = config()
-    '''# copy tst data
-    args.tstdata = 'model/ae/data/surf.uniquesurfs.val.txt'
+    # copy tst data
+    args.tstdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
     args.maxtstsize = 10000
-    tstdata = read_data(args.maxtstsize, args.tstdata, vocab, 'TST')    
+    tstdata = read_data(args.maxtstsize, args.tstdata, args.vocab, 'TST')    
     with open(args.logfile, "w") as f:
         for data in tstdata:
-            word =  ''.join(vocab.decode_sentence_2(data[0]))
-            f.write(copy(model, word) + "\n")'''
+            word =  ''.join(args.vocab.decode_sentence_2(data[0]))
+            f.write(copy(args, word) + "\n")
 
-    # check subword copies
+    '''# check subword copies
     args.tstdata = 'model/ae/data/surf.uniquesurfs.trn.txt'
     args.maxtstsize = 50
     tstdata = read_data(args.maxtstsize, args.tstdata, args.vocab, 'TST')    
@@ -90,7 +90,7 @@ def main():
             f.write("\n-----\n")
             word =  ''.join(args.vocab.decode_sentence_2(data[0]))
             for i in range(len(word)):
-                f.write('%s --> %s' % (word[:i+1], copy(args, word[:i+1]))+"\n")
+                f.write('%s --> %s' % (word[:i+1], copy(args, word[:i+1]))+"\n")'''
 
 if __name__=="__main__":
     main()

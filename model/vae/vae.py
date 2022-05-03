@@ -168,16 +168,20 @@ class VAE(nn.Module):
         self.prior = torch.distributions.normal.Normal(loc, scale)
 
     def loss(self, x, kl_weight):
-        mu, logvar, _ = self.encoder(x)
+        mu, logvar, encoder_fhs = self.encoder(x)
         # (batchsize, 1, nz)
         z = self.reparameterize(mu, logvar)
+        # reconloss: (batchsize,1)
         recon_loss, recon_acc = self.recon_loss(x, z, recon_type='sum')
-        kl_loss = kl_weight * self.kl_loss(mu,logvar)
-        # avg over batches
-        recon_loss = recon_loss.mean()
-        kl_loss = kl_loss.mean()
-        loss = recon_loss + kl_loss
-        return loss, recon_loss, kl_loss, recon_acc
+
+        # (batchsize)
+        kl_loss = self.kl_loss(mu,logvar)
+
+        # (batchsize)
+        recon_loss = recon_loss.squeeze(1)#.mean()
+        #kl_loss = kl_loss.mean()
+        loss = recon_loss + kl_weight * kl_loss
+        return loss, recon_loss, kl_loss, recon_acc, encoder_fhs
 
     def kl_loss(self, mu, logvar):
         # KL: (batch_size), mu: (batch_size, nz), logvar: (batch_size, nz)

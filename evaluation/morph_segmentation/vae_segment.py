@@ -130,11 +130,11 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'vae_7'
+    model_id = 'vae_segm'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
-    args.heur_type = 'prev_mid_next_and_prevnext_exceed'; args.eps = 0.0
-    args.nsamples = 15000
+    args.heur_type = 'prev_mid_next'; args.eps = 0.0
+    args.nsamples = 1000
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
     args.recon_type = 'avg' 
     # (a) word_given: sample z from full word, (b) subword_given: sample z from subword
@@ -143,7 +143,7 @@ def config():
     args.logdir = 'evaluation/morph_segmentation/results/vae/'+model_id+'/'+args.recon_type+'/nsamples'+str(args.nsamples)+'/'+args.sample_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
     args.fseg   = args.logdir +'segments.txt'
     args.fprob  = args.logdir +'probs.json'
-    args.load_probs_from_file = True; args.save_probs_to_file = not args.load_probs_from_file
+    args.load_probs_from_file = False; args.save_probs_to_file = not args.load_probs_from_file
     try:
         os.makedirs(args.logdir)
         print("Directory " , args.logdir ,  " Created ") 
@@ -155,8 +155,8 @@ def config():
         word2id = json.load(f)
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 512; args.nz = 32; 
-    args.enc_nh = 1024; args.dec_nh = 1024
+    args.ni = 256; args.nz = 32; 
+    args.enc_nh = 512; args.dec_nh = 512
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.model = VAE(args, args.vocab, model_init, emb_init)

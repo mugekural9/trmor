@@ -17,16 +17,17 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def test(batches, mode, args):
     epoch_loss = 0; epoch_num_tokens = 0
-    numbatches = len(batches)
-    indices = list(range(numbatches))
+    numwords = args.valsize if mode =='val'  else args.tstsize
+    indices = list(range(len(batches)))
     for i, idx in enumerate(indices):
         # (batchsize, t)
         surf = batches[idx] 
         loss = args.model.charlm_loss(surf)
-        epoch_num_tokens += surf.size(0) * surf.size(1)
-        epoch_loss       += loss.item()
-    nll = epoch_loss / numbatches 
-    args.logger.write('%s --- avg_loss: %.4f \n' % (mode, nll))
+        epoch_num_tokens += surf.size(0) * (surf.size(1)-1) # exclude start token prediction
+        epoch_loss       += loss.sum().item()
+    nll = epoch_loss / numwords 
+    ppl = np.exp(epoch_loss / epoch_num_tokens)
+    args.logger.write('%s --- nll: %.4f, ppl: %.4f \n' % (mode, nll, ppl))
     return nll
 
 def train(data, args):
@@ -39,9 +40,10 @@ def train(data, args):
     for name, prm in args.model.named_parameters():
         args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
     
-    numbatches = len(trnbatches); indices = list(range(numbatches))
+    indices = list(range(len(trnbatches)))
     best_loss = 1e4; trn_loss_values = []; val_loss_values = []
-    random.seed(0)
+    numwords = args.trnsize
+    #random.seed(0)
     for epc in range(args.epochs):
         epoch_loss = 0; epoch_num_tokens = 0
         random.shuffle(indices) # this breaks continuity if there is any
@@ -51,13 +53,16 @@ def train(data, args):
             surf = trnbatches[idx] 
             # (batchsize)
             loss = args.model.charlm_loss(surf)
-            loss.backward()
+            batch_loss = loss.mean()
+            batch_loss.backward()
             opt.step()
-            epoch_num_tokens += surf.size(0) * surf.size(1)
-            epoch_loss       += loss.item()
-        nll = epoch_loss / numbatches 
+            epoch_num_tokens += surf.size(0) * (surf.size(1)-1) # exclude start token prediction
+            epoch_loss       += loss.sum().item()
+      
+        nll = epoch_loss / numwords 
+        ppl = np.exp(epoch_loss/ epoch_num_tokens)
         trn_loss_values.append(nll)
-        args.logger.write('\nepoch: %.1d avg_loss: %.4f\n' % (epc, nll))
+        args.logger.write('\nepoch: %.1d nll: %.4f, ppl: %.4f\n' % (epc, nll, ppl))
         # VAL
         args.model.eval()
         with torch.no_grad():
@@ -83,8 +88,10 @@ args.task = 'lm'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata = 'model/charlm/data/surf.uniquesurfs.trn.txt' 
-args.valdata = 'model/charlm/data/surf.uniquesurfs.val.txt'
+args.trndata = 'model/miniGPT/data/wordlist.tur'
+args.valdata = 'model/miniGPT/data/theval.indices.tur'
+#args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
+#args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
 args.maxtrnsize = 700000; args.maxvalsize = 10000; args.maxtstsize = 10000
@@ -96,13 +103,13 @@ args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trnd
 args.mname = 'charlm' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.ni = 512; args.nh = 1024
+args.ni = 256; args.nh = 512
 args.enc_dropout_in = 0.2; args.enc_dropout_out = 0.3
 args.model = CharLM(args, vocab, model_init, emb_init) 
 args.model.to(args.device)  
 
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'
+args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/for_segm/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

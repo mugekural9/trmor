@@ -122,12 +122,12 @@ class AE(nn.Module):
         self.decoder = AE_Decoder(args, vocab, model_init, emb_init)
 
     def loss(self, x):
-        # z: (batchsize, 1, nz)
-        z, _ = self.encoder(x)
+        # z: (batchsize, 1, nz), encoder_fhs: (batchsize, 1, enc_nh)
+        z, encoder_fhs = self.encoder(x)
         recon_loss, recon_acc = self.recon_loss(x, z, recon_type='sum')
         # avg over batches
-        recon_loss = recon_loss.mean()
-        return recon_loss,  recon_acc
+        recon_loss = recon_loss
+        return recon_loss,  recon_acc, encoder_fhs
 
     def recon_loss(self, x, z, recon_type='avg'):
         #remove end symbol

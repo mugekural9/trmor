@@ -5,12 +5,58 @@
 # -----------------------------------------------------------
 
 from common.vocab import VocabEntry
-from model.miniGPT.gpt3 import GPT3
+from model.vqvae.vqvae import VQVAE
 from common.utils import *
 import sys, argparse, random, torch, json, matplotlib, os
 import numpy as np
 from data.data import build_data
 from collections import OrderedDict
+
+# heur3: detects morpheme boundary if: 
+#        (1) the model cannot copy the word correctly (indicating that the sub word is not valid)
+def heur_check_copying(args, word):
+    def copy(args, word):
+        x = torch.tensor([args.vocab.word2id['<s>']] + args.vocab.encode_sentence(word) + [args.vocab.word2id['</s>']]).unsqueeze(0)
+        bosid = args.vocab.word2id['<s>']
+        input = torch.tensor(bosid)
+        sft = nn.Softmax(dim=1)
+        quantized_inputs, vq_loss, quantized_inds, encoder_fhs = args.model.vq_loss(x, 0)
+        root_z, suffix_z = quantized_inputs
+        c_init = root_z
+        h_init = torch.tanh(c_init)
+        decoder_hidden = (c_init, h_init)
+        copied = []; i = 0
+        while True:
+            # (1,1,ni)
+            word_embed = args.model.decoder.embed(torch.tensor([input]).unsqueeze(0))
+            word_embed = torch.cat((word_embed, suffix_z), -1)
+            # output: (1,1,dec_nh)
+            output, decoder_hidden = args.model.decoder.lstm(word_embed, decoder_hidden)
+            # (1, vocab_size)
+            output_logits = args.model.decoder.pred_linear(output).squeeze(1)
+            input = torch.argmax(sft(output_logits)) 
+            char = args.vocab.id2word(input.item())
+            copied.append(char)
+            if char == '</s>':
+                #print(''.join(copied))
+                return ''.join(copied), quantized_inds
+            
+    morphemes = []
+    prev_word = ''
+    root_id = copy(args, word)[1][0][0][0].item()
+    for i in range(1,len(word)+1):
+        copied_word, subword_root_id = copy(args, word[:i])
+        subword_root_id = subword_root_id[0][0][0].item()
+        if subword_root_id == root_id and word[:i]+'</s>' == copied_word and len(word[:i]) >2:
+            morphemes.append(word[:i][len(prev_word):])
+            prev_word = word[:i]
+
+    # add full word if missing
+    last_morph = word[len(prev_word):]
+    if len(last_morph) != 0:
+        morphemes.append(last_morph)
+    #print(morphemes)
+    return morphemes
 
 
 # heur2: detects morpheme boundary if: 
@@ -63,14 +109,16 @@ def get_logps(args, word, data, from_file=False):
             return logps[word]
     else:    
         with torch.no_grad():
+            root_fhs, fcs, z = args.model.encoder(data)
+            quantized_input_root, vq_loss, quantized_inds = args.model.vq_layer_root(root_fhs,0)
             logps = dict()
-            logps[word] = np.exp(args.model.log_probability(data).item())
+            logps[word] = np.exp(args.model.log_probability(data, quantized_input_root, args.recon_type).item())
             # loop through word's subwords 
             for i in range(len(data[0])-2, 1, -1):
                 eos  = torch.tensor([2]).to(args.device)
                 subdata = torch.cat([data[0][:i], eos])
                 subword = ''.join(args.vocab.decode_sentence(subdata[1:-1]))
-                logps[subword] = np.exp(args.model.log_probability(subdata.unsqueeze(0)).item())
+                logps[subword] = np.exp(args.model.log_probability(subdata.unsqueeze(0),  root_fhs, args.recon_type).item())
         logps = dict(reversed(list(logps.items())))
         return logps
 
@@ -80,14 +128,14 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'minigpt_segm_50k'
+    model_id = 'vqvae_3x10'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
     args.heur_type = 'prev_mid_next'; args.eps = 0.0
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
     args.recon_type = 'avg' 
     # logging
-    args.logdir = 'evaluation/morph_segmentation/results/miniGPT/'+model_id+'/'+args.recon_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
+    args.logdir = 'evaluation/morph_segmentation/results/vqvae/'+model_id+'/'+args.recon_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
     args.fseg   = args.logdir +'segments.txt'
     args.fprob  = args.logdir +'probs.json'
     args.load_probs_from_file = False; args.save_probs_to_file = not args.load_probs_from_file
@@ -102,33 +150,23 @@ def config():
         word2id = json.load(f)
         args.vocab = VocabEntry(word2id)
     
-
-    num_layers=3
-    embed_dim=256
-    num_heads=16
-    block_size=128
-    embedding_dropout_rate=0.0 
-    attention_dropout_rate=0.0
-    residual_dropout_rate=0.0
-    expand_ratio = 4
-    args.model = GPT3(vocab=args.vocab,
-                      num_layers=num_layers,
-                      embed_dim=embed_dim,
-                      num_heads=num_heads,
-                      block_size=block_size,
-                      embedding_dropout_rate=embedding_dropout_rate,
-                      attention_dropout_rate=attention_dropout_rate,
-                      residual_dropout_rate=residual_dropout_rate,
-                      expand_ratio=expand_ratio
-                     )
+    model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
+    args.ni = 256; args.enc_nh = 512;  args.dec_nh = 512; 
+    args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
+    args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
+    args.beta = 0.5
+    args.embedding_dim = args.enc_nh
+    args.rootdict_emb_dim = 512; args.num_dicts = 4; args.nz = 512; args.outcat=0; args.incat = 192
+    args.rootdict_emb_num = 10000; args.orddict_emb_num  = 10
+    args.model = VQVAE(args, args.vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
     # load model weights
     args.model.load_state_dict(torch.load(model_path))
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
-    args.maxtstsize = 40000
+    args.tstdata = 'evaluation/morph_segmentation/data/goldstdsample.tur' #goldstd_mc05-10aggregated.segments.tur'
+    args.maxtstsize = 1000
     args.batch_size = 1
     return args
 
@@ -141,6 +179,7 @@ def main():
     for data in batches:
         word = ''.join(args.vocab.decode_sentence(data[0][1:-1]))
         print(word)
+        
         logps = get_logps(args, word, data, from_file=args.load_probs_from_file)
         word_probs[word] = logps
         # call segmentation heuristic 

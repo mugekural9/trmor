@@ -15,11 +15,19 @@ class VQVAE_Probe(nn.Module):
         self.vocab    = vocab
         self.device   = args.device
         self.encoder  = args.pretrained_model.encoder
-    
-        self.linear_root   = args.pretrained_model.linear_root
-        self.vq_layer_root = args.pretrained_model.vq_layer_root
-        self.ord_linears   = args.pretrained_model.ord_linears
-        self.ord_vq_layers = args.pretrained_model.ord_vq_layers
+
+        self.num_dicts = args.num_dicts
+        self.encoder_emb_dim = args.embedding_dim 
+        self.rootdict_emb_dim = args.rootdict_emb_dim
+        self.rootdict_emb_num = args.rootdict_emb_num
+        self.orddict_emb_num  = args.orddict_emb_num
+
+        self.vq_layer_root   = args.pretrained_model.vq_layer_root
+        self.linear_suffix   = args.pretrained_model.linear_suffix
+        self.vq_layer_suffix = args.pretrained_model.vq_layer_suffix
+        self.ord_linears     = args.pretrained_model.ord_linears
+        self.ord_vq_layers   = args.pretrained_model.ord_vq_layers
+
 
         self.linear = nn.Linear(512, len(vocab.word2id), bias=True)
         vocab_mask = torch.ones(len(vocab.word2id))
@@ -28,25 +36,28 @@ class VQVAE_Probe(nn.Module):
     def forward(self, surf):
          # fhs: (B,1,hdim)
         fhs, fcs, z = self.encoder(surf)
-        _fhs = self.linear_root(fhs)
-        orddicts = []
-        rootdict, vq_loss, quantized_inds = self.vq_layer_root(_fhs,0)
+        vq_vectors = []; vq_inds = []
+        quantized_input_root, vq_loss, quantized_inds = self.vq_layer_root(fhs,0)
+        vq_vectors.append(quantized_input_root)
+        vq_inds.append(quantized_inds)
+        
+        _fhs =  self.linear_suffix(fhs)
+        quantized_input_suffix, vq_loss, quantized_inds = self.vq_layer_suffix(_fhs,0)
+        vq_vectors.append(quantized_input_suffix)
+        vq_inds.append(quantized_inds)
+
+        # quantize thru ord dicts
         for linear, vq_layer in zip(self.ord_linears, self.ord_vq_layers):
             _fhs =  linear(fhs)
-            quantized_input, _, _ = vq_layer(_fhs,0)
-            orddicts.append(quantized_input)
-        # (batchsize, 1, vocab_size)
-        # concat: (b,1, 512)
-        # rootdict: (b,1, 320)
-        # orddicts[1 to end]: (b,1, 32)
-        # orddict concat: (b,1, 192)
-        output_logits = self.linear(fhs) 
-        #output_logits = self.linear(rootdict) 
-        #output_logits = self.linear(orddicts[3]) 
-        #orddict_concat = torch.cat(orddicts,dim=2)
-        #output_logits = self.linear(orddict_concat)
-        #output_logits = self.linear(torch.cat((rootdict, orddict_concat),dim=2)) 
+            # quantized_input: (B, 1, orddict_emb_dim)
+            quantized_input, vq_loss, quantized_inds = vq_layer(_fhs,0)
+            vq_vectors.append(quantized_input)
+            vq_inds.append(quantized_inds)
         
+        suffix_vectors = vq_vectors[1:]
+        vq_vectors = (vq_vectors[0], torch.cat(suffix_vectors,dim=2)) 
+        root_vector   = vq_vectors[0]
+        output_logits = self.linear(fhs) 
         return output_logits
 
     def probe_loss(self, surf, y, plot=False, ratiodict=None,last_iter=False):

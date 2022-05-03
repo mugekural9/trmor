@@ -46,7 +46,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'vae_12'
+    model_id = 'vae_segm'
     model_path, model_vocab  = get_model_info(model_id)
     # logging
     args.logdir = 'model/vae/results/generation/'+model_id+'/'

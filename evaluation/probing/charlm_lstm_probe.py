@@ -25,12 +25,12 @@ class CharLM_Lstm_Probe(nn.Module):
         output_logits = self.linear(fhs) 
         return output_logits
 
-    def probe_loss(self, surf, y):
+    def probe_loss(self, surf, y, plot=False, ratiodict=None,last_iter=False):
         output_logits = self(surf) 
         loss = self.loss(output_logits.squeeze(1), y.squeeze(1))
-        acc  = self.accuracy(output_logits, y)
+        acc, pred_tokens  = self.accuracy(output_logits, y)
         # loss: avg over instances
-        return loss.mean(), acc
+        return loss.mean(), (acc,pred_tokens)
 
     def accuracy(self, output_logits, tgt):
         # calculate correct number of predictions 
@@ -39,4 +39,4 @@ class CharLM_Lstm_Probe(nn.Module):
         # (batchsize, T)
         pred_tokens = torch.argmax(sft(output_logits),2)
         acc = (pred_tokens == tgt).sum().item()
-        return acc
+        return acc, pred_tokens
