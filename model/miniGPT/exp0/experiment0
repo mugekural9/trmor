@@ -1,9 +1,0 @@
-2022-02-08 17:10:34,483 | | INFO | | Code started 
-
-2022-02-08 17:10:34,493 | | INFO | | Using device: cuda
-2022-02-08 17:10:34,493 | | INFO | | Training on 'surface' is starting
-2022-02-08 17:10:34,493 | | INFO | | We now give the hyperparameters
-2022-02-08 17:10:34,493 | | INFO | | Number of Epochs: 10
-2022-02-08 17:10:34,493 | | INFO | | Batch Size: 32
-2022-02-08 17:10:34,493 | | INFO | | Learning rate: 0.001
-2022-02-08 17:10:34,493 | | INFO | | Weight Decay: 0.01

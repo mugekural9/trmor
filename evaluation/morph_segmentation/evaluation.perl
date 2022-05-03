@@ -16,6 +16,9 @@
 # Mathias Creutz, Aug 30, 2005
 # Pascal Challenge 2005: Unsupervised segmentation of words into morphemes
 
+
+#perl evaluation/morph_segmentation/evaluation.perl -desired evaluation/morph_segmentation/data/goldstdsample.tur  -suggested evaluation/morph_segmentation/results/vqvae/vqvae_3x10/avg/prev_mid_next/eps0.0/segments.txt
+
 use strict;
 use Encode;
 
