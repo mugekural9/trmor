@@ -22,7 +22,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 #random.seed(0)
 
 #tensorboard
-writer = SummaryWriter()
+#writer = SummaryWriter("runs/pretraining_ae/")
 
 def test(batches, mode, args, epc):
     epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
@@ -104,7 +104,7 @@ def train(data, args):
         fhs_norms = fhs_norms.detach().cpu()
         writer.add_histogram('fhs_norms', fhs_norms, epc)#, bins='auto')
         if epc == args.epochs -1:
-            torch.save(epoch_encoder_fhs, 'fhs_10k_verbs.pt')
+            torch.save(epoch_encoder_fhs, 'fhs_617k_wordlist.tur.pt')
 
         trn_loss_values.append(loss)
         trn_vq_values.append(vq)
@@ -137,22 +137,18 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 20
+args.batchsize = 128; args.epochs = 5
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
-args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
-#args.trndata  = 'model/vqvae/data/top50k_wordlist.tur'
-#args.valdata  = 'model/vqvae/data/top50k_wordlist.tur'
-#args.trndata = 'model/miniGPT/data/wordlist.tur'
-#args.valdata = 'model/miniGPT/data/theval.indices.tur'
-#args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
-#args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
-#args.trndata = 'model/vqvae/data/1000verbs.simple.trn.txt'
-#args.valdata = 'model/vqvae/data/1000verbs.simple.val.txt'
+#args.trndata = 'data/labelled/verb/trmor2018.uniquesurfs.verb/uniquerooted.trn/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
+#args.valdata = 'data/labelled/verb/trmor2018.uniquesurfs.verb/seenroots.val/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
+
+#args.trndata  = 'data/unlabelled/top50k.wordlist.tur'
+args.trndata  = 'data/unlabelled/wordlist.tur'
+args.valdata  = 'data/unlabelled/theval.tur'
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
@@ -169,12 +165,17 @@ args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
 args.enc_nh = 512;
 args.dec_nh = args.enc_nh; args.embedding_dim = args.enc_nh; args.nz = args.enc_nh
-args.beta = 0.25
+args.beta = 0
 args.rootdict_emb_num = 0
 args.rootdict_emb_dim = 512; args.num_dicts = 0; args.nz = 512; args.outcat=0; args.incat=0
-args.orddict_emb_num  = 0; args.orddict_emb_num_2  = 0
+args.orddict_emb_num  = 0
 args.model = VQVAE_AE(args, vocab, model_init, emb_init, dict_assemble_type='concat')
 args.model.to(args.device)
+
+#tensorboard
+writer = SummaryWriter("runs/pretraining_ae/dataset-III/")
+
+
 # logging
 args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'
 try:

@@ -112,13 +112,13 @@ def get_logps(args, word, data, from_file=False):
             root_fhs, fcs, z = args.model.encoder(data)
             quantized_input_root, vq_loss, quantized_inds = args.model.vq_layer_root(root_fhs,0)
             logps = dict()
-            logps[word] = np.exp(args.model.log_probability(data, quantized_input_root, args.recon_type).item())
+            logps[word] = np.exp(args.model.log_probability_w_reinflection(data, quantized_input_root, args.recon_type))
             # loop through word's subwords 
             for i in range(len(data[0])-2, 1, -1):
                 eos  = torch.tensor([2]).to(args.device)
                 subdata = torch.cat([data[0][:i], eos])
                 subword = ''.join(args.vocab.decode_sentence(subdata[1:-1]))
-                logps[subword] = np.exp(args.model.log_probability(subdata.unsqueeze(0),  root_fhs, args.recon_type).item())
+                logps[subword] = np.exp(args.model.log_probability_w_reinflection(subdata.unsqueeze(0),  root_fhs, args.recon_type))
         logps = dict(reversed(list(logps.items())))
         return logps
 
@@ -128,7 +128,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'vqvae_3x10'
+    model_id = 'vqvae_1x10000_4x6'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
     args.heur_type = 'prev_mid_next'; args.eps = 0.0
@@ -156,8 +156,8 @@ def config():
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.beta = 0.5
     args.embedding_dim = args.enc_nh
-    args.rootdict_emb_dim = 512; args.num_dicts = 4; args.nz = 512; args.outcat=0; args.incat = 192
-    args.rootdict_emb_num = 10000; args.orddict_emb_num  = 10
+    args.rootdict_emb_dim = 512; args.num_dicts = 5; args.nz = 512; args.outcat=0; args.incat = 192
+    args.rootdict_emb_num = 10000; args.orddict_emb_num  = 6
     args.model = VQVAE(args, args.vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
     # load model weights
@@ -165,8 +165,10 @@ def config():
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/morph_segmentation/data/goldstdsample.tur' #goldstd_mc05-10aggregated.segments.tur'
-    args.maxtstsize = 1000
+    #args.tstdata = 'evaluation/morph_segmentation/data/goldstdsample.tur'
+    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
+    
+    args.maxtstsize = 3000
     args.batch_size = 1
     return args
 

@@ -26,7 +26,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 #random.seed(0)
 torch.autograd.set_detect_anomaly(True)
 #tensorboard
-writer = SummaryWriter()
+#writer = SummaryWriter("runs/training_vqvae/1x3000_5x10/")
 
 def test(batches, mode, args, epc, suffix_codes_trn):
     epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
@@ -226,7 +226,6 @@ def train(data, args):
             loss, recon, vq, acc, vq_inds = test(valbatches, "val", args, epc, suffix_codes)
         #tensorboard log
         writer.add_scalar('loss/val', loss, epc)
-        #writer.add_scalar('num_used_inds/val', vq_inds, epc)
         writer.add_scalar('loss/recon_loss/val', recon, epc)
         writer.add_scalar('loss/vq_loss/val', vq, epc)
         writer.add_scalar('accuracy/val', acc, epc)
@@ -239,9 +238,13 @@ def train(data, args):
             best_loss = loss
             torch.save(args.model.state_dict(), args.save_path)
             for i in range(args.num_dicts +1):
-                with open(str(i)+'_cluster.json', 'w') as json_file:
+                with open(args.modelname+str(i)+'_cluster.json', 'w') as json_file:
                     json_object = json.dumps(clusters_list[i], indent = 4, ensure_ascii=False)
                     json_file.write(json_object)
+                with open(args.modelname+str(i)+'_cluster_usage.json', 'w') as wr:
+                    for key,val in clusters_list[i].items():
+                        usage = {key: len(val)}
+                        wr.write(str(usage) + '\n')
         args.model.train()
 
 # CONFIG
@@ -249,30 +252,30 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 252
+args.batchsize = 128; args.epochs = 200
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
 
+dataset_type = 'II'
+
 # data
-args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
-args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
+if dataset_type == 'I':
+    args.trndata = 'data/labelled/verb/trmor2018.uniquesurfs.verb/uniquerooted.trn/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
+    args.valdata = 'data/labelled/verb/trmor2018.uniquesurfs.verb/seenroots.val/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
+elif dataset_type == 'II':
+    args.trndata  = 'data/unlabelled/top50k.wordlist.tur'
+    args.valdata  = 'data/unlabelled/theval.tur'
+elif dataset_type == 'III':
+    args.trndata  = 'data/unlabelled/wordlist.tur'
+    args.valdata  = 'data/unlabelled/theval.tur'
 
-#args.trndata = 'model/vqvae/data/1000verbs.simple.trn.txt'
-#args.valdata = 'model/vqvae/data/1000verbs.simple.val.txt'
-
-#args.trndata  = 'model/vqvae/data/top50k_wordlist.tur'
-#args.valdata  = 'model/vqvae/data/theval.tur'
-
-#args.trndata = 'model/miniGPT/data/wordlist.tur'
-#args.valdata = 'model/miniGPT/data/theval.indices.tur'
-
-#args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
-#args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 700000; args.maxvalsize = 5000; args.maxtstsize = 10000
+#args.maxtrnsize = 700000; args.maxvalsize = 5000; args.maxtstsize = 10000
+args.maxtrnsize = 1000000; args.maxvalsize = 10000; args.maxtstsize = 10000
+
 rawdata, batches, vocab = build_data(args)
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
@@ -285,37 +288,40 @@ args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.1; args.dec_dropout_out = 0.1
 args.enc_nh = 512;
 args.dec_nh = args.enc_nh; 
-args.embedding_dim = args.enc_nh; #args.nz = args.enc_nh
+args.embedding_dim = args.enc_nh
 args.beta = 0.5
 args.rootdict_emb_dim = 512;  args.nz = 512; 
-args.num_dicts = 9; args.outcat=0; args.incat = 192
+args.num_dicts = 5; args.outcat=0; args.incat = 192
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat
 args.rootdict_emb_num = 10000
 args.orddict_emb_num = 6
 args.model = VQVAE(args, vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
+# tensorboard
 # load pretrained ae weights
-ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_10k_verbs.pt').to('cpu')
-#ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_top50k.pt').to('cpu')
-#ae_fhs_vectors = torch.load('fhs_617k.pt').to('cpu')
-#ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_3487_verbs.pt').to('cpu')
-#ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_1000_verbs.pt').to('cpu')
+args.model_prefix = "1x"+str(args.rootdict_emb_num)+"_"+ str(args.num_dicts-1)+"x"+str(args.orddict_emb_num)+'/'
 
+#writer = SummaryWriter("runs/training_vqvae/dataset-I/"+ args.model_prefix)
+#ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_10k_verbs.pt').to('cpu')
+#_model_id  = 'ae_001'
+
+writer = SummaryWriter("runs/training_vqvae/dataset-II/"+ args.model_prefix)
+ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_top50k_wordlist.tur.pt').to('cpu')
+_model_id  = 'ae_002'
+
+
+#writer = SummaryWriter("runs/training_vqvae/dataset-III/"+ args.model_prefix)
+#ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_617k_wordlist.tur.pt').to('cpu')
+#_model_id  = 'ae_003'
+
+
+_model_path, surf_vocab  = get_model_info(_model_id) 
 args.model.vq_layer_root.embedding.weight.data = ae_fhs_vectors[:args.rootdict_emb_num, :args.rootdict_emb_dim]
-args.model.vq_layer_suffix.embedding.weight.data = ae_fhs_vectors[args.orddict_emb_num:args.orddict_emb_num*2, :args.model.orddict_emb_dim]
 
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
-    offset_start = (args.orddict_emb_num) + (i* args.orddict_emb_num) 
+    offset_start = (i* args.orddict_emb_num) 
     offset_end   = offset_start + (args.orddict_emb_num)
     vq_layer.embedding.weight.data = ae_fhs_vectors[offset_start: offset_end, :args.model.orddict_emb_dim]
-
-_model_id  = 'ae_for_vqvae_004'
-#_model_id = 'ae_for_vqvae_001'
-#_model_id = 'ae_for_vqvae_006'
-#_model_id = 'ae_for_vqvae_007'
-#_model_id = 'ae_for_vqvae_009'
-#_model_id = 'vae_13'
-_model_path, surf_vocab  = get_model_info(_model_id) 
 
 
 # initialize model
@@ -324,16 +330,6 @@ with open(surf_vocab) as f:
     word2id = json.load(f)
     args.surf_vocab = VocabEntry(word2id)
 
-'''# pretrained-model
-args.nz = 32
-args.ni = 256; 
-args.enc_nh = 512; 
-args.dec_nh = 512;  #for ae,vae
-args.nh = 512 #for ae,vae,charlm
-args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0 
-args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 #for ae,vae,vqvae
-args.pretrained_model = VAE(args, args.surf_vocab, model_init, emb_init)
-args.pretrained_model.load_state_dict(torch.load(_model_path), strict=False)'''
 
 args.num_dicts = 0; args.outcat=0; args.incat = 0
 args.pretrained_model = VQVAE_AE(args, args.surf_vocab, model_init, emb_init)
@@ -348,7 +344,7 @@ args.model.encoder.lstm  = args.pretrained_model.encoder.lstm
 
 args.model.to(args.device)
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'#+'morph-seg-exps/'
+args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'+args.model_prefix
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

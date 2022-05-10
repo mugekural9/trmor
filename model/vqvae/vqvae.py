@@ -1,5 +1,5 @@
 # ref: https://github.com/AntixK/PyTorch-VAE/blob/master/models/vq_vae.py
-import torch
+import torch, json
 from torch import nn
 from torch.nn import functional as F
 from common.utils import *
@@ -154,9 +154,7 @@ class VQVAE_Decoder(nn.Module):
         emb_init(self.embed.weight)
 
     def forward(self, input, z):
-        root_z, suffix_z = z #, suffix_2_z = z
-        #suffix_z = torch.tanh(suffix_z)
-
+        root_z, suffix_z = z
         batch_size, _, _ = root_z.size()
         seq_len = input.size(1)
         # (batch_size, seq_len, ni)
@@ -224,35 +222,23 @@ class VQVAE(nn.Module):
         self.ord_linears = nn.ModuleList([])
         self.ord_vq_layers = nn.ModuleList([])
 
-        if dict_assemble_type =='concat':
+        '''if dict_assemble_type =='concat':
             for i in range(self.num_dicts-1):
                 self.ord_linears.append(nn.Linear(self.encoder_emb_dim,  self.orddict_emb_dim, bias=True))
                 self.ord_vq_layers.append(VectorQuantizer(self.orddict_emb_num,
                                         self.orddict_emb_dim,
                                         self.beta))
         else:
-            self.linear_suffix = nn.Linear(self.encoder_emb_dim,  self.orddict_emb_dim, bias=True)
-            self.vq_layer_suffix = VectorQuantizer(self.orddict_emb_num,
-                                            self.orddict_emb_dim,
-                                            self.beta)
+            #self.linear_suffix = nn.Linear(self.encoder_emb_dim,  self.orddict_emb_dim, bias=True)
+            #self.vq_layer_suffix = VectorQuantizer(self.orddict_emb_num,
+            #                                self.orddict_emb_dim,
+            #                                self.beta)'''
 
-            for i in range(self.num_dicts-2):
-            #for i in range(self.num_dicts):
-                self.ord_linears.append(nn.Linear(self.encoder_emb_dim, self.orddict_emb_dim, bias=True))
-                self.ord_vq_layers.append(VectorQuantizer(self.orddict_emb_num,
-                                            self.orddict_emb_dim,
-                                            self.beta))
-       
-            '''self.ord_linears.append(nn.Linear(self.encoder_emb_dim, self.orddict_emb_dim, bias=True))
+        for i in range(self.num_dicts-1):
             self.ord_linears.append(nn.Linear(self.encoder_emb_dim, self.orddict_emb_dim, bias=True))
-
-            self.ord_vq_layers.append(VectorQuantizer(5,#self.orddict_emb_num,
-                                               self.orddict_emb_dim,
-                                            self.beta))
-            self.ord_vq_layers.append(VectorQuantizer(6,#self.orddict_emb_num,
-                                               self.orddict_emb_dim,
-                                            self.beta))'''
-
+            self.ord_vq_layers.append(VectorQuantizer(self.orddict_emb_num,
+                                        self.orddict_emb_dim,
+                                        self.beta))
         self.decoder = VQVAE_Decoder(args, vocab, model_init, emb_init) 
     
 
@@ -268,13 +254,13 @@ class VQVAE(nn.Module):
         vq_losses.append(vq_loss)
         vq_inds.append(quantized_inds)
 
-        _fhs =  self.linear_suffix(fhs)
+        '''_fhs =  self.linear_suffix(fhs)
         # quantize thru suffix
         # quantized_input: (B, 1, orddict_emb_dim)
         quantized_input_suffix, vq_loss, quantized_inds = self.vq_layer_suffix(_fhs,epc)
         vq_vectors.append(quantized_input_suffix)
         vq_losses.append(vq_loss)
-        vq_inds.append(quantized_inds)
+        vq_inds.append(quantized_inds)'''
 
         # quantize thru ord dicts
         for linear, vq_layer in zip(self.ord_linears, self.ord_vq_layers):
@@ -309,14 +295,14 @@ class VQVAE(nn.Module):
             
             for j in range(1, len(vq_inds)):
                 dict_code   += '-' + str((vq_inds[j][0][i]).item())
-                #if j >1 :
-                #    suffix_code += '-' + str((vq_inds[j][0][i]).item()) 
-                suffix_code += '-' + str((vq_inds[j][0][i]).item()) 
+                if j >1 :
+                    suffix_code += '-' + str((vq_inds[j][0][i]).item()) 
+                #suffix_code += '-' + str((vq_inds[j][0][i]).item()) 
             dict_codes.append(dict_code)
             suffix_codes.append(suffix_code)
         return vq_vectors, vq_loss, vq_inds,  fhs, dict_codes, suffix_codes
 
-    def recon_loss(self, x, quantized_z, dict_codes, recon_type='avg'):
+    def recon_loss(self, x, quantized_z, dict_codes=None, recon_type='avg'):
         # remove end symbol
         src = x[:, :-1]
         # remove start symbol
@@ -386,30 +372,85 @@ class VQVAE(nn.Module):
         return (acc, pred_tokens), (wrong_predictions, correct_predictions)
 
 
-    def log_probability(self, x, root_fhs=None, recon_type='sum'):
-        
-        avg_recon_loss = []
-        root_fhs, fcs, z = self.encoder(x)
-        quantized_input_root, vq_loss, quantized_inds = self.vq_layer_root(root_fhs,0)
-        
-        #for i in range(self.vq_layer_root.embedding.weight.shape[0]):
-        for j in range(self.vq_layer_suffix.embedding.weight.shape[0]):
-            for m in range(self.vq_layer_suffix.embedding.weight.shape[0]):
-                for k in range(self.vq_layer_suffix.embedding.weight.shape[0]):
+    def log_probability_w_reinflection(self, x, root_fhs=None, recon_type='sum'):
+        z0, _, _ = self.vq_layer_root(root_fhs,0)
+        probs = [] 
+        for j1 in range( self.orddict_emb_num):
+            for j2 in range( self.orddict_emb_num):
+                for j3 in range( self.orddict_emb_num):
+                    for j4 in range( self.orddict_emb_num):
+                        vq_vectors = []
+                        z1 = self.ord_vq_layers[0].embedding.weight[j1].unsqueeze(0).unsqueeze(0)
+                        z2 = self.ord_vq_layers[1].embedding.weight[j2].unsqueeze(0).unsqueeze(0)
+                        z3 = self.ord_vq_layers[2].embedding.weight[j3].unsqueeze(0).unsqueeze(0)
+                        z4 = self.ord_vq_layers[3].embedding.weight[j4].unsqueeze(0).unsqueeze(0)
+                        vq_vectors.append(z0)
+                        vq_vectors.append(z1)
+                        vq_vectors.append(z2)
+                        vq_vectors.append(z3)
+                        vq_vectors.append(z4)
+                        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
+                        recon_loss, _, _ = self.recon_loss(x, vq_vectors, recon_type=recon_type)
+                        probs.append(-recon_loss.item())
+        return sum(probs)/len(probs)
+
+
+    '''def log_probability(self, x, root_fhs=None, recon_type='sum'):
+        with open('model/vqvae/results/training/50000_instances/1x10000_3x8/0_cluster_usage.json','r') as reader:
+            rootprobs = dict()
+            for line in reader:
+                line = line.strip()
+                for k,v in json.loads(line).items():
+                    rootprobs[k] = v/10000
+        with open('model/vqvae/results/training/50000_instances/1x10000_3x8/4_cluster_usage_test.json','r') as reader:
+            zprobs = dict()
+            for line in reader:
+                line = line.strip()
+                for k,v in json.loads(line).items():
+                    zprobs[k] = v/50000
+        vq_inds =[];  vq_vectors = []
+        fhs, _, _ = self.encoder(x)
+        quantized_input_root, vq_loss, quantized_inds_root = self.vq_layer_root(fhs,0)
+        # quantize thru ord dicts
+        for linear, vq_layer in zip(self.ord_linears, self.ord_vq_layers):
+            _fhs =  linear(fhs)
+            # quantized_input: (B, 1, orddict_emb_dim)
+            quantized_input, vq_loss, quantized_inds = vq_layer(_fhs,0)
+            vq_vectors.append(quantized_input)
+            vq_inds.append(str(quantized_inds.item()))
+        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
+        recon_loss, _, _ = self.recon_loss(x, vq_vectors, dict_codes=None, recon_type=recon_type)
+        vq_code =  '-'.join(vq_inds) 
+        vq_code_prob = 0; root_code_prob = 0
+        if vq_code in zprobs:
+            vq_code_prob = zprobs[vq_code]
+        if str(quantized_inds_root.item()) in rootprobs:
+            root_code_prob =  rootprobs[str(quantized_inds_root.item())]
+        prob = torch.exp(-recon_loss).item() * vq_code_prob  * root_code_prob
+        return prob
+        probs = [] 
+        #for j0 in range( self.rootdict_emb_num):
+        for j1 in range( self.orddict_emb_num):
+            for j2 in range( self.orddict_emb_num):
+                for j3 in range( self.orddict_emb_num):
                     vq_vectors = []
-                    # (B,1,rootdict_emb_dim)
-                    #root = self.vq_layer_root.embedding.weight[i].unsqueeze(0).unsqueeze(0)
                     vq_vectors.append(quantized_input_root)
-                    z_1 = self.vq_layer_suffix.embedding.weight[k].unsqueeze(0).unsqueeze(0)
-                    z_2 = self.ord_vq_layers[0].embedding.weight[m].unsqueeze(0).unsqueeze(0)
-                    z_3 = self.ord_vq_layers[1].embedding.weight[j].unsqueeze(0).unsqueeze(0)
-                    vq_vectors.append(z_1)
-                    vq_vectors.append(z_2)
-                    vq_vectors.append(z_3)
-
+                    #z0 = self.vq_layer_root.embedding.weight[j0].unsqueeze(0).unsqueeze(0)
+                    #vq_vectors.append(z0)
+                    z1 = self.ord_vq_layers[0].embedding.weight[j1].unsqueeze(0).unsqueeze(0)
+                    z2 = self.ord_vq_layers[1].embedding.weight[j2].unsqueeze(0).unsqueeze(0)
+                    z3 = self.ord_vq_layers[2].embedding.weight[j3].unsqueeze(0).unsqueeze(0)
+                    vq_vectors.append(z1)
+                    vq_vectors.append(z2)
+                    vq_vectors.append(z3)
                     vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
-                    recon_loss, recon_acc, _ = self.recon_loss(x, vq_vectors, dict_codes=None, recon_type='avg')
-                    avg_recon_loss.append(recon_loss)
-
-            avg_recon_loss = sum(avg_recon_loss)/len(avg_recon_loss)
-            return -(avg_recon_loss)
+                    recon_loss, _, _ = self.recon_loss(x, vq_vectors, recon_type=recon_type)
+                    vq_code =  str(j1)+'-'+str(j2)+'-'+str(j3)
+                    vq_code_prob = 0; root_code_prob = 0
+                    if vq_code in zprobs:
+                        vq_code_prob = zprobs[vq_code]
+                    if str(quantized_inds_root.item()) in rootprobs:
+                        root_code_prob =  rootprobs[str(quantized_inds_root.item())]
+                    prob = torch.exp(-recon_loss).item() * vq_code_prob  * root_code_prob
+                    probs.append(prob)
+        return sum(probs)'''

@@ -186,7 +186,6 @@ class VQVAE_AE(nn.Module):
         self.rootdict_emb_dim = args.rootdict_emb_dim
         self.rootdict_emb_num = args.rootdict_emb_num
         self.orddict_emb_num = args.orddict_emb_num
-        self.orddict_emb_num_2 = args.orddict_emb_num_2
         self.dict_assemble_type = dict_assemble_type
         
         #assert (dict_assemble_type=='concat' or (dict_assemble_type =='sum' and self.rootdict_emb_dim == self.encoder_emb_dim)), "If dict assemble type is sum, dict embedding dim should be equal to encoder emb dim"
