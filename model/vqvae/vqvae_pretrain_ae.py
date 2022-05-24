@@ -104,7 +104,7 @@ def train(data, args):
         fhs_norms = fhs_norms.detach().cpu()
         writer.add_histogram('fhs_norms', fhs_norms, epc)#, bins='auto')
         if epc == args.epochs -1:
-            torch.save(epoch_encoder_fhs, 'fhs_617k_wordlist.tur.pt')
+            torch.save(epoch_encoder_fhs, 'fhs_turkish-task3-train.pt')
 
         trn_loss_values.append(loss)
         trn_vq_values.append(vq)
@@ -137,7 +137,7 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 5
+args.batchsize = 128; args.epochs = 30
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
@@ -147,8 +147,11 @@ args.seq_to_no_pad = 'surface'
 #args.valdata = 'data/labelled/verb/trmor2018.uniquesurfs.verb/seenroots.val/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
 
 #args.trndata  = 'data/unlabelled/top50k.wordlist.tur'
-args.trndata  = 'data/unlabelled/wordlist.tur'
-args.valdata  = 'data/unlabelled/theval.tur'
+#args.trndata  = 'data/unlabelled/wordlist.tur'
+#args.valdata  = 'data/unlabelled/theval.tur'
+
+args.trndata  = 'data/sigmorphon2016/turkish-task3-train'
+args.valdata  = 'data/sigmorphon2016/turkish-task3-dev'
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
@@ -173,7 +176,7 @@ args.model = VQVAE_AE(args, vocab, model_init, emb_init, dict_assemble_type='con
 args.model.to(args.device)
 
 #tensorboard
-writer = SummaryWriter("runs/pretraining_ae/dataset-III/")
+writer = SummaryWriter("runs/pretraining_ae/dataset-IV/")
 
 
 # logging

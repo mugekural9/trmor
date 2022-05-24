@@ -269,7 +269,9 @@ elif dataset_type == 'II':
 elif dataset_type == 'III':
     args.trndata  = 'data/unlabelled/wordlist.tur'
     args.valdata  = 'data/unlabelled/theval.tur'
-
+elif dataset_type == 'IV':
+    args.trndata  = 'data/sigmorphon2016/turkish-task3-train'
+    args.valdata  = 'data/sigmorphon2016/turkish-task3-dev'
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
@@ -291,29 +293,32 @@ args.dec_nh = args.enc_nh;
 args.embedding_dim = args.enc_nh
 args.beta = 0.5
 args.rootdict_emb_dim = 512;  args.nz = 512; 
-args.num_dicts = 5; args.outcat=0; args.incat = 192
+args.num_dicts = 4; args.outcat=0; args.incat = 192
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat
-args.rootdict_emb_num = 10000
-args.orddict_emb_num = 6
+args.rootdict_emb_num = 7500
+args.orddict_emb_num = 8
 args.model = VQVAE(args, vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
 # tensorboard
 # load pretrained ae weights
 args.model_prefix = "1x"+str(args.rootdict_emb_num)+"_"+ str(args.num_dicts-1)+"x"+str(args.orddict_emb_num)+'/'
 
-#writer = SummaryWriter("runs/training_vqvae/dataset-I/"+ args.model_prefix)
-#ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_10k_verbs.pt').to('cpu')
-#_model_id  = 'ae_001'
-
-writer = SummaryWriter("runs/training_vqvae/dataset-II/"+ args.model_prefix)
-ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_top50k_wordlist.tur.pt').to('cpu')
-_model_id  = 'ae_002'
-
-
-#writer = SummaryWriter("runs/training_vqvae/dataset-III/"+ args.model_prefix)
-#ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_617k_wordlist.tur.pt').to('cpu')
-#_model_id  = 'ae_003'
-
+if dataset_type == 'I':
+    writer = SummaryWriter("runs/training_vqvae/dataset-I/"+ args.model_prefix)
+    ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_10k_verbs.pt').to('cpu')
+    _model_id  = 'ae_001'
+elif dataset_type == 'II':
+    writer = SummaryWriter("runs/training_vqvae/dataset-II/"+ args.model_prefix)
+    ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_top50k_wordlist.tur.pt').to('cpu')
+    _model_id  = 'ae_002'
+elif dataset_type == 'III':
+    writer = SummaryWriter("runs/training_vqvae/dataset-III/"+ args.model_prefix)
+    ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_617k_wordlist.tur.pt').to('cpu')
+    _model_id  = 'ae_003'
+elif dataset_type == 'IV':
+    writer = SummaryWriter("runs/training_vqvae/dataset-IV/"+ args.model_prefix)
+    ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_turkish-task3-train.pt').to('cpu')
+    _model_id  = 'ae_004'
 
 _model_path, surf_vocab  = get_model_info(_model_id) 
 args.model.vq_layer_root.embedding.weight.data = ae_fhs_vectors[:args.rootdict_emb_num, :args.rootdict_emb_dim]

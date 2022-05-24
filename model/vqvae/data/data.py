@@ -17,13 +17,21 @@ def read_data(maxdsize, file, surface_vocab, mode):
                     break
                 surf = line.strip().split('\t')[0]
                 surf_data.append([surface_vocab[char] for char in surf])
-    elif 'tur' in file:
+    elif '.tur' in file:
         with open(file, 'r') as reader:
             for line in reader:     
                 count += 1
                 if count > maxdsize:
                     break
                 surf = line.strip().split(' ')[1]
+                surf_data.append([surface_vocab[char] for char in surf])
+    elif 'turkish-task3' in file:
+        with open(file, 'r') as reader:
+            for line in reader:     
+                count += 1
+                if count > maxdsize:
+                    break
+                surf = line.strip().split('\t')[0]
                 surf_data.append([surface_vocab[char] for char in surf])
     print(mode,':')
     print('surf_data:',  len(surf_data))
@@ -92,7 +100,7 @@ class MonoTextData(object):
                             dropped += 1
                             continue
                     data.append([vocab[char] for char in split_line[0]])
-        elif 'tur' in fname:
+        elif '.tur' in fname:
             with open(fname) as fin:
                 for line in fin:
                     if label:
@@ -129,6 +137,18 @@ class MonoTextData(object):
                             continue
                     if label:
                         labels.append(lb)
+                    data.append([vocab[char] for char in split_line[0]])
+        elif 'turkish-task3' in fname:
+            with open(fname) as fin:
+                for line in fin:
+                    split_line = line.split('\t')
+                    if len(split_line) < 1:
+                        dropped += 1
+                        continue
+                    if max_length:
+                        if len(split_line) > max_length:
+                            dropped += 1
+                            continue
                     data.append([vocab[char] for char in split_line[0]])
 
 

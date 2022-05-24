@@ -114,7 +114,7 @@ class VectorQuantizer(nn.Module):
         quantized_latents = latents + (quantized_latents - latents).detach()
         
         # quantized_latents: (batch_size, t, D), vq_loss: scalar
-        return quantized_latents.contiguous(), vq_loss, encoding_inds.t()
+        return quantized_latents.contiguous(), vq_loss, encoding_inds.t() #,  torch.topk(dist,3, largest=False)[1]
 
 class VQVAE_Decoder(nn.Module):
     """LSTM decoder with constant-length batching"""
@@ -371,7 +371,6 @@ class VQVAE(nn.Module):
                 correct_predictions.append('target: %s pred: %s, dict_code: %s' % (target, pred, dict_codes[i]))'''
         return (acc, pred_tokens), (wrong_predictions, correct_predictions)
 
-
     def log_probability_w_reinflection(self, x, root_fhs=None, recon_type='sum'):
         z0, _, _ = self.vq_layer_root(root_fhs,0)
         probs = [] 
@@ -379,21 +378,48 @@ class VQVAE(nn.Module):
             for j2 in range( self.orddict_emb_num):
                 for j3 in range( self.orddict_emb_num):
                     for j4 in range( self.orddict_emb_num):
-                        vq_vectors = []
-                        z1 = self.ord_vq_layers[0].embedding.weight[j1].unsqueeze(0).unsqueeze(0)
-                        z2 = self.ord_vq_layers[1].embedding.weight[j2].unsqueeze(0).unsqueeze(0)
-                        z3 = self.ord_vq_layers[2].embedding.weight[j3].unsqueeze(0).unsqueeze(0)
-                        z4 = self.ord_vq_layers[3].embedding.weight[j4].unsqueeze(0).unsqueeze(0)
-                        vq_vectors.append(z0)
-                        vq_vectors.append(z1)
-                        vq_vectors.append(z2)
-                        vq_vectors.append(z3)
-                        vq_vectors.append(z4)
-                        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
-                        recon_loss, _, _ = self.recon_loss(x, vq_vectors, recon_type=recon_type)
-                        probs.append(-recon_loss.item())
+                        for j5 in range( self.orddict_emb_num):
+                            for j6 in range( self.orddict_emb_num):
+                                for j7 in range( self.orddict_emb_num):
+                                    for j8 in range( self.orddict_emb_num):
+                                        vq_vectors = []
+                                        z1 = self.ord_vq_layers[0].embedding.weight[j1].unsqueeze(0).unsqueeze(0)
+                                        z2 = self.ord_vq_layers[1].embedding.weight[j2].unsqueeze(0).unsqueeze(0)
+                                        z3 = self.ord_vq_layers[2].embedding.weight[j3].unsqueeze(0).unsqueeze(0)
+                                        z4 = self.ord_vq_layers[3].embedding.weight[j4].unsqueeze(0).unsqueeze(0)
+                                        z5 = self.ord_vq_layers[4].embedding.weight[j5].unsqueeze(0).unsqueeze(0)
+                                        z6 = self.ord_vq_layers[5].embedding.weight[j6].unsqueeze(0).unsqueeze(0)
+                                        z7 = self.ord_vq_layers[6].embedding.weight[j7].unsqueeze(0).unsqueeze(0)
+                                        z8 = self.ord_vq_layers[7].embedding.weight[j8].unsqueeze(0).unsqueeze(0)
+                                        vq_vectors.append(z0)
+                                        vq_vectors.append(z1)
+                                        vq_vectors.append(z2)
+                                        vq_vectors.append(z3)
+                                        vq_vectors.append(z4)
+                                        vq_vectors.append(z5)
+                                        vq_vectors.append(z6)
+                                        vq_vectors.append(z7)
+                                        vq_vectors.append(z8)
+                                        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
+                                        recon_loss, _, _ = self.recon_loss(x, vq_vectors, recon_type=recon_type)
+                                        probs.append(-recon_loss.item())
         return sum(probs)/len(probs)
 
+    def log_probability_w_recon(self, x, quantized_input_root, recon_type='sum'):
+        vq_vectors = []
+        fhs, _, _ = self.encoder(x)
+
+        if quantized_input_root == None:
+            quantized_input_root, vq_loss, _ = self.vq_layer_root(fhs,0)
+        vq_vectors.append(quantized_input_root)
+        # quantize thru ord dicts
+        for linear, vq_layer in zip(self.ord_linears, self.ord_vq_layers):
+            _fhs =  linear(fhs)
+            quantized_input, vq_loss, _ = vq_layer(_fhs,0)
+            vq_vectors.append(quantized_input)
+        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
+        recon_loss, _, _ = self.recon_loss(x, vq_vectors, recon_type=recon_type)
+        return (-recon_loss).item()
 
     '''def log_probability(self, x, root_fhs=None, recon_type='sum'):
         with open('model/vqvae/results/training/50000_instances/1x10000_3x8/0_cluster_usage.json','r') as reader:

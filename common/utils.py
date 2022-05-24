@@ -15,15 +15,19 @@ def get_model_info(id):
     if id == 'ae_002':
         model_path  = 'model/vqvae/results/training/50000_instances/30epochs.pt'
         model_vocab = 'model/vqvae/results/training/50000_instances/surf_vocab.json'  
-    if id == 'ae_003':
-        model_path  = 'model/vqvae/results/training/617298_instances/30epochs.pt'
-        model_vocab = 'model/vqvae/results/training/617298_instances/surf_vocab.json'  
+    if id == 'ae_004':
+        model_path  = 'model/vqvae/results/training/12798_instances/30epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12798_instances/surf_vocab.json'  
+    
     if id == 'vqvae_1x10000_3x8':
         model_path  = 'model/vqvae/results/training/50000_instances/1x10000_3x8/200epochs.pt'
         model_vocab = 'model/vqvae/results/training/50000_instances/1x10000_3x8/surf_vocab.json'  
     if id == 'vqvae_1x10000_4x6':
         model_path  = 'model/vqvae/results/training/50000_instances/1x10000_4x6/200epochs.pt'
         model_vocab = 'model/vqvae/results/training/50000_instances/1x10000_4x6/surf_vocab.json'  
+    if id == 'vqvae_1x10000_8x6':
+        model_path  = 'model/vqvae/results/training/50000_instances/1x10000_8x6/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/50000_instances/1x10000_8x6/surf_vocab.json'  
    
     return model_path, model_vocab
 
