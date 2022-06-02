@@ -8,7 +8,7 @@ Tensor = TypeVar('torch.tensor')
 
 class VQVAE_Encoder(nn.Module):
     """ LSTM Encoder with constant-length batching"""
-    def __init__(self, args, vocab, model_init, emb_init, bidirectional=False):
+    def __init__(self, args, vocab, model_init, emb_init, bidirectional=True):
         super(VQVAE_Encoder, self).__init__()
         self.ni = args.ni
         self.nh = args.enc_nh
@@ -42,6 +42,8 @@ class VQVAE_Encoder(nn.Module):
 
         _, (last_state, last_cell) = self.lstm(word_embed)
         if self.lstm.bidirectional:
+            fwd = last_state[-1].unsqueeze(0)
+            bck = last_state[-2].unsqueeze(0)
             last_state = torch.cat([last_state[-2], last_state[-1]], 1).unsqueeze(0)
        
         #z = self.linear(last_state)
@@ -50,8 +52,12 @@ class VQVAE_Encoder(nn.Module):
 
         # (batch_size, 1, enc_nh)
         last_state = last_state.permute(1,0,2)
+
+        fwd = fwd.permute(1,0,2)
+        bck = bck.permute(1,0,2)
+
         last_cell = last_cell.permute(1,0,2)
-        return last_state, last_cell, None
+        return last_state, last_cell, None, (fwd,bck)
 
 class VectorQuantizer(nn.Module):
     """
@@ -184,7 +190,7 @@ class VQVAE_AE(nn.Module):
         self.encoder_emb_dim = args.embedding_dim 
         self.num_dicts = args.num_dicts
         self.rootdict_emb_dim = args.rootdict_emb_dim
-        self.rootdict_emb_num = args.rootdict_emb_num
+        #self.rootdict_emb_num = args.rootdict_emb_num
         self.orddict_emb_num = args.orddict_emb_num
         self.dict_assemble_type = dict_assemble_type
         
@@ -234,13 +240,13 @@ class VQVAE_AE(nn.Module):
     def loss(self, x: Tensor, epc, **kwargs) -> List[Tensor]:
         # x: (B,T)
         # quantized_inputs: (B, 1, hdim)
-        encoder_fhs, fcs, z = self.encoder(x)
+        encoder_fhs, fcs, z, (fwd,bck) = self.encoder(x)
         recon_loss, recon_acc = self.recon_loss(x, encoder_fhs, recon_type='sum')
         # (batchsize)
         recon_loss = recon_loss.squeeze(1)
         loss = recon_loss 
         vq_loss = torch.tensor(0); quantized_inds = []
-        return loss, recon_loss, vq_loss, recon_acc, quantized_inds, encoder_fhs
+        return loss, recon_loss, vq_loss, recon_acc, quantized_inds, fwd,bck
 
         
     def accuracy(self, output_logits, tgt):
