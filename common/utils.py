@@ -15,10 +15,11 @@ def get_model_info(id):
     if id == 'ae_002':
         model_path  = 'model/vqvae/results/training/50000_instances/30epochs.pt'
         model_vocab = 'model/vqvae/results/training/50000_instances/surf_vocab.json'  
-    if id == 'ae_004':
-        model_path  = 'model/vqvae/results/training/12798_instances/30epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12798_instances/surf_vocab.json'  
+    if id == 'ae_003':
+        model_path  = 'model/vqvae/results/training/12229_instances/20epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/surf_vocab.json'  
     
+
     if id == 'vqvae_1x10000_3x8':
         model_path  = 'model/vqvae/results/training/50000_instances/1x10000_3x8/200epochs.pt'
         model_vocab = 'model/vqvae/results/training/50000_instances/1x10000_3x8/surf_vocab.json'  
@@ -28,7 +29,68 @@ def get_model_info(id):
     if id == 'vqvae_1x10000_8x6':
         model_path  = 'model/vqvae/results/training/50000_instances/1x10000_8x6/200epochs.pt'
         model_vocab = 'model/vqvae/results/training/50000_instances/1x10000_8x6/surf_vocab.json'  
-   
+    if id == '2x30_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/2x30_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/2x30_suffixd512/surf_vocab.json'         
+    if id == '4x30_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/4x30_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x30_suffixd512/surf_vocab.json'
+
+    if id == '1x100_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/1x100_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/1x100_suffixd512/surf_vocab.json'
+    if id == '2x50_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/root_as_concat/2x50_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/root_as_concat/2x50_suffixd512/surf_vocab.json'
+    if id == '4x25_suffixd512_dec128':
+        model_path  = 'model/vqvae/results/training/12229_instances/dec128/4x25_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/dec128/4x25_suffixd512/surf_vocab.json'
+    if id == '4x25wlinears_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/4x25wlinears_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x25wlinears_suffixd512/surf_vocab.json'
+    if id == '4x25wo_sigmoid_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/4x25wo_sigmoid_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x25wo_sigmoid_suffixd512/surf_vocab.json'
+    if id == '4x25_suffixd512_dec256':
+        model_path  = 'model/vqvae/results/training/12229_instances/4x25_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x25_suffixd512/surf_vocab.json'
+    if id == '8x12_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/8x12_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/8x12_suffixd512/surf_vocab.json'
+    if id == '4x25dec64_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/4x25dec64_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x25dec64_suffixd512/surf_vocab.json'
+    if id == '4x25kl0.2_dec128_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/4x25kl0.2_dec128_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x25kl0.2_dec128_suffixd512/surf_vocab.json'
+    if id == '4x25kl0.1_dec128_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/4x25kl0.1_dec128_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x25kl0.1_dec128_suffixd512/surf_vocab.json'
+    if id == '1x120kl0.1_dec128_suffixd512':
+        model_path  = 'model/vqvae/results/training/12229_instances/1x120kl0.1_dec128_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/1x120kl0.1_dec128_suffixd512/surf_vocab.json'
+    if id == '4x10dec128_suffixd512':  
+        model_path  = 'model/vqvae/results/training/12229_instances/4x10dec128_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x10dec128_suffixd512/surf_vocab.json'
+    if id == '8x10dec128_suffixd512':  
+        model_path  = 'model/vqvae/results/training/12229_instances/8x10dec128_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/8x10dec128_suffixd512/surf_vocab.json'
+    if id == '8x15dec128_suffixd512':  
+        model_path  = 'model/vqvae/results/training/12229_instances/8x15dec128_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/8x15dec128_suffixd512/surf_vocab.json'
+    if id == '4x15dec128_suffixd512':  
+        model_path  = 'model/vqvae/results/training/12229_instances/4x15dec128_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/4x15dec128_suffixd512/surf_vocab.json'
+    if id == '0x300dec128_suffixd0':  
+        model_path  = 'model/vqvae/results/training/12229_instances/0x300dec128_suffixd0/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/0x300dec128_suffixd0/surf_vocab.json'
+    if id == '2x100dec128_suffixd512':  
+        model_path  = 'model/vqvae/results/training/12229_instances/2x100dec128_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/2x100dec128_suffixd512/surf_vocab.json'
+    if id == '2x100dec512_suffixd512':  
+        model_path  = 'model/vqvae/results/training/12229_instances/2x100dec512_suffixd512/200epochs.pt'
+        model_vocab = 'model/vqvae/results/training/12229_instances/2x100dec512_suffixd512/surf_vocab.json'
+
     return model_path, model_vocab
 
 class Logger(object):

@@ -4,6 +4,7 @@
 # Description: Word copier for trained VQVAE model
 # -----------------------------------------------------------
 
+from sklearn.decomposition import dict_learning
 from common.vocab import VocabEntry
 from vqvae import VQVAE
 from common.utils import *
@@ -12,17 +13,23 @@ import argparse, torch, json,  os
 def reinflect(args, inflected_word, reinflect_tag):
     x = torch.tensor([args.vocab.word2id['<s>']] + args.vocab.encode_sentence(inflected_word) + [args.vocab.word2id['</s>']]).unsqueeze(0)
     fhs, _, _, fwd_fhs, bck_fhs = args.model.encoder(x)
-    root_z = fhs
+    root_z = fwd_fhs
+    #root_z =  args.model.linear_root(fwd_fhs)
+    #root_z = torch.sigmoid(root_z)
+    #fhs, _, _, fwd_fhs, bck_fhs, mu, logvar = args.model.encoder(x)
     #root_z = mu.unsqueeze(0)
     #root_z = args.model.reparameterize(mu, logvar)
     bosid = args.vocab.word2id['<s>']
     input = torch.tensor(bosid)
     sft = nn.Softmax(dim=1)
-    j1,j2= reinflect_tag
-    #j1,j2,j3,j4, j5,j6,j7,j8 = reinflect_tag
+    j1,j2 = reinflect_tag
+    #j1 = reinflect_tag[0]
     vq_vectors = []
     vq_vectors.append(args.model.ord_vq_layers[0].embedding.weight[j1].unsqueeze(0).unsqueeze(0))
     vq_vectors.append(args.model.ord_vq_layers[1].embedding.weight[j2].unsqueeze(0).unsqueeze(0))
+    #vq_vectors.append(args.model.ord_vq_layers[2].embedding.weight[j3].unsqueeze(0).unsqueeze(0))
+    #vq_vectors.append(args.model.ord_vq_layers[3].embedding.weight[j4].unsqueeze(0).unsqueeze(0))
+
 
     suffix_z = torch.cat(vq_vectors,dim=2)
     batch_size, seq_len, _ = root_z.size()
@@ -53,18 +60,13 @@ def reinflect(args, inflected_word, reinflect_tag):
     return(''.join(copied), (reinflect_tag))
 
 
-#ins = torch.cat(vq_vectors[1:],dim=1)
-#output, (last_state, last_cell) = args.model.suffix_lstm(ins)
-#last_state = last_state.squeeze(0).unsqueeze(1)
-#for i in range(2, len(vq_vectors)):
-#    vq_vectors[1] += vq_vectors[i]
 
 def config():
     # CONFIG
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = '2x100dec128_suffixd512'
+    model_id = '2x100dec512_suffixd512'
     model_path, model_vocab  = get_model_info(model_id)
     args.model_id = model_id#[5:]
     # logging
@@ -85,7 +87,7 @@ def config():
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.enc_nh = 512;
-    args.dec_nh = 512*2 #args.enc_nh; 
+    args.dec_nh = 512 #args.enc_nh; 
     args.embedding_dim = args.enc_nh; 
     args.beta = 0.5
     args.orddict_emb_num  = 100
@@ -104,33 +106,28 @@ def main():
         with open(args.logdir+args.model_id+'_turkish-task3-test_reinflected', 'w') as writer:
             with open(args.logdir+args.model_id+'_turkish-task3-test_reinflected_true', 'w') as writer_true:
                 with open(args.logdir+args.model_id+'_turkish-task3-test_reinflected_false', 'w') as writer_false:
-                    jss =[]
-                    '''for k in range(8):
-                        js.append([])
-                    for k in range(8):
-                        with open(args.logdir+args.model_id+'_turkish-task3-test_todo_LSTM_'+str(k), 'r') as reader:
-                            for line in reader:
-                                inflected_word, _tag, tag_name, gold_reinflection = line.strip().split('|||')
-                                inflected_word = inflected_word.strip()
-                                tag_name = tag_name.strip()
-                                tags = json.loads(_tag.strip())
-                                gold_reinflection = gold_reinflection.strip()
-                                for key,val in tags.items():
-                                    js[k].append(int(key))
-                                    break'''
 
-                    with open(args.logdir+args.model_id+'_turkish-task3-test_todo_LSTM_'+str(2), 'r') as reader:
+                    dict1_entries = [];  dict2_entries = [];  dict3_entries = [];  dict4_entries = []; keys =[]
+                    
+                    '''with open('dict1', 'r') as reader:
                         for line in reader:
-                            inflected_word, _tag, tag_name, gold_reinflection = line.strip().split('|||')
-                            inflected_word = inflected_word.strip()
-                            tag_name = tag_name.strip()
-                            tags = json.loads(_tag.strip())
-                            gold_reinflection = gold_reinflection.strip()
-                            for key,val in tags.items():
-                                jss.append([int(s) for s in key.split('-')[1:]])
-                                break
-                        
-            
+                            dict1_entries.append(line.split('\t')[1])
+                    with open('dict2', 'r') as reader:
+                        for line in reader:
+                            dict2_entries.append(line.split('\t')[1])
+                    with open('dict3', 'r') as reader:
+                        for line in reader:
+                            dict3_entries.append(line.split('\t')[1])
+                    with open('dict4', 'r') as reader:
+                        for line in reader:
+                            dict4_entries.append(line.split('\t')[1])'''
+                    
+
+                    with open('tst_2x100_512.txt', 'r') as reader:
+                        for line in reader:
+                            keys.append( line.split('\t')[2].strip().split('-')) 
+                    
+
                     with open(args.logdir+args.model_id+'_turkish-task3-test_todo_LSTM_'+str(2), 'r') as reader:
                         for i,line in enumerate(reader):
                             inflected_word, _tag, tag_name, gold_reinflection = line.strip().split('|||')
@@ -138,21 +135,16 @@ def main():
                             tag_name = tag_name.strip()
                             tags = json.loads(_tag.strip())
                             gold_reinflection = gold_reinflection.strip()
-
-
-                            for key,val in tags.items():
-                                #key = jss[i]
-                                key = [int(s) for s in key.split('-')[1:]]
-                                reinflected_word, vq_code =  reinflect(args, inflected_word, key)#[k[i] for k in js])
-                                reinflected_word = reinflected_word[:-4]
-                                writer.write(inflected_word +'\t'+ tag_name+'\t'+reinflected_word + '\n')
-                                print(reinflected_word)
-                                if reinflected_word == gold_reinflection:
-                                    writer_true.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\n')
-                                    break
-                                else:
-                                    writer_false.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ str(vq_code)+'\n')
-                                #break
+                            #key = [int(dict1_entries[i]), int(dict2_entries[i])] #, int(dict3_entries[i]), int(dict4_entries[i])]
+                            key = [int(n) for n in keys[i]]
+                            reinflected_word, vq_code =  reinflect(args, gold_reinflection,key)
+                            reinflected_word = reinflected_word[:-4]
+                            writer.write(inflected_word +'\t'+ tag_name+'\t'+reinflected_word + '\n')
+                            print(reinflected_word)
+                            if reinflected_word == gold_reinflection:
+                                writer_true.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\n')
+                            else:
+                                writer_false.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ str(vq_code)+'\n')
 if __name__=="__main__":
     main()
 

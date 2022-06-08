@@ -30,7 +30,7 @@ torch.autograd.set_detect_anomaly(True)
 
 def test(batches, mode, args, epc, suffix_codes_trn):
     epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
-    epoch_vq_loss = 0; epoch_recon_loss = 0
+    epoch_vq_loss = 0; epoch_recon_loss = 0; epoch_kl_loss = 0; 
     numwords = args.valsize if mode =='val'  else args.tstsize
     numbatches = len(batches)
     indices = list(range(numbatches))
@@ -46,7 +46,12 @@ def test(batches, mode, args, epc, suffix_codes_trn):
     for i, idx in enumerate(indices):
         # (batchsize, t)
         surf = batches[idx] 
-        loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_codes_list, recon_preds,_ = args.model.loss(surf, epc)
+        
+        #loss, recon_loss, vq_loss, kl_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_codes_list, recon_preds,_ = args.model.loss(surf, epc)
+        loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_codes_list, recon_preds, logdet = args.model.loss(surf, epc)
+        kl_loss = torch.tensor(0)
+        
+
         wrong_predictions, correct_predictions = recon_preds
         epoch_wrong_predictions   += wrong_predictions
         epoch_correct_predictions += correct_predictions
@@ -72,6 +77,7 @@ def test(batches, mode, args, epc, suffix_codes_trn):
         epoch_loss       += loss.sum().item()
         epoch_recon_loss += recon_loss.sum().item()
         epoch_vq_loss    += vq_loss.sum().item()
+        epoch_kl_loss    += kl_loss.sum().item()
         epoch_acc        += acc
     
     '''# File Operations
@@ -91,8 +97,9 @@ def test(batches, mode, args, epc, suffix_codes_trn):
     vq = epoch_vq_loss / numwords 
     acc = epoch_acc / epoch_num_tokens
     ppl = np.exp(epoch_recon_loss/ epoch_num_tokens)
+    kl = epoch_kl_loss / numwords 
 
-    args.logger.write('\n%s ---  avg_loss: %.4f, avg_recon_loss: %.4f, avg_vq_loss: %.4f, ppl: %.4f, acc: %.4f, vq_inds: %s, unique_vq_codes: %d, unique_suffix_codes: %d, val_unique_suffix_codes: %d \n' % (mode, loss, recon, vq, ppl, acc, vq_inds, len(vq_codes), len(suffix_codes), val_unique_suffix_code))
+    args.logger.write('\n%s ---  avg_loss: %.4f, avg_recon_loss: %.4f, avg_kl_loss: %.4f, avg_vq_loss: %.4f, ppl: %.4f, acc: %.4f, vq_inds: %s, unique_vq_codes: %d, unique_suffix_codes: %d, val_unique_suffix_codes: %d \n' % (mode, loss, recon, kl, vq, ppl, acc, vq_inds, len(vq_codes), len(suffix_codes), val_unique_suffix_code))
     return loss, recon, vq, acc, vq_inds
 
 def train(data, args):
@@ -120,7 +127,7 @@ def train(data, args):
         clusters_list.append(dict())
         epoch_encoder_fhs = []
         epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
-        epoch_vq_loss = 0; epoch_recon_loss = 0; epoch_logdet = 0
+        epoch_vq_loss = 0; epoch_recon_loss = 0; epoch_kl_loss = 0; epoch_logdet = 0
         random.shuffle(indices) # this breaks continuity if there is any
         vq_codes = defaultdict(lambda: 0)
         suffix_codes = defaultdict(lambda: 0)
@@ -130,7 +137,9 @@ def train(data, args):
             # (batchsize, t)
             surf = trnbatches[idx] 
             # (batchsize)
-            loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, logdet = args.model.loss(surf, epc)
+            #loss, recon_loss, vq_loss, kl_loss, (acc,pred_tokens), quantized_inds, encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, logdet = args.model.loss(surf, epc)
+            loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, logdet = args.model.loss(surf, epc)
+            kl_loss = torch.tensor(0)
             wrong_predictions, correct_predictions = recon_preds
             epoch_wrong_predictions   += wrong_predictions
             epoch_correct_predictions += correct_predictions
@@ -168,6 +177,8 @@ def train(data, args):
             epoch_loss       += loss.sum().item()
             epoch_recon_loss += recon_loss.sum().item()
             epoch_vq_loss    += vq_loss.sum().item()
+            epoch_kl_loss    += kl_loss.sum().item()
+
             epoch_acc        += acc
             epoch_logdet     += logdet
         for i in range(args.num_dicts):
@@ -188,7 +199,9 @@ def train(data, args):
         vq = epoch_vq_loss / numwords 
         ppl = np.exp(epoch_recon_loss/ epoch_num_tokens)
         acc = epoch_acc / epoch_num_tokens
-        args.logger.write('\nepoch: %.1d,  avg_loss: %.4f, avg_recon_loss: %.4f, avg_vq_loss: %.4f, ppl: %.4f, acc: %.4f, vq_inds: %s, unique_vq_codes: %d, unique_suffix_codes: %d, logdet: %.4f ' % (epc, loss, recon, vq, ppl, acc, vq_inds, len(vq_codes), len(suffix_codes), logdet))
+        kl = epoch_kl_loss / numwords 
+
+        args.logger.write('\nepoch: %.1d,  avg_loss: %.4f, avg_recon_loss: %.4f, avg_kl_loss: %.4f, avg_vq_loss: %.4f, ppl: %.4f, acc: %.4f, vq_inds: %s, unique_vq_codes: %d, unique_suffix_codes: %d, logdet: %.4f ' % (epc, loss, recon, kl, vq, ppl, acc, vq_inds, len(vq_codes), len(suffix_codes), logdet))
         #tensorboard log
         writer.add_scalar('loss/trn', loss, epc)
         writer.add_scalar('loss/recon_loss/trn', recon, epc)
@@ -288,21 +301,20 @@ model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
 args.ni = 256; 
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.2
+args.dec_dropout_in = 0.5; args.dec_dropout_out = 0.5
 args.enc_nh = 512;
-args.dec_nh = 128 #args.enc_nh; 
+args.dec_nh = 512 #args.enc_nh; 
 args.embedding_dim = args.enc_nh
 args.beta = 0.5
 args.rootdict_emb_dim = 512;  args.nz = 128; 
-args.num_dicts = 2; args.outcat=0; args.incat = args.enc_nh
-args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat
-#args.rootdict_emb_num = 3000
-args.orddict_emb_num =  30
+args.num_dicts = 4; args.outcat=0; args.incat = args.enc_nh
+args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat; args.dec_nh_tmp = args.dec_nh
+args.orddict_emb_num =  25
 args.model = VQVAE(args, vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
 # tensorboard
 # load pretrained ae weights
-args.model_prefix = str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_suffixd'+str(args.incat)+'/'
+args.model_prefix = str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
 
 if dataset_type == 'I':
     writer = SummaryWriter("runs/training_vqvae/dataset-I/"+ args.model_prefix)
@@ -319,17 +331,15 @@ elif dataset_type == 'III':
     _model_id  = 'ae_003'
 elif dataset_type == 'IV':
     writer = SummaryWriter("runs/training_vqvae/dataset-IV/"+ args.model_prefix)
+    #ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_datasetIV-train_d512.pt').to('cpu')
     ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_datasetIV-train_fwd_d512.pt').to('cpu')
     ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/fhs_datasetIV-train_bck_d512.pt').to('cpu')
     _model_id  = 'ae_003'
 
 _model_path, surf_vocab  = get_model_info(_model_id) 
-#args.model.vq_layer_root.embedding.weight.data = ae_fhs_vectors[:args.rootdict_emb_num, :args.rootdict_emb_dim]
-#args.model.vq_layer_end.embedding.weight.data = ae_fhs_vectors_bck[:args.enddict_emb_num, :args.rootdict_emb_dim]
-
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
-    #vq_layer.embedding.weight.data = ae_fhs_vectors_bck[offset_start: offset_end, i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
-    vq_layer.embedding.weight.data = ae_fhs_vectors_bck[:args.orddict_emb_num, i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
+    #vq_layer.embedding.weight.data = ae_fhs_vectors[: args.orddict_emb_num, i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
+    vq_layer.embedding.weight.data = ae_fhs_vectors_bck[: args.orddict_emb_num, i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
 
 
 # initialize model
@@ -342,7 +352,7 @@ with open(surf_vocab) as f:
 args.num_dicts = 0; args.outcat=0; args.incat = 0; args.dec_nh = args.enc_nh*2
 args.pretrained_model = VQVAE_AE(args, args.surf_vocab, model_init, emb_init)
 args.pretrained_model.load_state_dict(torch.load(_model_path), strict=False)
-args.num_dicts = args.num_dicts_tmp; args.outcat=args.outcat_tmp; args.incat = args.incat_tmp;  args.dec_nh = 256#args.enc_nh
+args.num_dicts = args.num_dicts_tmp; args.outcat=args.outcat_tmp; args.incat = args.incat_tmp; args.dec_nh = args.dec_nh_tmp
 
 # CRITIC
 args.model.encoder.embed = args.pretrained_model.encoder.embed

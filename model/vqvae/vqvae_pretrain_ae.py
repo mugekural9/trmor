@@ -35,6 +35,7 @@ def test(batches, mode, args, epc):
         # (batchsize, t)
         surf = batches[idx] 
         loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs_fwd,_ = args.model.loss(surf, epc)
+        #loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs = args.model.loss(surf, epc)
         epoch_num_tokens += surf.size(0) * (surf.size(1)-1)  # exclude start token prediction
         epoch_loss       += loss.sum().item()
         epoch_recon_loss += recon_loss.sum().item()
@@ -67,6 +68,7 @@ def train(data, args):
     for epc in range(args.epochs):
         epoch_encoder_fhs_fwd = []
         epoch_encoder_fhs_bck = []
+        epoch_encoder_fhs = []
         epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
         epoch_vq_loss = 0; epoch_recon_loss = 0
         random.shuffle(indices) # this breaks continuity if there is any
@@ -78,8 +80,11 @@ def train(data, args):
             surf = trnbatches[idx] 
             # (batchsize)
             loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs_fwd, encoder_fhs_bck = args.model.loss(surf, epc)
+            #loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs= args.model.loss(surf, epc)
+            
             batch_loss = loss.mean()
             batch_loss.backward()
+            #epoch_encoder_fhs.append(encoder_fhs)
             epoch_encoder_fhs_fwd.append(encoder_fhs_fwd)
             epoch_encoder_fhs_bck.append(encoder_fhs_bck)
             opt.step()
@@ -101,16 +106,17 @@ def train(data, args):
         writer.add_scalar('accuracy/trn', acc, epc)
    
         # (numinst, hdim)
+        #epoch_encoder_fhs = torch.cat(epoch_encoder_fhs).squeeze(1)
         epoch_encoder_fhs_fwd = torch.cat(epoch_encoder_fhs_fwd).squeeze(1)
         epoch_encoder_fhs_bck = torch.cat(epoch_encoder_fhs_bck).squeeze(1)
 
-        fhs_norms =  torch.norm(epoch_encoder_fhs_fwd,dim=1)
-        fhs_norms = fhs_norms.detach().cpu()
-        writer.add_histogram('fhs_norms', fhs_norms, epc)#, bins='auto')
+        #fhs_norms =  torch.norm(epoch_encoder_fhs_fwd,dim=1)
+        #fhs_norms = fhs_norms.detach().cpu()
+        #writer.add_histogram('fhs_norms', fhs_norms, epc)#, bins='auto')
         if epc == args.epochs -1:
             torch.save(epoch_encoder_fhs_fwd, 'fhs_datasetIV-train_fwd_d512.pt')
             torch.save(epoch_encoder_fhs_bck, 'fhs_datasetIV-train_bck_d512.pt')
-
+            #torch.save(epoch_encoder_fhs, 'fhs_datasetIV-train_d512.pt')
         trn_loss_values.append(loss)
         trn_vq_values.append(vq)
         trn_recon_loss_values.append(recon)
@@ -172,7 +178,8 @@ args.ni = 256;
 args.enc_dropout_in = 0.2; args.enc_dropout_out = 0.2
 args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.2
 args.enc_nh = 512;
-args.dec_nh = args.enc_nh*2; args.embedding_dim = args.enc_nh; args.nz = args.enc_nh
+args.dec_nh = args.enc_nh*2;
+args.embedding_dim = args.enc_nh; args.nz = args.enc_nh
 args.beta = 0
 args.rootdict_emb_num = 0
 args.rootdict_emb_dim = 512; args.num_dicts = 0; args.nz = 512; args.outcat=0; args.incat=0

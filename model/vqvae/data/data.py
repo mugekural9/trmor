@@ -37,6 +37,18 @@ def read_data(maxdsize, file, surface_vocab, mode):
                     surfs.append(surf)
                 #surf_r = surf[::-1]
                 #surf_data.append([surface_vocab[char] for char in surf_r])
+    elif 'trn.txt' in file:
+        with open(file, 'r') as reader:
+            for line in reader:     
+                count += 1
+                if count > maxdsize:
+                    break
+                surf = line.strip().split('\t')[0]
+                if surf not in surfs:
+                    surf_data.append([surface_vocab[char] for char in surf])
+                    surfs.append(surf)
+                #surf_r = surf[::-1]
+                #surf_data.append([surface_vocab[char] for char in surf_r])
     print(mode,':')
     print('surf_data:',  len(surf_data))
     for surf in surf_data:

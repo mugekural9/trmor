@@ -161,7 +161,6 @@ class VQVAE_Decoder(nn.Module):
 
     def forward(self, input, z):
         root_z, suffix_z = z
-        #root_z = z
         batch_size, _, _ = root_z.size()
         seq_len = input.size(1)
         # (batch_size, seq_len, ni)
@@ -171,7 +170,6 @@ class VQVAE_Decoder(nn.Module):
         # (batch_size, seq_len, ni + nz)
         word_embed = torch.cat((word_embed, z_), -1)
         
-
         # (1, batch_size, nz)
         root_z = root_z.permute((1,0,2))
         # (1, batch_size, dec_nh)
@@ -206,6 +204,8 @@ class VQVAE(nn.Module):
         self.orddict_emb_num = args.orddict_emb_num
         self.dict_assemble_type = dict_assemble_type
         
+        #assert (dict_assemble_type=='concat' or (dict_assemble_type =='sum' and self.rootdict_emb_dim == self.encoder_emb_dim)), "If dict assemble type is sum, dict embedding dim should be equal to encoder emb dim"
+
         if dict_assemble_type =='concat':
             self.orddict_emb_dim = int((self.encoder_emb_dim-self.rootdict_emb_dim)/(self.num_dicts))
 
@@ -213,14 +213,16 @@ class VQVAE(nn.Module):
             self.orddict_emb_dim = self.rootdict_emb_dim
         else:
             self.orddict_emb_dim   = int(args.incat/self.num_dicts)
+            #self.orddict_emb_dim   = int((args.incat)/(self.num_dicts))
             
         self.beta = args.beta
 
-        self.linear_root = nn.Linear(self.encoder_emb_dim,  args.dec_nh, bias=False)
+        self.linear_root = nn.Linear(self.encoder_emb_dim,  args.dec_nh, bias=True)
         #other
         #self.ord_linears = nn.ModuleList([])
         self.ord_vq_layers = nn.ModuleList([])
 
+        #for i in range(1):#(self.num_dicts-1):
         for i in range(self.num_dicts):
         #    self.ord_linears.append(nn.Linear(self.encoder_emb_dim, self.orddict_emb_dim, bias=True))
             self.ord_vq_layers.append(VectorQuantizer(self.orddict_emb_num,
@@ -233,10 +235,14 @@ class VQVAE(nn.Module):
         # fhs: (B,1,hdim)
 
         fhs, _, _, fwd_fhs, bck_fhs = self.encoder(x)
+        #fhs, _, _ = self.encoder(x)
+        
+        #fhs = fwd_fhs
         vq_vectors = []; vq_losses = []; vq_inds = []
         # quantized_input: (B, 1, rootdict_emb_dim)
-        #fhs =  self.linear_root(fhs)
-        vq_vectors.append(fwd_fhs)
+        _root_fhs =  self.linear_root(fwd_fhs)
+        _root_fhs = torch.sigmoid(_root_fhs)
+        vq_vectors.append(_root_fhs)
 
         # quantize thru ord dicts
         i=0
@@ -250,7 +256,20 @@ class VQVAE(nn.Module):
             vq_losses.append(vq_loss)
             vq_inds.append(quantized_inds)
             i+=1
-      
+        
+        '''sufv   = torch.cat(vq_vectors[1:],dim=1)
+        logdet = 0
+        for i in range(sufv.shape[0]):
+            mtx =  torch.cov(sufv[i].t())
+            logdet += torch.log(torch.det(mtx)+1e-6)
+            #print(logdet)'''
+
+        #b,t,128
+        #ins = torch.cat(vq_vectors[1:],dim=1)
+        # (batch_size, seq_len-1, args.ni)
+        # last_state: 1,128,256
+        #output, (last_state, last_cell) = self.suffix_lstm(ins)
+        #last_state = last_state.squeeze(0).unsqueeze(1)
 
         if self.dict_assemble_type == 'sum':
             for i in range(0, len(vq_vectors)):
@@ -283,7 +302,6 @@ class VQVAE(nn.Module):
                 suffix_code += '-' + str((vq_inds[j][0][i]).item()) 
             dict_codes.append(dict_code)
             suffix_codes.append(suffix_code)
-        
         return vq_vectors, vq_loss, vq_inds,  fhs, dict_codes, suffix_codes, 0
 
     def recon_loss(self, x, quantized_z, dict_codes=None, recon_type='avg'):
