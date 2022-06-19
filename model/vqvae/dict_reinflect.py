@@ -4,7 +4,6 @@
 # Description: Word copier for trained VQVAE model
 # -----------------------------------------------------------
 
-from sklearn.decomposition import dict_learning
 from common.vocab import VocabEntry
 from vqvae import VQVAE
 from common.utils import *
@@ -12,33 +11,56 @@ import argparse, torch, json,  os
 
 def reinflect(args, inflected_word, reinflect_tag):
     x = torch.tensor([args.vocab.word2id['<s>']] + args.vocab.encode_sentence(inflected_word) + [args.vocab.word2id['</s>']]).unsqueeze(0)
-    fhs, _, _, fwd_fhs, bck_fhs = args.model.encoder(x)
-    root_z = fwd_fhs
-    #root_z =  args.model.linear_root(fwd_fhs)
-    #root_z = torch.sigmoid(root_z)
-    #fhs, _, _, fwd_fhs, bck_fhs, mu, logvar = args.model.encoder(x)
-    #root_z = mu.unsqueeze(0)
-    #root_z = args.model.reparameterize(mu, logvar)
+    vq_vectors = []
+  
+    if args.model_type =='unilstm':
+        #UNIDIRECT
+        fhs, _, _ = args.model.encoder(x)
+        vq_vectors.append(args.model.linear_root(fhs))
+
+    if args.model_type =='kl':
+        #KL VERSION
+        fhs, _, _, mu, logvar = args.model.encoder(x)
+        _root_fhs = mu.unsqueeze(0)
+        #_root_fhs = args.model.reparameterize(mu, logvar)
+        vq_vectors.append(_root_fhs)
+
+    if args.model_type =='bilstm':
+        #BIDIRECT
+        fhs, _, _,fwd,bck = args.model.encoder(x)   
+        vq_vectors.append(args.model.linear_root(fwd))
+
+    if args.model_type =='discrete':
+        #DISCRETE
+        fhs, _, _, fwd,bck = args.model.encoder(x)    
+        quantized_input, vq_loss, quantized_inds = args.model.vq_layer_lemma(fwd,0)
+        vq_vectors.append(quantized_input)
+            
+
     bosid = args.vocab.word2id['<s>']
     input = torch.tensor(bosid)
     sft = nn.Softmax(dim=1)
-    j1,j2 = reinflect_tag
-    #j1 = reinflect_tag[0]
-    vq_vectors = []
-    vq_vectors.append(args.model.ord_vq_layers[0].embedding.weight[j1].unsqueeze(0).unsqueeze(0))
-    vq_vectors.append(args.model.ord_vq_layers[1].embedding.weight[j2].unsqueeze(0).unsqueeze(0))
-    #vq_vectors.append(args.model.ord_vq_layers[2].embedding.weight[j3].unsqueeze(0).unsqueeze(0))
-    #vq_vectors.append(args.model.ord_vq_layers[3].embedding.weight[j4].unsqueeze(0).unsqueeze(0))
+    # Quantized Inputs
+    vq_vectors.append(args.model.ord_vq_layers[0].embedding.weight[reinflect_tag[0]].unsqueeze(0).unsqueeze(0))
+    if args.num_dicts >=2:
+        vq_vectors.append(args.model.ord_vq_layers[1].embedding.weight[reinflect_tag[1]].unsqueeze(0).unsqueeze(0))
+    if args.num_dicts >=4:
+        vq_vectors.append(args.model.ord_vq_layers[2].embedding.weight[reinflect_tag[2]].unsqueeze(0).unsqueeze(0))
+        vq_vectors.append(args.model.ord_vq_layers[3].embedding.weight[reinflect_tag[3]].unsqueeze(0).unsqueeze(0))
+    if args.num_dicts >=8:
+        vq_vectors.append(args.model.ord_vq_layers[4].embedding.weight[reinflect_tag[4]].unsqueeze(0).unsqueeze(0))
+        vq_vectors.append(args.model.ord_vq_layers[5].embedding.weight[reinflect_tag[5]].unsqueeze(0).unsqueeze(0))
+        vq_vectors.append(args.model.ord_vq_layers[6].embedding.weight[reinflect_tag[6]].unsqueeze(0).unsqueeze(0))
+        vq_vectors.append(args.model.ord_vq_layers[7].embedding.weight[reinflect_tag[7]].unsqueeze(0).unsqueeze(0))
 
-
-    suffix_z = torch.cat(vq_vectors,dim=2)
-    batch_size, seq_len, _ = root_z.size()
+    vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
+    root_z, suffix_z = vq_vectors
+    batch_size, seq_len, _ = fhs.size()
     z_ = suffix_z.expand(batch_size, seq_len, args.model.decoder.incat)
-    root_z = root_z.permute((1,0,2))
 
-    c_init = root_z 
+    c_init = root_z
     h_init = torch.tanh(c_init)
-    decoder_hidden = (c_init, h_init)
+    decoder_hidden = (h_init, c_init)
     copied = []; i = 0
     MAX_LENGTH = 50
     c=0
@@ -51,12 +73,11 @@ def reinflect(args, inflected_word, reinflect_tag):
         output, decoder_hidden = args.model.decoder.lstm(word_embed, decoder_hidden)
         # (1, vocab_size)
         output_logits = args.model.decoder.pred_linear(output).squeeze(1)
-        input = torch.argmax(sft(output_logits)) 
+        input = torch.argmax(sft(output_logits))
         char = args.vocab.id2word(input.item())
         copied.append(char)
         if char == '</s>':
             return(''.join(copied), (reinflect_tag))
-            break
     return(''.join(copied), (reinflect_tag))
 
 
@@ -66,15 +87,55 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = '2x100dec512_suffixd512'
+    model_id = 'unilstm_4x10_dec100_suffixd512'
+    model_id = 'bilstm_4x10dec100_suffixd512'
+    model_id = 'discretelemma_bilstm_4x10_dec512_suffixd512'
+    model_id = 'kl0.2_4x10_dec128_suffixd512'
+    model_id = 'kl0.1_4x10_dec128_suffixd512'
+    model_id = 'kl0.1_8x10_dec150_suffixd512'
+    model_id = 'kl0.1_8x10_dec128_suffixd512'
+    model_id = 'kl0.1_8x6_dec128_suffixd512'
+    model_id = 'kl0.1_16x6_dec128_suffixd512'
+    model_id = 'discretelemma_bilstm_8x6_dec512_suffixd512'
+
+    args.num_dicts = 8
+    args.orddict_emb_num  = 6
+    args.lemmadict_emb_num  = 5000
+    args.nz = 512
+    args.root_linear_h = args.nz
+    args.enc_nh = 512;
+    args.dec_nh = args.root_linear_h
+    args.incat = args.enc_nh
+
+
+
+    if 'uni' in model_id:
+        from vqvae import VQVAE
+        args.model_type = 'unilstm'
+
+    if 'kl' in model_id:
+        from vqvae_kl import VQVAE
+        args.model_type = 'kl'
+        args.dec_nh = args.nz  
+
+    if 'bi' in model_id:
+        from vqvae_bidirect import VQVAE
+        args.model_type = 'bilstm'
+
+    if 'discrete' in model_id:
+        from vqvae_discrete import VQVAE
+        args.num_dicts = 9
+        args.dec_nh = args.enc_nh
+        args.model_type = 'discrete'
+
     model_path, model_vocab  = get_model_info(model_id)
-    args.model_id = model_id#[5:]
+    args.model_id = model_id
     # logging
-    args.logdir = 'model/vqvae/results/reinflection/'+model_id+'/'
-    args.logfile = args.logdir + '/'
+    args.logdir = 'model/vqvae/results/tagmapping/'+model_id+'/'
+    args.logfile = args.logdir + '/copies.txt'
     try:
         os.makedirs(args.logdir)
-        print("Directory " , args.logdir ,  " Created ") 
+        print("Directory " , args.logdir ,  " Created ")
     except FileExistsError:
         print("Directory " , args.logdir ,  " already exists")
     # initialize model
@@ -83,17 +144,17 @@ def config():
         word2id = json.load(f)
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 256; 
+    args.ni = 256;
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
-    args.enc_nh = 512;
-    args.dec_nh = 512 #args.enc_nh; 
-    args.embedding_dim = args.enc_nh; 
+
+    args.embedding_dim = args.enc_nh;
     args.beta = 0.5
-    args.orddict_emb_num  = 100
-    args.rootdict_emb_dim = 512;  args.nz = 128; 
-    args.num_dicts = 2; args.outcat=0; args.incat = 512
+    args.outcat=0;
     args.model = VQVAE(args, args.vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
+    
+    if args.model_type == 'discrete':
+        args.num_dicts = 8
     # load model weights
     args.model.load_state_dict(torch.load(model_path))
     args.model.eval()
@@ -107,44 +168,40 @@ def main():
             with open(args.logdir+args.model_id+'_turkish-task3-test_reinflected_true', 'w') as writer_true:
                 with open(args.logdir+args.model_id+'_turkish-task3-test_reinflected_false', 'w') as writer_false:
 
-                    dict1_entries = [];  dict2_entries = [];  dict3_entries = [];  dict4_entries = []; keys =[]
-                    
-                    '''with open('dict1', 'r') as reader:
-                        for line in reader:
-                            dict1_entries.append(line.split('\t')[1])
-                    with open('dict2', 'r') as reader:
-                        for line in reader:
-                            dict2_entries.append(line.split('\t')[1])
-                    with open('dict3', 'r') as reader:
-                        for line in reader:
-                            dict3_entries.append(line.split('\t')[1])
-                    with open('dict4', 'r') as reader:
-                        for line in reader:
-                            dict4_entries.append(line.split('\t')[1])'''
-                    
+                    dict_entries = []
+                    for i in range(args.num_dicts):
+                        dict_entries.append([])                   
+                        with open(args.logdir+'dict'+str(i)+'.txt', 'r') as reader:
+                            for line in reader:
+                                dict_entries[i].append(line.strip().split('\t')[1])
 
-                    with open('tst_2x100_512.txt', 'r') as reader:
-                        for line in reader:
-                            keys.append( line.split('\t')[2].strip().split('-')) 
-                    
-
-                    with open(args.logdir+args.model_id+'_turkish-task3-test_todo_LSTM_'+str(2), 'r') as reader:
+                    with open('data/sigmorphon2016/turkish-task3-test', 'r') as reader:
+                        true=0; false = 0
                         for i,line in enumerate(reader):
-                            inflected_word, _tag, tag_name, gold_reinflection = line.strip().split('|||')
+                            inflected_word, tag_name, gold_reinflection = line.strip().split('\t')
                             inflected_word = inflected_word.strip()
                             tag_name = tag_name.strip()
-                            tags = json.loads(_tag.strip())
                             gold_reinflection = gold_reinflection.strip()
-                            #key = [int(dict1_entries[i]), int(dict2_entries[i])] #, int(dict3_entries[i]), int(dict4_entries[i])]
-                            key = [int(n) for n in keys[i]]
-                            reinflected_word, vq_code =  reinflect(args, gold_reinflection,key)
+                            
+                            key = []
+                            for k in range(args.num_dicts):
+                                key.append(int(dict_entries[k][i]))
+
+                            reinflected_word, vq_code =  reinflect(args, inflected_word,key)
                             reinflected_word = reinflected_word[:-4]
                             writer.write(inflected_word +'\t'+ tag_name+'\t'+reinflected_word + '\n')
-                            print(reinflected_word)
                             if reinflected_word == gold_reinflection:
-                                writer_true.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\n')
+                                true +=1
+                                writer_true.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ '-'.join([str(s) for s in vq_code])+'\n')
                             else:
-                                writer_false.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ str(vq_code)+'\n')
+                                false+=1
+                                writer_false.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ '-'.join([str(s) for s in vq_code])+'\n')
+
+                    print('true %d, false %d, total %d, accuracy: %.2f' % (true,false, true+false, true/(true+false)))
+                    writer_true.write('true %d, false %d, total %d, accuracy: %.2f' % (true,false, true+false, true/(true+false)))
+
+
+
 if __name__=="__main__":
     main()
 

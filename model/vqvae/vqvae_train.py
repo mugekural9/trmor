@@ -24,9 +24,6 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 #reproduce
 #torch.manual_seed(0)
 #random.seed(0)
-torch.autograd.set_detect_anomaly(True)
-#tensorboard
-#writer = SummaryWriter("runs/training_vqvae/1x3000_5x10/")
 
 def test(batches, mode, args, epc, suffix_codes_trn):
     epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
@@ -62,10 +59,6 @@ def test(batches, mode, args, epc, suffix_codes_trn):
             if code not in suffix_codes_trn:
                 val_unique_suffix_code += 1
                 val_unique_suffix_codes.append(''.join(vocab.decode_sentence(surf[j])))
-        #if epc % 10 ==0:
-        #    for i in range(surf.shape[0]):             
-        #        args.logger.write('\n')
-        #        args.logger.write(''.join(vocab.decode_sentence(surf[i]))+'----->'+''.join(vocab.decode_sentence(pred_tokens[i])))
         for i in range(args.num_dicts):
             for ind in quantized_inds[i][0]:
                 ind = ind.item()
@@ -80,16 +73,7 @@ def test(batches, mode, args, epc, suffix_codes_trn):
         epoch_kl_loss    += kl_loss.sum().item()
         epoch_acc        += acc
     
-    '''# File Operations
-    f1 = open("val_wrong_predictions.txt", "w")
-    f2 = open("val_correct_predictions.txt", "w")
-    for i in epoch_wrong_predictions:
-        scode = '-'.join(i.split('dict_code: ')[1].split('-')[1:])
-        f1.write(i+'\t'+ str(scode in suffix_codes_trn)+'\n')
-    for i in epoch_correct_predictions:
-        scode = '-'.join(i.split('dict_code: ')[1].split('-')[1:])
-        f2.write(i+'\t'+ str(scode in suffix_codes_trn)+'\n')
-    f1.close(); f2.close()'''
+
     for i in range(args.num_dicts):
         vq_inds[i] = len(epoch_quantized_inds[i])
     loss = epoch_loss / numwords 
@@ -106,7 +90,6 @@ def train(data, args):
     trnbatches, valbatches, tstbatches = data
     # initialize optimizer
     opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.parameters()), lr=args.lr)
-    #opt = optim.SGD(args.model.parameters(), lr=0.01, momentum=0.9)
     # Log trainable model parameters
     for name, prm in args.model.named_parameters():
         args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
@@ -125,7 +108,7 @@ def train(data, args):
             clusters_list.append(dict())
             vq_inds.append(0)
         clusters_list.append(dict())
-        epoch_encoder_fhs = []
+
         epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
         epoch_vq_loss = 0; epoch_recon_loss = 0; epoch_kl_loss = 0; epoch_logdet = 0
         random.shuffle(indices) # this breaks continuity if there is any
@@ -137,7 +120,6 @@ def train(data, args):
             # (batchsize, t)
             surf = trnbatches[idx] 
             # (batchsize)
-            #loss, recon_loss, vq_loss, kl_loss, (acc,pred_tokens), quantized_inds, encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, logdet = args.model.loss(surf, epc)
             loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, logdet = args.model.loss(surf, epc)
             kl_loss = torch.tensor(0)
             wrong_predictions, correct_predictions = recon_preds
@@ -147,7 +129,8 @@ def train(data, args):
                 vq_codes[code] += 1
             for code in suffix_code_list:
                 suffix_codes[code] += 1
-            epoch_encoder_fhs.append(encoder_fhs)
+           
+            # log the dicts
             for i in range(args.num_dicts):
                 for ind in quantized_inds[i][0]:
                     if ind not in epoch_quantized_inds[i]:
@@ -162,7 +145,6 @@ def train(data, args):
                         clusters_list[i][ind] = []
                     if ''.join(vocab.decode_sentence(surf[s])) not in clusters_list[i][ind]:
                         clusters_list[i][ind].append(''.join(vocab.decode_sentence(surf[s])))
-            
             for s in range(surf.shape[0]):
                 ind = suffix_code_list[s]
                 if ind not in clusters_list[-1]:                   
@@ -178,21 +160,11 @@ def train(data, args):
             epoch_recon_loss += recon_loss.sum().item()
             epoch_vq_loss    += vq_loss.sum().item()
             epoch_kl_loss    += kl_loss.sum().item()
-
             epoch_acc        += acc
             epoch_logdet     += logdet
+        
         for i in range(args.num_dicts):
             vq_inds[i] = len(epoch_quantized_inds[i])
-        
-
-        '''# File Operations
-        f1 = open("trn_wrong_predictions.txt", "w")
-        f2 = open("trn_correct_predictions.txt", "w")
-        for i in epoch_wrong_predictions:
-            f1.write(i+'\n')
-        for i in epoch_correct_predictions:
-            f2.write(i+'\n')
-        f1.close(); f2.close()'''
 
         loss = epoch_loss / numwords 
         recon = epoch_recon_loss / numwords 
@@ -207,33 +179,11 @@ def train(data, args):
         writer.add_scalar('loss/recon_loss/trn', recon, epc)
         writer.add_scalar('loss/vq_loss/trn', vq, epc)
         writer.add_scalar('accuracy/trn', acc, epc)
-      
-        
-        '''# Histograms
-        # (numinst, hdim)
-        epoch_encoder_fhs = torch.cat(epoch_encoder_fhs).squeeze(1)
-        fhs_norms =  torch.norm(epoch_encoder_fhs,dim=1)
-        fhs_norms = fhs_norms.detach().cpu()
-        writer.add_histogram('fhs_norms', fhs_norms, epc)
-        #dict_norms =  torch.norm(args.model.vq_layer_root.embedding.weight,dim=1)
-        #dict_norms = dict_norms.detach().cpu()
-        writer.add_histogram('dict_norms_root', dict_norms, epc)
-        for i, vq_layer in enumerate(args.model.ord_vq_layers):
-            dict_norms =  torch.norm(vq_layer.embedding.weight,dim=1)
-            dict_norms = dict_norms.detach().cpu()
-            writer.add_histogram('dict_norms_'+str(i), dict_norms, epc)'''
-        '''# Gradient visualizations
-        for name,param in args.model.named_parameters():
-            if param.requires_grad:
-                grad_norms =  torch.norm(param.grad,dim=-1)
-                grad_norms = grad_norms.detach().cpu()
-                writer.add_histogram('grad_'+name, grad_norms, epc)'''
         trn_loss_values.append(loss)
         trn_vq_values.append(vq)
         trn_recon_loss_values.append(recon)
         trn_vq_inds.append(vq_inds)
-        # no matter what save model      
-        torch.save(args.model.state_dict(), args.save_path)
+
         # VAL
         args.model.eval()
         with torch.no_grad():
@@ -270,7 +220,6 @@ args.batchsize = 128; args.epochs = 200
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
-
 dataset_type = 'IV'
 
 # data
@@ -289,7 +238,6 @@ elif dataset_type == 'IV':
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
-#args.maxtrnsize = 700000; args.maxvalsize = 5000; args.maxtstsize = 10000
 args.maxtrnsize = 10000000; args.maxvalsize = 10000; args.maxtstsize = 10000
 
 rawdata, batches, vocab = build_data(args)
@@ -303,18 +251,19 @@ args.ni = 256;
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.5; args.dec_dropout_out = 0.5
 args.enc_nh = 512;
-args.dec_nh = 512 #args.enc_nh; 
+args.root_linear_h = 100
+args.dec_nh = args.root_linear_h #+ args.enc_nh; 
 args.embedding_dim = args.enc_nh
 args.beta = 0.5
-args.rootdict_emb_dim = 512;  args.nz = 128; 
-args.num_dicts = 4; args.outcat=0; args.incat = args.enc_nh
+args.nz = 128; 
+args.num_dicts = 4; args.outcat=0; args.incat = args.enc_nh; #args.enc_nh
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat; args.dec_nh_tmp = args.dec_nh
-args.orddict_emb_num =  25
+args.orddict_emb_num =  10
 args.model = VQVAE(args, vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
 # tensorboard
 # load pretrained ae weights
-args.model_prefix = str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
+args.model_prefix = 'unilstm_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
 
 if dataset_type == 'I':
     writer = SummaryWriter("runs/training_vqvae/dataset-I/"+ args.model_prefix)
@@ -331,15 +280,12 @@ elif dataset_type == 'III':
     _model_id  = 'ae_003'
 elif dataset_type == 'IV':
     writer = SummaryWriter("runs/training_vqvae/dataset-IV/"+ args.model_prefix)
-    #ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_datasetIV-train_d512.pt').to('cpu')
-    ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_datasetIV-train_fwd_d512.pt').to('cpu')
-    ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/fhs_datasetIV-train_bck_d512.pt').to('cpu')
-    _model_id  = 'ae_003'
+    ae_fhs_vectors = torch.load('model/vqvae/results/fhs/fhs_datasetIV-unidict-train_d512.pt').to('cpu')
+    _model_id  = 'ae_unilstm'
 
 _model_path, surf_vocab  = get_model_info(_model_id) 
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
-    #vq_layer.embedding.weight.data = ae_fhs_vectors[: args.orddict_emb_num, i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
-    vq_layer.embedding.weight.data = ae_fhs_vectors_bck[: args.orddict_emb_num, i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
+    vq_layer.embedding.weight.data = ae_fhs_vectors[: args.orddict_emb_num, i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
 
 
 # initialize model
@@ -349,7 +295,7 @@ with open(surf_vocab) as f:
     args.surf_vocab = VocabEntry(word2id)
 
 
-args.num_dicts = 0; args.outcat=0; args.incat = 0; args.dec_nh = args.enc_nh*2
+args.num_dicts = 0; args.outcat=0; args.incat = 0; args.dec_nh = args.enc_nh#*2
 args.pretrained_model = VQVAE_AE(args, args.surf_vocab, model_init, emb_init)
 args.pretrained_model.load_state_dict(torch.load(_model_path), strict=False)
 args.num_dicts = args.num_dicts_tmp; args.outcat=args.outcat_tmp; args.incat = args.incat_tmp; args.dec_nh = args.dec_nh_tmp

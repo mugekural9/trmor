@@ -8,7 +8,7 @@ Tensor = TypeVar('torch.tensor')
 
 class VQVAE_Encoder(nn.Module):
     """ LSTM Encoder with constant-length batching"""
-    def __init__(self, args, vocab, model_init, emb_init, bidirectional=True):
+    def __init__(self, args, vocab, model_init, emb_init, bidirectional=False):
         super(VQVAE_Encoder, self).__init__()
         self.ni = args.ni
         self.nh = args.enc_nh
@@ -45,19 +45,20 @@ class VQVAE_Encoder(nn.Module):
             fwd = last_state[-1].unsqueeze(0)
             bck = last_state[-2].unsqueeze(0)
             last_state = torch.cat([last_state[-2], last_state[-1]], 1).unsqueeze(0)
-       
+            fwd = fwd.permute(1,0,2)
+            bck = bck.permute(1,0,2)
+
         #z = self.linear(last_state)
-        # (batch_size, 1, args.nz)
+        #(batch_size, 1, args.nz)
         #z = z.permute(1,0,2)
 
         # (batch_size, 1, enc_nh)
         last_state = last_state.permute(1,0,2)
-
-        fwd = fwd.permute(1,0,2)
-        bck = bck.permute(1,0,2)
-
         last_cell = last_cell.permute(1,0,2)
-        return last_state, last_cell, None, (fwd,bck)
+        if self.lstm.bidirectional:
+            return last_state, last_cell, None , (fwd,bck)
+        else:
+            return last_state, last_cell, None 
 
 class VectorQuantizer(nn.Module):
     """
@@ -183,22 +184,16 @@ class VQVAE_AE(nn.Module):
                 model_init,
                 emb_init,
                 dict_assemble_type='concat',
+                bidirectional=False,
                  **kwargs) -> None:
         super(VQVAE_AE, self).__init__()
         
-        self.encoder = VQVAE_Encoder(args, vocab, model_init, emb_init) 
+        self.encoder = VQVAE_Encoder(args, vocab, model_init, emb_init, bidirectional=bidirectional) 
         self.encoder_emb_dim = args.embedding_dim 
         self.num_dicts = args.num_dicts
-        self.rootdict_emb_dim = args.rootdict_emb_dim
-        #self.rootdict_emb_num = args.rootdict_emb_num
-        self.orddict_emb_num = args.orddict_emb_num
         self.dict_assemble_type = dict_assemble_type
         
-        #assert (dict_assemble_type=='concat' or (dict_assemble_type =='sum' and self.rootdict_emb_dim == self.encoder_emb_dim)), "If dict assemble type is sum, dict embedding dim should be equal to encoder emb dim"
-
-        self.orddict_emb_dim = int((self.encoder_emb_dim-self.rootdict_emb_dim)/(self.num_dicts-1))
         self.beta = args.beta
-
         self.decoder = VQVAE_Decoder(args, vocab, model_init, emb_init) 
     
     def recon_loss(self, x, quantized_z, recon_type='avg'):
@@ -240,13 +235,20 @@ class VQVAE_AE(nn.Module):
     def loss(self, x: Tensor, epc, **kwargs) -> List[Tensor]:
         # x: (B,T)
         # quantized_inputs: (B, 1, hdim)
-        encoder_fhs, fcs, z, (fwd,bck) = self.encoder(x)
+        if self.encoder.lstm.bidirectional:
+            encoder_fhs, fcs, z, (fwd,bck) = self.encoder(x)
+        else:
+            encoder_fhs, fcs, z = self.encoder(x)
+        
         recon_loss, recon_acc = self.recon_loss(x, encoder_fhs, recon_type='sum')
         # (batchsize)
         recon_loss = recon_loss.squeeze(1)
         loss = recon_loss 
         vq_loss = torch.tensor(0); quantized_inds = []
-        return loss, recon_loss, vq_loss, recon_acc, quantized_inds, fwd,bck
+        if self.encoder.lstm.bidirectional:
+            return loss, recon_loss, vq_loss, recon_acc, quantized_inds, fwd,bck
+        else:
+            return loss, recon_loss, vq_loss, recon_acc, quantized_inds, encoder_fhs
 
         
     def accuracy(self, output_logits, tgt):

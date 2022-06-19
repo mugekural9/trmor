@@ -1,0 +1,706 @@
+
+number of params: 8381440 
+Namespace(batchsize=64, beta=0.5, dec_dropout_in=0.5, dec_dropout_out=0.5, dec_nh=512, dec_nh_tmp=512, device='cuda', embedding_dim=512, enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=512, epochs=200, fig_path='model/vqvae/results/training/12229_instances/discretelemma_bilstm_4x10_dec512_suffixd512/200epochs.png', incat=512, incat_tmp=512, lemmadict_emb_num=5000, log_path='model/vqvae/results/training/12229_instances/discretelemma_bilstm_4x10_dec512_suffixd512/200epochs.log', logger=<common.utils.Logger object at 0x7eff6713c050>, lr=0.001, maxtrnsize=10000000, maxtstsize=10000, maxvalsize=10000, mname='vqvae', model=VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(36, 256)
+    (lstm): LSTM(256, 512, batch_first=True, bidirectional=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (vq_layer_lemma): VectorQuantizer(
+    (embedding): Embedding(5000, 512)
+  )
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(10, 128)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(10, 128)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(10, 128)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(10, 128)
+    )
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(36, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.5, inplace=False)
+    (dropout_out): Dropout(p=0.5, inplace=False)
+    (lstm): LSTM(768, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=36, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), model_prefix='discretelemma_bilstm_4x10_dec512_suffixd512/', modelname='model/vqvae/results/training/12229_instances/discretelemma_bilstm_4x10_dec512_suffixd512/', ni=256, num_dicts=5, num_dicts_tmp=5, nz=128, opt='Adam', orddict_emb_num=10, outcat=0, outcat_tmp=0, pretrained_model=VQVAE_AE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(36, 256)
+    (lstm): LSTM(256, 512, batch_first=True, bidirectional=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(36, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.5, inplace=False)
+    (dropout_out): Dropout(p=0.5, inplace=False)
+    (lstm): LSTM(256, 1024, batch_first=True)
+    (pred_linear): Linear(in_features=1024, out_features=36, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), save_path='model/vqvae/results/training/12229_instances/discretelemma_bilstm_4x10_dec512_suffixd512/200epochs.pt', seq_to_no_pad='surface', surf_vocab=<common.vocab.VocabEntry object at 0x7eff5daf9390>, surface_vocab_file='data/sigmorphon2016/turkish-task3-train', task='vqvae', trndata='data/sigmorphon2016/turkish-task3-train', trnsize=12229, tstdata='data/sigmorphon2016/turkish-task3-dev', tstsize=12229, valdata='data/sigmorphon2016/turkish-task3-dev', valsize=1589)
+
+encoder.embed.weight, torch.Size([36, 256]): True
+encoder.lstm.weight_ih_l0, torch.Size([2048, 256]): True
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+encoder.lstm.bias_ih_l0, torch.Size([2048]): True
+encoder.lstm.bias_hh_l0, torch.Size([2048]): True
+encoder.lstm.weight_ih_l0_reverse, torch.Size([2048, 256]): True
+encoder.lstm.weight_hh_l0_reverse, torch.Size([2048, 512]): True
+encoder.lstm.bias_ih_l0_reverse, torch.Size([2048]): True
+encoder.lstm.bias_hh_l0_reverse, torch.Size([2048]): True
+vq_layer_lemma.embedding.weight, torch.Size([5000, 512]): True
+ord_vq_layers.0.embedding.weight, torch.Size([10, 128]): True
+ord_vq_layers.1.embedding.weight, torch.Size([10, 128]): True
+ord_vq_layers.2.embedding.weight, torch.Size([10, 128]): True
+ord_vq_layers.3.embedding.weight, torch.Size([10, 128]): True
+decoder.embed.weight, torch.Size([36, 256]): True
+decoder.lstm.weight_ih_l0, torch.Size([2048, 768]): True
+decoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+decoder.lstm.bias_ih_l0, torch.Size([2048]): True
+decoder.lstm.bias_hh_l0, torch.Size([2048]): True
+decoder.pred_linear.weight, torch.Size([36, 512]): True
+epoch: 0,  avg_loss: 27.3810, avg_recon_loss: 26.6365, avg_kl_loss: 0.0000, avg_vq_loss: 0.7445, ppl: 8.6766, acc: 0.3507, vq_inds: [3653, 10, 10, 10, 10], unique_vq_codes: 10273, unique_suffix_codes: 10273, logdet: 0.0000 
+val ---  avg_loss: 19.3337, avg_recon_loss: 18.5058, avg_kl_loss: 0.0000, avg_vq_loss: 0.8279, ppl: 4.4598, acc: 0.5430, vq_inds: [1071, 10, 10, 9, 10], unique_vq_codes: 1546, unique_suffix_codes: 1546, val_unique_suffix_codes: 1332 
+update best loss 
+
+epoch: 1,  avg_loss: 14.1124, avg_recon_loss: 13.1736, avg_kl_loss: 0.0000, avg_vq_loss: 0.9388, ppl: 2.9112, acc: 0.6848, vq_inds: [3696, 10, 10, 10, 9], unique_vq_codes: 11412, unique_suffix_codes: 11412, logdet: 0.0000 
+val ---  avg_loss: 10.5081, avg_recon_loss: 9.3108, avg_kl_loss: 0.0000, avg_vq_loss: 1.1974, ppl: 2.1217, acc: 0.7874, vq_inds: [1180, 10, 10, 10, 9], unique_vq_codes: 1571, unique_suffix_codes: 1571, val_unique_suffix_codes: 1424 
+update best loss 
+
+epoch: 2,  avg_loss: 8.7715, avg_recon_loss: 7.4322, avg_kl_loss: 0.0000, avg_vq_loss: 1.3393, ppl: 1.8273, acc: 0.8341, vq_inds: [3759, 10, 10, 10, 10], unique_vq_codes: 11898, unique_suffix_codes: 11898, logdet: 0.0000 
+val ---  avg_loss: 8.0225, avg_recon_loss: 6.5580, avg_kl_loss: 0.0000, avg_vq_loss: 1.4645, ppl: 1.6986, acc: 0.8611, vq_inds: [1180, 10, 10, 10, 10], unique_vq_codes: 1580, unique_suffix_codes: 1580, val_unique_suffix_codes: 1448 
+update best loss 
+
+epoch: 3,  avg_loss: 6.5488, avg_recon_loss: 5.0472, avg_kl_loss: 0.0000, avg_vq_loss: 1.5016, ppl: 1.5059, acc: 0.8947, vq_inds: [3580, 10, 10, 10, 10], unique_vq_codes: 11976, unique_suffix_codes: 11976, logdet: 0.0000 
+val ---  avg_loss: 6.6463, avg_recon_loss: 5.0684, avg_kl_loss: 0.0000, avg_vq_loss: 1.5779, ppl: 1.5060, acc: 0.8990, vq_inds: [1156, 10, 10, 10, 10], unique_vq_codes: 1583, unique_suffix_codes: 1583, val_unique_suffix_codes: 1476 
+update best loss 
+
+epoch: 4,  avg_loss: 5.2968, avg_recon_loss: 3.6821, avg_kl_loss: 0.0000, avg_vq_loss: 1.6147, ppl: 1.3481, acc: 0.9257, vq_inds: [3409, 10, 10, 10, 10], unique_vq_codes: 12014, unique_suffix_codes: 12014, logdet: 0.0000 
+val ---  avg_loss: 5.9549, avg_recon_loss: 4.2816, avg_kl_loss: 0.0000, avg_vq_loss: 1.6733, ppl: 1.4133, acc: 0.9123, vq_inds: [1142, 10, 10, 10, 10], unique_vq_codes: 1584, unique_suffix_codes: 1584, val_unique_suffix_codes: 1465 
+update best loss 
+
+epoch: 5,  avg_loss: 4.6532, avg_recon_loss: 3.0464, avg_kl_loss: 0.0000, avg_vq_loss: 1.6068, ppl: 1.2803, acc: 0.9386, vq_inds: [3268, 10, 10, 10, 10], unique_vq_codes: 12072, unique_suffix_codes: 12072, logdet: 0.0000 
+val ---  avg_loss: 5.2071, avg_recon_loss: 3.5656, avg_kl_loss: 0.0000, avg_vq_loss: 1.6415, ppl: 1.3338, acc: 0.9280, vq_inds: [1143, 10, 10, 10, 10], unique_vq_codes: 1586, unique_suffix_codes: 1586, val_unique_suffix_codes: 1474 
+update best loss 
+
+epoch: 6,  avg_loss: 4.0044, avg_recon_loss: 2.3812, avg_kl_loss: 0.0000, avg_vq_loss: 1.6232, ppl: 1.2131, acc: 0.9539, vq_inds: [3178, 10, 10, 10, 10], unique_vq_codes: 12080, unique_suffix_codes: 12080, logdet: 0.0000 
+val ---  avg_loss: 4.7292, avg_recon_loss: 3.1514, avg_kl_loss: 0.0000, avg_vq_loss: 1.5778, ppl: 1.2900, acc: 0.9395, vq_inds: [1139, 10, 10, 10, 10], unique_vq_codes: 1586, unique_suffix_codes: 1586, val_unique_suffix_codes: 1465 
+update best loss 
+
+epoch: 7,  avg_loss: 3.5786, avg_recon_loss: 1.9844, avg_kl_loss: 0.0000, avg_vq_loss: 1.5942, ppl: 1.1746, acc: 0.9612, vq_inds: [3111, 10, 10, 10, 10], unique_vq_codes: 12084, unique_suffix_codes: 12084, logdet: 0.0000 
+val ---  avg_loss: 4.5713, avg_recon_loss: 2.9422, avg_kl_loss: 0.0000, avg_vq_loss: 1.6291, ppl: 1.2683, acc: 0.9450, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1467 
+update best loss 
+
+epoch: 8,  avg_loss: 3.3009, avg_recon_loss: 1.7104, avg_kl_loss: 0.0000, avg_vq_loss: 1.5905, ppl: 1.1488, acc: 0.9668, vq_inds: [3040, 10, 10, 10, 10], unique_vq_codes: 12122, unique_suffix_codes: 12122, logdet: 0.0000 
+val ---  avg_loss: 4.4184, avg_recon_loss: 2.8398, avg_kl_loss: 0.0000, avg_vq_loss: 1.5786, ppl: 1.2579, acc: 0.9468, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1473 
+update best loss 
+
+epoch: 9,  avg_loss: 3.0132, avg_recon_loss: 1.4629, avg_kl_loss: 0.0000, avg_vq_loss: 1.5503, ppl: 1.1260, acc: 0.9716, vq_inds: [3012, 10, 10, 10, 10], unique_vq_codes: 12142, unique_suffix_codes: 12142, logdet: 0.0000 
+val ---  avg_loss: 4.2077, avg_recon_loss: 2.5810, avg_kl_loss: 0.0000, avg_vq_loss: 1.6267, ppl: 1.2319, acc: 0.9500, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1474 
+update best loss 
+
+epoch: 10,  avg_loss: 2.7866, avg_recon_loss: 1.2712, avg_kl_loss: 0.0000, avg_vq_loss: 1.5154, ppl: 1.1086, acc: 0.9751, vq_inds: [2977, 10, 10, 10, 10], unique_vq_codes: 12129, unique_suffix_codes: 12129, logdet: 0.0000 
+val ---  avg_loss: 4.0316, avg_recon_loss: 2.5279, avg_kl_loss: 0.0000, avg_vq_loss: 1.5037, ppl: 1.2266, acc: 0.9530, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1467 
+update best loss 
+
+epoch: 11,  avg_loss: 2.5618, avg_recon_loss: 1.1152, avg_kl_loss: 0.0000, avg_vq_loss: 1.4466, ppl: 1.0947, acc: 0.9779, vq_inds: [2945, 10, 10, 10, 10], unique_vq_codes: 12135, unique_suffix_codes: 12135, logdet: 0.0000 
+val ---  avg_loss: 3.7577, avg_recon_loss: 2.3230, avg_kl_loss: 0.0000, avg_vq_loss: 1.4347, ppl: 1.2064, acc: 0.9575, vq_inds: [1117, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1477 
+update best loss 
+
+epoch: 12,  avg_loss: 2.4529, avg_recon_loss: 1.0370, avg_kl_loss: 0.0000, avg_vq_loss: 1.4159, ppl: 1.0878, acc: 0.9792, vq_inds: [2913, 10, 10, 10, 10], unique_vq_codes: 12148, unique_suffix_codes: 12148, logdet: 0.0000 
+val ---  avg_loss: 3.9850, avg_recon_loss: 2.4586, avg_kl_loss: 0.0000, avg_vq_loss: 1.5264, ppl: 1.2197, acc: 0.9541, vq_inds: [1117, 10, 10, 10, 10], unique_vq_codes: 1586, unique_suffix_codes: 1586, val_unique_suffix_codes: 1497 
+
+epoch: 13,  avg_loss: 2.3555, avg_recon_loss: 0.9784, avg_kl_loss: 0.0000, avg_vq_loss: 1.3772, ppl: 1.0826, acc: 0.9804, vq_inds: [2899, 10, 10, 10, 10], unique_vq_codes: 12151, unique_suffix_codes: 12151, logdet: 0.0000 
+val ---  avg_loss: 3.7171, avg_recon_loss: 2.2905, avg_kl_loss: 0.0000, avg_vq_loss: 1.4266, ppl: 1.2033, acc: 0.9584, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1478 
+update best loss 
+
+epoch: 14,  avg_loss: 2.1380, avg_recon_loss: 0.8109, avg_kl_loss: 0.0000, avg_vq_loss: 1.3271, ppl: 1.0680, acc: 0.9847, vq_inds: [2880, 10, 10, 10, 10], unique_vq_codes: 12165, unique_suffix_codes: 12165, logdet: 0.0000 
+val ---  avg_loss: 3.4826, avg_recon_loss: 2.1131, avg_kl_loss: 0.0000, avg_vq_loss: 1.3695, ppl: 1.1862, acc: 0.9629, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1478 
+update best loss 
+
+epoch: 15,  avg_loss: 1.9410, avg_recon_loss: 0.6751, avg_kl_loss: 0.0000, avg_vq_loss: 1.2658, ppl: 1.0563, acc: 0.9871, vq_inds: [2861, 10, 10, 10, 10], unique_vq_codes: 12172, unique_suffix_codes: 12172, logdet: 0.0000 
+val ---  avg_loss: 3.2887, avg_recon_loss: 1.9985, avg_kl_loss: 0.0000, avg_vq_loss: 1.2902, ppl: 1.1752, acc: 0.9656, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1476 
+update best loss 
+
+epoch: 16,  avg_loss: 1.8232, avg_recon_loss: 0.5843, avg_kl_loss: 0.0000, avg_vq_loss: 1.2390, ppl: 1.0485, acc: 0.9891, vq_inds: [2856, 10, 10, 10, 10], unique_vq_codes: 12160, unique_suffix_codes: 12160, logdet: 0.0000 
+val ---  avg_loss: 3.2571, avg_recon_loss: 1.9823, avg_kl_loss: 0.0000, avg_vq_loss: 1.2748, ppl: 1.1737, acc: 0.9653, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1477 
+update best loss 
+
+epoch: 17,  avg_loss: 1.7376, avg_recon_loss: 0.5623, avg_kl_loss: 0.0000, avg_vq_loss: 1.1753, ppl: 1.0467, acc: 0.9896, vq_inds: [2846, 10, 10, 10, 10], unique_vq_codes: 12170, unique_suffix_codes: 12170, logdet: 0.0000 
+val ---  avg_loss: 3.2403, avg_recon_loss: 1.9599, avg_kl_loss: 0.0000, avg_vq_loss: 1.2804, ppl: 1.1716, acc: 0.9673, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1478 
+update best loss 
+
+epoch: 18,  avg_loss: 1.6737, avg_recon_loss: 0.5242, avg_kl_loss: 0.0000, avg_vq_loss: 1.1495, ppl: 1.0434, acc: 0.9907, vq_inds: [2837, 10, 10, 10, 10], unique_vq_codes: 12173, unique_suffix_codes: 12173, logdet: 0.0000 
+val ---  avg_loss: 3.1693, avg_recon_loss: 1.9880, avg_kl_loss: 0.0000, avg_vq_loss: 1.1813, ppl: 1.1742, acc: 0.9666, vq_inds: [1117, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1466 
+update best loss 
+
+epoch: 19,  avg_loss: 1.6170, avg_recon_loss: 0.5028, avg_kl_loss: 0.0000, avg_vq_loss: 1.1141, ppl: 1.0416, acc: 0.9908, vq_inds: [2837, 10, 10, 10, 10], unique_vq_codes: 12181, unique_suffix_codes: 12181, logdet: 0.0000 
+val ---  avg_loss: 3.1562, avg_recon_loss: 1.9872, avg_kl_loss: 0.0000, avg_vq_loss: 1.1690, ppl: 1.1742, acc: 0.9692, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1466 
+update best loss 
+
+epoch: 20,  avg_loss: 1.5069, avg_recon_loss: 0.4546, avg_kl_loss: 0.0000, avg_vq_loss: 1.0523, ppl: 1.0376, acc: 0.9920, vq_inds: [2830, 10, 10, 10, 10], unique_vq_codes: 12176, unique_suffix_codes: 12176, logdet: 0.0000 
+val ---  avg_loss: 3.0654, avg_recon_loss: 1.9329, avg_kl_loss: 0.0000, avg_vq_loss: 1.1325, ppl: 1.1690, acc: 0.9675, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1586, unique_suffix_codes: 1586, val_unique_suffix_codes: 1478 
+update best loss 
+
+epoch: 21,  avg_loss: 1.4464, avg_recon_loss: 0.4323, avg_kl_loss: 0.0000, avg_vq_loss: 1.0141, ppl: 1.0357, acc: 0.9919, vq_inds: [2830, 10, 10, 10, 10], unique_vq_codes: 12184, unique_suffix_codes: 12184, logdet: 0.0000 
+val ---  avg_loss: 2.9800, avg_recon_loss: 1.8735, avg_kl_loss: 0.0000, avg_vq_loss: 1.1065, ppl: 1.1634, acc: 0.9684, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1479 
+update best loss 
+
+epoch: 22,  avg_loss: 1.3833, avg_recon_loss: 0.3766, avg_kl_loss: 0.0000, avg_vq_loss: 1.0068, ppl: 1.0310, acc: 0.9931, vq_inds: [2823, 10, 10, 10, 10], unique_vq_codes: 12185, unique_suffix_codes: 12185, logdet: 0.0000 
+val ---  avg_loss: 2.7786, avg_recon_loss: 1.7377, avg_kl_loss: 0.0000, avg_vq_loss: 1.0409, ppl: 1.1507, acc: 0.9714, vq_inds: [1116, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1471 
+update best loss 
+
+epoch: 23,  avg_loss: 1.3199, avg_recon_loss: 0.3563, avg_kl_loss: 0.0000, avg_vq_loss: 0.9636, ppl: 1.0293, acc: 0.9934, vq_inds: [2830, 10, 10, 10, 10], unique_vq_codes: 12186, unique_suffix_codes: 12186, logdet: 0.0000 
+val ---  avg_loss: 2.9032, avg_recon_loss: 1.8620, avg_kl_loss: 0.0000, avg_vq_loss: 1.0412, ppl: 1.1623, acc: 0.9701, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1467 
+
+epoch: 24,  avg_loss: 1.2972, avg_recon_loss: 0.3514, avg_kl_loss: 0.0000, avg_vq_loss: 0.9458, ppl: 1.0289, acc: 0.9936, vq_inds: [2826, 10, 10, 10, 10], unique_vq_codes: 12187, unique_suffix_codes: 12187, logdet: 0.0000 
+val ---  avg_loss: 2.8003, avg_recon_loss: 1.7691, avg_kl_loss: 0.0000, avg_vq_loss: 1.0312, ppl: 1.1536, acc: 0.9725, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1467 
+
+epoch: 25,  avg_loss: 1.2096, avg_recon_loss: 0.3166, avg_kl_loss: 0.0000, avg_vq_loss: 0.8930, ppl: 1.0260, acc: 0.9942, vq_inds: [2828, 10, 10, 10, 10], unique_vq_codes: 12198, unique_suffix_codes: 12198, logdet: 0.0000 
+val ---  avg_loss: 2.6340, avg_recon_loss: 1.7087, avg_kl_loss: 0.0000, avg_vq_loss: 0.9252, ppl: 1.1480, acc: 0.9717, vq_inds: [1116, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1474 
+update best loss 
+
+epoch: 26,  avg_loss: 1.2064, avg_recon_loss: 0.3208, avg_kl_loss: 0.0000, avg_vq_loss: 0.8856, ppl: 1.0264, acc: 0.9943, vq_inds: [2818, 10, 10, 10, 10], unique_vq_codes: 12196, unique_suffix_codes: 12196, logdet: 0.0000 
+val ---  avg_loss: 2.6003, avg_recon_loss: 1.7241, avg_kl_loss: 0.0000, avg_vq_loss: 0.8762, ppl: 1.1495, acc: 0.9737, vq_inds: [1116, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1476 
+update best loss 
+
+epoch: 27,  avg_loss: 1.3281, avg_recon_loss: 0.4493, avg_kl_loss: 0.0000, avg_vq_loss: 0.8788, ppl: 1.0371, acc: 0.9919, vq_inds: [2825, 10, 10, 10, 10], unique_vq_codes: 12196, unique_suffix_codes: 12196, logdet: 0.0000 
+val ---  avg_loss: 2.8204, avg_recon_loss: 1.7800, avg_kl_loss: 0.0000, avg_vq_loss: 1.0405, ppl: 1.1547, acc: 0.9699, vq_inds: [1117, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1503 
+
+epoch: 28,  avg_loss: 1.3550, avg_recon_loss: 0.4290, avg_kl_loss: 0.0000, avg_vq_loss: 0.9261, ppl: 1.0354, acc: 0.9922, vq_inds: [2813, 10, 10, 10, 10], unique_vq_codes: 12202, unique_suffix_codes: 12202, logdet: 0.0000 
+val ---  avg_loss: 2.7412, avg_recon_loss: 1.7888, avg_kl_loss: 0.0000, avg_vq_loss: 0.9525, ppl: 1.1555, acc: 0.9710, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1489 
+
+epoch: 29,  avg_loss: 1.3514, avg_recon_loss: 0.4433, avg_kl_loss: 0.0000, avg_vq_loss: 0.9081, ppl: 1.0366, acc: 0.9917, vq_inds: [2815, 10, 10, 10, 10], unique_vq_codes: 12201, unique_suffix_codes: 12201, logdet: 0.0000 
+val ---  avg_loss: 3.0934, avg_recon_loss: 1.9251, avg_kl_loss: 0.0000, avg_vq_loss: 1.1683, ppl: 1.1683, acc: 0.9675, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1586, unique_suffix_codes: 1586, val_unique_suffix_codes: 1503 
+
+epoch: 30,  avg_loss: 1.4560, avg_recon_loss: 0.4547, avg_kl_loss: 0.0000, avg_vq_loss: 1.0013, ppl: 1.0376, acc: 0.9910, vq_inds: [2822, 10, 10, 10, 10], unique_vq_codes: 12201, unique_suffix_codes: 12201, logdet: 0.0000 
+val ---  avg_loss: 2.7421, avg_recon_loss: 1.7627, avg_kl_loss: 0.0000, avg_vq_loss: 0.9793, ppl: 1.1531, acc: 0.9720, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1484 
+
+epoch: 31,  avg_loss: 1.5309, avg_recon_loss: 0.5584, avg_kl_loss: 0.0000, avg_vq_loss: 0.9725, ppl: 1.0463, acc: 0.9894, vq_inds: [2814, 10, 10, 10, 10], unique_vq_codes: 12195, unique_suffix_codes: 12195, logdet: 0.0000 
+val ---  avg_loss: 2.8916, avg_recon_loss: 1.7911, avg_kl_loss: 0.0000, avg_vq_loss: 1.1005, ppl: 1.1557, acc: 0.9715, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1480 
+
+epoch: 32,  avg_loss: 1.2584, avg_recon_loss: 0.3184, avg_kl_loss: 0.0000, avg_vq_loss: 0.9400, ppl: 1.0262, acc: 0.9940, vq_inds: [2815, 10, 10, 10, 10], unique_vq_codes: 12199, unique_suffix_codes: 12199, logdet: 0.0000 
+val ---  avg_loss: 2.4941, avg_recon_loss: 1.5606, avg_kl_loss: 0.0000, avg_vq_loss: 0.9335, ppl: 1.1344, acc: 0.9755, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1477 
+update best loss 
+
+epoch: 33,  avg_loss: 1.1246, avg_recon_loss: 0.2631, avg_kl_loss: 0.0000, avg_vq_loss: 0.8616, ppl: 1.0216, acc: 0.9953, vq_inds: [2819, 10, 10, 10, 10], unique_vq_codes: 12204, unique_suffix_codes: 12204, logdet: 0.0000 
+val ---  avg_loss: 2.5070, avg_recon_loss: 1.5880, avg_kl_loss: 0.0000, avg_vq_loss: 0.9190, ppl: 1.1369, acc: 0.9759, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1472 
+
+epoch: 34,  avg_loss: 0.9752, avg_recon_loss: 0.1870, avg_kl_loss: 0.0000, avg_vq_loss: 0.7882, ppl: 1.0153, acc: 0.9967, vq_inds: [2814, 10, 10, 10, 10], unique_vq_codes: 12203, unique_suffix_codes: 12203, logdet: 0.0000 
+val ---  avg_loss: 2.4004, avg_recon_loss: 1.5818, avg_kl_loss: 0.0000, avg_vq_loss: 0.8186, ppl: 1.1363, acc: 0.9762, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1470 
+update best loss 
+
+epoch: 35,  avg_loss: 0.8959, avg_recon_loss: 0.1621, avg_kl_loss: 0.0000, avg_vq_loss: 0.7338, ppl: 1.0132, acc: 0.9973, vq_inds: [2814, 10, 10, 10, 10], unique_vq_codes: 12206, unique_suffix_codes: 12206, logdet: 0.0000 
+val ---  avg_loss: 2.3310, avg_recon_loss: 1.5361, avg_kl_loss: 0.0000, avg_vq_loss: 0.7949, ppl: 1.1321, acc: 0.9758, vq_inds: [1116, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1469 
+update best loss 
+
+epoch: 36,  avg_loss: 0.8557, avg_recon_loss: 0.1707, avg_kl_loss: 0.0000, avg_vq_loss: 0.6850, ppl: 1.0139, acc: 0.9971, vq_inds: [2805, 10, 10, 10, 10], unique_vq_codes: 12203, unique_suffix_codes: 12203, logdet: 0.0000 
+val ---  avg_loss: 2.1909, avg_recon_loss: 1.4485, avg_kl_loss: 0.0000, avg_vq_loss: 0.7424, ppl: 1.1241, acc: 0.9782, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1471 
+update best loss 
+
+epoch: 37,  avg_loss: 0.7856, avg_recon_loss: 0.1381, avg_kl_loss: 0.0000, avg_vq_loss: 0.6475, ppl: 1.0113, acc: 0.9976, vq_inds: [2816, 10, 10, 10, 10], unique_vq_codes: 12209, unique_suffix_codes: 12209, logdet: 0.0000 
+val ---  avg_loss: 2.1188, avg_recon_loss: 1.4432, avg_kl_loss: 0.0000, avg_vq_loss: 0.6756, ppl: 1.1237, acc: 0.9794, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1466 
+update best loss 
+
+epoch: 38,  avg_loss: 0.8465, avg_recon_loss: 0.1856, avg_kl_loss: 0.0000, avg_vq_loss: 0.6608, ppl: 1.0152, acc: 0.9968, vq_inds: [2814, 10, 10, 10, 10], unique_vq_codes: 12210, unique_suffix_codes: 12210, logdet: 0.0000 
+val ---  avg_loss: 2.2164, avg_recon_loss: 1.4925, avg_kl_loss: 0.0000, avg_vq_loss: 0.7239, ppl: 1.1282, acc: 0.9782, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1479 
+
+epoch: 39,  avg_loss: 0.7790, avg_recon_loss: 0.1457, avg_kl_loss: 0.0000, avg_vq_loss: 0.6333, ppl: 1.0119, acc: 0.9974, vq_inds: [2815, 10, 10, 10, 10], unique_vq_codes: 12210, unique_suffix_codes: 12210, logdet: 0.0000 
+val ---  avg_loss: 2.2158, avg_recon_loss: 1.5394, avg_kl_loss: 0.0000, avg_vq_loss: 0.6764, ppl: 1.1324, acc: 0.9783, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1471 
+
+epoch: 40,  avg_loss: 0.7918, avg_recon_loss: 0.1564, avg_kl_loss: 0.0000, avg_vq_loss: 0.6354, ppl: 1.0128, acc: 0.9973, vq_inds: [2811, 10, 10, 10, 10], unique_vq_codes: 12210, unique_suffix_codes: 12210, logdet: 0.0000 
+val ---  avg_loss: 2.1710, avg_recon_loss: 1.4855, avg_kl_loss: 0.0000, avg_vq_loss: 0.6854, ppl: 1.1275, acc: 0.9791, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1474 
+
+epoch: 41,  avg_loss: 0.8128, avg_recon_loss: 0.1772, avg_kl_loss: 0.0000, avg_vq_loss: 0.6355, ppl: 1.0145, acc: 0.9970, vq_inds: [2811, 10, 10, 10, 10], unique_vq_codes: 12211, unique_suffix_codes: 12211, logdet: 0.0000 
+val ---  avg_loss: 2.3889, avg_recon_loss: 1.6217, avg_kl_loss: 0.0000, avg_vq_loss: 0.7672, ppl: 1.1400, acc: 0.9745, vq_inds: [1112, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1499 
+
+epoch: 42,  avg_loss: 1.2802, avg_recon_loss: 0.4653, avg_kl_loss: 0.0000, avg_vq_loss: 0.8149, ppl: 1.0385, acc: 0.9911, vq_inds: [2805, 10, 10, 10, 10], unique_vq_codes: 12198, unique_suffix_codes: 12198, logdet: 0.0000 
+val ---  avg_loss: 2.5172, avg_recon_loss: 1.6905, avg_kl_loss: 0.0000, avg_vq_loss: 0.8267, ppl: 1.1463, acc: 0.9747, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1483 
+
+epoch: 43,  avg_loss: 0.9333, avg_recon_loss: 0.2069, avg_kl_loss: 0.0000, avg_vq_loss: 0.7264, ppl: 1.0169, acc: 0.9962, vq_inds: [2806, 10, 10, 10, 10], unique_vq_codes: 12209, unique_suffix_codes: 12209, logdet: 0.0000 
+val ---  avg_loss: 2.3096, avg_recon_loss: 1.5675, avg_kl_loss: 0.0000, avg_vq_loss: 0.7421, ppl: 1.1350, acc: 0.9771, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1466 
+
+epoch: 44,  avg_loss: 0.8045, avg_recon_loss: 0.1616, avg_kl_loss: 0.0000, avg_vq_loss: 0.6429, ppl: 1.0132, acc: 0.9973, vq_inds: [2803, 10, 10, 10, 10], unique_vq_codes: 12205, unique_suffix_codes: 12205, logdet: 0.0000 
+val ---  avg_loss: 2.3102, avg_recon_loss: 1.6029, avg_kl_loss: 0.0000, avg_vq_loss: 0.7074, ppl: 1.1383, acc: 0.9774, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1462 
+
+epoch: 45,  avg_loss: 0.7439, avg_recon_loss: 0.1360, avg_kl_loss: 0.0000, avg_vq_loss: 0.6079, ppl: 1.0111, acc: 0.9978, vq_inds: [2808, 10, 10, 10, 10], unique_vq_codes: 12209, unique_suffix_codes: 12209, logdet: 0.0000 
+val ---  avg_loss: 2.1896, avg_recon_loss: 1.5297, avg_kl_loss: 0.0000, avg_vq_loss: 0.6599, ppl: 1.1315, acc: 0.9783, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1454 
+
+epoch: 46,  avg_loss: 0.6578, avg_recon_loss: 0.1054, avg_kl_loss: 0.0000, avg_vq_loss: 0.5525, ppl: 1.0086, acc: 0.9983, vq_inds: [2807, 10, 10, 10, 10], unique_vq_codes: 12211, unique_suffix_codes: 12211, logdet: 0.0000 
+val ---  avg_loss: 2.1345, avg_recon_loss: 1.4985, avg_kl_loss: 0.0000, avg_vq_loss: 0.6360, ppl: 1.1287, acc: 0.9797, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1458 
+
+epoch: 47,  avg_loss: 0.6484, avg_recon_loss: 0.1026, avg_kl_loss: 0.0000, avg_vq_loss: 0.5457, ppl: 1.0084, acc: 0.9984, vq_inds: [2805, 10, 10, 10, 10], unique_vq_codes: 12211, unique_suffix_codes: 12211, logdet: 0.0000 
+val ---  avg_loss: 1.9285, avg_recon_loss: 1.3712, avg_kl_loss: 0.0000, avg_vq_loss: 0.5573, ppl: 1.1171, acc: 0.9808, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1460 
+update best loss 
+
+epoch: 48,  avg_loss: 0.5629, avg_recon_loss: 0.0684, avg_kl_loss: 0.0000, avg_vq_loss: 0.4944, ppl: 1.0056, acc: 0.9989, vq_inds: [2801, 10, 10, 10, 10], unique_vq_codes: 12210, unique_suffix_codes: 12210, logdet: 0.0000 
+val ---  avg_loss: 1.9424, avg_recon_loss: 1.4292, avg_kl_loss: 0.0000, avg_vq_loss: 0.5132, ppl: 1.1224, acc: 0.9797, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1459 
+
+epoch: 49,  avg_loss: 0.5077, avg_recon_loss: 0.0641, avg_kl_loss: 0.0000, avg_vq_loss: 0.4436, ppl: 1.0052, acc: 0.9990, vq_inds: [2800, 10, 10, 10, 10], unique_vq_codes: 12213, unique_suffix_codes: 12213, logdet: 0.0000 
+val ---  avg_loss: 1.9808, avg_recon_loss: 1.4572, avg_kl_loss: 0.0000, avg_vq_loss: 0.5237, ppl: 1.1249, acc: 0.9791, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1454 
+
+epoch: 50,  avg_loss: 0.5539, avg_recon_loss: 0.0859, avg_kl_loss: 0.0000, avg_vq_loss: 0.4681, ppl: 1.0070, acc: 0.9986, vq_inds: [2803, 10, 10, 10, 10], unique_vq_codes: 12216, unique_suffix_codes: 12216, logdet: 0.0000 
+val ---  avg_loss: 2.0201, avg_recon_loss: 1.4265, avg_kl_loss: 0.0000, avg_vq_loss: 0.5936, ppl: 1.1222, acc: 0.9800, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1461 
+
+epoch: 51,  avg_loss: 0.5747, avg_recon_loss: 0.1010, avg_kl_loss: 0.0000, avg_vq_loss: 0.4737, ppl: 1.0082, acc: 0.9984, vq_inds: [2805, 10, 10, 10, 10], unique_vq_codes: 12215, unique_suffix_codes: 12215, logdet: 0.0000 
+val ---  avg_loss: 1.9753, avg_recon_loss: 1.4512, avg_kl_loss: 0.0000, avg_vq_loss: 0.5241, ppl: 1.1244, acc: 0.9799, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1467 
+
+epoch: 52,  avg_loss: 0.6426, avg_recon_loss: 0.1313, avg_kl_loss: 0.0000, avg_vq_loss: 0.5113, ppl: 1.0107, acc: 0.9976, vq_inds: [2803, 10, 10, 10, 10], unique_vq_codes: 12211, unique_suffix_codes: 12211, logdet: 0.0000 
+val ---  avg_loss: 2.1830, avg_recon_loss: 1.5793, avg_kl_loss: 0.0000, avg_vq_loss: 0.6037, ppl: 1.1361, acc: 0.9782, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1475 
+
+epoch: 53,  avg_loss: 0.7675, avg_recon_loss: 0.1922, avg_kl_loss: 0.0000, avg_vq_loss: 0.5753, ppl: 1.0157, acc: 0.9967, vq_inds: [2803, 10, 10, 10, 10], unique_vq_codes: 12207, unique_suffix_codes: 12207, logdet: 0.0000 
+val ---  avg_loss: 2.3687, avg_recon_loss: 1.6227, avg_kl_loss: 0.0000, avg_vq_loss: 0.7461, ppl: 1.1401, acc: 0.9760, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1478 
+
+epoch: 54,  avg_loss: 0.8466, avg_recon_loss: 0.2447, avg_kl_loss: 0.0000, avg_vq_loss: 0.6019, ppl: 1.0200, acc: 0.9955, vq_inds: [2808, 10, 10, 10, 10], unique_vq_codes: 12208, unique_suffix_codes: 12208, logdet: 0.0000 
+val ---  avg_loss: 2.5367, avg_recon_loss: 1.7851, avg_kl_loss: 0.0000, avg_vq_loss: 0.7517, ppl: 1.1551, acc: 0.9736, vq_inds: [1120, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1479 
+
+epoch: 55,  avg_loss: 0.9870, avg_recon_loss: 0.2828, avg_kl_loss: 0.0000, avg_vq_loss: 0.7042, ppl: 1.0232, acc: 0.9950, vq_inds: [2807, 10, 10, 10, 10], unique_vq_codes: 12209, unique_suffix_codes: 12209, logdet: 0.0000 
+val ---  avg_loss: 2.5069, avg_recon_loss: 1.6880, avg_kl_loss: 0.0000, avg_vq_loss: 0.8189, ppl: 1.1461, acc: 0.9761, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1494 
+
+epoch: 56,  avg_loss: 0.8579, avg_recon_loss: 0.2173, avg_kl_loss: 0.0000, avg_vq_loss: 0.6407, ppl: 1.0178, acc: 0.9958, vq_inds: [2800, 10, 10, 10, 10], unique_vq_codes: 12215, unique_suffix_codes: 12215, logdet: 0.0000 
+val ---  avg_loss: 2.1827, avg_recon_loss: 1.4674, avg_kl_loss: 0.0000, avg_vq_loss: 0.7153, ppl: 1.1259, acc: 0.9783, vq_inds: [1120, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1479 
+
+epoch: 57,  avg_loss: 0.8644, avg_recon_loss: 0.2229, avg_kl_loss: 0.0000, avg_vq_loss: 0.6415, ppl: 1.0182, acc: 0.9960, vq_inds: [2803, 10, 10, 10, 10], unique_vq_codes: 12211, unique_suffix_codes: 12211, logdet: 0.0000 
+val ---  avg_loss: 2.2481, avg_recon_loss: 1.5149, avg_kl_loss: 0.0000, avg_vq_loss: 0.7332, ppl: 1.1302, acc: 0.9787, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1460 
+
+epoch: 58,  avg_loss: 0.7441, avg_recon_loss: 0.1338, avg_kl_loss: 0.0000, avg_vq_loss: 0.6102, ppl: 1.0109, acc: 0.9976, vq_inds: [2799, 10, 10, 10, 10], unique_vq_codes: 12209, unique_suffix_codes: 12209, logdet: 0.0000 
+val ---  avg_loss: 2.1823, avg_recon_loss: 1.4779, avg_kl_loss: 0.0000, avg_vq_loss: 0.7044, ppl: 1.1268, acc: 0.9799, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1467 
+
+epoch: 59,  avg_loss: 0.6414, avg_recon_loss: 0.1014, avg_kl_loss: 0.0000, avg_vq_loss: 0.5400, ppl: 1.0083, acc: 0.9984, vq_inds: [2797, 10, 10, 10, 10], unique_vq_codes: 12215, unique_suffix_codes: 12215, logdet: 0.0000 
+val ---  avg_loss: 2.0684, avg_recon_loss: 1.5304, avg_kl_loss: 0.0000, avg_vq_loss: 0.5381, ppl: 1.1316, acc: 0.9796, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1466 
+
+epoch: 60,  avg_loss: 0.5540, avg_recon_loss: 0.0681, avg_kl_loss: 0.0000, avg_vq_loss: 0.4859, ppl: 1.0055, acc: 0.9989, vq_inds: [2798, 10, 10, 10, 10], unique_vq_codes: 12217, unique_suffix_codes: 12217, logdet: 0.0000 
+val ---  avg_loss: 2.0426, avg_recon_loss: 1.4345, avg_kl_loss: 0.0000, avg_vq_loss: 0.6080, ppl: 1.1229, acc: 0.9801, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1454 
+
+epoch: 61,  avg_loss: 0.5414, avg_recon_loss: 0.0713, avg_kl_loss: 0.0000, avg_vq_loss: 0.4701, ppl: 1.0058, acc: 0.9990, vq_inds: [2796, 10, 10, 10, 10], unique_vq_codes: 12216, unique_suffix_codes: 12216, logdet: 0.0000 
+val ---  avg_loss: 1.9415, avg_recon_loss: 1.4118, avg_kl_loss: 0.0000, avg_vq_loss: 0.5298, ppl: 1.1208, acc: 0.9812, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1454 
+
+epoch: 62,  avg_loss: 0.4782, avg_recon_loss: 0.0553, avg_kl_loss: 0.0000, avg_vq_loss: 0.4230, ppl: 1.0045, acc: 0.9992, vq_inds: [2797, 10, 10, 10, 10], unique_vq_codes: 12218, unique_suffix_codes: 12218, logdet: 0.0000 
+val ---  avg_loss: 1.9355, avg_recon_loss: 1.4498, avg_kl_loss: 0.0000, avg_vq_loss: 0.4857, ppl: 1.1243, acc: 0.9822, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1453 
+
+epoch: 63,  avg_loss: 0.4399, avg_recon_loss: 0.0400, avg_kl_loss: 0.0000, avg_vq_loss: 0.3999, ppl: 1.0033, acc: 0.9994, vq_inds: [2797, 10, 10, 10, 10], unique_vq_codes: 12217, unique_suffix_codes: 12217, logdet: 0.0000 
+val ---  avg_loss: 1.8741, avg_recon_loss: 1.4425, avg_kl_loss: 0.0000, avg_vq_loss: 0.4316, ppl: 1.1236, acc: 0.9809, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1450 
+update best loss 
+
+epoch: 64,  avg_loss: 0.4204, avg_recon_loss: 0.0487, avg_kl_loss: 0.0000, avg_vq_loss: 0.3717, ppl: 1.0040, acc: 0.9992, vq_inds: [2800, 10, 10, 10, 10], unique_vq_codes: 12217, unique_suffix_codes: 12217, logdet: 0.0000 
+val ---  avg_loss: 1.9342, avg_recon_loss: 1.4756, avg_kl_loss: 0.0000, avg_vq_loss: 0.4586, ppl: 1.1266, acc: 0.9809, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1460 
+
+epoch: 65,  avg_loss: 0.4776, avg_recon_loss: 0.0732, avg_kl_loss: 0.0000, avg_vq_loss: 0.4044, ppl: 1.0060, acc: 0.9988, vq_inds: [2799, 10, 10, 10, 10], unique_vq_codes: 12214, unique_suffix_codes: 12214, logdet: 0.0000 
+val ---  avg_loss: 1.9334, avg_recon_loss: 1.4520, avg_kl_loss: 0.0000, avg_vq_loss: 0.4814, ppl: 1.1245, acc: 0.9805, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1457 
+
+epoch: 66,  avg_loss: 0.5599, avg_recon_loss: 0.1014, avg_kl_loss: 0.0000, avg_vq_loss: 0.4585, ppl: 1.0083, acc: 0.9982, vq_inds: [2807, 10, 10, 10, 10], unique_vq_codes: 12216, unique_suffix_codes: 12216, logdet: 0.0000 
+val ---  avg_loss: 2.0246, avg_recon_loss: 1.5109, avg_kl_loss: 0.0000, avg_vq_loss: 0.5136, ppl: 1.1298, acc: 0.9808, vq_inds: [1133, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1452 
+
+epoch: 67,  avg_loss: 0.5283, avg_recon_loss: 0.0862, avg_kl_loss: 0.0000, avg_vq_loss: 0.4421, ppl: 1.0070, acc: 0.9986, vq_inds: [2801, 10, 10, 10, 10], unique_vq_codes: 12217, unique_suffix_codes: 12217, logdet: 0.0000 
+val ---  avg_loss: 2.0730, avg_recon_loss: 1.5396, avg_kl_loss: 0.0000, avg_vq_loss: 0.5333, ppl: 1.1325, acc: 0.9797, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1460 
+
+epoch: 68,  avg_loss: 0.5341, avg_recon_loss: 0.0906, avg_kl_loss: 0.0000, avg_vq_loss: 0.4435, ppl: 1.0074, acc: 0.9983, vq_inds: [2801, 10, 10, 10, 10], unique_vq_codes: 12217, unique_suffix_codes: 12217, logdet: 0.0000 
+val ---  avg_loss: 2.1689, avg_recon_loss: 1.5798, avg_kl_loss: 0.0000, avg_vq_loss: 0.5891, ppl: 1.1361, acc: 0.9790, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1473 
+
+epoch: 69,  avg_loss: 0.6055, avg_recon_loss: 0.1266, avg_kl_loss: 0.0000, avg_vq_loss: 0.4789, ppl: 1.0103, acc: 0.9980, vq_inds: [2803, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 2.0372, avg_recon_loss: 1.4812, avg_kl_loss: 0.0000, avg_vq_loss: 0.5561, ppl: 1.1271, acc: 0.9799, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1457 
+
+epoch: 70,  avg_loss: 0.6180, avg_recon_loss: 0.1208, avg_kl_loss: 0.0000, avg_vq_loss: 0.4972, ppl: 1.0098, acc: 0.9978, vq_inds: [2803, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 2.1153, avg_recon_loss: 1.5522, avg_kl_loss: 0.0000, avg_vq_loss: 0.5631, ppl: 1.1336, acc: 0.9800, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1471 
+
+epoch: 71,  avg_loss: 0.7520, avg_recon_loss: 0.1959, avg_kl_loss: 0.0000, avg_vq_loss: 0.5562, ppl: 1.0160, acc: 0.9965, vq_inds: [2800, 10, 10, 10, 10], unique_vq_codes: 12216, unique_suffix_codes: 12216, logdet: 0.0000 
+val ---  avg_loss: 2.7054, avg_recon_loss: 2.0813, avg_kl_loss: 0.0000, avg_vq_loss: 0.6241, ppl: 1.1831, acc: 0.9710, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1472 
+
+epoch: 72,  avg_loss: 0.9862, avg_recon_loss: 0.3698, avg_kl_loss: 0.0000, avg_vq_loss: 0.6164, ppl: 1.0305, acc: 0.9937, vq_inds: [2800, 10, 10, 10, 10], unique_vq_codes: 12213, unique_suffix_codes: 12213, logdet: 0.0000 
+val ---  avg_loss: 2.2060, avg_recon_loss: 1.4346, avg_kl_loss: 0.0000, avg_vq_loss: 0.7714, ppl: 1.1229, acc: 0.9784, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1488 
+
+epoch: 73,  avg_loss: 0.8334, avg_recon_loss: 0.1905, avg_kl_loss: 0.0000, avg_vq_loss: 0.6430, ppl: 1.0156, acc: 0.9968, vq_inds: [2794, 10, 10, 10, 10], unique_vq_codes: 12212, unique_suffix_codes: 12212, logdet: 0.0000 
+val ---  avg_loss: 2.0892, avg_recon_loss: 1.3987, avg_kl_loss: 0.0000, avg_vq_loss: 0.6905, ppl: 1.1196, acc: 0.9821, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1464 
+
+epoch: 74,  avg_loss: 0.6329, avg_recon_loss: 0.1094, avg_kl_loss: 0.0000, avg_vq_loss: 0.5235, ppl: 1.0089, acc: 0.9983, vq_inds: [2797, 10, 10, 10, 10], unique_vq_codes: 12219, unique_suffix_codes: 12219, logdet: 0.0000 
+val ---  avg_loss: 2.0136, avg_recon_loss: 1.4458, avg_kl_loss: 0.0000, avg_vq_loss: 0.5678, ppl: 1.1239, acc: 0.9813, vq_inds: [1132, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1462 
+
+epoch: 75,  avg_loss: 0.5279, avg_recon_loss: 0.0560, avg_kl_loss: 0.0000, avg_vq_loss: 0.4719, ppl: 1.0046, acc: 0.9992, vq_inds: [2796, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.9280, avg_recon_loss: 1.4046, avg_kl_loss: 0.0000, avg_vq_loss: 0.5234, ppl: 1.1202, acc: 0.9809, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1457 
+
+epoch: 76,  avg_loss: 0.4424, avg_recon_loss: 0.0319, avg_kl_loss: 0.0000, avg_vq_loss: 0.4105, ppl: 1.0026, acc: 0.9995, vq_inds: [2794, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.8635, avg_recon_loss: 1.4018, avg_kl_loss: 0.0000, avg_vq_loss: 0.4617, ppl: 1.1199, acc: 0.9822, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1453 
+update best loss 
+
+epoch: 77,  avg_loss: 0.3979, avg_recon_loss: 0.0251, avg_kl_loss: 0.0000, avg_vq_loss: 0.3729, ppl: 1.0020, acc: 0.9996, vq_inds: [2794, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.7680, avg_recon_loss: 1.3694, avg_kl_loss: 0.0000, avg_vq_loss: 0.3986, ppl: 1.1170, acc: 0.9822, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1456 
+update best loss 
+
+epoch: 78,  avg_loss: 0.3745, avg_recon_loss: 0.0301, avg_kl_loss: 0.0000, avg_vq_loss: 0.3443, ppl: 1.0024, acc: 0.9996, vq_inds: [2792, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 1.7366, avg_recon_loss: 1.3576, avg_kl_loss: 0.0000, avg_vq_loss: 0.3790, ppl: 1.1159, acc: 0.9827, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1456 
+update best loss 
+
+epoch: 79,  avg_loss: 0.3454, avg_recon_loss: 0.0307, avg_kl_loss: 0.0000, avg_vq_loss: 0.3147, ppl: 1.0025, acc: 0.9996, vq_inds: [2794, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7663, avg_recon_loss: 1.3903, avg_kl_loss: 0.0000, avg_vq_loss: 0.3760, ppl: 1.1189, acc: 0.9827, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1455 
+
+epoch: 80,  avg_loss: 0.3352, avg_recon_loss: 0.0370, avg_kl_loss: 0.0000, avg_vq_loss: 0.2982, ppl: 1.0030, acc: 0.9995, vq_inds: [2793, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7322, avg_recon_loss: 1.3957, avg_kl_loss: 0.0000, avg_vq_loss: 0.3364, ppl: 1.1194, acc: 0.9823, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1457 
+update best loss 
+
+epoch: 81,  avg_loss: 0.2995, avg_recon_loss: 0.0176, avg_kl_loss: 0.0000, avg_vq_loss: 0.2819, ppl: 1.0014, acc: 0.9998, vq_inds: [2791, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.6655, avg_recon_loss: 1.3443, avg_kl_loss: 0.0000, avg_vq_loss: 0.3212, ppl: 1.1147, acc: 0.9828, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1452 
+update best loss 
+
+epoch: 82,  avg_loss: 0.3043, avg_recon_loss: 0.0267, avg_kl_loss: 0.0000, avg_vq_loss: 0.2776, ppl: 1.0022, acc: 0.9996, vq_inds: [2795, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.6422, avg_recon_loss: 1.3157, avg_kl_loss: 0.0000, avg_vq_loss: 0.3265, ppl: 1.1122, acc: 0.9835, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1458 
+update best loss 
+
+epoch: 83,  avg_loss: 0.3564, avg_recon_loss: 0.0458, avg_kl_loss: 0.0000, avg_vq_loss: 0.3106, ppl: 1.0037, acc: 0.9993, vq_inds: [2795, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7613, avg_recon_loss: 1.3827, avg_kl_loss: 0.0000, avg_vq_loss: 0.3786, ppl: 1.1182, acc: 0.9831, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1464 
+
+epoch: 84,  avg_loss: 0.4560, avg_recon_loss: 0.0963, avg_kl_loss: 0.0000, avg_vq_loss: 0.3597, ppl: 1.0078, acc: 0.9983, vq_inds: [2793, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 2.3734, avg_recon_loss: 1.7903, avg_kl_loss: 0.0000, avg_vq_loss: 0.5831, ppl: 1.1556, acc: 0.9769, vq_inds: [1137, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1481 
+
+epoch: 85,  avg_loss: 0.7926, avg_recon_loss: 0.2574, avg_kl_loss: 0.0000, avg_vq_loss: 0.5353, ppl: 1.0211, acc: 0.9952, vq_inds: [2795, 10, 10, 10, 10], unique_vq_codes: 12216, unique_suffix_codes: 12216, logdet: 0.0000 
+val ---  avg_loss: 2.5084, avg_recon_loss: 1.8775, avg_kl_loss: 0.0000, avg_vq_loss: 0.6309, ppl: 1.1638, acc: 0.9757, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1479 
+
+epoch: 86,  avg_loss: 0.8126, avg_recon_loss: 0.2305, avg_kl_loss: 0.0000, avg_vq_loss: 0.5821, ppl: 1.0189, acc: 0.9956, vq_inds: [2800, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 2.2863, avg_recon_loss: 1.6630, avg_kl_loss: 0.0000, avg_vq_loss: 0.6233, ppl: 1.1438, acc: 0.9775, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1470 
+
+epoch: 87,  avg_loss: 0.7332, avg_recon_loss: 0.1905, avg_kl_loss: 0.0000, avg_vq_loss: 0.5427, ppl: 1.0156, acc: 0.9967, vq_inds: [2799, 10, 10, 10, 10], unique_vq_codes: 12219, unique_suffix_codes: 12219, logdet: 0.0000 
+val ---  avg_loss: 2.1706, avg_recon_loss: 1.5206, avg_kl_loss: 0.0000, avg_vq_loss: 0.6500, ppl: 1.1307, acc: 0.9796, vq_inds: [1130, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1472 
+
+epoch: 88,  avg_loss: 0.6558, avg_recon_loss: 0.1251, avg_kl_loss: 0.0000, avg_vq_loss: 0.5307, ppl: 1.0102, acc: 0.9979, vq_inds: [2800, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.9535, avg_recon_loss: 1.3732, avg_kl_loss: 0.0000, avg_vq_loss: 0.5803, ppl: 1.1173, acc: 0.9810, vq_inds: [1133, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1466 
+
+epoch: 89,  avg_loss: 0.5309, avg_recon_loss: 0.0696, avg_kl_loss: 0.0000, avg_vq_loss: 0.4614, ppl: 1.0057, acc: 0.9990, vq_inds: [2793, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.9155, avg_recon_loss: 1.4093, avg_kl_loss: 0.0000, avg_vq_loss: 0.5062, ppl: 1.1206, acc: 0.9820, vq_inds: [1133, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1464 
+
+epoch: 90,  avg_loss: 0.4566, avg_recon_loss: 0.0536, avg_kl_loss: 0.0000, avg_vq_loss: 0.4030, ppl: 1.0044, acc: 0.9993, vq_inds: [2793, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.7764, avg_recon_loss: 1.3035, avg_kl_loss: 0.0000, avg_vq_loss: 0.4729, ppl: 1.1111, acc: 0.9827, vq_inds: [1130, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1459 
+
+epoch: 91,  avg_loss: 0.4158, avg_recon_loss: 0.0454, avg_kl_loss: 0.0000, avg_vq_loss: 0.3704, ppl: 1.0037, acc: 0.9994, vq_inds: [2791, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7106, avg_recon_loss: 1.3121, avg_kl_loss: 0.0000, avg_vq_loss: 0.3985, ppl: 1.1118, acc: 0.9834, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 92,  avg_loss: 0.3559, avg_recon_loss: 0.0236, avg_kl_loss: 0.0000, avg_vq_loss: 0.3323, ppl: 1.0019, acc: 0.9996, vq_inds: [2793, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.6660, avg_recon_loss: 1.2921, avg_kl_loss: 0.0000, avg_vq_loss: 0.3739, ppl: 1.1100, acc: 0.9840, vq_inds: [1130, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1451 
+
+epoch: 93,  avg_loss: 0.3166, avg_recon_loss: 0.0196, avg_kl_loss: 0.0000, avg_vq_loss: 0.2970, ppl: 1.0016, acc: 0.9998, vq_inds: [2792, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.6037, avg_recon_loss: 1.2805, avg_kl_loss: 0.0000, avg_vq_loss: 0.3231, ppl: 1.1090, acc: 0.9845, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1452 
+update best loss 
+
+epoch: 94,  avg_loss: 0.2819, avg_recon_loss: 0.0166, avg_kl_loss: 0.0000, avg_vq_loss: 0.2653, ppl: 1.0013, acc: 0.9998, vq_inds: [2790, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.6977, avg_recon_loss: 1.3598, avg_kl_loss: 0.0000, avg_vq_loss: 0.3379, ppl: 1.1161, acc: 0.9839, vq_inds: [1130, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1452 
+
+epoch: 95,  avg_loss: 0.2772, avg_recon_loss: 0.0199, avg_kl_loss: 0.0000, avg_vq_loss: 0.2573, ppl: 1.0016, acc: 0.9997, vq_inds: [2788, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.6530, avg_recon_loss: 1.3397, avg_kl_loss: 0.0000, avg_vq_loss: 0.3133, ppl: 1.1143, acc: 0.9838, vq_inds: [1134, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1450 
+
+epoch: 96,  avg_loss: 0.2720, avg_recon_loss: 0.0194, avg_kl_loss: 0.0000, avg_vq_loss: 0.2526, ppl: 1.0016, acc: 0.9997, vq_inds: [2792, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.6591, avg_recon_loss: 1.3663, avg_kl_loss: 0.0000, avg_vq_loss: 0.2927, ppl: 1.1167, acc: 0.9834, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1453 
+
+epoch: 97,  avg_loss: 0.2741, avg_recon_loss: 0.0215, avg_kl_loss: 0.0000, avg_vq_loss: 0.2526, ppl: 1.0017, acc: 0.9997, vq_inds: [2791, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.7125, avg_recon_loss: 1.3940, avg_kl_loss: 0.0000, avg_vq_loss: 0.3185, ppl: 1.1192, acc: 0.9830, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1464 
+
+epoch: 98,  avg_loss: 0.3515, avg_recon_loss: 0.0527, avg_kl_loss: 0.0000, avg_vq_loss: 0.2988, ppl: 1.0043, acc: 0.9990, vq_inds: [2790, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.9431, avg_recon_loss: 1.5038, avg_kl_loss: 0.0000, avg_vq_loss: 0.4393, ppl: 1.1292, acc: 0.9814, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1466 
+
+epoch: 99,  avg_loss: 0.5251, avg_recon_loss: 0.1186, avg_kl_loss: 0.0000, avg_vq_loss: 0.4065, ppl: 1.0097, acc: 0.9981, vq_inds: [2796, 10, 10, 10, 10], unique_vq_codes: 12219, unique_suffix_codes: 12219, logdet: 0.0000 
+val ---  avg_loss: 1.9726, avg_recon_loss: 1.4942, avg_kl_loss: 0.0000, avg_vq_loss: 0.4784, ppl: 1.1283, acc: 0.9815, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1474 
+
+epoch: 100,  avg_loss: 0.5875, avg_recon_loss: 0.1326, avg_kl_loss: 0.0000, avg_vq_loss: 0.4548, ppl: 1.0108, acc: 0.9975, vq_inds: [2797, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 2.0353, avg_recon_loss: 1.5005, avg_kl_loss: 0.0000, avg_vq_loss: 0.5348, ppl: 1.1289, acc: 0.9813, vq_inds: [1134, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1487 
+
+epoch: 101,  avg_loss: 0.6199, avg_recon_loss: 0.1502, avg_kl_loss: 0.0000, avg_vq_loss: 0.4696, ppl: 1.0123, acc: 0.9973, vq_inds: [2793, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.9824, avg_recon_loss: 1.4315, avg_kl_loss: 0.0000, avg_vq_loss: 0.5509, ppl: 1.1226, acc: 0.9825, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1469 
+
+epoch: 102,  avg_loss: 0.6280, avg_recon_loss: 0.1430, avg_kl_loss: 0.0000, avg_vq_loss: 0.4850, ppl: 1.0117, acc: 0.9974, vq_inds: [2796, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.9142, avg_recon_loss: 1.3171, avg_kl_loss: 0.0000, avg_vq_loss: 0.5970, ppl: 1.1123, acc: 0.9821, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1475 
+
+epoch: 103,  avg_loss: 0.6105, avg_recon_loss: 0.1345, avg_kl_loss: 0.0000, avg_vq_loss: 0.4760, ppl: 1.0110, acc: 0.9978, vq_inds: [2789, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 2.0132, avg_recon_loss: 1.4800, avg_kl_loss: 0.0000, avg_vq_loss: 0.5332, ppl: 1.1270, acc: 0.9801, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1475 
+
+epoch: 104,  avg_loss: 0.5870, avg_recon_loss: 0.1128, avg_kl_loss: 0.0000, avg_vq_loss: 0.4742, ppl: 1.0092, acc: 0.9980, vq_inds: [2786, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.9867, avg_recon_loss: 1.3708, avg_kl_loss: 0.0000, avg_vq_loss: 0.6158, ppl: 1.1171, acc: 0.9810, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1467 
+
+epoch: 105,  avg_loss: 0.5071, avg_recon_loss: 0.0762, avg_kl_loss: 0.0000, avg_vq_loss: 0.4308, ppl: 1.0062, acc: 0.9987, vq_inds: [2787, 10, 10, 10, 10], unique_vq_codes: 12219, unique_suffix_codes: 12219, logdet: 0.0000 
+val ---  avg_loss: 1.8109, avg_recon_loss: 1.3300, avg_kl_loss: 0.0000, avg_vq_loss: 0.4808, ppl: 1.1134, acc: 0.9830, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1464 
+
+epoch: 106,  avg_loss: 0.4389, avg_recon_loss: 0.0445, avg_kl_loss: 0.0000, avg_vq_loss: 0.3945, ppl: 1.0036, acc: 0.9992, vq_inds: [2788, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.7899, avg_recon_loss: 1.3544, avg_kl_loss: 0.0000, avg_vq_loss: 0.4354, ppl: 1.1156, acc: 0.9831, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1459 
+
+epoch: 107,  avg_loss: 0.3707, avg_recon_loss: 0.0266, avg_kl_loss: 0.0000, avg_vq_loss: 0.3440, ppl: 1.0022, acc: 0.9996, vq_inds: [2789, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7766, avg_recon_loss: 1.4143, avg_kl_loss: 0.0000, avg_vq_loss: 0.3622, ppl: 1.1210, acc: 0.9835, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1452 
+
+epoch: 108,  avg_loss: 0.3376, avg_recon_loss: 0.0319, avg_kl_loss: 0.0000, avg_vq_loss: 0.3057, ppl: 1.0026, acc: 0.9996, vq_inds: [2787, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.6737, avg_recon_loss: 1.3303, avg_kl_loss: 0.0000, avg_vq_loss: 0.3434, ppl: 1.1135, acc: 0.9838, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1454 
+
+epoch: 109,  avg_loss: 0.2971, avg_recon_loss: 0.0195, avg_kl_loss: 0.0000, avg_vq_loss: 0.2776, ppl: 1.0016, acc: 0.9997, vq_inds: [2787, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7522, avg_recon_loss: 1.4270, avg_kl_loss: 0.0000, avg_vq_loss: 0.3252, ppl: 1.1222, acc: 0.9831, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1448 
+
+epoch: 110,  avg_loss: 0.2776, avg_recon_loss: 0.0190, avg_kl_loss: 0.0000, avg_vq_loss: 0.2586, ppl: 1.0015, acc: 0.9998, vq_inds: [2787, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7990, avg_recon_loss: 1.4674, avg_kl_loss: 0.0000, avg_vq_loss: 0.3316, ppl: 1.1259, acc: 0.9833, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1457 
+
+epoch: 111,  avg_loss: 0.2737, avg_recon_loss: 0.0187, avg_kl_loss: 0.0000, avg_vq_loss: 0.2550, ppl: 1.0015, acc: 0.9997, vq_inds: [2787, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7511, avg_recon_loss: 1.4657, avg_kl_loss: 0.0000, avg_vq_loss: 0.2854, ppl: 1.1257, acc: 0.9836, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1450 
+
+epoch: 112,  avg_loss: 0.2721, avg_recon_loss: 0.0308, avg_kl_loss: 0.0000, avg_vq_loss: 0.2413, ppl: 1.0025, acc: 0.9997, vq_inds: [2787, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.6291, avg_recon_loss: 1.3415, avg_kl_loss: 0.0000, avg_vq_loss: 0.2875, ppl: 1.1145, acc: 0.9837, vq_inds: [1130, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1460 
+
+epoch: 113,  avg_loss: 0.3169, avg_recon_loss: 0.0502, avg_kl_loss: 0.0000, avg_vq_loss: 0.2667, ppl: 1.0041, acc: 0.9993, vq_inds: [2785, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7766, avg_recon_loss: 1.3985, avg_kl_loss: 0.0000, avg_vq_loss: 0.3780, ppl: 1.1196, acc: 0.9837, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1456 
+
+epoch: 114,  avg_loss: 0.3426, avg_recon_loss: 0.0476, avg_kl_loss: 0.0000, avg_vq_loss: 0.2951, ppl: 1.0039, acc: 0.9992, vq_inds: [2790, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.8654, avg_recon_loss: 1.5183, avg_kl_loss: 0.0000, avg_vq_loss: 0.3471, ppl: 1.1305, acc: 0.9816, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1460 
+
+epoch: 115,  avg_loss: 0.3968, avg_recon_loss: 0.0692, avg_kl_loss: 0.0000, avg_vq_loss: 0.3276, ppl: 1.0056, acc: 0.9988, vq_inds: [2789, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.8707, avg_recon_loss: 1.5079, avg_kl_loss: 0.0000, avg_vq_loss: 0.3628, ppl: 1.1296, acc: 0.9812, vq_inds: [1130, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1463 
+
+epoch: 116,  avg_loss: 0.4476, avg_recon_loss: 0.0911, avg_kl_loss: 0.0000, avg_vq_loss: 0.3565, ppl: 1.0074, acc: 0.9984, vq_inds: [2794, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.9453, avg_recon_loss: 1.5017, avg_kl_loss: 0.0000, avg_vq_loss: 0.4436, ppl: 1.1290, acc: 0.9812, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1474 
+
+epoch: 117,  avg_loss: 0.4740, avg_recon_loss: 0.0961, avg_kl_loss: 0.0000, avg_vq_loss: 0.3779, ppl: 1.0078, acc: 0.9984, vq_inds: [2792, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 1.8443, avg_recon_loss: 1.4324, avg_kl_loss: 0.0000, avg_vq_loss: 0.4119, ppl: 1.1227, acc: 0.9813, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1462 
+
+epoch: 118,  avg_loss: 0.4188, avg_recon_loss: 0.0557, avg_kl_loss: 0.0000, avg_vq_loss: 0.3631, ppl: 1.0045, acc: 0.9991, vq_inds: [2795, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.7421, avg_recon_loss: 1.3408, avg_kl_loss: 0.0000, avg_vq_loss: 0.4013, ppl: 1.1144, acc: 0.9832, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1457 
+
+epoch: 119,  avg_loss: 0.3835, avg_recon_loss: 0.0431, avg_kl_loss: 0.0000, avg_vq_loss: 0.3404, ppl: 1.0035, acc: 0.9993, vq_inds: [2792, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.7669, avg_recon_loss: 1.4053, avg_kl_loss: 0.0000, avg_vq_loss: 0.3616, ppl: 1.1202, acc: 0.9835, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1454 
+
+epoch: 120,  avg_loss: 0.3494, avg_recon_loss: 0.0371, avg_kl_loss: 0.0000, avg_vq_loss: 0.3122, ppl: 1.0030, acc: 0.9994, vq_inds: [2791, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7251, avg_recon_loss: 1.3788, avg_kl_loss: 0.0000, avg_vq_loss: 0.3463, ppl: 1.1178, acc: 0.9834, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 121,  avg_loss: 0.4589, avg_recon_loss: 0.1176, avg_kl_loss: 0.0000, avg_vq_loss: 0.3412, ppl: 1.0096, acc: 0.9981, vq_inds: [2789, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 1.9463, avg_recon_loss: 1.4749, avg_kl_loss: 0.0000, avg_vq_loss: 0.4714, ppl: 1.1265, acc: 0.9805, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1482 
+
+epoch: 122,  avg_loss: 0.6190, avg_recon_loss: 0.1627, avg_kl_loss: 0.0000, avg_vq_loss: 0.4563, ppl: 1.0133, acc: 0.9969, vq_inds: [2784, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 2.1456, avg_recon_loss: 1.6162, avg_kl_loss: 0.0000, avg_vq_loss: 0.5294, ppl: 1.1395, acc: 0.9799, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1473 
+
+epoch: 123,  avg_loss: 0.6178, avg_recon_loss: 0.1491, avg_kl_loss: 0.0000, avg_vq_loss: 0.4688, ppl: 1.0122, acc: 0.9972, vq_inds: [2788, 10, 10, 10, 10], unique_vq_codes: 12218, unique_suffix_codes: 12218, logdet: 0.0000 
+val ---  avg_loss: 2.0001, avg_recon_loss: 1.5135, avg_kl_loss: 0.0000, avg_vq_loss: 0.4866, ppl: 1.1301, acc: 0.9813, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1468 
+
+epoch: 124,  avg_loss: 0.5056, avg_recon_loss: 0.0905, avg_kl_loss: 0.0000, avg_vq_loss: 0.4151, ppl: 1.0074, acc: 0.9985, vq_inds: [2786, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 1.9648, avg_recon_loss: 1.5215, avg_kl_loss: 0.0000, avg_vq_loss: 0.4432, ppl: 1.1308, acc: 0.9825, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1459 
+
+epoch: 125,  avg_loss: 0.4108, avg_recon_loss: 0.0427, avg_kl_loss: 0.0000, avg_vq_loss: 0.3681, ppl: 1.0035, acc: 0.9994, vq_inds: [2785, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.8813, avg_recon_loss: 1.4951, avg_kl_loss: 0.0000, avg_vq_loss: 0.3863, ppl: 1.1284, acc: 0.9833, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1455 
+
+epoch: 126,  avg_loss: 0.3611, avg_recon_loss: 0.0293, avg_kl_loss: 0.0000, avg_vq_loss: 0.3318, ppl: 1.0024, acc: 0.9996, vq_inds: [2787, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 1.8128, avg_recon_loss: 1.4591, avg_kl_loss: 0.0000, avg_vq_loss: 0.3537, ppl: 1.1251, acc: 0.9831, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1446 
+
+epoch: 127,  avg_loss: 0.3121, avg_recon_loss: 0.0171, avg_kl_loss: 0.0000, avg_vq_loss: 0.2950, ppl: 1.0014, acc: 0.9998, vq_inds: [2785, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.8011, avg_recon_loss: 1.4751, avg_kl_loss: 0.0000, avg_vq_loss: 0.3260, ppl: 1.1266, acc: 0.9830, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1450 
+
+epoch: 128,  avg_loss: 0.2909, avg_recon_loss: 0.0172, avg_kl_loss: 0.0000, avg_vq_loss: 0.2737, ppl: 1.0014, acc: 0.9997, vq_inds: [2785, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7898, avg_recon_loss: 1.4782, avg_kl_loss: 0.0000, avg_vq_loss: 0.3116, ppl: 1.1268, acc: 0.9835, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1450 
+
+epoch: 129,  avg_loss: 0.2776, avg_recon_loss: 0.0215, avg_kl_loss: 0.0000, avg_vq_loss: 0.2561, ppl: 1.0017, acc: 0.9997, vq_inds: [2783, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7856, avg_recon_loss: 1.5015, avg_kl_loss: 0.0000, avg_vq_loss: 0.2841, ppl: 1.1290, acc: 0.9830, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1449 
+
+epoch: 130,  avg_loss: 0.2733, avg_recon_loss: 0.0270, avg_kl_loss: 0.0000, avg_vq_loss: 0.2463, ppl: 1.0022, acc: 0.9996, vq_inds: [2784, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.9025, avg_recon_loss: 1.6003, avg_kl_loss: 0.0000, avg_vq_loss: 0.3022, ppl: 1.1380, acc: 0.9822, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1455 
+
+epoch: 131,  avg_loss: 0.2626, avg_recon_loss: 0.0194, avg_kl_loss: 0.0000, avg_vq_loss: 0.2432, ppl: 1.0016, acc: 0.9997, vq_inds: [2783, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7476, avg_recon_loss: 1.4601, avg_kl_loss: 0.0000, avg_vq_loss: 0.2875, ppl: 1.1252, acc: 0.9837, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1453 
+
+epoch: 132,  avg_loss: 0.2376, avg_recon_loss: 0.0132, avg_kl_loss: 0.0000, avg_vq_loss: 0.2244, ppl: 1.0011, acc: 0.9998, vq_inds: [2781, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7323, avg_recon_loss: 1.4785, avg_kl_loss: 0.0000, avg_vq_loss: 0.2537, ppl: 1.1269, acc: 0.9833, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1452 
+
+epoch: 133,  avg_loss: 0.2214, avg_recon_loss: 0.0176, avg_kl_loss: 0.0000, avg_vq_loss: 0.2038, ppl: 1.0014, acc: 0.9998, vq_inds: [2786, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7894, avg_recon_loss: 1.5131, avg_kl_loss: 0.0000, avg_vq_loss: 0.2763, ppl: 1.1300, acc: 0.9834, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1452 
+
+epoch: 134,  avg_loss: 0.2265, avg_recon_loss: 0.0189, avg_kl_loss: 0.0000, avg_vq_loss: 0.2076, ppl: 1.0015, acc: 0.9998, vq_inds: [2782, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7468, avg_recon_loss: 1.5070, avg_kl_loss: 0.0000, avg_vq_loss: 0.2398, ppl: 1.1295, acc: 0.9839, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1457 
+
+epoch: 135,  avg_loss: 0.2023, avg_recon_loss: 0.0112, avg_kl_loss: 0.0000, avg_vq_loss: 0.1910, ppl: 1.0009, acc: 0.9998, vq_inds: [2781, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.6991, avg_recon_loss: 1.4522, avg_kl_loss: 0.0000, avg_vq_loss: 0.2469, ppl: 1.1245, acc: 0.9842, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1459 
+
+epoch: 136,  avg_loss: 0.2206, avg_recon_loss: 0.0189, avg_kl_loss: 0.0000, avg_vq_loss: 0.2017, ppl: 1.0015, acc: 0.9997, vq_inds: [2782, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.8320, avg_recon_loss: 1.5652, avg_kl_loss: 0.0000, avg_vq_loss: 0.2668, ppl: 1.1348, acc: 0.9834, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1462 
+
+epoch: 137,  avg_loss: 0.2642, avg_recon_loss: 0.0304, avg_kl_loss: 0.0000, avg_vq_loss: 0.2337, ppl: 1.0025, acc: 0.9995, vq_inds: [2780, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.7586, avg_recon_loss: 1.4667, avg_kl_loss: 0.0000, avg_vq_loss: 0.2918, ppl: 1.1258, acc: 0.9835, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1462 
+
+epoch: 138,  avg_loss: 0.3087, avg_recon_loss: 0.0469, avg_kl_loss: 0.0000, avg_vq_loss: 0.2617, ppl: 1.0038, acc: 0.9993, vq_inds: [2784, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.8254, avg_recon_loss: 1.4837, avg_kl_loss: 0.0000, avg_vq_loss: 0.3417, ppl: 1.1273, acc: 0.9837, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1461 
+
+epoch: 139,  avg_loss: 0.4360, avg_recon_loss: 0.1041, avg_kl_loss: 0.0000, avg_vq_loss: 0.3320, ppl: 1.0085, acc: 0.9982, vq_inds: [2783, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 2.0268, avg_recon_loss: 1.6128, avg_kl_loss: 0.0000, avg_vq_loss: 0.4141, ppl: 1.1392, acc: 0.9816, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1470 
+
+epoch: 140,  avg_loss: 0.4979, avg_recon_loss: 0.1087, avg_kl_loss: 0.0000, avg_vq_loss: 0.3892, ppl: 1.0089, acc: 0.9982, vq_inds: [2780, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.9400, avg_recon_loss: 1.4817, avg_kl_loss: 0.0000, avg_vq_loss: 0.4583, ppl: 1.1272, acc: 0.9820, vq_inds: [1120, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1465 
+
+epoch: 141,  avg_loss: 0.5193, avg_recon_loss: 0.1248, avg_kl_loss: 0.0000, avg_vq_loss: 0.3945, ppl: 1.0102, acc: 0.9978, vq_inds: [2780, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.8638, avg_recon_loss: 1.4171, avg_kl_loss: 0.0000, avg_vq_loss: 0.4467, ppl: 1.1213, acc: 0.9832, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1466 
+
+epoch: 142,  avg_loss: 0.4506, avg_recon_loss: 0.0773, avg_kl_loss: 0.0000, avg_vq_loss: 0.3733, ppl: 1.0063, acc: 0.9988, vq_inds: [2782, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 1.9115, avg_recon_loss: 1.4592, avg_kl_loss: 0.0000, avg_vq_loss: 0.4523, ppl: 1.1251, acc: 0.9822, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1461 
+
+epoch: 143,  avg_loss: 0.4087, avg_recon_loss: 0.0627, avg_kl_loss: 0.0000, avg_vq_loss: 0.3459, ppl: 1.0051, acc: 0.9989, vq_inds: [2781, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.8120, avg_recon_loss: 1.4172, avg_kl_loss: 0.0000, avg_vq_loss: 0.3948, ppl: 1.1213, acc: 0.9837, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1460 
+
+epoch: 144,  avg_loss: 0.3645, avg_recon_loss: 0.0377, avg_kl_loss: 0.0000, avg_vq_loss: 0.3268, ppl: 1.0031, acc: 0.9994, vq_inds: [2782, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.7625, avg_recon_loss: 1.3950, avg_kl_loss: 0.0000, avg_vq_loss: 0.3674, ppl: 1.1193, acc: 0.9841, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1455 
+
+epoch: 145,  avg_loss: 0.3268, avg_recon_loss: 0.0301, avg_kl_loss: 0.0000, avg_vq_loss: 0.2967, ppl: 1.0024, acc: 0.9996, vq_inds: [2781, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.6413, avg_recon_loss: 1.3220, avg_kl_loss: 0.0000, avg_vq_loss: 0.3192, ppl: 1.1127, acc: 0.9847, vq_inds: [1128, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1450 
+
+epoch: 146,  avg_loss: 0.3009, avg_recon_loss: 0.0299, avg_kl_loss: 0.0000, avg_vq_loss: 0.2710, ppl: 1.0024, acc: 0.9995, vq_inds: [2782, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.6431, avg_recon_loss: 1.3192, avg_kl_loss: 0.0000, avg_vq_loss: 0.3240, ppl: 1.1125, acc: 0.9851, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1450 
+
+epoch: 147,  avg_loss: 0.3016, avg_recon_loss: 0.0244, avg_kl_loss: 0.0000, avg_vq_loss: 0.2772, ppl: 1.0020, acc: 0.9996, vq_inds: [2782, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.6407, avg_recon_loss: 1.3440, avg_kl_loss: 0.0000, avg_vq_loss: 0.2967, ppl: 1.1147, acc: 0.9845, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 148,  avg_loss: 0.2732, avg_recon_loss: 0.0242, avg_kl_loss: 0.0000, avg_vq_loss: 0.2489, ppl: 1.0020, acc: 0.9996, vq_inds: [2780, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.6444, avg_recon_loss: 1.3729, avg_kl_loss: 0.0000, avg_vq_loss: 0.2715, ppl: 1.1173, acc: 0.9844, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1453 
+
+epoch: 149,  avg_loss: 0.2564, avg_recon_loss: 0.0200, avg_kl_loss: 0.0000, avg_vq_loss: 0.2365, ppl: 1.0016, acc: 0.9997, vq_inds: [2780, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7157, avg_recon_loss: 1.4286, avg_kl_loss: 0.0000, avg_vq_loss: 0.2871, ppl: 1.1223, acc: 0.9846, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1458 
+
+epoch: 150,  avg_loss: 0.2541, avg_recon_loss: 0.0225, avg_kl_loss: 0.0000, avg_vq_loss: 0.2316, ppl: 1.0018, acc: 0.9997, vq_inds: [2780, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.6521, avg_recon_loss: 1.3800, avg_kl_loss: 0.0000, avg_vq_loss: 0.2721, ppl: 1.1179, acc: 0.9845, vq_inds: [1127, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1456 
+
+epoch: 151,  avg_loss: 0.2546, avg_recon_loss: 0.0257, avg_kl_loss: 0.0000, avg_vq_loss: 0.2289, ppl: 1.0021, acc: 0.9997, vq_inds: [2779, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.6157, avg_recon_loss: 1.3499, avg_kl_loss: 0.0000, avg_vq_loss: 0.2658, ppl: 1.1152, acc: 0.9859, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1456 
+
+epoch: 152,  avg_loss: 0.2729, avg_recon_loss: 0.0368, avg_kl_loss: 0.0000, avg_vq_loss: 0.2361, ppl: 1.0030, acc: 0.9995, vq_inds: [2779, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.6571, avg_recon_loss: 1.3709, avg_kl_loss: 0.0000, avg_vq_loss: 0.2862, ppl: 1.1171, acc: 0.9847, vq_inds: [1130, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1458 
+
+epoch: 153,  avg_loss: 0.2907, avg_recon_loss: 0.0339, avg_kl_loss: 0.0000, avg_vq_loss: 0.2567, ppl: 1.0028, acc: 0.9993, vq_inds: [2778, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.7412, avg_recon_loss: 1.4106, avg_kl_loss: 0.0000, avg_vq_loss: 0.3306, ppl: 1.1207, acc: 0.9837, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1462 
+
+epoch: 154,  avg_loss: 0.3316, avg_recon_loss: 0.0526, avg_kl_loss: 0.0000, avg_vq_loss: 0.2790, ppl: 1.0043, acc: 0.9989, vq_inds: [2778, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.8783, avg_recon_loss: 1.5054, avg_kl_loss: 0.0000, avg_vq_loss: 0.3730, ppl: 1.1293, acc: 0.9833, vq_inds: [1126, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1462 
+
+epoch: 155,  avg_loss: 0.4774, avg_recon_loss: 0.1114, avg_kl_loss: 0.0000, avg_vq_loss: 0.3660, ppl: 1.0091, acc: 0.9979, vq_inds: [2782, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 2.2678, avg_recon_loss: 1.7597, avg_kl_loss: 0.0000, avg_vq_loss: 0.5081, ppl: 1.1528, acc: 0.9796, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1469 
+
+epoch: 156,  avg_loss: 0.7222, avg_recon_loss: 0.2600, avg_kl_loss: 0.0000, avg_vq_loss: 0.4621, ppl: 1.0213, acc: 0.9955, vq_inds: [2773, 10, 10, 10, 10], unique_vq_codes: 12220, unique_suffix_codes: 12220, logdet: 0.0000 
+val ---  avg_loss: 2.1952, avg_recon_loss: 1.6357, avg_kl_loss: 0.0000, avg_vq_loss: 0.5595, ppl: 1.1413, acc: 0.9814, vq_inds: [1131, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1474 
+
+epoch: 157,  avg_loss: 0.5852, avg_recon_loss: 0.1466, avg_kl_loss: 0.0000, avg_vq_loss: 0.4387, ppl: 1.0120, acc: 0.9973, vq_inds: [2774, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.9632, avg_recon_loss: 1.5087, avg_kl_loss: 0.0000, avg_vq_loss: 0.4545, ppl: 1.1296, acc: 0.9826, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1456 
+
+epoch: 158,  avg_loss: 0.4362, avg_recon_loss: 0.0562, avg_kl_loss: 0.0000, avg_vq_loss: 0.3800, ppl: 1.0046, acc: 0.9990, vq_inds: [2773, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.8542, avg_recon_loss: 1.4431, avg_kl_loss: 0.0000, avg_vq_loss: 0.4111, ppl: 1.1237, acc: 0.9842, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1452 
+
+epoch: 159,  avg_loss: 0.3896, avg_recon_loss: 0.0376, avg_kl_loss: 0.0000, avg_vq_loss: 0.3520, ppl: 1.0031, acc: 0.9994, vq_inds: [2772, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.8200, avg_recon_loss: 1.4682, avg_kl_loss: 0.0000, avg_vq_loss: 0.3517, ppl: 1.1259, acc: 0.9849, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1453 
+
+epoch: 160,  avg_loss: 0.3287, avg_recon_loss: 0.0252, avg_kl_loss: 0.0000, avg_vq_loss: 0.3035, ppl: 1.0020, acc: 0.9996, vq_inds: [2767, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.8166, avg_recon_loss: 1.4872, avg_kl_loss: 0.0000, avg_vq_loss: 0.3294, ppl: 1.1277, acc: 0.9855, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1453 
+
+epoch: 161,  avg_loss: 0.3255, avg_recon_loss: 0.0303, avg_kl_loss: 0.0000, avg_vq_loss: 0.2952, ppl: 1.0025, acc: 0.9996, vq_inds: [2769, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.8237, avg_recon_loss: 1.5031, avg_kl_loss: 0.0000, avg_vq_loss: 0.3206, ppl: 1.1291, acc: 0.9848, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 162,  avg_loss: 0.2888, avg_recon_loss: 0.0185, avg_kl_loss: 0.0000, avg_vq_loss: 0.2704, ppl: 1.0015, acc: 0.9997, vq_inds: [2770, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.8579, avg_recon_loss: 1.5518, avg_kl_loss: 0.0000, avg_vq_loss: 0.3060, ppl: 1.1336, acc: 0.9847, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 163,  avg_loss: 0.2782, avg_recon_loss: 0.0238, avg_kl_loss: 0.0000, avg_vq_loss: 0.2544, ppl: 1.0019, acc: 0.9997, vq_inds: [2767, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7541, avg_recon_loss: 1.4645, avg_kl_loss: 0.0000, avg_vq_loss: 0.2896, ppl: 1.1256, acc: 0.9847, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1453 
+
+epoch: 164,  avg_loss: 0.2669, avg_recon_loss: 0.0239, avg_kl_loss: 0.0000, avg_vq_loss: 0.2430, ppl: 1.0019, acc: 0.9997, vq_inds: [2766, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7457, avg_recon_loss: 1.4659, avg_kl_loss: 0.0000, avg_vq_loss: 0.2798, ppl: 1.1257, acc: 0.9854, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1452 
+
+epoch: 165,  avg_loss: 0.2446, avg_recon_loss: 0.0131, avg_kl_loss: 0.0000, avg_vq_loss: 0.2315, ppl: 1.0011, acc: 0.9998, vq_inds: [2765, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.7561, avg_recon_loss: 1.4818, avg_kl_loss: 0.0000, avg_vq_loss: 0.2743, ppl: 1.1272, acc: 0.9847, vq_inds: [1117, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1451 
+
+epoch: 166,  avg_loss: 0.2395, avg_recon_loss: 0.0186, avg_kl_loss: 0.0000, avg_vq_loss: 0.2210, ppl: 1.0015, acc: 0.9997, vq_inds: [2766, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.7947, avg_recon_loss: 1.5119, avg_kl_loss: 0.0000, avg_vq_loss: 0.2828, ppl: 1.1299, acc: 0.9853, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1456 
+
+epoch: 167,  avg_loss: 0.2463, avg_recon_loss: 0.0190, avg_kl_loss: 0.0000, avg_vq_loss: 0.2273, ppl: 1.0015, acc: 0.9997, vq_inds: [2767, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.7888, avg_recon_loss: 1.5257, avg_kl_loss: 0.0000, avg_vq_loss: 0.2631, ppl: 1.1312, acc: 0.9845, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 168,  avg_loss: 0.2370, avg_recon_loss: 0.0222, avg_kl_loss: 0.0000, avg_vq_loss: 0.2148, ppl: 1.0018, acc: 0.9997, vq_inds: [2769, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.7865, avg_recon_loss: 1.5246, avg_kl_loss: 0.0000, avg_vq_loss: 0.2619, ppl: 1.1311, acc: 0.9840, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1459 
+
+epoch: 169,  avg_loss: 0.2412, avg_recon_loss: 0.0230, avg_kl_loss: 0.0000, avg_vq_loss: 0.2182, ppl: 1.0019, acc: 0.9996, vq_inds: [2770, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7374, avg_recon_loss: 1.4711, avg_kl_loss: 0.0000, avg_vq_loss: 0.2663, ppl: 1.1262, acc: 0.9853, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1456 
+
+epoch: 170,  avg_loss: 0.2424, avg_recon_loss: 0.0277, avg_kl_loss: 0.0000, avg_vq_loss: 0.2147, ppl: 1.0022, acc: 0.9995, vq_inds: [2774, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7893, avg_recon_loss: 1.5087, avg_kl_loss: 0.0000, avg_vq_loss: 0.2805, ppl: 1.1296, acc: 0.9843, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1464 
+
+epoch: 171,  avg_loss: 0.2858, avg_recon_loss: 0.0416, avg_kl_loss: 0.0000, avg_vq_loss: 0.2442, ppl: 1.0034, acc: 0.9993, vq_inds: [2770, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.8651, avg_recon_loss: 1.5490, avg_kl_loss: 0.0000, avg_vq_loss: 0.3161, ppl: 1.1333, acc: 0.9848, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1463 
+
+epoch: 172,  avg_loss: 0.3720, avg_recon_loss: 0.0758, avg_kl_loss: 0.0000, avg_vq_loss: 0.2963, ppl: 1.0062, acc: 0.9987, vq_inds: [2773, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.9151, avg_recon_loss: 1.5397, avg_kl_loss: 0.0000, avg_vq_loss: 0.3754, ppl: 1.1325, acc: 0.9825, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1470 
+
+epoch: 173,  avg_loss: 0.4546, avg_recon_loss: 0.0986, avg_kl_loss: 0.0000, avg_vq_loss: 0.3560, ppl: 1.0080, acc: 0.9980, vq_inds: [2777, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.9591, avg_recon_loss: 1.5398, avg_kl_loss: 0.0000, avg_vq_loss: 0.4193, ppl: 1.1325, acc: 0.9833, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1466 
+
+epoch: 174,  avg_loss: 0.4287, avg_recon_loss: 0.0764, avg_kl_loss: 0.0000, avg_vq_loss: 0.3524, ppl: 1.0062, acc: 0.9985, vq_inds: [2773, 10, 10, 10, 10], unique_vq_codes: 12221, unique_suffix_codes: 12221, logdet: 0.0000 
+val ---  avg_loss: 1.8848, avg_recon_loss: 1.4857, avg_kl_loss: 0.0000, avg_vq_loss: 0.3991, ppl: 1.1275, acc: 0.9837, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1460 
+
+epoch: 175,  avg_loss: 0.4328, avg_recon_loss: 0.0723, avg_kl_loss: 0.0000, avg_vq_loss: 0.3606, ppl: 1.0059, acc: 0.9988, vq_inds: [2766, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.8218, avg_recon_loss: 1.4441, avg_kl_loss: 0.0000, avg_vq_loss: 0.3777, ppl: 1.1238, acc: 0.9849, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1462 
+
+epoch: 176,  avg_loss: 0.3624, avg_recon_loss: 0.0419, avg_kl_loss: 0.0000, avg_vq_loss: 0.3206, ppl: 1.0034, acc: 0.9993, vq_inds: [2767, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.8183, avg_recon_loss: 1.4633, avg_kl_loss: 0.0000, avg_vq_loss: 0.3550, ppl: 1.1255, acc: 0.9851, vq_inds: [1129, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1453 
+
+epoch: 177,  avg_loss: 0.3391, avg_recon_loss: 0.0316, avg_kl_loss: 0.0000, avg_vq_loss: 0.3075, ppl: 1.0026, acc: 0.9995, vq_inds: [2765, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.8929, avg_recon_loss: 1.5634, avg_kl_loss: 0.0000, avg_vq_loss: 0.3295, ppl: 1.1346, acc: 0.9850, vq_inds: [1120, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1459 
+
+epoch: 178,  avg_loss: 0.3010, avg_recon_loss: 0.0234, avg_kl_loss: 0.0000, avg_vq_loss: 0.2776, ppl: 1.0019, acc: 0.9996, vq_inds: [2762, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.8732, avg_recon_loss: 1.5643, avg_kl_loss: 0.0000, avg_vq_loss: 0.3089, ppl: 1.1347, acc: 0.9852, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 179,  avg_loss: 0.3099, avg_recon_loss: 0.0302, avg_kl_loss: 0.0000, avg_vq_loss: 0.2796, ppl: 1.0025, acc: 0.9995, vq_inds: [2764, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.8922, avg_recon_loss: 1.5945, avg_kl_loss: 0.0000, avg_vq_loss: 0.2977, ppl: 1.1375, acc: 0.9848, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1452 
+
+epoch: 180,  avg_loss: 0.3047, avg_recon_loss: 0.0393, avg_kl_loss: 0.0000, avg_vq_loss: 0.2654, ppl: 1.0032, acc: 0.9995, vq_inds: [2763, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.9271, avg_recon_loss: 1.6182, avg_kl_loss: 0.0000, avg_vq_loss: 0.3089, ppl: 1.1397, acc: 0.9845, vq_inds: [1121, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1460 
+
+epoch: 181,  avg_loss: 0.2631, avg_recon_loss: 0.0200, avg_kl_loss: 0.0000, avg_vq_loss: 0.2431, ppl: 1.0016, acc: 0.9997, vq_inds: [2764, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.8899, avg_recon_loss: 1.6208, avg_kl_loss: 0.0000, avg_vq_loss: 0.2690, ppl: 1.1399, acc: 0.9847, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1456 
+
+epoch: 182,  avg_loss: 0.2451, avg_recon_loss: 0.0194, avg_kl_loss: 0.0000, avg_vq_loss: 0.2257, ppl: 1.0016, acc: 0.9997, vq_inds: [2765, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7894, avg_recon_loss: 1.5252, avg_kl_loss: 0.0000, avg_vq_loss: 0.2642, ppl: 1.1311, acc: 0.9860, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1458 
+
+epoch: 183,  avg_loss: 0.2348, avg_recon_loss: 0.0160, avg_kl_loss: 0.0000, avg_vq_loss: 0.2188, ppl: 1.0013, acc: 0.9998, vq_inds: [2766, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7533, avg_recon_loss: 1.5080, avg_kl_loss: 0.0000, avg_vq_loss: 0.2453, ppl: 1.1296, acc: 0.9860, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1453 
+
+epoch: 184,  avg_loss: 0.2281, avg_recon_loss: 0.0136, avg_kl_loss: 0.0000, avg_vq_loss: 0.2145, ppl: 1.0011, acc: 0.9998, vq_inds: [2765, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.6442, avg_recon_loss: 1.3989, avg_kl_loss: 0.0000, avg_vq_loss: 0.2454, ppl: 1.1197, acc: 0.9860, vq_inds: [1120, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 185,  avg_loss: 0.2165, avg_recon_loss: 0.0124, avg_kl_loss: 0.0000, avg_vq_loss: 0.2041, ppl: 1.0010, acc: 0.9998, vq_inds: [2766, 10, 10, 10, 10], unique_vq_codes: 12227, unique_suffix_codes: 12227, logdet: 0.0000 
+val ---  avg_loss: 1.6919, avg_recon_loss: 1.4537, avg_kl_loss: 0.0000, avg_vq_loss: 0.2381, ppl: 1.1246, acc: 0.9854, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 186,  avg_loss: 0.2254, avg_recon_loss: 0.0218, avg_kl_loss: 0.0000, avg_vq_loss: 0.2036, ppl: 1.0018, acc: 0.9997, vq_inds: [2766, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.6055, avg_recon_loss: 1.3786, avg_kl_loss: 0.0000, avg_vq_loss: 0.2269, ppl: 1.1178, acc: 0.9860, vq_inds: [1124, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1458 
+
+epoch: 187,  avg_loss: 0.2345, avg_recon_loss: 0.0250, avg_kl_loss: 0.0000, avg_vq_loss: 0.2095, ppl: 1.0020, acc: 0.9995, vq_inds: [2762, 10, 10, 10, 10], unique_vq_codes: 12223, unique_suffix_codes: 12223, logdet: 0.0000 
+val ---  avg_loss: 1.8330, avg_recon_loss: 1.5776, avg_kl_loss: 0.0000, avg_vq_loss: 0.2554, ppl: 1.1359, acc: 0.9848, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1454 
+
+epoch: 188,  avg_loss: 0.2576, avg_recon_loss: 0.0364, avg_kl_loss: 0.0000, avg_vq_loss: 0.2212, ppl: 1.0030, acc: 0.9995, vq_inds: [2762, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.8787, avg_recon_loss: 1.5795, avg_kl_loss: 0.0000, avg_vq_loss: 0.2992, ppl: 1.1361, acc: 0.9850, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1460 
+
+epoch: 189,  avg_loss: 0.3049, avg_recon_loss: 0.0404, avg_kl_loss: 0.0000, avg_vq_loss: 0.2645, ppl: 1.0033, acc: 0.9991, vq_inds: [2764, 10, 10, 10, 10], unique_vq_codes: 12226, unique_suffix_codes: 12226, logdet: 0.0000 
+val ---  avg_loss: 1.9012, avg_recon_loss: 1.5691, avg_kl_loss: 0.0000, avg_vq_loss: 0.3321, ppl: 1.1352, acc: 0.9841, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1472 
+
+epoch: 190,  avg_loss: 0.3811, avg_recon_loss: 0.0691, avg_kl_loss: 0.0000, avg_vq_loss: 0.3121, ppl: 1.0056, acc: 0.9987, vq_inds: [2764, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 2.0256, avg_recon_loss: 1.6720, avg_kl_loss: 0.0000, avg_vq_loss: 0.3535, ppl: 1.1446, acc: 0.9838, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1587, unique_suffix_codes: 1587, val_unique_suffix_codes: 1472 
+
+epoch: 191,  avg_loss: 0.4588, avg_recon_loss: 0.1217, avg_kl_loss: 0.0000, avg_vq_loss: 0.3370, ppl: 1.0099, acc: 0.9978, vq_inds: [2761, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.9724, avg_recon_loss: 1.5539, avg_kl_loss: 0.0000, avg_vq_loss: 0.4185, ppl: 1.1338, acc: 0.9828, vq_inds: [1123, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1461 
+
+epoch: 192,  avg_loss: 0.4296, avg_recon_loss: 0.0806, avg_kl_loss: 0.0000, avg_vq_loss: 0.3491, ppl: 1.0066, acc: 0.9987, vq_inds: [2761, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.9554, avg_recon_loss: 1.5712, avg_kl_loss: 0.0000, avg_vq_loss: 0.3843, ppl: 1.1353, acc: 0.9832, vq_inds: [1117, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1461 
+
+epoch: 193,  avg_loss: 0.3821, avg_recon_loss: 0.0524, avg_kl_loss: 0.0000, avg_vq_loss: 0.3297, ppl: 1.0043, acc: 0.9991, vq_inds: [2761, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.8638, avg_recon_loss: 1.5107, avg_kl_loss: 0.0000, avg_vq_loss: 0.3531, ppl: 1.1298, acc: 0.9852, vq_inds: [1120, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1462 
+
+epoch: 194,  avg_loss: 0.3528, avg_recon_loss: 0.0450, avg_kl_loss: 0.0000, avg_vq_loss: 0.3078, ppl: 1.0037, acc: 0.9994, vq_inds: [2760, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7714, avg_recon_loss: 1.4524, avg_kl_loss: 0.0000, avg_vq_loss: 0.3189, ppl: 1.1245, acc: 0.9857, vq_inds: [1116, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1455 
+
+epoch: 195,  avg_loss: 0.3027, avg_recon_loss: 0.0240, avg_kl_loss: 0.0000, avg_vq_loss: 0.2787, ppl: 1.0020, acc: 0.9995, vq_inds: [2759, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.8589, avg_recon_loss: 1.5391, avg_kl_loss: 0.0000, avg_vq_loss: 0.3198, ppl: 1.1324, acc: 0.9853, vq_inds: [1119, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1456 
+
+epoch: 196,  avg_loss: 0.3076, avg_recon_loss: 0.0308, avg_kl_loss: 0.0000, avg_vq_loss: 0.2767, ppl: 1.0025, acc: 0.9995, vq_inds: [2756, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7463, avg_recon_loss: 1.4472, avg_kl_loss: 0.0000, avg_vq_loss: 0.2991, ppl: 1.1240, acc: 0.9858, vq_inds: [1120, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1455 
+
+epoch: 197,  avg_loss: 0.2861, avg_recon_loss: 0.0268, avg_kl_loss: 0.0000, avg_vq_loss: 0.2593, ppl: 1.0022, acc: 0.9996, vq_inds: [2756, 10, 10, 10, 10], unique_vq_codes: 12224, unique_suffix_codes: 12224, logdet: 0.0000 
+val ---  avg_loss: 1.7759, avg_recon_loss: 1.4903, avg_kl_loss: 0.0000, avg_vq_loss: 0.2856, ppl: 1.1280, acc: 0.9870, vq_inds: [1122, 10, 10, 10, 10], unique_vq_codes: 1588, unique_suffix_codes: 1588, val_unique_suffix_codes: 1459 
+
+epoch: 198,  avg_loss: 0.2808, avg_recon_loss: 0.0321, avg_kl_loss: 0.0000, avg_vq_loss: 0.2488, ppl: 1.0026, acc: 0.9995, vq_inds: [2756, 10, 10, 10, 10], unique_vq_codes: 12222, unique_suffix_codes: 12222, logdet: 0.0000 
+val ---  avg_loss: 1.7513, avg_recon_loss: 1.4609, avg_kl_loss: 0.0000, avg_vq_loss: 0.2905, ppl: 1.1253, acc: 0.9856, vq_inds: [1118, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1461 
+
+epoch: 199,  avg_loss: 0.2657, avg_recon_loss: 0.0192, avg_kl_loss: 0.0000, avg_vq_loss: 0.2465, ppl: 1.0016, acc: 0.9997, vq_inds: [2757, 10, 10, 10, 10], unique_vq_codes: 12225, unique_suffix_codes: 12225, logdet: 0.0000 
+val ---  avg_loss: 1.7675, avg_recon_loss: 1.4871, avg_kl_loss: 0.0000, avg_vq_loss: 0.2804, ppl: 1.1277, acc: 0.9852, vq_inds: [1125, 10, 10, 10, 10], unique_vq_codes: 1589, unique_suffix_codes: 1589, val_unique_suffix_codes: 1459 

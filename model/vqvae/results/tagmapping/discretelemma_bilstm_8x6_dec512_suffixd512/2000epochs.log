@@ -1,0 +1,205 @@
+TRN:
+surf_data:12229
+tag_data:11
+entry_data:12229seq not to pad: surface, continuity: FalseVAL:
+surf_data:1590
+tag_data:11
+entry_data:1590seq not to pad: surface, continuity: FalseTST:
+surf_data:1590
+tag_data:11
+entry_data:1590seq not to pad: , continuity: Truecase:7polar:3mood:2evid:2pos:3per:4num:3tense:4aspect:5inter:2poss:7VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(36, 256)
+    (lstm): LSTM(256, 512, batch_first=True, bidirectional=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+  )
+  (vq_layer_lemma): VectorQuantizer(
+    (embedding): Embedding(5000, 512)
+  )
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(6, 64)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(6, 64)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(6, 64)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(6, 64)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(6, 64)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(6, 64)
+    )
+    (6): VectorQuantizer(
+      (embedding): Embedding(6, 64)
+    )
+    (7): VectorQuantizer(
+      (embedding): Embedding(6, 64)
+    )
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(36, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (lstm): LSTM(768, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=36, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+)Tagmapper(
+  (linears): ModuleList(
+    (0): Embedding(7, 100)
+    (1): Embedding(3, 100)
+    (2): Embedding(2, 100)
+    (3): Embedding(2, 100)
+    (4): Embedding(3, 100)
+    (5): Embedding(4, 100)
+    (6): Embedding(3, 100)
+    (7): Embedding(4, 100)
+    (8): Embedding(5, 100)
+    (9): Embedding(2, 100)
+    (10): Embedding(7, 100)
+  )
+  (entries): ModuleList(
+    (0): Linear(in_features=200, out_features=6, bias=True)
+  )
+  (hidden_common): Linear(in_features=1612, out_features=500, bias=True)
+  (hidden_2): Linear(in_features=500, out_features=350, bias=True)
+  (hidden_3): Linear(in_features=350, out_features=200, bias=True)
+  (dropout): Dropout(p=0.3, inplace=False)
+)
+linears.0.weight, torch.Size([7, 100]): True
+linears.1.weight, torch.Size([3, 100]): True
+linears.2.weight, torch.Size([2, 100]): True
+linears.3.weight, torch.Size([2, 100]): True
+linears.4.weight, torch.Size([3, 100]): True
+linears.5.weight, torch.Size([4, 100]): True
+linears.6.weight, torch.Size([3, 100]): True
+linears.7.weight, torch.Size([4, 100]): True
+linears.8.weight, torch.Size([5, 100]): True
+linears.9.weight, torch.Size([2, 100]): True
+linears.10.weight, torch.Size([7, 100]): True
+entries.0.weight, torch.Size([6, 200]): True
+entries.0.bias, torch.Size([6]): True
+hidden_common.weight, torch.Size([500, 1612]): True
+hidden_common.bias, torch.Size([500]): True
+hidden_2.weight, torch.Size([350, 500]): True
+hidden_2.bias, torch.Size([350]): True
+hidden_3.weight, torch.Size([200, 350]): True
+hidden_3.bias, torch.Size([200]): True
+epoch: 0, epoch_loss: 1.4418 epoch_acc: 0.42694
+epoch: 0, val_epoch_loss: 1.1579 val_epoch_acc: 0.50063
+update best loss 
+
+-------------------------------------------------------------
+epoch: 1, epoch_loss: 1.1514 epoch_acc: 0.53300
+epoch: 1, val_epoch_loss: 0.9354 val_epoch_acc: 0.59308
+update best loss 
+
+-------------------------------------------------------------
+epoch: 2, epoch_loss: 0.9748 epoch_acc: 0.60528
+epoch: 2, val_epoch_loss: 0.8461 val_epoch_acc: 0.61824
+update best loss 
+
+-------------------------------------------------------------
+epoch: 3, epoch_loss: 0.8787 epoch_acc: 0.64560
+epoch: 3, val_epoch_loss: 0.7472 val_epoch_acc: 0.68176
+update best loss 
+
+-------------------------------------------------------------
+epoch: 4, epoch_loss: 0.7764 epoch_acc: 0.69065
+epoch: 4, val_epoch_loss: 0.7276 val_epoch_acc: 0.69308
+update best loss 
+
+-------------------------------------------------------------
+epoch: 5, epoch_loss: 0.7433 epoch_acc: 0.71919
+epoch: 5, val_epoch_loss: 0.6923 val_epoch_acc: 0.70818
+update best loss 
+
+-------------------------------------------------------------
+epoch: 6, epoch_loss: 0.6651 epoch_acc: 0.74217
+epoch: 6, val_epoch_loss: 0.6210 val_epoch_acc: 0.73899
+update best loss 
+
+-------------------------------------------------------------
+epoch: 7, epoch_loss: 0.5999 epoch_acc: 0.76687
+epoch: 7, val_epoch_loss: 0.5740 val_epoch_acc: 0.76478
+update best loss 
+
+-------------------------------------------------------------
+epoch: 8, epoch_loss: 0.5734 epoch_acc: 0.77807
+epoch: 8, val_epoch_loss: 0.5550 val_epoch_acc: 0.74591
+update best loss 
+
+-------------------------------------------------------------
+epoch: 9, epoch_loss: 0.5238 epoch_acc: 0.80162
+epoch: 9, val_epoch_loss: 0.5258 val_epoch_acc: 0.76038
+update best loss 
+
+-------------------------------------------------------------
+epoch: 10, epoch_loss: 0.4871 epoch_acc: 0.81536
+epoch: 10, val_epoch_loss: 0.5708 val_epoch_acc: 0.76478
+-------------------------------------------------------------
+epoch: 11, epoch_loss: 0.4741 epoch_acc: 0.81895
+epoch: 11, val_epoch_loss: 0.5175 val_epoch_acc: 0.77987
+update best loss 
+
+-------------------------------------------------------------
+epoch: 12, epoch_loss: 0.4344 epoch_acc: 0.83237
+epoch: 12, val_epoch_loss: 0.5454 val_epoch_acc: 0.77736
+-------------------------------------------------------------
+epoch: 13, epoch_loss: 0.4203 epoch_acc: 0.83858
+epoch: 13, val_epoch_loss: 0.5084 val_epoch_acc: 0.78616
+update best loss 
+
+-------------------------------------------------------------
+epoch: 14, epoch_loss: 0.3952 epoch_acc: 0.85093
+epoch: 14, val_epoch_loss: 0.4802 val_epoch_acc: 0.77547
+update best loss 
+
+-------------------------------------------------------------
+epoch: 15, epoch_loss: 0.3686 epoch_acc: 0.86041
+epoch: 15, val_epoch_loss: 0.5030 val_epoch_acc: 0.79371
+-------------------------------------------------------------
+epoch: 16, epoch_loss: 0.3536 epoch_acc: 0.86655
+epoch: 16, val_epoch_loss: 0.5267 val_epoch_acc: 0.79560
+-------------------------------------------------------------
+epoch: 17, epoch_loss: 0.3394 epoch_acc: 0.87333
+epoch: 17, val_epoch_loss: 0.5089 val_epoch_acc: 0.79811
+-------------------------------------------------------------
+epoch: 18, epoch_loss: 0.3161 epoch_acc: 0.87677
+epoch: 18, val_epoch_loss: 0.5414 val_epoch_acc: 0.80126
+-------------------------------------------------------------
+epoch: 19, epoch_loss: 0.3045 epoch_acc: 0.88732
+epoch: 19, val_epoch_loss: 0.5397 val_epoch_acc: 0.79434
+-------------------------------------------------------------
+epoch: 20, epoch_loss: 0.2974 epoch_acc: 0.88593
+epoch: 20, val_epoch_loss: 0.5007 val_epoch_acc: 0.80377
+-------------------------------------------------------------
+epoch: 21, epoch_loss: 0.2774 epoch_acc: 0.89320
+epoch: 21, val_epoch_loss: 0.5376 val_epoch_acc: 0.78239
+-------------------------------------------------------------
+epoch: 22, epoch_loss: 0.2757 epoch_acc: 0.89607
+epoch: 22, val_epoch_loss: 0.5068 val_epoch_acc: 0.79811
+-------------------------------------------------------------
+epoch: 23, epoch_loss: 0.2493 epoch_acc: 0.90269
+epoch: 23, val_epoch_loss: 0.5094 val_epoch_acc: 0.80881
+-------------------------------------------------------------
+epoch: 24, epoch_loss: 0.2473 epoch_acc: 0.90539
+epoch: 24, val_epoch_loss: 0.5078 val_epoch_acc: 0.80314
+-------------------------------------------------------------
+epoch: 25, epoch_loss: 0.2467 epoch_acc: 0.90801
+epoch: 25, val_epoch_loss: 0.5534 val_epoch_acc: 0.80377
+-------------------------------------------------------------
+epoch: 26, epoch_loss: 0.2429 epoch_acc: 0.90931
+epoch: 26, val_epoch_loss: 0.5142 val_epoch_acc: 0.80314
+-------------------------------------------------------------
+epoch: 27, epoch_loss: 0.2336 epoch_acc: 0.90956
+epoch: 27, val_epoch_loss: 0.4717 val_epoch_acc: 0.82201
+update best loss 
+
+-------------------------------------------------------------

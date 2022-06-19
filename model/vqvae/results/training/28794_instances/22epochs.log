@@ -1,0 +1,111 @@
+
+number of params: 8460288 
+Namespace(batchsize=128, beta=0, dec_dropout_in=0.2, dec_dropout_out=0.2, dec_nh=1024, device='cuda', embedding_dim=512, enc_dropout_in=0.2, enc_dropout_out=0.2, enc_nh=512, epochs=22, fig_path='model/vqvae/results/training/28794_instances/22epochs.png', incat=0, log_path='model/vqvae/results/training/28794_instances/22epochs.log', logger=<common.utils.Logger object at 0x7f175837bf50>, lr=0.001, maxtrnsize=1000000, maxtstsize=10000, maxvalsize=10000, mname='vqvae', model=VQVAE_AE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(36, 256)
+    (lstm): LSTM(256, 512, batch_first=True, bidirectional=True)
+    (dropout_in): Dropout(p=0.2, inplace=False)
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(36, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.2, inplace=False)
+    (dropout_out): Dropout(p=0.2, inplace=False)
+    (lstm): LSTM(256, 1024, batch_first=True)
+    (pred_linear): Linear(in_features=1024, out_features=36, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), modelname='model/vqvae/results/training/28794_instances/', ni=256, num_dicts=0, nz=512, opt='Adam', orddict_emb_num=0, outcat=0, rootdict_emb_dim=512, rootdict_emb_num=0, save_path='model/vqvae/results/training/28794_instances/22epochs.pt', seq_to_no_pad='surface', surface_vocab_file='data/sigmorphon2016/zhou_merged', task='vqvae', trndata='data/sigmorphon2016/zhou_merged', trnsize=28794, tstdata='data/sigmorphon2016/turkish-task3-dev', tstsize=28794, valdata='data/sigmorphon2016/turkish-task3-dev', valsize=1589)
+
+encoder.embed.weight, torch.Size([36, 256]): True
+encoder.lstm.weight_ih_l0, torch.Size([2048, 256]): True
+encoder.lstm.weight_hh_l0, torch.Size([2048, 512]): True
+encoder.lstm.bias_ih_l0, torch.Size([2048]): True
+encoder.lstm.bias_hh_l0, torch.Size([2048]): True
+encoder.lstm.weight_ih_l0_reverse, torch.Size([2048, 256]): True
+encoder.lstm.weight_hh_l0_reverse, torch.Size([2048, 512]): True
+encoder.lstm.bias_ih_l0_reverse, torch.Size([2048]): True
+encoder.lstm.bias_hh_l0_reverse, torch.Size([2048]): True
+decoder.embed.weight, torch.Size([36, 256]): True
+decoder.lstm.weight_ih_l0, torch.Size([4096, 256]): True
+decoder.lstm.weight_hh_l0, torch.Size([4096, 1024]): True
+decoder.lstm.bias_ih_l0, torch.Size([4096]): True
+decoder.lstm.bias_hh_l0, torch.Size([4096]): True
+decoder.pred_linear.weight, torch.Size([36, 1024]): True
+epoch: 0,  avg_loss: 29.8863, avg_recon_loss: 29.8863, avg_vq_loss: 0.0000, acc: 0.2480
+val ---  avg_loss: 23.0351, avg_recon_loss: 23.0351, avg_vq_loss: 0.0000, acc: 0.4031
+update best loss 
+
+epoch: 1,  avg_loss: 19.8657, avg_recon_loss: 19.8657, avg_vq_loss: 0.0000, acc: 0.4768
+val ---  avg_loss: 15.6343, avg_recon_loss: 15.6343, avg_vq_loss: 0.0000, acc: 0.5816
+update best loss 
+
+epoch: 2,  avg_loss: 12.6945, avg_recon_loss: 12.6945, avg_vq_loss: 0.0000, acc: 0.6540
+val ---  avg_loss: 7.9095, avg_recon_loss: 7.9095, avg_vq_loss: 0.0000, acc: 0.7877
+update best loss 
+
+epoch: 3,  avg_loss: 6.0116, avg_recon_loss: 6.0116, avg_vq_loss: 0.0000, acc: 0.8385
+val ---  avg_loss: 2.6452, avg_recon_loss: 2.6452, avg_vq_loss: 0.0000, acc: 0.9459
+update best loss 
+
+epoch: 4,  avg_loss: 1.9817, avg_recon_loss: 1.9817, avg_vq_loss: 0.0000, acc: 0.9555
+val ---  avg_loss: 1.1777, avg_recon_loss: 1.1777, avg_vq_loss: 0.0000, acc: 0.9754
+update best loss 
+
+epoch: 5,  avg_loss: 1.1605, avg_recon_loss: 1.1605, avg_vq_loss: 0.0000, acc: 0.9750
+val ---  avg_loss: 0.3776, avg_recon_loss: 0.3776, avg_vq_loss: 0.0000, acc: 0.9953
+update best loss 
+
+epoch: 6,  avg_loss: 0.3639, avg_recon_loss: 0.3639, avg_vq_loss: 0.0000, acc: 0.9940
+val ---  avg_loss: 0.1120, avg_recon_loss: 0.1120, avg_vq_loss: 0.0000, acc: 0.9991
+update best loss 
+
+epoch: 7,  avg_loss: 0.3899, avg_recon_loss: 0.3899, avg_vq_loss: 0.0000, acc: 0.9923
+val ---  avg_loss: 0.6664, avg_recon_loss: 0.6664, avg_vq_loss: 0.0000, acc: 0.9868
+
+epoch: 8,  avg_loss: 0.5306, avg_recon_loss: 0.5306, avg_vq_loss: 0.0000, acc: 0.9891
+val ---  avg_loss: 0.1068, avg_recon_loss: 0.1068, avg_vq_loss: 0.0000, acc: 0.9991
+update best loss 
+
+epoch: 9,  avg_loss: 0.1529, avg_recon_loss: 0.1529, avg_vq_loss: 0.0000, acc: 0.9978
+val ---  avg_loss: 0.0383, avg_recon_loss: 0.0383, avg_vq_loss: 0.0000, acc: 0.9997
+update best loss 
+
+epoch: 10,  avg_loss: 0.1224, avg_recon_loss: 0.1224, avg_vq_loss: 0.0000, acc: 0.9981
+val ---  avg_loss: 0.0851, avg_recon_loss: 0.0851, avg_vq_loss: 0.0000, acc: 0.9990
+
+epoch: 11,  avg_loss: 0.0733, avg_recon_loss: 0.0733, avg_vq_loss: 0.0000, acc: 0.9990
+val ---  avg_loss: 0.0472, avg_recon_loss: 0.0472, avg_vq_loss: 0.0000, acc: 0.9993
+
+epoch: 12,  avg_loss: 0.1301, avg_recon_loss: 0.1301, avg_vq_loss: 0.0000, acc: 0.9977
+val ---  avg_loss: 0.0256, avg_recon_loss: 0.0256, avg_vq_loss: 0.0000, acc: 0.9997
+update best loss 
+
+epoch: 13,  avg_loss: 0.0378, avg_recon_loss: 0.0378, avg_vq_loss: 0.0000, acc: 0.9996
+val ---  avg_loss: 0.0309, avg_recon_loss: 0.0309, avg_vq_loss: 0.0000, acc: 0.9996
+
+epoch: 14,  avg_loss: 0.1388, avg_recon_loss: 0.1388, avg_vq_loss: 0.0000, acc: 0.9972
+val ---  avg_loss: 0.0356, avg_recon_loss: 0.0356, avg_vq_loss: 0.0000, acc: 0.9995
+
+epoch: 15,  avg_loss: 0.0559, avg_recon_loss: 0.0559, avg_vq_loss: 0.0000, acc: 0.9992
+val ---  avg_loss: 0.0321, avg_recon_loss: 0.0321, avg_vq_loss: 0.0000, acc: 0.9995
+
+epoch: 16,  avg_loss: 0.2514, avg_recon_loss: 0.2514, avg_vq_loss: 0.0000, acc: 0.9944
+val ---  avg_loss: 0.0556, avg_recon_loss: 0.0556, avg_vq_loss: 0.0000, acc: 0.9993
+
+epoch: 17,  avg_loss: 0.0545, avg_recon_loss: 0.0545, avg_vq_loss: 0.0000, acc: 0.9992
+val ---  avg_loss: 0.0201, avg_recon_loss: 0.0201, avg_vq_loss: 0.0000, acc: 0.9997
+update best loss 
+
+epoch: 18,  avg_loss: 0.0209, avg_recon_loss: 0.0209, avg_vq_loss: 0.0000, acc: 0.9998
+val ---  avg_loss: 0.0098, avg_recon_loss: 0.0098, avg_vq_loss: 0.0000, acc: 0.9999
+update best loss 
+
+epoch: 19,  avg_loss: 0.0140, avg_recon_loss: 0.0140, avg_vq_loss: 0.0000, acc: 0.9999
+val ---  avg_loss: 0.0186, avg_recon_loss: 0.0186, avg_vq_loss: 0.0000, acc: 0.9996
+
+epoch: 20,  avg_loss: 0.0164, avg_recon_loss: 0.0164, avg_vq_loss: 0.0000, acc: 0.9998
+val ---  avg_loss: 0.0033, avg_recon_loss: 0.0033, avg_vq_loss: 0.0000, acc: 1.0000
+update best loss 
+
+epoch: 21,  avg_loss: 0.0137, avg_recon_loss: 0.0137, avg_vq_loss: 0.0000, acc: 0.9999
+val ---  avg_loss: 0.0101, avg_recon_loss: 0.0101, avg_vq_loss: 0.0000, acc: 0.9998

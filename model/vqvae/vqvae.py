@@ -8,7 +8,7 @@ Tensor = TypeVar('torch.tensor')
 
 class VQVAE_Encoder(nn.Module):
     """ LSTM Encoder with constant-length batching"""
-    def __init__(self, args, vocab, model_init, emb_init, bidirectional=True):
+    def __init__(self, args, vocab, model_init, emb_init, bidirectional=False):
         super(VQVAE_Encoder, self).__init__()
         self.ni = args.ni
         self.nh = args.enc_nh
@@ -45,19 +45,14 @@ class VQVAE_Encoder(nn.Module):
             fwd = last_state[-1].unsqueeze(0)
             bck = last_state[-2].unsqueeze(0)
             last_state = torch.cat([last_state[-2], last_state[-1]], 1).unsqueeze(0)
-       
-        #z = self.linear(last_state)
-        # (batch_size, 1, args.nz)
-        #z = z.permute(1,0,2)
+            fwd = fwd.permute(1,0,2)
+            bck = bck.permute(1,0,2)
 
         # (batch_size, 1, enc_nh)
         last_state = last_state.permute(1,0,2)
-
-        fwd = fwd.permute(1,0,2)
-        bck = bck.permute(1,0,2)
-
         last_cell = last_cell.permute(1,0,2)
-        return last_state, last_cell, None , fwd,bck
+
+        return last_state, last_cell, None #, fwd,bck
 
 class VectorQuantizer(nn.Module):
     """
@@ -105,13 +100,6 @@ class VectorQuantizer(nn.Module):
         # (batch_size, t, D)
         quantized_latents = quantized_latents.view(latents_shape)  
         # Compute the VQ Losses (avg over all b*t*d)
-
-        '''closs = nn.CosineEmbeddingLoss()
-        # Compute the VQ Losses (avg over all b*t*d)
-        commitment_loss = closs(quantized_latents.squeeze(1).detach(), latents.squeeze(1), torch.ones(batch_size).to('cuda'))
-        embedding_loss = closs(quantized_latents.squeeze(1), latents.squeeze(1).detach(), torch.ones(batch_size).to('cuda'))
-        vq_loss = embedding_loss + (self.beta * commitment_loss) '''
-        
         commitment_loss = F.mse_loss(quantized_latents.detach(), latents, reduce=False).mean(-1)
         embedding_loss = F.mse_loss(quantized_latents, latents.detach(), reduce=False).mean(-1)
         vq_loss = embedding_loss + (self.beta * commitment_loss)
@@ -135,10 +123,8 @@ class VQVAE_Decoder(nn.Module):
 
         # no padding when setting padding_idx to -1
         self.embed = nn.Embedding(len(vocab.word2id), args.ni, padding_idx=0)
-
         self.dropout_in = nn.Dropout(args.dec_dropout_in)
         self.dropout_out = nn.Dropout(args.dec_dropout_out)
-
         # for initializing hidden state and cell
         #self.trans_linear = nn.Linear(args.nz, args.dec_nh, bias=False)
 
@@ -160,33 +146,88 @@ class VQVAE_Decoder(nn.Module):
         emb_init(self.embed.weight)
 
     def forward(self, input, z):
+        
+        ##v4
         root_z, suffix_z = z
-        #root_z = z
         batch_size, _, _ = root_z.size()
         seq_len = input.size(1)
+        
         # (batch_size, seq_len, ni)
         word_embed = self.embed(input)
         word_embed = self.dropout_in(word_embed)
+        
         z_ = suffix_z.expand(batch_size, seq_len, self.incat)# 64
         # (batch_size, seq_len, ni + nz)
         word_embed = torch.cat((word_embed, z_), -1)
         
-
         # (1, batch_size, nz)
         root_z = root_z.permute((1,0,2))
+        #z = z.permute((1,0,2))
+        
         # (1, batch_size, dec_nh)
         c_init = root_z
+        #c_init = z
         #c_init = self.trans_linear(z).unsqueeze(0)
         h_init = torch.tanh(c_init)
         output, _ = self.lstm(word_embed, (h_init, c_init))
-        output = self.dropout_out(output)
-
-        #z_ = suffix_2_z.expand(batch_size, seq_len, 128)
-        # (batch_size, seq_len, ni + nz)
-        #output = torch.cat((output, z_), -1)
-
+        #output = self.dropout_out(output)
         # (batch_size, seq_len, vocab_size)
         output_logits = self.pred_linear(output)
+        return output_logits
+
+    def forward_yedek_2(self, input, z):
+        ##v4
+        #root_z, suffix_z = z
+        
+        ##incatsiz
+        root_z = z
+        
+        batch_size, _, _ = root_z.size()
+        seq_len = input.size(1)
+        
+        # (batch_size, seq_len, ni)
+        #word_embed = self.embed(input)
+        #word_embed = self.dropout_in(word_embed)
+        
+        #z_ = suffix_z.expand(batch_size, seq_len, self.incat)# 64
+        # (batch_size, seq_len, ni + nz)
+        #word_embed = torch.cat((word_embed, z_), -1)
+        
+        # (1, batch_size, nz)
+        root_z = root_z.permute((1,0,2))
+        #z = z.permute((1,0,2))
+        
+        # (1, batch_size, dec_nh)
+        c_init = root_z
+        #c_init = z
+        #c_init = self.trans_linear(z).unsqueeze(0)
+        h_init = torch.tanh(c_init)
+
+        sft = nn.Softmax(dim=2)
+
+        i = 0
+        decoder_hidden = (c_init, h_init)
+        copied = []
+        bosid = self.vocab.word2id['<s>']
+        input = torch.tensor(bosid)
+        input = input.repeat(batch_size,1).to('cuda')
+        logitss = []
+        while True:
+            # (1,1,ni)
+            word_embed = self.embed(input)
+            #word_embed = torch.cat((word_embed, suffix_z), -1)
+            # output: (1,1,dec_nh)
+            output, decoder_hidden = self.lstm(word_embed, decoder_hidden)
+            # (1, vocab_size)
+            output_logits = self.pred_linear(output)
+            input = torch.argmax(sft(output_logits),dim=2) 
+            logitss.append(output_logits)
+            #char = self.vocab.id2word(input.item())
+            #copied.append(char)
+            i+=1
+            if i == seq_len:
+               break
+        output_logits =  torch.cat(logitss,dim=1)
         return output_logits
 
 class VQVAE(nn.Module):
@@ -206,18 +247,19 @@ class VQVAE(nn.Module):
         self.orddict_emb_num = args.orddict_emb_num
         self.dict_assemble_type = dict_assemble_type
         
-        if dict_assemble_type =='concat':
-            self.orddict_emb_dim = int((self.encoder_emb_dim-self.rootdict_emb_dim)/(self.num_dicts))
-
-        elif dict_assemble_type == 'sum':
+     
+        if dict_assemble_type == 'sum':
             self.orddict_emb_dim = self.rootdict_emb_dim
         else:
-            self.orddict_emb_dim   = int(args.incat/self.num_dicts)
+            self.orddict_emb_dim   = int(args.enc_nh/self.num_dicts)
             
         self.beta = args.beta
 
-        self.linear_root = nn.Linear(self.encoder_emb_dim,  args.dec_nh, bias=False)
-        #other
+        self.linear_root = nn.Linear(self.encoder_emb_dim,  args.root_linear_h, bias=False)
+
+        for param in self.linear_root.parameters():
+            model_init(param)
+
         #self.ord_linears = nn.ModuleList([])
         self.ord_vq_layers = nn.ModuleList([])
 
@@ -231,42 +273,43 @@ class VQVAE(nn.Module):
 
     def vq_loss(self,x, epc):
         # fhs: (B,1,hdim)
-
-        fhs, _, _, fwd_fhs, bck_fhs = self.encoder(x)
+        fhs, _, _ = self.encoder(x)
+        
         vq_vectors = []; vq_losses = []; vq_inds = []
         # quantized_input: (B, 1, rootdict_emb_dim)
-        #fhs =  self.linear_root(fhs)
-        vq_vectors.append(fwd_fhs)
-
+        ##v4
+        vq_vectors.append(self.linear_root(fhs))
+       
         # quantize thru ord dicts
         i=0
         #for linear, vq_layer in zip(self.ord_linears, self.ord_vq_layers):
         for vq_layer in self.ord_vq_layers:
-            #_fhs =  linear(fwd_fhs)
-            # quantized_input: (B, 1, orddict_emb_dim)
-            quantized_input, vq_loss, quantized_inds = vq_layer(bck_fhs[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
-            #quantized_input, vq_loss, quantized_inds = vq_layer(_fhs,epc)
+            quantized_input, vq_loss, quantized_inds = vq_layer(fhs[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
             vq_vectors.append(quantized_input)
             vq_losses.append(vq_loss)
             vq_inds.append(quantized_inds)
             i+=1
       
 
-        if self.dict_assemble_type == 'sum':
-            for i in range(0, len(vq_vectors)):
-                vq_vectors[0] += vq_vectors[i]
-            vq_vectors = vq_vectors[0]
-        elif self.dict_assemble_type == 'concat':
-            # concat quantized vectors
-            vq_vectors = torch.cat(vq_vectors,dim=2)
-        else:
-            #vq_vectors = (vq_vectors[0], last_state)
-            #for i in range(2, len(vq_vectors)):
-            #    vq_vectors[1] += vq_vectors[i]
-            #vq_vectors = (vq_vectors[0], vq_vectors[1]) #vq_vectors[1])
-            vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2)) 
+        ##v4
+        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2)) 
+        
+        ##incatsiz
+        #vq_vectors = torch.cat(vq_vectors[0:],dim=2) 
+        
+        ###v1
+        #for i in range(1, len(vq_vectors)):
+        #    vq_vectors[0] += vq_vectors[i]
+        #vq_vectors = vq_vectors[0]
+        ###
 
-     
+        ###v2
+        #vq_vectors = vq_vectors[0] + torch.cat(vq_vectors[1:],dim=2)
+        
+        ###v3
+        ###vq_vectors = torch.cat(vq_vectors[0:],dim=2)
+
+
         # (batchsize, numdicts)
         vq_loss =  torch.cat(vq_losses,dim=1)
         # (batchsize)

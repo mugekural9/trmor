@@ -34,8 +34,10 @@ def test(batches, mode, args, epc):
     for i, idx in enumerate(indices):
         # (batchsize, t)
         surf = batches[idx] 
-        loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs_fwd,_ = args.model.loss(surf, epc)
-        #loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs = args.model.loss(surf, epc)
+        if args.model.encoder.lstm.bidirectional:
+            loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs_fwd,_ = args.model.loss(surf, epc)
+        else:
+            loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs = args.model.loss(surf, epc)
         epoch_num_tokens += surf.size(0) * (surf.size(1)-1)  # exclude start token prediction
         epoch_loss       += loss.sum().item()
         epoch_recon_loss += recon_loss.sum().item()
@@ -79,14 +81,19 @@ def train(data, args):
             # (batchsize, t)
             surf = trnbatches[idx] 
             # (batchsize)
-            loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs_fwd, encoder_fhs_bck = args.model.loss(surf, epc)
-            #loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs= args.model.loss(surf, epc)
+            if args.model.encoder.lstm.bidirectional:
+                loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs_fwd, encoder_fhs_bck = args.model.loss(surf, epc)
+            else:
+                loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs= args.model.loss(surf, epc)
             
             batch_loss = loss.mean()
             batch_loss.backward()
-            #epoch_encoder_fhs.append(encoder_fhs)
-            epoch_encoder_fhs_fwd.append(encoder_fhs_fwd)
-            epoch_encoder_fhs_bck.append(encoder_fhs_bck)
+            
+            if args.model.encoder.lstm.bidirectional:
+                epoch_encoder_fhs_fwd.append(encoder_fhs_fwd)
+                epoch_encoder_fhs_bck.append(encoder_fhs_bck)
+            else:
+                epoch_encoder_fhs.append(encoder_fhs)
             opt.step()
             epoch_num_tokens += torch.sum(surf[:,1:]!=0)#surf.size(0) * (surf.size(1)-1) # exclude start token prediction
             epoch_loss       += loss.sum().item()
@@ -106,17 +113,23 @@ def train(data, args):
         writer.add_scalar('accuracy/trn', acc, epc)
    
         # (numinst, hdim)
-        #epoch_encoder_fhs = torch.cat(epoch_encoder_fhs).squeeze(1)
-        epoch_encoder_fhs_fwd = torch.cat(epoch_encoder_fhs_fwd).squeeze(1)
-        epoch_encoder_fhs_bck = torch.cat(epoch_encoder_fhs_bck).squeeze(1)
+        
+        if args.model.encoder.lstm.bidirectional:
+            epoch_encoder_fhs_fwd = torch.cat(epoch_encoder_fhs_fwd).squeeze(1)
+            epoch_encoder_fhs_bck = torch.cat(epoch_encoder_fhs_bck).squeeze(1)
+        else:
+            epoch_encoder_fhs = torch.cat(epoch_encoder_fhs).squeeze(1)
 
         #fhs_norms =  torch.norm(epoch_encoder_fhs_fwd,dim=1)
         #fhs_norms = fhs_norms.detach().cpu()
         #writer.add_histogram('fhs_norms', fhs_norms, epc)#, bins='auto')
         if epc == args.epochs -1:
-            torch.save(epoch_encoder_fhs_fwd, 'fhs_datasetIV-train_fwd_d512.pt')
-            torch.save(epoch_encoder_fhs_bck, 'fhs_datasetIV-train_bck_d512.pt')
-            #torch.save(epoch_encoder_fhs, 'fhs_datasetIV-train_d512.pt')
+            if args.model.encoder.lstm.bidirectional:
+                torch.save(epoch_encoder_fhs_fwd, 'fhs_datasetV-train_fwd_d512.pt')
+                torch.save(epoch_encoder_fhs_bck, 'fhs_datasetV-train_bck_d512.pt')
+            else:
+                torch.save(epoch_encoder_fhs, 'fhs_datasetV-unidict-train_d512.pt')
+        
         trn_loss_values.append(loss)
         trn_vq_values.append(vq)
         trn_recon_loss_values.append(recon)
@@ -148,7 +161,7 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 20
+args.batchsize = 128; args.epochs = 22
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
@@ -161,7 +174,7 @@ args.seq_to_no_pad = 'surface'
 #args.trndata  = 'data/unlabelled/wordlist.tur'
 #args.valdata  = 'data/unlabelled/theval.tur'
 
-args.trndata  = 'data/sigmorphon2016/turkish-task3-train'
+args.trndata  = 'data/sigmorphon2016/zhou_merged'
 args.valdata  = 'data/sigmorphon2016/turkish-task3-dev'
 args.tstdata = args.valdata
 
@@ -184,11 +197,11 @@ args.beta = 0
 args.rootdict_emb_num = 0
 args.rootdict_emb_dim = 512; args.num_dicts = 0; args.nz = 512; args.outcat=0; args.incat=0
 args.orddict_emb_num  = 0
-args.model = VQVAE_AE(args, vocab, model_init, emb_init, dict_assemble_type='concat')
+args.model = VQVAE_AE(args, vocab, model_init, emb_init, dict_assemble_type='concat', bidirectional=True)
 args.model.to(args.device)
 
 #tensorboard
-writer = SummaryWriter("runs/pretraining_ae/dataset-IV/")
+writer = SummaryWriter("runs/pretraining_ae/dataset-V/")
 
 
 # logging

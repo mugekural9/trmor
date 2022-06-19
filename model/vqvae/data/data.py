@@ -1,4 +1,5 @@
 import re, torch, json, os
+from sys import breakpointhook
 from collections import defaultdict, Counter
 from common.vocab import VocabEntry
 from common.batchify import get_batches
@@ -25,7 +26,7 @@ def read_data(maxdsize, file, surface_vocab, mode):
                     break
                 surf = line.strip().split(' ')[1]
                 surf_data.append([surface_vocab[char] for char in surf])
-    elif 'turkish-task3' in file:
+    elif 'turkish' in file:
         with open(file, 'r') as reader:
             for line in reader:     
                 count += 1
@@ -37,6 +38,16 @@ def read_data(maxdsize, file, surface_vocab, mode):
                     surfs.append(surf)
                 #surf_r = surf[::-1]
                 #surf_data.append([surface_vocab[char] for char in surf_r])
+    elif 'zhou' in file:
+        with open(file, 'r') as reader:
+            for line in reader:     
+                count += 1
+                if count > maxdsize:
+                    break
+                surf = line.strip().split('\t')[0]
+                if surf not in surfs:
+                    surf_data.append([surface_vocab[char] for char in surf])
+                    surfs.append(surf)
     elif 'trn.txt' in file:
         with open(file, 'r') as reader:
             for line in reader:     
@@ -154,10 +165,22 @@ class MonoTextData(object):
                     if label:
                         labels.append(lb)
                     data.append([vocab[char] for char in split_line[0]])
-        elif 'turkish-task3' in fname:
+        elif 'turkish' in fname:
             with open(fname) as fin:
                 for line in fin:
-                    split_line = line.split('\t')
+                    split_line = line.strip().split('\t')
+                    if len(split_line) < 1:
+                        dropped += 1
+                        continue
+                    if max_length:
+                        if len(split_line) > max_length:
+                            dropped += 1
+                            continue
+                    data.append([vocab[char] for char in split_line[0]])
+        elif 'zhou' in fname:
+            with open(fname) as fin:
+                for line in fin:
+                    split_line = line.strip().split('\t')
                     if len(split_line) < 1:
                         dropped += 1
                         continue
