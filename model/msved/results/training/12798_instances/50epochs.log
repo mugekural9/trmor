@@ -1,6 +1,6 @@
 
-number of params: 2630735 
-Namespace(batchsize=128, dec_dropout_in=0.4, dec_nh=256, device='cuda', enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=512, epochs=50, fig_path='model/msved/results/training/12798_instances/50epochs.png', kl_anneal=True, kl_start=0.1, log_path='model/msved/results/training/12798_instances/50epochs.log', logger=<common.utils.Logger object at 0x7f5ed2ab4550>, lr=0.001, maxtrnsize=7000000, maxtstsize=10000, maxvalsize=10000, mname='msved', model=MSVED(
+number of params: 2652281 
+Namespace(batchsize=128, dec_dropout_in=0.4, dec_nh=256, device='cuda', enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=512, epochs=50, fig_path='model/msved/results/training/12798_instances/50epochs.png', kl_anneal=True, kl_start=0.1, log_path='model/msved/results/training/12798_instances/50epochs.log', logger=<common.utils.Logger object at 0x7f93675b7490>, lr=0.001, maxtrnsize=7000000, maxtstsize=10000, maxvalsize=10000, mname='msved', model=MSVED(
   (encoder): MSVED_Encoder(
     (embed): Embedding(36, 256)
     (gru): GRU(256, 512, batch_first=True)
@@ -31,6 +31,19 @@ Namespace(batchsize=128, dec_dropout_in=0.4, dec_nh=256, device='cuda', enc_drop
     (8): Embedding(5, 200)
     (9): Embedding(2, 200)
     (10): Embedding(7, 200)
+  )
+  (classifiers): ModuleList(
+    (0): Linear(in_features=512, out_features=7, bias=True)
+    (1): Linear(in_features=512, out_features=3, bias=True)
+    (2): Linear(in_features=512, out_features=2, bias=True)
+    (3): Linear(in_features=512, out_features=2, bias=True)
+    (4): Linear(in_features=512, out_features=3, bias=True)
+    (5): Linear(in_features=512, out_features=4, bias=True)
+    (6): Linear(in_features=512, out_features=3, bias=True)
+    (7): Linear(in_features=512, out_features=4, bias=True)
+    (8): Linear(in_features=512, out_features=5, bias=True)
+    (9): Linear(in_features=512, out_features=2, bias=True)
+    (10): Linear(in_features=512, out_features=7, bias=True)
   )
 ), modelname='model/msved/results/training/12798_instances/', ni=256, nz=150, opt='Adam', save_path='model/msved/results/training/12798_instances/50epochs.pt', seq_to_no_pad='surface', surface_vocab_file='data/sigmorphon2016/turkish-task3-train', task='msved', trndata='data/sigmorphon2016/turkish-task3-train', trnsize=12798, tstdata='data/sigmorphon2016/turkish-task3-dev', tstsize=12798, valdata='data/sigmorphon2016/turkish-task3-dev', valsize=1600, warm_up=10)
 
@@ -66,117 +79,98 @@ tag_embeddings.7.weight, torch.Size([4, 200]): True
 tag_embeddings.8.weight, torch.Size([5, 200]): True
 tag_embeddings.9.weight, torch.Size([2, 200]): True
 tag_embeddings.10.weight, torch.Size([7, 200]): True
-epoch: 0, kl_weight: 0.19, avg_loss: 34.5669, ppl: 16.4690, nll: 34.5319, avg_kl_loss: 0.2087, acc: 0.1707
-val --- kl_weight: 0.19, avg_loss: 33.8983, ppl: 15.1124, nll: 33.6197, avg_kl_loss: 1.4663, acc: 0.1674
+classifiers.0.weight, torch.Size([7, 512]): True
+classifiers.0.bias, torch.Size([7]): True
+classifiers.1.weight, torch.Size([3, 512]): True
+classifiers.1.bias, torch.Size([3]): True
+classifiers.2.weight, torch.Size([2, 512]): True
+classifiers.2.bias, torch.Size([2]): True
+classifiers.3.weight, torch.Size([2, 512]): True
+classifiers.3.bias, torch.Size([2]): True
+classifiers.4.weight, torch.Size([3, 512]): True
+classifiers.4.bias, torch.Size([3]): True
+classifiers.5.weight, torch.Size([4, 512]): True
+classifiers.5.bias, torch.Size([4]): True
+classifiers.6.weight, torch.Size([3, 512]): True
+classifiers.6.bias, torch.Size([3]): True
+classifiers.7.weight, torch.Size([4, 512]): True
+classifiers.7.bias, torch.Size([4]): True
+classifiers.8.weight, torch.Size([5, 512]): True
+classifiers.8.bias, torch.Size([5]): True
+classifiers.9.weight, torch.Size([2, 512]): True
+classifiers.9.bias, torch.Size([2]): True
+classifiers.10.weight, torch.Size([7, 512]): True
+classifiers.10.bias, torch.Size([7]): True
+epoch: 0, kl_weight: 0.19, tmp: 1.00
+trn--- loss: 1.1430, labeled_pred_loss: 0.0073, labeled_pred_acc: 0.3742, labeled_recon_loss: 2.6213, unlabeled_recon_loss: 2.6500, labeled_kl_loss: 0.6157, unlabeled_kl_loss: 0.6157 
+val--- loss: 2.0120, labeled_pred_loss: 0.0122, labeled_pred_acc: 0.3688, labeled_recon_loss: 2.3588, unlabeled_recon_loss: 2.6044, labeled_kl_loss: 0.0642, unlabeled_kl_loss: 0.0642 
 update best loss 
 
-epoch: 1, kl_weight: 0.20, avg_loss: 25.5167, ppl: 7.6815, nll: 25.1310, avg_kl_loss: 1.9318, acc: 0.3956
-val --- kl_weight: 0.20, avg_loss: 35.4186, ppl: 16.8959, nll: 35.0009, avg_kl_loss: 2.0884, acc: 0.2268
+epoch: 1, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.8907, labeled_pred_loss: 0.0058, labeled_pred_acc: 0.3655, labeled_recon_loss: 2.0317, unlabeled_recon_loss: 2.0915, labeled_kl_loss: 0.0931, unlabeled_kl_loss: 0.0931 
+val--- loss: 1.5297, labeled_pred_loss: 0.0098, labeled_pred_acc: 0.3475, labeled_recon_loss: 1.7168, unlabeled_recon_loss: 1.9593, labeled_kl_loss: 0.0743, unlabeled_kl_loss: 0.0743 
+update best loss 
 
-epoch: 2, kl_weight: 0.20, avg_loss: 20.0091, ppl: 4.9166, nll: 19.6310, avg_kl_loss: 1.8905, acc: 0.5412
-val --- kl_weight: 0.20, avg_loss: 38.6057, ppl: 21.9858, nll: 38.2611, avg_kl_loss: 1.7231, acc: 0.2540
+epoch: 2, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.7279, labeled_pred_loss: 0.0052, labeled_pred_acc: 0.3633, labeled_recon_loss: 1.5795, unlabeled_recon_loss: 1.6884, labeled_kl_loss: 0.1461, unlabeled_kl_loss: 0.1461 
+val--- loss: 1.3247, labeled_pred_loss: 0.0093, labeled_pred_acc: 0.3613, labeled_recon_loss: 1.4322, unlabeled_recon_loss: 1.6928, labeled_kl_loss: 0.0999, unlabeled_kl_loss: 0.0999 
+update best loss 
 
-epoch: 3, kl_weight: 0.20, avg_loss: 16.9906, ppl: 3.8626, nll: 16.6569, avg_kl_loss: 1.6685, acc: 0.6106
-val --- kl_weight: 0.20, avg_loss: 41.8722, ppl: 28.5386, nll: 41.4907, avg_kl_loss: 1.9077, acc: 0.2680
+epoch: 3, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.6473, labeled_pred_loss: 0.0050, labeled_pred_acc: 0.3643, labeled_recon_loss: 1.3595, unlabeled_recon_loss: 1.4985, labeled_kl_loss: 0.1515, unlabeled_kl_loss: 0.1515 
+val--- loss: 1.1930, labeled_pred_loss: 0.0089, labeled_pred_acc: 0.3631, labeled_recon_loss: 1.2577, unlabeled_recon_loss: 1.5238, labeled_kl_loss: 0.0746, unlabeled_kl_loss: 0.0746 
+update best loss 
 
-epoch: 4, kl_weight: 0.20, avg_loss: 15.1764, ppl: 3.3302, nll: 14.8291, avg_kl_loss: 1.7368, acc: 0.6505
-val --- kl_weight: 0.20, avg_loss: 41.7310, ppl: 28.2003, nll: 41.3430, avg_kl_loss: 1.9399, acc: 0.2816
+epoch: 4, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.5932, labeled_pred_loss: 0.0048, labeled_pred_acc: 0.3533, labeled_recon_loss: 1.2353, unlabeled_recon_loss: 1.3725, labeled_kl_loss: 0.2170, unlabeled_kl_loss: 0.2170 
+val--- loss: 1.0969, labeled_pred_loss: 0.0089, labeled_pred_acc: 0.3550, labeled_recon_loss: 1.1525, unlabeled_recon_loss: 1.4016, labeled_kl_loss: 0.1262, unlabeled_kl_loss: 0.1262 
+update best loss 
 
-epoch: 5, kl_weight: 0.20, avg_loss: 14.2225, ppl: 3.0644, nll: 13.8035, avg_kl_loss: 2.0950, acc: 0.6729
-val --- kl_weight: 0.20, avg_loss: 46.4155, ppl: 41.0089, nll: 45.9790, avg_kl_loss: 2.1826, acc: 0.2918
+epoch: 5, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.5475, labeled_pred_loss: 0.0048, labeled_pred_acc: 0.3506, labeled_recon_loss: 1.1378, unlabeled_recon_loss: 1.2597, labeled_kl_loss: 0.1723, unlabeled_kl_loss: 0.1723 
+val--- loss: 1.0340, labeled_pred_loss: 0.0086, labeled_pred_acc: 0.3300, labeled_recon_loss: 1.0989, unlabeled_recon_loss: 1.3158, labeled_kl_loss: 0.1422, unlabeled_kl_loss: 0.1422 
+update best loss 
 
-epoch: 6, kl_weight: 0.20, avg_loss: 13.4098, ppl: 2.8477, nll: 12.8995, avg_kl_loss: 2.5517, acc: 0.6934
-val --- kl_weight: 0.20, avg_loss: 46.2465, ppl: 39.9212, nll: 45.6462, avg_kl_loss: 3.0015, acc: 0.3114
+epoch: 6, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.5118, labeled_pred_loss: 0.0047, labeled_pred_acc: 0.3570, labeled_recon_loss: 1.0774, unlabeled_recon_loss: 1.1688, labeled_kl_loss: 0.1941, unlabeled_kl_loss: 0.1941 
+val--- loss: 0.9894, labeled_pred_loss: 0.0087, labeled_pred_acc: 0.3356, labeled_recon_loss: 1.0460, unlabeled_recon_loss: 1.2185, labeled_kl_loss: 0.1842, unlabeled_kl_loss: 0.1842 
+update best loss 
 
-epoch: 7, kl_weight: 0.20, avg_loss: 12.7574, ppl: 2.6721, nll: 12.1151, avg_kl_loss: 3.2113, acc: 0.7117
-val --- kl_weight: 0.20, avg_loss: 45.7178, ppl: 38.1837, nll: 45.0953, avg_kl_loss: 3.1123, acc: 0.3129
+epoch: 7, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.4903, labeled_pred_loss: 0.0046, labeled_pred_acc: 0.3545, labeled_recon_loss: 1.0357, unlabeled_recon_loss: 1.1000, labeled_kl_loss: 0.2153, unlabeled_kl_loss: 0.2153 
+val--- loss: 0.9315, labeled_pred_loss: 0.0084, labeled_pred_acc: 0.3631, labeled_recon_loss: 0.9984, unlabeled_recon_loss: 1.1408, labeled_kl_loss: 0.1525, unlabeled_kl_loss: 0.1525 
+update best loss 
 
-epoch: 8, kl_weight: 0.20, avg_loss: 12.2673, ppl: 2.5372, nll: 11.4764, avg_kl_loss: 3.9546, acc: 0.7253
-val --- kl_weight: 0.20, avg_loss: 48.4035, ppl: 46.3476, nll: 47.4942, avg_kl_loss: 4.5469, acc: 0.3305
+epoch: 8, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.4673, labeled_pred_loss: 0.0045, labeled_pred_acc: 0.3580, labeled_recon_loss: 0.9902, unlabeled_recon_loss: 1.0363, labeled_kl_loss: 0.2875, unlabeled_kl_loss: 0.2875 
+val--- loss: 0.9141, labeled_pred_loss: 0.0084, labeled_pred_acc: 0.3394, labeled_recon_loss: 0.9830, unlabeled_recon_loss: 1.1268, labeled_kl_loss: 0.3586, unlabeled_kl_loss: 0.3586 
+update best loss 
 
-epoch: 9, kl_weight: 0.20, avg_loss: 11.7335, ppl: 2.3991, nll: 10.7869, avg_kl_loss: 4.7329, acc: 0.7409
-val --- kl_weight: 0.20, avg_loss: 47.0315, ppl: 41.0540, nll: 45.9926, avg_kl_loss: 5.1942, acc: 0.3520
+epoch: 9, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.4499, labeled_pred_loss: 0.0045, labeled_pred_acc: 0.3635, labeled_recon_loss: 0.9557, unlabeled_recon_loss: 0.9903, labeled_kl_loss: 0.4262, unlabeled_kl_loss: 0.4262 
+val--- loss: 0.9009, labeled_pred_loss: 0.0087, labeled_pred_acc: 0.3531, labeled_recon_loss: 0.9667, unlabeled_recon_loss: 1.0795, labeled_kl_loss: 0.5606, unlabeled_kl_loss: 0.5606 
+update best loss 
 
-epoch: 10, kl_weight: 0.20, avg_loss: 11.2630, ppl: 2.2735, nll: 10.1238, avg_kl_loss: 5.6956, acc: 0.7550
-val --- kl_weight: 0.20, avg_loss: 46.2655, ppl: 37.6044, nll: 44.9060, avg_kl_loss: 6.7973, acc: 0.3789
+epoch: 10, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.4403, labeled_pred_loss: 0.0044, labeled_pred_acc: 0.3631, labeled_recon_loss: 0.9334, unlabeled_recon_loss: 0.9646, labeled_kl_loss: 0.6590, unlabeled_kl_loss: 0.6590 
+val--- loss: 0.8600, labeled_pred_loss: 0.0083, labeled_pred_acc: 0.3531, labeled_recon_loss: 0.9116, unlabeled_recon_loss: 1.0255, labeled_kl_loss: 0.6445, unlabeled_kl_loss: 0.6445 
+update best loss 
 
-epoch: 11, kl_weight: 0.20, avg_loss: 10.8159, ppl: 2.1642, nll: 9.5164, avg_kl_loss: 6.4971, acc: 0.7692
-val --- kl_weight: 0.20, avg_loss: 48.2441, ppl: 43.8828, nll: 46.8176, avg_kl_loss: 7.1323, acc: 0.3841
+epoch: 11, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.4205, labeled_pred_loss: 0.0044, labeled_pred_acc: 0.3668, labeled_recon_loss: 0.8851, unlabeled_recon_loss: 0.9076, labeled_kl_loss: 0.7695, unlabeled_kl_loss: 0.7695 
+val--- loss: 0.8603, labeled_pred_loss: 0.0085, labeled_pred_acc: 0.3362, labeled_recon_loss: 0.9081, unlabeled_recon_loss: 1.0087, labeled_kl_loss: 0.8736, unlabeled_kl_loss: 0.8736 
 
-epoch: 12, kl_weight: 0.20, avg_loss: 10.2687, ppl: 2.0423, nll: 8.8018, avg_kl_loss: 7.3345, acc: 0.7850
-val --- kl_weight: 0.20, avg_loss: 47.5204, ppl: 40.8740, nll: 45.9383, avg_kl_loss: 7.9109, acc: 0.3936
+epoch: 12, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.4121, labeled_pred_loss: 0.0044, labeled_pred_acc: 0.3621, labeled_recon_loss: 0.8654, unlabeled_recon_loss: 0.8837, labeled_kl_loss: 1.0113, unlabeled_kl_loss: 1.0113 
+val--- loss: 0.8152, labeled_pred_loss: 0.0084, labeled_pred_acc: 0.3531, labeled_recon_loss: 0.8592, unlabeled_recon_loss: 0.9524, labeled_kl_loss: 1.1101, unlabeled_kl_loss: 1.1101 
+update best loss 
 
-epoch: 13, kl_weight: 0.20, avg_loss: 9.8503, ppl: 1.9521, nll: 8.2451, avg_kl_loss: 8.0260, acc: 0.7972
-val --- kl_weight: 0.20, avg_loss: 46.1011, ppl: 36.1614, nll: 44.4216, avg_kl_loss: 8.3977, acc: 0.4143
+epoch: 13, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.3973, labeled_pred_loss: 0.0043, labeled_pred_acc: 0.3665, labeled_recon_loss: 0.8250, unlabeled_recon_loss: 0.8393, labeled_kl_loss: 1.3191, unlabeled_kl_loss: 1.3191 
+val--- loss: 0.7967, labeled_pred_loss: 0.0085, labeled_pred_acc: 0.3650, labeled_recon_loss: 0.8448, unlabeled_recon_loss: 0.9277, labeled_kl_loss: 1.6307, unlabeled_kl_loss: 1.6307 
+update best loss 
 
-epoch: 14, kl_weight: 0.20, avg_loss: 9.5663, ppl: 1.8879, nll: 7.8326, avg_kl_loss: 8.6683, acc: 0.8065
-val --- kl_weight: 0.20, avg_loss: 47.0082, ppl: 38.6363, nll: 45.2412, avg_kl_loss: 8.8350, acc: 0.4288
-
-epoch: 15, kl_weight: 0.20, avg_loss: 9.1802, ppl: 1.8191, nll: 7.3755, avg_kl_loss: 9.0235, acc: 0.8166
-val --- kl_weight: 0.20, avg_loss: 46.1013, ppl: 35.8683, nll: 44.3208, avg_kl_loss: 8.9024, acc: 0.4492
-
-epoch: 16, kl_weight: 0.20, avg_loss: 8.8333, ppl: 1.7548, nll: 6.9319, avg_kl_loss: 9.5070, acc: 0.8260
-val --- kl_weight: 0.20, avg_loss: 46.9206, ppl: 37.2568, nll: 44.7911, avg_kl_loss: 10.6479, acc: 0.4453
-
-epoch: 17, kl_weight: 0.20, avg_loss: 8.6061, ppl: 1.7130, nll: 6.6345, avg_kl_loss: 9.8580, acc: 0.8337
-val --- kl_weight: 0.20, avg_loss: 46.0696, ppl: 35.0489, nll: 44.0347, avg_kl_loss: 10.1741, acc: 0.4649
-
-epoch: 18, kl_weight: 0.20, avg_loss: 8.2419, ppl: 1.6545, nll: 6.2066, avg_kl_loss: 10.1763, acc: 0.8433
-val --- kl_weight: 0.20, avg_loss: 46.6525, ppl: 36.7240, nll: 44.6127, avg_kl_loss: 10.1990, acc: 0.4694
-
-epoch: 19, kl_weight: 0.20, avg_loss: 7.9969, ppl: 1.6153, nll: 5.9108, avg_kl_loss: 10.4309, acc: 0.8499
-val --- kl_weight: 0.20, avg_loss: 45.4583, ppl: 32.8755, nll: 43.2422, avg_kl_loss: 11.0807, acc: 0.4882
-
-epoch: 20, kl_weight: 0.20, avg_loss: 7.7902, ppl: 1.5789, nll: 5.6300, avg_kl_loss: 10.8011, acc: 0.8572
-val --- kl_weight: 0.20, avg_loss: 45.0272, ppl: 31.5839, nll: 42.7459, avg_kl_loss: 11.4062, acc: 0.5032
-
-epoch: 21, kl_weight: 0.20, avg_loss: 7.6190, ppl: 1.5518, nll: 5.4160, avg_kl_loss: 11.0150, acc: 0.8627
-val --- kl_weight: 0.20, avg_loss: 45.5706, ppl: 33.0358, nll: 43.3024, avg_kl_loss: 11.3412, acc: 0.5049
-
-epoch: 22, kl_weight: 0.20, avg_loss: 7.2672, ppl: 1.5056, nll: 5.0434, avg_kl_loss: 11.1188, acc: 0.8706
-val --- kl_weight: 0.20, avg_loss: 44.4207, ppl: 30.0530, nll: 42.1308, avg_kl_loss: 11.4494, acc: 0.5204
-
-epoch: 23, kl_weight: 0.20, avg_loss: 7.0411, ppl: 1.4748, nll: 4.7891, avg_kl_loss: 11.2600, acc: 0.8776
-val --- kl_weight: 0.20, avg_loss: 46.3999, ppl: 35.6302, nll: 44.2384, avg_kl_loss: 10.8076, acc: 0.5033
-
-epoch: 24, kl_weight: 0.20, avg_loss: 6.9621, ppl: 1.4559, nll: 4.6297, avg_kl_loss: 11.6621, acc: 0.8813
-val --- kl_weight: 0.20, avg_loss: 44.6363, ppl: 30.2862, nll: 42.2265, avg_kl_loss: 12.0492, acc: 0.5294
-
-epoch: 25, kl_weight: 0.20, avg_loss: 6.7109, ppl: 1.4271, nll: 4.3834, avg_kl_loss: 11.6376, acc: 0.8868
-val --- kl_weight: 0.20, avg_loss: 43.0117, ppl: 26.6676, nll: 40.6511, avg_kl_loss: 11.8027, acc: 0.5559
-
-epoch: 26, kl_weight: 0.20, avg_loss: 6.5621, ppl: 1.4048, nll: 4.1900, avg_kl_loss: 11.8606, acc: 0.8919
-val --- kl_weight: 0.20, avg_loss: 44.6817, ppl: 30.5676, nll: 42.3410, avg_kl_loss: 11.7033, acc: 0.5489
-
-epoch: 27, kl_weight: 0.20, avg_loss: 6.3564, ppl: 1.3817, nll: 3.9856, avg_kl_loss: 11.8539, acc: 0.8972
-val --- kl_weight: 0.20, avg_loss: 43.2197, ppl: 26.8860, nll: 40.7522, avg_kl_loss: 12.3377, acc: 0.5651
-
-epoch: 28, kl_weight: 0.20, avg_loss: 6.2146, ppl: 1.3669, nll: 3.8522, avg_kl_loss: 11.8118, acc: 0.9011
-val --- kl_weight: 0.20, avg_loss: 46.1402, ppl: 34.3692, nll: 43.7923, avg_kl_loss: 11.7398, acc: 0.5442
-
-epoch: 29, kl_weight: 0.20, avg_loss: 6.0118, ppl: 1.3413, nll: 3.6193, avg_kl_loss: 11.9627, acc: 0.9069
-val --- kl_weight: 0.20, avg_loss: 42.9324, ppl: 26.3304, nll: 40.4936, avg_kl_loss: 12.1939, acc: 0.5830
-
-epoch: 30, kl_weight: 0.20, avg_loss: 5.8927, ppl: 1.3289, nll: 3.5049, avg_kl_loss: 11.9388, acc: 0.9097
-val --- kl_weight: 0.20, avg_loss: 41.7348, ppl: 23.9950, nll: 39.3437, avg_kl_loss: 11.9555, acc: 0.5919
-
-epoch: 31, kl_weight: 0.20, avg_loss: 5.6723, ppl: 1.3038, nll: 3.2702, avg_kl_loss: 12.0105, acc: 0.9158
-val --- kl_weight: 0.20, avg_loss: 43.0454, ppl: 26.4092, nll: 40.5306, avg_kl_loss: 12.5742, acc: 0.5892
-
-epoch: 32, kl_weight: 0.20, avg_loss: 5.6284, ppl: 1.2984, nll: 3.2185, avg_kl_loss: 12.0495, acc: 0.9172
-val --- kl_weight: 0.20, avg_loss: 44.4629, ppl: 29.8951, nll: 42.0656, avg_kl_loss: 11.9868, acc: 0.5799
-
-epoch: 33, kl_weight: 0.20, avg_loss: 5.4675, ppl: 1.2823, nll: 3.0647, avg_kl_loss: 12.0141, acc: 0.9216
-val --- kl_weight: 0.20, avg_loss: 41.2776, ppl: 22.8812, nll: 38.7552, avg_kl_loss: 12.6116, acc: 0.6149
-
-epoch: 34, kl_weight: 0.20, avg_loss: 5.8543, ppl: 1.3114, nll: 3.3412, avg_kl_loss: 12.5658, acc: 0.9142
-val --- kl_weight: 0.20, avg_loss: 44.6547, ppl: 30.4637, nll: 42.2989, avg_kl_loss: 11.7791, acc: 0.5894
-
-epoch: 35, kl_weight: 0.20, avg_loss: 5.4571, ppl: 1.2778, nll: 3.0219, avg_kl_loss: 12.1758, acc: 0.9228
-val --- kl_weight: 0.20, avg_loss: 43.7681, ppl: 28.3627, nll: 41.4141, avg_kl_loss: 11.7702, acc: 0.5948
-
-epoch: 36, kl_weight: 0.20, avg_loss: 5.3832, ppl: 1.2693, nll: 2.9391, avg_kl_loss: 12.2208, acc: 0.9241
-val --- kl_weight: 0.20, avg_loss: 40.3932, ppl: 21.4948, nll: 37.9814, avg_kl_loss: 12.0587, acc: 0.6286
-
-epoch: 37, kl_weight: 0.20, avg_loss: 4.9925, ppl: 1.2356, nll: 2.6074, avg_kl_loss: 11.9256, acc: 0.9333
-val --- kl_weight: 0.20, avg_loss: 41.7508, ppl: 24.1114, nll: 39.4036, avg_kl_loss: 11.7357, acc: 0.6229
+epoch: 14, kl_weight: 0.20, tmp: 1.00
+trn--- loss: 0.3887, labeled_pred_loss: 0.0043, labeled_pred_acc: 0.3693, labeled_recon_loss: 0.7942, unlabeled_recon_loss: 0.8062, labeled_kl_loss: 1.9032, unlabeled_kl_loss: 1.9032 
+val--- loss: 0.7653, labeled_pred_loss: 0.0084, labeled_pred_acc: 0.3469, labeled_recon_loss: 0.7830, unlabeled_recon_loss: 0.8649, labeled_kl_loss: 2.0229, unlabeled_kl_loss: 2.0229 
+update best loss 

@@ -160,7 +160,7 @@ class MSVED(nn.Module):
 
         self.args = args
         self.nz = args.nz
-        self.a = 0.8
+
         self.tag_embed_dim = 200
         self.dec_nh = 256
         self.char_emb_dim = 300
@@ -177,108 +177,44 @@ class MSVED(nn.Module):
         # Discriminative classifiers for q(y|x)
         for key,keydict in tag_vocabs.items():
             self.classifiers.append(nn.Linear(256*2, len(keydict)))
+
+
         for key,keydict in tag_vocabs.items():
             print(key, len(keydict))
             self.tag_embeddings.append(nn.Embedding(len(keydict), self.tag_embed_dim))
 
-    def classifier_loss(self, enc_nh, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, tmp):
+    def classifier_loss(self, enc_nh, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss):
         sft = nn.Softmax(dim=2)
         loss = nn.CrossEntropyLoss()
+
         # (enc_nh: batchsize,1, 256*2)
         tags = [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
-        preds =[]
+        probs =[]
         xloss = torch.tensor(0.0).to('cuda')
         gumbel_tag_embeddings = []
         for i in range(len(self.classifiers)):
             # (batchsize,1,tagvocabsize)
             logits = self.classifiers[i](enc_nh)
             xloss += loss(logits.squeeze(1), tags[i].squeeze(1))
-            preds.append(torch.argmax(sft(logits),dim=2))
+            probs.append(sft(logits))
             # (batchsize,tagvocabsize)
-            gumbel_logits = F.gumbel_softmax(logits, tau=tmp, hard=False).squeeze(1)
+            gumbel_logits = F.gumbel_softmax(logits, tau=1, hard=False).squeeze(1)
             gumbel_tag_embeddings.append(torch.matmul(gumbel_logits, self.tag_embeddings[i].weight).unsqueeze(1))
-        
-        tag_correct = 0; tag_total = 0
-        for j in range(len(tags)):
-            tag_correct +=  (preds[i] == tags[i]).sum().item()
-            tag_total   +=  len(preds[i])
+
         # (batchsize,11,tag_embed_dim)
         gumbel_tag_embeddings = torch.cat(gumbel_tag_embeddings, dim=1)
-        return gumbel_tag_embeddings, xloss, tag_correct, tag_total
 
-
-    def loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='train'):
-        msvae_loss, _, _, _ = self.msvae_loss(x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp)
-        msved_loss, _, _, _, unlabeled_recon_loss, unlabeled_kl_loss = self.msved_loss(x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp)
-        labeled_msved_loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, labeled_kl_loss = self.labeled_msved_loss(x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp)
-        loss = (self.a * msvae_loss) + msved_loss + labeled_msved_loss
-        return loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss
-
-
-    def msvae_loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='train'):
-        # Lu (xs|xs)
+    def loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, mode='train'):
+     
         mu, logvar, encoder_fhs = self.encoder(x)
-        # (batchsize, 1, nz)
-        z = self.reparameterize(mu, logvar)
-        # (batchsize, 11, tag_embed_size)
-        gumbel_tag_embeddings, xloss,  tag_correct, tag_total = self.classifier_loss(encoder_fhs, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, tmp)
-
-        # (batchsize, 1, dec_nh)
-        _gtag = torch.sum(gumbel_tag_embeddings,dim=1).unsqueeze(1)
-        #TODO: add bias and pass tru activation
-        dec_h0 = self.tag_to_dec(_gtag) + self.z_to_dec(z)
-        #TODO: add bias and pass tru activation
-
-        if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, gumbel_tag_embeddings, recon_type='sum')
-        else:
-            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, gumbel_tag_embeddings, recon_type='sum')
-
-        # (batchsize)
-        kl_loss = self.kl_loss(mu,logvar)
-        # (batchsize)
-        recon_loss = recon_loss.squeeze(1)#.mean()
-        loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
-        return loss, xloss, tag_correct, tag_total#, recon_loss, kl_loss, recon_acc, encoder_fhs
-
-    def msved_loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='train'):
-        # Lu (xt|xs)
-        mu, logvar, encoder_fhs = self.encoder(x)
-        # (batchsize, 1, nz)
-        z = self.reparameterize(mu, logvar)
-
-        _, _, xt_encoder_fhs = self.encoder(reinflect_surf)
-
-        # (batchsize, 11, tag_embed_size)
-        gumbel_tag_embeddings, xloss, tag_correct, tag_total = self.classifier_loss(xt_encoder_fhs, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, tmp)
-
-        # (batchsize, 1, dec_nh)
-        _gtag = torch.sum(gumbel_tag_embeddings,dim=1).unsqueeze(1)
-        #TODO: add bias and pass tru activation
        
-        dec_h0 = self.tag_to_dec(_gtag) + self.z_to_dec(z)
-        #TODO: add bias and pass tru activation
-
-        if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, gumbel_tag_embeddings, recon_type='sum')
-        else:
-            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, gumbel_tag_embeddings, recon_type='sum')
-
-        # (batchsize)
-        kl_loss = self.kl_loss(mu,logvar)
-
-        # (batchsize)
-        recon_loss = recon_loss.squeeze(1)#.mean()
-        loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
-        return loss, xloss, tag_correct, tag_total, recon_loss, kl_loss#, recon_acc, encoder_fhs
-
-    def labeled_msved_loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='train'):
-        # Ll (xt, yt | xs)
-        mu, logvar, encoder_fhs = self.encoder(x)
-        _, xloss, tag_correct, tag_total = self.classifier_loss(encoder_fhs, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, tmp)
+        classifier_loss = self.classifier_loss(encoder_fhs, case,polar,mood,evid,pos,per,num,tense,aspect,inter,pos)
 
         # (batchsize, 1, nz)
         z = self.reparameterize(mu, logvar)
+       
+
+
         #(batchsize,1,tag_embed_dim)
         case_embed  = ((case!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[0](case))
         polar_embed = ((polar!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[1](polar))
@@ -291,57 +227,29 @@ class MSVED(nn.Module):
         aspect_embed = ((aspect!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[8](aspect))
         inter_embed = ((inter!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[9](inter))
         poss_embed = ((poss!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[10](poss))
+
         tag_all_embed = case_embed + polar_embed + mood_embed + evid_embed + pos_embed + per_embed + num_embed + tense_embed + aspect_embed + inter_embed + poss_embed
         #TODO: add bias and pass tru activation
+
         tag_attention_values = torch.cat((case_embed, polar_embed, mood_embed, evid_embed, pos_embed, per_embed, num_embed, tense_embed, aspect_embed, inter_embed, poss_embed),dim=1)
+
         dec_h0 = self.tag_to_dec(tag_all_embed) + self.z_to_dec(z)
         #TODO: add bias and pass tru activation
+
         if mode == 'train':
             recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, tag_attention_values, recon_type='sum')
         else:
             recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, tag_attention_values, recon_type='sum')
+
+
         # (batchsize)
         kl_loss = self.kl_loss(mu,logvar)
-        # (batchsize)
-        recon_loss = recon_loss.squeeze(1)#.mean()
-        loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
-        return loss, xloss, tag_correct, tag_total, recon_loss, kl_loss#, recon_acc, encoder_fhs
 
-    def labeled_msvae_loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='train'):
-        # Ll (xs, ys | xs)
-
-        mu, logvar, encoder_fhs = self.encoder(x)
-        _, xloss, tag_correct, tag_total = self.classifier_loss(encoder_fhs, case,polar,mood,evid,pos,per,num,tense,aspect,inter,pos, tmp)
-        # (batchsize, 1, nz)
-        z = self.reparameterize(mu, logvar)
-        #(batchsize,1,tag_embed_dim)
-        case_embed  = ((case!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[0](case))
-        polar_embed = ((polar!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[1](polar))
-        mood_embed = ((mood!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[2](mood))
-        evid_embed = ((evid!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[3](evid))
-        pos_embed = ((pos!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[4](pos))
-        per_embed = ((per!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[5](per))
-        num_embed = ((num!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[6](num))
-        tense_embed = ((tense!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[7](tense))
-        aspect_embed = ((aspect!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[8](aspect))
-        inter_embed = ((inter!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[9](inter))
-        poss_embed = ((poss!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[10](poss))
-        tag_all_embed = case_embed + polar_embed + mood_embed + evid_embed + pos_embed + per_embed + num_embed + tense_embed + aspect_embed + inter_embed + poss_embed
-        #TODO: add bias and pass tru activation
-        tag_attention_values = torch.cat((case_embed, polar_embed, mood_embed, evid_embed, pos_embed, per_embed, num_embed, tense_embed, aspect_embed, inter_embed, poss_embed),dim=1)
-        dec_h0 = self.tag_to_dec(tag_all_embed) + self.z_to_dec(z)
-        #TODO: add bias and pass tru activation
-        if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(x, z, dec_h0, tag_attention_values, recon_type='sum')
-        else:
-            recon_loss, recon_acc = self.recon_loss_test(x, z, dec_h0, tag_attention_values, recon_type='sum')
-        # (batchsize)
-        kl_loss = self.kl_loss(mu,logvar)
         # (batchsize)
         recon_loss = recon_loss.squeeze(1)#.mean()
         #kl_loss = kl_loss.mean()
-        loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
-        return loss, xloss, tag_correct, tag_total# recon_loss, kl_loss, recon_acc, encoder_fhs
+        loss = recon_loss + kl_weight * kl_loss
+        return loss, recon_loss, kl_loss, recon_acc, encoder_fhs
 
     def kl_loss(self, mu, logvar):
         # KL: (batch_size), mu: (batch_size, nz), logvar: (batch_size, nz)
@@ -392,6 +300,7 @@ class MSVED(nn.Module):
         recon_acc  = self.accuracy(output_logits, tgt)
         return recon_loss, recon_acc
 
+
     def recon_loss_test(self, y, z, decoder_hidden, tag_attention_values, recon_type='avg'):
         #remove end symbol
         src = y[:, :-1]
@@ -437,8 +346,29 @@ class MSVED(nn.Module):
         return recon_loss, recon_acc
 
 
+    def log_probability(self, x, z, recon_type='avg'):
+        """Cross Entropy in the language case
+        Args:
+            x: (batch_size, seq_len)
+            z: (batch_size, n_sample, nz)
+        Returns:
+            log_p: (batch_size, n_sample).
+                log_p(x|z) across different x and z
+        """
+        return -self.recon_loss(x, z, recon_type)[0]
 
     def reparameterize(self, mu, logvar, nsamples=1):
+        """sample from posterior Gaussian family
+        Args:
+            mu: Tensor
+                Mean of gaussian distribution with shape (batch, nz)
+
+            logvar: Tensor
+                logvar of gaussian distibution with shape (batch, nz)
+
+        Returns: Tensor
+            Sampled z with shape (batch, nsamples, nz)
+        """
         batch_size, nz = mu.size()
         std = logvar.mul(0.5).exp()
         mu_expd = mu.unsqueeze(1).expand(batch_size, nsamples, nz)
