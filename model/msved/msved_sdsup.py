@@ -15,13 +15,12 @@ from torch.nn import functional as F
 
 class MSVED_Encoder(nn.Module):
     """ LSTM Encoder with constant-length batching"""
-    def __init__(self, args, vocab, model_init, emb_init, bidirectional=False):
+    def __init__(self, args, embed, model_init, emb_init, bidirectional=True):
         super(MSVED_Encoder, self).__init__()
         self.ni = args.ni
         self.nh = args.enc_nh
         self.nz = args.nz
-
-        self.embed = nn.Embedding(len(vocab.word2id), args.ni)
+        self.embed = embed
 
         self.gru = nn.GRU(input_size=args.ni,
                             hidden_size=args.enc_nh,
@@ -59,25 +58,22 @@ class MSVED_Encoder(nn.Module):
         # (batch_size, 1, enc_nh)
         last_state = last_state.permute(1,0,2)
         return mean.squeeze(0), logvar.squeeze(0), last_state
-     
 
 class MSVED_Decoder(nn.Module):
     """LSTM decoder with constant-length batching"""
-    def __init__(self, args, vocab, model_init, emb_init):
+    def __init__(self, args, embed, vocab, model_init, emb_init):
         super(MSVED_Decoder, self).__init__()
         self.ni = args.ni
         self.nh = args.dec_nh
         self.nz = args.nz
         self.vocab = vocab
         self.device = args.device
+        self.char_embed = embed
 
         # no padding when setting padding_idx to -1
-        self.char_embed = nn.Embedding(len(vocab.word2id), 300, padding_idx=0)
+        #self.char_embed = nn.Embedding(len(vocab.word2id), 300, padding_idx=0)
 
         self.dropout_in = nn.Dropout(args.dec_dropout_in)
-
-        # for initializing hidden state and cell
-        self.trans_linear = nn.Linear(args.nz, args.dec_nh, bias=False)
 
         # concatenate z with input
         self.gru = nn.GRU(input_size=650, # self.char_embed+ self.ni
@@ -100,40 +96,47 @@ class MSVED_Decoder(nn.Module):
         emb_init(self.char_embed.weight)
 
     def forward(self, input, z, hidden, tag_embeddings):
-
-        batch_size, n_sample, _ = z.size()
+        # input: (batch_size,1), hidden(1,batch_size,hout)
+        batch_size, _, _ = z.size()
         seq_len = input.size(1)
         # (batch_size, seq_len, ni)
         embedded = self.char_embed(input)
         embedded = self.dropout_in(embedded)
         z_ = z.expand(batch_size, seq_len, self.nz)
+
+        # (batch_size, 1, ni+nz)
         embedded = torch.cat((embedded, z_), -1)
 
-        # (batchsize,1, tagsize)
-        attn_weights = F.softmax(
-            self.attn(torch.cat((embedded, hidden), 2)), dim=2)
-        # (batchsize,1, 200)
-        attn_applied = torch.bmm(attn_weights,
-                                 tag_embeddings)
-        # (batchsize,1, z+ni+tag_context_size)
+        # (batchsize,1, ni+nz+hiddensize)
+        # Attention Queries
+        to_attend = torch.cat((embedded, torch.permute(hidden, (1,0,2))), 2) 
+
+        # (batchsize,1, tagvocabsize)
+        # Attention Keys: self.attn
+        attention_scores = self.attn(to_attend)
+        attn_weights = F.softmax(attention_scores, dim=2)
+       
+        # (batchsize, 1, 200)
+        attn_applied = torch.bmm(attn_weights,tag_embeddings)
+        # (batchsize,1, ni+nz+tagsize)
         output = torch.cat((embedded, attn_applied), 2)
         output = self.attn_combine(output)
         output = F.relu(output)
-        output, hidden = self.gru(output, torch.permute(hidden, (1,0,2)))
+
+        output, hidden = self.gru(output, hidden)
         # (batch_size, 1, vocab_size)
         output_logits = self.pred_linear(output)
-        hidden = torch.permute(hidden, (1,0,2))
         return output_logits, hidden, attn_weights
 
 class MSVED(nn.Module):
     def __init__(self, args, surf_vocab, tag_vocabs, model_init, emb_init):
         super(MSVED, self).__init__()
-        self.encoder = MSVED_Encoder(args, surf_vocab, model_init, emb_init)
-        self.decoder = MSVED_Decoder(args, surf_vocab, model_init, emb_init)
+        self.embed = nn.Embedding(len(surf_vocab.word2id), args.ni)
+        self.encoder = MSVED_Encoder(args, self.embed, model_init, emb_init)
+        self.decoder = MSVED_Decoder(args, self.embed, surf_vocab, model_init, emb_init)
 
         self.args = args
         self.nz = args.nz
-        self.a = 0.8
         self.tag_embed_dim = 200
         self.dec_nh = 256
         self.char_emb_dim = 300
@@ -148,7 +151,7 @@ class MSVED(nn.Module):
         self.prior = torch.distributions.normal.Normal(loc, scale)
         self.tag_embeddings = nn.ModuleList([])
         self.classifiers = nn.ModuleList([])
-        self.tag_embeddings_biases = []
+        #self.tag_embeddings_biases = []
 
         # Discriminative classifiers for q(y|x)
         for key,keydict in tag_vocabs.items():
@@ -158,7 +161,7 @@ class MSVED(nn.Module):
         for key,keydict in tag_vocabs.items():
             print(key, len(keydict))
             self.tag_embeddings.append(nn.Embedding(len(keydict), self.tag_embed_dim))
-            self.tag_embeddings_biases.append(nn.Parameter(torch.ones(1,self.tag_embed_dim)).to('cuda'))
+            #self.tag_embeddings_biases.append(nn.Parameter(torch.ones(1,self.tag_embed_dim)).to('cuda'))
 
     def classifier_loss(self, enc_nh, tmp, case=None,polar=None,mood=None,evid=None,pos=None,per=None,num=None,tense=None,aspect=None,inter=None,poss=None):
         sft = nn.Softmax(dim=2)
@@ -177,164 +180,68 @@ class MSVED(nn.Module):
             preds.append(torch.argmax(sft(logits),dim=2))
             # (batchsize,tagvocabsize)
             gumbel_logits = F.gumbel_softmax(logits, tau=tmp, hard=False).squeeze(1)
-            gumbel_tag_embeddings.append(torch.matmul(gumbel_logits, (self.tag_embeddings[i].weight + self.tag_embeddings_biases[i])).unsqueeze(1))
+            gumbel_tag_embeddings.append(torch.matmul(gumbel_logits, self.tag_embeddings[i].weight).unsqueeze(1))
         
         tag_correct = 0; tag_total = 0
-        
-        if tags[0] is not None:
+
+        # Data is labeled, so calculate the classification loss
+        if tags[0] is not None: 
             for j in range(len(tags)):
                 tag_correct +=  (preds[i] == tags[i]).sum().item()
                 tag_total   +=  len(preds[i])
+
         # (batchsize,11,tag_embed_dim)
         gumbel_tag_embeddings = torch.cat(gumbel_tag_embeddings, dim=1)
         return gumbel_tag_embeddings, xloss, tag_correct, tag_total
 
     def loss_l(self, lx_src, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lx_tgt, kl_weight, tmp, mode='train'):
-        # a * [U(x)] + [Lu (xs|xt)] + [Ll (xt, yt| xs) - D(xt|yt)]
-
-        # [U(x)]
-        msvae_loss, _, _, _ = self.msvae_loss(lx_src, tmp, kl_weight, mode=mode)
-        # inside of U(x)?
-        labeled_msvae_loss, _, _, _ = self.labeled_msvae_loss(lx_tgt, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, tmp, kl_weight, mode=mode)
-        
-        #[Lu (xs|xt)]
-        msved_loss, _, _, _, unlabeled_recon_loss, unlabeled_kl_loss = self.msved_loss(lx_tgt, lx_src, kl_weight, tmp, mode=mode)
-        
         # [Ll (xt, yt| xs) - D(xt|yt)]
         labeled_msved_loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, labeled_kl_loss, labeled_recon_acc = self.labeled_msved_loss(lx_src, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lx_tgt, kl_weight, tmp, mode=mode)
-
-        loss = (self.a * (msvae_loss + labeled_msvae_loss)) + msved_loss + labeled_msved_loss
-        return loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss, labeled_recon_acc
-
-    def loss_u(self, ux, kl_weight, tmp, mode='train'):
-        # a * [U(x)] + [Lu (xs|xt)] + [Ll (xt, yt| xs) - D(xt|yt)]
-        # [U(x)]
-        msvae_loss, _, _, _ = self.msvae_loss(ux, tmp, kl_weight)
-        return msvae_loss
-
-    def msvae_loss(self, x, tmp, kl_weight, mode='train'):
-        # Lu (xs|xs)
-        mu, logvar, encoder_fhs = self.encoder(x)
-        # (batchsize, 1, nz)
-        z = self.reparameterize(mu, logvar)
-        # (batchsize, 11, tag_embed_size)
-        gumbel_tag_embeddings, xloss,  tag_correct, tag_total = self.classifier_loss(encoder_fhs, tmp)
-
-        # (batchsize, 1, dec_nh)
-        _gtag = torch.sum(gumbel_tag_embeddings,dim=1).unsqueeze(1)
-        _gtag = torch.tanh(_gtag)
-        dec_h0 = self.tag_to_dec(_gtag) + self.z_to_dec(z)
-        dec_h0 = torch.tanh(dec_h0)
-
-        if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(x, z, dec_h0, gumbel_tag_embeddings, recon_type='sum')
-        else:
-            recon_loss, recon_acc = self.recon_loss_test(x, z, dec_h0, gumbel_tag_embeddings, recon_type='sum')
-
-        # (batchsize)
-        kl_loss = self.kl_loss(mu,logvar)
-        # (batchsize)
-        recon_loss = recon_loss.squeeze(1)#.mean()
-        loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
-        return loss, xloss, tag_correct, tag_total#, recon_loss, kl_loss, recon_acc, encoder_fhs
-
-    def msved_loss(self, x, reinflect_surf, kl_weight, tmp, mode='train'):
-        mu, logvar, encoder_fhs = self.encoder(x)
-
-        # (batchsize, 1, nz)
-        z = self.reparameterize(mu, logvar)
-
-        _, _, xt_encoder_fhs = self.encoder(reinflect_surf)
-
-        # (batchsize, 11, tag_embed_size)
-        gumbel_tag_embeddings, xloss, tag_correct, tag_total = self.classifier_loss(xt_encoder_fhs, tmp)
-
-        # (batchsize, 1, dec_nh)
-        _gtag = torch.sum(gumbel_tag_embeddings,dim=1).unsqueeze(1)
-        _gtag = torch.tanh(_gtag)
-        dec_h0 = self.tag_to_dec(_gtag) + self.z_to_dec(z)
-        dec_h0 = torch.tanh(dec_h0)
-
-        if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, gumbel_tag_embeddings, recon_type='sum')
-        else:
-            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, gumbel_tag_embeddings, recon_type='sum')
-
-        # (batchsize)
-        kl_loss = self.kl_loss(mu,logvar)
-
-        # (batchsize)
-        recon_loss = recon_loss.squeeze(1)#.mean()
-        loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
-        return loss, xloss, tag_correct, tag_total, recon_loss, kl_loss#, recon_acc, encoder_fhs
+        loss = labeled_msved_loss
+        return loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, labeled_kl_loss, labeled_recon_acc
 
     def labeled_msved_loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='train'):
         # Ll (xt, yt | xs)
         mu, logvar, encoder_fhs = self.encoder(x)
         _, xloss, tag_correct, tag_total = self.classifier_loss(encoder_fhs, tmp, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss)
 
-        # (batchsize, 1, nz)
-        z = self.reparameterize(mu, logvar)
+        if mode == 'train':
+            # (batchsize, 1, nz)
+            z = self.reparameterize(mu, logvar)
+        else:
+            z = mu.unsqueeze(0)
+
         #(batchsize,1,tag_embed_dim)
         tags = [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
         embeds =[]
         for i in range(len(tags)):
             # (batchsize,1, tag_embed_dim)
-            embed = ((tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[i](tags[i]))+ self.tag_embeddings_biases[i].to('cuda')
+            tag_mask = (tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim)
+            tag_emb = self.tag_embeddings[i](tags[i])
+            embed = tag_mask * tag_emb #+ self.tag_embeddings_biases[i])
             embeds.append(embed)
         # (batchsize, 11, tag_emb_dim)
-        tag_all_embeds = torch.cat(embeds,dim=1)
+        tag_embeddings = torch.cat(embeds,dim=1)
+       
         # (batchsize, 1, tag_emb_dim)
         tag_all_embed = torch.sum(torch.cat(embeds,dim=1),dim=1).unsqueeze(1)
         #TODO: add bias
         tag_all_embed = torch.tanh(tag_all_embed)
-        tag_attention_values = tag_all_embeds
         dec_h0 = torch.tanh(self.tag_to_dec(tag_all_embed) + self.z_to_dec(z))
-     
+        dec_h0 = torch.permute(dec_h0, (1,0,2))
         if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, tag_attention_values, recon_type='sum')
+            recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, tag_embeddings, recon_type='sum')
         else:
-            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, tag_attention_values, recon_type='sum')
+            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, tag_embeddings, recon_type='sum')
         # (batchsize)
         kl_loss = self.kl_loss(mu,logvar)
         # (batchsize)
         recon_loss = recon_loss.squeeze(1)#.mean()
-        loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
+        #loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
+        loss = recon_loss + kl_weight * kl_loss
+        
         return loss, xloss, tag_correct, tag_total, recon_loss, kl_loss, recon_acc#, encoder_fhs
 
-    def labeled_msvae_loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, kl_weight, tmp, mode='train'):
-        # Ll (xs, ys | xs)
-
-        mu, logvar, encoder_fhs = self.encoder(x)
-        _, xloss, tag_correct, tag_total = self.classifier_loss(encoder_fhs, tmp, case,polar,mood,evid,pos,per,num,tense,aspect,inter,pos)
-         # (batchsize, 1, nz)
-        z = self.reparameterize(mu, logvar)
-        #(batchsize,1,tag_embed_dim)
-        tags = [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
-        embeds =[]
-        for i in range(len(tags)):
-            # (batchsize,1, tag_embed_dim)
-            embed = ((tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[i](tags[i]))+ self.tag_embeddings_biases[i]
-            embeds.append(embed)
-        # (batchsize, 11, tag_emb_dim)
-        tag_all_embeds = torch.cat(embeds,dim=1)
-        # (batchsize, 1, tag_emb_dim)
-        tag_all_embed = torch.sum(torch.cat(embeds,dim=1),dim=1).unsqueeze(1)
-        #TODO: add bias
-        tag_all_embed = torch.tanh(tag_all_embed)
-        tag_attention_values = tag_all_embeds
-        dec_h0 = torch.tanh(self.tag_to_dec(tag_all_embed) + self.z_to_dec(z))
-        
-        if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(x, z, dec_h0, tag_attention_values, recon_type='sum')
-        else:
-            recon_loss, recon_acc = self.recon_loss_test(x, z, dec_h0, tag_attention_values, recon_type='sum')
-        # (batchsize)
-        kl_loss = self.kl_loss(mu,logvar)
-        # (batchsize)
-        recon_loss = recon_loss.squeeze(1)#.mean()
-        loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
-        return loss, xloss, tag_correct, tag_total# recon_loss, kl_loss, recon_acc, encoder_fhs
 
     def kl_loss(self, mu, logvar):
         # KL: (batch_size), mu: (batch_size, nz), logvar: (batch_size, nz)
@@ -349,13 +256,12 @@ class MSVED(nn.Module):
         batch_size, seq_len = src.size()
         n_sample = z.size(1)
 
-        decoder_input = tgt[:,0].unsqueeze(1)
         output_logits = []
         for di in range(seq_len):
+            decoder_input = src[:,di].unsqueeze(1)  # Teacher forcing
             decoder_output, decoder_hidden, decoder_attention = self.decoder(
                 decoder_input, z, decoder_hidden, tag_attention_values)
             output_logits.append(decoder_output)
-            decoder_input = tgt[:,di].unsqueeze(1)  # Teacher forcing
         
         # (batchsize, seq_len, vocabsize)
         output_logits = torch.cat(output_logits,dim=1)
@@ -393,7 +299,7 @@ class MSVED(nn.Module):
         batch_size, seq_len = src.size()
         n_sample = z.size(1)
 
-        decoder_input = tgt[:,0].unsqueeze(1)
+        decoder_input = src[:,0].unsqueeze(1)
         output_logits = []
         for di in range(seq_len):
             decoder_output, decoder_hidden, decoder_attention = self.decoder(
@@ -441,20 +347,23 @@ class MSVED(nn.Module):
         tags = [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
         embeds =[]
         for i in range(len(tags)):
-            # (batchsize,1, tag_embed_dim)
-            embed = ((tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim) * self.tag_embeddings[i](tags[i]))+ self.tag_embeddings_biases[i]
+            tag_mask = (tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim)
+            tag_emb = self.tag_embeddings[i](tags[i])
+            embed = tag_mask * tag_emb #+ self.tag_embeddings_biases[i])
             embeds.append(embed)
+
+
+
         # (batchsize, 11, tag_emb_dim)
-        tag_all_embeds = torch.cat(embeds,dim=1)
+        tag_embeddings = torch.cat(embeds,dim=1)
         # (batchsize, 1, tag_emb_dim)
         tag_all_embed = torch.sum(torch.cat(embeds,dim=1),dim=1).unsqueeze(1)
         #TODO: add bias
         tag_all_embed = torch.tanh(tag_all_embed)
-        tag_attention_values = tag_all_embeds
         decoder_hidden = torch.tanh(self.tag_to_dec(tag_all_embed) + self.z_to_dec(z))
      
         #### GREEDY DECODING
-        decoder_input = torch.tensor(0).unsqueeze(0).unsqueeze(0).to('cuda')
+        '''decoder_input = torch.tensor(1).unsqueeze(0).unsqueeze(0).to('cuda')
         output_logits = []
         preds = []
         di = 0
@@ -470,11 +379,11 @@ class MSVED(nn.Module):
             if di==20 or char == '</s>':
                 break
         reinflected_form = ''.join(preds)
-        return reinflected_form
+        return reinflected_form'''
 
-        '''
+      
         ### BEAM SEARCH DECODING
-        K = 5
+        K = 8
         decoded_batch = []
        
         # decoding goes sentence by sentence
@@ -491,27 +400,39 @@ class MSVED(nn.Module):
             t = 0
             while len(completed_hypotheses) < K and t < 100:
                 t += 1
-
                 # (len(live), 1)
                 decoder_input = torch.cat([node.wordid for node in live_hypotheses], dim=0)
                 # (1, len(live), nh)
                 decoder_hidden_h = torch.cat([node.h for node in live_hypotheses], dim=1)
-                decoder_hidden = decoder_hidden_h #torch.permute(decoder_hidden_h, (1,0,2))
+                decoder_hidden = decoder_hidden_h
 
-                # (len(live), 1, ni) --> (len(live), 1, ni+nz)
-                word_embed = self.decoder.char_embed(decoder_input)
-                embedded = torch.cat((word_embed, z[idx].view(1, 1, -1).expand(
-                    len(live_hypotheses), 1, self.nz)), dim=-1)
-                
-                _tag_attention_values = tag_attention_values.expand(len(live_hypotheses),11,200)
-                attn_weights = F.softmax(self.decoder.attn(torch.cat((embedded, decoder_hidden), dim=2)), dim=2)
-                attn_applied = torch.bmm(attn_weights,
-                                        _tag_attention_values)
+                # (batch_size, seq_len, ni)
+                embedded = self.decoder.char_embed(decoder_input)
+                #(len(live), 1, nz)
+                expanded_z = z[idx].view(1, 1, -1).expand(len(live_hypotheses), 1, self.nz)
+                expanded_tag_embeddings = tag_embeddings[idx].view(1, 11, -1).expand(len(live_hypotheses), 11, 200)
+                    
+
+                #(len(live), 1, nz + ni)
+                embedded = torch.cat((embedded, expanded_z), dim=-1)
+
+                # (batchsize,1, ni+nz+hiddensize)
+                # Attention Queries
+                to_attend = torch.cat((embedded, torch.permute(decoder_hidden, (1,0,2))), 2) 
+
+                # (batchsize,1, tagvocabsize)
+                # Attention Keys: self.attn
+                attention_scores = self.decoder.attn(to_attend)
+                attn_weights = F.softmax(attention_scores, dim=2)
+            
+                # (batchsize, 1, 200)
+                attn_applied = torch.bmm(attn_weights,expanded_tag_embeddings)
+                # (batchsize,1, ni+nz+tagsize)
                 output = torch.cat((embedded, attn_applied), 2)
                 output = self.decoder.attn_combine(output)
                 output = F.relu(output)
+                output, decoder_hidden = self.decoder.gru(output, decoder_hidden)
 
-                output, decoder_hidden = self.decoder.gru(output, torch.permute(decoder_hidden, (1,0,2)))
                 # (len(live), 1, vocab_size)
                 output_logits = self.decoder.pred_linear(output)
                 decoder_output = F.log_softmax(output_logits, dim=-1)
@@ -562,11 +483,6 @@ class MSVED(nn.Module):
             decoded_batch.append(utterances[0])
 
         return ''.join(decoded_batch[0])
-        '''
-
-
-       
-
 
     def reparameterize(self, mu, logvar, nsamples=1):
         batch_size, nz = mu.size()
@@ -583,14 +499,10 @@ class MSVED(nn.Module):
         # (batchsize, T)
         pred_tokens = torch.argmax(sft(output_logits),2)
         acc = (pred_tokens == tgt).sum().item()
-        #print(''.join(self.decoder.vocab.decode_sentence(pred_tokens[0])))
         if mode == 'val':
             return acc, pred_tokens
         else:
             return acc
-
-
-
 
 class BeamSearchNode(object):
     def __init__(self, hiddenstate, previousNode, wordId, logProb, length):
@@ -610,18 +522,5 @@ class BeamSearchNode(object):
     def eval(self, alpha=1.0):
         reward = 0
         # Add here a function for shaping a reward
-
         return self.logp / float(self.leng - 1 + 1e-6) + alpha * reward
 
-def beam_search_decode(self, z, K=5):
-        """beam search decoding, code is based on
-        https://github.com/pcyin/pytorch_basic_nmt/blob/master/nmt.py
-        the current implementation decodes sentence one by one, further batching would improve the speed
-        Args:
-            z: (batch_size, nz)
-            K: the beam width
-        Returns: List1
-            List1: the decoded word sentence list
-        """
-
-        

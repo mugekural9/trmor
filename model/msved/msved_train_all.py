@@ -23,13 +23,14 @@ def test(batches, mode, args, kl_weight, tmp):
     epoch_labeled_pred_loss = 0; epoch_labeled_recon_loss = 0; epoch_unlabeled_recon_loss = 0 
     epoch_unlabeled_num_tokens = 0; epoch_labeled_num_tokens = 0
     epoch_labeled_kl_loss = 0; epoch_unlabeled_kl_loss = 0
+    epoch_labeled_reinflect_recon_acc = 0
 
     for i, idx in enumerate(indices):
         
         # (batchsize)
         surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf  = batches[idx] 
         # (batchsize)
-        loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss  = args.model.loss(surf,case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='test')
+        loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss, labeled_reinflect_recon_acc  = args.model.loss_l(surf,case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='test')
         epoch_tag_correct += tag_correct
         epoch_tag_total_tokens += tag_total
         epoch_unlabeled_num_tokens += surf.size(0) * (surf.size(1)-1)  # exclude start token prediction
@@ -41,6 +42,7 @@ def test(batches, mode, args, kl_weight, tmp):
         epoch_unlabeled_recon_loss += unlabeled_recon_loss.sum().item()
         epoch_labeled_kl_loss += labeled_kl_loss.sum().item()
         epoch_unlabeled_kl_loss += unlabeled_kl_loss.sum().item()
+        epoch_labeled_reinflect_recon_acc  += labeled_reinflect_recon_acc
 
 
     loss = epoch_loss / numwords 
@@ -55,8 +57,9 @@ def test(batches, mode, args, kl_weight, tmp):
     labeled_kl_loss = epoch_labeled_kl_loss / numwords
     unlabeled_kl_loss = epoch_unlabeled_kl_loss / numwords
 
+    labeled_reinflect_recon_acc = epoch_labeled_reinflect_recon_acc / epoch_labeled_num_tokens
 
-    args.logger.write('%s--- loss: %.4f, labeled_pred_loss: %.4f, labeled_pred_acc: %.4f, labeled_recon_loss: %.4f, unlabeled_recon_loss: %.4f, labeled_kl_loss: %.4f, unlabeled_kl_loss: %.4f \n' % (mode, loss, labeled_pred_loss, labeled_pred_acc, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss))
+    args.logger.write('%s--- loss: %.4f, labeled_pred_loss: %.4f, labeled_pred_acc: %.4f, labeled_recon_loss: %.4f, unlabeled_recon_loss: %.4f, labeled_kl_loss: %.4f, unlabeled_kl_loss: %.4f, labeled_reinflect_recon_acc: %.4f \n' % (mode, loss, labeled_pred_loss, labeled_pred_acc, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss, labeled_reinflect_recon_acc))
 
     return loss, recon
 
@@ -89,19 +92,20 @@ def train(data, args):
         epoch_labeled_kl_loss = 0; epoch_unlabeled_kl_loss = 0
 
         epoch_unlabeled_num_tokens = 0; epoch_labeled_num_tokens = 0
+
+        epoch_labeled_reinflect_recon_acc = 0
         random.shuffle(indices) # this breaks continuity if there is any
         for i, idx in enumerate(indices):
-            if i % 2000 == 0:
-                tmp = max(0.5, math.exp(-3 * 1e-5 * i))
 
-
-            if args.kl_anneal:
-                kl_weight = min(0.2, kl_weight + anneal_rate)
+            if args.update_ind % args.update_temp == 0:
+                tmp = get_temp(args.update_ind)
+            args.update_ind +=1
+            kl_weight = get_kl_weight(args.update_ind, 0.2, 150000.0)
             args.model.zero_grad()
             # (batchsize, t)
             surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf  = trnbatches[idx] 
             # (batchsize)
-            loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss = args.model.loss(surf,case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp)
+            loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss, labeled_reinflect_recon_acc = args.model.loss(surf,case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp)
             batch_loss = loss.mean()
             batch_loss.backward()
             #torch.nn.utils.clip_grad_norm_(args.model.parameters(),  5.0)
@@ -117,7 +121,7 @@ def train(data, args):
             epoch_unlabeled_recon_loss += unlabeled_recon_loss.sum().item()
             epoch_labeled_kl_loss += labeled_kl_loss.sum().item()
             epoch_unlabeled_kl_loss += unlabeled_kl_loss.sum().item()
-
+            epoch_labeled_reinflect_recon_acc  += labeled_reinflect_recon_acc
 
 
         loss = epoch_loss / numwords  
@@ -132,9 +136,12 @@ def train(data, args):
         labeled_kl_loss = epoch_labeled_kl_loss / numwords
         unlabeled_kl_loss = epoch_unlabeled_kl_loss / numwords
         
+        labeled_reinflect_recon_acc = epoch_labeled_reinflect_recon_acc / epoch_labeled_num_tokens
+
+
         trn_loss_values.append(loss)
         args.logger.write('\nepoch: %.1d, kl_weight: %.2f, tmp: %.2f' % (epc, kl_weight, tmp))
-        args.logger.write('\ntrn--- loss: %.4f, labeled_pred_loss: %.4f, labeled_pred_acc: %.4f, labeled_recon_loss: %.4f, unlabeled_recon_loss: %.4f, labeled_kl_loss: %.4f, unlabeled_kl_loss: %.4f \n' % (loss, labeled_pred_loss, labeled_pred_acc, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss))
+        args.logger.write('\ntrn--- loss: %.4f, labeled_pred_loss: %.4f, labeled_pred_acc: %.4f, labeled_recon_loss: %.4f, unlabeled_recon_loss: %.4f, labeled_kl_loss: %.4f, unlabeled_kl_loss: %.4f, labeled_reinflect_recon_acc: %.4f \n' % (loss, labeled_pred_loss, labeled_pred_acc, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss, labeled_reinflect_recon_acc))
       
         # VAL
         args.model.eval()
@@ -145,33 +152,184 @@ def train(data, args):
         if loss < best_loss:
             args.logger.write('update best loss \n')
             best_loss = loss
-        torch.save(args.model.state_dict(), args.save_path+'_'+str(epc)) # do not save best model but last
+        #torch.save(args.model.state_dict(), args.save_path+'_'+str(epc)) # do not save best model but last
+
+        # SHARED TASK
+        if epc % 10 ==0:
+            shared_task_gen(valbatches, args)
         args.model.train()
     #plot_curves(args.task, args.mname, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
     #plot_curves(args.task, args.mname, args.fig, args.axs[1], trn_kl_values, val_kl_values, args.plt_style, 'kl_loss')
     #plot_curves(args.task, args.mname, args.fig, args.axs[2], trn_recon_loss_values, val_recon_loss_values, args.plt_style, 'recon_loss')
 
 
+def train_2(lbatches, ubatches, valbatches, tstbatches, args):
+
+    # initialize optimizer
+    opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.parameters()), lr=args.lr)
+
+    # Log trainable model parameters
+    for name, prm in args.model.named_parameters():
+        args.logger.write('\n'+name+', '+str(prm.shape) + ': '+ str(prm.requires_grad))
+    
+    numlbatches = len(lbatches); lindices = list(range(numlbatches))
+    numubatches = len(ubatches); uindices = list(range(numubatches))
+
+    numwords = args.trnsize
+    best_loss = 1e4; trn_loss_values = []; val_loss_values = [];
+    trn_kl_values = []; val_kl_values = []
+    trn_recon_loss_values = []; val_recon_loss_values = []
+    #random.seed(0)
+    kl_weight = args.kl_start
+    tmp=1.0
+    update_ind =0
+
+    for epc in range(args.epochs):
+        epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
+        epoch_kl_loss = 0; epoch_recon_loss = 0
+
+        epoch_tag_total_tokens = 0; epoch_tag_correct= 0; 
+        epoch_labeled_pred_loss = 0; epoch_labeled_recon_loss = 0; epoch_unlabeled_recon_loss = 0 
+        epoch_labeled_kl_loss = 0; epoch_unlabeled_kl_loss = 0
+
+        epoch_unlabeled_num_tokens = 0; epoch_labeled_num_tokens = 0
+
+        epoch_labeled_reinflect_recon_acc = 0
+        random.shuffle(lindices) # this breaks continuity if there is any
+        random.shuffle(uindices) # this breaks continuity if there is any
+
+
+        for i, uidx in enumerate(uindices):
+            loss = torch.tensor(0.0).to('cuda')
+            if update_ind % args.update_temp == 0:
+                tmp = get_temp(update_ind)
+            kl_weight = get_kl_weight(update_ind, 0.2, 150000.0)
+            args.model.zero_grad()
+            
+            ux = ubatches[uidx] 
+            update_ind +=1
+
+
+            if i < len(lbatches):
+                lidx= lindices[i]
+                lx_src, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lx_tgt  = lbatches[lidx] 
+                # (batchsize)
+                loss_l, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss, labeled_reinflect_recon_acc = args.model.loss_l(lx_src,case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lx_tgt, kl_weight, tmp)
+                loss += loss_l 
+                epoch_num_tokens += lx_src.size(0) * (lx_src.size(1)-1) # exclude start token prediction
+                epoch_labeled_num_tokens +=  torch.sum(lx_tgt !=0).item()
+                epoch_tag_correct += tag_correct
+                epoch_tag_total_tokens += tag_total
+                epoch_labeled_pred_loss += labeled_pred_loss.item()
+                epoch_labeled_recon_loss += labeled_recon_loss.sum().item()
+                epoch_unlabeled_recon_loss += unlabeled_recon_loss.sum().item()
+                epoch_labeled_kl_loss += labeled_kl_loss.sum().item()
+                epoch_unlabeled_kl_loss += unlabeled_kl_loss.sum().item()
+                epoch_labeled_reinflect_recon_acc  += labeled_reinflect_recon_acc
+
+            loss_u  = args.model.loss_u(ux, kl_weight, tmp)
+            loss += loss_u
+            batch_loss = loss.mean()
+            batch_loss.backward()
+            opt.step()
+            epoch_loss += loss.sum().item()
+         
+
+
+        loss = epoch_loss / numwords  
+        labeled_pred_loss = epoch_labeled_pred_loss/ epoch_tag_total_tokens
+        labeled_pred_acc  = epoch_tag_correct/ epoch_tag_total_tokens
+        labeled_recon_loss = epoch_labeled_recon_loss / epoch_labeled_num_tokens
+        unlabeled_recon_loss = epoch_unlabeled_recon_loss / epoch_labeled_num_tokens
+        labeled_kl_loss = epoch_labeled_kl_loss / numwords
+        unlabeled_kl_loss = epoch_unlabeled_kl_loss / numwords
+        labeled_reinflect_recon_acc = epoch_labeled_reinflect_recon_acc / epoch_labeled_num_tokens
+
+
+        trn_loss_values.append(loss)
+        args.logger.write('\nepoch: %.1d, kl_weight: %.2f, tmp: %.2f' % (epc, kl_weight, tmp))
+        args.logger.write('\ntrn--- loss: %.4f, labeled_pred_loss: %.4f, labeled_pred_acc: %.4f, labeled_recon_loss: %.4f, unlabeled_recon_loss: %.4f, labeled_kl_loss: %.4f, unlabeled_kl_loss: %.4f, labeled_reinflect_recon_acc: %.4f \n' % (loss, labeled_pred_loss, labeled_pred_acc, labeled_recon_loss, unlabeled_recon_loss, labeled_kl_loss, unlabeled_kl_loss, labeled_reinflect_recon_acc))
+      
+        # VAL
+        
+        args.model.eval()
+        with torch.no_grad():
+            loss, recon = test(valbatches, "val", args, kl_weight, tmp)
+        val_loss_values.append(loss)
+        val_recon_loss_values.append(recon)
+        if loss < best_loss:
+            args.logger.write('update best loss \n')
+            best_loss = loss
+        #torch.save(args.model.state_dict(), args.save_path+'_'+str(epc)) # do not save best model but last
+
+        # SHARED TASK
+        shared_task_gen(tstbatches, args)
+        args.model.train()
+  
+
+def get_temp(update_ind):
+    return max(0.5, math.exp(-3 * 1e-5 * update_ind))
+
+
+def get_kl_weight(update_ind, thres, rate):
+    upnum = 10000
+    if update_ind <= upnum:
+        return 0.0
+    else:
+        w = (1.0/rate)*(update_ind - upnum)
+        if w < thres:
+            return w
+        else:
+            return thres
+
+
+def shared_task_gen(batches, args):
+    indices = list(range( len(batches)))
+
+    with open('shared_task_gens.txt', 'w') as f:
+        for i, idx in enumerate(indices):
+            # (batchsize)
+            surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, gold_reinflect_surf  = batches[idx] 
+            inflected_form = ''.join(surf_vocab.decode_sentence(surf.squeeze(0)))
+            reinflected_form = args.model.generate(surf,case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss)
+            gold_reinflected_form = ''.join(surf_vocab.decode_sentence(gold_reinflect_surf.squeeze(0)))
+            f.write(inflected_form+'\t'+reinflected_form+ '\t'+gold_reinflected_form+ '\n')
+    
+
 # CONFIG
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 50
+args.batchsize = 20; args.epochs = 120
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'msved'
 args.seq_to_no_pad = 'surface'
-args.kl_start = 0.1
+args.kl_start = 0.0
 args.kl_anneal = True
 args.warm_up = 10
 # data
 args.trndata  = 'data/sigmorphon2016/turkish-task3-train'
 args.valdata  = 'data/sigmorphon2016/turkish-task3-dev'
-args.tstdata = args.valdata
+args.tstdata  = 'data/sigmorphon2016/turkish-task3-test'
+
+args.labeled_data   = 'data/sigmorphon2016/turkish-task3-train'
+args.unlabeled_data = 'data/sigmorphon2016/zhou_ux.txt'
+
+#l_batches =
+#u_batches =
+l_cur_batch = 0
+u_cur_batch = 0
+
+
+args.temp = 1.0
+args.update_ind = 0
+args.update_temp = 2000
 
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 7000000; args.maxvalsize = 10000; args.maxtstsize = 10000
-rawdata, batches, surf_vocab, tag_vocabs = build_data(args)
+args.maxtrnsize = 700000000; args.maxvalsize = 10000; args.maxtstsize = 10000
+rawdata, batches, surf_vocab, tag_vocabs, lbatches, ubatches = build_data(args)
+
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
 # model
@@ -206,5 +364,6 @@ args.plt_style = pstyle = '-'
 args.fig.tight_layout() 
 
 # RUN
-train(batches, args)
+#train(batches, args)
+train_2(lbatches, ubatches, batches[1], batches[2], args)
 plt.savefig(args.fig_path)
