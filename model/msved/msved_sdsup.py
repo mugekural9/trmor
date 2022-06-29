@@ -150,18 +150,18 @@ class MSVED(nn.Module):
         scale = torch.ones(self.nz, device=args.device)
         self.prior = torch.distributions.normal.Normal(loc, scale)
         self.tag_embeddings = nn.ModuleList([])
-        self.classifiers = nn.ModuleList([])
-        #self.tag_embeddings_biases = []
+        #self.classifiers = nn.ModuleList([])
+        self.tag_embeddings_biases = []
 
         # Discriminative classifiers for q(y|x)
-        for key,keydict in tag_vocabs.items():
-            self.classifiers.append(nn.Linear(256*2, len(keydict)))
-            nn.init.xavier_normal_(self.classifiers[-1].weight)
+        #for key,keydict in tag_vocabs.items():
+        #    self.classifiers.append(nn.Linear(256*2, len(keydict)))
+        #    nn.init.xavier_normal_(self.classifiers[-1].weight)
 
         for key,keydict in tag_vocabs.items():
             print(key, len(keydict))
             self.tag_embeddings.append(nn.Embedding(len(keydict), self.tag_embed_dim))
-            #self.tag_embeddings_biases.append(nn.Parameter(torch.ones(1,self.tag_embed_dim)).to('cuda'))
+            self.tag_embeddings_biases.append(nn.Parameter(torch.ones(1,self.tag_embed_dim)).to('cuda'))
 
     def classifier_loss(self, enc_nh, tmp, case=None,polar=None,mood=None,evid=None,pos=None,per=None,num=None,tense=None,aspect=None,inter=None,poss=None):
         sft = nn.Softmax(dim=2)
@@ -203,7 +203,7 @@ class MSVED(nn.Module):
     def labeled_msved_loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='train'):
         # Ll (xt, yt | xs)
         mu, logvar, encoder_fhs = self.encoder(x)
-        _, xloss, tag_correct, tag_total = self.classifier_loss(encoder_fhs, tmp, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss)
+        #_, xloss, tag_correct, tag_total = self.classifier_loss(encoder_fhs, tmp, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss)
 
         if mode == 'train':
             # (batchsize, 1, nz)
@@ -218,7 +218,7 @@ class MSVED(nn.Module):
             # (batchsize,1, tag_embed_dim)
             tag_mask = (tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim)
             tag_emb = self.tag_embeddings[i](tags[i])
-            embed = tag_mask * tag_emb #+ self.tag_embeddings_biases[i])
+            embed = tag_mask * (tag_emb + self.tag_embeddings_biases[i])
             embeds.append(embed)
         # (batchsize, 11, tag_emb_dim)
         tag_embeddings = torch.cat(embeds,dim=1)
@@ -240,6 +240,9 @@ class MSVED(nn.Module):
         #loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
         loss = recon_loss + kl_weight * kl_loss
         
+        xloss = torch.tensor(0.0)
+        tag_correct = 0
+        tag_total =1
         return loss, xloss, tag_correct, tag_total, recon_loss, kl_loss, recon_acc#, encoder_fhs
 
 
@@ -349,9 +352,8 @@ class MSVED(nn.Module):
         for i in range(len(tags)):
             tag_mask = (tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim)
             tag_emb = self.tag_embeddings[i](tags[i])
-            embed = tag_mask * tag_emb #+ self.tag_embeddings_biases[i])
+            embed = tag_mask * (tag_emb + self.tag_embeddings_biases[i])
             embeds.append(embed)
-
 
 
         # (batchsize, 11, tag_emb_dim)
