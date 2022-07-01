@@ -139,7 +139,7 @@ def get_kl_weight(update_ind, thres, rate):
 def shared_task_gen(batches, args):
     indices = list(range( len(batches)))
     correct = 0
-    with open('shared_task_tst_beam.txt', 'w') as f:
+    with open('shared_task_tst_beam_sdsup.txt', 'w') as f:
         for i, idx in enumerate(indices):
             # (batchsize)
             surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, gold_reinflect_surf  = batches[idx] 

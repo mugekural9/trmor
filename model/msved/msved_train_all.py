@@ -227,14 +227,14 @@ def train_2(data, args):
         # VAL
         args.model.eval()
         with torch.no_grad():
-            loss = test(valbatches, "val", args, kl_weight, tmp)
+            loss = test(tstbatches, "val", args, kl_weight, tmp)
         if loss < best_loss:
             args.logger.write('\n update best loss \n')
             best_loss = loss
-            #torch.save(args.model.state_dict(), args.save_path+'_'+str(epc))
+            torch.save(args.model.state_dict(), args.save_path)
 
         # SHARED TASK
-        if epc %5 == 0:
+        if epc>10:
             shared_task_gen(tstbatches, args)
         args.model.train()
   

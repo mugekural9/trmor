@@ -152,7 +152,7 @@ class MSVED(nn.Module):
         self.tag_embeddings = nn.ModuleList([])
         #self.classifiers = nn.ModuleList([])
         self.tag_embeddings_biases = []
-
+        self.priors = []
         # Discriminative classifiers for q(y|x)
         #for key,keydict in tag_vocabs.items():
         #    self.classifiers.append(nn.Linear(256*2, len(keydict)))
@@ -161,6 +161,7 @@ class MSVED(nn.Module):
         for key,keydict in tag_vocabs.items():
             print(key, len(keydict))
             self.tag_embeddings.append(nn.Embedding(len(keydict), self.tag_embed_dim))
+            self.priors.append(torch.zeros(1,len(keydict)))
             self.tag_embeddings_biases.append(nn.Parameter(torch.ones(1,self.tag_embed_dim)).to('cuda'))
 
     def classifier_loss(self, enc_nh, tmp, case=None,polar=None,mood=None,evid=None,pos=None,per=None,num=None,tense=None,aspect=None,inter=None,poss=None):
@@ -200,6 +201,19 @@ class MSVED(nn.Module):
         loss = labeled_msved_loss
         return loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, labeled_kl_loss, labeled_recon_acc
 
+    def log_py_prior(self, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss):
+        batch_size,_ = case.size()
+        tags = [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
+        sft = nn.Softmax(dim=1)
+        loss = nn.CrossEntropyLoss(reduce=False,ignore_index=0)
+        logpy = torch.tensor(0.0).to('cuda')
+        for i in range(len(tags)):
+            prior = self.priors[i]
+            # (batchsize, vocabsize of that tag)
+            prior = sft(prior.repeat(batch_size,1))
+            logpy+=loss(prior.to('cuda'),tags[i].squeeze(1)).mean()
+        return -logpy
+
     def labeled_msved_loss(self, x, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='train'):
         # Ll (xt, yt | xs)
         mu, logvar, encoder_fhs = self.encoder(x)
@@ -238,8 +252,10 @@ class MSVED(nn.Module):
         # (batchsize)
         recon_loss = recon_loss.squeeze(1)#.mean()
         #loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
-        loss = recon_loss + kl_weight * kl_loss
         
+        log_py_prior = self.log_py_prior(case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss)
+        loss = log_py_prior+ recon_loss + kl_weight * kl_loss
+
         xloss = torch.tensor(0.0)
         tag_correct = 0
         tag_total =1

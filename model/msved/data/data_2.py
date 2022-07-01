@@ -138,69 +138,6 @@ def read_data_unsup(maxdsize, file, surface_vocab, mode):
     return data
 
 
-
-def read_data_unsup(maxdsize, file, surface_vocab, mode):
-    surf_data = []; data = []
-    all_surfs = dict()
-    count = 0
-    surfs  = []
-    if 'unique' in file:
-        with open(file, 'r') as reader:
-            for line in reader: 
-                count += 1
-                if count > maxdsize:
-                    break
-                surf = line.strip().split('\t')[0]
-                surf_data.append([surface_vocab[char] for char in surf])
-    elif '.tur' in file:
-        with open(file, 'r') as reader:
-            for line in reader:     
-                count += 1
-                if count > maxdsize:
-                    break
-                surf = line.strip().split(' ')[1]
-                surf_data.append([surface_vocab[char] for char in surf])
-    elif 'turkish' in file:
-        with open(file, 'r') as reader:
-            for line in reader:     
-                count += 1
-                if count > maxdsize:
-                    break
-                surf = line.strip().split('\t')[0]
-                if surf not in surfs:
-                    surf_data.append([surface_vocab[char] for char in surf])
-                    surfs.append(surf)
-                #surf_r = surf[::-1]
-                #surf_data.append([surface_vocab[char] for char in surf_r])
-    elif 'zhou' in file:
-        with open(file, 'r') as reader:
-            for line in reader:     
-                count += 1
-                if count > maxdsize:
-                    break
-                surf = line.strip().split('\t')[0]
-                if surf not in surfs:
-                    surf_data.append([surface_vocab[char] for char in surf])
-                    surfs.append(surf)
-    elif 'trn.txt' in file:
-        with open(file, 'r') as reader:
-            for line in reader:     
-                count += 1
-                if count > maxdsize:
-                    break
-                surf = line.strip().split('\t')[0]
-                if surf not in surfs:
-                    surf_data.append([surface_vocab[char] for char in surf])
-                    surfs.append(surf)
-                #surf_r = surf[::-1]
-                #surf_data.append([surface_vocab[char] for char in surf_r])
-    print(mode,':')
-    print('surf_data:',  len(surf_data))
-    for surf in surf_data:
-        data.append([surf])
-    return data
-    
-
 def build_data(args, surface_vocab=None):
     # Read data and get batches...
     surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
@@ -221,7 +158,7 @@ def build_data(args, surface_vocab=None):
     tag_vocabs['inter'],
     tag_vocabs['poss'])    
     args.valsize = len(vlddata)
-    vld_batches, _ = get_batches_msved(vlddata, surface_vocab, 1, args.seq_to_no_pad) 
+    vld_batches, _ = get_batches_msved(vlddata, surface_vocab, 20, args.seq_to_no_pad) 
 
     tstdata, _ = read_data(args.maxtstsize, args.tstdata, surface_vocab, 'TST',
     tag_vocabs['case'],
