@@ -30,7 +30,7 @@ def test(batches, mode, args, kl_weight, tmp):
         idx= indices[i]
         lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt  = batches[idx] 
         # Labeled MSVED 
-        loss_labeled_msved, labeled_msved_tag_pred_loss, labeled_msved_tag_correct, labeled_msved_tag_total, labeled_msved_recon_loss, labeled_msved_kl_loss, labeled_msved_recon_acc = args.model.loss_labeled_msved(lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt, kl_weight, tmp, mode='val')
+        loss_labeled_msved, labeled_msved_tag_pred_loss, labeled_msved_tag_correct, labeled_msved_tag_total, labeled_msved_recon_loss, labeled_msved_kl_loss, labeled_msved_recon_acc = args.model.loss_labeled_msved(lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt, kl_weight, tmp, mode='test')
         epoch_labeled_msved_loss += loss_labeled_msved.sum().item()
         epoch_labeled_msved_num_tokens +=  torch.sum(lxtgt[:,1:] !=0).item()
         epoch_labeled_msved_recon_acc += labeled_msved_recon_acc
@@ -124,7 +124,6 @@ def train_2(data, args):
             if i < len(lbatches):
                 lidx= lindices[i]
                 lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt  = lbatches[lidx] 
-                
                 # MSVAE with lxsrc
                 loss_lxsrc_msvae, lxsrc_msvae_recon_loss, lxsrc_msvae_kl_loss, lxsrc_msvae_recon_acc = args.model.loss_lxsrc_msvae(lxsrc, kl_weight, tmp)
                 lxsrc_msvae_batch_loss = loss_lxsrc_msvae.mean()
@@ -134,7 +133,6 @@ def train_2(data, args):
                 epoch_lxsrc_msvae_recon_acc += lxsrc_msvae_recon_acc
                 epoch_lxsrc_msvae_recon_loss += lxsrc_msvae_recon_loss.sum().item()
                 epoch_lxsrc_msvae_kl_loss += lxsrc_msvae_kl_loss.sum().item()
-
                 # Labeled MSVAE with lxtgt
                 loss_lxtgt_labeled_msvae, lxtgt_labeled_msvae_tag_pred_loss, lxtgt_labeled_msvae_tag_correct, lxtgt_labeled_msvae_tag_total, lxtgt_labeled_msvae_recon_loss, lxtgt_labeled_msvae_kl_loss, lxtgt_labeled_msvae_recon_acc = args.model.loss_lxtgt_labeled_msvae(lxtgt, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, kl_weight, tmp)
                 lxtgt_labeled_msvae_batch_loss = loss_lxtgt_labeled_msvae.mean()
@@ -147,7 +145,6 @@ def train_2(data, args):
                 epoch_lxtgt_labeled_msvae_num_tags +=  lxtgt_labeled_msvae_tag_total
                 epoch_lxtgt_labeled_msvae_tag_pred_loss += lxtgt_labeled_msvae_tag_pred_loss.sum().item()
                 epoch_lxtgt_labeled_msvae_tag_acc += lxtgt_labeled_msvae_tag_correct
-
                 # MSVED from lxtgt to lxsrc
                 loss_lxtgt_to_lxsrc_msved, lxtgt_to_lxsrc_msved_recon_loss, lxtgt_to_lxsrc_msved_kl_loss, lxtgt_to_lxsrc_msved_recon_acc = args.model.loss_lxtgt_to_lxsrc_msved(lxsrc, lxtgt, kl_weight, tmp)
                 lxtgt_to_lxsrc_msved_batch_loss = loss_lxtgt_to_lxsrc_msved.mean()
@@ -157,8 +154,6 @@ def train_2(data, args):
                 epoch_lxtgt_to_lxsrc_msved_recon_acc += lxtgt_to_lxsrc_msved_recon_acc
                 epoch_lxtgt_to_lxsrc_msved_recon_loss += lxtgt_to_lxsrc_msved_recon_loss.sum().item()
                 epoch_lxtgt_to_lxsrc_msved_kl_loss += lxtgt_to_lxsrc_msved_kl_loss.sum().item()
-
-                
                 # Labeled MSVED 
                 loss_labeled_msved, labeled_msved_tag_pred_loss, labeled_msved_tag_correct, labeled_msved_tag_total, labeled_msved_recon_loss, labeled_msved_kl_loss, labeled_msved_recon_acc = args.model.loss_labeled_msved(lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt, kl_weight, tmp)
                 labeled_msved_batch_loss = loss_labeled_msved.mean()
@@ -171,8 +166,53 @@ def train_2(data, args):
                 epoch_labeled_msved_num_tags +=  labeled_msved_tag_total
                 epoch_labeled_msved_tag_pred_loss += labeled_msved_tag_pred_loss.sum().item()
                 epoch_labeled_msved_tag_acc += labeled_msved_tag_correct
-               
-
+            else:
+                random.shuffle(lindices) # this breaks continuity if there is any
+                lidx= lindices[0]
+                lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt  = lbatches[lidx] 
+                # MSVAE with lxsrc
+                loss_lxsrc_msvae, lxsrc_msvae_recon_loss, lxsrc_msvae_kl_loss, lxsrc_msvae_recon_acc = args.model.loss_lxsrc_msvae(lxsrc, kl_weight, tmp)
+                lxsrc_msvae_batch_loss = loss_lxsrc_msvae.mean()
+                batch_loss += lxsrc_msvae_batch_loss
+                epoch_lxsrc_msvae_loss += loss_lxsrc_msvae.sum().item()
+                epoch_lxsrc_msvae_num_tokens +=  torch.sum(lxsrc[:,1:] !=0).item()
+                epoch_lxsrc_msvae_recon_acc += lxsrc_msvae_recon_acc
+                epoch_lxsrc_msvae_recon_loss += lxsrc_msvae_recon_loss.sum().item()
+                epoch_lxsrc_msvae_kl_loss += lxsrc_msvae_kl_loss.sum().item()
+                # Labeled MSVAE with lxtgt
+                loss_lxtgt_labeled_msvae, lxtgt_labeled_msvae_tag_pred_loss, lxtgt_labeled_msvae_tag_correct, lxtgt_labeled_msvae_tag_total, lxtgt_labeled_msvae_recon_loss, lxtgt_labeled_msvae_kl_loss, lxtgt_labeled_msvae_recon_acc = args.model.loss_lxtgt_labeled_msvae(lxtgt, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, kl_weight, tmp)
+                lxtgt_labeled_msvae_batch_loss = loss_lxtgt_labeled_msvae.mean()
+                batch_loss += lxtgt_labeled_msvae_batch_loss
+                epoch_lxtgt_labeled_msvae_loss += loss_lxtgt_labeled_msvae.sum().item()
+                epoch_lxtgt_labeled_msvae_num_tokens +=  torch.sum(lxtgt[:,1:] !=0).item()
+                epoch_lxtgt_labeled_msvae_recon_acc += lxtgt_labeled_msvae_recon_acc
+                epoch_lxtgt_labeled_msvae_recon_loss += lxtgt_labeled_msvae_recon_loss.sum().item()
+                epoch_lxtgt_labeled_msvae_kl_loss += lxtgt_labeled_msvae_kl_loss.sum().item()
+                epoch_lxtgt_labeled_msvae_num_tags +=  lxtgt_labeled_msvae_tag_total
+                epoch_lxtgt_labeled_msvae_tag_pred_loss += lxtgt_labeled_msvae_tag_pred_loss.sum().item()
+                epoch_lxtgt_labeled_msvae_tag_acc += lxtgt_labeled_msvae_tag_correct
+                # MSVED from lxtgt to lxsrc
+                loss_lxtgt_to_lxsrc_msved, lxtgt_to_lxsrc_msved_recon_loss, lxtgt_to_lxsrc_msved_kl_loss, lxtgt_to_lxsrc_msved_recon_acc = args.model.loss_lxtgt_to_lxsrc_msved(lxsrc, lxtgt, kl_weight, tmp)
+                lxtgt_to_lxsrc_msved_batch_loss = loss_lxtgt_to_lxsrc_msved.mean()
+                batch_loss += lxtgt_to_lxsrc_msved_batch_loss
+                epoch_lxtgt_to_lxsrc_msved_loss += loss_lxtgt_to_lxsrc_msved.sum().item()
+                epoch_lxtgt_to_lxsrc_msved_num_tokens +=  torch.sum(lxsrc[:,1:] !=0).item()
+                epoch_lxtgt_to_lxsrc_msved_recon_acc += lxtgt_to_lxsrc_msved_recon_acc
+                epoch_lxtgt_to_lxsrc_msved_recon_loss += lxtgt_to_lxsrc_msved_recon_loss.sum().item()
+                epoch_lxtgt_to_lxsrc_msved_kl_loss += lxtgt_to_lxsrc_msved_kl_loss.sum().item()
+                # Labeled MSVED 
+                loss_labeled_msved, labeled_msved_tag_pred_loss, labeled_msved_tag_correct, labeled_msved_tag_total, labeled_msved_recon_loss, labeled_msved_kl_loss, labeled_msved_recon_acc = args.model.loss_labeled_msved(lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt, kl_weight, tmp)
+                labeled_msved_batch_loss = loss_labeled_msved.mean()
+                batch_loss += labeled_msved_batch_loss
+                epoch_labeled_msved_loss += loss_labeled_msved.sum().item()
+                epoch_labeled_msved_num_tokens +=  torch.sum(lxtgt[:,1:] !=0).item()
+                epoch_labeled_msved_recon_acc += labeled_msved_recon_acc
+                epoch_labeled_msved_recon_loss += labeled_msved_recon_loss.sum().item()
+                epoch_labeled_msved_kl_loss += labeled_msved_kl_loss.sum().item()
+                epoch_labeled_msved_num_tags +=  labeled_msved_tag_total
+                epoch_labeled_msved_tag_pred_loss += labeled_msved_tag_pred_loss.sum().item()
+                epoch_labeled_msved_tag_acc += labeled_msved_tag_correct
+            
             # MSVAE with ux
             loss_ux_msvae, ux_msvae_recon_loss, ux_msvae_kl_loss, ux_msvae_recon_acc = args.model.loss_ux_msvae(ux, kl_weight, tmp)
             ux_msvae_batch_loss = loss_ux_msvae.mean()
@@ -218,24 +258,25 @@ def train_2(data, args):
 
 
         args.logger.write('\nepoch: %.1d, kl_weight: %.2f, tmp: %.2f' % (epc, kl_weight, tmp))
-        args.logger.write('\ntrn--- ux_msvae_loss: %.4f,  ux_msvae_kl_loss: %.4f,  ux_msvae_recon_loss: %.4f,  ux_msvae_recon_acc: %.4f'  % ( ux_msvae_loss,  ux_msvae_kl_loss,  ux_msvae_recon_loss,  ux_msvae_recon_acc))
-        args.logger.write('\ntrn--- lxsrc_msvae_loss: %.4f,  lxsrc_msvae_kl_loss: %.4f,  lxsrc_msvae_recon_loss: %.4f,  lxsrc_msvae_recon_acc: %.4f'  % ( lxsrc_msvae_loss,  lxsrc_msvae_kl_loss,  lxsrc_msvae_recon_loss,  lxsrc_msvae_recon_acc))
-        args.logger.write('\ntrn--- lxtgt_labeled_msvae_loss: %.4f,  lxtgt_labeled_msvae_tag_pred_loss: %.4f, lxtgt_labeled_msvae_tag_acc: %.4f, lxtgt_labeled_msvae_kl_loss: %.4f,  lxtgt_labeled_msvae_recon_loss: %.4f,  lxtgt_labeled_msvae_recon_acc: %.4f'  % ( lxtgt_labeled_msvae_loss,  lxtgt_labeled_msvae_tag_pred_loss, lxtgt_labeled_msvae_tag_acc, lxtgt_labeled_msvae_kl_loss,  lxtgt_labeled_msvae_recon_loss,  lxtgt_labeled_msvae_recon_acc))
-        args.logger.write('\ntrn--- lxtgt_to_lxsrc_msved_loss: %.4f,  lxtgt_to_lxsrc_msved_kl_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_acc: %.4f'  % ( lxtgt_to_lxsrc_msved_loss,  lxtgt_to_lxsrc_msved_kl_loss,  lxtgt_to_lxsrc_msved_recon_loss,  lxtgt_to_lxsrc_msved_recon_acc))
+        #args.logger.write('\ntrn--- ux_msvae_loss: %.4f,  ux_msvae_kl_loss: %.4f,  ux_msvae_recon_loss: %.4f,  ux_msvae_recon_acc: %.4f'  % ( ux_msvae_loss,  ux_msvae_kl_loss,  ux_msvae_recon_loss,  ux_msvae_recon_acc))
+        #args.logger.write('\ntrn--- lxsrc_msvae_loss: %.4f,  lxsrc_msvae_kl_loss: %.4f,  lxsrc_msvae_recon_loss: %.4f,  lxsrc_msvae_recon_acc: %.4f'  % ( lxsrc_msvae_loss,  lxsrc_msvae_kl_loss,  lxsrc_msvae_recon_loss,  lxsrc_msvae_recon_acc))
+        #args.logger.write('\ntrn--- lxtgt_labeled_msvae_loss: %.4f,  lxtgt_labeled_msvae_tag_pred_loss: %.4f, lxtgt_labeled_msvae_tag_acc: %.4f, lxtgt_labeled_msvae_kl_loss: %.4f,  lxtgt_labeled_msvae_recon_loss: %.4f,  lxtgt_labeled_msvae_recon_acc: %.4f'  % ( lxtgt_labeled_msvae_loss,  lxtgt_labeled_msvae_tag_pred_loss, lxtgt_labeled_msvae_tag_acc, lxtgt_labeled_msvae_kl_loss,  lxtgt_labeled_msvae_recon_loss,  lxtgt_labeled_msvae_recon_acc))
+        #args.logger.write('\ntrn--- lxtgt_to_lxsrc_msved_loss: %.4f,  lxtgt_to_lxsrc_msved_kl_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_acc: %.4f'  % ( lxtgt_to_lxsrc_msved_loss,  lxtgt_to_lxsrc_msved_kl_loss,  lxtgt_to_lxsrc_msved_recon_loss,  lxtgt_to_lxsrc_msved_recon_acc))
         args.logger.write('\ntrn--- labeled_msved_loss: %.4f,  labeled_msved_tag_pred_loss: %.4f, labeled_msved_tag_acc: %.4f, labeled_msved_kl_loss: %.4f,  labeled_msved_recon_loss: %.4f,  labeled_msved_recon_acc: %.4f'  % ( labeled_msved_loss,  labeled_msved_tag_pred_loss, labeled_msved_tag_acc, labeled_msved_kl_loss,  labeled_msved_recon_loss,  labeled_msved_recon_acc))
 
         # VAL
         args.model.eval()
         with torch.no_grad():
-            loss = test(tstbatches, "val", args, kl_weight, tmp)
+            loss = test(valbatches, "val", args, kl_weight, tmp)
         if loss < best_loss:
             args.logger.write('\n update best loss \n')
             best_loss = loss
-            torch.save(args.model.state_dict(), args.save_path)
 
         # SHARED TASK
-        if epc>10:
-            shared_task_gen(tstbatches, args)
+        if epc %10==0 or epc>90:
+            shared_task_gen(tstbatches, args, epc)
+            torch.save(args.model.state_dict(), args.save_path+'_'+str(epc))
+
         args.model.train()
   
 
@@ -244,7 +285,7 @@ def get_temp(update_ind):
 
 
 def get_kl_weight(update_ind, thres, rate):
-    upnum = 10000
+    upnum = 1500
     if update_ind <= upnum:
         return 0.0
     else:
@@ -255,10 +296,10 @@ def get_kl_weight(update_ind, thres, rate):
             return thres
 
 
-def shared_task_gen(batches, args):
+def shared_task_gen(batches, args, epc):
     indices = list(range( len(batches)))
     correct = 0
-    with open('shared_task_tst_beam.txt', 'w') as f:
+    with open(str(epc)+'epc_shared_task_tst_beam.txt', 'w') as f:
         for i, idx in enumerate(indices):
             # (batchsize)
             surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, gold_reinflect_surf  = batches[idx] 
@@ -277,13 +318,13 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 20; args.epochs = 100
+args.batchsize = 128; args.epochs = 175
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'msved'
 args.seq_to_no_pad = 'surface'
 # data
 args.trndata  = 'data/sigmorphon2016/turkish-task3-train'
-args.valdata  = 'data/sigmorphon2016/turkish-task3-dev'
+args.valdata  = 'data/sigmorphon2016/turkish-task3-test'
 args.tstdata  = 'data/sigmorphon2016/turkish-task3-test'
 args.unlabeled_data = 'data/sigmorphon2016/zhou_ux.txt'
 

@@ -33,18 +33,17 @@ class MSVED_Encoder(nn.Module):
 
         # dimension transformation to z
         if self.gru.bidirectional:
-            self.linear = nn.Linear(args.enc_nh*2, 2*args.nz, bias=False)
+            self.linear = nn.Linear(args.enc_nh*2, 2*args.nz, bias=True)
         else:
             self.linear = nn.Linear(args.enc_nh,  2*args.nz, bias=False)
 
         self.reset_parameters(model_init, emb_init)
-        nn.init.xavier_normal_(self.linear.weight)
+        #nn.init.xavier_normal_(self.linear.weight)
 
     def reset_parameters(self, model_init, emb_init):
         for param in self.parameters():
             model_init(param)
         emb_init(self.embed.weight)
-
 
     def forward(self, input):
         # (batch_size, seq_len-1, args.ni)
@@ -85,7 +84,7 @@ class MSVED_Decoder(nn.Module):
         self.attn_combine = nn.Linear(650, 650)
 
         # prediction layer
-        self.pred_linear = nn.Linear(args.dec_nh, len(vocab.word2id), bias=False)
+        self.pred_linear = nn.Linear(args.dec_nh, len(vocab.word2id), bias=True)
         vocab_mask = torch.ones(len(vocab.word2id))
         self.loss = nn.CrossEntropyLoss(weight=vocab_mask, reduce=False, ignore_index=0)
         self.reset_parameters(model_init, emb_init)
@@ -94,8 +93,9 @@ class MSVED_Decoder(nn.Module):
         for param in self.parameters():
             model_init(param)
         emb_init(self.char_embed.weight)
+        #    torch.nn.init.xavier_normal_(param)
 
-    def forward(self, input, z, hidden, tag_embeddings):
+    def forward(self, input, z, hidden, tag_embeddings, tag_attention_masks):
         # input: (batch_size,1), hidden(1,batch_size,hout)
         batch_size, _, _ = z.size()
         seq_len = input.size(1)
@@ -114,6 +114,7 @@ class MSVED_Decoder(nn.Module):
         # (batchsize,1, tagvocabsize)
         # Attention Keys: self.attn
         attention_scores = self.attn(to_attend)
+        attention_scores = attention_scores.masked_fill(tag_attention_masks, -1e9)
         attn_weights = F.softmax(attention_scores, dim=2)
        
         # (batchsize, 1, 200)
@@ -143,8 +144,8 @@ class MSVED(nn.Module):
         self.z_to_dec = nn.Linear(self.nz, 256)
         self.tag_to_dec = nn.Linear(self.tag_embed_dim, 256)
 
-        torch.nn.init.xavier_uniform(self.z_to_dec.weight)
-        torch.nn.init.xavier_uniform(self.tag_to_dec.weight)
+        #torch.nn.init.xavier_uniform(self.z_to_dec.weight)
+        #torch.nn.init.xavier_uniform(self.tag_to_dec.weight)
 
         loc = torch.zeros(self.nz, device=args.device)
         scale = torch.ones(self.nz, device=args.device)
@@ -223,20 +224,28 @@ class MSVED(nn.Module):
             # (batchsize, 1, nz)
             z = self.reparameterize(mu, logvar)
         else:
-            z = mu.unsqueeze(0)
+            z = mu.unsqueeze(1)
 
         #(batchsize,1,tag_embed_dim)
         tags = [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
         embeds =[]
+        tag_embeds = []
+        tag_attention_masks = []
+
         for i in range(len(tags)):
+            tag_attention_masks.append(tags[i]==0)
             # (batchsize,1, tag_embed_dim)
             tag_mask = (tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim)
             tag_emb = self.tag_embeddings[i](tags[i])
-            embed = tag_mask * (tag_emb + self.tag_embeddings_biases[i])
+            tag_embeds.append(tag_emb)
+            embed = tag_mask * tag_emb #+ self.tag_embeddings_biases[i])
             embeds.append(embed)
         # (batchsize, 11, tag_emb_dim)
-        tag_embeddings = torch.cat(embeds,dim=1)
-       
+        tag_embeddings = torch.cat(tag_embeds,dim=1)
+        # (batchsize, 1, 11)
+        tag_attention_masks = torch.permute(torch.stack(tag_attention_masks), (1,2,0))
+    
+
         # (batchsize, 1, tag_emb_dim)
         tag_all_embed = torch.sum(torch.cat(embeds,dim=1),dim=1).unsqueeze(1)
         #TODO: add bias
@@ -244,17 +253,17 @@ class MSVED(nn.Module):
         dec_h0 = torch.tanh(self.tag_to_dec(tag_all_embed) + self.z_to_dec(z))
         dec_h0 = torch.permute(dec_h0, (1,0,2))
         if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, tag_embeddings, recon_type='sum')
+            recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, tag_embeddings, tag_attention_masks, recon_type='sum')
         else:
-            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, tag_embeddings, recon_type='sum')
+            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, tag_embeddings, tag_attention_masks, recon_type='sum')
         # (batchsize)
         kl_loss = self.kl_loss(mu,logvar)
         # (batchsize)
         recon_loss = recon_loss.squeeze(1)#.mean()
         #loss = xloss + recon_loss.mean() + kl_weight * kl_loss.mean()
         
-        log_py_prior = self.log_py_prior(case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss)
-        loss = log_py_prior+ recon_loss + kl_weight * kl_loss
+        #log_py_prior = self.log_py_prior(case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss)
+        loss =  recon_loss + kl_weight * kl_loss
 
         xloss = torch.tensor(0.0)
         tag_correct = 0
@@ -267,7 +276,7 @@ class MSVED(nn.Module):
         KL = 0.5 * (mu.pow(2) + logvar.exp() - logvar - 1).sum(dim=1)
         return KL
 
-    def recon_loss(self, y, z, decoder_hidden, tag_attention_values, recon_type='avg'):
+    def recon_loss(self, y, z, decoder_hidden, tag_attention_values, tag_attention_masks, recon_type='avg'):
         #remove end symbol
         src = y[:, :-1]
         # remove start symbol
@@ -279,7 +288,7 @@ class MSVED(nn.Module):
         for di in range(seq_len):
             decoder_input = src[:,di].unsqueeze(1)  # Teacher forcing
             decoder_output, decoder_hidden, decoder_attention = self.decoder(
-                decoder_input, z, decoder_hidden, tag_attention_values)
+                decoder_input, z, decoder_hidden, tag_attention_values, tag_attention_masks)
             output_logits.append(decoder_output)
         
         # (batchsize, seq_len, vocabsize)
@@ -310,7 +319,7 @@ class MSVED(nn.Module):
         recon_acc  = self.accuracy(output_logits, tgt)
         return recon_loss, recon_acc
 
-    def recon_loss_test(self, y, z, decoder_hidden, tag_attention_values, recon_type='avg'):
+    def recon_loss_test(self, y, z, decoder_hidden, tag_attention_values, tag_attention_masks, recon_type='avg'):
         #remove end symbol
         src = y[:, :-1]
         # remove start symbol
@@ -319,10 +328,11 @@ class MSVED(nn.Module):
         n_sample = z.size(1)
 
         decoder_input = src[:,0].unsqueeze(1)
+
         output_logits = []
         for di in range(seq_len):
             decoder_output, decoder_hidden, decoder_attention = self.decoder(
-                decoder_input, z, decoder_hidden, tag_attention_values)
+                decoder_input, z, decoder_hidden, tag_attention_values, tag_attention_masks)
             output_logits.append(decoder_output)
             topv, topi = decoder_output.topk(1)
             decoder_input = topi.squeeze(1).detach()  # detach from history as input
@@ -365,15 +375,24 @@ class MSVED(nn.Module):
 
         tags = [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
         embeds =[]
+        tag_embeds = []
+        tag_attention_masks = []
+
         for i in range(len(tags)):
+            tag_attention_masks.append(tags[i]==0)
             tag_mask = (tags[i]!=0).unsqueeze(1).repeat(1,1,self.tag_embed_dim)
             tag_emb = self.tag_embeddings[i](tags[i])
-            embed = tag_mask * (tag_emb + self.tag_embeddings_biases[i])
+            tag_embeds.append(tag_emb)
+            embed = tag_mask * tag_emb #+ self.tag_embeddings_biases[i])
             embeds.append(embed)
 
 
         # (batchsize, 11, tag_emb_dim)
-        tag_embeddings = torch.cat(embeds,dim=1)
+        tag_embeddings = torch.cat(tag_embeds,dim=1)
+        # (batchsize, 1, 11)
+        tag_attention_masks = torch.permute(torch.stack(tag_attention_masks), (1,2,0))
+    
+
         # (batchsize, 1, tag_emb_dim)
         tag_all_embed = torch.sum(torch.cat(embeds,dim=1),dim=1).unsqueeze(1)
         #TODO: add bias
@@ -424,35 +443,12 @@ class MSVED(nn.Module):
                 decoder_hidden_h = torch.cat([node.h for node in live_hypotheses], dim=1)
                 decoder_hidden = decoder_hidden_h
 
-                # (batch_size, seq_len, ni)
-                embedded = self.decoder.char_embed(decoder_input)
+
                 #(len(live), 1, nz)
                 expanded_z = z[idx].view(1, 1, -1).expand(len(live_hypotheses), 1, self.nz)
                 expanded_tag_embeddings = tag_embeddings[idx].view(1, 11, -1).expand(len(live_hypotheses), 11, 200)
-                    
-
-                #(len(live), 1, nz + ni)
-                embedded = torch.cat((embedded, expanded_z), dim=-1)
-
-                # (batchsize,1, ni+nz+hiddensize)
-                # Attention Queries
-                to_attend = torch.cat((embedded, torch.permute(decoder_hidden, (1,0,2))), 2) 
-
-                # (batchsize,1, tagvocabsize)
-                # Attention Keys: self.attn
-                attention_scores = self.decoder.attn(to_attend)
-                attn_weights = F.softmax(attention_scores, dim=2)
-            
-                # (batchsize, 1, 200)
-                attn_applied = torch.bmm(attn_weights,expanded_tag_embeddings)
-                # (batchsize,1, ni+nz+tagsize)
-                output = torch.cat((embedded, attn_applied), 2)
-                output = self.decoder.attn_combine(output)
-                output = F.relu(output)
-                output, decoder_hidden = self.decoder.gru(output, decoder_hidden)
-
-                # (len(live), 1, vocab_size)
-                output_logits = self.decoder.pred_linear(output)
+                expanded_tag_attention_masks = tag_attention_masks[idx].view(1, 1, -1).expand(len(live_hypotheses), 1, 11)
+                output_logits, decoder_hidden, _ = self.decoder(decoder_input, expanded_z, decoder_hidden, expanded_tag_embeddings, expanded_tag_attention_masks)
                 decoder_output = F.log_softmax(output_logits, dim=-1)
 
                 prev_logp = torch.tensor([node.logp for node in live_hypotheses], dtype=torch.float, device='cuda')

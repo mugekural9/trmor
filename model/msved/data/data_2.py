@@ -158,7 +158,7 @@ def build_data(args, surface_vocab=None):
     tag_vocabs['inter'],
     tag_vocabs['poss'])    
     args.valsize = len(vlddata)
-    vld_batches, _ = get_batches_msved(vlddata, surface_vocab, 20, args.seq_to_no_pad) 
+    vld_batches, _ = get_batches_msved(vlddata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
 
     tstdata, _ = read_data(args.maxtstsize, args.tstdata, surface_vocab, 'TST',
     tag_vocabs['case'],

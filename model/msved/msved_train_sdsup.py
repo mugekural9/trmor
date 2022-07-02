@@ -32,7 +32,7 @@ def test(batches, mode, args, kl_weight, tmp):
         loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, labeled_kl_loss, labeled_reinflect_recon_acc  = args.model.loss_l(surf,case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflect_surf, kl_weight, tmp, mode='test')
         epoch_tag_correct += tag_correct
         epoch_tag_total_tokens += tag_total
-        epoch_labeled_num_tokens +=  torch.sum(reinflect_surf !=0).item()
+        epoch_labeled_num_tokens +=  torch.sum(reinflect_surf[:,1:] !=0).item()
         epoch_loss       += loss.sum().item()
         epoch_labeled_pred_loss += labeled_pred_loss.item()
         epoch_labeled_recon_loss += labeled_recon_loss.sum().item()
@@ -87,8 +87,7 @@ def train(data, args):
             lx_src, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lx_tgt  = trnbatches[lidx] 
             # (batchsize)
             loss_l, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss,  labeled_kl_loss, labeled_reinflect_recon_acc = args.model.loss_l(lx_src,case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lx_tgt, kl_weight, tmp)
-            epoch_num_tokens += lx_src.size(0) * (lx_src.size(1)-1) # exclude start token prediction
-            epoch_labeled_num_tokens +=  torch.sum(lx_tgt !=0).item()
+            epoch_labeled_num_tokens +=  torch.sum(lx_tgt[:,1:] !=0).item()
             epoch_tag_correct += tag_correct
             epoch_tag_total_tokens += tag_total
             epoch_labeled_pred_loss += labeled_pred_loss.item()
@@ -118,7 +117,7 @@ def train(data, args):
             best_loss = loss
             torch.save(args.model.state_dict(), args.save_path)
         # SHARED TASK
-        if epc %5 == 0:
+        if epc % 10 == 0:
             shared_task_gen(tstbatches, args)
         args.model.train()
 
@@ -126,7 +125,7 @@ def get_temp(update_ind):
     return max(0.5, math.exp(-3 * 1e-5 * update_ind))
 
 def get_kl_weight(update_ind, thres, rate):
-    upnum = 10000
+    upnum = 1500
     if update_ind <= upnum:
         return 0.0
     else:
@@ -158,23 +157,23 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 20; args.epochs = 120
+args.batchsize = 128; args.epochs = 1
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'msved'
 args.seq_to_no_pad = 'surface'
 # data
 args.trndata  = 'data/sigmorphon2016/turkish-task3-train'
-args.valdata  = 'data/sigmorphon2016/turkish-task3-dev'
+args.valdata  = 'data/sigmorphon2016/turkish-task3-test'
 args.tstdata  = 'data/sigmorphon2016/turkish-task3-test'
-
-args.labeled_data   = 'data/sigmorphon2016/turkish-task3-train'
-args.unlabeled_data = 'data/sigmorphon2016/zhou_ux.txt'
 
 args.update_temp = 2000
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 1000000000; args.maxvalsize = 10000; args.maxtstsize = 10000
+args.maxtrnsize = 10000000; args.maxvalsize = 10000; args.maxtstsize = 10000
 rawdata, batches, surf_vocab, tag_vocabs = build_data(args)
-
+for key,val in tag_vocabs.items():
+    with open(key+'_vocab.json', 'w') as f:
+        f.write(json.dumps(val))
+breakpoint()
 
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
@@ -185,7 +184,7 @@ emb_init = uniform_initializer(0.1)
 args.ni = 300; args.nz = 150; 
 args.enc_nh = 256; args.dec_nh = 256
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.4; 
+args.dec_dropout_in = 0.5; 
 args.model = MSVED(args, surf_vocab, tag_vocabs, model_init, emb_init)
 args.model.to(args.device)
 
