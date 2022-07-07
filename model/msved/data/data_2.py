@@ -143,7 +143,24 @@ def build_data(args, surface_vocab=None):
     surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
     trndata, tag_vocabs = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
     args.trnsize = len(trndata)
-    trn_batches, _ = get_batches_msved(trndata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
+    lxsrc_ordered_batches, _ = get_batches_msved(trndata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
+
+    lxtgtdata, _ = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN',
+    tag_vocabs['case'],
+    tag_vocabs['polar'],
+    tag_vocabs['mood'],
+    tag_vocabs['evid'],
+    tag_vocabs['pos'],
+    tag_vocabs['per'],
+    tag_vocabs['num'],
+    tag_vocabs['tense'],
+    tag_vocabs['aspect'],
+    tag_vocabs['inter'],
+    tag_vocabs['poss'])    
+    args.lxtgtsize = len(lxtgtdata)
+    lxtgt_ordered_batches, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
+
+
 
     vlddata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'VAL',
     tag_vocabs['case'],
@@ -158,7 +175,7 @@ def build_data(args, surface_vocab=None):
     tag_vocabs['inter'],
     tag_vocabs['poss'])    
     args.valsize = len(vlddata)
-    vld_batches, _ = get_batches_msved(vlddata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
+    vld_batches, _ = get_batches_msved(vlddata, surface_vocab, args.batchsize, 'feature')#args.seq_to_no_pad) 
 
     tstdata, _ = read_data(args.maxtstsize, args.tstdata, surface_vocab, 'TST',
     tag_vocabs['case'],
@@ -178,7 +195,7 @@ def build_data(args, surface_vocab=None):
     udata = read_data_unsup(args.maxtrnsize, args.unlabeled_data, surface_vocab, 'UDATA')
     u_batches, _ = get_batches(udata, surface_vocab, args.batchsize, '') 
 
-    return (trndata, vlddata, tstdata, udata), (trn_batches, vld_batches, tst_batches, u_batches), surface_vocab, tag_vocabs
+    return (trndata, vlddata, tstdata, udata), (lxsrc_ordered_batches, lxtgt_ordered_batches, vld_batches, tst_batches, u_batches), surface_vocab, tag_vocabs
 
 
 ## Data prep
@@ -234,7 +251,9 @@ def get_batches_msved(data, vocab, batchsize=64, seq_to_no_pad='', device='cuda'
         # 0:sort according to surfaceform, 1: featureform, 3: rootform 
         if seq_to_no_pad == 'surface':
             z = sorted(zip(order, data), key=lambda i: len(i[1][0]))
-    z = sorted(zip(order, data), key=lambda i: len(i[1][0]))
+        if seq_to_no_pad == 'feature':
+            z = sorted(zip(order, data), key=lambda i: len(i[1][-1]))
+
     order, data = zip(*z)
     batches = []
     i = 0
@@ -246,7 +265,10 @@ def get_batches_msved(data, vocab, batchsize=64, seq_to_no_pad='', device='cuda'
                 while jr < min(len(data), i+batchsize) and len(data[jr][0]) == len(data[i][0]): # Do not pad and select equal length of, 0: +surfaceform, 1: +featureform, 2:rootpostag, 3: +root
                     jr += 1
             elif seq_to_no_pad == 'feature':
-                while jr < min(len(data), i+batchsize) and len(data[jr][1]) == len(data[i][1]): 
+                while jr < min(len(data), i+batchsize) and len(data[jr][-1]) == len(data[i][-1]): 
+                    jr += 1
+            elif seq_to_no_pad == 'surface+feature':
+                while jr < min(len(data), i+batchsize) and len(data[jr][0]) == len(data[i][0]) and len(data[jr][-1]) == len(data[i][-1]): 
                     jr += 1
             batches.append(get_batch_tagmapping(data[i: jr], vocab, device=device))
             i = jr

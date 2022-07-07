@@ -223,8 +223,8 @@ class MSVED(nn.Module):
         return msved_loss, recon_loss, kl_loss, recon_acc
 
     def loss_lxsrc_msvae(self, lx_src, kl_weight, tmp, mode='train'):
-        msvae_loss, recon_loss, kl_loss, recon_acc  = self.msvae_loss(lx_src, kl_weight, tmp, mode=mode)
-        return msvae_loss, recon_loss, kl_loss, recon_acc
+        msvae_loss, recon_loss, kl_loss, recon_acc, gumbel_classes  = self.msvae_loss(lx_src, kl_weight, tmp, mode=mode)
+        return msvae_loss, recon_loss, kl_loss, recon_acc, gumbel_classes
 
     def loss_lxtgt_labeled_msvae(self, lx_tgt, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, kl_weight, tmp, mode='train'):
         labeled_msved_loss, labeled_pred_loss, tag_correct, tag_total, labeled_recon_loss, labeled_kl_loss, labeled_recon_acc = self.labeled_msvae_loss(lx_tgt, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, kl_weight, tmp, mode=mode)
@@ -233,8 +233,8 @@ class MSVED(nn.Module):
     def loss_ux_msvae(self, ux, kl_weight, tmp, mode='train'):
         # a * [U(x)] + [Lu (xs|xt)] + [Ll (xt, yt| xs) - D(xt|yt)]
         # [U(x)]
-        msvae_loss, recon_loss, kl_loss, recon_acc = self.msvae_loss(ux, kl_weight, tmp, mode= mode)
-        return msvae_loss, recon_loss, kl_loss, recon_acc
+        msvae_loss, recon_loss, kl_loss, recon_acc, gumbel_classes = self.msvae_loss(ux, kl_weight, tmp, mode= mode)
+        return msvae_loss, recon_loss, kl_loss, recon_acc, gumbel_classes
 
     def msvae_loss(self, x,  kl_weight, tmp, mode='train'):
         # Lu (xs|xs)
@@ -250,7 +250,7 @@ class MSVED(nn.Module):
         sft = nn.Softmax(dim=1)
         tag_att_masks = []
         for i in range(len(gumbel_logits)):
-            tag_att_masks.append(torch.argmax(sft(gumbel_logits[1]),dim=1) == 0)
+            tag_att_masks.append(torch.argmax(gumbel_logits[i],dim=1) == 0)
         # (batchsize, 1, 11)
         tag_att_masks = (torch.stack(tag_att_masks).t()).unsqueeze(1)
 
@@ -265,7 +265,7 @@ class MSVED(nn.Module):
         if mode == 'train':
             recon_loss, recon_acc = self.recon_loss(x, z, dec_h0, gumbel_tag_embeddings, tag_att_masks, recon_type='sum')
         else:
-            recon_loss, recon_acc = self.recon_loss_test(x, z, dec_h0, gumbel_tag_embeddings, tag_att_masks, recon_type='sum')
+            recon_loss, recon_acc, _ = self.recon_loss_test(x, z, dec_h0, gumbel_tag_embeddings, tag_att_masks, recon_type='sum')
 
         # (batchsize)
         kl_loss = self.kl_loss(mu,logvar)
@@ -277,8 +277,15 @@ class MSVED(nn.Module):
 
         #loss = log_py_prior + recon_loss + kl_weight * kl_loss
         loss =  recon_loss + kl_weight * kl_loss
+        return loss, recon_loss, kl_loss, recon_acc, self.gumbel_classes(gumbel_logits)
+
+    def gumbel_classes(self, gumbel_logits):
+        probs = []
+        for i in range(len(gumbel_logits)):
+            #probs.append(torch.softmax(gumbel_logits[i],dim=1))
+            probs.append(gumbel_logits[i])
         
-        return loss, recon_loss, kl_loss, recon_acc
+        return probs
 
     def msved_loss(self, x, reinflect_surf, kl_weight, tmp, mode='train'):
         mu, logvar, encoder_fhs = self.encoder(reinflect_surf)
@@ -295,7 +302,7 @@ class MSVED(nn.Module):
         sft = nn.Softmax(dim=1)
         tag_att_masks = []
         for i in range(len(gumbel_logits)):
-            tag_att_masks.append(torch.argmax(sft(gumbel_logits[1]),dim=1) == 0)
+            tag_att_masks.append(torch.argmax(gumbel_logits[i],dim=1) == 0)
         # (batchsize, 1, 11)
         tag_att_masks = (torch.stack(tag_att_masks).t()).unsqueeze(1)
 
@@ -308,9 +315,9 @@ class MSVED(nn.Module):
 
     
         if mode == 'train':
-            recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, gumbel_tag_embeddings, tag_att_masks, recon_type='sum')
+            recon_loss, recon_acc = self.recon_loss(x, z, dec_h0, gumbel_tag_embeddings, tag_att_masks, recon_type='sum')
         else:
-            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, gumbel_tag_embeddings, tag_att_masks, recon_type='sum')
+            recon_loss, recon_acc = self.recon_loss_test(x, z, dec_h0, gumbel_tag_embeddings, tag_att_masks, recon_type='sum')
 
         # (batchsize)
         kl_loss = self.kl_loss(mu,logvar)
@@ -361,7 +368,7 @@ class MSVED(nn.Module):
         if mode == 'train':
             recon_loss, recon_acc = self.recon_loss(reinflect_surf, z, dec_h0, tag_embeddings, tag_attention_masks, recon_type='sum')
         else:
-            recon_loss, recon_acc = self.recon_loss_test(reinflect_surf, z, dec_h0, tag_embeddings, tag_attention_masks, recon_type='sum')
+            recon_loss, recon_acc, _ = self.recon_loss_test(reinflect_surf, z, dec_h0, tag_embeddings, tag_attention_masks, recon_type='sum')
        
         log_py_prior = self.log_py_prior(case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss)
 
@@ -514,7 +521,7 @@ class MSVED(nn.Module):
 
         # avg over batches and samples
         recon_acc, recon_preds  = self.accuracy(output_logits, tgt, mode='val')
-        return recon_loss, recon_acc
+        return recon_loss, recon_acc, recon_preds
 
     def log_py_prior(self, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss):
         batch_size,_ = case.size()
