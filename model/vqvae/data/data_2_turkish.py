@@ -140,7 +140,6 @@ def read_data_unsup(maxdsize, file, surface_vocab, mode):
 
 def build_data(args, surface_vocab=None):
     # Read data and get batches...
-    surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
     trndata, tag_vocabs = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
     args.trnsize = len(trndata)
     lxsrc_ordered_batches, _ = get_batches_msved(trndata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
@@ -277,7 +276,7 @@ def get_batches_msved(data, vocab, batchsize=64, seq_to_no_pad='', device='cuda'
     #args.logger.write('# of surf tokens: ' + number_of_surf_tokens, ', # of surf unks: ', number_of_surf_unks)
     return batches, order   
 
-class MonoTextData(object):
+'''class MonoTextData(object):
     """docstring for MonoTextData"""
     def __init__(self, fname, label=False, max_length=None, vocab=None):
         super(MonoTextData, self).__init__()
@@ -378,5 +377,5 @@ class MonoTextData(object):
         if isinstance(vocab, VocabEntry):
             return data, vocab, dropped, labels
 
-        return data, VocabEntry(vocab), dropped, labels
+        return data, VocabEntry(vocab), dropped, labels'''
 

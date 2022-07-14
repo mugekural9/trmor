@@ -17,7 +17,7 @@ from model.ae.ae import AE
 from common.utils import *
 from common.vocab import VocabEntry
 from torch import optim
-from data.data_2 import build_data
+from model.vqvae.data.data_2_turkish import build_data
 from torch.utils.tensorboard import SummaryWriter
 import numpy as np
 from collections import defaultdict, OrderedDict

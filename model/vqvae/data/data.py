@@ -68,7 +68,7 @@ def read_data(maxdsize, file, surface_vocab, mode):
     
 def build_data(args, surface_vocab=None):
     # Read data and get batches...
-    surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
+    #surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
     trndata = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
     args.trnsize = len(trndata)
     trn_batches, _ = get_batches(trndata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
@@ -93,7 +93,7 @@ def log_data(data, dset, surface_vocab, logger, modelname, dsettype='trn'):
     logger.write('%s -- size:%.1d,  avg_surf_len: %.2f \n' % (dset, len(data), avg_surf_len))
 
 
-class MonoTextData(object):
+'''class MonoTextData(object):
     """docstring for MonoTextData"""
     def __init__(self, fname, label=False, max_length=None, vocab=None):
         super(MonoTextData, self).__init__()
@@ -194,5 +194,5 @@ class MonoTextData(object):
         if isinstance(vocab, VocabEntry):
             return data, vocab, dropped, labels
 
-        return data, VocabEntry(vocab), dropped, labels
+        return data, VocabEntry(vocab), dropped, labels'''
 

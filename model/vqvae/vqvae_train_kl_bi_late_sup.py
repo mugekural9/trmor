@@ -346,33 +346,45 @@ args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
 args.kl_max = 0.1
 dataset_type = 'V'
+args.lang='turkish'
+
+
+if dataset_type == 'V':
+    _model_id = 'ae_'+args.lang+'_unsup_660'
+    ae_fhs_vectors_fwd = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_fwd_d660.pt').to('cpu')
+    ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d660.pt').to('cpu')
+    ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
+
+_model_path, surf_vocab  = get_model_info(_model_id) 
+# initialize model
+# load vocab (to initialize the model with correct vocabsize)
+with open(surf_vocab) as f:
+    word2id = json.load(f)
+    args.surf_vocab = VocabEntry(word2id)
 
 # data
-args.lang ='finnish'
 args.trndata  = 'data/sigmorphon2016/'+args.lang+'-task3-train'
 args.valdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
-args.tstdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
+args.tstdata  = args.valdata
 args.unlabeled_data = 'data/sigmorphon2016/'+args.lang+'_zhou_merged'
-args.surface_vocab_file = args.trndata
 args.maxtrnsize = 700000000; args.maxvalsize = 10000; args.maxtstsize = 10000
 
 if args.lang == 'finnish':
     from data.data_2_finnish import build_data
+    _, _, _, tag_vocabs = build_data(args, surface_vocab= args.surf_vocab)
 elif args.lang == 'turkish':
-    from data.data_2 import build_data
-_, _, _, tag_vocabs = build_data(args)
+    from model.vqvae.data.data_2_turkish import build_data
+    _, _, _, tag_vocabs = build_data(args, surface_vocab= args.surf_vocab)
 
 from data.data import build_data
 # data
 args.trndata  = 'data/sigmorphon2016/'+args.lang+'_zhou_merged'
 args.valdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
 args.tstdata = args.valdata
-args.surface_vocab_file = args.trndata
 args.maxtrnsize = 700000000; args.maxvalsize = 1000; args.maxtstsize = 100000
-rawdata, batches, surf_vocab = build_data(args)
+rawdata, batches, _ = build_data(args, surface_vocab= args.surf_vocab)
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
-
 
 
 # model
@@ -385,7 +397,7 @@ args.ni = 256;
 args.enc_nh = 660;
 args.dec_nh = 256  
 args.embedding_dim = args.enc_nh
-args.beta = 0.1
+args.beta = 0.2
 args.nz = 128; 
 args.num_dicts = 11  
 args.outcat=0; 
@@ -393,33 +405,21 @@ args.orddict_emb_num = 6
 args.incat = args.enc_nh; 
 
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat; args.dec_nh_tmp = args.dec_nh
-args.model = VQVAE(args, surf_vocab,  tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat', bidirectional=True)
+args.model = VQVAE(args, args.surf_vocab,  tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat', bidirectional=True)
 
 # tensorboard
 # load pretrained ae weights
 args.model_prefix = 'batchsize'+str(args.batchsize)+'_beta'+str(args.beta)+'_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
+writer = SummaryWriter("runs/"+args.lang+'/'+ args.model_prefix)
 
 args.model_id = 'late-supervision_' + args.model_prefix
 args.model_id = args.model_id[:-1]
 
-
-if dataset_type == 'V':
-    writer = SummaryWriter("runs/"+args.lang+'/'+ args.model_prefix)
-    _model_id = 'ae_'+args.lang+'_unsup_660'
-    ae_fhs_vectors_fwd = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_fwd_d660.pt').to('cpu')
-    ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d660.pt').to('cpu')
-    ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
-
-_model_path, surf_vocab  = get_model_info(_model_id) 
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
     vq_layer.embedding.weight.data = ae_fhs_vectors_bck[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
 
 
-# initialize model
-# load vocab (to initialize the model with correct vocabsize)
-with open(surf_vocab) as f:
-    word2id = json.load(f)
-    args.surf_vocab = VocabEntry(word2id)
+
 
 
 args.num_dicts = 0; args.outcat=0; args.incat = 0; args.dec_nh = args.enc_nh*2; args.bidirectional=True
