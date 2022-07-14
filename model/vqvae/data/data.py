@@ -26,16 +26,16 @@ def read_data(maxdsize, file, surface_vocab, mode):
                     break
                 surf = line.strip().split(' ')[1]
                 surf_data.append([surface_vocab[char] for char in surf])
-    elif 'turkish' in file:
+    elif 'task3' in file:
         with open(file, 'r') as reader:
             for line in reader:     
                 count += 1
                 if count > maxdsize:
                     break
-                surf = line.strip().split('\t')[0]
-                if surf not in surfs:
-                    surf_data.append([surface_vocab[char] for char in surf])
-                    surfs.append(surf)
+                surf = line.strip().split('\t')[2]#[0]
+                #if surf not in surfs:
+                surf_data.append([surface_vocab[char] for char in surf])
+                surfs.append(surf)
                 #surf_r = surf[::-1]
                 #surf_data.append([surface_vocab[char] for char in surf_r])
     elif 'zhou' in file:
@@ -45,9 +45,9 @@ def read_data(maxdsize, file, surface_vocab, mode):
                 if count > maxdsize:
                     break
                 surf = line.strip().split('\t')[0]
-                if surf not in surfs:
-                    surf_data.append([surface_vocab[char] for char in surf])
-                    surfs.append(surf)
+                #if surf not in surfs:
+                surf_data.append([surface_vocab[char] for char in surf])
+                surfs.append(surf)
     elif 'trn.txt' in file:
         with open(file, 'r') as reader:
             for line in reader:     
@@ -165,7 +165,7 @@ class MonoTextData(object):
                     if label:
                         labels.append(lb)
                     data.append([vocab[char] for char in split_line[0]])
-        elif 'turkish' in fname:
+        elif 'task3' in fname:
             with open(fname) as fin:
                 for line in fin:
                     split_line = line.strip().split('\t')

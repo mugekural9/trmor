@@ -50,14 +50,20 @@ def config():
     model_id = 'discretelemma_bilstm_4x10_dec512_suffixd512'
     model_id = 'kl0.1_16x10_dec128_suffixd512'
     model_id = 'kl0.1_8x6_dec128_suffixd512'
+    model_id = 'discretelemma_sum_bilstm_8x6_dec512_suffixd64'
+    model_id = 'bi_kl0.1_16x6_dec128_suffixd512'
+    model_id = 'bi_kl0.1_8x6_dec128_suffixd512'
+    model_id = 'bi_kl0.2_8x6_dec128_suffixd512'
+    model_id = 'bi_kl0.1_sum_8x6_dec128_suffixd64'
+    model_id = 'beta0.5_anneal_bi_kl0.1_8x6_dec128_suffixd512'
 
     args.num_dicts = 8
     args.orddict_emb_num  = 6
     args.lemmadict_emb_num  = 5000
     args.nz = 128
     args.root_linear_h = args.nz
-    args.dec_nh= args.root_linear_h
     args.enc_nh = 512    
+    args.dec_nh= args.root_linear_h
     args.incat = args.enc_nh 
 
     if 'uni' in model_id:
@@ -69,7 +75,6 @@ def config():
         args.model_type = 'kl'
         args.nz = args.root_linear_h
         args.dec_nh = args.nz  
-        
 
     if 'bi' in model_id:
         from vqvae_bidirect import VQVAE
@@ -78,6 +83,24 @@ def config():
     if 'discrete' in model_id:
         from vqvae_discrete import VQVAE
         args.model_type = 'discrete'
+
+    if 'discrete' in model_id and 'sum' in model_id:
+        from vqvae_discrete_sum import VQVAE
+        args.num_dicts = 9
+        args.dec_nh = args.enc_nh
+        args.incat = int(args.enc_nh/(args.num_dicts-1))        
+        args.model_type = 'discrete_sum'
+
+    if 'bi_kl' in model_id:
+        from vqvae_kl_bi import VQVAE
+        args.model_type = 'bi_kl'
+        args.dec_nh = args.nz  
+    
+    if 'bi_kl' in model_id and 'sum' in model_id:
+        from vqvae_kl_bi_sum import VQVAE
+        args.incat = int(args.enc_nh/args.num_dicts)        
+        args.model_type = 'bi_kl_sum'
+
 
     model_path, model_vocab  = get_model_info(model_id)
     # logging

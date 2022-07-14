@@ -8,9 +8,8 @@ import sys, argparse, random, torch, json, matplotlib, os
 from turtle import update
 from unicodedata import bidirectional
 import matplotlib.pyplot as plt
-from vqvae_kl_bi import VQVAE
+from model.vqvae.vqvae_kl_bi_late_sup import VQVAE
 from vqvae_ae import VQVAE_AE
-from model.vae.vae import VAE
 import torch.nn.functional as F
 
 from model.ae.ae import AE
@@ -27,6 +26,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 #torch.manual_seed(0)
 #random.seed(0)
 torch.autograd.set_detect_anomaly(True)
+from vqvae_tag_analysis import tag_analysis, counter
 
 
 def test(batches, mode, args, epc, suffix_codes_trn, kl_weight):
@@ -73,8 +73,8 @@ def test(batches, mode, args, epc, suffix_codes_trn, kl_weight):
                     ind = suffix_code_list[s]
                     if ind not in clusters_list[-1]:                   
                         clusters_list[-1][ind] = []
-                    if ''.join(vocab.decode_sentence(surf[s])) not in clusters_list[-1][ind]:
-                        clusters_list[-1][ind].append(''.join(vocab.decode_sentence(surf[s])))
+                    if ''.join(args.surf_vocab.decode_sentence(surf[s])) not in clusters_list[-1][ind]:
+                        clusters_list[-1][ind].append(''.join(args.surf_vocab.decode_sentence(surf[s])))
              
 
 
@@ -212,8 +212,10 @@ def train(data, args):
             args.logger.write('\nupdate best loss\n')
             best_loss = loss
             torch.save(args.model.state_dict(), args.save_path)
-        if epc%10==0:
+        if epc%5==0 or (epc>150 and epc%5==0):
             shared_acc = shared_task_gen(args)
+            #tag_analysis(args.model_id+'_epc'+str(epc), args.num_dicts, args.orddict_emb_num, args.lang, args.logger, during_training=True, args=args)
+            #counter(args.model_id+'_epc'+str(epc), args.lang, args.logger)
             torch.save(args.model.state_dict(), args.save_path+'_'+str(epc))
             writer.add_scalar('shared-task/accuracy', shared_acc, epc)
 
@@ -221,15 +223,14 @@ def train(data, args):
 
 
 def shared_task_gen(args):
-    i=0
-    with open(args.lang+'_beta'+str(args.beta)+'_sharedtask_TRUE.txt'+str(args.kl_max)+'_'+str(args.num_dicts)+'_'+str(args.orddict_emb_num), 'w') as writer_true:
-        with open(args.lang+'_beta'+str(args.beta)+'_sharedtask_FALSE.txt'+str(args.kl_max)+'_'+str(args.num_dicts)+'_'+str(args.orddict_emb_num), 'w') as writer_false:
+    with open('late_sup_'+args.lang+'_beta'+str(args.beta)+'_sharedtask_TRUE.txt_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+'_'+str(args.orddict_emb_num), 'w') as writer_true:
+        with open('late_sup_'+args.lang+'_beta'+str(args.beta)+'_sharedtask_FALSE.txt_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+'_'+str(args.orddict_emb_num), 'w') as writer_false:
             with open(args.tstdata, 'r') as reader:
-                true=0; false = 0
+                i=0; true=0; false = 0
                 for line in reader:
-                    i+=1
-                    if i>1000:
+                    if i>2000:
                         break
+                    i+=1
                     split_line = line.strip().split('\t')
                     inflected_word, asked_tag, gold_reinflection  = split_line
                     oracle_keys = oracle(args, asked_tag, inflected_word, gold_reinflection)
@@ -242,8 +243,9 @@ def shared_task_gen(args):
                         writer_true.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
                     else:
                         writer_false.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
-    args.logger.write('\nShared Task oracle acc: %.2f' % (true/i))
-    return (true/i)
+    acc = true/i
+    args.logger.write('\nShared Task oracle acc: %.2f over %d words\n' % (acc, i))
+    return acc
 
 def oracle(args, asked_tag, inflected_word, reinflected_word, itr=0):
     x = torch.tensor([args.surf_vocab.word2id['<s>']] + args.surf_vocab.encode_sentence(reinflected_word) + [args.surf_vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
@@ -286,8 +288,9 @@ def reinflect(args, inflected_word, reinflect_tag):
     if args.num_dicts >=10:
         vq_vectors.append(args.model.ord_vq_layers[8].embedding.weight[reinflect_tag[8]].unsqueeze(0).unsqueeze(0))
         vq_vectors.append(args.model.ord_vq_layers[9].embedding.weight[reinflect_tag[9]].unsqueeze(0).unsqueeze(0))
-    if args.num_dicts >=16:
+    if args.num_dicts >=11:
         vq_vectors.append(args.model.ord_vq_layers[10].embedding.weight[reinflect_tag[10]].unsqueeze(0).unsqueeze(0))
+    if args.num_dicts >=16:
         vq_vectors.append(args.model.ord_vq_layers[11].embedding.weight[reinflect_tag[11]].unsqueeze(0).unsqueeze(0))
         vq_vectors.append(args.model.ord_vq_layers[12].embedding.weight[reinflect_tag[12]].unsqueeze(0).unsqueeze(0))
         vq_vectors.append(args.model.ord_vq_layers[13].embedding.weight[reinflect_tag[13]].unsqueeze(0).unsqueeze(0))
@@ -337,25 +340,41 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 500
+args.batchsize = 128; args.epochs = 300
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
-args.kl_max = 0.2
+args.kl_max = 0.1
 dataset_type = 'V'
 
 # data
-args.lang ='turkish'
+args.lang ='finnish'
+args.trndata  = 'data/sigmorphon2016/'+args.lang+'-task3-train'
+args.valdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
+args.tstdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
+args.unlabeled_data = 'data/sigmorphon2016/'+args.lang+'_zhou_merged'
+args.surface_vocab_file = args.trndata
+args.maxtrnsize = 700000000; args.maxvalsize = 10000; args.maxtstsize = 10000
+
+if args.lang == 'finnish':
+    from data.data_2_finnish import build_data
+elif args.lang == 'turkish':
+    from data.data_2 import build_data
+_, _, _, tag_vocabs = build_data(args)
+
+from data.data import build_data
+# data
 args.trndata  = 'data/sigmorphon2016/'+args.lang+'_zhou_merged'
 args.valdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
 args.tstdata = args.valdata
-
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 60000; args.maxvalsize = 1000; args.maxtstsize = 100000
-
-rawdata, batches, vocab = build_data(args)
+args.maxtrnsize = 700000000; args.maxvalsize = 1000; args.maxtstsize = 100000
+rawdata, batches, surf_vocab = build_data(args)
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
+
+
+
 # model
 args.mname = 'vqvae' 
 model_init = uniform_initializer(0.01)
@@ -363,34 +382,37 @@ emb_init = uniform_initializer(0.1)
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.5; args.dec_dropout_out = 0.0
 args.ni = 256; 
-args.enc_nh = 300;
+args.enc_nh = 660;
 args.dec_nh = 256  
 args.embedding_dim = args.enc_nh
-args.beta = 0.2
+args.beta = 0.1
 args.nz = 128; 
-args.num_dicts = 2  
+args.num_dicts = 11  
 args.outcat=0; 
-args.orddict_emb_num = 100
+args.orddict_emb_num = 6
 args.incat = args.enc_nh; 
 
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat; args.dec_nh_tmp = args.dec_nh
-args.model = VQVAE(args, vocab, model_init, emb_init, dict_assemble_type='sum_and_concat', bidirectional=True)
+args.model = VQVAE(args, surf_vocab,  tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat', bidirectional=True)
 
 # tensorboard
 # load pretrained ae weights
 args.model_prefix = 'batchsize'+str(args.batchsize)+'_beta'+str(args.beta)+'_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
 
+args.model_id = 'late-supervision_' + args.model_prefix
+args.model_id = args.model_id[:-1]
+
 
 if dataset_type == 'V':
     writer = SummaryWriter("runs/"+args.lang+'/'+ args.model_prefix)
-    _model_id = 'ae_'+args.lang
-    ae_fhs_vectors_fwd = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_fwd_d300.pt').to('cpu')
-    ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d300.pt').to('cpu')
-    ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d600.pt').to('cpu')
+    _model_id = 'ae_'+args.lang+'_unsup_660'
+    ae_fhs_vectors_fwd = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_fwd_d660.pt').to('cpu')
+    ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d660.pt').to('cpu')
+    ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
 
 _model_path, surf_vocab  = get_model_info(_model_id) 
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
-    vq_layer.embedding.weight.data = ae_fhs_vectors_bck[: args.orddict_emb_num, i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
+    vq_layer.embedding.weight.data = ae_fhs_vectors_bck[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
 
 
 # initialize model
@@ -413,7 +435,7 @@ args.model.encoder.lstm  = args.pretrained_model.encoder.lstm
 
 args.model.to(args.device)
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/unsup/'+str(len(trndata))+'_instances/'+args.model_prefix
+args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/late-supervision/'+str(len(trndata))+'_instances/'+args.model_prefix
 
 try:
     os.makedirs(args.modelname)
@@ -426,7 +448,14 @@ args.fig_path =  args.modelname +  str(args.epochs)+'epochs.png'
 args.logger = Logger(args.log_path)
 
 with open(args.modelname+'/surf_vocab.json', 'w') as f:
-    f.write(json.dumps(vocab.word2id))
+    f.write(json.dumps(args.surf_vocab.word2id))
+
+j=0
+for key,val in tag_vocabs.items():
+    with open(args.modelname+'/'+str(j)+'_tagvocab.json', 'w') as f:
+        f.write(json.dumps(val))
+        j+=1
+
 args.logger.write('\nnumber of params: %d \n' % count_parameters(args.model))
 args.logger.write(args)
 args.logger.write('\n')

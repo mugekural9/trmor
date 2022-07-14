@@ -1,4 +1,5 @@
 # ref: https://github.com/AntixK/PyTorch-VAE/blob/master/models/vq_vae.py
+from bdb import Breakpoint
 import torch, json
 from torch import nn
 from torch.nn import functional as F
@@ -114,6 +115,41 @@ class VectorQuantizer(nn.Module):
         # quantized_latents: (batch_size, t, D), vq_loss: scalar
         return quantized_latents.contiguous(), vq_loss, encoding_inds.t()#, torch.topk(dist,5, largest=False)[1]
 
+class Detmax():   
+    def __init__(self):
+        vdim = 300
+        proj_output_dim = 300
+        R_ini = 1.0
+        self.R = R_ini * torch.eye(vdim , dtype=torch.float64, device='cuda', requires_grad=False)
+        self.mu = torch.zeros(vdim, dtype=torch.float64, device='cuda',  requires_grad=False)
+        self.new_R = torch.zeros((vdim, proj_output_dim), device='cuda', dtype=torch.float64, requires_grad=True)
+        self.new_mu = torch.zeros(vdim, dtype=torch.float64, device='cuda', requires_grad=True)
+        self.R_eps = 1e-8
+
+    def loss(self, la_mu, la_R, z):
+        z= z.squeeze(1)
+        N = z.size(0)
+        #z: (batchsize,vdim)
+        # mu_update: (vdim)
+        mu_update = torch.mean(z, dim=0)
+        
+        self.new_mu = la_mu*(self.mu) + (1-la_mu)*(mu_update)
+        # zh: (batchsize,vdim)
+        zh = z-self.new_mu
+        # (batchsize,vdim,1)
+        #breakpoint()
+        R_update = (zh.T @ zh) / ((300)**0.5)*(2*N)
+        # R_update: (vdim, vdim)
+        sft = nn.Softmax(dim=1)
+        self.new_R = la_R*(self.R) + (1-la_R) * sft(R_update)
+
+        self.R = self.new_R.detach()
+        self.mu = self.new_mu.detach()
+        print()
+        #if torch.isnan(-torch.logdet(self.new_R + self.R_eps)):
+        #    return  -torch.logdet(self.new_R + 1e-4)
+        return -torch.logdet(self.new_R + self.R_eps)
+
 class VQVAE_Decoder(nn.Module):
     """LSTM decoder with constant-length batching"""
     def __init__(self, args, vocab, model_init, emb_init):
@@ -147,28 +183,27 @@ class VQVAE_Decoder(nn.Module):
             model_init(param)
         emb_init(self.embed.weight)
 
-    def forward(self, input, z):
+    def forward(self, input, z, hidden):
         
+        # root_z: (batchsize,1,128) , suffix_z: (batchsize,1, self.incat)
         root_z, suffix_z = z
+        # (1, batch_size, nz)
         batch_size, _, _ = root_z.size()
         seq_len = input.size(1)
         
         # (batch_size, seq_len, ni)
         word_embed = self.embed(input)
         word_embed = self.dropout_in(word_embed)
-        
-        z_ = suffix_z.expand(batch_size, seq_len, self.incat)# 64
+
+        z_ = suffix_z.expand(batch_size, seq_len, self.incat)
         # (batch_size, seq_len, ni + nz)
         word_embed = torch.cat((word_embed, z_), -1)
-        # (1, batch_size, nz)
-        root_z = root_z.permute((1,0,2))
-        # (1, batch_size, dec_nh)
-        c_init = root_z
-        h_init = torch.tanh(c_init)
-        output, _ = self.lstm(word_embed, (h_init, c_init))
+       
+       
+        output, hidden = self.lstm(word_embed, hidden)
         # (batch_size, seq_len, vocab_size)
         output_logits = self.pred_linear(output)
-        return output_logits
+        return output_logits, hidden
 
     def forward_yedek(self, input, z):
         ##v4
@@ -231,16 +266,13 @@ class VQVAE(nn.Module):
         super(VQVAE, self).__init__()
         
         self.encoder = VQVAE_Encoder(args, vocab, model_init, emb_init, bidirectional=True) 
-        self.encoder_emb_dim = args.embedding_dim 
         self.num_dicts = args.num_dicts
         self.orddict_emb_num = args.orddict_emb_num
         self.dict_assemble_type = dict_assemble_type
-        
-     
-        if dict_assemble_type == 'sum':
-            self.orddict_emb_dim = self.rootdict_emb_dim
-        else:
-            self.orddict_emb_dim   = int(args.enc_nh/self.num_dicts)
+        self.nz = args.nz
+        self.z_to_dec = nn.Linear(self.nz, 256)
+        self.detmax = Detmax()
+        self.orddict_emb_dim   = int(args.enc_nh/self.num_dicts)
             
         self.beta = args.beta
         self.ord_vq_layers = nn.ModuleList([])
@@ -275,15 +307,23 @@ class VQVAE(nn.Module):
         return KL
 
 
-    def vq_loss(self,x, epc):
+    def vq_loss(self,x, epc, mode):
         # fhs: (B,1,hdim)
         
         # kl version
         fhs, _, _, mu, logvar, fwd,bck = self.encoder(x)
-        _root_fhs = self.reparameterize(mu, logvar)
+
+        if mode =='train':
+            #(batchsize,1,128)
+            _root_fhs = self.reparameterize(mu, logvar)
+        else:
+            _root_fhs = torch.permute(mu.unsqueeze(0), (1,0,2)).contiguous()
+        
         kl_loss = self.kl_loss(mu,logvar)
         
         vq_vectors = []; vq_losses = []; vq_inds = []
+        _root_fhs = self.z_to_dec(_root_fhs)
+
         vq_vectors.append(_root_fhs)
        
         # quantize thru ord dicts
@@ -299,7 +339,8 @@ class VQVAE(nn.Module):
             vq_inds.append(quantized_inds)
             i+=1
       
-
+        #logdetmaxloss =  self.detmax.loss(0.2,0.2,torch.cat(vq_vectors[1:],dim=2))
+        #print(logdetmaxloss)
         vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2)) 
         # (batchsize, numdicts)
         vq_loss =  torch.cat(vq_losses,dim=1)
@@ -308,31 +349,67 @@ class VQVAE(nn.Module):
         # (batchsize,1)
         vq_loss = vq_loss.unsqueeze(1)
 
-        dict_codes = []; suffix_codes = []
+        suffix_codes = []
         for i in range(vq_loss.shape[0]):
-            dict_code = str((vq_inds[0][0][i]).item())
-            suffix_code = "" #str((vq_inds[0][0][i]).item())
+            suffix_code = "" 
             for j in range(0, len(vq_inds)):
-                dict_code   += '-' + str((vq_inds[j][0][i]).item())
                 suffix_code += '-' + str((vq_inds[j][0][i]).item()) 
-            dict_codes.append(dict_code)
             suffix_codes.append(suffix_code)
         
-        return vq_vectors, vq_loss, vq_inds,  fhs, dict_codes, suffix_codes, kl_loss
+        return vq_vectors, vq_loss, vq_inds,  fhs, [], suffix_codes, kl_loss, torch.tensor(0.0)
 
-    def recon_loss(self, x, quantized_z, dict_codes=None, recon_type='avg'):
+    def recon_loss(self, x, dec_h0, quantized_z, dict_codes=None, recon_type='avg'):
         # remove end symbol
         src = x[:, :-1]
         # remove start symbol
         tgt = x[:, 1:]        
         batch_size, seq_len = src.size()
-        # (batch_size, seq_len, vocab_size)
-        output_logits = self.decoder(src, quantized_z)
-        
-        _tgt = tgt.contiguous().view(-1)
 
+        output_logits, _ = self.decoder(src, quantized_z, dec_h0)
         # (batch_size *  seq_len, vocab_size)
         _output_logits = output_logits.reshape(-1, output_logits.size(2))
+        _tgt = tgt.contiguous().view(-1)
+
+        # (batch_size * 1 * seq_len)
+        recon_loss = self.decoder.loss(_output_logits,  _tgt)
+        # (batch_size, 1, seq_len)
+        recon_loss = recon_loss.view(batch_size, 1, -1)
+
+        # (batch_size, 1)
+        if recon_type=='avg':
+            # avg over tokens
+            recon_loss = recon_loss.mean(-1)
+        elif recon_type=='sum':
+            # sum over tokens
+            recon_loss = recon_loss.sum(-1)
+        elif recon_type == 'eos':
+            # only eos token
+            recon_loss = recon_loss[:,:,-1]
+
+        # avg over batches and samples
+        recon_acc, recon_preds  = self.accuracy(output_logits, tgt, dict_codes)
+        return recon_loss, recon_acc, recon_preds
+
+    def recon_loss_test(self, x, decoder_hidden, quantized_z, dict_codes=None, recon_type='avg'):
+        # remove end symbol
+        src = x[:, :-1]
+        # remove start symbol
+        tgt = x[:, 1:]        
+        batch_size, seq_len = src.size()
+        
+        decoder_input = src[:,0].unsqueeze(1)
+        output_logits = []
+        for di in range(seq_len):
+            decoder_output, decoder_hidden  = self.decoder(
+                decoder_input, quantized_z, decoder_hidden)
+            output_logits.append(decoder_output)
+            topv, topi = decoder_output.topk(1)
+            decoder_input = topi.squeeze(1).detach()  # detach from history as input
+        # (batchsize, seq_len, vocabsize)
+        output_logits = torch.cat(output_logits,dim=1)
+        # (batch_size *  seq_len, vocab_size)
+        _output_logits = output_logits.reshape(-1, output_logits.size(2))
+        _tgt = tgt.contiguous().view(-1)
 
         # (batch_size * 1 * seq_len)
         recon_loss = self.decoder.loss(_output_logits,  _tgt)
@@ -355,16 +432,26 @@ class VQVAE(nn.Module):
         return recon_loss, recon_acc, recon_preds
 
 
-    def loss(self, x: Tensor, epc, **kwargs) -> List[Tensor]:
+    def loss(self, x: Tensor, kl_weight, epc, mode='train', **kwargs) -> List[Tensor]:
         # x: (B,T)
         # quantized_inputs: (B, 1, hdim)
-        quantized_inputs, vq_loss, quantized_inds, encoder_fhs, dict_codes, suffix_codes, kl_loss = self.vq_loss(x, epc)
-        recon_loss, recon_acc, recon_preds = self.recon_loss(x, quantized_inputs, dict_codes, recon_type='sum')
+        quantized_inputs, vq_loss, quantized_inds, encoder_fhs, dict_codes, suffix_codes, kl_loss, logdet = self.vq_loss(x, epc, mode)
+        root_z, suffix_z = quantized_inputs
+        root_z = root_z.permute((1,0,2))
+        # (1, batch_size, dec_nh)
+        c_init = root_z
+        h_init = torch.tanh(c_init)
+        dec_h0 = (h_init, c_init)
+        if mode == 'train':
+            recon_loss, recon_acc, recon_preds = self.recon_loss(x, dec_h0, quantized_inputs, dict_codes, recon_type='sum')
+        else:
+            recon_loss, recon_acc, recon_preds = self.recon_loss_test(x, dec_h0, quantized_inputs, dict_codes, recon_type='sum')
+
         # (batchsize)
         recon_loss = recon_loss.squeeze(1)
         vq_loss = vq_loss.squeeze(1)
-        loss = recon_loss + vq_loss + (0.1*kl_loss) 
-        return loss, recon_loss, vq_loss, recon_acc, quantized_inds, encoder_fhs, dict_codes, suffix_codes, recon_preds, kl_loss#logdet
+        loss = recon_loss + vq_loss + kl_weight*kl_loss 
+        return loss, recon_loss, vq_loss, recon_acc, quantized_inds, encoder_fhs, dict_codes, suffix_codes, recon_preds, kl_loss, logdet
 
         
     def accuracy(self, output_logits, tgt, dict_codes):

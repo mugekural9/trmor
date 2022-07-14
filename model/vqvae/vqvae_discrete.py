@@ -71,7 +71,6 @@ class VectorQuantizer(nn.Module):
         self.embedding.weight.data.uniform_(-1 / self.K, 1 / self.K)
 
     def forward(self, latents: Tensor,epc, forceid=-1, normalize=True) -> Tensor:
-
         # latents: (batch_size, 1, enc_nh)
         latents = latents.contiguous()  
         latents_shape = latents.shape

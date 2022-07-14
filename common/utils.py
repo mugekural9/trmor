@@ -9,7 +9,7 @@ from numpy import dot, zeros
 from numpy.linalg import matrix_rank, norm
 
 
-def get_model_info(id):
+def get_model_info(id, lang=None):
     if id == 'ae_001':
         model_path  = 'model/vqvae/results/training/10000_instances/20epochs.pt'
         model_vocab = 'model/vqvae/results/training/10000_instances/surf_vocab.json'   
@@ -17,104 +17,89 @@ def get_model_info(id):
         model_path  = 'model/vqvae/results/training/50000_instances/30epochs.pt'
         model_vocab = 'model/vqvae/results/training/50000_instances/surf_vocab.json'  
     
-    if id == 'ae_unilstm':
-        model_path  = 'model/vqvae/results/training/12229_instances/25epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12229_instances/surf_vocab.json'  
-    if id == 'ae_bilstm':
-        model_path  = 'model/vqvae/results/training/12229_instances/22epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12229_instances/surf_vocab.json'  
-    if id == 'ae_bilstm_zhou':
-        model_path  = 'model/vqvae/results/training/25031_instances/20epochs.pt'
-        model_vocab = 'model/vqvae/results/training/25031_instances/surf_vocab.json'  
-    if id == 'ae_unilstm_zhou':
-        model_path  = 'model/vqvae/results/training/25031_instances/21epochs.pt'
-        model_vocab = 'model/vqvae/results/training/25031_instances/surf_vocab.json'  
+    if id == 'ae_finnish':
+        model_path  = 'model/vqvae/results/training/finnish/55000_instances/15epochs.pt'
+        model_vocab = 'model/vqvae/results/training/finnish/55000_instances/surf_vocab.json'  
 
-    if id == 'ae_bilstm_29k_zhou':
-        model_path  = 'model/vqvae/results/training/28794_instances/22epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/surf_vocab.json'  
-    if id == 'ae_unilstm_29k_zhou':
-        model_path  = 'model/vqvae/results/training/28794_instances/20epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/surf_vocab.json'  
+    if id == 'ae_turkish':
+        model_path  = 'model/vqvae/results/training/turkish/55204_instances/16epochs.pt'
+        model_vocab = 'model/vqvae/results/training/turkish/55204_instances/surf_vocab.json'  
 
-
-
-    if id == 'unilstm_4x10_dec100_suffixd512':
-        model_path  = 'model/vqvae/results/training/12229_instances/unilstm_4x10_dec100_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12229_instances/unilstm_4x10_dec100_suffixd512/surf_vocab.json'  
+    if id == 'ae_turkish_unsup_660':
+        model_path  = 'model/vqvae/results/training/turkish/unsup/55000_instances/15epochs.pt'
+        model_vocab = 'model/vqvae/results/training/turkish/unsup/55000_instances/surf_vocab.json'  
+   
+    if id == 'ae_finnish_unsup_660':
+        model_path  = 'model/vqvae/results/training/finnish/unsup/55000_instances/16epochs.pt'
+        model_vocab = 'model/vqvae/results/training/finnish/unsup/55000_instances/surf_vocab.json'  
+   
+    if lang == 'finnish':    
+        if id == 'batchsize128_beta_0.2_5x6_bi_kl_0.2_epc190':
+            model_path  = 'model/vqvae/results/training/'+lang+'/55000_instances/batchsize128_beta0.2_bi_kl0.2_5x6_dec256_suffixd300/200epochs.pt_190'
     
-    if id == 'kl0.1_4x10_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/12229_instances/kl0.1_4x10_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12229_instances/kl0.1_4x10_dec128_suffixd512/surf_vocab.json'  
+        if id == 'batchsize128_beta_0.2_6x6_bi_kl_0.2_epc190':
+            model_path  = 'model/vqvae/results/training/'+lang+'/55000_instances/batchsize128_beta0.2_bi_kl0.2_6x6_dec256_suffixd300/200epochs.pt_190'
+            model_vocab = 'model/vqvae/results/training/'+lang+'/55000_instances/batchsize128_beta0.2_bi_kl0.2_6x6_dec256_suffixd300/surf_vocab.json'  
     
-    #if id == 'kl0.1_8x10_dec128_suffixd512':
-    #    model_path  = 'model/vqvae/results/training/12229_instances/kl0.1_8x10_dec128_suffixd512/200epochs.pt'
-    #    model_vocab = 'model/vqvae/results/training/12229_instances/kl0.1_8x10_dec128_suffixd512/surf_vocab.json'  
 
-
-    if id == 'bilstm_4x10dec100_suffixd512':
-        model_path  = 'model/vqvae/results/training/12229_instances/bilstm_4x10dec100_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12229_instances/bilstm_4x10dec100_suffixd512/surf_vocab.json'  
+    if lang == 'turkish':    
+        if id == 'beta_0.1_5x6_bi_kl_0.2_epc190':
+            model_path  = 'model/vqvae/results/training/55204_instances/beta0.1_bi_kl0.2_5x6_dec256_suffixd300/200epochs.pt_190'
+            model_vocab = 'model/vqvae/results/training/55204_instances/beta0.1_bi_kl0.2_5x6_dec256_suffixd300/surf_vocab.json'  
+   
+        if id == 'beta_0.5_5x6_bi_kl_0.2_epc160':
+            model_path  = 'model/vqvae/results/training/'+lang+'/55204_instances/beta0.5_bi_kl0.2_5x6_dec256_suffixd300/200epochs.pt_160'
+            model_vocab = 'model/vqvae/results/training/'+lang+'/55204_instances/beta0.5_bi_kl0.2_5x6_dec256_suffixd300/surf_vocab.json'  
+     
+        if id == 'beta_0.2_5x6_bi_kl_0.2_epc170':
+            model_path  = 'model/vqvae/results/training/'+lang+'/55204_instances/beta0.2_bi_kl0.2_5x6_dec256_suffixd300/200epochs.pt_170'
+            model_vocab = 'model/vqvae/results/training/'+lang+'/55204_instances/beta0.2_bi_kl0.2_5x6_dec256_suffixd300/surf_vocab.json'  
+     
+        ## Semisup vqvae
+        if id == 'semisup_batchsize128_beta_0.2_11x6_bi_kl_0.2_epc180':
+            model_path = 'model/vqvae/results/training/turkish/semisup/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd330/200epochs.pt_180'
+            model_vocab = 'model/vqvae/results/training/turkish/semisup/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd330/surf_vocab.json'
+            tag_vocabs = []
+            for i in range(11):
+                tag_vocabs.append('model/vqvae/results/training/turkish/semisup/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd330/'+str(i)+'_tagvocab.json')  
+            return model_path, model_vocab, tag_vocabs
     
-    if id == 'discretelemma_bilstm_4x10_dec512_suffixd512':
-        model_path  = 'model/vqvae/results/training/12229_instances/discretelemma_bilstm_4x10_dec512_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12229_instances/discretelemma_bilstm_4x10_dec512_suffixd512/surf_vocab.json'  
+        if id == '12k_semisup_batchsize128_beta_0.2_11x6_bi_kl_0.2_epc180':
+            model_path = 'model/vqvae/results/training/turkish/semisup/12798_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd330/200epochs.pt_180'
+            model_vocab = 'model/vqvae/results/training/turkish/semisup/12798_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd330/surf_vocab.json'
+            tag_vocabs = []
+            for i in range(11):
+                tag_vocabs.append('model/vqvae/results/training/turkish/semisup/12798_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd330/'+str(i)+'_tagvocab.json')  
+            return model_path, model_vocab, tag_vocabs
+
+
+        if id == 'late-supervision_batchsize128_beta_0.2_11x6_bi_kl_0.1_epc140':
+            model_pfx = 'model/vqvae/results/training/turkish/late-supervision/55204_instances/batchsize128_beta0.2_bi_kl0.1_11x6_dec256_suffixd660/'
+            model_path  = model_pfx + '300epochs.pt_140'
+            model_vocab = model_pfx + 'surf_vocab.json'
+            tag_vocabs = []
+            for i in range(11):
+                tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
+            return model_path, model_vocab, tag_vocabs
     
-    if id == 'kl0.2_4x10_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/12229_instances/kl0.2_4x10_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12229_instances/kl0.2_4x10_dec128_suffixd512/surf_vocab.json'  
 
+        if id == 'late-supervision_batchsize128_beta_0.1_11x6_bi_kl_0.1_epc120':
+            model_pfx = 'model/vqvae/results/training/turkish/late-supervision/55204_instances/batchsize128_beta0.1_bi_kl0.1_11x6_dec256_suffixd660/'
+            model_path  = model_pfx + '300epochs.pt_120'
+            model_vocab = model_pfx + 'surf_vocab.json'
+            tag_vocabs = []
+            for i in range(11):
+                tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
+            return model_path, model_vocab, tag_vocabs
 
-    if id == 'kl0.1_8x10_dec150_suffixd512':
-        model_path  = 'model/vqvae/results/training/12229_instances/kl0.1_8x10_dec150_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/12229_instances/kl0.1_8x10_dec150_suffixd512/surf_vocab.json'  
-
-
-    if id == 'discretelemma_bilstm_4x10_dec512_suffixd512':
-        model_path  = 'model/vqvae/results/training/25031_instances/discretelemma_bilstm_4x10_dec512_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/25031_instances/discretelemma_bilstm_4x10_dec512_suffixd512/surf_vocab.json'  
-
-
-    if id == 'kl0.1_8x10_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/25031_instances/kl0.1_8x10_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/25031_instances/kl0.1_8x10_dec128_suffixd512/surf_vocab.json'  
-
-    if id == 'kl0.1_8x6_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/25031_instances/kl0.1_8x6_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/25031_instances/kl0.1_8x6_dec128_suffixd512/surf_vocab.json'  
+        if id == 'early-supervision_batchsize128_beta_0.2_11x6_bi_kl_0.2_epc50':
+            model_path  = 'model/vqvae/results/training/turkish/early-supervision/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd660/300epochs.pt_50'
+            model_vocab = 'model/vqvae/results/training/turkish/early-supervision/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd660/surf_vocab.json'
+            tag_vocabs = []
+            for i in range(11):
+                tag_vocabs.append('model/vqvae/results/training/turkish/early-supervision/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd660/'+str(i)+'_tagvocab.json')  
+            return model_path, model_vocab, tag_vocabs
     
-    if id == 'kl0.1_16x6_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/25031_instances/kl0.1_16x6_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/25031_instances/kl0.1_16x6_dec128_suffixd512/surf_vocab.json'  
-
-    if id == 'kl0.1_8x6_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/28794_instances/kl0.1_8x6_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/kl0.1_8x6_dec128_suffixd512/surf_vocab.json'  
-
-    if id == 'kl0.1_8x10_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/28794_instances/kl0.1_8x10_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/kl0.1_8x10_dec128_suffixd512/surf_vocab.json'  
-
-    if id == 'bi_kl0.1_8x6_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/28794_instances/bi_kl0.1_8x6_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/bi_kl0.1_8x6_dec128_suffixd512/surf_vocab.json'  
-
-    if id == 'discretelemma_bilstm_8x6_dec512_suffixd512':
-        model_path  = 'model/vqvae/results/training/28794_instances/discretelemma_bilstm_8x6_dec512_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/discretelemma_bilstm_8x6_dec512_suffixd512/surf_vocab.json'  
-
-    if id == 'bi_kl0.1_16x6_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/28794_instances/bi_kl0.1_16x6_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/bi_kl0.1_16x6_dec128_suffixd512/surf_vocab.json'  
-
-    if id == 'bi_kl0.2_8x6_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/28794_instances/bi_kl0.2_8x6_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/bi_kl0.2_8x6_dec128_suffixd512/surf_vocab.json'  
-
-    if id == 'bi_kl0.1_8x4_dec128_suffixd512':
-        model_path  = 'model/vqvae/results/training/28794_instances/bi_kl0.1_8x4_dec128_suffixd512/200epochs.pt'
-        model_vocab = 'model/vqvae/results/training/28794_instances/bi_kl0.1_8x4_dec128_suffixd512/surf_vocab.json'  
-
 
     return model_path, model_vocab
 

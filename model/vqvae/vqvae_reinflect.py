@@ -14,36 +14,40 @@ def reinflect(args, inflected_word, reinflect_tag):
     
     x = torch.tensor([args.vocab.word2id['<s>']] + args.vocab.encode_sentence(inflected_word) + [args.vocab.word2id['</s>']]).unsqueeze(0)
     vq_vectors = []
-  
-    if args.model_type =='unilstm':
-        #UNIDIRECT
-        fhs, _, _ = args.model.encoder(x)
-        vq_vectors.append(args.model.linear_root(fhs))
 
-    if args.model_type =='kl':
-        #KL VERSION
-        fhs, _, _, mu, logvar = args.model.encoder(x)
+
+    if args.model_type == 'bi_kl' or args.model_type == 'bi_kl_sum':
+        # kl version
+        fhs, _, _, mu, logvar, fwd,bck = args.model.encoder(x)
         _root_fhs = mu.unsqueeze(0)
         #_root_fhs = args.model.reparameterize(mu, logvar)
+        _root_fhs = args.model.z_to_dec(_root_fhs)
         vq_vectors.append(_root_fhs)
 
-    if args.model_type =='bilstm':
-        #BIDIRECT
-        fhs, _, _,fwd,bck = args.model.encoder(x)   
-        vq_vectors.append(args.model.linear_root(fwd))
-
-    if args.model_type =='discrete':
+    if args.model_type =='discrete' or args.model_type == 'discrete_sum':
         #DISCRETE
         fhs, _, _, fwd,bck = args.model.encoder(x)    
         quantized_input, vq_loss, quantized_inds = args.model.vq_layer_lemma(fwd,0)
         vq_vectors.append(quantized_input)
-        
+
+    new_vq_vectors = [ [], [], [] ,[] ,[],[],[],[] ]  
+    for k,v in reinflect_tag.items():
+      for e,en in enumerate(k.split('-')[1:]):
+        en = int(en)
+        new_vq_vectors[e].append(args.model.ord_vq_layers[e].embedding.weight[en].unsqueeze(0).unsqueeze(0))
     
     bosid = args.vocab.word2id['<s>']
     input = torch.tensor(bosid)
     sft = nn.Softmax(dim=1)
-    
-    vq_vectors.append(args.model.ord_vq_layers[0].embedding.weight[reinflect_tag[0]].unsqueeze(0).unsqueeze(0))
+
+    for i in range(2):
+      #vq_vectors.append(torch.sum(torch.stack(new_vq_vectors[i]),dim=0))
+      weights = [v/sum(reinflect_tag.values()) for v in reinflect_tag.values()]
+      weights = (torch.tensor(weights).unsqueeze(1).unsqueeze(1).unsqueeze(1)).repeat(1,1,1,150)
+      weighted =  (torch.stack(new_vq_vectors[i]) * weights)
+      vq_vectors.append(torch.sum(weighted,dim=0))
+   
+    '''vq_vectors.append(args.model.ord_vq_layers[0].embedding.weight[reinflect_tag[0]].unsqueeze(0).unsqueeze(0))
     if args.num_dicts >= 2:
       vq_vectors.append(args.model.ord_vq_layers[1].embedding.weight[reinflect_tag[1]].unsqueeze(0).unsqueeze(0))
     if args.num_dicts >= 4:
@@ -64,11 +68,14 @@ def reinflect(args, inflected_word, reinflect_tag):
         vq_vectors.append(args.model.ord_vq_layers[12].embedding.weight[reinflect_tag[12]].unsqueeze(0).unsqueeze(0))
         vq_vectors.append(args.model.ord_vq_layers[13].embedding.weight[reinflect_tag[13]].unsqueeze(0).unsqueeze(0))
         vq_vectors.append(args.model.ord_vq_layers[14].embedding.weight[reinflect_tag[14]].unsqueeze(0).unsqueeze(0))
-        vq_vectors.append(args.model.ord_vq_layers[15].embedding.weight[reinflect_tag[15]].unsqueeze(0).unsqueeze(0))
+        vq_vectors.append(args.model.ord_vq_layers[15].embedding.weight[reinflect_tag[15]].unsqueeze(0).unsqueeze(0))'''
 
 
+    if args.model_type =='discrete_sum' or args.model_type =='bi_kl_sum':
+        vq_vectors = (vq_vectors[0], torch.sum(torch.stack(vq_vectors[1:]),dim=0))
+    else:
+        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
 
-    vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2)) 
     root_z, suffix_z = vq_vectors
     batch_size, seq_len, _ = fhs.size()
     z_ = suffix_z.expand(batch_size, seq_len, args.model.decoder.incat)
@@ -106,31 +113,30 @@ def config():
     model_id = 'discretelemma_bilstm_4x10_dec512_suffixd512'
     model_id = 'kl0.1_8x10_dec128_suffixd512'
     model_id = 'kl0.1_16x6_dec128_suffixd512'
+    model_id = 'bi_kl0.1_8x6_dec128_suffixd512'
+    model_id = 'discretelemma_sum_bilstm_8x6_dec512_suffixd64'
+    model_id = 'bi_kl0.1_sum_8x6_dec128_suffixd64'
+    model_id = 'bi_kl0.1_8x6_dec128_suffixd512'
     model_id = 'discretelemma_bilstm_8x6_dec512_suffixd512'
+    model_id = 'discretelemma_sum_bilstm_8x6_dec512_suffixd64'
+    model_id = 'discretelemma_sum_bilstm_4x6_dec512_suffixd128'
+    model_id = 'FINAL_bi_kl0.2_5x5_dec256_suffixd300'
+    model_id = 'FINAL_bi_kl0.1_2x20_dec256_suffixd300'
 
+    args.lemmadict_emb_num  = 10000
 
-    args.num_dicts = 8
-    args.orddict_emb_num  = 6
-    args.lemmadict_emb_num  = 5000
+    args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
+    args.dec_dropout_in = 0.4; args.dec_dropout_out = 0.0
+    args.ni = 256; 
+    args.enc_nh = 300
+    args.dec_nh = 256  
+    args.embedding_dim = args.enc_nh
+    args.beta = 0.5
     args.nz = 128; 
-    args.root_linear_h = args.nz
-    args.enc_nh = 512;
-    args.dec_nh = args.root_linear_h
-    args.incat = args.enc_nh
-
-
-    if 'uni' in model_id:
-        from vqvae import VQVAE
-        args.model_type = 'unilstm'
-
-    if 'kl' in model_id:
-        from vqvae_kl import VQVAE
-        args.model_type = 'kl'
-        args.dec_nh = args.nz  
-
-    if 'bi' in model_id:
-        from vqvae_bidirect import VQVAE
-        args.model_type = 'bilstm'
+    args.num_dicts = 2; 
+    args.outcat=0; 
+    args.orddict_emb_num =  20
+    args.incat = args.enc_nh; 
 
     if 'discrete' in model_id:
         from vqvae_discrete import VQVAE
@@ -138,8 +144,23 @@ def config():
         args.dec_nh = args.enc_nh
         args.model_type = 'discrete'
 
-    if 'kl' in model_id:
-        args.dec_nh = args.nz  
+
+    if 'bi_kl' in model_id:
+        from vqvae_kl_bi import VQVAE
+        args.model_type = 'bi_kl'
+
+    if 'discrete' in model_id and 'sum' in model_id:
+        from vqvae_discrete_sum import VQVAE
+        args.num_dicts = 5#9
+        args.dec_nh = args.enc_nh
+        args.incat = int(args.enc_nh/(args.num_dicts-1))        
+        args.model_type = 'discrete_sum'
+
+    if 'bi_kl' in model_id and 'sum' in model_id:
+        from vqvae_kl_bi_sum import VQVAE
+        args.incat = int(args.enc_nh/args.num_dicts)        
+        args.model_type = 'bi_kl_sum'
+
 
     model_path, model_vocab  = get_model_info(model_id)
     args.model_path = model_path
@@ -158,13 +179,7 @@ def config():
         word2id = json.load(f)
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 256; 
-    args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-    args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
-    args.enc_nh = 512;
-    args.embedding_dim = args.enc_nh; 
     args.beta = 0.5
-    args.outcat=0; 
     args.model = VQVAE(args, args.vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
     # load model weights
     args.model.load_state_dict(torch.load(model_path))
@@ -210,7 +225,7 @@ with open('data/sigmorphon2016/turkish-task2-dev', 'r') as reader:
 
 c=args.num_dicts
 id_tags = dict()
-with open('model/vqvae/results/training/28794_instances/'+model_id+'/'+str(c)+'_cluster.json', 'r') as f:
+with open('/home/mugekural/dev/git/trmor/model/vqvae/results/training/55204_instances/2noloaded_FINAL_bi_kl0.2_2x20_dec256_suffixd300/suffix_codes.json', 'r') as f:
   modeldata = json.load(f)
 tag_counts=defaultdict(lambda: 0)
 for key,values in modeldata.items():
@@ -271,8 +286,8 @@ with torch.no_grad():
                         tag_name = tag_name.strip()
                         tags = json.loads(_tag.strip())
                         gold_reinflection = gold_reinflection.strip()
-                        key = list(tags.keys())[0]
-                        key = [int(s) for s in key.split('-')[1:]]
+                        key = tags#[0]
+                        #key = [int(s) for s in key.split('-')[1:]]
                         #if args.model_type =='discrete':
                         #  key = key[1:]
                         reinflected_word, vq_code =  reinflect(args, inflected_word,key)

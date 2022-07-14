@@ -159,22 +159,16 @@ class VQVAE_Decoder(nn.Module):
             model_init(param)
         emb_init(self.embed.weight)
 
-    def forward(self, input, z):
-
+    def forward(self, input, hidden):
         # (batch_size, seq_len, ni)
         word_embed = self.embed(input)
         word_embed = self.dropout_in(word_embed)
-        # (1, batch_size, nz)
-        z = z.permute((1,0,2))
         # (1, batch_size, dec_nh)
-        c_init = z
-        #c_init = self.trans_linear(z).unsqueeze(0)
-        h_init = torch.tanh(c_init)
-        output, _ = self.lstm(word_embed, (h_init, c_init))
+        output, hidden = self.lstm(word_embed, hidden)
         output = self.dropout_out(output)
         # (batch_size, seq_len, vocab_size)
         output_logits = self.pred_linear(output)
-        return output_logits
+        return output_logits, hidden
 
 class VQVAE_AE(nn.Module):
 
@@ -196,15 +190,14 @@ class VQVAE_AE(nn.Module):
         self.beta = args.beta
         self.decoder = VQVAE_Decoder(args, vocab, model_init, emb_init) 
     
-    def recon_loss(self, x, quantized_z, recon_type='avg'):
+    def recon_loss(self, x, decoder_hidden, recon_type='avg'):
         # remove end symbol
         src = x[:, :-1]
         # remove start symbol
         tgt = x[:, 1:]        
         batch_size, seq_len = src.size()
         # (batch_size, seq_len, vocab_size)
-        #output_logits = self.decoder.forward_no_teacher_forcing(src, quantized_z)
-        output_logits = self.decoder(src, quantized_z)
+        output_logits, _ = self.decoder(src, decoder_hidden)
         
         _tgt = tgt.contiguous().view(-1)
 
@@ -217,38 +210,64 @@ class VQVAE_AE(nn.Module):
         recon_loss = recon_loss.view(batch_size, 1, -1)
 
         # (batch_size, 1)
-        if recon_type=='avg':
-            # avg over tokens
-            recon_loss = recon_loss.mean(-1)
-        elif recon_type=='sum':
-            # sum over tokens
-            recon_loss = recon_loss.sum(-1)
-        elif recon_type == 'eos':
-            # only eos token
-            recon_loss = recon_loss[:,:,-1]
+  
+        # sum over tokens
+        recon_loss = recon_loss.sum(-1)
+     
 
         # avg over batches and samples
         recon_acc  = self.accuracy(output_logits, tgt)
         return recon_loss, recon_acc
 
-
-    def loss(self, x: Tensor, epc, **kwargs) -> List[Tensor]:
-        # x: (B,T)
-        # quantized_inputs: (B, 1, hdim)
-        if self.encoder.lstm.bidirectional:
-            encoder_fhs, fcs, z, (fwd,bck) = self.encoder(x)
-        else:
-            encoder_fhs, fcs, z = self.encoder(x)
+    def recon_loss_test(self, x, decoder_hidden, recon_type='avg'):
+        # remove end symbol
+        src = x[:, :-1]
+        # remove start symbol
+        tgt = x[:, 1:]        
+        batch_size, seq_len = src.size()
         
-        recon_loss, recon_acc = self.recon_loss(x, encoder_fhs, recon_type='sum')
+        decoder_input = src[:,0].unsqueeze(1)
+        output_logits = []
+        for di in range(seq_len):
+            decoder_output, decoder_hidden  = self.decoder(
+                decoder_input, decoder_hidden)
+            output_logits.append(decoder_output)
+            topv, topi = decoder_output.topk(1)
+            decoder_input = topi.squeeze(1).detach()  # detach from history as input
+        # (batchsize, seq_len, vocabsize)
+        output_logits = torch.cat(output_logits,dim=1)
+        # (batch_size *  seq_len, vocab_size)
+        _output_logits = output_logits.reshape(-1, output_logits.size(2))
+        _tgt = tgt.contiguous().view(-1)
+
+        # (batch_size * 1 * seq_len)
+        recon_loss = self.decoder.loss(_output_logits,  _tgt)
+        # (batch_size, 1, seq_len)
+        recon_loss = recon_loss.view(batch_size, 1, -1)
+
+        # sum over tokens
+        recon_loss = recon_loss.sum(-1)
+
+        # avg over batches and samples
+        recon_acc  = self.accuracy(output_logits, tgt)
+        return recon_loss, recon_acc
+
+    def loss(self, x: Tensor, epc, mode='train', **kwargs) -> List[Tensor]:
+        encoder_fhs, fcs, z, (fwd,bck) = self.encoder(x)
+        c_init = encoder_fhs.permute((1,0,2))
+        h_init = torch.tanh(c_init)
+        dec_h0 = (h_init, c_init)
+        if mode == 'train':
+            recon_loss, recon_acc = self.recon_loss(x, dec_h0, recon_type='sum')
+        else:
+            recon_loss, recon_acc = self.recon_loss_test(x, dec_h0, recon_type='sum')
+            
         # (batchsize)
         recon_loss = recon_loss.squeeze(1)
         loss = recon_loss 
-        vq_loss = torch.tensor(0); quantized_inds = []
-        if self.encoder.lstm.bidirectional:
-            return loss, recon_loss, vq_loss, recon_acc, quantized_inds, fwd,bck
-        else:
-            return loss, recon_loss, vq_loss, recon_acc, quantized_inds, encoder_fhs
+        return loss, recon_loss, recon_acc, encoder_fhs, fwd,bck
+
+
 
         
     def accuracy(self, output_logits, tgt):

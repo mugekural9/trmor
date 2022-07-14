@@ -26,7 +26,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def test(batches, mode, args, epc):
     epoch_loss = 0; epoch_num_tokens = 0; epoch_acc = 0
-    epoch_vq_loss = 0; epoch_recon_loss = 0
+    epoch_recon_loss = 0
     numbatches = len(batches)
     numwords = args.valsize if mode =='val'  else args.tstsize
 
@@ -35,20 +35,18 @@ def test(batches, mode, args, epc):
         # (batchsize, t)
         surf = batches[idx] 
         if args.model.encoder.lstm.bidirectional:
-            loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs_fwd,_ = args.model.loss(surf, epc)
+            loss, recon_loss, (acc,pred_tokens), encoder_fhs, encoder_fhs_fwd,encoder_fhs_bck = args.model.loss(surf, epc, mode='test')
         else:
-            loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs = args.model.loss(surf, epc)
-        epoch_num_tokens += surf.size(0) * (surf.size(1)-1)  # exclude start token prediction
+            loss, recon_loss, (acc,pred_tokens),  encoder_fhs = args.model.loss(surf, epc)
+        epoch_num_tokens += torch.sum(surf[:,1:]!=0)  # exclude start token prediction
         epoch_loss       += loss.sum().item()
         epoch_recon_loss += recon_loss.sum().item()
-        epoch_vq_loss    += vq_loss.sum().item()
         epoch_acc        += acc
     loss = epoch_loss / numwords 
     recon = epoch_recon_loss / numwords 
-    vq = epoch_vq_loss / numwords 
     acc = epoch_acc / epoch_num_tokens
-    args.logger.write('\n%s ---  avg_loss: %.4f, avg_recon_loss: %.4f, avg_vq_loss: %.4f, acc: %.4f\n' % (mode, loss, recon, vq, acc))
-    return loss, recon, vq, acc
+    args.logger.write('\n%s ---  avg_loss: %.4f, avg_recon_loss: %.4f,  acc: %.4f\n' % (mode, loss, recon,  acc))
+    return loss, recon, acc
 
 def train(data, args):
     trnbatches, valbatches, tstbatches = data
@@ -82,14 +80,15 @@ def train(data, args):
             surf = trnbatches[idx] 
             # (batchsize)
             if args.model.encoder.lstm.bidirectional:
-                loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs_fwd, encoder_fhs_bck = args.model.loss(surf, epc)
+                loss, recon_loss, (acc,pred_tokens),  encoder_fhs, encoder_fhs_fwd, encoder_fhs_bck = args.model.loss(surf, epc)
             else:
-                loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds, encoder_fhs= args.model.loss(surf, epc)
+                loss, recon_loss, (acc,pred_tokens),  encoder_fhs= args.model.loss(surf, epc)
             
             batch_loss = loss.mean()
             batch_loss.backward()
             
             if args.model.encoder.lstm.bidirectional:
+                epoch_encoder_fhs.append(encoder_fhs)
                 epoch_encoder_fhs_fwd.append(encoder_fhs_fwd)
                 epoch_encoder_fhs_bck.append(encoder_fhs_bck)
             else:
@@ -98,23 +97,21 @@ def train(data, args):
             epoch_num_tokens += torch.sum(surf[:,1:]!=0)#surf.size(0) * (surf.size(1)-1) # exclude start token prediction
             epoch_loss       += loss.sum().item()
             epoch_recon_loss += recon_loss.sum().item()
-            epoch_vq_loss    += vq_loss.sum().item()
             epoch_acc        += acc
         loss = epoch_loss / numwords 
         recon = epoch_recon_loss / numwords 
-        vq = epoch_vq_loss / numwords 
         acc = epoch_acc / epoch_num_tokens
-        args.logger.write('\nepoch: %.1d,  avg_loss: %.4f, avg_recon_loss: %.4f, avg_vq_loss: %.4f, acc: %.4f' % (epc, loss, recon, vq, acc))
+        args.logger.write('\nepoch: %.1d,  avg_loss: %.4f, avg_recon_loss: %.4f,  acc: %.4f' % (epc, loss, recon,  acc))
 
         #tensorboard log
-        writer.add_scalar('loss/trn', loss, epc)
-        writer.add_scalar('loss/recon_loss/trn', recon, epc)
-        writer.add_scalar('loss/vq_loss/trn', vq, epc)
-        writer.add_scalar('accuracy/trn', acc, epc)
+        #writer.add_scalar('loss/trn', loss, epc)
+        #writer.add_scalar('loss/recon_loss/trn', recon, epc)
+        #writer.add_scalar('accuracy/trn', acc, epc)
    
         # (numinst, hdim)
         
         if args.model.encoder.lstm.bidirectional:
+            epoch_encoder_fhs = torch.cat(epoch_encoder_fhs).squeeze(1)
             epoch_encoder_fhs_fwd = torch.cat(epoch_encoder_fhs_fwd).squeeze(1)
             epoch_encoder_fhs_bck = torch.cat(epoch_encoder_fhs_bck).squeeze(1)
         else:
@@ -123,37 +120,28 @@ def train(data, args):
         #fhs_norms =  torch.norm(epoch_encoder_fhs_fwd,dim=1)
         #fhs_norms = fhs_norms.detach().cpu()
         #writer.add_histogram('fhs_norms', fhs_norms, epc)#, bins='auto')
-        if epc == args.epochs -1:
-            if args.model.encoder.lstm.bidirectional:
-                torch.save(epoch_encoder_fhs_fwd, 'fhs_datasetV-train_fwd_d512.pt')
-                torch.save(epoch_encoder_fhs_bck, 'fhs_datasetV-train_bck_d512.pt')
-            else:
-                torch.save(epoch_encoder_fhs, 'fhs_datasetV-unidict-train_d512.pt')
-        
         trn_loss_values.append(loss)
-        trn_vq_values.append(vq)
         trn_recon_loss_values.append(recon)
-
-        # no matter what save model      
-        torch.save(args.model.state_dict(), args.save_path)
 
         # VAL
         args.model.eval()
         with torch.no_grad():
-            loss, recon, vq, acc = test(valbatches, "val", args, epc)
+            loss, recon, acc = test(valbatches, "val", args, epc)
         #tensorboard log
         writer.add_scalar('loss/val', loss, epc)
         writer.add_scalar('loss/recon_loss/val', recon, epc)
-        writer.add_scalar('loss/vq_loss/val', vq, epc)
         writer.add_scalar('accuracy/val', acc, epc)
 
         val_loss_values.append(loss)
-        val_vq_values.append(vq)
         val_recon_loss_values.append(recon)
         if loss < best_loss:
             args.logger.write('update best loss \n')
             best_loss = loss
             torch.save(args.model.state_dict(), args.save_path)
+            if args.model.encoder.lstm.bidirectional:
+                torch.save(epoch_encoder_fhs_fwd, args.lang+'_fhs_datasetV-train_fwd_d'+str(args.enc_nh)+'.pt')
+                torch.save(epoch_encoder_fhs_bck, args.lang+'_fhs_datasetV-train_bck_d'+str(args.enc_nh)+'.pt')
+                torch.save(epoch_encoder_fhs,     args.lang+'_fhs_datasetV-train_all_d'+str(args.enc_nh*2)+'.pt')
         args.model.train()
 
 # CONFIG
@@ -161,7 +149,7 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 22
+args.batchsize = 128; args.epochs = 16
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
@@ -174,12 +162,18 @@ args.seq_to_no_pad = 'surface'
 #args.trndata  = 'data/unlabelled/wordlist.tur'
 #args.valdata  = 'data/unlabelled/theval.tur'
 
-args.trndata  = 'data/sigmorphon2016/zhou_merged'
-args.valdata  = 'data/sigmorphon2016/turkish-task3-dev'
+#args.trndata  = 'data/sigmorphon2016/zhou_merged'
+#args.valdata  = 'data/sigmorphon2016/turkish-task3-test'
+
+args.lang ='finnish'
+args.trndata  = 'data/sigmorphon2016/'+args.lang+'_zhou_merged'
+args.valdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
+
+
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
-args.maxtrnsize = 1000000; args.maxvalsize = 10000; args.maxtstsize = 10000
+args.maxtrnsize = 55000; args.maxvalsize = 1000; args.maxtstsize = 10000
 rawdata, batches, vocab = build_data(args)
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
@@ -190,7 +184,7 @@ emb_init = uniform_initializer(0.1)
 args.ni = 256; 
 args.enc_dropout_in = 0.2; args.enc_dropout_out = 0.2
 args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.2
-args.enc_nh = 512;
+args.enc_nh = 660;
 args.dec_nh = args.enc_nh*2;
 args.embedding_dim = args.enc_nh; args.nz = args.enc_nh
 args.beta = 0
@@ -201,11 +195,11 @@ args.model = VQVAE_AE(args, vocab, model_init, emb_init, dict_assemble_type='con
 args.model.to(args.device)
 
 #tensorboard
-writer = SummaryWriter("runs/pretraining_ae/dataset-V/")
+writer = SummaryWriter("runs/pretraining_ae/dataset-V/"+args.lang+'/')
 
 
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'
+args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/'+str(len(trndata))+'_instances/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

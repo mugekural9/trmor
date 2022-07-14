@@ -10,7 +10,8 @@ class VocabEntry(object):
 
         if word2id:
             self.word2id = word2id
-            self.unk_id = word2id['<unk>']
+            if '<unk>' in word2id:
+                self.unk_id = word2id['<unk>']
         else:
             self.word2id = dict()
             self.unk_id = 3

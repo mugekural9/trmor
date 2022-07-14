@@ -281,7 +281,7 @@ args.enc_nh = 512;
 args.dec_nh = args.enc_nh #+ args.enc_nh; 
 args.embedding_dim = args.enc_nh
 
-args.beta = 0.5
+args.beta = 0.2
 args.nz = 128; 
 args.num_dicts = 9; args.outcat=0; args.incat = args.enc_nh; #args.enc_nh
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat; args.dec_nh_tmp = args.dec_nh
@@ -292,7 +292,7 @@ args.model = VQVAE(args, vocab, model_init, emb_init, dict_assemble_type='sum_an
 
 # tensorboard
 # load pretrained ae weights
-args.model_prefix = 'discretelemma_bilstm_'+str(args.num_dicts-1)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
+args.model_prefix = 'beta0.2_discretelemma_bilstm_'+str(args.num_dicts-1)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
 
 if dataset_type == 'I':
     writer = SummaryWriter("runs/training_vqvae/dataset-I/"+ args.model_prefix)
