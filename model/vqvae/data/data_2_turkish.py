@@ -159,6 +159,21 @@ def build_data(args, surface_vocab=None):
     args.lxtgtsize = len(lxtgtdata)
     lxtgt_ordered_batches, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
 
+    lxtgtdata, _ = read_data(args.maxtrnsize, args.tstdata, surface_vocab, 'LXTGT_ORDERED_TST', 
+    tag_vocabs['case'],
+    tag_vocabs['polar'],
+    tag_vocabs['mood'],
+    tag_vocabs['evid'],
+    tag_vocabs['pos'],
+    tag_vocabs['per'],
+    tag_vocabs['num'],
+    tag_vocabs['tense'],
+    tag_vocabs['aspect'],
+    tag_vocabs['inter'],
+    tag_vocabs['poss'])   
+    lxtgt_ordered_batches_TST, _ = get_batches_msved(lxtgtdata, surface_vocab, 1, 'feature')
+
+
     valdata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'TRN',
     tag_vocabs['case'],
     tag_vocabs['polar'],
@@ -193,7 +208,7 @@ def build_data(args, surface_vocab=None):
     udata = read_data_unsup(args.maxtrnsize, args.unlabeled_data, surface_vocab, 'UDATA')
     u_batches, _ = get_batches(udata, surface_vocab, args.batchsize, '') 
 
-    return (trndata, valdata, tstdata, udata), (lxsrc_ordered_batches, lxtgt_ordered_batches, val_batches, tst_batches, u_batches), surface_vocab, tag_vocabs
+    return (trndata, valdata, tstdata, udata), (lxsrc_ordered_batches, lxtgt_ordered_batches, lxtgt_ordered_batches_TST, val_batches, tst_batches, u_batches), surface_vocab, tag_vocabs
 
 
 ## Data prep

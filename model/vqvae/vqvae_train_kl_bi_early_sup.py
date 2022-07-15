@@ -17,7 +17,6 @@ from model.ae.ae import AE
 from common.utils import *
 from common.vocab import VocabEntry
 from torch import optim
-from model.vqvae.data.data_2_turkish import build_data
 from torch.utils.tensorboard import SummaryWriter
 import numpy as np
 from collections import defaultdict, OrderedDict
@@ -49,9 +48,8 @@ def test(batches, mode, args, epc, suffix_codes_trn, kl_weight):
     for i, idx in enumerate(indices):
         # (batchsize, t)
         lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt  = batches[idx] 
-        tags= [] # infer mode
-        loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, kl_loss, logdetmaxloss = args.model.loss(lxtgt, tags, kl_weight, epc, mode='val')
-
+        #infer mode
+        loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, kl_loss, logdetmaxloss = args.model.loss(lxtgt, None, kl_weight, epc, mode='val')
        
         ## DICT USAGE TRACKING
         # Keep number of unique codes
@@ -119,7 +117,7 @@ def test(batches, mode, args, epc, suffix_codes_trn, kl_weight):
     return loss, recon, vq, acc, vq_inds
 
 def train(data, args):
-    _, lxtgt_ordered_batches, valbatches ,_, ubatches = data
+    _, lxtgt_ordered_batches, lxtgt_ordered_batches_TST, valbatches ,_, ubatches = data
     # initialize optimizer
     opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.parameters()), lr=args.lr,  weight_decay=1e-5)
     # Log trainable model parameters
@@ -166,29 +164,28 @@ def train(data, args):
             args.model.zero_grad()
             # (batchsize, t)
             ux = ubatches[idx]
-            ux_loss, ux_recon_loss, ux_vq_loss, (ux_acc,pred_tokens), ux_quantized_inds,  encoder_fhs, vq_codes_list, ux_suffix_code_list, recon_preds, ux_kl_loss, logdetmaxloss = args.model.loss(ux, [], kl_weight, epc)
-            batch_loss += ux_loss.mean()
-
+            ux_loss, ux_recon_loss, ux_vq_loss, (ux_acc,pred_tokens), ux_quantized_inds,  encoder_fhs, vq_codes_list, ux_suffix_code_list, recon_preds, ux_kl_loss, logdetmaxloss = args.model.loss(ux, None, kl_weight, epc)
+            batch_loss += 0.8*(ux_loss.mean())
             if i < len(lxtgt_ordered_batches):
                 lidx= ltgtindices[i]
                 _, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt  = lxtgt_ordered_batches[lidx] 
                 tags= [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
                 # (batchsize)
-                loss, recon_loss, vq_loss, (lxtgt_acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, kl_loss, logdetmaxloss = args.model.loss(lxtgt, tags, kl_weight, epc)
-                batch_loss += loss.mean()
+                lxtgt_loss, recon_loss, vq_loss, (lxtgt_acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, kl_loss, logdetmaxloss = args.model.loss(lxtgt, tags, kl_weight, epc)
+                batch_loss += lxtgt_loss.mean()
             else:
                 random.shuffle(ltgtindices) 
                 lidx= ltgtindices[0]
                 _, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt  = lxtgt_ordered_batches[lidx] 
                 tags= [case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss]
                 # (batchsize)
-                loss, recon_loss, vq_loss, (lxtgt_acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, kl_loss, logdetmaxloss = args.model.loss(lxtgt, tags, kl_weight, epc)
-                batch_loss += loss.mean()
+                lxtgt_loss, recon_loss, vq_loss, (lxtgt_acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, kl_loss, logdetmaxloss = args.model.loss(lxtgt, tags, kl_weight, epc)
+                batch_loss += lxtgt_loss.mean()
            
             batch_loss.backward()
             opt.step()
            
-            epoch_lxtgt_loss += loss.sum().item()
+            epoch_lxtgt_loss += lxtgt_loss.sum().item()
             epoch_lxtgt_num_tokens +=  torch.sum(lxtgt[:,1:] !=0).item()
             epoch_lxtgt_recon_acc += lxtgt_acc
             epoch_lxtgt_recon_loss += recon_loss.sum().item()
@@ -247,7 +244,8 @@ def train(data, args):
             best_loss = loss
             torch.save(args.model.state_dict(), args.save_path)
         if epc%5==0 or (epc>150 and epc%5==0):
-            shared_acc = shared_task_gen(args) #shared_task_gen_direct(args, tstbatches, kl_weight)
+            shared_acc = shared_task_gen(args) 
+            #shared_acc = shared_task_gen_direct(args,lxtgt_ordered_batches_TST, kl_weight)
             torch.save(args.model.state_dict(), args.save_path+'_'+str(epc))
             writer.add_scalar('shared-task/accuracy', shared_acc, epc)
 
@@ -285,6 +283,8 @@ def shared_task_gen(args):
             with open(args.tstdata, 'r') as reader:
                 true=0; false = 0
                 for line in reader:
+                    if i>2000:
+                        break
                     i+=1
                     split_line = line.strip().split('\t')
                     inflected_word, asked_tag, gold_reinflection  = split_line
@@ -298,12 +298,13 @@ def shared_task_gen(args):
                         writer_true.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
                     else:
                         writer_false.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
-    args.logger.write('\nShared Task oracle acc: %.2f' % (true/i))
-    return (true/i)
+    acc = (true/i)
+    args.logger.write('\nShared Task oracle acc: %.3f over %d words' % (acc,i))
+    return acc
 
 def oracle(args, asked_tag, inflected_word, reinflected_word, itr=0):
     x = torch.tensor([args.surf_vocab.word2id['<s>']] + args.surf_vocab.encode_sentence(reinflected_word) + [args.surf_vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
-    quantized_inputs, vq_loss, quantized_inds, encoder_fhs, _,_,_, _ = args.model.vq_loss_infer(x, 0, 'tst')
+    quantized_inputs, vq_loss, quantized_inds, encoder_fhs, _,_,_, _ = args.model.vq_loss(x, None, 0, 'tst')
     mapped_inds =  '-'.join([str(i[0][0].item()) for i in quantized_inds])
     return mapped_inds#''.join(inflected_word) +'\t'+ asked_tag +'\t'+ mapped_inds +'\t---> ' + reinflected_word
 
@@ -394,25 +395,41 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 300
+args.batchsize = 128; args.epochs = 301
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
 args.kl_max = 0.1
 dataset_type = 'V'
+args.lang='turkish'
+
+
+if dataset_type == 'V':
+    _model_id = 'ae_'+args.lang+'_unsup_660'
+    ae_fhs_vectors_fwd = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_fwd_d660.pt').to('cpu')
+    ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d660.pt').to('cpu')
+    #ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
+
+_model_path, surf_vocab  = get_model_info(_model_id) 
+# initialize model
+# load vocab (to initialize the model with correct vocabsize)
+with open(surf_vocab) as f:
+    word2id = json.load(f)
+    args.surf_vocab = VocabEntry(word2id)
 
 # data
-args.lang ='turkish'
-args.trndata  = 'data/sigmorphon2016/turkish-task3-train'
-args.valdata  = 'data/sigmorphon2016/turkish-task3-test'
-args.tstdata  = 'data/sigmorphon2016/turkish-task3-test'
-args.unlabeled_data = 'data/sigmorphon2016/turkish_zhou_merged'
-
-
-args.surface_vocab_file = args.trndata
+args.trndata  = 'data/sigmorphon2016/'+args.lang+'-task3-train'
+args.valdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
+args.tstdata  = args.valdata
+args.unlabeled_data = 'data/sigmorphon2016/'+args.lang+'_zhou_merged'
 args.maxtrnsize = 10000000; args.maxvalsize = 1000; args.maxtstsize = 1000000000000
-rawdata, batches, surf_vocab, tag_vocabs = build_data(args)
 
+if args.lang == 'finnish':
+    from data.data_2_finnish import build_data
+elif args.lang == 'turkish':
+    from model.vqvae.data.data_2_turkish import build_data
+
+rawdata, batches, _, tag_vocabs = build_data(args, args.surf_vocab)
 trndata, valdata, tstdata, udata = rawdata
 args.trnsize , args.valsize, args.tstsize, args.usize = len(trndata), len(valdata), len(tstdata), len(udata)
 # model
@@ -429,25 +446,17 @@ args.beta = 0.2
 args.nz = 128; 
 args.num_dicts = 11  
 args.outcat=0; 
-args.orddict_emb_num = 6
+args.orddict_emb_num = 5
 args.incat = args.enc_nh; 
 
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat; args.dec_nh_tmp = args.dec_nh
-args.model = VQVAE(args, surf_vocab,  tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat', bidirectional=True)
+args.model = VQVAE(args, args.surf_vocab,  tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat', bidirectional=True)
 
 # tensorboard
 # load pretrained ae weights
 args.model_prefix = 'batchsize'+str(args.batchsize)+'_beta'+str(args.beta)+'_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
+writer = SummaryWriter("runs/early-supervision/"+args.lang+'/'+ args.model_prefix)
 
-
-if dataset_type == 'V':
-    writer = SummaryWriter("runs/"+args.lang+'/'+ args.model_prefix)
-    _model_id = 'ae_'+args.lang+'_unsup_660'
-    ae_fhs_vectors_fwd = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_fwd_d660.pt').to('cpu')
-    ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d660.pt').to('cpu')
-    ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
-
-_model_path, surf_vocab  = get_model_info(_model_id) 
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
     vq_layer.embedding.weight.data = ae_fhs_vectors_bck[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
 
@@ -472,7 +481,7 @@ args.model.encoder.lstm  = args.pretrained_model.encoder.lstm
 
 args.model.to(args.device)
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/early-supervision/'+str(len(udata))+'_instances/'+args.model_prefix
+args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/early-supervision/'+str(args.lxtgtsize)+'_instances/'+args.model_prefix
 
 try:
     os.makedirs(args.modelname)

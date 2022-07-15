@@ -92,12 +92,22 @@ def get_model_info(id, lang=None):
                 tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
             return model_path, model_vocab, tag_vocabs
 
-        if id == 'early-supervision_batchsize128_beta_0.2_11x6_bi_kl_0.2_epc50':
-            model_path  = 'model/vqvae/results/training/turkish/early-supervision/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd660/300epochs.pt_50'
-            model_vocab = 'model/vqvae/results/training/turkish/early-supervision/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd660/surf_vocab.json'
+        if id == 'early-supervision_batchsize128_beta_0.2_11x6_bi_kl_0.1_epc200':
+            model_pfx = 'model/vqvae/results/training/turkish/early-supervision/12798_instances/batchsize128_beta0.2_bi_kl0.1_11x6_dec256_suffixd660/'
+            model_path  = model_pfx + '301epochs.pt_15'
+            model_vocab = model_pfx + 'surf_vocab.json'
             tag_vocabs = []
             for i in range(11):
-                tag_vocabs.append('model/vqvae/results/training/turkish/early-supervision/55204_instances/batchsize128_beta0.2_bi_kl0.2_11x6_dec256_suffixd660/'+str(i)+'_tagvocab.json')  
+                tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
+            return model_path, model_vocab, tag_vocabs
+
+        if id == 'early-supervision_batchsize128_beta_0.2_11x6_bi_kl_0.1_epc200':
+            model_pfx = 'model/vqvae/results/training/turkish/early-supervision/12798_instances/batchsize128_beta0.2_bi_kl0.1_11x6_dec256_suffixd660/'
+            model_path  = model_pfx + '301epochs.pt_10'
+            model_vocab = model_pfx + 'surf_vocab.json'
+            tag_vocabs = []
+            for i in range(11):
+                tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
             return model_path, model_vocab, tag_vocabs
     
 

@@ -112,15 +112,21 @@ class VectorQuantizer(nn.Module):
             embedding_loss = F.mse_loss(gold_quantized_latents, latents.detach(), reduce=False).mean(-1)
             vq_loss = embedding_loss + (self.beta * commitment_loss)
             
-            if epc!=-100: #train or val
-                encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=latents.device)
-                encoding_one_hot.scatter_(1, encoding_inds, 1) 
-                quantized_latents = torch.matmul(encoding_one_hot,  self.embedding.weight) 
-                quantized_latents = quantized_latents.view(latents_shape)  
-                return quantized_latents.contiguous(), vq_loss, encoding_inds.t()
-            else: #test   
-                gold_quantized_latents = latents + (gold_quantized_latents - latents).detach()
-                return gold_quantized_latents.contiguous(), vq_loss, gold_encoding_inds.t()
+
+            encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=latents.device)
+            encoding_one_hot.scatter_(1, encoding_inds, 1) 
+            quantized_latents = torch.matmul(encoding_one_hot,  self.embedding.weight) 
+            quantized_latents = quantized_latents.view(latents_shape)  
+
+            #encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=latents.device)
+            #encoding_one_hot.scatter_(1, encoding_inds, 1) 
+            #quantized_latents = torch.matmul(encoding_one_hot,  self.embedding.weight) 
+            #quantized_latents = quantized_latents.view(latents_shape)  
+            return quantized_latents.contiguous(), vq_loss, encoding_inds.t()
+            
+            #else: #test   
+            #    gold_quantized_latents = latents + (gold_quantized_latents - latents).detach()
+            #    return gold_quantized_latents.contiguous(), vq_loss, gold_encoding_inds.t()
             
             
 
@@ -306,7 +312,10 @@ class VQVAE(nn.Module):
         for vq_layer in self.ord_vq_layers:
             #_fhs =  linear(fwd_fhs)
             # quantized_input: (B, 1, orddict_emb_dim)
-            quantized_input, vq_loss, quantized_inds = vq_layer(tags[i], bck[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
+            if not tags:
+                quantized_input, vq_loss, quantized_inds = vq_layer(None, bck[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
+            else:
+                quantized_input, vq_loss, quantized_inds = vq_layer(tags[i], bck[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
             vq_vectors.append(quantized_input)
             vq_losses.append(vq_loss)
             vq_inds.append(quantized_inds)
@@ -331,54 +340,6 @@ class VQVAE(nn.Module):
         
         return vq_vectors, vq_loss, vq_inds,  fhs, [], suffix_codes, kl_loss, torch.tensor(0.0)
 
-
-    def vq_loss_infer(self,x, epc, mode):
-        # fhs: (B,1,hdim)
-        
-        # kl version
-        fhs, _, _, mu, logvar, fwd,bck = self.encoder(x)
-
-        if mode =='train':
-            #(batchsize,1,128)
-            _root_fhs = self.reparameterize(mu, logvar)
-        else:
-            _root_fhs = torch.permute(mu.unsqueeze(0), (1,0,2)).contiguous()
-        
-        kl_loss = self.kl_loss(mu,logvar)
-        
-        vq_vectors = []; vq_losses = []; vq_inds = []
-        _root_fhs = self.z_to_dec(_root_fhs)
-
-        vq_vectors.append(_root_fhs)
-       
-        # quantize thru ord dicts
-        i=0
-        #for linear, vq_layer in zip(self.ord_linears, self.ord_vq_layers):
-        for vq_layer in self.ord_vq_layers:
-            #_fhs =  linear(fwd_fhs)
-            # quantized_input: (B, 1, orddict_emb_dim)
-            quantized_input, vq_loss, quantized_inds = vq_layer(None,bck[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
-            vq_vectors.append(quantized_input)
-            vq_losses.append(vq_loss)
-            vq_inds.append(quantized_inds)
-            i+=1
-      
-        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2)) 
-        # (batchsize, numdicts)
-        vq_loss =  torch.cat(vq_losses,dim=1)
-        # (batchsize)
-        vq_loss = vq_loss.sum(-1)
-        # (batchsize,1)
-        vq_loss = vq_loss.unsqueeze(1)
-
-        suffix_codes = []
-        for i in range(vq_loss.shape[0]):
-            suffix_code = "" 
-            for j in range(0, len(vq_inds)):
-                suffix_code += '-' + str((vq_inds[j][0][i]).item()) 
-            suffix_codes.append(suffix_code)
-        
-        return vq_vectors, vq_loss, vq_inds,  fhs, [], suffix_codes, kl_loss, torch.tensor(0.0)
 
     def recon_loss(self, x, dec_h0, quantized_z, dict_codes=None, recon_type='avg'):
         # remove end symbol
@@ -457,10 +418,7 @@ class VQVAE(nn.Module):
     def loss(self, x: Tensor, tags, kl_weight, epc, mode='train', **kwargs) -> List[Tensor]:
         # x: (B,T)
         # quantized_inputs: (B, 1, hdim)
-        if len(tags) != 0:
-            quantized_inputs, vq_loss, quantized_inds, encoder_fhs, dict_codes, suffix_codes, kl_loss, logdet = self.vq_loss(x, tags, epc, mode)
-        else:
-            quantized_inputs, vq_loss, quantized_inds, encoder_fhs, dict_codes, suffix_codes, kl_loss, logdet = self.vq_loss_infer(x, epc, mode)
+        quantized_inputs, vq_loss, quantized_inds, encoder_fhs, dict_codes, suffix_codes, kl_loss, logdet = self.vq_loss(x, tags, epc, mode)
       
         root_z, suffix_z = quantized_inputs
         root_z = root_z.permute((1,0,2))

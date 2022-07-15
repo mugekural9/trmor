@@ -99,41 +99,6 @@ def get_batches(data, vocab, batchsize=64, seq_to_no_pad='', device=device):
             i += batchsize
     return batches, order    
 
-class MonoTextData(object):
-    """docstring for MonoTextData"""
-    def __init__(self, fname, label=False, max_length=None, vocab=None):
-        super(MonoTextData, self).__init__()
-
-        self.data, self.vocab, self.dropped, self.labels = self._read_corpus(fname, label, max_length, vocab)
-
-    def __len__(self):
-        return len(self.data)
-
-    def _read_corpus(self, fname, label, max_length, vocab):
-        data = []
-        labels = [] if label else None
-        dropped = 0
-        if not vocab:
-            vocab = defaultdict(lambda: len(vocab))
-            vocab['<pad>'] = 0
-            vocab['<s>'] = 1
-            vocab['</s>'] = 2
-            vocab['<unk>'] = 3
-        if 'txt' in fname:
-            with open(fname) as fin:
-                for line in fin:
-                    split_line = line.split('\t')
-                    if len(split_line) < 1:
-                        dropped += 1
-                        continue
-                    if max_length:
-                        if len(split_line) > max_length:
-                            dropped += 1
-                            continue
-                    data.append([vocab[char] for char in split_line[0]])
-        if isinstance(vocab, VocabEntry):
-            return data, vocab, dropped, labels
-        return data, VocabEntry(vocab), dropped, labels
 
 def read_data(maxdsize, file, surface_vocab, mode, case_vocab=None,polar_vocab=None,mood_vocab=None,evid_vocab=None,pos_vocab=None,per_vocab=None,num_vocab=None,tense_vocab=None,aspect_vocab=None,inter_vocab=None,poss_vocab=None, voice_vocab=None):
     surf_data = []; data = []; tag_data = dict(); entry_data = []
@@ -256,7 +221,7 @@ def read_data(maxdsize, file, surface_vocab, mode, case_vocab=None,polar_vocab=N
         
     return data, tag_vocabs
     
-def build_data(args, surface_vocab=None):
+def build_data(args, surface_vocab):
     # Read data and get batches...
     #surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
     trndata, tag_vocabs = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
@@ -403,7 +368,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'late-supervision_batchsize128_beta_0.1_11x6_bi_kl_0.1_epc120'
+    model_id = 'early-supervision_batchsize128_beta_0.2_11x6_bi_kl_0.1_epc200'
     args.lang ='turkish'
 
     args.model_id = model_id

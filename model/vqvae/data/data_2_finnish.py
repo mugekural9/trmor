@@ -136,7 +136,6 @@ def read_data_unsup(maxdsize, file, surface_vocab, mode):
 
 def build_data(args, surface_vocab=None):
     # Read data and get batches...
-    #surface_vocab = MonoTextData(args.surface_vocab_file, label=False).vocab
     trndata, tag_vocabs = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
     args.trnsize = len(trndata)
     lxsrc_ordered_batches, _ = get_batches_msved(trndata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
@@ -158,7 +157,7 @@ def build_data(args, surface_vocab=None):
     lxtgt_ordered_batches, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
 
 
-    lxtgtdata, _ = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN', 
+    lxtgtdata, _ = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'LXTGT_ORDERED_TST', 
     tag_vocabs['case'],
     tag_vocabs['polar'],
     tag_vocabs['mood'],
@@ -174,7 +173,7 @@ def build_data(args, surface_vocab=None):
     lxtgt_ordered_batches_TST, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
 
 
-    vlddata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'VAL', 
+    valdata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'VAL', 
     tag_vocabs['case'],
     tag_vocabs['polar'],
     tag_vocabs['mood'],
@@ -186,8 +185,8 @@ def build_data(args, surface_vocab=None):
     tag_vocabs['voice'],
     tag_vocabs['finite'],
     tag_vocabs['comp'])    
-    args.valsize = len(vlddata)
-    vld_batches, _ = get_batches_msved(vlddata, surface_vocab, args.batchsize, 'feature') #args.seq_to_no_pad) 
+    args.valsize = len(valdata)
+    val_batches, _ = get_batches_msved(valdata, surface_vocab, args.batchsize, 'feature')
 
     tstdata, _ = read_data(args.maxtstsize, args.tstdata, surface_vocab, 'TST', 
     tag_vocabs['case'],
@@ -207,7 +206,7 @@ def build_data(args, surface_vocab=None):
     udata = read_data_unsup(args.maxtrnsize, args.unlabeled_data, surface_vocab, 'UDATA')
     u_batches, _ = get_batches(udata, surface_vocab, args.batchsize, '') 
 
-    return (trndata, vlddata, tstdata, udata), (lxsrc_ordered_batches, lxtgt_ordered_batches, lxtgt_ordered_batches_TST, vld_batches, tst_batches, u_batches), surface_vocab, tag_vocabs
+    return (trndata, valdata, tstdata, udata), (lxsrc_ordered_batches, lxtgt_ordered_batches, lxtgt_ordered_batches_TST, val_batches, tst_batches, u_batches), surface_vocab, tag_vocabs
 
 
 ## Data prep

@@ -410,7 +410,7 @@ args.model = VQVAE(args, args.surf_vocab,  tag_vocabs, model_init, emb_init, dic
 # tensorboard
 # load pretrained ae weights
 args.model_prefix = 'batchsize'+str(args.batchsize)+'_beta'+str(args.beta)+'_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
-writer = SummaryWriter("runs/"+args.lang+'/'+ args.model_prefix)
+writer = SummaryWriter("runs/late-supervision/"+args.lang+'/'+ args.model_prefix)
 
 args.model_id = 'late-supervision_' + args.model_prefix
 args.model_id = args.model_id[:-1]
