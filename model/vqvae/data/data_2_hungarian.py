@@ -1,93 +1,102 @@
 import re, torch, json, os
+
+from numpy import append
 from sys import breakpointhook
 from collections import defaultdict, Counter
 from common.vocab import VocabEntry
 from common.batchify import get_batches
 
-def read_data(maxdsize, file, surface_vocab, mode, case_vocab=None,polar_vocab=None,mood_vocab=None,evid_vocab=None,pos_vocab=None,per_vocab=None,num_vocab=None,tense_vocab=None,aspect_vocab=None,inter_vocab=None,poss_vocab=None):
+def read_data(maxdsize, file, surface_vocab, mode, 
+    def_vocab=None,
+    polite_vocab=None,
+    poss_vocab=None,
+    finite_vocab=None,
+    case_vocab=None,
+    mood_vocab=None,
+    pos_vocab=None,
+    per_vocab=None,
+    num_vocab=None,
+    tense_vocab=None,
+   ):
     surf_data = []; data = []; tag_data = dict(); 
     reinflected_surf_data = []
     tag_vocabs = dict()
 
+    if poss_vocab is None:
+        poss_vocab = defaultdict(lambda: len(poss_vocab))
+        poss_vocab['<pad>'] = 0
+    tag_vocabs['poss'] = poss_vocab
+    tag_data['poss'] = []
+
+    if def_vocab is None:
+        def_vocab = defaultdict(lambda: len(def_vocab))
+        def_vocab['<pad>'] = 0
+    tag_vocabs['def'] = def_vocab
+    tag_data['def'] = []
+
+    if polite_vocab is None:
+        polite_vocab = defaultdict(lambda: len(polite_vocab))
+        polite_vocab['<pad>'] = 0
+    tag_vocabs['polite'] = polite_vocab
+    tag_data['polite'] = []
+
+
+
+
+    if finite_vocab is None:
+        finite_vocab = defaultdict(lambda: len(finite_vocab))
+        finite_vocab['<pad>'] = 0
+    tag_vocabs['finite'] = finite_vocab
+    tag_data['finite'] = []
+
+
+
+
+
     if case_vocab is None:
         case_vocab = defaultdict(lambda: len(case_vocab))
         case_vocab['<pad>'] = 0
+    tag_vocabs['case'] = case_vocab
+    tag_data['case'] = []
 
-    if polar_vocab is None:
-        polar_vocab = defaultdict(lambda: len(polar_vocab))
-        polar_vocab['<pad>'] = 0
+
+
 
     if mood_vocab is None:
         mood_vocab = defaultdict(lambda: len(mood_vocab))
         mood_vocab['<pad>'] = 0
-    
-    if evid_vocab is None:
-        evid_vocab = defaultdict(lambda: len(evid_vocab))
-        evid_vocab['<pad>'] = 0
+    tag_vocabs['mood'] = mood_vocab
+    tag_data['mood'] = []
+
+
 
     if pos_vocab is None:
         pos_vocab = defaultdict(lambda: len(pos_vocab))
         pos_vocab['<pad>'] = 0
+    tag_vocabs['pos'] = pos_vocab
+    tag_data['pos'] = []
+
 
     if per_vocab is None:
         per_vocab = defaultdict(lambda: len(per_vocab))
         per_vocab['<pad>'] = 0
+    tag_vocabs['per'] = per_vocab
+    tag_data['per'] = []
 
     if num_vocab is None:
         num_vocab = defaultdict(lambda: len(num_vocab))
         num_vocab['<pad>'] = 0
+    tag_vocabs['num'] = num_vocab
+    tag_data['num'] = []
 
     if tense_vocab is None:
         tense_vocab = defaultdict(lambda: len(tense_vocab))
         tense_vocab['<pad>'] = 0
-
-    if aspect_vocab is None:
-        aspect_vocab = defaultdict(lambda: len(aspect_vocab))
-        aspect_vocab['<pad>'] = 0
-
-    if inter_vocab is None:
-        inter_vocab = defaultdict(lambda: len(inter_vocab))
-        inter_vocab['<pad>'] = 0
- 
-    if poss_vocab is None:
-        poss_vocab = defaultdict(lambda: len(poss_vocab))
-        poss_vocab['<pad>'] = 0
- 
-
-    tag_vocabs['case'] = case_vocab
-    tag_data['case'] = []
-
-    tag_vocabs['polar'] = polar_vocab
-    tag_data['polar'] = []
-
-    tag_vocabs['mood'] = mood_vocab
-    tag_data['mood'] = []
-
-    tag_vocabs['evid'] = evid_vocab
-    tag_data['evid'] = []
-
-    tag_vocabs['pos'] = pos_vocab
-    tag_data['pos'] = []
-
-    tag_vocabs['per'] = per_vocab
-    tag_data['per'] = []
-
-    tag_vocabs['num'] = num_vocab
-    tag_data['num'] = []
-
     tag_vocabs['tense'] = tense_vocab
     tag_data['tense'] = []
 
-    tag_vocabs['aspect'] = aspect_vocab
-    tag_data['aspect'] = []
 
-    tag_vocabs['inter'] = inter_vocab
-    tag_data['inter'] = []
 
-    tag_vocabs['poss'] = poss_vocab
-    tag_data['poss'] = []
-    
-    
     count = 0
     surfs  = []; reinflected_surfs = []
    
@@ -114,8 +123,17 @@ def read_data(maxdsize, file, surface_vocab, mode, case_vocab=None,polar_vocab=N
     print('\nreinflected_surf_data:' +  str(len(reinflected_surf_data)))
 
     print('\ntag_data:'  +  str(len(tag_data)))
-    for surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflected_surf in zip(surf_data, tag_data['case'], tag_data['polar'],tag_data['mood'],tag_data['evid'],tag_data['pos'],tag_data['per'],tag_data['num'],tag_data['tense'],tag_data['aspect'],tag_data['inter'],tag_data['poss'], reinflected_surf_data):
-        data.append([surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, reinflected_surf])
+    for j in range(len(surf_data)):
+        instance= []
+        instance.append(surf_data[j])
+        tagkeys = []
+        for key in tag_data.keys():
+            instance.append(tag_data[key][j])
+            tagkeys.append(key)
+        instance.append(reinflected_surf_data[j])
+        data.append(instance)
+        #data.append((instance,tagkeys))
+    
     return data, tag_vocabs
 
 
@@ -141,70 +159,77 @@ def read_data_unsup(maxdsize, file, surface_vocab, mode):
 def build_data(args, surface_vocab=None):
     # Read data and get batches...
     trndata, tag_vocabs = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
+    
+    
+    for key, values in tag_vocabs.items():
+        print(key, len(values))
+    
     args.trnsize = len(trndata)
     lxsrc_ordered_batches, _ = get_batches_msved(trndata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
 
+
     lxtgtdata, _ = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN',
+    tag_vocabs['def'],
+    tag_vocabs['polite'],
+    tag_vocabs['poss'],
+    tag_vocabs['finite'],
     tag_vocabs['case'],
-    tag_vocabs['polar'],
     tag_vocabs['mood'],
-    tag_vocabs['evid'],
     tag_vocabs['pos'],
     tag_vocabs['per'],
     tag_vocabs['num'],
     tag_vocabs['tense'],
-    tag_vocabs['aspect'],
-    tag_vocabs['inter'],
-    tag_vocabs['poss'])    
+    )    
     args.lxtgtsize = len(lxtgtdata)
     lxtgt_ordered_batches, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
 
     lxtgtdata, _ = read_data(args.maxtrnsize, args.tstdata, surface_vocab, 'LXTGT_ORDERED_TST', 
+    tag_vocabs['def'],
+    tag_vocabs['polite'],
+    tag_vocabs['poss'],
+    tag_vocabs['finite'],
     tag_vocabs['case'],
-    tag_vocabs['polar'],
     tag_vocabs['mood'],
-    tag_vocabs['evid'],
     tag_vocabs['pos'],
     tag_vocabs['per'],
     tag_vocabs['num'],
     tag_vocabs['tense'],
-    tag_vocabs['aspect'],
-    tag_vocabs['inter'],
-    tag_vocabs['poss'])   
+    )  
     lxtgt_ordered_batches_TST, _ = get_batches_msved(lxtgtdata, surface_vocab, 1, 'feature')
 
 
     valdata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'TRN',
+     tag_vocabs['def'],
+    tag_vocabs['polite'],
+    tag_vocabs['poss'],
+    tag_vocabs['finite'],
     tag_vocabs['case'],
-    tag_vocabs['polar'],
     tag_vocabs['mood'],
-    tag_vocabs['evid'],
     tag_vocabs['pos'],
     tag_vocabs['per'],
     tag_vocabs['num'],
     tag_vocabs['tense'],
-    tag_vocabs['aspect'],
-    tag_vocabs['inter'],
-    tag_vocabs['poss'])    
+    )  
     args.valsize = len(valdata)
     val_batches, _ = get_batches_msved(valdata, surface_vocab, args.batchsize, 'feature')
 
 
     tstdata, _ = read_data(args.maxtstsize, args.tstdata, surface_vocab, 'TST',
+    tag_vocabs['def'],
+    tag_vocabs['polite'],
+    tag_vocabs['poss'],
+    tag_vocabs['finite'],
     tag_vocabs['case'],
-    tag_vocabs['polar'],
     tag_vocabs['mood'],
-    tag_vocabs['evid'],
     tag_vocabs['pos'],
     tag_vocabs['per'],
     tag_vocabs['num'],
     tag_vocabs['tense'],
-    tag_vocabs['aspect'],
-    tag_vocabs['inter'],
-    tag_vocabs['poss'])
+    )  
     args.tstsize = len(tstdata)
     tst_batches, _ = get_batches_msved(tstdata, surface_vocab, 1, args.seq_to_no_pad) 
     
+   
     udata = read_data_unsup(args.maxtrnsize, args.unlabeled_data, surface_vocab, 'UDATA')
     u_batches, _ = get_batches(udata, surface_vocab, args.batchsize, '') 
 
@@ -214,41 +239,67 @@ def build_data(args, surface_vocab=None):
 ## Data prep
 def get_batch_tagmapping(x, surface_vocab, device='cuda'):
     global number_of_surf_tokens, number_of_surf_unks
-    surf =[]; case=[]; polar =[]; mood=[]; evid=[]; pos=[]; per=[]; num=[]; tense=[]; aspect=[]; inter=[]; poss=[]; reinflect_surf = [] 
+    surf =[]; 
+    #tagkeys: ['poss', 'def', 'polite', 'finite', 'case', 'mood', 'pos', 'per', 'num', 'tense']
+    poss = []
+    _def =[]
+    polite=[]
+    finite=[]; 
+    case=[]
+    mood=[]
+    pos=[]
+    per=[]
+    num=[]
+    tense=[]
+
+    reinflect_surf = [] 
     max_surf_len = max([len(s[0]) for s in x])
     max_reinflect_surf_len = max([len(s[-1]) for s in x])
-    for surf_idx, case_idx,polar_idx, mood_idx ,evid_idx,pos_idx,per_idx,num_idx,tense_idx,aspect_idx,inter_idx,poss_idx, reinflect_surf_idx  in x:
+    for surf_idx, \
+    poss_idx, \
+    _def_idx,\
+    polite_idx,\
+    finite_idx ,\
+    case_idx,\
+    mood_idx,\
+    pos_idx,\
+    per_idx,\
+    num_idx,\
+    tense_idx,\
+    reinflect_surf_idx  in x:
         surf_padding = [surface_vocab['<pad>']] * (max_surf_len - len(surf_idx)) 
         reinflect_surf_padding = [surface_vocab['<pad>']] * (max_reinflect_surf_len - len(reinflect_surf_idx)) 
         surf.append([surface_vocab['<s>']] + surf_idx + [surface_vocab['</s>']] + surf_padding)
         reinflect_surf.append([surface_vocab['<s>']] + reinflect_surf_idx + [surface_vocab['</s>']] + reinflect_surf_padding)
+
+        poss.append(poss_idx)
+        _def.append(_def_idx)
+        polite.append(polite_idx)
+        finite.append(finite_idx)
         case.append(case_idx)
-        polar.append(polar_idx)
         mood.append(mood_idx)
-        evid.append(evid_idx)
         pos.append(pos_idx)
         per.append(per_idx)
         num.append(num_idx)
         tense.append(tense_idx)
-        aspect.append(aspect_idx)
-        inter.append(inter_idx)
-        poss.append(poss_idx)
+
         # Count statistics...
         number_of_surf_tokens += len(surf_idx)
         number_of_surf_unks += surf_idx.count(surface_vocab['<unk>'])
     
     return  torch.tensor(surf, dtype=torch.long,  requires_grad=False, device=device), \
-            [torch.tensor(case, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(polar, dtype=torch.long, requires_grad=False, device=device), \
+            [
+            torch.tensor(poss, dtype=torch.long, requires_grad=False, device=device), \
+            torch.tensor(_def, dtype=torch.long, requires_grad=False, device=device), \
+            torch.tensor(polite, dtype=torch.long, requires_grad=False, device=device), \
+            torch.tensor(finite, dtype=torch.long, requires_grad=False, device=device), \
+            torch.tensor(case, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(mood, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(evid, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(pos, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(per, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(num, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(tense, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(aspect, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(inter, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(poss, dtype=torch.long, requires_grad=False, device=device)], \
+            torch.tensor(tense, dtype=torch.long, requires_grad=False, device=device),\
+            ], \
             torch.tensor(reinflect_surf, dtype=torch.long, requires_grad=False, device=device)
 
 def get_batches_msved(data, vocab, batchsize=64, seq_to_no_pad='', device='cuda'):

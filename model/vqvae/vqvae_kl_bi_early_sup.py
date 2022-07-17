@@ -47,6 +47,7 @@ class VQVAE_Encoder(nn.Module):
             bck = last_state[-2].unsqueeze(0)
             last_state = torch.cat([last_state[-2], last_state[-1]], 1).unsqueeze(0)
             
+        #mean, logvar = self.linear(last_state).chunk(2, -1)
         
         mean, logvar = self.linear(fwd).chunk(2, -1)
         fwd = fwd.permute(1,0,2)
@@ -113,16 +114,16 @@ class VectorQuantizer(nn.Module):
             vq_loss = embedding_loss + (self.beta * commitment_loss)
             
 
-            encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=latents.device)
-            encoding_one_hot.scatter_(1, encoding_inds, 1) 
-            quantized_latents = torch.matmul(encoding_one_hot,  self.embedding.weight) 
-            quantized_latents = quantized_latents.view(latents_shape)  
+            #encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=latents.device)
+            #encoding_one_hot.scatter_(1, encoding_inds, 1) 
+            #quantized_latents = torch.matmul(encoding_one_hot,  self.embedding.weight) 
+            #quantized_latents = quantized_latents.view(latents_shape)  
 
             #encoding_one_hot = torch.zeros(encoding_inds.size(0), self.K, device=latents.device)
             #encoding_one_hot.scatter_(1, encoding_inds, 1) 
             #quantized_latents = torch.matmul(encoding_one_hot,  self.embedding.weight) 
             #quantized_latents = quantized_latents.view(latents_shape)  
-            return quantized_latents.contiguous(), vq_loss, encoding_inds.t()
+            return gold_quantized_latents.contiguous(), vq_loss, gold_encoding_inds.t()
             
             #else: #test   
             #    gold_quantized_latents = latents + (gold_quantized_latents - latents).detach()
