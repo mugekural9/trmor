@@ -29,10 +29,80 @@ def get_model_info(id, lang=None):
         model_path  = 'model/vqvae/results/training/turkish/unsup/55000_instances/15epochs.pt'
         model_vocab = 'model/vqvae/results/training/turkish/unsup/55000_instances/surf_vocab.json'  
    
+
+    if id == 'ae_turkish_unsup_660_17epc':
+        model_path  = 'model/vqvae/results/training/turkish/unsup/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/turkish/unsup/55000_instances/surf_vocab.json'  
+
     if id == 'ae_finnish_unsup_660':
         model_path  = 'model/vqvae/results/training/finnish/unsup/55000_instances/16epochs.pt'
         model_vocab = 'model/vqvae/results/training/finnish/unsup/55000_instances/surf_vocab.json'  
+  
+    if id == 'ae_hungarian_unsup_660':
+        model_path  = 'model/vqvae/results/training/hungarian/unsup/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/hungarian/unsup/55000_instances/surf_vocab.json'  
+  
+  
+    if id == 'ae_maltese_unsup_660':
+        model_path  = 'model/vqvae/results/training/maltese/unsup/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/maltese/unsup/55000_instances/surf_vocab.json'  
    
+    if id == 'ae_navajo_unsup_240':
+        model_path  = 'model/vqvae/results/training/navajo/unsup/32109_instances/7epochs.pt'
+        model_vocab = 'model/vqvae/results/training/navajo/unsup/32109_instances/surf_vocab.json'  
+   
+
+    if id == 'ae_navajo_unsup_660':
+        model_path  = 'model/vqvae/results/training/navajo/unsup/32109_instances/6epochs.pt'
+        model_vocab = 'model/vqvae/results/training/navajo/unsup/32109_instances/surf_vocab.json'  
+   
+
+    if id == 'ae_russian_unsup_660':
+        model_path  = 'model/vqvae/results/training/russian/unsup/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/russian/unsup/55000_instances/surf_vocab.json'  
+   
+    if id == 'ae_arabic_unsup_660':
+        model_path  = 'model/vqvae/results/training/arabic/unsup/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/arabic/unsup/55000_instances/surf_vocab.json'  
+   
+    if id == 'ae_german_unsup_660':
+        model_path  = 'model/vqvae/results/training/german/unsup/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/german/unsup/55000_instances/surf_vocab.json'  
+  
+
+    #### SIGMORPHON2018
+    if id == 'sigmorphon2018_ae_turkish_unsup_660':
+        model_path  = 'model/vqvae/results/training/turkish/sig2018/10000_instances/50epochs.pt'
+        model_vocab = 'model/vqvae/results/training/turkish/sig2018/10000_instances/surf_vocab.json'  
+
+    if id == 'sigmorphon2018_ae_turkish_unsup_1320':
+        model_path  = 'model/vqvae/results/training/turkish/sig2018/10000_instances/30epochs.pt'
+        model_vocab = 'model/vqvae/results/training/turkish/sig2018/10000_instances/surf_vocab.json' 
+
+    if id == 'sigmorphon2018_ae_turkish_unsup_360':
+        model_path  = 'model/vqvae/results/training/turkish/sig2018/10000_instances/51epochs.pt'
+        model_vocab = 'model/vqvae/results/training/turkish/sig2018/10000_instances/surf_vocab.json' 
+
+
+
+    if id == 'sigmorphon2018_ae_spanish_unsup_660':
+        model_path  = 'model/vqvae/results/training/spanish/sig2018/10000_instances/50epochs.pt'
+        model_vocab = 'model/vqvae/results/training/spanish/sig2018/10000_instances/surf_vocab.json'  
+
+    if id == 'sigmorphon2018_ae_finnish_unsup_660':
+        model_path  = 'model/vqvae/results/training/finnish/sig2018/10000_instances/30epochs.pt'
+        model_vocab = 'model/vqvae/results/training/finnish/sig2018/10000_instances/surf_vocab.json'  
+
+
+
+
+
+
+
+
+
+    ## LATE SUPERVISION
+
     if lang == 'finnish':    
         if id == 'batchsize128_beta_0.2_5x6_bi_kl_0.2_epc190':
             model_path  = 'model/vqvae/results/training/'+lang+'/55000_instances/batchsize128_beta0.2_bi_kl0.2_5x6_dec256_suffixd300/200epochs.pt_190'
@@ -110,7 +180,19 @@ def get_model_info(id, lang=None):
                 tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
             return model_path, model_vocab, tag_vocabs
     
+        if id == 'early-supervision_batchsize128_beta_0.2_11x90_bi_kl_0.1_epc301':
+            model_pfx = 'model/vqvae/results/training/turkish/early-supervision/12798_instances/batchsize128_beta0.2_bi_kl0.1_11x90_dec256_suffixd660/'
+            model_path  = model_pfx + '301epochs.pt_240'
+            model_vocab = model_pfx + 'surf_vocab.json'
+            tag_vocabs = []
+            for i in range(11):
+                tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
+            return model_path, model_vocab, tag_vocabs
 
+
+
+
+  
     return model_path, model_vocab
 
 class Logger(object):

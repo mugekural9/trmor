@@ -10,7 +10,7 @@ from vqvae_ae import VQVAE_AE
 from common.utils import *
 from common.vocab import VocabEntry
 from torch import optim
-from data.data import build_data, log_data
+from data.data_sigmorphon2018 import build_data
 from torch.utils.tensorboard import SummaryWriter
 import numpy as np
 
@@ -93,6 +93,7 @@ def train(data, args):
                 epoch_encoder_fhs_bck.append(encoder_fhs_bck)
             else:
                 epoch_encoder_fhs.append(encoder_fhs)
+                breakpoint()
             opt.step()
             epoch_num_tokens += torch.sum(surf[:,1:]!=0)#surf.size(0) * (surf.size(1)-1) # exclude start token prediction
             epoch_loss       += loss.sum().item()
@@ -139,9 +140,10 @@ def train(data, args):
             best_loss = loss
             torch.save(args.model.state_dict(), args.save_path)
             if args.model.encoder.lstm.bidirectional:
-                torch.save(epoch_encoder_fhs_fwd, args.lang+'_fhs_datasetV-train_fwd_d'+str(args.enc_nh)+'.pt')
-                torch.save(epoch_encoder_fhs_bck, args.lang+'_fhs_datasetV-train_bck_d'+str(args.enc_nh)+'.pt')
-                torch.save(epoch_encoder_fhs,     args.lang+'_fhs_datasetV-train_all_d'+str(args.enc_nh*2)+'.pt')
+                torch.save(epoch_encoder_fhs_fwd, args.lang+'_fhs_SIGMORPHON2018-train_fwd_d'+str(args.enc_nh)+'.pt')
+                torch.save(epoch_encoder_fhs_bck, args.lang+'_fhs_SIGMORPHON2018-train_bck_d'+str(args.enc_nh)+'.pt')
+                torch.save(epoch_encoder_fhs,     args.lang+'_fhs_SIGMORPHON2018-train_all_d'+str(args.enc_nh*2)+'.pt')
+
         args.model.train()
 
 # CONFIG
@@ -149,42 +151,32 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 6
+args.batchsize = 16; args.epochs = 51
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
 
 # data
-#args.trndata = 'data/labelled/verb/trmor2018.uniquesurfs.verb/uniquerooted.trn/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
-#args.valdata = 'data/labelled/verb/trmor2018.uniquesurfs.verb/seenroots.val/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
-
-#args.trndata  = 'data/unlabelled/top50k.wordlist.tur'
-#args.trndata  = 'data/unlabelled/wordlist.tur'
-#args.valdata  = 'data/unlabelled/theval.tur'
-
-#args.trndata  = 'data/sigmorphon2016/zhou_merged'
-#args.valdata  = 'data/sigmorphon2016/turkish-task3-test'
-
-args.lang ='navajo'
-args.trndata  = 'data/sigmorphon2016/'+args.lang+'_zhou_merged'
-args.valdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
+args.lang ='turkish'
+args.trndata  = 'data/sigmorphon2018/all/'+args.lang+'-train-high'
+args.valdata  = 'data/sigmorphon2018/all/'+args.lang+'-test'
 
 
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
 args.maxtrnsize = 55000; args.maxvalsize = 1000; args.maxtstsize = 10000
-rawdata, batches, vocab = build_data(args)
+rawdata, batches, vocab = build_data(args, mode='pretrain_ae')
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(trndata)
 # model
 args.mname = 'vqvae' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.ni = 256; 
-args.enc_dropout_in = 0.2; args.enc_dropout_out = 0.2
-args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.2
-args.enc_nh = 660;
+args.ni = 128; 
+args.enc_dropout_in = 0.5; args.enc_dropout_out = 0.5
+args.dec_dropout_in = 0.6; args.dec_dropout_out = 0.5
+args.enc_nh = 360;
 args.dec_nh = args.enc_nh*2;
 args.embedding_dim = args.enc_nh; args.nz = args.enc_nh
 args.beta = 0
@@ -195,11 +187,11 @@ args.model = VQVAE_AE(args, vocab, model_init, emb_init, dict_assemble_type='con
 args.model.to(args.device)
 
 #tensorboard
-writer = SummaryWriter("runs/pretraining_ae/dataset-V/"+args.lang+'/')
+writer = SummaryWriter("runs/pretraining_ae/dataset-sig2018/"+args.lang+'/')
 
 
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/unsup/'+str(len(trndata))+'_instances/'
+args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/sig2018/'+str(len(trndata))+'_instances/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

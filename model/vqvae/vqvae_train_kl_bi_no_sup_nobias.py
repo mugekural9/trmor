@@ -8,7 +8,7 @@ import sys, argparse, random, torch, json, matplotlib, os
 from turtle import update
 from unicodedata import bidirectional
 import matplotlib.pyplot as plt
-from model.vqvae.vqvae_kl_bi_early_sup import VQVAE
+from model.vqvae.vqvae_kl_bi_early_sup_nobias import VQVAE
 from vqvae_ae import VQVAE_AE
 from model.vae.vae import VAE
 import torch.nn.functional as F
@@ -153,7 +153,7 @@ def train(data, args):
 
         suffix_codes_trn = defaultdict(lambda: 0)
         for i, idx in enumerate(indices):
-            kl_weight = get_kl_weight(update_ind, args.kl_max, 100000.0)
+            kl_weight = get_kl_weight(update_ind, args.kl_max, args.kl_decay)
             batch_loss = torch.tensor(0.0).to('cuda')
             update_ind += 1
             args.model.zero_grad()
@@ -227,8 +227,8 @@ def train(data, args):
 
 def shared_task_gen(args,epc):
     i=0
-    with open(args.lang+'_no_sup_'+args.model_prefix[:-1]+'_sharedtask_TRUE.txt', 'w') as writer_true:
-        with open(args.lang+'_no_sup_'+args.model_prefix[:-1]+'_sharedtask_FALSE.txt', 'w') as writer_false:
+    with open(args.lang+'_no_sup_no_bias_'+args.model_prefix[:-1]+'_sharedtask_TRUE.txt', 'w') as writer_true:
+        with open(args.lang+'_no_sup_no_bias_'+args.model_prefix[:-1]+'_sharedtask_FALSE.txt', 'w') as writer_false:
             with open(args.tstdata, 'r') as reader:
                 true=0; false = 0
                 for line in reader:
@@ -263,11 +263,7 @@ def reinflect(args, inflected_word, reinflect_tag):
   
     # kl version
     fhs, _, _, mu, logvar, fwd,bck = args.model.encoder(x)
-    _root_fhs = mu.unsqueeze(0)
-    #_root_fhs = args.model.reparameterize(mu, logvar)
-    _root_fhs = args.model.z_to_dec(_root_fhs)
-
-    vq_vectors.append(_root_fhs)
+    raw_root_fhs = mu.unsqueeze(0)
 
     bosid = args.surf_vocab.word2id['<s>']
     input = torch.tensor(bosid).to('cuda')
@@ -303,12 +299,18 @@ def reinflect(args, inflected_word, reinflect_tag):
         vq_vectors.append(args.model.ord_vq_layers[14].embedding.weight[reinflect_tag[14]].unsqueeze(0).unsqueeze(0))
         vq_vectors.append(args.model.ord_vq_layers[15].embedding.weight[reinflect_tag[15]].unsqueeze(0).unsqueeze(0))
 
-    vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
-    root_z, suffix_z = vq_vectors
-    batch_size, seq_len, _ = fhs.size()
-    z_ = suffix_z.expand(batch_size, seq_len, args.model.decoder.incat)
+    dict_vectors = torch.cat(vq_vectors,dim=2)
+    _root_fhs_to_dec = args.model.z_to_dec(raw_root_fhs) + args.model.tag_to_dec(dict_vectors) 
+    
+    vq_vectors = (_root_fhs_to_dec, dict_vectors, raw_root_fhs) 
 
-    c_init = root_z
+    root_z_to_dec, suffix_z, raw_root_z = vq_vectors
+    all_z = torch.cat((raw_root_z, suffix_z), dim=2)
+    #all_z = suffix_z
+    batch_size, seq_len, _ = fhs.size()
+    z_ = all_z.expand(batch_size, seq_len, args.model.decoder.incat)
+
+    c_init = root_z_to_dec
     h_init = torch.tanh(c_init)
     decoder_hidden = (h_init, c_init)
     copied = []; i = 0
@@ -350,24 +352,25 @@ args.batchsize = 128; args.epochs = 301
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
-args.kl_max = 0.2
+args.kl_max = 0.1
 dataset_type = 'V'
-args.lang='arabic'
+args.lang='navajo'
 
 
 if dataset_type == 'V':
     if args.lang == 'georgian':
-        _model_id = 'ae_'+args.lang+'_unsup_640'
-        ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d640.pt').to('cpu')
+        _model_id = 'ae_'+args.lang+'_unsup_880'
+        ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d880.pt').to('cpu')
+        ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1760.pt').to('cpu')
     elif args.lang == 'navajo':
-        _model_id = 'ae_'+args.lang+'_unsup_330'
-        ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d330.pt').to('cpu')
-    
-    
+        _model_id = 'ae_'+args.lang+'_unsup_660'
+        #ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d240.pt').to('cpu')
+        ae_fhs_vectors= torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
+
     else:
         _model_id = 'ae_'+args.lang+'_unsup_660'
         ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d660.pt').to('cpu')
-    #ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
+        ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
 
 _model_path, surf_vocab  = get_model_info(_model_id) 
 # initialize model
@@ -384,7 +387,7 @@ args.unlabeled_data = 'data/sigmorphon2016/'+args.lang+'_ux_ctrl.txt'
 args.maxtrnsize = 750000; args.maxvalsize = 1000; args.maxtstsize = 1000000000000
 args.ux_weight = 1.0
 args.ux_start_epc = 0
-
+args.kl_decay = 150000.0
 if args.lang == 'finnish':
     from data.data_2_finnish import build_data
 elif args.lang == 'turkish':
@@ -414,34 +417,36 @@ args.trnsize , args.valsize, args.tstsize, args.usize = len(trndata), len(valdat
 args.mname = 'vqvae' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
+args.enc_dropout_in = 0.1; args.enc_dropout_out = 0.0
 args.dec_dropout_in = 0.3; args.dec_dropout_out = 0.0
 args.ni = 256; 
 if args.lang=='georgian':
-    args.enc_nh = 640;
+    args.enc_nh = 880;
 elif args.lang =='navajo':
-    args.enc_nh = 330
+    args.enc_nh = 660
 else:
     args.enc_nh = 660;
-args.dec_nh = 256  
+
+args.dec_nh = 512  
 args.embedding_dim = args.enc_nh
-args.beta = 0.5
-args.nz = 128; 
+args.beta = 1.0
+args.nz = 100; 
 args.num_dicts = len(tag_vocabs)
 args.outcat=0; 
 args.orddict_emb_num = 10
-args.incat = args.enc_nh; 
+args.incat = (args.enc_nh*2) + args.nz 
 
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat; args.dec_nh_tmp = args.dec_nh
 args.model = VQVAE(args, args.surf_vocab,  tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat', bidirectional=True)
 
 # tensorboard
 # load pretrained ae weights
-args.model_prefix = 'batchsize'+str(args.batchsize)+'_beta'+str(args.beta)+'_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
-writer = SummaryWriter("runs/no-supervision/"+args.lang+'/'+ args.model_prefix)
+args.model_prefix = 'kl_decay'+str(args.kl_decay)+'_nz'+str(args.nz)+'_batchsize'+str(args.batchsize)+'_beta'+str(args.beta)+'_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
+writer = SummaryWriter("runs/no-supervision-nobias/"+args.lang+'/'+ args.model_prefix)
 
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
-    vq_layer.embedding.weight.data = ae_fhs_vectors_bck[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
+    #vq_layer.embedding.weight.data = ae_fhs_vectors_bck[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
+    vq_layer.embedding.weight.data = ae_fhs_vectors[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
 
 
 # initialize model
@@ -464,7 +469,7 @@ args.model.encoder.lstm  = args.pretrained_model.encoder.lstm
 
 args.model.to(args.device)
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/no-supervision-do0.4/'+str(args.usize)+'_instances/'+args.model_prefix
+args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/no-supervision-nobias/'+str(args.usize)+'_instances/'+args.model_prefix
 
 try:
     os.makedirs(args.modelname)

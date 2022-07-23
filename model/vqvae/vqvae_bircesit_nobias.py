@@ -26,7 +26,7 @@ class VQVAE_Encoder(nn.Module):
 
         self.dropout_in = nn.Dropout(args.enc_dropout_in)
 
-        self.linear = nn.Linear(args.enc_nh,  2*args.nz, bias=False)
+        self.linear = nn.Linear(args.enc_nh*2,  2*args.nz, bias=False)
 
         self.reset_parameters(model_init, emb_init)
 
@@ -47,9 +47,9 @@ class VQVAE_Encoder(nn.Module):
             bck = last_state[-2].unsqueeze(0)
             last_state = torch.cat([last_state[-2], last_state[-1]], 1).unsqueeze(0)
             
-        #mean, logvar = self.linear(last_state).chunk(2, -1)
+        mean, logvar = self.linear(last_state).chunk(2, -1)
         
-        mean, logvar = self.linear(fwd).chunk(2, -1)
+        #mean, logvar = self.linear(fwd).chunk(2, -1)
         fwd = fwd.permute(1,0,2)
         bck = bck.permute(1,0,2)
 
@@ -148,7 +148,7 @@ class VQVAE_Decoder(nn.Module):
         self.dropout_out = nn.Dropout(args.dec_dropout_out)
 
         # concatenate z with input
-        self.lstm = nn.LSTM(input_size=args.ni + args.incat,
+        self.lstm = nn.LSTM(input_size=args.ni, #+ args.incat,
                             hidden_size=args.dec_nh,
                             num_layers=1,
                             batch_first=True)
@@ -158,6 +158,9 @@ class VQVAE_Decoder(nn.Module):
         vocab_mask = torch.ones(len(vocab.word2id))
         self.loss = nn.CrossEntropyLoss(weight=vocab_mask, reduce=False, ignore_index=0)
         self.reset_parameters(model_init, emb_init)
+
+        self.suffix_encoder = nn.Linear(args.enc_nh*2, args.ni, bias=False)
+
 
     def reset_parameters(self, model_init, emb_init):
         for param in self.parameters():
@@ -176,9 +179,15 @@ class VQVAE_Decoder(nn.Module):
         word_embed = self.embed(input)
         word_embed = self.dropout_in(word_embed)
 
-        z_ = suffix_z.expand(batch_size, seq_len, self.incat)
+        #z_ = suffix_z.expand(batch_size, seq_len, self.incat)
+        _suffix_z= self.suffix_encoder(suffix_z)
+        z_ =  _suffix_z.expand(batch_size, seq_len, self.incat)
+        word_embed = word_embed + z_
+        
         # (batch_size, seq_len, ni + nz)
-        word_embed = torch.cat((word_embed, z_), -1)
+        #word_embed = torch.cat((word_embed, z_), -1)
+
+
        
        
         output, hidden = self.lstm(word_embed, hidden)
@@ -252,8 +261,10 @@ class VQVAE(nn.Module):
         self.orddict_emb_num = args.orddict_emb_num
         self.dict_assemble_type = dict_assemble_type
         self.nz = args.nz
-        self.z_to_dec = nn.Linear(self.nz, args.dec_nh)
-        self.orddict_emb_dim   = int(args.enc_nh/self.num_dicts)
+        self.z_to_dec = nn.Linear(self.nz, int(args.dec_nh))
+        self.tag_to_dec = nn.Linear(int(args.enc_nh*2), int(args.dec_nh))
+
+        self.orddict_emb_dim   = int(args.enc_nh*2/self.num_dicts)
             
         self.beta = args.beta
         self.ord_vq_layers = nn.ModuleList([])
@@ -314,9 +325,9 @@ class VQVAE(nn.Module):
             #_fhs =  linear(fwd_fhs)
             # quantized_input: (B, 1, orddict_emb_dim)
             if not tags:
-                quantized_input, vq_loss, quantized_inds = vq_layer(None, bck[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
+                quantized_input, vq_loss, quantized_inds = vq_layer(None, fhs[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
             else:
-                quantized_input, vq_loss, quantized_inds = vq_layer(tags[i], bck[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
+                quantized_input, vq_loss, quantized_inds = vq_layer(tags[i], fhs[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
             vq_vectors.append(quantized_input)
             vq_losses.append(vq_loss)
             vq_inds.append(quantized_inds)
@@ -422,8 +433,12 @@ class VQVAE(nn.Module):
         quantized_inputs, vq_loss, quantized_inds, encoder_fhs, dict_codes, suffix_codes, kl_loss, logdet = self.vq_loss(x, tags, epc, mode)
       
         root_z, suffix_z = quantized_inputs
+        root_z = root_z+ self.tag_to_dec(suffix_z)
+        
+        #root_z = torch.cat((root_z, suffix_z), dim=2)
         root_z = root_z.permute((1,0,2))
         # (1, batch_size, dec_nh)
+
         c_init = root_z
         h_init = torch.tanh(c_init)
         dec_h0 = (h_init, c_init)

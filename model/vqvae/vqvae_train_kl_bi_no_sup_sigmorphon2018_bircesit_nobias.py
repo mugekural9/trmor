@@ -8,7 +8,8 @@ import sys, argparse, random, torch, json, matplotlib, os
 from turtle import update
 from unicodedata import bidirectional
 import matplotlib.pyplot as plt
-from model.vqvae.vqvae_kl_bi_early_sup import VQVAE
+from model.vqvae.vqvae_bircesit_nobias import VQVAE
+
 from vqvae_ae import VQVAE_AE
 from model.vae.vae import VAE
 import torch.nn.functional as F
@@ -45,11 +46,17 @@ def test_infer(batches, mode, args, epc, suffix_codes_trn, kl_weight):
     new_gen_suffix_codes_val = defaultdict(lambda: 0)
     suffix_codes_val = defaultdict(lambda: 0)
     freq_new_gen_suffix_codes_used = 0
+    preds_words = []
     for i, idx in enumerate(indices):
         # (batchsize, t)
         lxsrc, tags, lxtgt  = batches[idx] 
         #infer mode
         loss, recon_loss, vq_loss, (acc,pred_tokens), quantized_inds,  encoder_fhs, vq_codes_list, suffix_code_list, recon_preds, kl_loss, logdetmaxloss = args.model.loss(lxtgt, None, kl_weight, epc, mode='val')
+        
+        #for i in range(pred_tokens.size(0)):
+        #    pr = ''.join(args.surf_vocab.decode_sentence(pred_tokens[i]))
+        #    tgt = ''.join(args.surf_vocab.decode_sentence(lxtgt[i]))
+        #    preds_words.append(tgt+'\t'+pr+'\n')
        
         ## DICT USAGE TRACKING
         # Keep number of unique codes
@@ -82,6 +89,11 @@ def test_infer(batches, mode, args, epc, suffix_codes_trn, kl_weight):
         epoch_kl_loss    += kl_loss.sum().item()
         epoch_acc        += acc
     
+
+    #with open(str(epc)+'_val.preds.txt', 'w') as wr:
+    #    for line in preds_words:
+    #        wr.write(line)
+
     for i in range(args.num_dicts +1):
         if epc % 10 ==0:
             i = args.num_dicts
@@ -153,7 +165,7 @@ def train(data, args):
 
         suffix_codes_trn = defaultdict(lambda: 0)
         for i, idx in enumerate(indices):
-            kl_weight = get_kl_weight(update_ind, args.kl_max, 100000.0)
+            kl_weight = get_kl_weight(update_ind, args.kl_max, args.kl_decay)
             batch_loss = torch.tensor(0.0).to('cuda')
             update_ind += 1
             args.model.zero_grad()
@@ -219,7 +231,7 @@ def train(data, args):
                 torch.save(args.model.state_dict(), args.save_path)
             if epc%3==0 or epc>100:
                 shared_acc = shared_task_gen(args,epc) 
-                torch.save(args.model.state_dict(), args.save_path+'_'+str(epc))
+                #torch.save(args.model.state_dict(), args.save_path+'_'+str(epc))
                 writer.add_scalar('shared-task/accuracy', shared_acc, epc)
 
         args.model.train()
@@ -227,32 +239,31 @@ def train(data, args):
 
 def shared_task_gen(args,epc):
     i=0
-    with open(args.lang+'_no_sup_'+args.model_prefix[:-1]+'_sharedtask_TRUE.txt', 'w') as writer_true:
-        with open(args.lang+'_no_sup_'+args.model_prefix[:-1]+'_sharedtask_FALSE.txt', 'w') as writer_false:
+    with open( args.modelname+'nz_'+str(args.nz)+'_'+args.lang+'_no_sup_'+args.model_prefix[:-1]+'_SIGMORPHON2018_TRUE.txt', 'w') as writer_true:
+        with open( args.modelname+'nz_'+str(args.nz)+'_'+args.lang+'_no_sup_'+args.model_prefix[:-1]+'_SIGMORPHON2018_FALSE.txt', 'w') as writer_false:
             with open(args.tstdata, 'r') as reader:
                 true=0; false = 0
                 for line in reader:
                     if epc<20 and i>1000:
                         break
                     i+=1
-                    split_line = line.strip().split('\t')
-                    inflected_word, asked_tag, gold_reinflection  = split_line
-                    oracle_keys = oracle(args, asked_tag, inflected_word, gold_reinflection)
+                    split_line = line.strip().lower().split('\t')
+                    lemma, gold_inflection, asked_tag  = split_line
+                    oracle_keys = oracle(args, gold_inflection)
                     key = [int(n) for n in oracle_keys.split('-')]
-                    reinflected_word, suffix_code =  reinflect(args, inflected_word,key)
-                    reinflected_word = reinflected_word[:-4]
-                    #writer.write(inflected_word +'\t'+ asked_tag+'\t'+reinflected_word + '\n')
-                    if reinflected_word == gold_reinflection:
+                    inflected_word, suffix_code =  reinflect(args, lemma,key)
+                    inflected_word = inflected_word[:-4]
+                    if inflected_word == gold_inflection:
                         true +=1
-                        writer_true.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
+                        writer_true.write(lemma +'\t'+gold_inflection + '\t'+inflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
                     else:
-                        writer_false.write(inflected_word +'\t'+gold_reinflection + '\t'+reinflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
+                        writer_false.write(lemma +'\t'+gold_inflection + '\t'+inflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
     acc = (true/i)
     args.logger.write('\nShared Task oracle acc: %.3f over %d words' % (acc,i))
     return acc
 
-def oracle(args, asked_tag, inflected_word, reinflected_word, itr=0):
-    x = torch.tensor([args.surf_vocab.word2id['<s>']] + args.surf_vocab.encode_sentence(reinflected_word) + [args.surf_vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
+def oracle(args, inflected_word, itr=0):
+    x = torch.tensor([args.surf_vocab.word2id['<s>']] + args.surf_vocab.encode_sentence(inflected_word) + [args.surf_vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
     quantized_inputs, vq_loss, quantized_inds, encoder_fhs, _,_,_, _ = args.model.vq_loss(x, None, 0, 'tst')
     mapped_inds =  '-'.join([str(i[0][0].item()) for i in quantized_inds])
     return mapped_inds#''.join(inflected_word) +'\t'+ asked_tag +'\t'+ mapped_inds +'\t---> ' + reinflected_word
@@ -306,8 +317,12 @@ def reinflect(args, inflected_word, reinflect_tag):
     vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2))
     root_z, suffix_z = vq_vectors
     batch_size, seq_len, _ = fhs.size()
-    z_ = suffix_z.expand(batch_size, seq_len, args.model.decoder.incat)
-
+    
+    
+    #z_ = suffix_z.expand(batch_size, seq_len, args.model.decoder.incat)
+    _suffix_z= args.model.decoder.suffix_encoder(suffix_z)
+    z_ =  _suffix_z.expand(batch_size, seq_len, args.incat)
+    root_z = root_z+ args.model.tag_to_dec(suffix_z)
     c_init = root_z
     h_init = torch.tanh(c_init)
     decoder_hidden = (h_init, c_init)
@@ -318,7 +333,9 @@ def reinflect(args, inflected_word, reinflect_tag):
         c+=1
         # (1,1,ni)
         word_embed = args.model.decoder.embed(torch.tensor([input]).unsqueeze(0).to('cuda'))
-        word_embed = torch.cat((word_embed, z_), -1)
+        word_embed = word_embed + z_
+
+        #word_embed = torch.cat((word_embed, z_), -1)
         # output: (1,1,dec_nh)
         output, decoder_hidden = args.model.decoder.lstm(word_embed, decoder_hidden)
         # (1, vocab_size)
@@ -331,7 +348,8 @@ def reinflect(args, inflected_word, reinflect_tag):
     return(''.join(copied), (reinflect_tag))
 
 def get_kl_weight(update_ind, thres, rate):
-    upnum = int((1500*args.trnsize) / 72000)
+    upnum = args.upnum #int((1500*args.trnsize) / 72000)
+    #print(upnum)
     if update_ind <= upnum:
         return 0.0
     else:
@@ -346,28 +364,40 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 301
+args.batchsize = 16; args.epochs = 500
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
 args.kl_max = 0.2
+args.kl_decay = 150000.0
+args.beta = 0.5
+
 dataset_type = 'V'
-args.lang='arabic'
+args.lang='turkish'
+
+args.nz = 128; 
+args.dec_nh = 256  
+args.ni = 128; 
+
+args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
+args.dec_dropout_in = 0.6; args.dec_dropout_out = 0.0
+if args.lang=='georgian':
+    args.enc_nh = 640;
+elif args.lang =='navajo':
+    args.enc_nh = 330
+else:
+    args.enc_nh = 360
+
+    
+_model_id = 'sigmorphon2018_ae_'+args.lang+'_unsup_360'
+ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_SIGMORPHON2018-train_bck_d360.pt').to('cpu')
+ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_SIGMORPHON2018-train_all_d720.pt').to('cpu')
+#row=torch.randperm(10000)
+#col=torch.randperm(args.enc_nh)
+#ae_fhs_vectors_bck=ae_fhs_vectors_bck[row[:, None], col]
 
 
-if dataset_type == 'V':
-    if args.lang == 'georgian':
-        _model_id = 'ae_'+args.lang+'_unsup_640'
-        ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d640.pt').to('cpu')
-    elif args.lang == 'navajo':
-        _model_id = 'ae_'+args.lang+'_unsup_330'
-        ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d330.pt').to('cpu')
-    
-    
-    else:
-        _model_id = 'ae_'+args.lang+'_unsup_660'
-        ae_fhs_vectors_bck = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_bck_d660.pt').to('cpu')
-    #ae_fhs_vectors     = torch.load('model/vqvae/results/fhs/'+args.lang+'_fhs_datasetV-train_all_d1320.pt').to('cpu')
+
 
 _model_path, surf_vocab  = get_model_info(_model_id) 
 # initialize model
@@ -376,37 +406,18 @@ with open(surf_vocab) as f:
     word2id = json.load(f)
     args.surf_vocab = VocabEntry(word2id)
 
+
 # data
-args.trndata  = 'data/sigmorphon2016/'+args.lang+'-task3-train'
-args.valdata  = 'data/sigmorphon2016/'+args.lang+'-task3-test'
+args.trndata  = 'data/sigmorphon2018/all/'+args.lang+'-train-high'
+args.valdata  = 'data/sigmorphon2018/all/'+args.lang+'-test'
 args.tstdata  = args.valdata
-args.unlabeled_data = 'data/sigmorphon2016/'+args.lang+'_ux_ctrl.txt'
-args.maxtrnsize = 750000; args.maxvalsize = 1000; args.maxtstsize = 1000000000000
+args.unlabeled_data = args.trndata
+
+args.maxtrnsize = 750000; args.maxvalsize = 1000; args.maxtstsize = 1000000000000; args.maxusize= 100000000000000000
 args.ux_weight = 1.0
 args.ux_start_epc = 0
 
-if args.lang == 'finnish':
-    from data.data_2_finnish import build_data
-elif args.lang == 'turkish':
-    from data.data_2_turkish import build_data
-elif args.lang == 'hungarian':
-    from data.data_2_hungarian import build_data
-elif args.lang == 'maltese':
-    from data.data_2_maltese import build_data
-elif args.lang == 'navajo':
-    from data.data_2_navajo import build_data
-elif args.lang == 'russian':
-    from data.data_2_russian import build_data
-elif args.lang == 'arabic':
-    from data.data_2_arabic import build_data
-elif args.lang == 'german':
-    from data.data_2_german import build_data
-elif args.lang == 'spanish':
-    from data.data_2_spanish import build_data
-elif args.lang == 'georgian':
-    from data.data_2_georgian import build_data
-
-
+from model.vqvae.data.data_2_sigmorphon2018 import build_data
 rawdata, batches, _, tag_vocabs = build_data(args, args.surf_vocab)
 trndata, valdata, tstdata, udata = rawdata
 args.trnsize , args.valsize, args.tstsize, args.usize = len(trndata), len(valdata), len(tstdata), len(udata)
@@ -414,34 +425,27 @@ args.trnsize , args.valsize, args.tstsize, args.usize = len(trndata), len(valdat
 args.mname = 'vqvae' 
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
-args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.3; args.dec_dropout_out = 0.0
-args.ni = 256; 
-if args.lang=='georgian':
-    args.enc_nh = 640;
-elif args.lang =='navajo':
-    args.enc_nh = 330
-else:
-    args.enc_nh = 660;
-args.dec_nh = 256  
+
+
+
+args.upnum = int((1500*args.trnsize) / 72000)
 args.embedding_dim = args.enc_nh
-args.beta = 0.5
-args.nz = 128; 
 args.num_dicts = len(tag_vocabs)
 args.outcat=0; 
 args.orddict_emb_num = 10
-args.incat = args.enc_nh; 
+args.incat = args.ni#args.enc_nh; 
 
 args.num_dicts_tmp = args.num_dicts; args.outcat_tmp=args.outcat; args.incat_tmp = args.incat; args.dec_nh_tmp = args.dec_nh
 args.model = VQVAE(args, args.surf_vocab,  tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat', bidirectional=True)
 
 # tensorboard
 # load pretrained ae weights
-args.model_prefix = 'batchsize'+str(args.batchsize)+'_beta'+str(args.beta)+'_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
-writer = SummaryWriter("runs/no-supervision/"+args.lang+'/'+ args.model_prefix)
+args.model_prefix = 'data'+str(args.usize)+'_kldecay'+str(args.kl_decay)+'_enc_dropout_in'+str(args.enc_dropout_in)+'ni_'+str(args.ni)+'_upnum'+str(args.upnum)+'do'+str(args.dec_dropout_in)+'_nz'+str(args.nz)+'_batchsize'+str(args.batchsize)+'_beta'+str(args.beta)+'_bi_kl'+str(args.kl_max)+'_'+str(args.num_dicts)+"x"+str(args.orddict_emb_num)+'_dec'+str(args.dec_nh)+'_suffixd'+str(args.incat)+'/'
+writer = SummaryWriter("runs/sig2018-no-supervision-bircesit-nobias/"+args.lang+'/'+ args.model_prefix)
 
 for i, vq_layer in enumerate(args.model.ord_vq_layers):
-    vq_layer.embedding.weight.data = ae_fhs_vectors_bck[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
+    #vq_layer.embedding.weight.data = ae_fhs_vectors_bck[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
+    vq_layer.embedding.weight.data = ae_fhs_vectors[:vq_layer.embedding.weight.size(0), i*args.model.orddict_emb_dim:(i+1)*args.model.orddict_emb_dim]
 
 
 # initialize model
@@ -464,7 +468,7 @@ args.model.encoder.lstm  = args.pretrained_model.encoder.lstm
 
 args.model.to(args.device)
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/no-supervision-do0.4/'+str(args.usize)+'_instances/'+args.model_prefix
+args.modelname = 'model/'+args.mname+'/results/training/'+args.lang+'/sig2018/no-supervision-bircesit-nobias/'+str(args.usize)+'_instances/'+args.model_prefix
 
 try:
     os.makedirs(args.modelname)
