@@ -141,6 +141,7 @@ def train(data, args):
     numlxtgtbatches = len(lxtgt_ordered_batches); ltgtindices = list(range(numlxtgtbatches))
     numwords = args.usize
     best_loss = 1e4
+    best_shared_task_acc = 0
     update_ind = 0
     for epc in range(args.epochs):
         args.logger.write('\n-----------------------------------------------------\n')
@@ -228,39 +229,48 @@ def train(data, args):
             if loss < best_loss:
                 args.logger.write('\nupdate best loss\n')
                 best_loss = loss
-                torch.save(args.model.state_dict(), args.save_path)
+                #torch.save(args.model.state_dict(), args.save_path)
             if epc%3==0 or epc>100:
-                shared_acc = shared_task_gen(args,epc) 
+                shared_acc, (true_ones, false_ones) = shared_task_gen(args,epc) 
                 #torch.save(args.model.state_dict(), args.save_path+'_'+str(epc))
                 writer.add_scalar('shared-task/accuracy', shared_acc, epc)
+                if shared_acc > best_shared_task_acc:
+                    best_shared_task_acc = shared_acc
+                    torch.save(args.model.state_dict(), args.save_path)
+                    args.logger.write('\nBest shared task accuracy so far, saving the predictions and the model...\n')
+                    with open( args.modelname+'_SIGMORPHON2018_TRUE.txt', 'w') as writer_true:
+                        with open( args.modelname+'_SIGMORPHON2018_FALSE.txt', 'w') as writer_false:
+                            for true in true_ones:
+                                writer_true.write(true)
+                            for false in false_ones:
+                                writer_false.write(false)
 
         args.model.train()
 
 
 def shared_task_gen(args,epc):
     i=0
-    with open( args.modelname+'nz_'+str(args.nz)+'_'+args.lang+'_no_sup_'+args.model_prefix[:-1]+'_SIGMORPHON2018_TRUE.txt', 'w') as writer_true:
-        with open( args.modelname+'nz_'+str(args.nz)+'_'+args.lang+'_no_sup_'+args.model_prefix[:-1]+'_SIGMORPHON2018_FALSE.txt', 'w') as writer_false:
-            with open(args.tstdata, 'r') as reader:
-                true=0; false = 0
-                for line in reader:
-                    if epc<20 and i>1000:
-                        break
-                    i+=1
-                    split_line = line.strip().lower().split('\t')
-                    lemma, gold_inflection, asked_tag  = split_line
-                    oracle_keys = oracle(args, gold_inflection)
-                    key = [int(n) for n in oracle_keys.split('-')]
-                    inflected_word, suffix_code =  reinflect(args, lemma,key)
-                    inflected_word = inflected_word[:-4]
-                    if inflected_word == gold_inflection:
-                        true +=1
-                        writer_true.write(lemma +'\t'+gold_inflection + '\t'+inflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
-                    else:
-                        writer_false.write(lemma +'\t'+gold_inflection + '\t'+inflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
+    with open(args.tstdata, 'r') as reader:
+        true=0; false = 0
+        true_ones=[]; false_ones=[]
+        for line in reader:
+            if epc<20 and i>1000:
+                break
+            i+=1
+            split_line = line.strip().lower().split('\t')
+            lemma, gold_inflection, asked_tag  = split_line
+            oracle_keys = oracle(args, gold_inflection)
+            key = [int(n) for n in oracle_keys.split('-')]
+            inflected_word, suffix_code =  reinflect(args, lemma,key)
+            inflected_word = inflected_word[:-4]
+            if inflected_word == gold_inflection:
+                true +=1
+                true_ones.append(lemma +'\t'+gold_inflection + '\t'+inflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
+            else:
+                false_ones.append(lemma +'\t'+gold_inflection + '\t'+inflected_word+'\t'+ '-'.join([str(s) for s in suffix_code])+'\n')
     acc = (true/i)
     args.logger.write('\nShared Task oracle acc: %.3f over %d words' % (acc,i))
-    return acc
+    return acc, (true_ones,false_ones)
 
 def oracle(args, inflected_word, itr=0):
     x = torch.tensor([args.surf_vocab.word2id['<s>']] + args.surf_vocab.encode_sentence(inflected_word) + [args.surf_vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
@@ -364,7 +374,7 @@ args.batchsize = 16; args.epochs = 500
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
-args.kl_max = 0.1
+args.kl_max = 0.3
 args.kl_decay = 150000.1
 args.beta = 0.5
 
