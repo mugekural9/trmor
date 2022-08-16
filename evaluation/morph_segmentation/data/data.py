@@ -20,7 +20,7 @@ def read_data(maxdsize, file, surface_vocab, mode):
             #    continue
             surf_data.append([surface_vocab[char] for char in surf])
             
-    print(mode,':')
+    #print(mode,':')
     print('surf_data:',  len(surf_data))
     for surf in surf_data:
         data.append([surf])

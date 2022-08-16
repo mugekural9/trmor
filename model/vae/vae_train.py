@@ -64,7 +64,7 @@ def train(data, args):
         random.shuffle(indices) # this breaks continuity if there is any
         for i, idx in enumerate(indices):
             if args.kl_anneal:
-                kl_weight = min(1.0, kl_weight + anneal_rate)
+                kl_weight = min(args.kl_max, kl_weight + anneal_rate)
             args.model.zero_grad()
             # (batchsize, t)
             surf = trnbatches[idx] 
@@ -103,7 +103,8 @@ def train(data, args):
         if loss < best_loss:
             args.logger.write('update best loss \n')
             best_loss = loss
-        torch.save(args.model.state_dict(), args.save_path+'_'+str(epc)) # do not save best model but last
+        if epc%5 ==0:
+            torch.save(args.model.state_dict(), args.save_path+'_'+str(epc)) # do not save best model but last
         args.model.train()
     plot_curves(args.task, args.mname, args.fig, args.axs[0], trn_loss_values, val_loss_values, args.plt_style, 'loss')
     plot_curves(args.task, args.mname, args.fig, args.axs[1], trn_kl_values, val_kl_values, args.plt_style, 'kl_loss')
@@ -119,21 +120,13 @@ args.batchsize = 128; args.epochs = 50
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vae'
 args.seq_to_no_pad = 'surface'
-args.kl_start = 0.1
+args.kl_start = 0.0
 args.kl_anneal = True
 args.warm_up = 10
+args.kl_max = 1.0
 # data
-#args.trndata = 'model/vae/data/top50k_wordlist.tur'
-#args.valdata = 'model/vae/data/theval.tur'
-#args.trndata = 'model/miniGPT/data/wordlist.tur'
-#args.valdata = 'model/miniGPT/data/theval.indices.tur'
-
-args.trndata = 'model/vqvae/data/sosimple.new.trn.combined.txt'
-args.valdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
-
-#args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
-#args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
-
+args.trndata = 'data/unlabelled/top50k.wordlist.tur'
+args.valdata = 'data/unlabelled/theval.tur'
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
@@ -146,13 +139,17 @@ args.mname = 'vae'
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
 args.ni = 256; args.nz = 32; 
-args.enc_nh = 512; args.dec_nh = 512
+args.enc_nh = 256; args.dec_nh = 256
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.3
+args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.0
 args.model = VAE(args, vocab, model_init, emb_init)
 args.model.to(args.device)
 # logging
-args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'
+args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/kl_start'+ \
+str(args.kl_start)+'_batchsize'+str(args.batchsize)+'_maxkl_'+str(args.kl_max)+'_warmup'+str(args.warm_up) \
++'_enc_nh' + str(args.enc_nh) \
++'_decdout_in' + str(args.dec_dropout_in) \
++'/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

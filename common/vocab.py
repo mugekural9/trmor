@@ -7,11 +7,10 @@ class VocabEntry(object):
     """docstring for Vocab"""
     def __init__(self, word2id=None):
         super(VocabEntry, self).__init__()
-
         if word2id:
             self.word2id = word2id
-            if '<unk>' in word2id:
-                self.unk_id = word2id['<unk>']
+            #if '<unk>' in word2id:
+            self.unk_id = word2id['<unk>']
         else:
             self.word2id = dict()
             self.unk_id = 3
@@ -55,7 +54,7 @@ class VocabEntry(object):
         for char in sentence:
             if torch.is_tensor(char):
                 char = char.item()
-            encode_sentence.append(self.word2id[char])
+            encode_sentence.append(self[char])#(self.word2id[char])
         return encode_sentence
 
     def decode_sentence_2(self, sentence):

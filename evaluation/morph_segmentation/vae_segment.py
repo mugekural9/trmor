@@ -4,6 +4,7 @@
 # Description: Morpheme segmentation heuristics for trained VAE model
 # -----------------------------------------------------------
 
+import string
 from common.vocab import VocabEntry
 from model.vae.vae import VAE
 from common.utils import *
@@ -125,22 +126,20 @@ def get_logps_matrix(args, word, data, from_file=False):
         return matrix
 
 
-def config():
+def config(args):
      # CONFIG
-    parser = argparse.ArgumentParser(description='')
-    args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'vae_segm'
-    model_path, model_vocab  = get_model_info(model_id)
+    #model_id = 'vae_segm_05_20'
+    model_path, model_vocab  = get_model_info(args.model_id)
     # heuristic
     args.heur_type = 'prev_mid_next'; args.eps = 0.0
-    args.nsamples = 1000
+    args.nsamples = 10000
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
-    args.recon_type = 'avg' 
+    #args.recon_type = 'sum' 
     # (a) word_given: sample z from full word, (b) subword_given: sample z from subword
-    args.sample_type = 'word_given'
+    #args.sample_type = 'subword_given'
     # logging
-    args.logdir = 'evaluation/morph_segmentation/results/vae/'+model_id+'/'+args.recon_type+'/nsamples'+str(args.nsamples)+'/'+args.sample_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
+    args.logdir = 'evaluation/morph_segmentation/results/vae/'+args.model_id+'/'+args.recon_type+'/nsamples'+str(args.nsamples)+'/'+args.sample_type+'/'+args.heur_type+'/eps'+str(args.eps)+'/'
     args.fseg   = args.logdir +'segments.txt'
     args.fprob  = args.logdir +'probs.json'
     args.load_probs_from_file = False; args.save_probs_to_file = not args.load_probs_from_file
@@ -156,7 +155,7 @@ def config():
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
     args.ni = 256; args.nz = 32; 
-    args.enc_nh = 512; args.dec_nh = 512
+    args.enc_nh = 256; args.dec_nh = 256
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.model = VAE(args, args.vocab, model_init, emb_init)
@@ -165,34 +164,37 @@ def config():
     args.model.to(args.device)
     args.model.eval()
     # data
-    #args.tstdata = 'evaluation/morph_segmentation/data/goldstdsample.tur'
-    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
+    args.tstdata = 'evaluation/morph_segmentation/data/goldstdsample.tur'
+    #args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
     args.maxtstsize = 100000
     args.batch_size = 1
     return args
 
-def main():
-    args = config()
-    data, batches = build_data(args)
-    word_probs = dict()
-    fseg = open(args.fseg, 'w')
-    # loop through each word 
-    for data in batches:
-        word = ''.join(args.vocab.decode_sentence(data[0][1:-1]))
-        print(word)
-        logps = get_logps(args, word, data, from_file=args.load_probs_from_file)
-        word_probs[word] = logps
-        # call segmentation heuristic 
-        if args.heur_type == 'prev_mid_next_and_prevnext_exceed':
-            morphemes = heur_prev_mid_next_and_prevnext_exceed(logps, args.eps)
-        elif args.heur_type == 'prev_mid_next':
-            morphemes = heur_prev_mid_next(logps, args.eps)
-        # write morphemes to file
-        fseg.write(str(' '.join(morphemes)+'\n'))     
-    if args.save_probs_to_file:
-        with open(args.fprob, 'w') as json_file:
-            json_object = json.dumps(word_probs, indent = 4)
-            json_file.write(json_object)
-            
-if __name__=="__main__":
-    main()
+
+parser = argparse.ArgumentParser(description='')
+parser.add_argument('--model_id',  required=True)
+parser.add_argument('--recon_type', required=True)
+parser.add_argument('--sample_type', required=True)      
+args = parser.parse_args()
+
+args = config(args)
+data, batches = build_data(args)
+word_probs = dict()
+fseg = open(args.fseg, 'w')
+# loop through each word 
+for data in batches:
+    word = ''.join(args.vocab.decode_sentence(data[0][1:-1]))
+    #print(word)
+    logps = get_logps(args, word, data, from_file=args.load_probs_from_file)
+    word_probs[word] = logps
+    # call segmentation heuristic 
+    if args.heur_type == 'prev_mid_next_and_prevnext_exceed':
+        morphemes = heur_prev_mid_next_and_prevnext_exceed(logps, args.eps)
+    elif args.heur_type == 'prev_mid_next':
+        morphemes = heur_prev_mid_next(logps, args.eps)
+    # write morphemes to file
+    fseg.write(str(' '.join(morphemes)+'\n'))     
+if args.save_probs_to_file:
+    with open(args.fprob, 'w') as json_file:
+        json_object = json.dumps(word_probs, indent = 4)
+        json_file.write(json_object)
