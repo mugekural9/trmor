@@ -10,6 +10,7 @@ from numpy.linalg import matrix_rank, norm
 
 
 def get_model_info(id, lang=None):
+    
     if id == 'ae_001':
         model_path  = 'model/vqvae/results/training/10000_instances/20epochs.pt'
         model_vocab = 'model/vqvae/results/training/10000_instances/surf_vocab.json'   
@@ -25,14 +26,7 @@ def get_model_info(id, lang=None):
         model_path  = 'model/vqvae/results/training/turkish/55204_instances/16epochs.pt'
         model_vocab = 'model/vqvae/results/training/turkish/55204_instances/surf_vocab.json'  
 
-    if id == 'ae_turkish_unsup_660':
-        model_path  = 'model/vqvae/results/training/turkish/unsup/55000_instances/15epochs.pt'
-        model_vocab = 'model/vqvae/results/training/turkish/unsup/55000_instances/surf_vocab.json'  
-   
-    if id == 'ae_finnish_unsup_660':
-        model_path  = 'model/vqvae/results/training/finnish/unsup/55000_instances/16epochs.pt'
-        model_vocab = 'model/vqvae/results/training/finnish/unsup/55000_instances/surf_vocab.json'  
-   
+
     if lang == 'finnish':    
         if id == 'batchsize128_beta_0.2_5x6_bi_kl_0.2_epc190':
             model_path  = 'model/vqvae/results/training/'+lang+'/55000_instances/batchsize128_beta0.2_bi_kl0.2_5x6_dec256_suffixd300/200epochs.pt_190'
@@ -111,6 +105,301 @@ def get_model_info(id, lang=None):
             return model_path, model_vocab, tag_vocabs
     
 
+   
+
+
+    #### SIGMORPHON 2016
+    if id == 'ae_turkish_unsup_660':
+        model_path  = 'model/vqvae/results/training/sig2016/turkish/unsup/55000_instances/15epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/turkish/unsup/55000_instances/surf_vocab.json'  
+
+    if id == 'ae_finnish_unsup_660':
+        model_path  = 'model/vqvae/results/training/sig2016/finnish/unsup/55000_instances/16epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/finnish/unsup/55000_instances/surf_vocab.json'  
+    
+    if id == 'ae_hungarian_unsup_660':
+        model_path  = 'model/vqvae/results/training/sig2016/hungarian/unsup/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/hungarian/unsup/55000_instances/surf_vocab.json'  
+    
+    if id == 'ae_russian_unsup_1320':
+        model_path  = 'model/vqvae/results/training/sig2016/russian/unsup/55000_instances/16epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/russian/unsup/55000_instances/surf_vocab.json'  
+
+    if id == 'ae_german_unsup_660':
+        model_path  = 'model/vqvae/results/training/sig2016/german/unsup/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/german/unsup/55000_instances/surf_vocab.json'  
+
+    if id == 'ae_spanish_unsup_660':
+        model_path  = 'model/vqvae/results/training/sig2016/spanish/unsup/55000_instances/16epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/spanish/unsup/55000_instances/surf_vocab.json'  
+   
+    if id == 'ae_georgian_unsup_640':
+        model_path  = 'model/vqvae/results/training/sig2016/georgian/unsup/55000_instances/6epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/georgian/unsup/55000_instances/surf_vocab.json'  
+
+
+    ### SIGMORPHON 2016- LATE SUPERVISION
+    if id == 'turkish_late':
+        model_pfx    = 'model/vqvae/results/training/sig2016/turkish/late-sup/42406_instances/run1_batchsize128_beta0.7_bi_kl0.1_11x10_dec512_suffixd660/'
+        #model_pfx    = 'model/vqvae/results/training/sig2016/turkish/late-sup/42406_instances/batchsize128_beta0.7_bi_kl0.1_11x10_dec512_suffixd660/'
+        model_path   = model_pfx + '200epochs.pt'
+        model_vocab  = model_pfx + 'surf_vocab.json'  
+        tag_vocabs = model_pfx + 'tag_vocabs.json'  
+    
+        return model_path, model_vocab, tag_vocabs
+
+
+    if id == 'turkish_late_msved':
+        model_pfx    = 'model/msved/results/training/late-sup/42406_instances/batchsize128_nz128_kl0.2_dec256/'
+        model_path   = model_pfx + '150epochs.pt'
+        model_vocab  = model_pfx + 'surf_vocab.json'  
+        tag_vocabs = model_pfx + 'tag_vocabs.json'  
+        return model_path, model_vocab, tag_vocabs
+
+
+    if id == 'spanish_late':
+        model_pfx    = 'model/vqvae/results/training/sig2016/spanish/late-sup/84950_instances/batchsize128_beta0.7_bi_kl0.1_11x10_dec512_suffixd660/'
+        model_path   = model_pfx + '301epochs.pt'
+        model_vocab  = model_pfx + 'surf_vocab.json'  
+        tag_vocabs = model_pfx + 'tag_vocabs.json'  
+        return model_path, model_vocab, tag_vocabs
+
+
+    if id == 'finnish_late':
+        model_pfx    = 'model/vqvae/results/training/sig2016/finnish/late-sup/87487_instances/batchsize128_beta0.5_bi_kl0.1_11x10_dec512_suffixd660/'
+        model_path   = model_pfx + '200epochs.pt'
+        model_vocab  = model_pfx + 'surf_vocab.json'  
+        tag_vocabs = model_pfx + 'tag_vocabs.json'  
+        return model_path, model_vocab, tag_vocabs
+
+
+
+
+
+    if id == 'german_late':
+        model_pfx    = 'model/vqvae/results/training/sig2016/german/late-sup/69023_instances/batchsize128_beta0.7_bi_kl0.1_11x10_dec512_suffixd660/'
+        model_path   = model_pfx + '200epochs.pt'
+        model_vocab  = model_pfx + 'surf_vocab.json'  
+        tag_vocabs = []
+        for i in range(11):
+            tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
+        return model_path, model_vocab, tag_vocabs
+
+    if id == 'russian_late':
+        model_pfx    = 'model/vqvae/results/training/sig2016/russian/late-sup/80489_instances/batchsize128_beta0.5_bi_kl0.1_12x10_dec512_suffixd1320/'
+        model_path   = model_pfx + '200epochs.pt'
+        model_vocab  = model_pfx + 'surf_vocab.json'  
+        tag_vocabs = []
+        for i in range(12):
+            tag_vocabs.append(model_pfx+str(i)+'_tagvocab.json')  
+        return model_path, model_vocab, tag_vocabs
+
+
+
+    if id == 'ae_navajo_unsup_240':
+        model_path  = 'model/vqvae/results/training/navajo/unsup/32109_instances/16epochs.pt'
+        model_vocab = 'model/vqvae/results/training/navajo/unsup/32109_instances/surf_vocab.json'  
+   
+    if id == 'ae_navajo_unsup_360':
+        model_path  = 'model/vqvae/results/training/navajo/sig2016/32109_instances/15epochs.pt'
+        model_vocab = 'model/vqvae/results/training/navajo/sig2016/32109_instances/surf_vocab.json'  
+
+    if id == 'sigmorphon2016_ae_arabic_gru_unsup_660':
+        model_path  = 'model/vqvae/results/training/arabic/sig2016/gru/55000_instances/enc_nh_660/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/arabic/sig2016/gru/55000_instances/enc_nh_660/surf_vocab.json'  
+
+    if id == 'sigmorphon2016_ae_arabic_gru_unsup_330':
+        model_path  = 'model/vqvae/results/training/arabic/sig2016/gru/55000_instances/enc_nh_330/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/arabic/sig2016/gru/55000_instances/enc_nh_330/surf_vocab.json'  
+
+    if id == 'sigmorphon2016_ae_maltese_gru_unsup_660':
+        model_path  = 'model/vqvae/results/training/maltese/sig2016/gru/55000_instances/enc_nh_660/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/maltese/sig2016/gru/55000_instances/enc_nh_660/surf_vocab.json'  
+
+
+    if id == 'ae_maltese_unsup_660':
+        model_path  = 'model/vqvae/results/training/sig2016/maltese/unsup/lstm/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/maltese/unsup/lstm/55000_instances/surf_vocab.json'  
+   
+    if id == 'ae_arabic_unsup_660':
+        model_path  = 'model/vqvae/results/training/sig2016/arabic/unsup/lstm/55000_instances/17epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/arabic/unsup/lstm/55000_instances/surf_vocab.json'  
+
+
+
+    #### SIGMORPHON2021
+    if id == 'sigmorphon2021_ae_spa_unsup_360':
+        model_path  = 'model/vqvae/results/training/spa/sig2021/55000_instances/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/spa/sig2021/55000_instances/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_ara_gru_unsup_360':
+        model_path  = 'model/vqvae/results/training/ara/sig2021/gru/55000_instances/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ara/sig2021/gru/55000_instances/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_spa_gru_unsup_360':
+        model_path  = 'model/vqvae/results/training/spa/sig2021/gru/55000_instances/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/spa/sig2021/gru/55000_instances/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_bul_gru_unsup_360':
+        model_path  = 'model/vqvae/results/training/bul/sig2021/gru/39011_instances/enc_nh_360/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/bul/sig2021/gru/39011_instances/enc_nh_360/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_bul_gru_unsup_660':
+        model_path  = 'model/vqvae/results/training/bul/sig2021/gru/39011_instances/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/bul/sig2021/gru/39011_instances/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_bul_gru_unsup_300':
+        model_path  = 'model/vqvae/results/training/bul/sig2021/gru/39011_instances/enc_nh/300/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/bul/sig2021/gru/39011_instances/enc_nh/300/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_ara_gru_unsup_660':
+        model_path  = 'model/vqvae/results/training/ara/sig2021/gru/110000_instances/enc_nh_660/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ara/sig2021/gru/110000_instances/enc_nh_660/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_ara_gru_unsup_360':
+        model_path  = 'model/vqvae/results/training/ara/sig2021/gru/110000_instances/enc_nh_360/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ara/sig2021/gru/110000_instances/enc_nh_360/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_ara_gru_unsup_300':
+        model_path  = 'model/vqvae/results/training/ara/sig2021/gru/110000_instances/enc_nh_300/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ara/sig2021/gru/110000_instances/enc_nh_300/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_ind_gru_unsup_300':
+        model_path  = 'model/vqvae/results/training/ind/sig2021/gru/11072_instances/enc_nh_300/20epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ind/sig2021/gru/11072_instances/enc_nh_300/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_ind_gru_unsup_660':
+        model_path  = 'model/vqvae/results/training/ind/sig2021/gru/11072_instances/enc_nh_660/20epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ind/sig2021/gru/11072_instances/enc_nh_660/surf_vocab.json'  
+
+
+    if id == 'sigmorphon2021_ae_ame_gru_unsup_300':
+        model_path  = 'model/vqvae/results/training/ame/sig2021/gru/2524_instances/enc_nh_300/35epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ame/sig2021/gru/2524_instances/enc_nh_300/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_ame_gru_unsup_658':
+        model_path  = 'model/vqvae/results/training/ame/sig2021/gru/2524_instances/enc_nh_658/20epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ame/sig2021/gru/2524_instances/enc_nh_658/surf_vocab.json'  
+
+
+    if id == 'sigmorphon2021_ae_tur_gru_unsup_663':
+        model_path  = 'model/vqvae/results/training/tur/sig2021/gru/55000_instances/enc_nh_663/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/tur/sig2021/gru/55000_instances/enc_nh_663/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_cni_gru_unsup_630':
+        model_path  = 'model/vqvae/results/training/cni/sig2021/gru/13948_instances/enc_nh_630/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/cni/sig2021/gru/13948_instances/enc_nh_630/surf_vocab.json'  
+
+
+    if id == 'sigmorphon2021_ae_krl_gru_unsup_660':
+        model_path  = 'model/vqvae/results/training/krl/sig2021/gru/55000_instances/enc_nh_660/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/krl/sig2021/gru/55000_instances/enc_nh_660/surf_vocab.json'  
+    
+
+    if id == 'sigmorphon2021_ae_ind_lstm_unsup_660':
+        model_path  = 'model/vqvae/results/training/ind/sig2021/lstm/11072_instances/enc_nh_660/20epochs.pt'
+        model_vocab = 'model/vqvae/results/training/ind/sig2021/lstm/11072_instances/enc_nh_660/surf_vocab.json'  
+
+
+    if id == 'sigmorphon2021_ae_tur_lstm_unsup_663':
+        model_path  = 'model/vqvae/results/training/tur/sig2021/lstm/55000_instances/enc_nh_663/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/tur/sig2021/lstm/55000_instances/enc_nh_663/surf_vocab.json'  
+
+    if id == 'sigmorphon2021_ae_krl_lstm_unsup_660':
+        model_path  = 'model/vqvae/results/training/krl/sig2021/lstm/55000_instances/enc_nh_660/5epochs.pt'
+        model_vocab = 'model/vqvae/results/training/krl/sig2021/lstm/55000_instances/enc_nh_660/surf_vocab.json'  
+
+    #### MORPHOCHALLENGE - SEGMENTATION 
+    if id == 'vae_segm_45':
+        model_path  = 'model/vae/results/training/50000_instances/50epochs.pt_45'
+        model_vocab = 'model/vae/results/training/50000_instances/surf_vocab.json'  
+
+    if id == 'vae_segm_35':
+        model_path  = 'model/vae/results/training/50000_instances/50epochs.pt_35'
+        model_vocab = 'model/vae/results/training/50000_instances/surf_vocab.json'  
+
+    if id == 'vae_segm_25':
+        model_path  = 'model/vae/results/training/50000_instances/50epochs.pt_25'
+        model_vocab = 'model/vae/results/training/50000_instances/surf_vocab.json'  
+
+    if id == 'vae_segm_15':
+        model_path  = 'model/vae/results/training/50000_instances/50epochs.pt_15'
+        model_vocab = 'model/vae/results/training/50000_instances/surf_vocab.json'  
+
+    if id == 'vae_segm_10':
+        model_path  = 'model/vae/results/training/50000_instances/50epochs.pt_10'
+        model_vocab = 'model/vae/results/training/50000_instances/surf_vocab.json'  
+
+    if id == 'vae_segm_02_10':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0/50epochs.pt_10'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0/surf_vocab.json'  
+
+    if id == 'vae_segm_02_15':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0/50epochs.pt_15'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0/surf_vocab.json'  
+
+    if id == 'vae_segm_02_20':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0/50epochs.pt_20'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0/surf_vocab.json'  
+
+    if id == 'vae_segm_02_25':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0/50epochs.pt_25'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0/surf_vocab.json'  
+    
+    if id == 'vae_segm_02_30':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0/50epochs.pt_30'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0/surf_vocab.json'  
+
+
+    if id == 'vae_segm_02_35':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0/50epochs.pt_35'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0/surf_vocab.json'  
+
+    if id == 'vae_segm_02_40':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0/50epochs.pt_40'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0/surf_vocab.json'  
+
+
+    if id == 'vae_segm_04_20':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_0.2_warmup30_enc_nh256_decdout_in0.5/50epochs.pt_20'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_0.2_warmup30_enc_nh256_decdout_in0.5/surf_vocab.json'  
+   
+    if id == 'vae_segm_05_05':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/50epochs.pt_5'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+    if id == 'vae_segm_05_10':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/50epochs.pt_10'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+    if id == 'vae_segm_05_20':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/50epochs.pt_20'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+
+    if id == 'vae_segm_05_25':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/50epochs.pt_25'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+
+    if id == 'vae_segm_05_30':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/50epochs.pt_30'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+
+    if id == 'vae_segm_06_30':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/50epochs.pt_30'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+    if id == 'vae_segm_06_20':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/50epochs.pt_20'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+    #### SIGMORPHON2021- task2
+    if id == 'turkish_ae_640':
+        model_path  = 'model/vqvae/results/training/sig2021-task2/Turkish/unsup/616418_instances/6epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2021-task2/Turkish/unsup/616418_instances/surf_vocab.json'  
+
     return model_path, model_vocab
 
 class Logger(object):
@@ -125,7 +414,7 @@ class Logger(object):
   def flush(self):
     self.terminal.flush()
     self.log.flush()
-
+ 
 
 class uniform_initializer(object):
     def __init__(self, stdv):
