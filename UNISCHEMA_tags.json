@@ -258,6 +258,7 @@
    "at+abl": "Case", 
    "in+ess": "Case",
    "in+abl": "Case",
+<<<<<<< HEAD
    "geadj": "Case",
    "jus": "Mood",
    "no1": "Person",
@@ -277,6 +278,6 @@
    "no3m": "Person",
    "pss3m": "Possession",
    "pss3f": "Possession",
-   "at+ess+all": "Case"
-
+   "at+ess+all": "Case",
+   "geadj": "Case"
 }

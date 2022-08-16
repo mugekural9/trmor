@@ -26,7 +26,7 @@ class VQVAE_Encoder(nn.Module):
 
         self.dropout_in = nn.Dropout(args.enc_dropout_in)
 
-        self.linear = nn.Linear(args.enc_nh,  2*args.nz, bias=False)
+        self.linear = nn.Linear(args.enc_nh*2,  2*args.nz, bias=False)
 
         self.reset_parameters(model_init, emb_init)
 
@@ -47,9 +47,11 @@ class VQVAE_Encoder(nn.Module):
             bck = last_state[-2].unsqueeze(0)
             last_state = torch.cat([last_state[-2], last_state[-1]], 1).unsqueeze(0)
             
-        #mean, logvar = self.linear(last_state).chunk(2, -1)
+        #last_state = torch.tanh(last_state)
+
+        mean, logvar = self.linear(last_state).chunk(2, -1)
         
-        mean, logvar = self.linear(fwd).chunk(2, -1)
+        #mean, logvar = self.linear(fwd).chunk(2, -1)
         fwd = fwd.permute(1,0,2)
         bck = bck.permute(1,0,2)
 
@@ -167,16 +169,19 @@ class VQVAE_Decoder(nn.Module):
     def forward(self, input, z, hidden):
         
         # root_z: (batchsize,1,128) , suffix_z: (batchsize,1, self.incat)
-        root_z, suffix_z = z
+        root_z_to_dec, suffix_z, raw_root_z = z
+        all_z = torch.cat((raw_root_z, suffix_z), dim=2)
+        
+        #all_z = suffix_z
         # (1, batch_size, nz)
-        batch_size, _, _ = root_z.size()
+        batch_size, _, _ = raw_root_z.size()
         seq_len = input.size(1)
         
         # (batch_size, seq_len, ni)
         word_embed = self.embed(input)
         word_embed = self.dropout_in(word_embed)
 
-        z_ = suffix_z.expand(batch_size, seq_len, self.incat)
+        z_ = all_z.expand(batch_size, seq_len, self.incat)
         # (batch_size, seq_len, ni + nz)
         word_embed = torch.cat((word_embed, z_), -1)
        
@@ -253,8 +258,10 @@ class VQVAE(nn.Module):
         self.dict_assemble_type = dict_assemble_type
         self.nz = args.nz
         self.z_to_dec = nn.Linear(self.nz, args.dec_nh)
-        self.orddict_emb_dim   = int(args.enc_nh/self.num_dicts)
-            
+        self.orddict_emb_dim   = int(args.enc_nh*2/self.num_dicts)
+        self.tag_to_dec = nn.Linear(args.enc_nh*2, args.dec_nh)
+
+
         self.beta = args.beta
         self.ord_vq_layers = nn.ModuleList([])
 
@@ -293,20 +300,17 @@ class VQVAE(nn.Module):
         
         # kl version
         fhs, _, _, mu, logvar, fwd,bck = self.encoder(x)
-
+        
         if mode =='train':
             #(batchsize,1,128)
-            _root_fhs = self.reparameterize(mu, logvar)
+            raw_root_fhs = self.reparameterize(mu, logvar)
         else:
-            _root_fhs = torch.permute(mu.unsqueeze(0), (1,0,2)).contiguous()
+            raw_root_fhs = torch.permute(mu.unsqueeze(0), (1,0,2)).contiguous()
         
         kl_loss = self.kl_loss(mu,logvar)
         
         vq_vectors = []; vq_losses = []; vq_inds = []
-        _root_fhs = self.z_to_dec(_root_fhs)
 
-        vq_vectors.append(_root_fhs)
-       
         # quantize thru ord dicts
         i=0
         #for linear, vq_layer in zip(self.ord_linears, self.ord_vq_layers):
@@ -314,17 +318,21 @@ class VQVAE(nn.Module):
             #_fhs =  linear(fwd_fhs)
             # quantized_input: (B, 1, orddict_emb_dim)
             if not tags:
-                quantized_input, vq_loss, quantized_inds = vq_layer(None, bck[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
+                quantized_input, vq_loss, quantized_inds = vq_layer(None, fhs[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
             else:
-                quantized_input, vq_loss, quantized_inds = vq_layer(tags[i], bck[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
+                quantized_input, vq_loss, quantized_inds = vq_layer(tags[i], fhs[:,:,i*self.orddict_emb_dim:(i+1)*self.orddict_emb_dim],epc)
             vq_vectors.append(quantized_input)
             vq_losses.append(vq_loss)
             vq_inds.append(quantized_inds)
             i+=1
       
+        dict_vectors = torch.cat(vq_vectors,dim=2)
+        _root_fhs_to_dec = self.z_to_dec(raw_root_fhs) + self.tag_to_dec(dict_vectors) 
+        vq_vectors = (_root_fhs_to_dec, dict_vectors, raw_root_fhs) 
+
         #logdetmaxloss =  self.detmax.loss(0.2,0.2,torch.cat(vq_vectors[1:],dim=2))
         #print(logdetmaxloss)
-        vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2)) 
+        #vq_vectors = (vq_vectors[0], torch.cat(vq_vectors[1:],dim=2)) 
         # (batchsize, numdicts)
         vq_loss =  torch.cat(vq_losses,dim=1)
         # (batchsize)
@@ -421,10 +429,10 @@ class VQVAE(nn.Module):
         # quantized_inputs: (B, 1, hdim)
         quantized_inputs, vq_loss, quantized_inds, encoder_fhs, dict_codes, suffix_codes, kl_loss, logdet = self.vq_loss(x, tags, epc, mode)
       
-        root_z, suffix_z = quantized_inputs
-        root_z = root_z.permute((1,0,2))
+        root_z_to_dec, suffix_z, raw_root_z = quantized_inputs
+        root_z_to_dec = root_z_to_dec.permute((1,0,2))
         # (1, batch_size, dec_nh)
-        c_init = root_z
+        c_init = root_z_to_dec
         h_init = torch.tanh(c_init)
         dec_h0 = (h_init, c_init)
         if mode == 'train':
