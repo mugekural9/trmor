@@ -5,11 +5,8 @@
 # -----------------------------------------------------------
 
 from common.vocab import VocabEntry
-#from vqvae import VQVAE
-from vqvae_discrete import VQVAE
-from vqvae_kl_bi import VQVAE
 
-from data.data import read_data
+from model.vqvae.data.data_sigmorphon2016 import read_data
 from common.utils import *
 import sys, argparse, random, torch, json, matplotlib, os
 from collections import defaultdict
@@ -17,9 +14,8 @@ from collections import defaultdict
 def analysis(args, asked_tag, inflected_word, reinflected_word, itr=0):
 
     x = torch.tensor([args.surf_vocab.word2id['<s>']] + args.surf_vocab.encode_sentence(reinflected_word) + [args.surf_vocab.word2id['</s>']]).unsqueeze(0)
-    if 'supervision' in args.model_id:
-        quantized_inputs, vq_loss, quantized_inds, encoder_fhs, _,_,_, _ = args.model.vq_loss(x, 0, mode='test')
-    #quantized_inputs, vq_loss, quantized_inds, encoder_fhs, _,_,_, _ = args.model.vq_loss_test(x, 0, mode='test')
+    if 'late' in args.model_id:
+        quantized_inputs, vq_loss, quantized_inds, encoder_fhs, _,_,_, _ = args.model.vq_loss(x, None, 0, mode='test')
       
     #if args.model_type =='discrete' or args.model_type == 'discrete_sum':
     #    quantized_inds = quantized_inds[1:]
@@ -30,7 +26,7 @@ def analysis(args, asked_tag, inflected_word, reinflected_word, itr=0):
 
 
 
-def config(model_id, num_dicts, orddict_emb_num, lang):
+def config(model_id, num_dicts, lang):
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
@@ -40,18 +36,16 @@ def config(model_id, num_dicts, orddict_emb_num, lang):
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.ni = 256; 
-    args.dec_nh = 256  
+    args.dec_nh = 512  
     args.beta = 0.2
     args.nz = 128; 
     args.num_dicts = num_dicts
     args.outcat=0; 
-    args.orddict_emb_num =  orddict_emb_num
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
 
 
-    if 'supervision' in model_id:
-        from model.vqvae.vqvae_kl_bi_early_sup import VQVAE
-        from model.vqvae.vqvae_kl_bi_late_sup import VQVAE
+    if 'late' in model_id:
+        from model.vqvae.sig2016.early_sup.vqvae_kl_bi_early_sup import VQVAE
 
         model_path, model_vocab, tag_vocabs  = get_model_info(model_id, lang=args.lang)
         with open(model_vocab) as f:
@@ -59,7 +53,7 @@ def config(model_id, num_dicts, orddict_emb_num, lang):
             args.surf_vocab = VocabEntry(word2id)
 
         args.tag_vocabs = dict()
-        args.enc_nh = 660
+        args.enc_nh = 1320
         args.incat = args.enc_nh; 
         j=0
         for tag_vocab in tag_vocabs:
@@ -69,7 +63,7 @@ def config(model_id, num_dicts, orddict_emb_num, lang):
                 j+=1
         args.model = VQVAE(args, args.surf_vocab, args.tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
-    elif 'bi_kl' in model_id:
+    '''elif 'bi_kl' in model_id:
         from vqvae_kl_bi import VQVAE
         args.model_type = 'bi_kl'
         args.enc_nh = 300
@@ -79,7 +73,7 @@ def config(model_id, num_dicts, orddict_emb_num, lang):
         with open(model_vocab) as f:
             word2id = json.load(f)
             args.surf_vocab = VocabEntry(word2id)
-        args.model = VQVAE(args, args.surf_vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
+        args.model = VQVAE(args, args.surf_vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')'''
 
     # logging
     args.logdir = 'model/vqvae/results/analysis/'+args.lang+'/'+model_id+'/'
@@ -163,10 +157,10 @@ def config(model_id, num_dicts, orddict_emb_num, lang):
 def counter(model_id, lang, logger):
     dict_combs = defaultdict(lambda: 0)
     unseen_combs = defaultdict(lambda: 0)
-    with open('model/vqvae/results/analysis/'+lang+'/'+model_id+'/train_'+model_id+'_shuffled.txt','r') as reader:
+    with open('model/vqvae/results/tagmapping_rnn/'+lang+'/'+model_id+'/train_'+model_id+'_shuffled.txt','r') as reader:
         for line in reader:
             dict_combs[line.split('\t')[-2]] +=1
-    with open('model/vqvae/results/analysis/'+lang+'/'+model_id+'/test_'+model_id+'_shuffled.txt','r') as reader:
+    with open('model/vqvae/results/tagmapping_rnn/'+lang+'/'+model_id+'/test_'+model_id+'_shuffled.txt','r') as reader:
         testsize = 0
         for line in reader:
             testsize +=1
@@ -179,16 +173,9 @@ def counter(model_id, lang, logger):
     logger.write('\nratio: %.3f\n' % (sum(unseen_combs.values())/testsize))
 
 
-def tag_analysis(model_id, num_dicts, orddict_emb_num, lang, logger, during_training=False, args=None):
-    if not during_training:
-        args = config(model_id, num_dicts, orddict_emb_num, lang)
-    else:
-        args.logdir = 'model/vqvae/results/analysis/'+args.lang+'/'+model_id+'/'
-        try:
-            os.makedirs(args.logdir)
-            print("Directory " , args.logdir ,  " Created ") 
-        except FileExistsError:
-            print("Directory " , args.logdir ,  " already exists")
+def tag_analysis(args):
+    #args = config(model_id, num_dicts,  lang)
+
 
     with open('data/sigmorphon2016/'+args.lang+'-task3-train', 'r') as reader:
         with open(args.logdir+'train_'+args.model_id+'_shuffled.txt', 'w') as writer:

@@ -18,12 +18,11 @@ from model.miniGPT.gpt3 import GPT3
 
 from model.vae.vae import VAE
 from model.ae.ae import AE
-from model.vqvae.vqvae import VQVAE
 from evaluation.probing.charlm_lstm_probe import CharLM_Lstm_Probe
 from evaluation.probing.miniGPT_probe import MiniGPT_Probe, MiniGPT_Probe2
-from evaluation.probing.vae_probe import VAE_Probe
 from evaluation.probing.ae_probe import AE_Probe
 from evaluation.probing.vqvae_probe import VQVAE_Probe
+from evaluation.probing.vae_probe import VAE_Probe
 
 matplotlib.use('Agg')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
@@ -127,7 +126,7 @@ def train(data, args):
 parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
-model_id = 'vqvae_best'
+model_id = 'vae_test'
 model_path, model_vocab  = get_model_info(model_id)
 args.mname  = model_id +'_probe' 
 
@@ -140,55 +139,33 @@ args.seq_to_no_pad = 'surface'
 # data
 with open(model_vocab) as f:
     word2id = json.load(f)
-    surf_vocab = VocabEntry(word2id)
+    args.surf_vocab = VocabEntry(word2id)
 
 #args.trndata =  'evaluation/probing/tense/data/tense.uniquesurfs.trn.txt' 
 #args.valdata =  'evaluation/probing/tense/data/tense.uniquesurfs.val.txt' 
 #args.trndata = 'evaluation/probing/tense/data/sosimple.new.trn.combined.txt' 
 #args.valdata = 'evaluation/probing/tense/data/sosimple.new.seenroots.val.txt' 
-args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
-args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
+args.trndata = '/kuacc/users/mugekural/workfolder/dev/git/trmor/data/labelled/verb/trmor2018.uniquesurfs.verbs.simple/trmor2018.uniquesurfs.verbs.simple.txt'
+args.valdata = '/kuacc/users/mugekural/workfolder/dev/git/trmor/data/labelled/verb/trmor2018.uniquesurfs.verbs.simple/trmor2018.uniquesurfs.verbs.simple.txt'
 args.tstdata = args.valdata
 
 args.maxtrnsize = 700000; args.maxvalsize = 100000; args.maxtstsize = 100000
-rawdata, batches, vocab = build_data(args, surf_vocab)
+rawdata, batches, vocab = build_data(args, args.surf_vocab)
 _, tense_vocab  = vocab
 trndata, vlddata, tstdata = rawdata
 args.trnsize , args.valsize, args.tstsize = len(trndata), len(vlddata), len(tstdata)
 
 # pretrained-model
 model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-args.ni = 256; 
-args.enc_nh = 512; 
-args.dec_nh = 512;  #for ae,vae
 args.nh = 512 #for ae,vae,charlm
-args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0 
-args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0 #for ae,vae,vqvae
+model_init = uniform_initializer(0.01)
+emb_init = uniform_initializer(0.1)
+args.ni = 256; args.nz = 32; 
+args.enc_nh = 512; args.dec_nh = 512
+args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
+args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.3
+args.pretrained_model = VAE(args, args.surf_vocab, model_init, emb_init)
 
-## miniGPT
-num_layers=3
-embed_dim=128
-num_heads=16
-block_size=128
-embedding_dropout_rate=0.0; attention_dropout_rate=0.0; residual_dropout_rate=0.0
-expand_ratio = 4
-args.embed = embed_dim
-args.pretrained_model = GPT3(vocab=surf_vocab,
-                             num_layers=num_layers,
-                             embed_dim=embed_dim,
-                             num_heads=num_heads,
-                             block_size=block_size,
-                             embedding_dropout_rate=embedding_dropout_rate,
-                             attention_dropout_rate=attention_dropout_rate,
-                             residual_dropout_rate=residual_dropout_rate,
-                             expand_ratio=expand_ratio)
-
-## VQVAE
-args.beta = 0.25
-args.embedding_dim = args.enc_nh
-args.rootdict_emb_dim = 512; args.num_dicts = 2; args.nz = 256; args.outcat=0; args.incat = 256
-args.rootdict_emb_num = 4000; args.orddict_emb_num  = 500; args.orddict_emb_num_2  = 50
-args.pretrained_model = VQVAE(args, surf_vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
 
 ## CharLM
 #args.pretrained_model = CharLM(args, surf_vocab, model_init, emb_init)
@@ -198,8 +175,9 @@ args.pretrained_model.load_state_dict(torch.load(model_path), strict=False)
 
 # model
 #args.model = CharLM_Lstm_Probe(args, polar_vocab, model_init, emb_init)
-args.model = VQVAE_Probe(args, tense_vocab, model_init, emb_init)
+#args.model = VQVAE_Probe(args, tense_vocab, model_init, emb_init)
 #args.model  = MiniGPT_Probe(args, tense_vocab)
+args.model = VAE_Probe(args, tense_vocab, model_init, emb_init)
 
 for param in args.model.parameters():
     param.requires_grad = False
@@ -218,7 +196,7 @@ args.log_path =  args.modelname +  str(args.epochs)+'epochs.log'
 args.fig_path =  args.modelname +  str(args.epochs)+'epochs.png'
 args.logger = Logger(args.log_path)
 with open(args.modelname+'/surf_vocab.json', 'w') as f:
-    f.write(json.dumps(surf_vocab.word2id))
+    f.write(json.dumps(args.surf_vocab.word2id))
 with open(args.modelname+'/tense_vocab.json', 'w') as f:
     f.write(json.dumps(tense_vocab.word2id))
 

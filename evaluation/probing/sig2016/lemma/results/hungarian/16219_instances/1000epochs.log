@@ -1,0 +1,146 @@
+
+number of params: 0 
+Namespace(batchsize=128, beta=0.1, dec_dropout_in=0.0, dec_dropout_out=0.0, dec_nh=256, dec_nh_tmp=256, device='cuda', embedding_dim=660, enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=660, epochs=1000, fig_path='evaluation/probing/sig2016/lemma/results/hungarian/16219_instances/1000epochs.png', incat=660, incat_tmp=660, kl_max=0.2, lang='hungarian', lemma_vocab=<common.vocab.VocabEntry object at 0x7f59fe935b50>, log_path='evaluation/probing/sig2016/lemma/results/hungarian/16219_instances/1000epochs.log', logger=<common.utils.Logger object at 0x7f59fff5a8d0>, lr=0.001, lxtgtsize=16219, maxtrnsize=1000000, maxtstsize=1000000000000, maxusize=1000000, maxvalsize=10000, mname='vqvae', model=VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(37, 256)
+    (lstm): LSTM(256, 660, batch_first=True, bidirectional=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=660, out_features=256, bias=False)
+  )
+  (z_to_dec): Linear(in_features=128, out_features=256, bias=True)
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(7, 66)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(3, 66)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(2, 66)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(2, 66)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(19, 66)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(5, 66)
+    )
+    (6): VectorQuantizer(
+      (embedding): Embedding(3, 66)
+    )
+    (7): VectorQuantizer(
+      (embedding): Embedding(3, 66)
+    )
+    (8): VectorQuantizer(
+      (embedding): Embedding(3, 66)
+    )
+    (9): VectorQuantizer(
+      (embedding): Embedding(4, 66)
+    )
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(37, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (lstm): LSTM(916, 256, batch_first=True)
+    (pred_linear): Linear(in_features=256, out_features=37, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), modelname='evaluation/probing/sig2016/lemma/results/hungarian/16219_instances/', nh=660, ni=256, num_dicts=10, num_dicts_tmp=10, nz=128, opt='Adam', orddict_emb_num=1, outcat=0, outcat_tmp=0, probe=Probe(
+  (linear): Linear(in_features=660, out_features=1509, bias=False)
+  (loss): CrossEntropyLoss()
+), save_path='evaluation/probing/sig2016/lemma/results/hungarian/16219_instances/1000epochs.pt', seq_to_no_pad='surface', surf_vocab=<common.vocab.VocabEntry object at 0x7f59fff4add0>, task='vqvae', trndata='data/sigmorphon2016/hungarian-task1-train', trnsize=16219, tstdata='data/sigmorphon2016/hungarian-task1-dev', tstsize=2344, unlabeled_data='data/sigmorphon2016/hungarian_ux.txt', usize=34025, valdata='data/sigmorphon2016/hungarian-task1-dev', valsize=2344)
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+-----------------------------------------------------

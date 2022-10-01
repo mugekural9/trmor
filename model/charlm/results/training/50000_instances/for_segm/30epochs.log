@@ -1,0 +1,120 @@
+
+number of params: 1605376 
+Namespace(batchsize=128, device='cuda', enc_dropout_in=0.2, enc_dropout_out=0.3, epochs=30, fig_path='model/charlm/results/training/50000_instances/for_segm/30epochs.png', log_path='model/charlm/results/training/50000_instances/for_segm/30epochs.log', logger=<common.utils.Logger object at 0x7fc112569b10>, lr=0.001, maxtrnsize=700000, maxtstsize=10000, maxvalsize=10000, mname='charlm', model=CharLM(
+  (embed): Embedding(37, 256, padding_idx=0)
+  (lstm): LSTM(256, 512, batch_first=True)
+  (dropout_in): Dropout(p=0.2, inplace=False)
+  (dropout_out): Dropout(p=0.3, inplace=False)
+  (pred_linear): Linear(in_features=512, out_features=37, bias=False)
+  (loss): CrossEntropyLoss()
+), modelname='model/charlm/results/training/50000_instances/for_segm/', nh=512, ni=256, opt='Adam', save_path='model/charlm/results/training/50000_instances/for_segm/30epochs.pt', seq_to_no_pad='surface', surface_vocab_file='data/unlabelled/top50k.wordlist.tur', task='lm', trndata='data/unlabelled/top50k.wordlist.tur', trnsize=50000, tstdata='data/unlabelled/theval.tur', tstsize=50000, valdata='data/unlabelled/theval.tur', valsize=3000)
+
+embed.weight, torch.Size([37, 256]): True
+lstm.weight_ih_l0, torch.Size([2048, 256]): True
+lstm.weight_hh_l0, torch.Size([2048, 512]): True
+lstm.bias_ih_l0, torch.Size([2048]): True
+lstm.bias_hh_l0, torch.Size([2048]): True
+pred_linear.weight, torch.Size([37, 512]): True
+epoch: 0 nll: 23.8058, ppl: 12.6500
+val --- nll: 22.2491, ppl: 9.3280 
+update best loss 
+
+epoch: 1 nll: 20.0119, ppl: 8.4420
+val --- nll: 20.6925, ppl: 7.9789 
+update best loss 
+
+epoch: 2 nll: 18.4213, ppl: 7.1255
+val --- nll: 18.9116, ppl: 6.6729 
+update best loss 
+
+epoch: 3 nll: 17.2940, ppl: 6.3186
+val --- nll: 18.1649, ppl: 6.1911 
+update best loss 
+
+epoch: 4 nll: 16.5097, ppl: 5.8118
+val --- nll: 17.4831, ppl: 5.7816 
+update best loss 
+
+epoch: 5 nll: 15.9225, ppl: 5.4592
+val --- nll: 17.0035, ppl: 5.5099 
+update best loss 
+
+epoch: 6 nll: 15.4997, ppl: 5.2186
+val --- nll: 16.8410, ppl: 5.4208 
+update best loss 
+
+epoch: 7 nll: 15.1900, ppl: 5.0492
+val --- nll: 16.5189, ppl: 5.2484 
+update best loss 
+
+epoch: 8 nll: 14.9349, ppl: 4.9137
+val --- nll: 16.5497, ppl: 5.2646 
+
+epoch: 9 nll: 14.6868, ppl: 4.7854
+val --- nll: 16.1547, ppl: 5.0600 
+update best loss 
+
+epoch: 10 nll: 14.5125, ppl: 4.6974
+val --- nll: 16.2874, ppl: 5.1278 
+
+epoch: 11 nll: 14.3570, ppl: 4.6202
+val --- nll: 16.1939, ppl: 5.0799 
+
+epoch: 12 nll: 14.2178, ppl: 4.5521
+val --- nll: 15.9678, ppl: 4.9659 
+update best loss 
+
+epoch: 13 nll: 14.0988, ppl: 4.4947
+val --- nll: 15.8594, ppl: 4.9122 
+update best loss 
+
+epoch: 14 nll: 13.9926, ppl: 4.4441
+val --- nll: 16.0553, ppl: 5.0097 
+
+epoch: 15 nll: 13.8855, ppl: 4.3937
+val --- nll: 15.7912, ppl: 4.8787 
+update best loss 
+
+epoch: 16 nll: 13.7911, ppl: 4.3497
+val --- nll: 15.9738, ppl: 4.9689 
+
+epoch: 17 nll: 13.7358, ppl: 4.3241
+val --- nll: 15.8016, ppl: 4.8838 
+
+epoch: 18 nll: 13.6608, ppl: 4.2897
+val --- nll: 15.8675, ppl: 4.9162 
+
+epoch: 19 nll: 13.5875, ppl: 4.2563
+val --- nll: 15.7195, ppl: 4.8437 
+update best loss 
+
+epoch: 20 nll: 13.5044, ppl: 4.2188
+val --- nll: 15.8708, ppl: 4.9178 
+
+epoch: 21 nll: 13.4580, ppl: 4.1980
+val --- nll: 15.6614, ppl: 4.8156 
+update best loss 
+
+epoch: 22 nll: 13.3945, ppl: 4.1696
+val --- nll: 15.7809, ppl: 4.8737 
+
+epoch: 23 nll: 13.3321, ppl: 4.1420
+val --- nll: 15.9413, ppl: 4.9527 
+
+epoch: 24 nll: 13.3216, ppl: 4.1374
+val --- nll: 15.8779, ppl: 4.9214 
+
+epoch: 25 nll: 13.2534, ppl: 4.1074
+val --- nll: 15.8065, ppl: 4.8862 
+
+epoch: 26 nll: 13.2051, ppl: 4.0863
+val --- nll: 15.7265, ppl: 4.8471 
+
+epoch: 27 nll: 13.1763, ppl: 4.0738
+val --- nll: 16.2095, ppl: 5.0879 
+
+epoch: 28 nll: 13.1268, ppl: 4.0523
+val --- nll: 15.9175, ppl: 4.9410 
+
+epoch: 29 nll: 13.0997, ppl: 4.0406
+val --- nll: 15.9099, ppl: 4.9372 

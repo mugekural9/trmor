@@ -5,18 +5,18 @@ from common.vocab import VocabEntry
 from common.batchify import get_batches
 
 def read_data(maxdsize, file, surface_vocab, mode, 
-case_vocab=None,
-polar_vocab=None,
-mood_vocab=None,
-pos_vocab=None,
-per_vocab=None,
-num_vocab=None,
-tense_vocab=None,
-aspect_vocab=None,
-voice_vocab=None,
-finite_vocab=None,
-comp_vocab=None
-): 
+    case_vocab=None,
+    polar_vocab=None,
+    mood_vocab=None,
+    pos_vocab=None,
+    per_vocab=None,
+    num_vocab=None,
+    tense_vocab=None,
+    aspect_vocab=None,
+    voice_vocab=None,
+    finite_vocab=None,
+    comp_vocab=None
+    ): 
 
     if case_vocab is None:
         case_vocab = defaultdict(lambda: len(case_vocab))
@@ -140,6 +140,7 @@ def build_data(args, surface_vocab=None):
     args.trnsize = len(trndata)
     lxsrc_ordered_batches, _ = get_batches_msved(trndata, surface_vocab, args.batchsize, args.seq_to_no_pad) 
 
+
     lxtgtdata, _ = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN', 
     tag_vocabs['case'],
     tag_vocabs['polar'],
@@ -157,7 +158,7 @@ def build_data(args, surface_vocab=None):
     lxtgt_ordered_batches, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
 
 
-    lxtgtdata, _ = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'LXTGT_ORDERED_TST', 
+    _lxtgtdata, _ = read_data(args.maxtrnsize, args.tstdata, surface_vocab, 'LXTGT_ORDERED_TST', 
     tag_vocabs['case'],
     tag_vocabs['polar'],
     tag_vocabs['mood'],
@@ -169,8 +170,7 @@ def build_data(args, surface_vocab=None):
     tag_vocabs['voice'],
     tag_vocabs['finite'],
     tag_vocabs['comp'])    
-    args.lxtgtsize = len(lxtgtdata)
-    lxtgt_ordered_batches_TST, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
+    lxtgt_ordered_batches_TST, _ = get_batches_msved(_lxtgtdata, surface_vocab, 1, 'feature')
 
 
     valdata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'VAL', 
@@ -204,6 +204,8 @@ def build_data(args, surface_vocab=None):
     tst_batches, _ = get_batches_msved(tstdata, surface_vocab, 1, args.seq_to_no_pad) 
     
     udata = read_data_unsup(args.maxtrnsize, args.unlabeled_data, surface_vocab, 'UDATA')
+    args.usize = len(udata)
+
     u_batches, _ = get_batches(udata, surface_vocab, args.batchsize, '') 
 
     return (trndata, valdata, tstdata, udata), (lxsrc_ordered_batches, lxtgt_ordered_batches, lxtgt_ordered_batches_TST, val_batches, tst_batches, u_batches), surface_vocab, tag_vocabs
@@ -212,10 +214,24 @@ def build_data(args, surface_vocab=None):
 ## Data prep
 def get_batch_tagmapping(x, surface_vocab, device='cuda'):
     global number_of_surf_tokens, number_of_surf_unks
-    surf =[]; case=[]; polar =[]; mood=[]; evid=[]; pos=[]; per=[]; num=[]; tense=[]; aspect=[]; inter=[]; poss=[]; reinflect_surf = [] 
+    surf =[]; case=[]; polar =[]; mood=[]; 
+    pos=[]; per=[]; num=[]; tense=[]; aspect=[]; 
+    voice=[]; finite=[]; comp=[]
+    reinflect_surf = [] 
     max_surf_len = max([len(s[0]) for s in x])
     max_reinflect_surf_len = max([len(s[-1]) for s in x])
-    for surf_idx, case_idx,polar_idx, mood_idx ,evid_idx,pos_idx,per_idx,num_idx,tense_idx,aspect_idx,inter_idx,poss_idx, reinflect_surf_idx  in x:
+  
+  
+    for surf_idx, \
+    case_idx,\
+    polar_idx,\
+    mood_idx ,\
+    pos_idx,\
+    per_idx,\
+    num_idx,\
+    tense_idx,\
+    aspect_idx,\
+    voice_idx,finite_idx,comp_idx, reinflect_surf_idx  in x:
         surf_padding = [surface_vocab['<pad>']] * (max_surf_len - len(surf_idx)) 
         reinflect_surf_padding = [surface_vocab['<pad>']] * (max_reinflect_surf_len - len(reinflect_surf_idx)) 
         surf.append([surface_vocab['<s>']] + surf_idx + [surface_vocab['</s>']] + surf_padding)
@@ -223,30 +239,32 @@ def get_batch_tagmapping(x, surface_vocab, device='cuda'):
         case.append(case_idx)
         polar.append(polar_idx)
         mood.append(mood_idx)
-        evid.append(evid_idx)
         pos.append(pos_idx)
         per.append(per_idx)
         num.append(num_idx)
         tense.append(tense_idx)
         aspect.append(aspect_idx)
-        inter.append(inter_idx)
-        poss.append(poss_idx)
+       
+        voice.append(voice_idx)
+        finite.append(finite_idx)
+        comp.append(comp_idx)
+        
         # Count statistics...
         number_of_surf_tokens += len(surf_idx)
         number_of_surf_unks += surf_idx.count(surface_vocab['<unk>'])
     
     return  torch.tensor(surf, dtype=torch.long,  requires_grad=False, device=device), \
-            torch.tensor(case, dtype=torch.long, requires_grad=False, device=device), \
+            [torch.tensor(case, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(polar, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(mood, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(evid, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(pos, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(per, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(num, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(tense, dtype=torch.long, requires_grad=False, device=device), \
             torch.tensor(aspect, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(inter, dtype=torch.long, requires_grad=False, device=device), \
-            torch.tensor(poss, dtype=torch.long, requires_grad=False, device=device), \
+            torch.tensor(voice, dtype=torch.long, requires_grad=False, device=device), \
+            torch.tensor(finite, dtype=torch.long, requires_grad=False, device=device), \
+            torch.tensor(comp, dtype=torch.long, requires_grad=False, device=device)], \
             torch.tensor(reinflect_surf, dtype=torch.long, requires_grad=False, device=device)
 
 def get_batches_msved(data, vocab, batchsize=64, seq_to_no_pad='', device='cuda'):
@@ -286,7 +304,7 @@ def get_batches_msved(data, vocab, batchsize=64, seq_to_no_pad='', device='cuda'
         else:
             batches.append(get_batch_tagmapping(data[i: i+batchsize], vocab, device=device))
             i += batchsize
-    #args.logger.write('# of surf tokens: ' + number_of_surf_tokens, ', # of surf unks: ', number_of_surf_unks)
+    print('# of surf tokens: ' + str(number_of_surf_tokens), ', # of surf unks: ', str(number_of_surf_unks))
     return batches, order   
 
 '''class MonoTextData(object):

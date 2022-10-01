@@ -6,8 +6,8 @@ from collections import defaultdict, Counter
 from common.vocab import VocabEntry
 from common.batchify import get_batches
 
-def read_data(maxdsize, file, surface_vocab, mode, 
-    def_vocab=None,
+def read_data(maxdsize, file, surface_vocab, mode, tag_vocabs=None):
+    '''def_vocab=None,
     polite_vocab=None,
     poss_vocab=None,
     finite_vocab=None,
@@ -17,82 +17,66 @@ def read_data(maxdsize, file, surface_vocab, mode,
     per_vocab=None,
     num_vocab=None,
     tense_vocab=None,
-   ):
+   ):'''
+
     surf_data = []; data = []; tag_data = dict(); 
     reinflected_surf_data = []
-    tag_vocabs = dict()
 
-    if poss_vocab is None:
+    if tag_vocabs is None:
+        tag_vocabs = dict()
+
         poss_vocab = defaultdict(lambda: len(poss_vocab))
         poss_vocab['<pad>'] = 0
-    tag_vocabs['poss'] = poss_vocab
-    tag_data['poss'] = []
 
-    if def_vocab is None:
+        tag_vocabs['poss'] = poss_vocab
+
         def_vocab = defaultdict(lambda: len(def_vocab))
         def_vocab['<pad>'] = 0
-    tag_vocabs['def'] = def_vocab
-    tag_data['def'] = []
+        tag_vocabs['def'] = def_vocab
 
-    if polite_vocab is None:
         polite_vocab = defaultdict(lambda: len(polite_vocab))
         polite_vocab['<pad>'] = 0
-    tag_vocabs['polite'] = polite_vocab
-    tag_data['polite'] = []
+        tag_vocabs['polite'] = polite_vocab
 
-
-
-
-    if finite_vocab is None:
         finite_vocab = defaultdict(lambda: len(finite_vocab))
         finite_vocab['<pad>'] = 0
-    tag_vocabs['finite'] = finite_vocab
-    tag_data['finite'] = []
+        tag_vocabs['finite'] = finite_vocab
 
 
-
-
-
-    if case_vocab is None:
         case_vocab = defaultdict(lambda: len(case_vocab))
         case_vocab['<pad>'] = 0
-    tag_vocabs['case'] = case_vocab
-    tag_data['case'] = []
+        tag_vocabs['case'] = case_vocab
 
-
-
-
-    if mood_vocab is None:
         mood_vocab = defaultdict(lambda: len(mood_vocab))
         mood_vocab['<pad>'] = 0
-    tag_vocabs['mood'] = mood_vocab
-    tag_data['mood'] = []
+        tag_vocabs['mood'] = mood_vocab
 
-
-
-    if pos_vocab is None:
         pos_vocab = defaultdict(lambda: len(pos_vocab))
         pos_vocab['<pad>'] = 0
-    tag_vocabs['pos'] = pos_vocab
-    tag_data['pos'] = []
+        tag_vocabs['pos'] = pos_vocab
 
-
-    if per_vocab is None:
         per_vocab = defaultdict(lambda: len(per_vocab))
         per_vocab['<pad>'] = 0
-    tag_vocabs['per'] = per_vocab
-    tag_data['per'] = []
+        tag_vocabs['per'] = per_vocab
 
-    if num_vocab is None:
         num_vocab = defaultdict(lambda: len(num_vocab))
         num_vocab['<pad>'] = 0
-    tag_vocabs['num'] = num_vocab
-    tag_data['num'] = []
+        tag_vocabs['num'] = num_vocab
 
-    if tense_vocab is None:
         tense_vocab = defaultdict(lambda: len(tense_vocab))
         tense_vocab['<pad>'] = 0
-    tag_vocabs['tense'] = tense_vocab
+        tag_vocabs['tense'] = tense_vocab
+
+
+    tag_data['poss'] = []
+    tag_data['def'] = []
+    tag_data['polite'] = []
+    tag_data['finite'] = []
+    tag_data['case'] = []
+    tag_data['mood'] = []
+    tag_data['pos'] = []
+    tag_data['per'] = []
+    tag_data['num'] = []
     tag_data['tense'] = []
 
 
@@ -122,6 +106,7 @@ def read_data(maxdsize, file, surface_vocab, mode,
     print('\nsurf_data:' +  str(len(surf_data)))
     print('\nreinflected_surf_data:' +  str(len(reinflected_surf_data)))
 
+    tags_freq = defaultdict(lambda: 0)
     print('\ntag_data:'  +  str(len(tag_data)))
     for j in range(len(surf_data)):
         instance= []
@@ -129,11 +114,16 @@ def read_data(maxdsize, file, surface_vocab, mode,
         tagkeys = []
         for key in tag_data.keys():
             instance.append(tag_data[key][j])
+            if key == 'per':
+                tags_freq[tag_data[key][j][0]] +=1
             tagkeys.append(key)
         instance.append(reinflected_surf_data[j])
         data.append(instance)
         #data.append((instance,tagkeys))
-    
+    MAX = tags_freq[max(tags_freq, key=tags_freq.get)]
+    MAJORITY = MAX / sum(tags_freq.values())
+    print(MAJORITY)
+
     return data, tag_vocabs
 
 
@@ -156,9 +146,9 @@ def read_data_unsup(maxdsize, file, surface_vocab, mode):
     return data
 
 
-def build_data(args, surface_vocab=None):
+def build_data(args, surface_vocab=None, tag_vocabs=None):
     # Read data and get batches...
-    trndata, tag_vocabs = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN')
+    trndata, _ = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN', tag_vocabs)
     
     
     for key, values in tag_vocabs.items():
@@ -169,62 +159,26 @@ def build_data(args, surface_vocab=None):
 
 
     lxtgtdata, _ = read_data(args.maxtrnsize, args.trndata, surface_vocab, 'TRN',
-    tag_vocabs['def'],
-    tag_vocabs['polite'],
-    tag_vocabs['poss'],
-    tag_vocabs['finite'],
-    tag_vocabs['case'],
-    tag_vocabs['mood'],
-    tag_vocabs['pos'],
-    tag_vocabs['per'],
-    tag_vocabs['num'],
-    tag_vocabs['tense'],
+   tag_vocabs
     )    
     args.lxtgtsize = len(lxtgtdata)
     lxtgt_ordered_batches, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
 
-    lxtgtdata, _ = read_data(args.maxtrnsize, args.tstdata, surface_vocab, 'LXTGT_ORDERED_TST', 
-    tag_vocabs['def'],
-    tag_vocabs['polite'],
-    tag_vocabs['poss'],
-    tag_vocabs['finite'],
-    tag_vocabs['case'],
-    tag_vocabs['mood'],
-    tag_vocabs['pos'],
-    tag_vocabs['per'],
-    tag_vocabs['num'],
-    tag_vocabs['tense'],
+    _lxtgtdata, _ = read_data(args.maxtrnsize, args.tstdata, surface_vocab, 'LXTGT_ORDERED_TST', 
+   tag_vocabs
     )  
-    lxtgt_ordered_batches_TST, _ = get_batches_msved(lxtgtdata, surface_vocab, 1, 'feature')
+    lxtgt_ordered_batches_TST, _ = get_batches_msved(_lxtgtdata, surface_vocab, 1, 'feature')
 
 
-    valdata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'TRN',
-     tag_vocabs['def'],
-    tag_vocabs['polite'],
-    tag_vocabs['poss'],
-    tag_vocabs['finite'],
-    tag_vocabs['case'],
-    tag_vocabs['mood'],
-    tag_vocabs['pos'],
-    tag_vocabs['per'],
-    tag_vocabs['num'],
-    tag_vocabs['tense'],
+    valdata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'VAL',
+   tag_vocabs
     )  
     args.valsize = len(valdata)
     val_batches, _ = get_batches_msved(valdata, surface_vocab, args.batchsize, 'feature')
 
 
     tstdata, _ = read_data(args.maxtstsize, args.tstdata, surface_vocab, 'TST',
-    tag_vocabs['def'],
-    tag_vocabs['polite'],
-    tag_vocabs['poss'],
-    tag_vocabs['finite'],
-    tag_vocabs['case'],
-    tag_vocabs['mood'],
-    tag_vocabs['pos'],
-    tag_vocabs['per'],
-    tag_vocabs['num'],
-    tag_vocabs['tense'],
+    tag_vocabs
     )  
     args.tstsize = len(tstdata)
     tst_batches, _ = get_batches_msved(tstdata, surface_vocab, 1, args.seq_to_no_pad) 

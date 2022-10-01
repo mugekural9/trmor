@@ -46,7 +46,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'vae_11'
+    model_id = 'vae_segm_06_40'
     model_path, model_vocab  = get_model_info(model_id)
     # logging
     args.logdir = 'model/vae/results/copying/'+model_id+'/'
@@ -63,7 +63,7 @@ def config():
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
     args.ni = 256; args.nz = 32; 
-    args.enc_nh = 512; args.dec_nh = 512
+    args.enc_nh = 256; args.dec_nh = 256
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.model = VAE(args, args.vocab, model_init, emb_init)
@@ -75,7 +75,7 @@ def config():
 def main():
     args = config()
     # copy tst data
-    args.tstdata = 'model/vqvae/data/sosimple.new.seenroots.val.txt'
+    args.tstdata = 'data/unlabelled/theval.tur'
     args.maxtstsize = 10000
     tstdata = read_data(args.maxtstsize, args.tstdata, args.vocab, 'TST')    
     with open(args.logfile, "w") as f:

@@ -116,17 +116,17 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 50
+args.batchsize = 128; args.epochs = 51
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'vae'
 args.seq_to_no_pad = 'surface'
-args.kl_start = 0.0
+args.kl_start = 0.1
 args.kl_anneal = True
 args.warm_up = 10
 args.kl_max = 1.0
 # data
-args.trndata = 'data/unlabelled/top50k.wordlist.tur'
-args.valdata = 'data/unlabelled/theval.tur'
+args.trndata = '/kuacc/users/mugekural/workfolder/dev/git/trmor/data/labelled/verb/trmor2018.uniquesurfs.verbs.simple/trmor2018.uniquesurfs.verbs.simple.txt'
+args.valdata = '/kuacc/users/mugekural/workfolder/dev/git/trmor/data/labelled/verb/trmor2018.uniquesurfs.verbs.simple/trmor2018.uniquesurfs.verbs.simple.txt'
 args.tstdata = args.valdata
 
 args.surface_vocab_file = args.trndata
@@ -139,9 +139,9 @@ args.mname = 'vae'
 model_init = uniform_initializer(0.01)
 emb_init = uniform_initializer(0.1)
 args.ni = 256; args.nz = 32; 
-args.enc_nh = 256; args.dec_nh = 256
+args.enc_nh = 512; args.dec_nh = 512
 args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
-args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.0
+args.dec_dropout_in = 0.2; args.dec_dropout_out = 0.3
 args.model = VAE(args, vocab, model_init, emb_init)
 args.model.to(args.device)
 # logging
@@ -149,7 +149,8 @@ args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_in
 str(args.kl_start)+'_batchsize'+str(args.batchsize)+'_maxkl_'+str(args.kl_max)+'_warmup'+str(args.warm_up) \
 +'_enc_nh' + str(args.enc_nh) \
 +'_decdout_in' + str(args.dec_dropout_in) \
-+'/'
++'_nz' + str(args.nz) \
++'/TEST/'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from gpt3 import GPT3
 from train import train
 from common.utils import *
-from data.data import build_data, log_data
+from model.miniGPT.data.data import build_data
 matplotlib.use('Agg')
 
 
@@ -39,14 +39,10 @@ args.seq_to_no_pad = 'surface'
 args.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # data
-args.trndata = 'model/vae/data/top50k_wordlist.tur'
-args.valdata = 'model/vae/data/theval.tur'
-#args.trndata = 'model/miniGPT/data/wordlist.tur'
-#args.valdata = 'model/miniGPT/data/theval.indices.tur'
-#args.trndata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.uniquerooted.trn.txt'
-#args.valdata = 'model/vqvae/data/trmor2018.uniquesurfs.verbs.seenroots.val.txt'
-#args.trndata = 'model/miniGPT/data/top50k_wordlist.tur'
-#args.valdata = 'model/miniGPT/data/val.junk.tur'
+#args.trndata = 'data/unlabelled/top50k.wordlist.tur'
+args.trndata = 'data/unlabelled/filtered_traindev.tur'
+args.valdata = 'data/unlabelled/theval.tur'
+
 args.tstdata = args.valdata
 args.surface_vocab_file = args.trndata
 args.maxtrnsize = 700000; args.maxvalsize = 100000; args.maxtstsize = 100000
@@ -79,7 +75,7 @@ args.opt = optim.AdamW(args.model.parameters(), lr=args.lr, betas=(0.9, 0.95), w
 
 
 # logging Results
-args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/'
+args.modelname = 'model/'+args.mname+'/results/training/'+str(len(trndata))+'_instances/filter_TEST'
 try:
     os.makedirs(args.modelname)
     print("Directory " , args.modelname ,  " Created ") 

@@ -117,6 +117,11 @@ def get_model_info(id, lang=None):
         model_path  = 'model/vqvae/results/training/sig2016/finnish/unsup/55000_instances/16epochs.pt'
         model_vocab = 'model/vqvae/results/training/sig2016/finnish/unsup/55000_instances/surf_vocab.json'  
     
+
+    if id == 'ae_finnish_unsup_1320':
+        model_path  = 'model/vqvae/results/training/sig2016/finnish/unsup/55000_instances/55000_instances/27epochs.pt'
+        model_vocab = 'model/vqvae/results/training/sig2016/finnish/unsup/55000_instances/55000_instances/surf_vocab.json'  
+
     if id == 'ae_hungarian_unsup_660':
         model_path  = 'model/vqvae/results/training/sig2016/hungarian/unsup/55000_instances/17epochs.pt'
         model_vocab = 'model/vqvae/results/training/sig2016/hungarian/unsup/55000_instances/surf_vocab.json'  
@@ -387,6 +392,11 @@ def get_model_info(id, lang=None):
         model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup50_enc_nh256_decdout_in0.2/surf_vocab.json'  
 
 
+
+    if id == 'vae_segm_06_40':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/50epochs.pt_40'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
     if id == 'vae_segm_06_30':
         model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/50epochs.pt_30'
         model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/surf_vocab.json'  
@@ -395,10 +405,120 @@ def get_model_info(id, lang=None):
         model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/50epochs.pt_20'
         model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/surf_vocab.json'  
 
+    if id == 'vae_segm_06_10':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/50epochs.pt_10'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+
+
+    if id == 'vae_segm_07_45':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.2_batchsize128_maxkl_0.2_warmup10_enc_nh256_decdout_in0.2/50epochs.pt_45'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.2_batchsize128_maxkl_0.2_warmup10_enc_nh256_decdout_in0.2/surf_vocab.json'  
+
+
+    if id == 'vae_segm_08_10':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.3_nz32/51epochs.pt_10'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.3_nz32/surf_vocab.json'  
+
+
+    if id == 'vae_segm_08_50':
+        model_path  = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.3_nz32/51epochs.pt_50'
+        model_vocab = 'model/vae/results/training/50000_instances/kl_start0.0_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.3_nz32/surf_vocab.json'  
+
+    if id == 'vae_segm_09_15':
+        model_path  = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vae/results/training/52534_instances/kl_start0.1_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.2_nz32/TEST/51epochs.pt_50'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vae/results/training/52534_instances/kl_start0.1_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.2_nz32/TEST/surf_vocab.json'  
+
+    if id == 'vae_segm_09_50':
+        model_path  = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vae/results/training/52534_instances/kl_start0.1_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.2_nz32/TEST/51epochs.pt_15'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vae/results/training/52534_instances/kl_start0.1_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.2_nz32/TEST/surf_vocab.json'  
+
+    if id == 'neubig_vae_50k':
+        model_path  = '/kuacc/users/mugekural/workfolder/dev/git/trmor/trmor_aggressive1_kls0.10_warm10_0_0_101.pt11'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/50000_surf_vocab.json'  
+
+    if id == 'neubig_vae_50k_agg0_5':
+        model_path= '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/models/trmor/trmor_aggressive0_kls0.10_warm10_0_0_101.pt5'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/50000_surf_vocab.json'
+
+    if id == 'neubig_vae_50k_agg0_15':
+        model_path= '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/models/trmor/trmor_aggressive0_kls0.10_warm10_0_0_101.pt15'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/50000_surf_vocab.json'
+
+    if id == 'neubig_vae_50k_agg0_19':
+        model_path= '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/models/trmor/trmor_aggressive0_kls0.10_warm10_0_0_101.pt19'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/50000_surf_vocab.json'
+
+
+    if id == 'neubig_vae_617k_10':
+        model_path= '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/models/trmor/trmor_aggressive1_kls0.10_warm10_0_0_202.pt10'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/vae-lagging-encoder/617298_surf_vocab.json'
+
+
+    if id == 'VAE_FINAL':
+        model_path = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vae/results/training/50000_instances/kl_start0.1_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.2_nz32/TEST/51epochs.pt_50'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vae/results/training/50000_instances/kl_start0.1_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.2_nz32/TEST/surf_vocab.json'
+
+
+    if id == 'CHARLM_FINAL':
+        model_path = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/charlm/results/training/50000_instances/for_segm/30epochs.pt'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/charlm/results/training/50000_instances/for_segm/surf_vocab.json'
+
+    if id == 'CHARLM_FINAL_TEST':
+        model_path = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/charlm/results/training/52534_instances/for_segm_filter_test/30epochs.pt'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/charlm/results/training/52534_instances/for_segm_filter_test/surf_vocab.json'
+
+
+
+    if id == 'CHARLM_GPT_FINAL':
+        model_path  = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/miniGPT/results/training/50000_instances/100epochs.pt'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/miniGPT/results/training/50000_instances/surf_vocab.json'
+
+
+    if id == 'CHARLM_GPT_TEST':
+        model_path  = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/miniGPT/results/training/52534_instances/filter_TEST100epochs.pt'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/miniGPT/results/training/52534_instances/filter_TEST/surf_vocab.json'
+
+
     #### SIGMORPHON2021- task2
     if id == 'turkish_ae_640':
         model_path  = 'model/vqvae/results/training/sig2021-task2/Turkish/unsup/616418_instances/6epochs.pt'
         model_vocab = 'model/vqvae/results/training/sig2021-task2/Turkish/unsup/616418_instances/surf_vocab.json'  
+
+
+    ### THESIS- SIG2016
+    if id == 'georgian_thesis_sig2016':
+        model_path  = 'model/vqvae/results/training/sig2016/georgian/early-supervision-thesis/24000_instances/run1-batchsize128_beta0.1_bi_kl0.1_8x1_dec256_suffixd640/301epochs.pt_direct'
+        model_vocab = 'model/vqvae/results/training/sig2016/georgian/early-supervision-thesis/24000_instances/run1-batchsize128_beta0.1_bi_kl0.1_8x1_dec256_suffixd640/surf_vocab.json'  
+    if id == 'georgian_thesis_sig2016_withux':
+        model_path  = 'model/vqvae/results/training/sig2016/georgian/early-supervision-thesis_withux/12795_instances/run1-batchsize128_beta0.1_bi_kl0.1_8x1_dec256_suffixd640/301epochs.pt_direct'
+        model_vocab = 'model/vqvae/results/training/sig2016/georgian/early-supervision-thesis_withux/12795_instances/run1-batchsize128_beta0.1_bi_kl0.1_8x1_dec256_suffixd640/surf_vocab.json'  
+
+    if id == 'german_thesis_sig2016':
+        model_path  = 'model/vqvae/results/training/sig2016/german/early-supervision-thesis/12777_instances/run1-batchsize128_beta0.1_bi_kl0.1_11x1_dec512_suffixd660/301epochs.pt_direct'
+        model_vocab = 'model/vqvae/results/training/sig2016/german/early-supervision-thesis/12777_instances/run1-batchsize128_beta0.1_bi_kl0.1_11x1_dec512_suffixd660/surf_vocab.json'  
+    if id == 'german_thesis_sig2016_withux':
+        model_path  = 'model/vqvae/results/training/sig2016/german/early-supervision-thesis_withux/12777_instances/run1-batchsize128_beta0.1_bi_kl0.1_11x1_dec512_suffixd660/301epochs.pt_direct'
+        model_vocab = 'model/vqvae/results/training/sig2016/german/early-supervision-thesis_withux/12777_instances/run1-batchsize128_beta0.1_bi_kl0.1_11x1_dec512_suffixd660/surf_vocab.json'  
+
+
+    if id == 'finnish_thesis_sig2016':
+        model_path  = 'model/vqvae/results/training/sig2016/finnish/early-supervision-thesis/24000_instances/run1-batchsize128_beta0.1_bi_kl0.2_11x1_dec512_suffixd1320/301epochs.pt_direct'
+        model_vocab = 'model/vqvae/results/training/sig2016/finnish/early-supervision-thesis/24000_instances/run1-batchsize128_beta0.1_bi_kl0.2_11x1_dec512_suffixd1320/surf_vocab.json'  
+    if id == 'finnish_thesis_sig2016_withux':
+        model_path  = 'model/vqvae/results/training/sig2016/finnish/early-supervision-thesis_withux/12800_instances/run1-batchsize128_beta0.1_bi_kl0.2_11x1_dec512_suffixd1320/301epochs.pt_direct'
+        model_vocab = 'model/vqvae/results/training/sig2016/finnish/early-supervision-thesis_withux/12800_instances/run1-batchsize128_beta0.1_bi_kl0.2_11x1_dec512_suffixd1320/surf_vocab.json'  
+
+    if id == 'vae_test':
+        model_path  = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vae/results/training/4587_instances/kl_start0.1_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.2_nz32/TEST/51epochs.pt_50'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vae/results/training/4587_instances/kl_start0.1_batchsize128_maxkl_1.0_warmup10_enc_nh512_decdout_in0.2_nz32/TEST/surf_vocab.json'  
+
+
+    if id == 'hungarian_vqvae_probe':
+        model_path = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vqvae/results/training/sig2016/hungarian/early-supervision-thesis_withux/19200_instances/run1-batchsize128_beta0.1_bi_kl0.2_10x1_dec256_suffixd660/301epochs.pt_direct'
+        model_vocab = '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vqvae/results/training/sig2016/hungarian/early-supervision-thesis_withux/19200_instances/run1-batchsize128_beta0.1_bi_kl0.2_10x1_dec256_suffixd660/surf_vocab.json'
+        tag_vocabs =  '/kuacc/users/mugekural/workfolder/dev/git/trmor/model/vqvae/results/training/sig2016/hungarian/early-supervision-thesis_withux/19200_instances/run1-batchsize128_beta0.1_bi_kl0.2_10x1_dec256_suffixd660/tag_vocabs.json'  
+        return model_path, model_vocab, tag_vocabs
 
     return model_path, model_vocab
 

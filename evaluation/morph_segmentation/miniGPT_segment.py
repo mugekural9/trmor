@@ -23,7 +23,7 @@ def heur_prev_mid_next_and_prevnext_exceed(logps, eps):
         prev = logps[i-1][1]
         cur = logps[i]
         nex = logps[i+1][1]
-        if (i>0 and (cur[1] > (prev + nex)/2)  and len(cur[0])>2) or (cur[1] > prev + eps and cur[1] > nex and len(cur[0])>2): 
+        if (i>0 and (cur[1] > (prev + nex)/2)  and len(cur[0])>2): #or (cur[1] > prev + eps and cur[1] > nex and len(cur[0])>2): 
             morph = cur[0][-(len(cur[0])-len(prev_word)):]
             morphemes.append(morph)
             prev_word = cur[0]
@@ -80,7 +80,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'minigpt_segm_50k'
+    model_id = 'CHARLM_GPT_TEST'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
     args.heur_type = 'prev_mid_next'; args.eps = 0.0

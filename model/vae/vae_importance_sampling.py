@@ -10,8 +10,6 @@ from common.utils import *
 import sys, argparse, random, torch, json, matplotlib, os
 from evaluation.morph_segmentation.data.data import build_data
 import numpy as np
-from scipy.stats import norm
-from scipy.special import logsumexp
 from statistics import stdev, mean
 
 # does the experiment nruns times 
@@ -38,7 +36,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'vae_5'
+    model_id = 'VAE_FINAL'
     model_path, model_vocab  = get_model_info(model_id)
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
     args.recon_type = 'avg'
@@ -58,8 +56,8 @@ def config():
         word2id = json.load(f)
         args.vocab = VocabEntry(word2id)
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
-    args.ni = 512; args.nz = 32; 
-    args.enc_nh = 1024; args.dec_nh = 1024
+    args.ni = 256; args.nz = 32; 
+    args.enc_nh = 512; args.dec_nh = 512
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.model = VAE(args, args.vocab, model_init, emb_init)
@@ -68,16 +66,16 @@ def config():
     args.model.to(args.device)
     args.model.eval()
     # data
-    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_trainset.segments.eng'
-    args.maxtstsize = 10
+    args.tstdata = 'evaluation/morph_segmentation/data/goldstd_mc05-10aggregated.segments.tur'
+    args.maxtstsize = 20
     args.batch_size = 1
     return args
 
 def main():
     args = config()
     _, batches = build_data(args)
-    nsamples_list = [8,16,32,64,128,512,1000,5000,7500,10000,12000,15000,20000, 21000,25000,30000, 35000,40000, 50000,52000,55000,60000]; 
-    nruns = 10 
+    nsamples_list = [8,16,32,64,128,512,1024,2048,4096,8192,16000,24000,32000,52000,64000,128000]#,55000,60000]; 
+    nruns = 5 
     with torch.no_grad():
         # loop through each word 
         if False: 
@@ -99,7 +97,9 @@ def main():
         # loop through each word's subwords, enable if necessary
         if True: 
             for data in batches:
-                for i in range(len(data[0])-2, 1, -1):
+                if len(data[0]) >12:
+                    continue
+                for i in range(len(data[0])-1, 1, -1):
                     eos  = torch.tensor([2]).to(args.device)
                     subdata = torch.cat([data[0][:i], eos])
                     if args.sample_type == 'word_given':

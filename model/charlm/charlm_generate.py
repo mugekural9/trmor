@@ -40,7 +40,7 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'charlm_segm'
+    model_id = 'CHARLM_FINAL'
     model_path, model_vocab  = get_model_info(model_id)
     # logging
     args.logdir = 'model/charlm/results/generation/'+model_id+'/'

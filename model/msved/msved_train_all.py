@@ -15,9 +15,9 @@ from data.data_2 import build_data
 matplotlib.use('Agg')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
 
-def test(batches, mode, args, kl_weight, tmp):
+def test(batches, lxtgt_ordered_batches, mode, args, kl_weight, tmp, log_shared_task=False):
     labeled_msved_numwords = args.valsize if mode =='val'  else args.tstsize
-    indices = list(range( len(batches)))
+    indices = list(range(len(batches)))
     epoch_labeled_msved_loss = 0 
     epoch_labeled_msved_num_tokens = 0
     epoch_labeled_msved_num_tags = 0
@@ -39,6 +39,7 @@ def test(batches, mode, args, kl_weight, tmp):
         epoch_labeled_msved_num_tags +=  labeled_msved_tag_total
         epoch_labeled_msved_tag_pred_loss += labeled_msved_tag_pred_loss.sum().item()
         epoch_labeled_msved_tag_acc += labeled_msved_tag_correct
+    
     labeled_msved_loss = epoch_labeled_msved_loss / labeled_msved_numwords  
     labeled_msved_kl_loss = epoch_labeled_msved_kl_loss / labeled_msved_numwords
     labeled_msved_recon_loss = epoch_labeled_msved_recon_loss / epoch_labeled_msved_num_tokens
@@ -46,11 +47,43 @@ def test(batches, mode, args, kl_weight, tmp):
     labeled_msved_tag_pred_loss = epoch_labeled_msved_tag_pred_loss / epoch_labeled_msved_num_tags
     labeled_msved_tag_acc = epoch_labeled_msved_tag_acc / epoch_labeled_msved_num_tags
     args.logger.write('\nval--- labeled_msved_loss: %.4f,  labeled_msved_tag_pred_loss: %.4f, labeled_msved_tag_acc: %.4f, labeled_msved_kl_loss: %.4f,  labeled_msved_recon_loss: %.4f,  labeled_msved_recon_acc: %.4f'  % ( labeled_msved_loss,  labeled_msved_tag_pred_loss, labeled_msved_tag_acc, labeled_msved_kl_loss,  labeled_msved_recon_loss,  labeled_msved_recon_acc))
+
+    if log_shared_task:
+        lxtgt_to_lxsrc_msved_numwords = args.valsize if mode =='val'  else args.tstsize
+        ltgtindices = list(range(len(lxtgt_ordered_batches)))
+        epoch_lxtgt_to_lxsrc_msved_loss = 0 
+        epoch_lxtgt_to_lxsrc_msved_num_tokens = 0
+        epoch_lxtgt_to_lxsrc_msved_recon_acc = 0
+        epoch_lxtgt_to_lxsrc_msved_recon_loss = 0
+        epoch_lxtgt_to_lxsrc_msved_kl_loss = 0
+        true = 0
+        with open('semisup_tgt_to_src_reinflections.txt','w') as writer:
+            for i, idx in enumerate(ltgtindices):
+                lxsrc, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, lxtgt  = lxtgt_ordered_batches[idx] 
+                # MSVED from lxtgt to lxsrc
+                loss_lxtgt_to_lxsrc_msved, lxtgt_to_lxsrc_msved_recon_loss, lxtgt_to_lxsrc_msved_kl_loss, lxtgt_to_lxsrc_msved_recon_acc, _ = args.model.loss_lxtgt_to_lxsrc_msved(lxsrc, lxtgt, kl_weight, tmp)
+                gold_str =  ''.join(args.model.decoder.vocab.decode_sentence(lxsrc.squeeze(0)[1:]))
+                pred_str =  ''.join(args.model.decoder.vocab.decode_sentence(_.squeeze(0)))
+                if gold_str == pred_str:
+                    true+=1
+                writer.write(gold_str+'\t'+pred_str+'\n')
+                epoch_lxtgt_to_lxsrc_msved_loss += loss_lxtgt_to_lxsrc_msved.sum().item()
+                epoch_lxtgt_to_lxsrc_msved_num_tokens +=  torch.sum(lxsrc[:,1:] !=0).item()
+                epoch_lxtgt_to_lxsrc_msved_recon_acc += lxtgt_to_lxsrc_msved_recon_acc
+                epoch_lxtgt_to_lxsrc_msved_recon_loss += lxtgt_to_lxsrc_msved_recon_loss.sum().item()
+                epoch_lxtgt_to_lxsrc_msved_kl_loss += lxtgt_to_lxsrc_msved_kl_loss.sum().item()
+        lxtgt_to_lxsrc_msved_loss = epoch_lxtgt_to_lxsrc_msved_loss / lxtgt_to_lxsrc_msved_numwords  
+        lxtgt_to_lxsrc_msved_kl_loss = epoch_lxtgt_to_lxsrc_msved_kl_loss / lxtgt_to_lxsrc_msved_numwords
+        lxtgt_to_lxsrc_msved_recon_loss = epoch_lxtgt_to_lxsrc_msved_recon_loss / epoch_lxtgt_to_lxsrc_msved_num_tokens
+        lxtgt_to_lxsrc_msved_recon_acc = epoch_lxtgt_to_lxsrc_msved_recon_acc / epoch_lxtgt_to_lxsrc_msved_num_tokens
+        reinflect_acc = (true/len(ltgtindices))
+        args.logger.write('\nval--- lxtgt_to_lxsrc_msved_loss: %.4f,  lxtgt_to_lxsrc_msved_kl_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_acc: %.4f'  % ( lxtgt_to_lxsrc_msved_loss,  lxtgt_to_lxsrc_msved_kl_loss,  lxtgt_to_lxsrc_msved_recon_loss,  lxtgt_to_lxsrc_msved_recon_acc))
+        args.logger.write('\nreinflect acc: %.4f' % reinflect_acc)
     return labeled_msved_loss
 
 
-def train_2(data, args):
-    lxsrc_ordered_batches, lxtgt_ordered_batches, valbatches, tstbatches, ubatches = data
+def train(data, args):
+    lxsrc_ordered_batches, lxtgt_ordered_batches, lxtgt_ordered_batches_TST, valbatches, tstbatches, ubatches = data
     # initialize optimizer
     opt = optim.Adam(filter(lambda p: p.requires_grad, args.model.parameters()), lr=args.lr)
     # Log trainable model parameters
@@ -190,7 +223,7 @@ def train_2(data, args):
                 epoch_lxtgt_labeled_msvae_tag_pred_loss += lxtgt_labeled_msvae_tag_pred_loss.sum().item()
                 epoch_lxtgt_labeled_msvae_tag_acc += lxtgt_labeled_msvae_tag_correct
                 # MSVED from lxtgt to lxsrc
-                loss_lxtgt_to_lxsrc_msved, lxtgt_to_lxsrc_msved_recon_loss, lxtgt_to_lxsrc_msved_kl_loss, lxtgt_to_lxsrc_msved_recon_acc = args.model.loss_lxtgt_to_lxsrc_msved(lxsrc, lxtgt, kl_weight, tmp)
+                loss_lxtgt_to_lxsrc_msved, lxtgt_to_lxsrc_msved_recon_loss, lxtgt_to_lxsrc_msved_kl_loss, lxtgt_to_lxsrc_msved_recon_acc,_ = args.model.loss_lxtgt_to_lxsrc_msved(lxsrc, lxtgt, kl_weight, tmp)
                 lxtgt_to_lxsrc_msved_batch_loss = loss_lxtgt_to_lxsrc_msved.mean()
                 batch_loss += lxtgt_to_lxsrc_msved_batch_loss
                 epoch_lxtgt_to_lxsrc_msved_loss += loss_lxtgt_to_lxsrc_msved.sum().item()
@@ -198,7 +231,6 @@ def train_2(data, args):
                 epoch_lxtgt_to_lxsrc_msved_recon_acc += lxtgt_to_lxsrc_msved_recon_acc
                 epoch_lxtgt_to_lxsrc_msved_recon_loss += lxtgt_to_lxsrc_msved_recon_loss.sum().item()
                 epoch_lxtgt_to_lxsrc_msved_kl_loss += lxtgt_to_lxsrc_msved_kl_loss.sum().item()
-
             else:
                 random.shuffle(ltgtindices) # this breaks continuity if there is any
                 lidx= ltgtindices[0]
@@ -216,7 +248,7 @@ def train_2(data, args):
                 epoch_lxtgt_labeled_msvae_tag_pred_loss += lxtgt_labeled_msvae_tag_pred_loss.sum().item()
                 epoch_lxtgt_labeled_msvae_tag_acc += lxtgt_labeled_msvae_tag_correct
                 # MSVED from lxtgt to lxsrc
-                loss_lxtgt_to_lxsrc_msved, lxtgt_to_lxsrc_msved_recon_loss, lxtgt_to_lxsrc_msved_kl_loss, lxtgt_to_lxsrc_msved_recon_acc = args.model.loss_lxtgt_to_lxsrc_msved(lxsrc, lxtgt, kl_weight, tmp)
+                loss_lxtgt_to_lxsrc_msved, lxtgt_to_lxsrc_msved_recon_loss, lxtgt_to_lxsrc_msved_kl_loss, lxtgt_to_lxsrc_msved_recon_acc, _ = args.model.loss_lxtgt_to_lxsrc_msved(lxsrc, lxtgt, kl_weight, tmp)
                 lxtgt_to_lxsrc_msved_batch_loss = loss_lxtgt_to_lxsrc_msved.mean()
                 batch_loss += lxtgt_to_lxsrc_msved_batch_loss
                 epoch_lxtgt_to_lxsrc_msved_loss += loss_lxtgt_to_lxsrc_msved.sum().item()
@@ -274,21 +306,25 @@ def train_2(data, args):
         #args.logger.write('\ntrn--- ux_msvae_loss: %.4f,  ux_msvae_kl_loss: %.4f,  ux_msvae_recon_loss: %.4f,  ux_msvae_recon_acc: %.4f'  % ( ux_msvae_loss,  ux_msvae_kl_loss,  ux_msvae_recon_loss,  ux_msvae_recon_acc))
         #args.logger.write('\ntrn--- lxsrc_msvae_loss: %.4f,  lxsrc_msvae_kl_loss: %.4f,  lxsrc_msvae_recon_loss: %.4f,  lxsrc_msvae_recon_acc: %.4f'  % ( lxsrc_msvae_loss,  lxsrc_msvae_kl_loss,  lxsrc_msvae_recon_loss,  lxsrc_msvae_recon_acc))
         #args.logger.write('\ntrn--- lxtgt_labeled_msvae_loss: %.4f,  lxtgt_labeled_msvae_tag_pred_loss: %.4f, lxtgt_labeled_msvae_tag_acc: %.4f, lxtgt_labeled_msvae_kl_loss: %.4f,  lxtgt_labeled_msvae_recon_loss: %.4f,  lxtgt_labeled_msvae_recon_acc: %.4f'  % ( lxtgt_labeled_msvae_loss,  lxtgt_labeled_msvae_tag_pred_loss, lxtgt_labeled_msvae_tag_acc, lxtgt_labeled_msvae_kl_loss,  lxtgt_labeled_msvae_recon_loss,  lxtgt_labeled_msvae_recon_acc))
-        #args.logger.write('\ntrn--- lxtgt_to_lxsrc_msved_loss: %.4f,  lxtgt_to_lxsrc_msved_kl_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_acc: %.4f'  % ( lxtgt_to_lxsrc_msved_loss,  lxtgt_to_lxsrc_msved_kl_loss,  lxtgt_to_lxsrc_msved_recon_loss,  lxtgt_to_lxsrc_msved_recon_acc))
-        args.logger.write('\ntrn--- labeled_msved_loss: %.4f,  labeled_msved_tag_pred_loss: %.4f, labeled_msved_tag_acc: %.4f, labeled_msved_kl_loss: %.4f,  labeled_msved_recon_loss: %.4f,  labeled_msved_recon_acc: %.4f'  % ( labeled_msved_loss,  labeled_msved_tag_pred_loss, labeled_msved_tag_acc, labeled_msved_kl_loss,  labeled_msved_recon_loss,  labeled_msved_recon_acc))
+        args.logger.write('\ntrn--- lxtgt_to_lxsrc_msved_loss: %.4f,  lxtgt_to_lxsrc_msved_kl_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_loss: %.4f,  lxtgt_to_lxsrc_msved_recon_acc: %.4f'  % ( lxtgt_to_lxsrc_msved_loss,  lxtgt_to_lxsrc_msved_kl_loss,  lxtgt_to_lxsrc_msved_recon_loss,  lxtgt_to_lxsrc_msved_recon_acc))
+        #args.logger.write('\ntrn--- labeled_msved_loss: %.4f,  labeled_msved_tag_pred_loss: %.4f, labeled_msved_tag_acc: %.4f, labeled_msved_kl_loss: %.4f,  labeled_msved_recon_loss: %.4f,  labeled_msved_recon_acc: %.4f'  % ( labeled_msved_loss,  labeled_msved_tag_pred_loss, labeled_msved_tag_acc, labeled_msved_kl_loss,  labeled_msved_recon_loss,  labeled_msved_recon_acc))
 
         # VAL
         args.model.eval()
         with torch.no_grad():
-            loss = test(valbatches, "val", args, kl_weight, tmp)
-        if loss < best_loss:
-            args.logger.write('\n update best loss \n')
-            best_loss = loss
+            if epc % 10 == 0:
+                loss = test(valbatches, lxtgt_ordered_batches_TST, "val", args, kl_weight, tmp, log_shared_task=True)
+            else:
+                loss = test(valbatches, lxtgt_ordered_batches, "val", args, kl_weight, tmp, log_shared_task=False)
+            if loss < best_loss:
+                args.logger.write('\nupdate best loss \n')
+                best_loss = loss
 
         # SHARED TASK
         if epc %10==0 or epc>90:
             shared_task_gen(tstbatches, args, epc)
-            oracle(args, epc, kl_weight, tmp)
+            #oracle_src_to_tgt(args, epc, kl_weight, tmp)
+            #oracle_tgt_to_src(args, epc, kl_weight, tmp)
             torch.save(args.model.state_dict(), args.save_path+'_'+str(epc))
 
         args.model.train()
@@ -313,7 +349,7 @@ def get_kl_weight(update_ind, thres, rate):
 def shared_task_gen(batches, args, epc):
     indices = list(range( len(batches)))
     correct = 0
-    with open(str(epc)+'epc_shared_task_tst_beam.txt', 'w') as f:
+    with open('semisup_msved_shared_task_tst_beam.txt', 'w') as f:
         for i, idx in enumerate(indices):
             # (batchsize)
             surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss, gold_reinflect_surf  = batches[idx] 
@@ -327,49 +363,34 @@ def shared_task_gen(batches, args, epc):
     args.logger.write('\nTST SET ACCURACY: %.3f' % (correct/1600))
 
 
-def oracle(args, epc, kl_weight, tmp):
-    with open(str(epc)+'epc_UNSUP_MSVED_shared_task_tst_beam.txt', 'w') as f:
+def oracle_src_to_tgt(args, epc, kl_weight, tmp):
+    with open('Semisup_msved_src_to_tgt.txt', 'w') as f:
         with open('data/sigmorphon2016/turkish-task3-test', 'r') as reader:
             # (batchsize)
             true = 0
             count = 0
             for line in reader:
                 count+=1
+                if count>1600:
+                    break
                 split_line = line.split('\t')
                 asked_tag  = split_line[1]
                 inflected_word = split_line[0]
                 reinflected_word = split_line[2].strip()
-                xsrc = torch.tensor([args.model.decoder.vocab.word2id['<s>']] + args.model.decoder.vocab.encode_sentence(inflected_word) + [args.model.decoder.vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
-                xtgt = torch.tensor([args.model.decoder.vocab.word2id['<s>']] + args.model.decoder.vocab.encode_sentence(reinflected_word) + [args.model.decoder.vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
-                mu, logvar, encoder_fhs = args.model.encoder(xsrc)
-                z = mu.unsqueeze(0)
-
-                _, _, encoder_fhs = args.model.encoder(xtgt)
+                lxsrc = torch.tensor([args.model.decoder.vocab.word2id['<s>']] + args.model.decoder.vocab.encode_sentence(inflected_word) + [args.model.decoder.vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
+                lxtgt = torch.tensor([args.model.decoder.vocab.word2id['<s>']] + args.model.decoder.vocab.encode_sentence(reinflected_word) + [args.model.decoder.vocab.word2id['</s>']]).unsqueeze(0).to('cuda')
+                breakpoint()
                 
-                # gumbel_tag_embeddings: (batchsize, 11, tag_embed_size)
-                gumbel_logits, gumbel_tag_embeddings, _, _, _ = args.model.classifier_loss(encoder_fhs, tmp)
-                sft = nn.Softmax(dim=1)
-                tag_att_masks = []
-                for i in range(len(gumbel_logits)):
-                    tag_att_masks.append(torch.argmax(gumbel_logits[i],dim=1) == 0)
-                # (batchsize, 1, 11)
-                tag_att_masks = (torch.stack(tag_att_masks).t()).unsqueeze(1)
-
-
-                # (batchsize, 1, tag_emb_dim)
-                tag_all_embed = torch.sum(gumbel_tag_embeddings,dim=1).unsqueeze(1)
-                #TODO: add bias
-                tag_all_embed = torch.tanh(tag_all_embed)
-                dec_h0 = torch.tanh(args.model.tag_to_dec(tag_all_embed) + args.model.z_to_dec(z))
-                dec_h0 = torch.permute(dec_h0, (1,0,2))
-
-                recon_loss, recon_acc, recon_preds = args.model.recon_loss_test(xtgt, z, dec_h0, gumbel_tag_embeddings, tag_att_masks, recon_type='sum')
+                # MSVED from lxsrc to lxtgt
+                loss_lxsrc_to_lxtgt_msved, lxsrc_to_lxtgt_msved_recon_loss, lxsrc_to_lxtgt_msved_kl_loss, lxsrc_to_lxtgt_msved_recon_acc, recon_preds = args.model.loss_lxtgt_to_lxsrc_msved(lxtgt, lxsrc, kl_weight, tmp, mode='test')
+                lxsrc_str = ''.join(args.model.decoder.vocab.decode_sentence(lxsrc.squeeze(0)[1:]))
+                lxtgt_str = ''.join(args.model.decoder.vocab.decode_sentence(lxtgt.squeeze(0)[1:]))
                 pred = ''.join(args.model.decoder.vocab.decode_sentence(recon_preds.squeeze(0)))
-                pred_word = pred[:pred.find('</s>')]
-                f.write(inflected_word + '\t'+ reinflected_word+ '\t' + pred+'\n')
-                if pred_word == reinflected_word:
+                f.write(lxsrc_str+'\t'+lxtgt_str+'\t'+pred+'\n')
+                if pred == lxtgt_str:
                     true+=1
-            args.logger.write('\n Shared Task oracle: %.4f' % (true/count))
+            args.logger.write('\nShared Task oracle from lxsrc to lxtgt: %.4f' % (true/count))
+
 
 
 # CONFIG
@@ -377,7 +398,7 @@ parser = argparse.ArgumentParser(description='')
 args = parser.parse_args()
 args.device = 'cuda'
 # training
-args.batchsize = 128; args.epochs = 176
+args.batchsize = 128; args.epochs = 100
 args.opt= 'Adam'; args.lr = 0.001
 args.task = 'msved'
 args.seq_to_no_pad = 'surface'
@@ -428,5 +449,5 @@ args.fig.tight_layout()
 
 # RUN
 #train(batches, args)
-train_2(batches, args)
+train(batches, args)
 plt.savefig(args.fig_path)

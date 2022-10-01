@@ -194,7 +194,7 @@ def build_data(args, surface_vocab=None):
     args.lxtgtsize = len(lxtgtdata)
     lxtgt_ordered_batches, _ = get_batches_msved(lxtgtdata, surface_vocab, args.batchsize, 'feature')
 
-    lxtgtdata, _ = read_data(args.maxtrnsize, args.tstdata, surface_vocab, 'LXTGT_ORDERED_TST', 
+    _lxtgtdata, _ = read_data(args.maxtrnsize, args.tstdata, surface_vocab, 'LXTGT_ORDERED_TST', 
     tag_vocabs['anim'],
     tag_vocabs['finite'],
     tag_vocabs['voice'],
@@ -208,7 +208,7 @@ def build_data(args, surface_vocab=None):
     tag_vocabs['gen'],
     tag_vocabs['aspect']
     ) 
-    lxtgt_ordered_batches_TST, _ = get_batches_msved(lxtgtdata, surface_vocab, 1, 'feature')
+    lxtgt_ordered_batches_TST, _ = get_batches_msved(_lxtgtdata, surface_vocab, 1, 'feature')
 
 
     valdata, _ = read_data(args.maxvalsize, args.valdata, surface_vocab, 'TRN',

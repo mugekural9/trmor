@@ -1,21 +1,23 @@
+import re, torch, json, os
 from collections import defaultdict, Counter
 from common.vocab import VocabEntry
 from common.batchify import get_batches
+
 
 def read_data(maxdsize, file, surface_vocab, mode):
     surf_data = []; data = []
     all_surfs = dict()
     count = 0
 
-    if True:#'surf.uniquesurfs' in file:
+    if False: #
         with open(file, 'r') as reader:
             for line in reader: 
                 count += 1
                 if count > maxdsize:
                     break
-                surf = line.strip().split('\t')[0]
+                surf = line.strip().split('\t')[1]
                 surf_data.append([surface_vocab[char] for char in surf])
-    else:#if 'wordlist.tur' in file:
+    elif 'tur' in file:
         with open(file, 'r') as reader:
             for line in reader:     
                 count += 1
@@ -23,7 +25,6 @@ def read_data(maxdsize, file, surface_vocab, mode):
                     break
                 surf = line.strip().split(' ')[1]
                 surf_data.append([surface_vocab[char] for char in surf])
-
     print(mode,':')
     print('surf_data:',  len(surf_data))
     for surf in surf_data:
@@ -78,7 +79,7 @@ class MonoTextData(object):
             vocab['</s>'] = 2
             vocab['<unk>'] = 3
 
-        if True:#'surf.uniquesurfs.trn.txt' in fname:
+        if False:#'surf.uniquesurfs' in fname:
             with open(fname) as fin:
                 for line in fin:
                     split_line = line.split('\t') #line.split()
@@ -91,7 +92,7 @@ class MonoTextData(object):
                             dropped += 1
                             continue
                     data.append([vocab[char] for char in split_line[0]])
-        elif 'wordlist.tur' in fname:
+        elif 'tur' in fname:
             with open(fname) as fin:
                 for line in fin:
                     if label:
@@ -110,7 +111,7 @@ class MonoTextData(object):
                     if label:
                         labels.append(lb)
                     data.append([vocab[char] for char in split_line[0].strip().split(' ')[1]])
-        elif 'goldstdsample.tur.trn' in fname:
+        elif 'goldstdsample.tur' in fname:
             with open(fname) as fin:
                 for line in fin:
                     if label:

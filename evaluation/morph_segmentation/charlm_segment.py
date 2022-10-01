@@ -80,10 +80,10 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'charlm_segm'
+    model_id = 'CHARLM_FINAL_TEST'
     model_path, model_vocab  = get_model_info(model_id)
     # heuristic
-    args.heur_type = 'prev_mid_next_and_prevnext_exceed'; args.eps = 0.0
+    args.heur_type = 'prev_mid_next'; args.eps = 0.0
     # (a) avg: averages ll over word tokens, (b) sum: adds ll over word tokens
     args.recon_type = 'avg' 
     # logging

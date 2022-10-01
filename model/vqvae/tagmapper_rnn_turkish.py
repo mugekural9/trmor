@@ -17,6 +17,7 @@ Tensor = TypeVar('torch.tensor')
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   
 number_of_surf_tokens = 0; number_of_surf_unks = 0
 
+
 ## Data 
 def get_batch_tagmapping(x, surface_vocab, device=device):
     global number_of_surf_tokens, number_of_surf_unks
@@ -276,6 +277,7 @@ def build_data(args, surface_vocab):
     tst_batches, _ = get_batches(vlddata, surface_vocab, 1, args.seq_to_no_pad) 
     return (trndata, lxtgt_ordered_data, vlddata, tstdata), (trn_batches, lxtgt_ordered_batches, vld_batches, tst_batches), surface_vocab, tag_vocabs
 
+
 ## Model
 class VectorQuantizer(nn.Module):
     """
@@ -345,7 +347,7 @@ class Tagmapper(nn.Module):
             print(key, len(keydict))
             self.embeddings.append(nn.Embedding(len(keydict), self.emb_dim))
 
-        if 'supervision' in args.model_id:
+        if 'late' in args.model_id:
             for key,values in args.tag_vocabs.items():
                 self.ord_vq_layers.append(VectorQuantizer(len(values),
                                             self.orddict_emb_dim,
@@ -368,14 +370,14 @@ def config():
     parser = argparse.ArgumentParser(description='')
     args = parser.parse_args()
     args.device = 'cuda'
-    model_id = 'early-supervision_batchsize128_beta_0.2_11x6_bi_kl_0.1_epc200'
+    model_id = 'turkish_late'
     args.lang ='turkish'
 
     args.model_id = model_id
     args.enc_dropout_in = 0.0; args.enc_dropout_out = 0.0
     args.dec_dropout_in = 0.0; args.dec_dropout_out = 0.0
     args.ni = 256; 
-    args.dec_nh = 256  
+    args.dec_nh = 512  
     args.beta = 0.2
     args.nz = 128; 
     args.num_dicts = 11
@@ -384,9 +386,8 @@ def config():
     model_init = uniform_initializer(0.01); emb_init = uniform_initializer(0.1)
 
 
-    if 'supervision' in model_id:
-        from model.vqvae.vqvae_kl_bi_early_sup import VQVAE
-        from model.vqvae.vqvae_kl_bi_late_sup import VQVAE
+    if 'late' in model_id:
+        from model.vqvae.sig2016.early_sup.vqvae_kl_bi_early_sup import VQVAE
 
         model_path, model_vocab, tag_vocabs  = get_model_info(model_id, lang=args.lang)
         with open(model_vocab) as f:
@@ -396,15 +397,12 @@ def config():
         args.tag_vocabs = dict()
         args.enc_nh = 660
         args.incat = args.enc_nh; 
-        args.emb_dim = 256
-        j=0
-        for tag_vocab in tag_vocabs:
-            with open(tag_vocab) as f:
-                word2id = json.load(f)
-                args.tag_vocabs[j] = VocabEntry(word2id) 
-                j+=1
+        args.emb_dim = 128#args.dec_nh
+        with open(tag_vocabs) as f:
+            args.tag_vocabs = json.load(f)
         args.model = VQVAE(args, args.surf_vocab, args.tag_vocabs, model_init, emb_init, dict_assemble_type='sum_and_concat')
-    elif 'bi_kl' in model_id:
+    
+    '''elif 'bi_kl' in model_id:
         from vqvae_kl_bi import VQVAE
         args.model_type = 'bi_kl'
         args.enc_nh = 300
@@ -414,7 +412,7 @@ def config():
         with open(model_vocab) as f:
             word2id = json.load(f)
             args.surf_vocab = VocabEntry(word2id)
-        args.model = VQVAE(args, args.surf_vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')
+        args.model = VQVAE(args, args.surf_vocab, model_init, emb_init, dict_assemble_type='sum_and_concat')'''
 
     # logging
     args.logdir = 'model/vqvae/results/tagmapping_rnn/'+args.lang+'/'+model_id+'/'
@@ -440,18 +438,18 @@ def config():
 args = config()
 
 from vqvae_tag_analysis import tag_analysis, counter
-tag_analysis(args.model_id, args.num_dicts, args.orddict_emb_num, args.lang, args.logger)
+#tag_analysis(args)
 counter(args.model_id, args.lang, args.logger)
 
 # training
-args.batchsize = 64; 
+args.batchsize = 128; 
 args.lr = 0.001
 args.task = 'vqvae'
 args.seq_to_no_pad = 'surface'
 
 # data
-args.trndata  = 'model/vqvae/results/analysis/'+args.lang+'/'+args.model_id+'/train_'+args.model_id+'_shuffled.txt'
-args.valdata  = 'model/vqvae/results/analysis/'+args.lang+'/'+args.model_id+'/test_'+args.model_id+'_shuffled.txt'
+args.trndata  = 'model/vqvae/results/tagmapping_rnn/'+args.lang+'/'+args.model_id+'/train_'+args.model_id+'_shuffled.txt'
+args.valdata  = 'model/vqvae/results/tagmapping_rnn/'+args.lang+'/'+args.model_id+'/test_'+args.model_id+'_shuffled.txt'
 args.tstdata = args.valdata
 
 args.maxtrnsize = 100000; args.maxvalsize = 10000; args.maxtstsize = 10000
@@ -494,7 +492,7 @@ def train(args, lxsrc_ordered_batches, lxtgt_ordered_batches, valbatches, model,
         surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss,entry, rsurf= lxsrc_ordered_batches[idx] 
         _, _, _, mu, logvar, fwd,bck = vqvae.encoder(surf)
         _root_fhs = mu.unsqueeze(1)
-        _root_fhs = vqvae.z_to_dec(_root_fhs)
+        #_root_fhs = vqvae.z_to_dec(_root_fhs)
         feature_vec = torch.cat((_root_fhs.detach(),
                             model.embeddings[0].weight[case],
                             model.embeddings[1].weight[polar],
@@ -533,6 +531,7 @@ def train(args, lxsrc_ordered_batches, lxtgt_ordered_batches, valbatches, model,
         total += pred.size(0) * pred.size(1)
         epoch_loss += batch_loss.item()
 
+        '''
         ## rsurf-> rsurf
         surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss,entry, rsurf= lxtgt_ordered_batches[idx] 
         _, _, _, mu, logvar, fwd,bck = vqvae.encoder(rsurf)
@@ -575,10 +574,11 @@ def train(args, lxsrc_ordered_batches, lxtgt_ordered_batches, valbatches, model,
         correct += torch.sum(pred == entry).item()
         total += pred.size(0) * pred.size(1)
         epoch_loss += batch_loss.item()
-
+        '''
 
     args.logger.write('\nepoch: %d, epoch_loss: %.4f epoch_acc: %.5f' % (epc, epoch_loss, correct/total))
     val_epoch_loss = 0
+    exact_acc = 0
     with torch.no_grad():
         val_epoch_loss, acc, exact_acc= test(args, valbatches, model, vqvae, epc)
     return val_epoch_loss, exact_acc
@@ -596,9 +596,9 @@ def test(args, batches, model, vqvae, epc, log_shared_task=False):
         # (batchsize, t)
         surf, case,polar,mood,evid,pos,per,num,tense,aspect,inter,poss,entry, rsurf = batches[idx] 
         fhs, _, _, mu, logvar, fwd,bck = vqvae.encoder(surf)
-        root_z = mu.unsqueeze(1)
-        root_z = vqvae.z_to_dec(root_z)
-        feature_vec = torch.cat((root_z.detach(),
+        _root_fhs = mu.unsqueeze(1)
+        #_root_fhs = vqvae.z_to_dec(_root_fhs)
+        feature_vec = torch.cat((_root_fhs.detach(),
                             model.embeddings[0].weight[case],
                             model.embeddings[1].weight[polar],
                             model.embeddings[2].weight[mood],
@@ -663,7 +663,9 @@ def test(args, batches, model, vqvae, epc, log_shared_task=False):
                 vq_vectors.append(vqvae.ord_vq_layers[10].embedding.weight[reinflect_tag[10]].unsqueeze(0).unsqueeze(0))
             
 
-
+            root_z = vqvae.z_to_dec(_root_fhs)
+            #root_z = _root_fhs
+            
             suffix_z = torch.cat(vq_vectors,dim=2)
             batch_size, seq_len, _ = fhs.size()
             z_ = suffix_z.expand(batch_size, seq_len, vqvae.decoder.incat)
@@ -714,14 +716,14 @@ try:
             args.logger.write('\nupdate best loss \n')
             best_loss = val_epoch_loss    
     
-        if epc%5 == 0 or epc>50:
+        if epc>100:
             with torch.no_grad():
                 #with open(str(epc)+'_mistakes.txt', 'w') as miswr:
                 _, acc, reinflects, mistakes = test(args, tstbatches, model, vqvae, epc, log_shared_task=True)
                     #for m in mistakes:
                     #    miswr.write(m)
                 reinflect_accs.append(acc)
-        scheduler.step(val_epoch_loss)
+        #scheduler.step(val_epoch_loss)
     args.logger.write('\nBest reinflection acc: %.4f' % max(reinflect_accs))
 except KeyboardInterrupt:
     args.logger.write('\nBest reinflection acc: %.4f' % max(reinflect_accs))

@@ -1,0 +1,59 @@
+
+number of params: 0 
+Namespace(batchsize=128, beta=0.1, dec_dropout_in=0.0, dec_dropout_out=0.0, dec_nh=512, dec_nh_tmp=512, device='cuda', embedding_dim=660, enc_dropout_in=0.0, enc_dropout_out=0.0, enc_nh=660, epochs=301, fig_path='evaluation/probing/sig2016/results/turkish/9856_instances/301epochs.png', incat=660, incat_tmp=660, kl_max=0.2, lang='turkish', log_path='evaluation/probing/sig2016/results/turkish/9856_instances/301epochs.log', logger=<common.utils.Logger object at 0x7f2bce383ed0>, lr=0.001, lxtgtsize=9856, maxtrnsize=1000000, maxtstsize=1000000000000, maxusize=1000000, maxvalsize=1000, mname='vqvae', model=VQVAE(
+  (encoder): VQVAE_Encoder(
+    (embed): Embedding(36, 256)
+    (lstm): LSTM(256, 660, batch_first=True, bidirectional=True)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (linear): Linear(in_features=660, out_features=256, bias=False)
+  )
+  (z_to_dec): Linear(in_features=128, out_features=512, bias=True)
+  (ord_vq_layers): ModuleList(
+    (0): VectorQuantizer(
+      (embedding): Embedding(7, 60)
+    )
+    (1): VectorQuantizer(
+      (embedding): Embedding(3, 60)
+    )
+    (2): VectorQuantizer(
+      (embedding): Embedding(2, 60)
+    )
+    (3): VectorQuantizer(
+      (embedding): Embedding(2, 60)
+    )
+    (4): VectorQuantizer(
+      (embedding): Embedding(3, 60)
+    )
+    (5): VectorQuantizer(
+      (embedding): Embedding(4, 60)
+    )
+    (6): VectorQuantizer(
+      (embedding): Embedding(3, 60)
+    )
+    (7): VectorQuantizer(
+      (embedding): Embedding(4, 60)
+    )
+    (8): VectorQuantizer(
+      (embedding): Embedding(5, 60)
+    )
+    (9): VectorQuantizer(
+      (embedding): Embedding(2, 60)
+    )
+    (10): VectorQuantizer(
+      (embedding): Embedding(7, 60)
+    )
+  )
+  (decoder): VQVAE_Decoder(
+    (embed): Embedding(36, 256, padding_idx=0)
+    (dropout_in): Dropout(p=0.0, inplace=False)
+    (dropout_out): Dropout(p=0.0, inplace=False)
+    (lstm): LSTM(916, 512, batch_first=True)
+    (pred_linear): Linear(in_features=512, out_features=36, bias=False)
+    (loss): CrossEntropyLoss()
+  )
+), modelname='evaluation/probing/sig2016/results/turkish/9856_instances/', nh=660, ni=256, num_dicts=11, num_dicts_tmp=11, nz=128, opt='Adam', orddict_emb_num=1, outcat=0, outcat_tmp=0, probe=Probe(
+  (linear): Linear(in_features=660, out_features=7, bias=False)
+  (loss): CrossEntropyLoss()
+), save_path='evaluation/probing/sig2016/results/turkish/9856_instances/301epochs.pt', seq_to_no_pad='surface', surf_vocab=<common.vocab.VocabEntry object at 0x7f2b5c3a48d0>, tag_key_id=0, tag_vocabs={'case': {'<pad>': 0, 'NOM': 1, 'GEN': 2, 'ESS': 3, 'DAT': 4, 'ACC': 5, 'ABL': 6}, 'polar': {'<pad>': 0, 'POS': 1, 'NEG': 2}, 'mood': {'<pad>': 0, 'IND': 1}, 'evid': {'<pad>': 0, 'NFH': 1}, 'pos': {'<pad>': 0, 'N': 1, 'V': 2}, 'per': {'<pad>': 0, '3': 1, '2': 2, '1': 3}, 'num': {'<pad>': 0, 'SG': 1, 'PL': 2}, 'tense': {'<pad>': 0, 'PST': 1, 'FUT': 2, 'PRS': 3}, 'aspect': {'<pad>': 0, '{IPFV/PFV}': 1, 'PFV': 2, 'PROG': 3, '{IPFV/PROG}': 4}, 'inter': {'<pad>': 0, 'DECL': 1}, 'poss': {'<pad>': 0, 'PSS1P': 1, 'PSS2P': 2, 'PSS2S': 3, 'PSS3S': 4, 'PSS1S': 5, 'PSS3P': 6}}, task='vqvae', trndata='evaluation/probing/sig2016/case/case.trn.txt', trnsize=9856, tstdata='evaluation/probing/sig2016/case/case.val.txt', tstsize=1204, unlabeled_data='data/sigmorphon2016/turkish_ux.txt', usize=29608, valdata='evaluation/probing/sig2016/case/case.val.txt', valsize=1000)
+
+-----------------------------------------------------
